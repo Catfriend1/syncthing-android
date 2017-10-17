@@ -2,13 +2,14 @@
 
 set -e
 
-ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-TARGET_SDK=$(grep "targetSdkVersion" "${ROOT_DIR}/build.gradle" -m 1 | awk '{print $2}')
+MODULE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_DIR="${MODULE_DIR}/.."
+TARGET_SDK=$(grep "targetSdkVersion" "${PROJECT_DIR}/app/build.gradle" -m 1 | awk '{print $2}')
 # Use seperate build dir so standalone ndk isn't deleted by `gradle clean`
-BUILD_DIR="${ROOT_DIR}/gobuild"
-export GOPATH="${ROOT_DIR}/go/"
+BUILD_DIR="${MODULE_DIR}/gobuild"
+export GOPATH="${MODULE_DIR}/"
 
-cd "${ROOT_DIR}/go/src/github.com/syncthing/syncthing"
+cd "${MODULE_DIR}/src/github.com/syncthing/syncthing"
 
 # Make sure all tags are available for git describe
 # https://github.com/syncthing/syncthing-android/issues/872
@@ -20,17 +21,17 @@ for ANDROID_ARCH in arm x86 arm64; do
         arm)
             GOARCH=arm
             JNI_DIR="armeabi"
-            GCC="arm-linux-androideabi-gcc"
+            GCC="arm-linux-androideabi-clang"
             ;;
         arm64)
             GOARCH=arm64
             JNI_DIR="arm64-v8a"
-            GCC="aarch64-linux-android-gcc"
+            GCC="aarch64-linux-android-clang"
             ;;
         x86)
             GOARCH=386
             JNI_DIR="x86"
-            GCC="i686-linux-android-gcc"
+            GCC="i686-linux-android-clang"
             ;;
         *)
             echo "Invalid architecture"
@@ -53,7 +54,7 @@ for ANDROID_ARCH in arm x86 arm64; do
       go run build.go -goos android -goarch ${GOARCH} -pkgdir "${BUILD_DIR}/go-packages" -no-upgrade build
 
     # Copy compiled binary to jniLibs folder
-    TARGET_DIR="$ROOT_DIR/src/main/jniLibs/$JNI_DIR"
+    TARGET_DIR="${PROJECT_DIR}/app/src/main/jniLibs/${JNI_DIR}"
     mkdir -p ${TARGET_DIR}
     mv syncthing ${TARGET_DIR}/libsyncthing.so
 

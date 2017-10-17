@@ -1,0 +1,12 @@
+task buildNative(type: Exec) {
+    outputs.upToDateWhen { false }
+    executable = './build-syncthing.bash'
+}
+
+/**
+ * Use seperate task instead of standard clean(), so these folders aren't deleted by `gradle clean`.
+ */
+task cleanNative(type: Delete) {
+    delete "../app/src/main/jniLibs/"
+    delete "gobuild"
+}
