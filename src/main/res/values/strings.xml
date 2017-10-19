@@ -527,7 +527,7 @@ Please report any problems you encounter via Github.</string>
     <string name="toast_folder_observer_stack_overflow">Directory tree too deep. Check for cyclic symlinks</string>
 
     <!-- Toast shown if syncthing failed to create a config -->
-    <string name="config_create_failed">Failed to create config</string>
+    <string name="config_create_failed">Failed to create config file</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Camera</string>
