@@ -108,18 +108,6 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <service android:name=".service.SyncthingService" />
-
-        <receiver android:name=".receiver.NetworkReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".receiver.BatteryReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

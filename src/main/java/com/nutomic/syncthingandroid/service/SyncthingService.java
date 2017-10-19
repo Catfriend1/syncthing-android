@@ -1,15 +1,10 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -21,8 +16,6 @@ import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Folder;
-import com.nutomic.syncthingandroid.receiver.NetworkReceiver;
-import com.nutomic.syncthingandroid.receiver.PowerSaveModeChangedReceiver;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.FolderObserver;
 
@@ -38,8 +31,7 @@ import javax.inject.Inject;
 /**
  * Holds the native syncthing instance and provides an API to access it.
  */
-public class SyncthingService extends Service implements
-        SharedPreferences.OnSharedPreferenceChangeListener {
+public class SyncthingService extends Service {
 
     private static final String TAG = "SyncthingService";
 
@@ -96,8 +88,6 @@ public class SyncthingService extends Service implements
     private final LinkedList<FolderObserver> mObservers = new LinkedList<>();
     private final HashSet<OnApiChangeListener> mOnApiChangeListeners = new HashSet<>();
     private final SyncthingServiceBinder mBinder = new SyncthingServiceBinder(this);
-    private final NetworkReceiver mNetworkReceiver = new NetworkReceiver();
-    private final BroadcastReceiver mPowerSaveModeChangedReceiver = new PowerSaveModeChangedReceiver();
 
     @Inject NotificationHandler mNotificationHandler;
     @Inject SharedPreferences mPreferences;
@@ -167,16 +157,6 @@ public class SyncthingService extends Service implements
         }
     }
 
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(Constants.PREF_NOTIFICATION_TYPE) || key.equals(Constants.PREF_FOREGROUND_SERVICE))
-            mNotificationHandler.updatePersistentNotification(this, mCurrentState);
-        else if (key.equals(Constants.PREF_SYNC_ONLY_CHARGING) || key.equals(Constants.PREF_SYNC_ONLY_WIFI)
-                || key.equals(Constants.PREF_SYNC_ONLY_WIFI_SSIDS) || key.equals(Constants.PREF_RESPECT_BATTERY_SAVING)) {
-            updateState();
-        }
-    }
-
     /**
      * Starts the native binary.
      */
@@ -187,20 +167,8 @@ public class SyncthingService extends Service implements
         ((SyncthingApp) getApplication()).component().inject(this);
 
         mDeviceStateHolder = new DeviceStateHolder(SyncthingService.this, this::updateState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            registerReceiver(mPowerSaveModeChangedReceiver,
-                    new IntentFilter(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED));
-        }
-        // Android 7 ignores network receiver that was set in manifest
-        // https://github.com/syncthing/syncthing-android/issues/783
-        // https://developer.android.com/about/versions/nougat/android-7.0-changes.html#bg-opt
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            registerReceiver(mNetworkReceiver,
-                    new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        }
         updateState();
-        mPreferences.registerOnSharedPreferenceChangeListener(this);
-        mNotificationHandler.updatePersistentNotification(this, mCurrentState);
+        mNotificationHandler.updatePersistentNotification(this);
     }
 
     /**
@@ -278,7 +246,6 @@ public class SyncthingService extends Service implements
      */
     @Override
     public void onDestroy() {
-
         synchronized (mStateLock) {
             if (mCurrentState == State.INIT || mCurrentState == State.STARTING) {
                 Log.i(TAG, "Delay shutting down service until initialisation of Syncthing finished");
@@ -290,12 +257,7 @@ public class SyncthingService extends Service implements
             }
         }
 
-        mPreferences.unregisterOnSharedPreferenceChangeListener(this);
         mDeviceStateHolder.shutdown();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            unregisterReceiver(mPowerSaveModeChangedReceiver);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            unregisterReceiver(mNetworkReceiver);
     }
 
     /**
@@ -399,7 +361,7 @@ public class SyncthingService extends Service implements
      */
     private void onApiChange(State newState) {
         mCurrentState = newState;
-        mNotificationHandler.updatePersistentNotification(this, mCurrentState);
+        mNotificationHandler.updatePersistentNotification(this);
         for (Iterator<OnApiChangeListener> i = mOnApiChangeListeners.iterator();
              i.hasNext(); ) {
             OnApiChangeListener listener = i.next();

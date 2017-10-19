@@ -42,9 +42,6 @@ public class NetworkReceiver extends BroadcastReceiver {
         Intent intent = new Intent(DeviceStateHolder.ACTION_DEVICE_STATE_CHANGED);
         intent.putExtra(DeviceStateHolder.EXTRA_IS_ALLOWED_NETWORK_CONNECTION, isAllowedConnection);
         lbm.sendBroadcast(intent);
-
-        // Make sure service is running.
-        BootReceiver.startServiceCompat(context);
     }
 
 }

@@ -29,9 +29,6 @@ public class BatteryReceiver extends BroadcastReceiver {
         Intent i = new Intent(DeviceStateHolder.ACTION_DEVICE_STATE_CHANGED);
         i.putExtra(DeviceStateHolder.EXTRA_IS_CHARGING, isCharging);
         lbm.sendBroadcast(i);
-
-        // Make sure service is running.
-        BootReceiver.startServiceCompat(context);
     }
 
     /**

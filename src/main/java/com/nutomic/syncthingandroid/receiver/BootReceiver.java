@@ -27,7 +27,7 @@ public class BootReceiver extends BroadcastReceiver {
      *
      * https://stackoverflow.com/a/44505719/1837158
      */
-    public static void startServiceCompat(Context context) {
+    private static void startServiceCompat(Context context) {
         // This method is called from {@link DeviceStateHolder#DeviceStateHolder()}, make sure it
         // is only executed if run in background is enabled.
         if (!DeviceStateHolder.alwaysRunInBackground(context))

@@ -2,6 +2,7 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,10 +21,12 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Languages;
@@ -30,6 +34,8 @@ import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
 import java.security.InvalidParameterException;
+
+import javax.inject.Inject;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -46,13 +52,16 @@ public class SettingsActivity extends SyncthingActivity {
     public static class SettingsFragment extends PreferenceFragment
             implements SyncthingActivity.OnServiceConnectedListener,
             SyncthingService.OnApiChangeListener, Preference.OnPreferenceChangeListener,
-            Preference.OnPreferenceClickListener {
+            Preference.OnPreferenceClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
         private static final String TAG = "SettingsFragment";
         private static final String KEY_STTRACE = "sttrace";
         private static final String KEY_EXPORT_CONFIG = "export_config";
         private static final String KEY_IMPORT_CONFIG = "import_config";
         private static final String KEY_STRESET = "streset";
+
+        @Inject NotificationHandler mNotificationHandler;
+        @Inject SharedPreferences mPreferences;
 
         private CheckBoxPreference mAlwaysRunInBackground;
         private CheckBoxPreference mSyncOnlyCharging;
@@ -84,6 +93,14 @@ public class SettingsActivity extends SyncthingActivity {
         private Options mOptions;
         private Config.Gui mGui;
 
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+            ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
+            mPreferences.registerOnSharedPreferenceChangeListener(this);
+        }
+
         /**
          * Loads layout, sets version from Rest API.
          *
@@ -92,8 +109,6 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-
-            ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
 
             addPreferencesFromResource(R.xml.app_settings);
             PreferenceScreen screen = getPreferenceScreen();
@@ -228,6 +243,7 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public void onDestroy() {
             super.onDestroy();
+            mPreferences.unregisterOnSharedPreferenceChangeListener(this);
             if (mSyncthingService != null)
                 mSyncthingService.unregisterOnApiChangeListener(this);
         }
@@ -391,6 +407,13 @@ public class SettingsActivity extends SyncthingActivity {
                     return true;
                 default:
                     return false;
+            }
+        }
+
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            if (key.equals(Constants.PREF_NOTIFICATION_TYPE) || key.equals(Constants.PREF_FOREGROUND_SERVICE)) {
+                mNotificationHandler.updatePersistentNotification(mSyncthingService);
             }
         }
 

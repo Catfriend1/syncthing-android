@@ -39,7 +39,7 @@ public class NotificationHandler {
      * Shows or hides the persistent notification based on running state and
      * {@link Constants#PREF_NOTIFICATION_TYPE}.
      */
-    public void updatePersistentNotification(SyncthingService service, SyncthingService.State currentState) {
+    public void updatePersistentNotification(SyncthingService service) {
         String type = mPreferences.getString(Constants.PREF_NOTIFICATION_TYPE, "low_priority");
         boolean foreground = mPreferences.getBoolean(Constants.PREF_FOREGROUND_SERVICE, false);
 
@@ -57,8 +57,8 @@ public class NotificationHandler {
             type = "low_priority";
         }
 
-        boolean syncthingRunning = currentState == SyncthingService.State.ACTIVE ||
-                currentState == SyncthingService.State.STARTING;
+        boolean syncthingRunning = service.getCurrentState() == SyncthingService.State.ACTIVE ||
+                service.getCurrentState() == SyncthingService.State.STARTING;
         if (foreground || (syncthingRunning && !type.equals("none"))) {
             // Launch FirstStartActivity instead of MainActivity so we can request permission if
             // necessary.
