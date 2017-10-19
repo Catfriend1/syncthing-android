@@ -318,6 +318,7 @@
   <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">目录树层次过深，正在检查循环符号链接。</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">创建配置失败</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">摄像机</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

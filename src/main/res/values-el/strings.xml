@@ -36,6 +36,7 @@
   <string name="api_loading">Φόρτωση...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Δημιουργούνται τα κλειδιά κρυπτογράφησης. Αυτή η διαδικασία μπορεί να διαρκέσει μερικά λεπτά.</string>
+  <string name="syncthing_loading_slow_message">Η φόρτωση του Syncthing καθυστερεί πολύ. Ελέγξτε αν εμφανίζονται σφάλματα στις καταγραφές συμβάντων.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Φάκελοι</string>
   <!--Shown if no folders exist-->
@@ -264,6 +265,8 @@
   <string name="select_folder">Επιλογή φακέλου</string>
   <string name="create_folder_failed">Η δημιουργία φακέλου απέτυχε</string>
   <!--LogActivity-->
+  <string name="syncthing_log_title">Καταγραφή συμβάντων Syncthing</string>
+  <string name="android_log_title">Καταγραφή συμβάντων Android</string>
   <!--Title of the "log android" menu button-->
   <string name="view_android_log">Εμφάνιση καταγραφής Android</string>
   <!--Title of the "log Syncthing" menu button-->
@@ -318,6 +321,7 @@
   <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Η ιεραρχία των φακέλων έχει υπερβολικά μεγάλο βάθος. Ελέγξτε αν υπάρχουν κυκλικοί συμβολικοί σύνδεσμοι</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Φωτογραφική μηχανή</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

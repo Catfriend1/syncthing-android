@@ -42,6 +42,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="api_loading">Betöltés...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Biztonsági kulcsok generálása. Ez eltarthat pár percig.</string>
+  <string name="syncthing_loading_slow_message">Nagyon sokáig tartott a Syncthing betöltése. A hibakereséshez használd a naplókat.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Mappák</string>
   <!--Shown if no folders exist-->
@@ -272,6 +273,8 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <string name="select_folder">Mappa kiválasztása</string>
   <string name="create_folder_failed">Nem sikerült létrehozni a mappát</string>
   <!--LogActivity-->
+  <string name="syncthing_log_title">Syncthing napló</string>
+  <string name="android_log_title">Android napló</string>
   <!--Title of the "log android" menu button-->
   <string name="view_android_log">Android napló megtekintése</string>
   <!--Title of the "log Syncthing" menu button-->
@@ -326,6 +329,7 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">A mappastruktúra túl mély. Ellenőrizd, nincsenek-e körkörös symlinkek.</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">Nem sikerült létrehozni a konfigurációt</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

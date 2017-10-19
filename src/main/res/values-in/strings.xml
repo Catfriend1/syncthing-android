@@ -30,11 +30,13 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="dialog_disable_battery_optimization_later">Nanti</string>
   <string name="dialog_disable_battery_optimization_dont_show_again">Jangan tampilkan lagi</string>
   <string name="dialog_disable_battery_optimization_turn_off">Matikan untuk Syncthing</string>
+  <string name="dialog_disable_battery_optimizations_not_supported">Perangkat anda tidak mendukung untuk mematikan optimisasi baterai</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Memuat...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Membuat kunci aman. Ini mungkin perlu beberapa menit.</string>
+  <string name="syncthing_loading_slow_message">Syncthing butuh waktu terlalu lama untuk membuka. Silakan lihat log untuk memeriksa kesalahan.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Folder</string>
   <!--Shown if no folders exist-->
@@ -96,6 +98,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Path/lokasi folder tidak boleh kosong</string>
   <string name="dialog_discard_changes">Abaikan perubahan anda?</string>
+  <string name="ignore_patterns">Pola pengabaian</string>
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">ID Perangkat</string>
