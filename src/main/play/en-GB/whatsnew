@@ -1,8 +1,2 @@
-- raise minimum Android version to ICS 4.0 (@nutomic)
-- fixed root related issues {@flipreverse)
-- lots of bug fixes, better working run conditions (@nutomic)
-- show button to open logs if Syncthing isn't loading (@nutomic)
-- added "edit ignores" button (@nutomic)
-- updated Syncthing to v0.14.39-rc.1
-- updated translations
-
+- fix startup crash on Android 8 (@nutomic)
+- imported translations

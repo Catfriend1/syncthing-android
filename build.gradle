@@ -54,8 +54,8 @@ android {
         applicationId "com.nutomic.syncthingandroid"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 4126
-        versionName "0.9.16"
+        versionCode 4127
+        versionName "0.9.17"
         testApplicationId 'com.nutomic.syncthingandroid.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         playAccountConfig = playAccountConfigs.defaultAccountConfig
