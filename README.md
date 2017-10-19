@@ -16,30 +16,37 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android.
 
 The project is translated on [Transifex](https://www.transifex.com/projects/p/syncthing-android/).
 
+Translations can be updated using the [Transifex client](http://docs.transifex.com/developer/client/), using commands `tx push -s` and `tx pull -a`.
+
 # Building
 
-### Dependencies
-- Android SDK (you can skip this if you are using Android Studio)
-- Android NDK (`$ANDROID_NDK_HOME` should point at the root directory of your NDK)
-- Go (see [here](https://docs.syncthing.net/dev/building.html#prerequisites) for the required version)
+### Requirements
+- Android SDK Platform (for the `compileSdkVersion` specified in [build.gradle](build.gradle))
+- Android NDK Platform
+- Android Support Repository
 
 ### Build instructions
 
-Make sure you clone the project with
-`git clone https://github.com/syncthing/syncthing-android.git --recursive`. Alternatively, run
-`git submodule init && git submodule update` in the project folder.
+This repository is using external dependencies so you have to initialize all submodules with --recursive option first time: `git clone https://github.com/syncthing/syncthing-android.git --recursive`.
 
-Build Syncthing using `./syncthing/build-syncthing.bash`. Then use `./gradlew assembleDebug` or
-Android Studio to build the apk.
+Set the `ANDROID_NDK` environment variable to the Android NDK folder (e.g. `export ANDROID_NDK=/opt/android_ndk`).
+Build Go and Syncthing using `./make-all.bash`.
+Use `./gradlew assembleDebug` in the project directory to compile the APK.
+
+To prepare a new release, execute `./prepare-release.bash`, and follow the instructions.
+
+To check for updated gradle dependencies, run `gradle dependencyUpdates`. Additionally, the git submodule in `ext/syncthing/src/github.com/syncthing/syncthing` may need to be updated.
+
 
 ### Building on Windows
 
 To build the Syncthing app on Windows we need to have cygwin installed.
 
-From a cygwin shell in the project directory, build Syncthing using `./syncthing/build-syncthing.bash`
+From a cygwin shell in the project directory, build Go using `./make-go.bash [arch]`
+After Go is built, compile syncthing using `./make-syncthing.bash [arch]`
 
-Lastly, use `./gradlew assembleDebug` in the project directory to compile the APK, or use Android
-Studio to build/deploy the APK.
+Lastly, use `./gradlew assembleDebug` in the project directory to compile the APK,
+or use Android Studio to build/deploy the APK.
 
 # License
 
