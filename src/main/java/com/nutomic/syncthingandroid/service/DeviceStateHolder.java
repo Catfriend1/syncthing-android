@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -48,6 +49,14 @@ public class DeviceStateHolder {
 
     public static final String EXTRA_IS_POWER_SAVING =
             "com.nutomic.syncthingandroid.syncthing.DeviceStateHolder.IS_POWER_SAVING";
+
+    /**
+     * Returns the value of "always_run_in_background" preference.
+     */
+    public static boolean alwaysRunInBackground(Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
+    }
 
     public interface OnDeviceStateChangedListener {
         void onDeviceStateChanged();
@@ -114,7 +123,7 @@ public class DeviceStateHolder {
         if (prefRespectPowerSaving && mIsPowerSaving)
             return false;
 
-        if (SyncthingService.alwaysRunInBackground(mContext)) {
+        if (alwaysRunInBackground(mContext)) {
             boolean prefStopMobileData = mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_WIFI, false);
             boolean prefStopNotCharging = mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_CHARGING, false);
 

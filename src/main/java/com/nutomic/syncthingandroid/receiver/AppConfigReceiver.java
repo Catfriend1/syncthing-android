@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.service.DeviceStateHolder;
 import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
@@ -40,7 +41,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
                 break;
 
             case ACTION_STOP:
-                if (SyncthingService.alwaysRunInBackground(context)) {
+                if (DeviceStateHolder.alwaysRunInBackground(context)) {
                     mNotificationHandler.showStopSyncthingWarningNotification();
                 } else {
                     context.stopService(new Intent(context, SyncthingService.class));

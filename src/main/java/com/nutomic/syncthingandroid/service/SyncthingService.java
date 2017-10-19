@@ -2,7 +2,6 @@ package com.nutomic.syncthingandroid.service;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -11,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -415,14 +413,6 @@ public class SyncthingService extends Service implements
 
     public URL getWebGuiUrl() {
         return mConfig.getWebGuiUrl();
-    }
-
-    /**
-     * Returns the value of "always_run_in_background" preference.
-     */
-    public static boolean alwaysRunInBackground(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
     }
 
     public State getCurrentState() {

@@ -21,7 +21,7 @@ public class BatteryReceiver extends BroadcastReceiver {
                 && !Intent.ACTION_POWER_DISCONNECTED.equals(intent.getAction()))
             return;
 
-        if (!SyncthingService.alwaysRunInBackground(context))
+        if (!DeviceStateHolder.alwaysRunInBackground(context))
             return;
 
         boolean isCharging = Intent.ACTION_POWER_CONNECTED.equals(intent.getAction());

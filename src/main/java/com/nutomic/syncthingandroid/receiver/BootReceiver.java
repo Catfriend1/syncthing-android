@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+import com.nutomic.syncthingandroid.service.DeviceStateHolder;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
 public class BootReceiver extends BroadcastReceiver {
@@ -15,7 +16,7 @@ public class BootReceiver extends BroadcastReceiver {
                 !intent.getAction().equals(Intent.ACTION_MY_PACKAGE_REPLACED))
             return;
 
-        if (!SyncthingService.alwaysRunInBackground(context))
+        if (!DeviceStateHolder.alwaysRunInBackground(context))
             return;
 
         startServiceCompat(context);
@@ -27,6 +28,11 @@ public class BootReceiver extends BroadcastReceiver {
      * https://stackoverflow.com/a/44505719/1837158
      */
     public static void startServiceCompat(Context context) {
+        // This method is called from {@link DeviceStateHolder#DeviceStateHolder()}, make sure it
+        // is only executed if run in background is enabled.
+        if (!DeviceStateHolder.alwaysRunInBackground(context))
+            return;
+
         Intent intent = new Intent(context, SyncthingService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent);

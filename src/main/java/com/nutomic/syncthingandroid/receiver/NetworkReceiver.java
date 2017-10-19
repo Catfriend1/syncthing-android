@@ -22,7 +22,7 @@ public class NetworkReceiver extends BroadcastReceiver {
         if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction()))
             return;
 
-        if (!SyncthingService.alwaysRunInBackground(context))
+        if (!DeviceStateHolder.alwaysRunInBackground(context))
             return;
 
         updateNetworkStatus(context);

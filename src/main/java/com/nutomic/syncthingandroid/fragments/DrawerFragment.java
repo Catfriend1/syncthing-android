@@ -21,6 +21,7 @@ import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.SystemInfo;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.service.DeviceStateHolder;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Util;
@@ -111,7 +112,7 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
     }
 
     private void updateExitButtonVisibility() {
-        boolean alwaysInBackground = SyncthingService.alwaysRunInBackground(getActivity());
+        boolean alwaysInBackground = DeviceStateHolder.alwaysRunInBackground(getActivity());
         mExitButton.setVisibility(alwaysInBackground ? View.GONE : View.VISIBLE);
     }
 

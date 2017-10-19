@@ -46,7 +46,7 @@ public class NotificationHandler {
         // Android 8 does not allow starting service from background unless it's a foreground
         // service, so if "always run in background" is enabled, we have to use a foreground service.
         // https://stackoverflow.com/a/44505719/1837158
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && SyncthingService.alwaysRunInBackground(mContext)) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && DeviceStateHolder.alwaysRunInBackground(mContext)) {
             foreground = true;
         }
 
@@ -87,7 +87,7 @@ public class NotificationHandler {
     }
 
     public void cancelPersistentNotification(SyncthingService service) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && SyncthingService.alwaysRunInBackground(mContext))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && DeviceStateHolder.alwaysRunInBackground(mContext))
             return;
 
         service.stopForeground(false);
