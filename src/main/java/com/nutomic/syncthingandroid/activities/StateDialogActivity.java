@@ -3,9 +3,7 @@ package com.nutomic.syncthingandroid.activities;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 
@@ -27,15 +25,15 @@ public abstract class StateDialogActivity extends SyncthingActivity {
     private AlertDialog mDisabledDialog;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onResume() {
+        super.onResume();
         registerOnServiceConnectedListener(() ->
                 getService().registerOnApiChangeListener(this::onApiChange));
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onPause() {
+        super.onPause();
         if (getService() != null) {
             getService().unregisterOnApiChangeListener(this::onApiChange);
         }
