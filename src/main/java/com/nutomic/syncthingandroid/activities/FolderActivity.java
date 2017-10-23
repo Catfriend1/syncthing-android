@@ -187,6 +187,8 @@ public class FolderActivity extends SyncthingActivity
             Intent intent = new Intent(Intent.ACTION_EDIT);
             Uri uri = Uri.fromFile(ignoreFile);
             intent.setDataAndType(uri, "text/plain");
+            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+
             startActivity(intent);
         } catch (IOException e) {
             Log.w(TAG, e);
