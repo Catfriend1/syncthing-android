@@ -27,12 +27,7 @@ public class BootReceiver extends BroadcastReceiver {
      *
      * https://stackoverflow.com/a/44505719/1837158
      */
-    private static void startServiceCompat(Context context) {
-        // This method is called from {@link DeviceStateHolder#DeviceStateHolder()}, make sure it
-        // is only executed if run in background is enabled.
-        if (!DeviceStateHolder.alwaysRunInBackground(context))
-            return;
-
+    static void startServiceCompat(Context context) {
         Intent intent = new Intent(context, SyncthingService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent);

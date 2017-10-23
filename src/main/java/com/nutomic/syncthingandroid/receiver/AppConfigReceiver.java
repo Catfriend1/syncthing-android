@@ -12,9 +12,7 @@ import com.nutomic.syncthingandroid.service.SyncthingService;
 import javax.inject.Inject;
 
 /**
- * Broadcast-receiver to control and configure SyncThing remotely
- *
- * Created by sqrt-1764 on 25.03.16.
+ * Broadcast-receiver to control and configure Syncthing remotely.
  */
 public class AppConfigReceiver extends BroadcastReceiver {
 
@@ -37,9 +35,8 @@ public class AppConfigReceiver extends BroadcastReceiver {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         switch (intent.getAction()) {
             case ACTION_START:
-                context.startService(new Intent(context, SyncthingService.class));
+                BootReceiver.startServiceCompat(context);
                 break;
-
             case ACTION_STOP:
                 if (DeviceStateHolder.alwaysRunInBackground(context)) {
                     mNotificationHandler.showStopSyncthingWarningNotification();
