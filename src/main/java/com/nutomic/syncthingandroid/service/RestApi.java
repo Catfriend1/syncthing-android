@@ -146,6 +146,9 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
         });
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
             mConfig = new Gson().fromJson(result, Config.class);
+            if (mConfig == null) {
+                throw new RuntimeException("config is null: " + result);
+            }
             tryIsAvailable();
         });
         getSystemInfo(info -> {

@@ -98,7 +98,6 @@ public class SettingsActivity extends SyncthingActivity {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
             ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
-            mPreferences.registerOnSharedPreferenceChangeListener(this);
         }
 
         /**
@@ -297,7 +296,7 @@ public class SettingsActivity extends SyncthingActivity {
         }
 
         /**
-         * Sends the updated value to {@link }RestApi}, and sets it as the summary
+         * Sends the updated value to {@link RestApi}, and sets it as the summary
          * for EditTextPreference.
          */
         @Override
@@ -408,9 +407,17 @@ public class SettingsActivity extends SyncthingActivity {
             }
         }
 
+        /**
+         * Update notification after that preference changes. We can't use onPreferenceChange() as
+         * the preference value isn't persisted there, and the NotificationHandler accesses the
+         * preference directly.
+         *
+         * This function is called when the activity is opened, so we need to make sure the service
+         * is connected.
+         */
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(Constants.PREF_NOTIFICATION_TYPE)) {
+            if (key.equals(Constants.PREF_NOTIFICATION_TYPE) && mSyncthingService != null) {
                 mNotificationHandler.updatePersistentNotification(mSyncthingService);
             }
         }
