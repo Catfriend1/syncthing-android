@@ -3,7 +3,9 @@ package com.nutomic.syncthingandroid.activities;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 
@@ -23,17 +25,32 @@ public abstract class StateDialogActivity extends SyncthingActivity {
 
     private AlertDialog mLoadingDialog;
     private AlertDialog mDisabledDialog;
+    private boolean mIsPaused = true;
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         registerOnServiceConnectedListener(() ->
                 getService().registerOnApiChangeListener(this::onApiChange));
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mIsPaused = false;
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
+        mIsPaused = true;
+        dismissDisabledDialog();
+        dismissLoadingDialog();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         if (getService() != null) {
             getService().unregisterOnApiChangeListener(this::onApiChange);
         }
@@ -61,6 +78,9 @@ public abstract class StateDialogActivity extends SyncthingActivity {
     }
 
     private void showDisabledDialog() {
+        if (mIsPaused)
+            return;
+
         mDisabledDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.syncthing_disabled_title)
                 .setMessage(R.string.syncthing_disabled_message)
@@ -86,7 +106,7 @@ public abstract class StateDialogActivity extends SyncthingActivity {
      * Shows the loading dialog with the correct text ("creating keys" or "loading").
      */
     private void showLoadingDialog() {
-        if (isFinishing() || mLoadingDialog != null)
+        if (mIsPaused || mLoadingDialog != null)
             return;
 
         DialogLoadingBinding binding = DataBindingUtil.inflate(
