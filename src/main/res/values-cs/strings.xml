@@ -174,9 +174,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="export_config">Zálohovat nastavení</string>
   <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Použijte toto nastavení pokud zaznamenáváte neočekávaná ukončení spojení při běhu na baterii. Toto bude mít za následek vyšší spotřebu energie.</string>
-  <string name="run_as_foreground_service">Spustit službu na popředí</string>
-  <string name="run_as_foreground_service_summary">Pokud je povoleno, Syncthing poběží na popředí a bude méně pravděpodobné, že bude zastaven systémem Android. Toto může způsobit zastavení jiných služeb v případě nedostatku paměti. Android přesto vyžaduje zobrazení upozornění s nízkou prioritou, bez ohledu na zvolená nastavení \"Upozornění\".</string>
-  <string name="use_tor_title">Použít Tor</string>
+    <string name="use_tor_title">Použít Tor</string>
   <string name="use_tor_summary">Pro zvýšení bezpečnosti použít výhradně přenosy po síti TOR. Vyžadován Orbot</string>
   <string name="use_legacy_hashing_title">Používat standardní kontrolní součet</string>
   <string name="use_legacy_hashing_summary">Vynutit použití původního hashovacího algoritmu pro lepší kompatibilitu</string>

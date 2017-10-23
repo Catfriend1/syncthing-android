@@ -197,12 +197,6 @@
             android:defaultValue="false" />
 
         <CheckBoxPreference
-            android:key="run_as_foreground_service"
-            android:title="@string/run_as_foreground_service"
-            android:summary="@string/run_as_foreground_service_summary"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
             android:key="use_tor"
             android:title="@string/use_tor_title"
             android:summary="@string/use_tor_summary" />

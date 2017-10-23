@@ -206,9 +206,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="export_config">Beállítások mentése</string>
   <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
   <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
-  <string name="run_as_foreground_service">Szolgáltatás futtatása előtérben</string>
-  <string name="run_as_foreground_service_summary">Ha engedélyezve van, akkor a Syncthing normál, nem háttérben futó prioritással fog futni, így kisebb eséllyel fogja leállítani az Android. Ennek hatására alacsony memóriaszint esetén más szolgáltatásokat fog leállítani az operációs rendszer. Az Android követelményeinek megfelelően ehhez alacsony prioritású értesítést meg kell jeleníteni, függetlenül az \"Értesítések\" beállítás tartalmától.</string>
-  <string name="use_tor_title">Tor használata</string>
+    <string name="use_tor_title">Tor használata</string>
   <string name="use_tor_summary">A teljes forgalom átküldése a Tor hálózatán a privacy növelése érdekében. Orbot szükséges</string>
   <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
   <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>

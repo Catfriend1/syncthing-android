@@ -16,7 +16,6 @@ public class Constants {
     public static final String PREF_USE_ROOT                 = "use_root";
     public static final String PREF_NOTIFICATION_TYPE        = "notification_type";
     public static final String PREF_USE_WAKE_LOCK            = "wakelock_while_binary_running";
-    public static final String PREF_FOREGROUND_SERVICE       = "run_as_foreground_service";
 
     /**
      * Interval in ms at which the GUI is updated (eg {@link com.nutomic.syncthingandroid.fragments.DrawerFragment}).

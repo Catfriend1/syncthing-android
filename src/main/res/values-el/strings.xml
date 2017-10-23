@@ -200,9 +200,7 @@
   <string name="export_config">Εξαγωγή ρυθμίσεων</string>
   <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Χρησιμοποιήστε αυτή την επιλογή αν παρατηρείτε απρόσμενες αποσυνδέσεις κατά τη λειτουργία με μπαταρία. Θα έχει ως συνέπεια την υψηλότερη κατανάλωση ενέργειας.</string>
-  <string name="run_as_foreground_service">Εκτέλεση της υπηρεσίας με προτεραιότητα προσκηνίου.</string>
-  <string name="run_as_foreground_service_summary">Εφόσον ενεργοποιηθεί, το Syncthing θα εκτελείται με προτεραιότητα προσκηνίου και λιγότερες πιθανότητες να τερματιστεί από το Android. Ενδέχεται να τερματίζονται άλλες υπηρεσίες όταν θα εξαντλείται η διαθέσιμη μνήμη. Το Android επιβάλλει να εμφανίζεται μια ειδοποίηση χαμηλής προτεραιότητας, ανεξάρτητα από την επιλογή της ρύθμισης \"Ειδοποίηση\".</string>
-  <string name="use_tor_title">Χρήση του Tor</string>
+    <string name="use_tor_title">Χρήση του Tor</string>
   <string name="use_tor_summary">Αναγκαστική δρομολόγηση όλης της κίνησης δεδομένων μέσω του Tor για αυξημένη ιδιωτικότητα. Προαπαιτεί το Orbot</string>
   <string name="use_legacy_hashing_title">Χρήση κατακερματισμού παλαιού τύπου</string>
   <string name="use_legacy_hashing_summary">Χρήση του πακέτου κατακερματισμού (hashing) παλαιού τύπου για λόγους συμβατότητας</string>

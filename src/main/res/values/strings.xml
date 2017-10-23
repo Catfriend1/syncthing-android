@@ -331,10 +331,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="keep_wakelock_while_binary_running_summary">Use this setting if you experience unexpected disconnects while operating on battery. This will result in increased battery consumption.</string>
 
-    <string name="run_as_foreground_service">Run service with foreground priority</string>
-
-    <string name="run_as_foreground_service_summary">If enabled, Syncthing will run with foreground priority and is less likely to be stopped by Android. This might cause other services to be stopped if available memory is low. A low-priority notification needs to be shown due to Android requirements, regardless of the \"Notification\" setting.</string>
-
     <string name="use_tor_title">Use Tor</string>
 
     <string name="use_tor_summary">Force all traffic through Tor for increased privacy. Requires Orbot</string>

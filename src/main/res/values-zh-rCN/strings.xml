@@ -201,9 +201,7 @@
   <string name="export_config">导出设置</string>
   <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>
   <string name="keep_wakelock_while_binary_running_summary">使用此设置如果您在电池上运行时遇到意外的断开连接。这将会导致电量消耗的增加。</string>
-  <string name="run_as_foreground_service">以前台优先级运行服务</string>
-  <string name="run_as_foreground_service_summary">如果启用，Syncthing 将以后台优先级运行，可以更少地被 Android 停止。这也可能在可用内存过低时引起其他服务关闭。因为 Android 的要求，会忽略“通知”的设置而显示一个低优先级的通知。</string>
-  <string name="use_tor_title">使用 Tor</string>
+    <string name="use_tor_title">使用 Tor</string>
   <string name="use_tor_summary">强制所有流量通过 TOR 以提高保密性。需要 Orbot</string>
   <string name="use_legacy_hashing_title">使用传统哈希</string>
   <string name="use_legacy_hashing_summary">强制 syncthing 使用传统哈希包出于兼容目的</string>

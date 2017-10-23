@@ -162,7 +162,6 @@ public class SettingsActivity extends SyncthingActivity {
 
             mUseRoot                     = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
             Preference useWakelock       = findPreference(Constants.PREF_USE_WAKE_LOCK);
-            Preference foregroundService = findPreference("run_as_foreground_service");
             Preference useTor            = findPreference("use_tor");
 
             mSyncthingVersion       = findPreference("syncthing_version");
@@ -183,7 +182,6 @@ public class SettingsActivity extends SyncthingActivity {
 
             mUseRoot.setOnPreferenceClickListener(this);
             useWakelock.setOnPreferenceChangeListener((p, o) -> requireRestart());
-            foregroundService.setOnPreferenceChangeListener((p, o) -> requireRestart());
             useTor.setOnPreferenceChangeListener((p, o) -> requireRestart());
 
             try {
@@ -412,7 +410,7 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(Constants.PREF_NOTIFICATION_TYPE) || key.equals(Constants.PREF_FOREGROUND_SERVICE)) {
+            if (key.equals(Constants.PREF_NOTIFICATION_TYPE)) {
                 mNotificationHandler.updatePersistentNotification(mSyncthingService);
             }
         }

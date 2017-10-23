@@ -159,9 +159,7 @@
   <string name="export_config">Eksporter innstillingar</string>
   <string name="keep_wakelock_while_binary_running">Hald prosessoren vaken medan Syncthing køyrer</string>
   <string name="keep_wakelock_while_binary_running_summary">Bruk denne innstillinga om du opplever uventa avkoplingar medan du køyrer på batteri. Dette vil føre til auka batteriforbruk.</string>
-  <string name="run_as_foreground_service">Køyr tenesten med forgrunnsprioritet</string>
-  <string name="run_as_foreground_service_summary">Dersom aktivert vil Syncthing køyre med forgrunnsprioritet og det er mindre sannsynleg at den blir stoppa av Android. Dette kan føre til at andre tenester vert stoppa i staden, dersom det blir lite tilgjengeleg minne. Ein notifikasjon med låg prioritet må alltid visast, uavhengig av \"Notifikasjon\" innstillingen på grunn av krav fra Android.</string>
-  <!--Dialog shown before config export-->
+    <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Vil du verkeleg eksportere innstillingane? Eksisterande filer vil verte skrivne over. \n\nÅTVARING: Andre appar kan vere i stand til å lese den private nøkkelen frå tryggingskopien, og bruke den til å laste ned eller endre synkroniserte filer.</string>
   <!--Dialog shown before config import-->
   <string name="dialog_confirm_import">Vil du verkeleg importere ei ny innstillingsfil? Eksisterande filer vil verte skrivne over.</string>

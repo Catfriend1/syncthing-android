@@ -199,9 +199,7 @@
   <string name="export_config">設定のエクスポート</string>
   <string name="keep_wakelock_while_binary_running">実行中は CPU をオンのままにする</string>
   <string name="keep_wakelock_while_binary_running_summary">バッテリーでの動作中に予期しない切断が発生する場合オンにしてください。バッテリー消費量が増える場合があります。</string>
-  <string name="run_as_foreground_service">フォアグラウンドの優先度でサービスを実行する</string>
-  <string name="run_as_foreground_service_summary">オンにすると Syncthing はフォアグラウンドの優先度で実行され、Android によって停止されにくくなります。使用可能なメモリが少ない場合、他のサービスが停止されることがあります。Android の仕様上、「通知」の設定にかかわらず低優先度の通知が表示されます。</string>
-  <string name="use_tor_title">Tor を使用する</string>
+    <string name="use_tor_title">Tor を使用する</string>
   <string name="use_tor_summary">プライバシー保護のため、強制的にすべてのトラフィックを Tor を介します。Orbot が必要です</string>
   <string name="use_legacy_hashing_title">レガシーハッシュを使用する</string>
   <string name="use_legacy_hashing_summary">互換性のため従来のハッシュパッケージの使用を強制</string>

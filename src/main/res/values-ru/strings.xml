@@ -176,9 +176,7 @@
   <string name="export_config">Экспорт настроек</string>
   <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
   <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
-  <string name="run_as_foreground_service">Запуск сервиса с повышенным приоритетом</string>
-  <string name="run_as_foreground_service_summary">Если включено, Syncthing будет выполняться с высоким приоритетом и, скорее всего, Android не будет его останавливать. Это может вызвать остановку других сервисов в случае нехватки памяти. Уведомления с низким приоритетом должны быть показаны в связи с требованиями Android независимо от настроек \"Уведомлений\".</string>
-  <string name="use_tor_title">Использовать Tor</string>
+    <string name="use_tor_title">Использовать Tor</string>
   <string name="use_tor_summary">Пропускать весь трафик через Tor для улучшения приватности. Требует установленный Orbot.</string>
   <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
   <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>

@@ -179,9 +179,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="export_config">Vie asetukset</string>
   <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
   <string name="keep_wakelock_while_binary_running_summary">Käytä tätä asetusta, jos yhteydet katkeilevat odottamattomasti laitteen käydessä akkuvirralla. Tämä lisää virran kulutusta.</string>
-  <string name="run_as_foreground_service">Käynnistä palvelu etualan tärkeydellä</string>
-  <string name="run_as_foreground_service_summary">Mikäli valittu, Synthing ajetaan etualan tärkeydellä, jolloin Android ei pysäytä sitä yhtä todennäköisesti. Tämä saattaa aiheuttaa sen, että muita palveluita pysäytetään jos muisti on vähissä. Matalan tärkeyden ilmoitus tulee näyttää Androidin vaatimusten mukaan huolimatta \"huomautus\"-asetuksesta.</string>
-  <string name="use_tor_title">Käytä Tor-verkkoa</string>
+    <string name="use_tor_title">Käytä Tor-verkkoa</string>
   <string name="use_tor_summary">Pakota kaikki liikenne Tor-verkkoon yksityisyyden parantamiseksi. Vaatii Orbot-sovelluksen.</string>
   <string name="use_legacy_hashing_title">Käytä vanhaa tarkistussumman laskentaa</string>
   <string name="use_legacy_hashing_summary">Pakota Syncthing käyttämään vanhaa tarkistussumman laskentapakettia yhteensopivuuden parantamiseksi</string>

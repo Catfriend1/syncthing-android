@@ -41,18 +41,15 @@ public class NotificationHandler {
      */
     public void updatePersistentNotification(SyncthingService service) {
         String type = mPreferences.getString(Constants.PREF_NOTIFICATION_TYPE, "low_priority");
-        boolean foreground = mPreferences.getBoolean(Constants.PREF_FOREGROUND_SERVICE, false);
 
-        // Android 8 does not allow starting service from background unless it's a foreground
-        // service, so if "always run in background" is enabled, we have to use a foreground service.
+        // Always use startForeground() if app is set to always run. This makes sure the app
+        // is not killed, and we don't miss wifi/charging events.
+        // On Android 8, this behaviour is mandatory to receive broadcasts.
         // https://stackoverflow.com/a/44505719/1837158
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && DeviceStateHolder.alwaysRunInBackground(mContext)) {
-            foreground = true;
-        }
+        boolean foreground = DeviceStateHolder.alwaysRunInBackground(mContext);
 
-        // foreground priority requires any notification
-        // so this ensures that we either have a "default" or "low_priority" notification,
-        // but not "none".
+        // Foreground priority requires a notification so this ensures that we either have a
+        // "default" or "low_priority" notification, but not "none".
         if ("none".equals(type) && foreground) {
             type = "low_priority";
         }

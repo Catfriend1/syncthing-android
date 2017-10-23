@@ -200,9 +200,7 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="export_config">Esporta Configurazione</string>
   <string name="keep_wakelock_while_binary_running">Mantieni attiva la CPU quando syncthing è in esecuzione</string>
   <string name="keep_wakelock_while_binary_running_summary">Usa questa impostazione se rilevi disconnessioni inaspettate durante il funzionamento a batteria. Questo aumenterà il consumo della batteria.</string>
-  <string name="run_as_foreground_service">Esegui il servizio con la priorità di primo piano</string>
-  <string name="run_as_foreground_service_summary">Se abilitato, Syncthing verrà eseguito con la priorità di primo piano e ha meno probabilità di essere fermato da Android. Ciò potrebbe causare l\'arresto di altri servizi se la memoria disponibile è scarsa. Una notifica a bassa priorità deve essere visualizzata a causa di requisiti di Android, a prescindere dall\'impostazione \"Notifica\".</string>
-  <string name="use_tor_title">Utilizza Tor</string>
+    <string name="use_tor_title">Utilizza Tor</string>
   <string name="use_tor_summary">Forza tutto il traffico attraverso Tor per una maggiore privacy. Richiede Orbot</string>
   <string name="use_legacy_hashing_title">Utilizza la funzione di hash precedente</string>
   <string name="use_legacy_hashing_summary">Forza Syncthing ad utilizzare il pacchetto di hash precedente per scopi di compatibilità</string>

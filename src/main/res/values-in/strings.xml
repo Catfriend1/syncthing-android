@@ -180,9 +180,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="export_config">Ekspor Konfigurasi</string>
   <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>
   <string name="keep_wakelock_while_binary_running_summary">Gunakan pengaturan ini jika anda mengalami pemutusan sambungan saat beroperasi dengan baterai. Ini akan menghasilkan peningkatan konsumsi baterai.</string>
-  <string name="run_as_foreground_service">Jalankan service dengan prioritas foreground</string>
-  <string name="run_as_foreground_service_summary">Jika aktif, Syncthing akan berjalan dengan prioritas foreground dan kecil kemungkinan dihentikan oleh Android. Ini akan menyebabkan service lainnya bisa berhenti jika memori rendah. Notifikasi prioritas rendah perlu dimunculkan karena persyaratan Android, apapun pengaturan \"Notifikasi\"-nya.</string>
-  <string name="use_tor_title">Gunakan Tor</string>
+    <string name="use_tor_title">Gunakan Tor</string>
   <string name="use_tor_summary">Paksa semua trafik lewat Tor untuk menambah privasi. Membutuhkan Orbot.</string>
   <string name="use_legacy_hashing_title">Gunakan hashing lawas</string>
   <string name="use_legacy_hashing_summary">Paksa Syncthing menggunakan paket hashing lawas untuk kompatibilitas</string>

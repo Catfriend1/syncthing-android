@@ -198,9 +198,7 @@
   <string name="export_config">설정 내보내기</string>
   <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
   <string name="keep_wakelock_while_binary_running_summary">만약 배터리로 사용중 예상하지 못한 접속 끊김이 발생 했다면 이 설정을 사용합니다. 이 기능은 배터리 소비를 늘립니다.</string>
-  <string name="run_as_foreground_service">서비스를 포그라운드로 실행</string>
-  <string name="run_as_foreground_service_summary">이 기능을 활성화하면 Syncthing은 우선순위로 작동하며 이는 Android 운영체계에 의해 중지될 가능성을 줄여줍니다. 그러나 가용 가능한 메모리가 부족할 경우 다른 서비스들이 중지될 수도 있습니다.</string>
-  <string name="use_tor_title">Tor 사용</string>
+    <string name="use_tor_title">Tor 사용</string>
   <string name="use_tor_summary">프라이버시 향상을 위해 모든 트래픽을 Tor로 통과시킵니다. Orbot이 필요합니다</string>
   <string name="use_legacy_hashing_title">레가시 해싱 쓰기</string>
   <string name="use_legacy_hashing_summary">호환성의 목적을 위하여 Syncthing이 Legacy Hashing 패키지를 쓰도록 강제합니다</string>

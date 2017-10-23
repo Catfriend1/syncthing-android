@@ -174,9 +174,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="export_config">Yapılandırmayı Dışa Aktar</string>
   <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
   <string name="keep_wakelock_while_binary_running_summary">Eğer batarya üzerinde çalışırken beklenmedik kopmalar yaşıyorsanız bu ayarı kullanın. Bu artırılmış batarya tüketimiyle sonuçlanacak.</string>
-  <string name="run_as_foreground_service">Hizmeti ön plan önceliğiyle çalıştır</string>
-  <string name="run_as_foreground_service_summary">Eğer etkinse, Syncthing ön plan önceliğiyle çalışacak ve Android tarafından daha az durdurulacak. Eğer kullanılabilir bellek düşük ise bu diğer hizmetlerin durdurulmasına neden olabilir. \"Bildirim\" ayarı ne olursa olsun, Android gereksinimleri nedeniyle düşük öncelikle bildirim gösterilir.</string>
-  <string name="use_tor_title">Tor kullan</string>
+    <string name="use_tor_title">Tor kullan</string>
   <string name="use_tor_summary">Artırılmış gizlilik için tüm trafiği Tor üzerinden yönlendir. Orbot gerektirir</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>

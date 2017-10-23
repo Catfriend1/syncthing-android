@@ -196,9 +196,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="export_config">Exportar configuração</string>
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada</string>
   <string name="keep_wakelock_while_binary_running_summary">Marque esta opção se você observar desconexões inesperadas enquanto a bateria do dispositivo não está sendo carregada. Isto resultará em maior uso da bateria.</string>
-  <string name="run_as_foreground_service">Rodar serviço com prioridade de primeiro plano</string>
-  <string name="run_as_foreground_service_summary">Se habilitado, o Syncthing rodará com prioridade de primeiro plano e tem menores chances de ser parado pelo Android. Isto pode fazer com que outros apps sejam parados caso a memória disponível fique baixa. Uma notificação de baixa prioridade precisa ser exibida por exigência do Android, independentemente da configuração \"Notificação\".</string>
-  <string name="use_tor_title">Usar Tor</string>
+    <string name="use_tor_title">Usar Tor</string>
   <string name="use_tor_summary">Forçar o tráfego de dados pela rede Tor para maior privacidade. Orbot deve ser instalado</string>
   <string name="use_legacy_hashing_title">Usar hashing legado</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar hashing legado para fins de compatibilidade</string>
