@@ -3,6 +3,7 @@ package com.nutomic.syncthingandroid.service;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.common.base.Objects;
@@ -18,6 +19,7 @@ import com.google.gson.JsonParser;
 import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.RestartActivity;
+import com.nutomic.syncthingandroid.activities.ShareActivity;
 import com.nutomic.syncthingandroid.http.GetRequest;
 import com.nutomic.syncthingandroid.http.PostConfigRequest;
 import com.nutomic.syncthingandroid.http.PostScanRequest;
@@ -228,6 +230,10 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
     public void removeFolder(String id) {
         removeFolderInternal(id);
         sendConfig();
+        // Remove saved data from share activity for this folder.
+        PreferenceManager.getDefaultSharedPreferences(mContext).edit()
+                .remove(ShareActivity.PREF_FOLDER_SAVED_SUBDIRECTORY+id)
+                .apply();
     }
 
     private void removeFolderInternal(String id) {

@@ -7,10 +7,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +40,7 @@ import java.util.Map;
 
 /**
  * Shares incoming files to syncthing folders.
- *
+ * <p>
  * {@link #getDisplayNameForUri} and {@link #getDisplayNameFromContentResolver} are taken from
  * ownCloud Android {@see https://github.com/owncloud/android/blob/79664304fdb762b2e04f1ac505f50d0923ddd212/src/com/owncloud/android/utils/UriUtils.java#L193}
  */
@@ -45,6 +48,13 @@ public class ShareActivity extends StateDialogActivity
         implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnApiChangeListener {
 
     private static final String TAG = "ShareActivity";
+    private static final String PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER = "previously_selected_syncthing_folder";
+
+    public static final String PREF_FOLDER_SAVED_SUBDIRECTORY = "saved_sub_directory_";
+
+    private TextView mSubDirectoryTextView;
+
+    private Spinner mFoldersSpinner;
 
     @Override
     public void onApiChange(SyncthingService.State currentState) {
@@ -53,12 +63,24 @@ public class ShareActivity extends StateDialogActivity
 
         List<Folder> folders = getApi().getFolders();
 
+        // Get the index of the previously selected folder.
+        int folderIndex = 0;
+        String savedFolderId = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, "");
+        for (Folder folder : folders) {
+            if (folder.id.equals(savedFolderId)) {
+                folderIndex = folders.indexOf(folder);
+                break;
+            }
+        }
+
         ArrayAdapter<Folder> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item, folders);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner sItems = findViewById(R.id.folders);
         sItems.setAdapter(adapter);
+        sItems.setSelection(folderIndex);
     }
 
     @Override
@@ -81,11 +103,14 @@ public class ShareActivity extends StateDialogActivity
 
         registerOnServiceConnectedListener(this);
 
-        Spinner mFoldersSpinner = findViewById(R.id.folders);
         Button mShareButton = findViewById(R.id.share_button);
         Button mCancelButton = findViewById(R.id.cancel_button);
+        Button browseButton = findViewById(R.id.browse_button);
         EditText mShareName = findViewById(R.id.name);
         TextView mShareTitle = findViewById(R.id.namesTitle);
+
+        mSubDirectoryTextView = findViewById(R.id.sub_directory_Textview);
+        mFoldersSpinner = findViewById(R.id.folders);
 
         // TODO: add support for EXTRA_TEXT (notes, memos sharing)
         ArrayList<Uri> extrasToCopy = new ArrayList<>();
@@ -124,9 +149,32 @@ public class ShareActivity extends StateDialogActivity
             if (files.size() == 1)
                 files.entrySet().iterator().next().setValue(mShareName.getText().toString());
             Folder folder = (Folder) mFoldersSpinner.getSelectedItem();
-            new CopyFilesTask(files, folder).execute();
+            File directory = new File(folder.path, getSavedSubDirectory());
+            new CopyFilesTask(files, folder, directory).execute();
         });
+
+        mFoldersSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mSubDirectoryTextView.setText(getSavedSubDirectory());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        browseButton.setOnClickListener(view -> {
+            Folder folder = (Folder) mFoldersSpinner.getSelectedItem();
+            File initialDirectory = new File(folder.path, getSavedSubDirectory());
+            startActivityForResult(FolderPickerActivity.createIntent(getApplicationContext(),
+                    initialDirectory.getAbsolutePath(), folder.path),
+                    FolderPickerActivity.DIRECTORY_REQUEST_CODE);
+        });
+
         mCancelButton.setOnClickListener(view -> finish());
+        mSubDirectoryTextView.setText(getSavedSubDirectory());
     }
 
     /**
@@ -209,15 +257,32 @@ public class ShareActivity extends StateDialogActivity
         return displayName;
     }
 
+    /**
+     * Get the previously selected sub directory for the currently selected Syncthing folder.
+     */
+    private String getSavedSubDirectory() {
+        Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
+        String savedSubDirectory = "";
+
+        if (selectedFolder != null) {
+            savedSubDirectory = PreferenceManager.getDefaultSharedPreferences(this)
+                    .getString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, "");
+        }
+
+        return savedSubDirectory;
+    }
+
     private class CopyFilesTask extends AsyncTask<Void, Void, Boolean> {
         private ProgressDialog mProgress;
-        private final Map<Uri, String> mFiles;
-        private final Folder mFolder;
+        private Map<Uri, String> mFiles;
+        private Folder mFolder;
+        private File mDirectory;
         private int mCopied = 0, mIgnored = 0;
 
-        CopyFilesTask(Map<Uri, String> files, Folder folder) {
+        CopyFilesTask(Map<Uri, String> files, Folder folder, File directory) {
             this.mFiles = files;
             this.mFolder = folder;
+            this.mDirectory = directory;
         }
 
         protected void onPreExecute() {
@@ -230,7 +295,7 @@ public class ShareActivity extends StateDialogActivity
             for (Map.Entry<Uri, String> entry : mFiles.entrySet()) {
                 InputStream inputStream = null;
                 try {
-                    File outFile = new File(mFolder.path, entry.getValue());
+                    File outFile = new File(mDirectory, entry.getValue());
                     if (outFile.isFile()) {
                         mIgnored++;
                         continue;
@@ -261,16 +326,44 @@ public class ShareActivity extends StateDialogActivity
         protected void onPostExecute(Boolean isError) {
             Util.dismissDialogSafe(mProgress, ShareActivity.this);
             Toast.makeText(ShareActivity.this, mIgnored > 0 ?
-                    getResources().getQuantityString(R.plurals.copy_success_partially, mCopied,
-                            mCopied, mFolder.label, mIgnored) :
-                    getResources().getQuantityString(R.plurals.copy_success, mCopied, mCopied,
-                            mFolder.label),
+                            getResources().getQuantityString(R.plurals.copy_success_partially, mCopied,
+                                    mCopied, mFolder.label, mIgnored) :
+                            getResources().getQuantityString(R.plurals.copy_success, mCopied, mCopied,
+                                    mFolder.label),
                     Toast.LENGTH_LONG).show();
             if (isError) {
                 Toast.makeText(ShareActivity.this, getString(R.string.copy_exception),
                         Toast.LENGTH_SHORT).show();
             }
             finish();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mFoldersSpinner.getSelectedItem() != null) {
+            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                    .putString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, selectedFolder.id)
+                    .apply();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FolderPickerActivity.DIRECTORY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
+            String folderDirectory = Util.formatPath(selectedFolder.path);
+            String subDirectory = data.getStringExtra(FolderPickerActivity.EXTRA_RESULT_DIRECTORY);
+            //Remove the parent directory from the string, so it is only the Sub directory that is displayed to the user.
+            subDirectory = subDirectory.replace(folderDirectory, "");
+            mSubDirectoryTextView.setText(subDirectory);
+
+            PreferenceManager.getDefaultSharedPreferences(this)
+                    .edit().putString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, subDirectory)
+                    .apply();
         }
     }
 }

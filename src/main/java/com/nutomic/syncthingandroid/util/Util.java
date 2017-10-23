@@ -15,6 +15,7 @@ import com.nutomic.syncthingandroid.R;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.File;
 import java.text.DecimalFormat;
 
 import eu.chainfire.libsuperuser.Shell;
@@ -42,7 +43,7 @@ public class Util {
 
     /**
      * Converts a number of bytes to a human readable file size (eg 3.5 GiB).
-     *
+     * <p>
      * Based on http://stackoverflow.com/a/5599842
      */
     public static String readableFileSize(Context context, long bytes) {
@@ -56,7 +57,7 @@ public class Util {
     /**
      * Converts a number of bytes to a human readable transfer rate in bytes per second
      * (eg 100 KiB/s).
-     *
+     * <p>
      * Based on http://stackoverflow.com/a/5599842
      */
     public static String readableTransferRate(Context context, long bits) {
@@ -69,13 +70,14 @@ public class Util {
     }
 
     /**
+     * <<<<<<< HEAD
      * Normally an application's data directory is only accessible by the corresponding application.
      * Therefore, every file and directory is owned by an application's user and group. When running Syncthing as root,
      * it writes to the application's data directory. This leaves files and directories behind which are owned by root having 0600.
      * Moreover, those acitons performed as root changes a file's type in terms of SELinux.
      * A subsequent start of Syncthing will fail due to insufficient permissions.
      * Hence, this method fixes the owner, group and the files' type of the data directory.
-     * 
+     *
      * @return true if the operation was successfully performed. False otherwise.
      */
     public static boolean fixAppDataPermissions(Context context) {
@@ -135,5 +137,15 @@ public class Util {
             return;
 
         dialog.dismiss();
+    }
+
+    /**
+     * Format a path properly.
+     *
+     * @param path String containing the path that needs formatting.
+     * @return formatted file path as a string.
+     */
+    public static String formatPath(String path) {
+        return new File(path).toURI().normalize().getPath();
     }
 }

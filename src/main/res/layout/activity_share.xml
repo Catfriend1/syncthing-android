@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.nutomic.syncthingandroid.activities.ShareActivity"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context="com.nutomic.syncthingandroid.activities.ShareActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <include layout="@layout/widget_toolbar" />
 
-        <RelativeLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -23,69 +26,137 @@
             android:paddingTop="8dp">
 
             <TextView
+                android:id="@+id/namesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/namesTitle"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="8dp" />
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
                 android:inputType="text|textMultiLine"
-                android:layout_below="@+id/namesTitle"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                app:layout_constraintBottom_toTopOf="@+id/folders"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/namesTitle"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:text="@string/folder_title"
+                android:id="@+id/folder_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/folder_title"
-                android:layout_below="@+id/name"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="8dp" />
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/folder_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/folders"
-                android:layout_below="@+id/folder_title"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="8dp" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/folder_title" />
 
             <Button
                 android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save_title"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="-8dp"
+                android:layout_marginTop="8dp"
                 android:background="?android:selectableItemBackground"
+                android:minWidth="60dip"
+                android:text="@string/save_title"
                 android:textColor="@color/accent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:textSize="14sp"
-                android:minWidth="60dip" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_button"
+                app:layout_constraintVertical_bias="0.965" />
 
             <Button
                 android:id="@+id/cancel_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cancel_title"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:background="?android:selectableItemBackground"
-                android:textColor="@color/accent"
                 android:minWidth="50dip"
-                android:layout_alignParentBottom="true"
-                android:layout_toLeftOf="@+id/share_button"
-                android:layout_toStartOf="@+id/share_button"
-                android:layout_marginRight="14dp"
-                android:layout_marginEnd="14dp" />
+                android:text="@string/cancel_title"
+                android:textColor="@color/accent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.951"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/share_button"
+                app:layout_constraintTop_toBottomOf="@+id/sub_directory_Textview"
+                app:layout_constraintVertical_bias="0.964" />
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/sub_folder_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/sub_folder"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/folders" />
+
+            <TextView
+                android:id="@+id/sub_directory_Textview"
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                android:drawableLeft="@drawable/ic_folder_black_24dp"
+                android:drawableStart="@drawable/ic_folder_black_24dp"
+                android:focusable="true"
+                android:hint="@string/no_sub_folder_is_selected"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/browse_button"
+                app:layout_constraintTop_toBottomOf="@+id/sub_folder_title" />
+
+            <Button
+                android:id="@+id/browse_button"
+                android:layout_width="88dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/browse"
+                app:layout_constraintBottom_toBottomOf="@+id/sub_directory_Textview"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sub_directory_Textview" />
+
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
-</android.support.v4.widget.DrawerLayout>
+</ScrollView>

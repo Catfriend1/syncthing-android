@@ -497,6 +497,9 @@ Please report any problems you encounter via Github.</string>
         <item quantity="other">Files List</item>
     </plurals>
 
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Sub folder</string>
+
     <!-- SyncthingService -->
 
 
@@ -620,5 +623,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Could not access device ID.</string>
+    <string name="browse">Browse</string>
+    <string name="no_sub_folder_is_selected">No sub folder is selected</string>
 
 </resources>

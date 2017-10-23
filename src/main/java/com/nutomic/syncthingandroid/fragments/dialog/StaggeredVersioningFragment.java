@@ -65,7 +65,7 @@ public class StaggeredVersioningFragment extends Fragment {
 
         mPathView.setText(currentPath);
         mPathView.setOnClickListener(view ->
-            startActivityForResult(FolderPickerActivity.createIntent(getContext(), currentPath), FolderPickerActivity.DIRECTORY_REQUEST_CODE));
+            startActivityForResult(FolderPickerActivity.createIntent(getContext(), currentPath, null), FolderPickerActivity.DIRECTORY_REQUEST_CODE));
     }
 
     @Override

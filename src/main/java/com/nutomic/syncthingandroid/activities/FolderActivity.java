@@ -141,7 +141,7 @@ public class FolderActivity extends SyncthingActivity
         mEditIgnores = findViewById(R.id.edit_ignores);
 
         mPathView.setOnClickListener(view ->
-                startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path), FolderPickerActivity.DIRECTORY_REQUEST_CODE));
+                startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null), FolderPickerActivity.DIRECTORY_REQUEST_CODE));
 
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
         mEditIgnores.setOnClickListener(v -> editIgnores());
