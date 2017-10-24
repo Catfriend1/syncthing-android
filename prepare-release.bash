@@ -19,9 +19,14 @@ PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "syncthing/src/github.com/syncthing/syncthing/"
 git fetch
 CURRENT_TAG=$(git describe)
-LATEST_TAG=$(git tag --sort=taggerdate | awk '!/rc/' | tail -1)
-if [ ${CURRENT_TAG} != ${LATEST_TAG} ]
-then
+# Also consider Syncthing rc releases if we are building beta or rc.
+if [[ "$NEW_VERSION_NAME" == *beta* ]] || [[ "$NEW_VERSION_NAME" == *rc* ]]; then
+    LATEST_TAG=$(git tag --sort=taggerdate | tail -1)
+else
+    LATEST_TAG=$(git tag --sort=taggerdate | awk '!/rc/' | tail -1)
+fi
+
+if [ ${CURRENT_TAG} != ${LATEST_TAG} ]; then
     git checkout -f ${LATEST_TAG}
     cd ${PROJECT_DIR}
     git add "syncthing/src/github.com/syncthing/syncthing/"
