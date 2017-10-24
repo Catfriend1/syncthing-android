@@ -315,8 +315,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">El Syncthing s\'està executant</string>
   <string name="syncthing_disabled">El Syncthing està desactivat</string>
-  <string name="syncthing_active_foreground">El servei s\'està executant amb prioritat de primer pla.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">L\'arbre de directoris és massa profund. Comproveu que no hi hagi enllaços simbòlics cíclics</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">No s\'ha pogut crear la configuració</string>

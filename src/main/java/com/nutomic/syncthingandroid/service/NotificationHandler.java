@@ -71,7 +71,6 @@ public class NotificationHandler {
                 builder.setPriority(NotificationCompat.PRIORITY_MIN);
 
             if (foreground) {
-                builder.setContentText(mContext.getString(R.string.syncthing_active_foreground));
                 service.startForeground(ID_PERSISTENT, builder.build());
             } else {
                 service.stopForeground(false); // ensure no longer running with foreground priority

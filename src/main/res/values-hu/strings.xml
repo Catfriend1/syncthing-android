@@ -323,8 +323,7 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">A Syncthing fut</string>
   <string name="syncthing_disabled">A Syncthing le van tiltva</string>
-  <string name="syncthing_active_foreground">A szolgáltatás normál prioritással (az előtérben) fut</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">A mappastruktúra túl mély. Ellenőrizd, nincsenek-e körkörös symlinkek.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Nem sikerült létrehozni a konfigurációt</string>

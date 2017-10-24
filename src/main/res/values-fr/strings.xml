@@ -315,8 +315,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing fonctionne</string>
   <string name="syncthing_disabled">Syncthing est désactivé</string>
-  <string name="syncthing_active_foreground">Le service fonctionne en priorité premier plan.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Arborescence des répertoires trop profonde. Vérifiez les liens symboliques cycliques.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Impossible de créer la configuration</string>

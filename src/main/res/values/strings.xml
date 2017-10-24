@@ -520,8 +520,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="syncthing_disabled">Syncthing is disabled</string>
 
-    <string name="syncthing_active_foreground">Service is running with foreground priority.</string>
-
     <!-- Toast shown if folder observer fails to traverse a folder -->
     <string name="toast_folder_observer_stack_overflow">Directory tree too deep. Check for cyclic symlinks</string>
 

@@ -268,8 +268,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing jest uruchomiony</string>
   <string name="syncthing_disabled">Syncthing jest wyłączony</string>
-  <string name="syncthing_active_foreground">Serwis działa z pierwszoplanowym priorytetem</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Drzewo katalogów jest zbyt głębokie. Proszę je sprawdzić pod kątem obecności zapętlonych dowiązań symbolicznych.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

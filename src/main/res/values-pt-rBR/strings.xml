@@ -311,8 +311,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">O Syncthing está rodando</string>
   <string name="syncthing_disabled">O Syncthing está desabilitado</string>
-  <string name="syncthing_active_foreground">Com prioridade de primeiro plano.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Árvore de diretórios profunda demais. Verifique links simbólicos cíclicos.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Erro na criação da configuração</string>

@@ -314,8 +314,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing draait</string>
   <string name="syncthing_disabled">Syncthing is uitgeschakeld</string>
-  <string name="syncthing_active_foreground">Dienst wordt uitgevoerd met voorgrondprioriteit.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Mapstructuur te diep. Controleer op cyclische symlinks</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Aanmaken van configuratie mislukt</string>

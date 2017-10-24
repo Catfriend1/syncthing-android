@@ -310,8 +310,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing は実行中です</string>
   <string name="syncthing_disabled">Syncthing は無効になりました</string>
-  <string name="syncthing_active_foreground">フォアグラウンドの優先度でサービスを実行中です</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">ディレクトリーの階層が深すぎます。シンボリックリンクの循環を確認してください</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">設定ファイルの作成に失敗しました</string>

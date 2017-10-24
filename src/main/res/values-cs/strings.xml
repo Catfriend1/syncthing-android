@@ -261,8 +261,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing běží</string>
   <string name="syncthing_disabled">Syncthing je vypnutý</string>
-  <string name="syncthing_active_foreground">Služba běží na popředí.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Adresářová struktura je moc hluboká. Zkontrolujte zacyklené symlinky.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

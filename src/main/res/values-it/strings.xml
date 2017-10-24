@@ -315,8 +315,7 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing è in esecuzione</string>
   <string name="syncthing_disabled">Syncthing è disabilitato</string>
-  <string name="syncthing_active_foreground">Il servizio è in esecuzione con priorità di primo piano.</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
+    <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Albero delle cartelle troppo nidificato. Verificare la presenza di link simbolici ciclici</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
