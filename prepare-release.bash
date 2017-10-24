@@ -78,7 +78,7 @@ NEW_VERSION_CODE=$(($OLD_VERSION_CODE + 1))
 sed -i "s/versionCode $OLD_VERSION_CODE/versionCode $NEW_VERSION_CODE/" "app/build.gradle"
 
 OLD_VERSION_NAME=$(grep "versionName" "app/build.gradle" | awk '{print $2}')
-sed -i "s/$OLD_VERSION_NAME/\"$1\"/" build.gradle
+sed -i "s/$OLD_VERSION_NAME/\"$1\"/" "app/build.gradle"
 git add "app/build.gradle" "app/src/main/play/en-GB/whatsnew"
 git commit -m "Bumped version to $NEW_VERSION_NAME"
 git tag ${NEW_VERSION_NAME}
