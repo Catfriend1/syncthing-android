@@ -1,6 +1,7 @@
 sudo: required
 language: android
 jdk: oraclejdk8
+dist: trusty
 
 # Install Android SDK
 android:
@@ -13,10 +14,18 @@ android:
     - android-26
     - extra-android-m2repository
 
+# Install Android NDK (apparently there is no easier way to do this)
+# https://github.com/travis-ci/travis-ci/issues/5395
+before_script:
+  - curl -L https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip -O
+  - unzip -q android-ndk-r15c-linux-x86_64.zip
+  - export ANDROID_NDK_HOME=`pwd`/android-ndk-r15c
+
 # Install Golang
 before_install:
+  - sudo add-apt-repository ppa:gophers/archive -y
   - sudo apt-get update -qq
-  - sudo apt-get install golang -y
+  - sudo apt-get install golang-1.9-go -y
 
 # Cache gradle dependencies
 # https://docs.travis-ci.com/user/languages/android/#Caching
@@ -29,5 +38,5 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew clean lint
+  - ./gradlew lintVitalRelease
   - ./gradlew buildNative assembleDebug

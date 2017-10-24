@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.github.triplet.play'
+apply plugin: 'me.tatarka.retrolambda'
+
+dependencies {
+    compile 'eu.chainfire:libsuperuser:1.0.0.201704021214'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.google.zxing:android-integration:3.3.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'org.mindrot:jbcrypt:0.4'
+    compile 'com.google.guava:guava:20.0'
+    compile 'com.annimon:stream:1.1.9'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.google.dagger:dagger:2.11"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.11"
+    androidTestCompile 'com.android.support.test:rules:1.0.1'
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    buildTypes.debug.applicationIdSuffix ".debug"
+    dataBinding.enabled = true
+
+    playAccountConfigs {
+        defaultAccountConfig {
+            jsonFile = file('keys.json')
+        }
+    }
+    defaultConfig {
+        applicationId "com.nutomic.syncthingandroid"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 4127
+        versionName "0.9.16"
+        testApplicationId 'com.nutomic.syncthingandroid.test'
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        playAccountConfig = playAccountConfigs.defaultAccountConfig
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword System.getenv("SIGNING_PASSWORD") ?: ""
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword System.getenv("SIGNING_PASSWORD") ?: ""
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+play {
+    jsonFile = file('keys.json')
+    uploadImages = false
+    track = 'production'
+}
+
+/**
+ * Some languages are not supported by Google Play, so we ignore them.
+ */
+task deleteUnsupportedPlayTranslations(type: Delete) {
+    delete 'src/main/play/nn'
+    delete 'src/main/play/el-EL'
+    delete 'src/main/play/nb'
+    delete 'src/main/play/en/'
+}
