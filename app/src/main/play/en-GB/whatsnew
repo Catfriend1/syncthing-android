@@ -1,7 +1,1 @@
-- improvements for "Save file to Syncthing" (@jmintb)
-- compile with Clang and target=android (@nutomic)
-- improved behaviour for run conditions (@nutomic)
-- always run as foreground service if "run in background" is enabled (@nutomic)
-- bug fixes 
-- import translations
-- update Syncthing to v0.14.40-rc.1
+- fixed crash related to usage reporting update (@nutomic)
