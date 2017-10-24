@@ -109,7 +109,7 @@ public class MainActivity extends StateDialogActivity
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 mDrawerFragment.requestGuiUpdate();
                 if (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY &&
-                        getApi().getOptions().getUsageReportValue() == Options.USAGE_REPORTING_UNDECIDED) {
+                        getApi().getOptions().isUsageReportingAccepted()) {
                     showUsageReportingDialog();
                 }
                 break;
@@ -452,7 +452,7 @@ public class MainActivity extends StateDialogActivity
             Options options = getApi().getOptions();
             switch (which) {
                 case DialogInterface.BUTTON_POSITIVE:
-                    options.urAccepted = Options.USAGE_REPORTING_ACCEPTED;
+                    options.urAccepted = options.urVersionMax;
                     break;
                 case DialogInterface.BUTTON_NEGATIVE:
                     options.urAccepted = Options.USAGE_REPORTING_DENIED;

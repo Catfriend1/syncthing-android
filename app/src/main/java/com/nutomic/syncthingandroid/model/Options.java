@@ -18,6 +18,7 @@ public class Options {
     public int natRenewalMinutes;
     public int natTimeoutSeconds;
     public int urAccepted;
+    public int urVersionMax;
     public String urUniqueId;
     public String urURL;
     public boolean urPostInsecurely;
@@ -36,15 +37,9 @@ public class Options {
     public int tempIndexMinBlocks;
 
     public static final int USAGE_REPORTING_UNDECIDED = 0;
-    public static final int USAGE_REPORTING_ACCEPTED  = 2;
     public static final int USAGE_REPORTING_DENIED    = -1;
 
-    public int getUsageReportValue() {
-        if (urAccepted > USAGE_REPORTING_ACCEPTED)
-            throw new RuntimeException("Inalid usage reporting value");
-
-        return (urAccepted == USAGE_REPORTING_ACCEPTED || urAccepted == USAGE_REPORTING_DENIED)
-            ? urAccepted
-            : USAGE_REPORTING_UNDECIDED;
+    public boolean isUsageReportingAccepted() {
+        return urAccepted == urVersionMax;
     }
 }

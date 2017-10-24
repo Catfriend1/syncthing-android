@@ -234,7 +234,7 @@ public class SettingsActivity extends SyncthingActivity {
             mRelaysEnabled.setChecked(mOptions.relaysEnabled);
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
             mAddress.setText(mGui.address);
-            mUrAccepted.setChecked(mOptions.getUsageReportValue() == Options.USAGE_REPORTING_ACCEPTED);
+            mUrAccepted.setChecked(mOptions.isUsageReportingAccepted());
         }
 
         @Override
@@ -277,7 +277,7 @@ public class SettingsActivity extends SyncthingActivity {
                 case "address":               mGui.address = (String) o;  break;
                 case "urAccepted":
                     mOptions.urAccepted = ((boolean) o)
-                            ? Options.USAGE_REPORTING_ACCEPTED
+                            ? mOptions.urVersionMax
                             : Options.USAGE_REPORTING_DENIED;
                     break;
                 default: throw new InvalidParameterException();
