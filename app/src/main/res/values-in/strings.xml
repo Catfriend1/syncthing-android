@@ -42,6 +42,9 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Shown if no folders exist-->
   <string name="folder_list_empty">Folder tidak ditemukan</string>
   <!--Format string for folder file count-->
+  <plurals name="files">
+    <item quantity="other">%1$d / %2$d Berkas</item>
+  </plurals>
   <string name="toast_no_file_manager">Tidak ada file manager yang kompatibel yang ditemukan</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Perangkat</string>
@@ -99,6 +102,8 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="folder_path_required">Path/lokasi folder tidak boleh kosong</string>
   <string name="dialog_discard_changes">Abaikan perubahan anda?</string>
   <string name="ignore_patterns">Pola pengabaian</string>
+  <string name="create_ignore_file_error">Gagal membuat berkas ignore. Apakah direktori bisa ditulisi?</string>
+  <string name="edit_ignore_file_error">Tidak ada editor teks yang ditemukan</string>
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">ID Perangkat</string>
@@ -151,6 +156,8 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="always_run_in_background_enabled">Syncthing selalu berjalan di background, menurut pengaturan di bawah.</string>
   <!--Preference summary in case it is disabled-->
   <string name="always_run_in_background_disabled">Syncthing hanya berjalan jika diaktifkan, dan bisa dihentikan lewat tombol menu.</string>
+  <string name="sync_only_charging">Jalankan hanya saat mengisi baterai</string>
+  <string name="sync_only_wifi">Jalankan hanya saat menggunakan wifi</string>
   <string name="sync_only_wifi_ssids">Batasi pada jaringan wifi tertentu</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Mohon aktifkan WiFi untuk memilih jaringan.</string>
   <string name="respect_battery_saving_title">Ikuti pengaturan penghematan baterai Android</string>
@@ -166,6 +173,11 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <item>Prioritas Rendah</item>
     <item>Tidak Ada</item>
   </string-array>
+  <string name="preference_language_title">Bahasa</string>
+  <string name="preference_language_summary">Ganti bahasa dalam aplikasi</string>
+  <string name="start_into_web_gui_title">Mulai dengan web GUI</string>
+  <string name="start_into_web_gui_summary">Saat memulai aplikasi, buka web GUI saja, bukannya layar utama</string>
+  <string name="pref_language_default">Bahasa Standar</string>
   <string name="device_name">Nama Perangkat</string>
   <string name="listen_address">Alamat Listen Protokol Penyelarasan</string>
   <string name="max_recv_kbps">Batasan Incoming (KiB/s)</string>
@@ -180,7 +192,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="export_config">Ekspor Konfigurasi</string>
   <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>
   <string name="keep_wakelock_while_binary_running_summary">Gunakan pengaturan ini jika anda mengalami pemutusan sambungan saat beroperasi dengan baterai. Ini akan menghasilkan peningkatan konsumsi baterai.</string>
-    <string name="use_tor_title">Gunakan Tor</string>
+  <string name="use_tor_title">Gunakan Tor</string>
   <string name="use_tor_summary">Paksa semua trafik lewat Tor untuk menambah privasi. Membutuhkan Orbot.</string>
   <string name="use_legacy_hashing_title">Gunakan hashing lawas</string>
   <string name="use_legacy_hashing_summary">Paksa Syncthing menggunakan paket hashing lawas untuk kompatibilitas</string>
@@ -196,6 +208,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Toast shown after config was successfully imported-->
   <string name="config_import_failed">Impor konfig gagal, pastikan berkasnya dalam %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
+  <string name="sttrace_title">Opsi STTRACE</string>
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Hanya 0-9, a-z dan \',\' yang dibolehkan dalam opsi STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
@@ -274,6 +287,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <plurals name="file_name_title">
     <item quantity="other">Daftar Berkas</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing dimatikan</string>
@@ -286,7 +300,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing dinyalakan</string>
   <string name="syncthing_disabled">Syncthing dimatikan</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

@@ -176,7 +176,7 @@
   <string name="export_config">Экспорт настроек</string>
   <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
   <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
-    <string name="use_tor_title">Использовать Tor</string>
+  <string name="use_tor_title">Использовать Tor</string>
   <string name="use_tor_summary">Пропускать весь трафик через Tor для улучшения приватности. Требует установленный Orbot.</string>
   <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
   <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>
@@ -260,6 +260,7 @@
   <!--Copy exception toast-->
   <string name="copy_exception">Произошел сбой во время синхронизации, проверьте логи приложения</string>
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing выключен</string>
@@ -272,7 +273,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing запущен</string>
   <string name="syncthing_disabled">Syncthing выключен</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Слишком глубокая папка. Проверьте на цикличные симлинки</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

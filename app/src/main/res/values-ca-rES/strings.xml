@@ -200,7 +200,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="export_config">Exporta la configuració</string>
   <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Activeu-ho si experimenteu desconnexions inesperades quan treballeu amb bateria. S\'incrementarà el consum de la bateria.</string>
-    <string name="use_tor_title">Utilitza Tor</string>
+  <string name="use_tor_title">Utilitza Tor</string>
   <string name="use_tor_summary">Desvia tot el trànsit de dades a través de Tor per incrementar la privacitat. Es requereix Orbot</string>
   <string name="use_legacy_hashing_title">Genera els hash amb el sistema antic</string>
   <string name="use_legacy_hashing_summary">Es forçarà el Syncthing a utilitzar el paquet de hashing antic per compatibilitat</string>
@@ -303,6 +303,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <item quantity="one">Nom del fitxer</item>
     <item quantity="other">Llista de fitxers</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">El Syncthing està desactivat</string>
@@ -315,10 +316,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">El Syncthing s\'està executant</string>
   <string name="syncthing_disabled">El Syncthing està desactivat</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">L\'arbre de directoris és massa profund. Comproveu que no hi hagi enllaços simbòlics cíclics</string>
   <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">No s\'ha pogut crear la configuració</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Càmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

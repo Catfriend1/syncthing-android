@@ -179,7 +179,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="export_config">Vie asetukset</string>
   <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
   <string name="keep_wakelock_while_binary_running_summary">Käytä tätä asetusta, jos yhteydet katkeilevat odottamattomasti laitteen käydessä akkuvirralla. Tämä lisää virran kulutusta.</string>
-    <string name="use_tor_title">Käytä Tor-verkkoa</string>
+  <string name="use_tor_title">Käytä Tor-verkkoa</string>
   <string name="use_tor_summary">Pakota kaikki liikenne Tor-verkkoon yksityisyyden parantamiseksi. Vaatii Orbot-sovelluksen.</string>
   <string name="use_legacy_hashing_title">Käytä vanhaa tarkistussumman laskentaa</string>
   <string name="use_legacy_hashing_summary">Pakota Syncthing käyttämään vanhaa tarkistussumman laskentapakettia yhteensopivuuden parantamiseksi</string>
@@ -264,6 +264,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="copy_exception">Jakamisessa tapahtui virhe. Tarkista sovelluksen logit.</string>
   <!--Copy progress dialog text-->
   <string name="copy_progress">Jaetaan tiedostoja...</string>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing on poistettu käytöstä</string>
@@ -276,7 +277,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing on käynnissä</string>
   <string name="syncthing_disabled">Syncthing on poistettu käytöstä</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Kansiopolku on liian syvä. Tarkista toistuvat symlinkit.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

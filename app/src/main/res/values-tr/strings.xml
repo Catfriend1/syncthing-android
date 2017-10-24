@@ -174,7 +174,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="export_config">Yapılandırmayı Dışa Aktar</string>
   <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
   <string name="keep_wakelock_while_binary_running_summary">Eğer batarya üzerinde çalışırken beklenmedik kopmalar yaşıyorsanız bu ayarı kullanın. Bu artırılmış batarya tüketimiyle sonuçlanacak.</string>
-    <string name="use_tor_title">Tor kullan</string>
+  <string name="use_tor_title">Tor kullan</string>
   <string name="use_tor_summary">Artırılmış gizlilik için tüm trafiği Tor üzerinden yönlendir. Orbot gerektirir</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>
@@ -247,6 +247,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Copy success toast-->
   <!--Copy exception toast-->
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing devre dışı</string>
@@ -259,7 +260,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing çalışıyor</string>
   <string name="syncthing_disabled">Syncthing devre dışı</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Dizin ağacı çok derin. Döngüsel simgesel bağlantıların varlığını araştır</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

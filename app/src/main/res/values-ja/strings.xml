@@ -199,7 +199,7 @@
   <string name="export_config">設定のエクスポート</string>
   <string name="keep_wakelock_while_binary_running">実行中は CPU をオンのままにする</string>
   <string name="keep_wakelock_while_binary_running_summary">バッテリーでの動作中に予期しない切断が発生する場合オンにしてください。バッテリー消費量が増える場合があります。</string>
-    <string name="use_tor_title">Tor を使用する</string>
+  <string name="use_tor_title">Tor を使用する</string>
   <string name="use_tor_summary">プライバシー保護のため、強制的にすべてのトラフィックを Tor を介します。Orbot が必要です</string>
   <string name="use_legacy_hashing_title">レガシーハッシュを使用する</string>
   <string name="use_legacy_hashing_summary">互換性のため従来のハッシュパッケージの使用を強制</string>
@@ -298,6 +298,7 @@
   <plurals name="file_name_title">
     <item quantity="other">ファイルリスト</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing は無効になりました</string>
@@ -310,7 +311,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing は実行中です</string>
   <string name="syncthing_disabled">Syncthing は無効になりました</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">ディレクトリーの階層が深すぎます。シンボリックリンクの循環を確認してください</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">設定ファイルの作成に失敗しました</string>

@@ -208,6 +208,7 @@ Naozaj chcete resetovať databázu s indexom súborov?</string>
   <!--Copy success toast-->
   <!--Copy exception toast-->
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing je zakázaný</string>

@@ -201,7 +201,7 @@
   <string name="export_config">导出设置</string>
   <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>
   <string name="keep_wakelock_while_binary_running_summary">使用此设置如果您在电池上运行时遇到意外的断开连接。这将会导致电量消耗的增加。</string>
-    <string name="use_tor_title">使用 Tor</string>
+  <string name="use_tor_title">使用 Tor</string>
   <string name="use_tor_summary">强制所有流量通过 TOR 以提高保密性。需要 Orbot</string>
   <string name="use_legacy_hashing_title">使用传统哈希</string>
   <string name="use_legacy_hashing_summary">强制 syncthing 使用传统哈希包出于兼容目的</string>
@@ -300,6 +300,7 @@
   <plurals name="file_name_title">
     <item quantity="other">文件列表</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing 已禁用</string>
@@ -312,10 +313,10 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing 正在运行</string>
   <string name="syncthing_disabled">Syncthing 已禁用</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">目录树层次过深，正在检查循环符号链接。</string>
   <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">创建配置失败</string>
+  <string name="config_create_failed">创建配置文件失败</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">摄像机</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

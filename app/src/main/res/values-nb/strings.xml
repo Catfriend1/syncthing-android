@@ -159,7 +159,7 @@
   <string name="export_config">Eksporter innstillinger</string>
   <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
   <string name="keep_wakelock_while_binary_running_summary">Bruk denne innstillingen dersom du opplever uventede frakoblinger mens enheten går på batteri. Dette vil medføre økt batteriforbruk.</string>
-    <!--Dialog shown before config export-->
+  <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
   <!--Dialog shown before config import-->
   <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger? Eksisterende filer vil bli skrevet over.</string>
@@ -226,6 +226,7 @@
   <!--Copy success toast-->
   <!--Copy exception toast-->
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing er deaktivert</string>
@@ -238,7 +239,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing kjører</string>
   <string name="syncthing_disabled">Syncthing er deaktivert</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Katalogtreet er for dypt. Se etter sykliske symlenker.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

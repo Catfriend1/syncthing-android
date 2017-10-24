@@ -206,7 +206,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="export_config">Beállítások mentése</string>
   <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
   <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
-    <string name="use_tor_title">Tor használata</string>
+  <string name="use_tor_title">Tor használata</string>
   <string name="use_tor_summary">A teljes forgalom átküldése a Tor hálózatán a privacy növelése érdekében. Orbot szükséges</string>
   <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
   <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>
@@ -311,6 +311,7 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
     <item quantity="one">Fájlok listája</item>
     <item quantity="other">Fájlok listája</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">A Syncthing le van tiltva</string>
@@ -323,10 +324,10 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">A Syncthing fut</string>
   <string name="syncthing_disabled">A Syncthing le van tiltva</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">A mappastruktúra túl mély. Ellenőrizd, nincsenek-e körkörös symlinkek.</string>
   <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">Nem sikerült létrehozni a konfigurációt</string>
+  <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

@@ -196,7 +196,7 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="export_config">Konfiguration exportieren</string>
   <string name="keep_wakelock_while_binary_running">Prozessor wach halten während Syncthing läuft.</string>
   <string name="keep_wakelock_while_binary_running_summary">Nutze dieses Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
-    <string name="use_tor_title">Tor benutzen</string>
+  <string name="use_tor_title">Tor benutzen</string>
   <string name="use_tor_summary">Der gesamte Netzwerkverkehr wird zur Erhöhung der Privatsphäre über Tor geleitet. Benötigt Orbot.</string>
   <string name="use_legacy_hashing_title">Nutze veraltetes Hashing</string>
   <string name="use_legacy_hashing_summary">Für Abwärtskompatibilität soll Syncthing die alten Hashfunktionen verwenden</string>
@@ -296,6 +296,7 @@ Bitte melden Sie auftretende Probleme via Github.</string>
     <item quantity="one">Dateiname</item>
     <item quantity="other">Liste der Dateien</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing ist deaktiviert</string>
@@ -308,7 +309,7 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing läuft</string>
   <string name="syncthing_disabled">Syncthing ist deaktiviert</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Verzeichnisbaum zu verschachtelt. Auf zyklische symlinks prüfen</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

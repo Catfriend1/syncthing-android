@@ -178,7 +178,7 @@
   <string name="export_config">Exportar configuración</string>
   <string name="keep_wakelock_while_binary_running">Mantener la CPU activa mientras se ejecuta Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Usa este ajuste si experimentas desconexiones inesperadas mientras funcionas con la batería. Esto resultará en un incremento del consumo de batería.</string>
-    <string name="use_tor_title">Usar Tor</string>
+  <string name="use_tor_title">Usar Tor</string>
   <string name="use_tor_summary">Desviar todo el tráfico a través de Tor para incrementar la privacidad. Requiere Orbot</string>
   <string name="use_legacy_hashing_title">Utilizar método antiguo para generar los hash</string>
   <string name="use_legacy_hashing_summary">Forzar el uso de un paquete de hashing antiguo por compatibilidad</string>
@@ -275,6 +275,7 @@
     <item quantity="one">Nombre del archivo</item>
     <item quantity="other">Lista de Archivos</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing está deshabilitado</string>
@@ -287,7 +288,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing se está ejecutando</string>
   <string name="syncthing_disabled">Syncthing está deshabilitado</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Árbol de directorios demasiado profundo. Comprueba enlaces simbólicos cíclicos</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

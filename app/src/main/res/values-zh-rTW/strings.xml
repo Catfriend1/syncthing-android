@@ -163,6 +163,7 @@
   <!--Copy success toast-->
   <!--Copy exception toast-->
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing 已經停用</string>

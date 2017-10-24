@@ -200,7 +200,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="export_config">Configuratie exporteren</string>
   <string name="keep_wakelock_while_binary_running">Laat de CPU niet slapen wanneer Syncthing wordt uitgevoerd</string>
   <string name="keep_wakelock_while_binary_running_summary">Gebruik deze instelling als je onverwacht losgekoppeld wordt wanneer je op batterij werkt. Dit zal leiden tot verhoogd batterijverbruik.</string>
-    <string name="use_tor_title">Gebruik Tor</string>
+  <string name="use_tor_title">Gebruik Tor</string>
   <string name="use_tor_summary">Dwing alle verkeer door Tor voor verhoogde privacy</string>
   <string name="use_legacy_hashing_title">Gebruik verouderde hashing</string>
   <string name="use_legacy_hashing_summary">Dwing Syncthing om het verouderd hashingpakket te gebruiken voor compatibiliteitsredenen</string>
@@ -302,6 +302,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <item quantity="one">Bestandsnaam</item>
     <item quantity="other">Bestandenlijst</item>
   </plurals>
+  <!--Sub Folder title-->
+  <string name="sub_folder">Onderliggende map</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing is uitgeschakeld</string>
@@ -314,10 +316,10 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing draait</string>
   <string name="syncthing_disabled">Syncthing is uitgeschakeld</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Mapstructuur te diep. Controleer op cyclische symlinks</string>
   <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">Aanmaken van configuratie mislukt</string>
+  <string name="config_create_failed">Aanmaken van configuratiebestand mislukt</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Camera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -393,4 +395,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="show_device_id">Apparaat-ID weergeven</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Kon apparaat-ID niet lezen.</string>
+  <string name="browse">Bladeren</string>
+  <string name="no_sub_folder_is_selected">Geen onderliggende map geselecteerd</string>
 </resources>

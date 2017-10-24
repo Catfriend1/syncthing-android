@@ -174,7 +174,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="export_config">Exportar configuração</string>
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
   <string name="keep_wakelock_while_binary_running_summary">Use esta definição se experimentar desconectações inesperadas enquanto estiver a trabalhar com a bateria. Isto irá resultar num aumento do consumo da carga da bateria.</string>
-    <string name="use_tor_title">Utilizar o Tor</string>
+  <string name="use_tor_title">Utilizar o Tor</string>
   <string name="use_tor_summary">Forçar todo o tráfego através do Tor para aumentar a privacidade. Exige Orbot</string>
   <string name="use_legacy_hashing_title">Usar verificação antiga</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar um pacote de verificação antiga por questões de compatabilidade</string>
@@ -248,6 +248,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Copy success toast-->
   <!--Copy exception toast-->
   <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">O Syncthing está desactivado</string>
@@ -260,7 +261,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">O Syncthing está a correr</string>
   <string name="syncthing_disabled">O Syncthing está desactivado</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Árvore de pastas demasiado profunda. Verifique se existem ligações simbólicas cíclicas</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->

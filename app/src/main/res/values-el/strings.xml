@@ -200,7 +200,7 @@
   <string name="export_config">Εξαγωγή ρυθμίσεων</string>
   <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Χρησιμοποιήστε αυτή την επιλογή αν παρατηρείτε απρόσμενες αποσυνδέσεις κατά τη λειτουργία με μπαταρία. Θα έχει ως συνέπεια την υψηλότερη κατανάλωση ενέργειας.</string>
-    <string name="use_tor_title">Χρήση του Tor</string>
+  <string name="use_tor_title">Χρήση του Tor</string>
   <string name="use_tor_summary">Αναγκαστική δρομολόγηση όλης της κίνησης δεδομένων μέσω του Tor για αυξημένη ιδιωτικότητα. Προαπαιτεί το Orbot</string>
   <string name="use_legacy_hashing_title">Χρήση κατακερματισμού παλαιού τύπου</string>
   <string name="use_legacy_hashing_summary">Χρήση του πακέτου κατακερματισμού (hashing) παλαιού τύπου για λόγους συμβατότητας</string>
@@ -303,6 +303,7 @@
     <item quantity="one">Όνομα αρχείου</item>
     <item quantity="other">Λίστα αρχείων</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Το Syncthing είναι απενεργοποιημένο</string>
@@ -315,7 +316,7 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Το Syncthing εκτελείται</string>
   <string name="syncthing_disabled">Το Syncthing είναι απενεργοποιημένο</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Η ιεραρχία των φακέλων έχει υπερβολικά μεγάλο βάθος. Ελέγξτε αν υπάρχουν κυκλικοί συμβολικοί σύνδεσμοι</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>

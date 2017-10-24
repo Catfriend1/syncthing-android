@@ -196,7 +196,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="export_config">Exportar configuração</string>
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada</string>
   <string name="keep_wakelock_while_binary_running_summary">Marque esta opção se você observar desconexões inesperadas enquanto a bateria do dispositivo não está sendo carregada. Isto resultará em maior uso da bateria.</string>
-    <string name="use_tor_title">Usar Tor</string>
+  <string name="use_tor_title">Usar Tor</string>
   <string name="use_tor_summary">Forçar o tráfego de dados pela rede Tor para maior privacidade. Orbot deve ser instalado</string>
   <string name="use_legacy_hashing_title">Usar hashing legado</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar hashing legado para fins de compatibilidade</string>
@@ -299,6 +299,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <item quantity="one">Nome do Arquivo</item>
     <item quantity="other">Lista de Arquivos</item>
   </plurals>
+  <!--Sub Folder title-->
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">O Syncthing está desabilitado</string>
@@ -311,10 +312,10 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">O Syncthing está rodando</string>
   <string name="syncthing_disabled">O Syncthing está desabilitado</string>
-    <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">Árvore de diretórios profunda demais. Verifique links simbólicos cíclicos.</string>
   <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">Erro na criação da configuração</string>
+  <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Câmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
