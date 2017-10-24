@@ -73,13 +73,13 @@ public class SyncthingRunnable implements Runnable {
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case generate:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-generate", mContext.getFilesDir().toString() };
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-generate", mContext.getFilesDir().toString(), "-logflags=0" };
                 break;
             case main:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-no-browser" };
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-no-browser", "-logflags=0" };
                 break;
             case reset:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset" };
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset", "-logflags=0" };
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
