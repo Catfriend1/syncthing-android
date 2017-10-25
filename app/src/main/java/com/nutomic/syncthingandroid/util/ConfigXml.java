@@ -142,9 +142,14 @@ public class ConfigXml {
             gui.appendChild(password);
         }
         String apikey = getApiKey();
-        boolean passwordOk;
         String pw = password.getTextContent();
-        passwordOk = !TextUtils.isEmpty(pw) && BCrypt.checkpw(apikey, pw);
+        boolean passwordOk;
+        try {
+            passwordOk = !TextUtils.isEmpty(pw) && BCrypt.checkpw(apikey, pw);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "Malformed password", e);
+            passwordOk = false;
+        }
         if (!passwordOk) {
             Log.i(TAG, "Updating password");
             password.setTextContent(BCrypt.hashpw(apikey, BCrypt.gensalt(4)));
