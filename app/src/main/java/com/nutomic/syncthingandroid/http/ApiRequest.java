@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HurlStack;
@@ -113,6 +114,11 @@ public abstract class ApiRequest {
                 return Optional.fromNullable(requestBody).transform(String::getBytes).orNull();
             }
         };
+
+        // Some requests seem to be slow or fail, make sure this doesn't break the app
+        // (eg if an event request fails, new event requests won't be triggered).
+        request.setRetryPolicy(new DefaultRetryPolicy(5000, 5,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         getVolleyQueue().add(request);
     }
 

@@ -150,7 +150,6 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
                 File updatedFile = new File(folderPath, (String) event.data.get("item"));
                 if (!"delete".equals(event.data.get("action"))) {
                     Log.i(TAG, "Rescanned file via MediaScanner: " + updatedFile.toString());
-                    Log.d("xxx", "update intent sent for " + updatedFile.getName());
                     MediaScannerConnection.scanFile(mContext, new String[]{updatedFile.getPath()},
                             null, null);
                 } else {
