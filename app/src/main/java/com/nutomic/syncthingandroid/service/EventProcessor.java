@@ -1,12 +1,15 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import com.annimon.stream.Stream;
@@ -144,11 +147,20 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
                         folderPath = f.path;
                     }
                 }
-                File updatedFile = new File(folderPath,
-                                            (String) event.data.get("item"));
-                Log.i(TAG, "Notified media scanner about " + updatedFile.toString());
-                mContext.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
-                        Uri.fromFile(updatedFile)));
+                File updatedFile = new File(folderPath, (String) event.data.get("item"));
+                if (!"delete".equals(event.data.get("action"))) {
+                    Log.i(TAG, "Rescanned file via MediaScanner: " + updatedFile.toString());
+                    Log.d("xxx", "update intent sent for " + updatedFile.getName());
+                    MediaScannerConnection.scanFile(mContext, new String[]{updatedFile.getPath()},
+                            null, null);
+                } else {
+                    // https://stackoverflow.com/a/29881556/1837158
+                    Log.i(TAG, "Deleted file from MediaStore: " + updatedFile.toString());
+                    Uri contentUri = MediaStore.Files.getContentUri("external");
+                    ContentResolver resolver = mContext.getContentResolver();
+                    resolver.delete(contentUri, MediaStore.Images.ImageColumns.DATA + " LIKE ?",
+                            new String[]{updatedFile.getPath()});
+                }
                 break;
             case "Ping":
                 // Ignored.
