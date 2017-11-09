@@ -304,6 +304,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <item quantity="other">Liste des fichiers</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Sous-répertoire</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing est désactivé</string>
@@ -395,4 +396,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="show_device_id">Afficher l\'ID de l\'appareil</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Impossible d\'accéder à l\'ID de l\'appareil.</string>
+  <string name="browse">Parcourir</string>
+  <string name="no_sub_folder_is_selected">Aucun sous-répertoire sélectionné</string>
 </resources>

@@ -304,6 +304,7 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
     <item quantity="other">Lista File</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Sottocartella</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing è disabilitato</string>
@@ -395,4 +396,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="show_device_id">Mostra ID dispositivo</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Impossibile accedere all\'ID dispositivo.</string>
+  <string name="browse">Sfoglia</string>
+  <string name="no_sub_folder_is_selected">Nessuna sottocartella selezionata </string>
 </resources>

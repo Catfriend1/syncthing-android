@@ -301,6 +301,7 @@
     <item quantity="other">文件列表</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">子文件夹</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing 已禁用</string>
@@ -394,4 +395,6 @@
   <string name="show_device_id">显示设备 ID</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">无法获取设备 ID。</string>
+  <string name="browse">浏览</string>
+  <string name="no_sub_folder_is_selected">未选中子文件夹</string>
 </resources>

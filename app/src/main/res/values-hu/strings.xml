@@ -312,6 +312,7 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
     <item quantity="other">Fájlok listája</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Almappa</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">A Syncthing le van tiltva</string>
@@ -403,4 +404,6 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <string name="show_device_id">Eszközazonosító megjelenítése</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Nem sikerült hozzáférni az eszközazonosítóhoz</string>
+  <string name="browse">Tallóz</string>
+  <string name="no_sub_folder_is_selected">Nincs kiválasztott almappa</string>
 </resources>

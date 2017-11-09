@@ -300,6 +300,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <item quantity="other">Lista de Arquivos</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Subpasta</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">O Syncthing está desabilitado</string>
@@ -390,4 +391,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="show_device_id">Mostrar ID</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Não foi possível obter o ID do dispositivo.</string>
+  <string name="browse">Navegar</string>
+  <string name="no_sub_folder_is_selected">Nenhuma subpasta selecionada</string>
 </resources>

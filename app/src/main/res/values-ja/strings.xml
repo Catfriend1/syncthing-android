@@ -299,6 +299,7 @@
     <item quantity="other">ファイルリスト</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">サブフォルダー</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing は無効になりました</string>
@@ -390,4 +391,6 @@
   <string name="show_device_id">デバイス ID を表示</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">デバイス ID にアクセスできません。</string>
+  <string name="browse">閲覧</string>
+  <string name="no_sub_folder_is_selected">サブフォルダーが選択されていません</string>
 </resources>

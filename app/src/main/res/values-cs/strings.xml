@@ -307,6 +307,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <item quantity="other">Seznam souborů</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Podsložka</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing je vypnutý</string>
@@ -398,4 +399,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="show_device_id">Ukázat ID zařízení</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Nemůžu přistoupit k ID zařízení.</string>
+  <string name="browse">Procházet</string>
+  <string name="no_sub_folder_is_selected">Není vybrána žádná podsložka</string>
 </resources>

@@ -304,6 +304,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <item quantity="other">Llista de fitxers</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Subcarpeta</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">El Syncthing està desactivat</string>
@@ -319,6 +320,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
   <string name="toast_folder_observer_stack_overflow">L\'arbre de directoris és massa profund. Comproveu que no hi hagi enllaços simbòlics cíclics</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Càmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -394,4 +396,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="show_device_id">Mostra la ID del dispositiu</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">No s\'ha pogut tenir accés a la ID del dispositiu.</string>
+  <string name="browse">Navega</string>
+  <string name="no_sub_folder_is_selected">No s\'ha triat cap subcarpeta</string>
 </resources>

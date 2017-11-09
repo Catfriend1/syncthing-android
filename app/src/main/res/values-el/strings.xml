@@ -304,6 +304,7 @@
     <item quantity="other">Λίστα αρχείων</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Υποφάκελος</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Το Syncthing είναι απενεργοποιημένο</string>
@@ -395,4 +396,6 @@
   <string name="show_device_id">Εμφάνιση ID συσκευής</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">Δεν ήταν δυνατή η ανάγνωση του ID της συσκευής.</string>
+  <string name="browse">Περιήγηση</string>
+  <string name="no_sub_folder_is_selected">Δεν έχει επιλεγεί υποφάκελος</string>
 </resources>
