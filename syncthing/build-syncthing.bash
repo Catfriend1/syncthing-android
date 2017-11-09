@@ -4,7 +4,7 @@ set -e
 
 MODULE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_DIR="${MODULE_DIR}/.."
-TARGET_SDK=$(grep "targetSdkVersion" "${PROJECT_DIR}/app/build.gradle" -m 1 | awk '{print $2}')
+MIN_SDK=$(grep "minSdkVersion" "${PROJECT_DIR}/app/build.gradle" -m 1 | awk '{print $2}')
 # Use seperate build dir so standalone ndk isn't deleted by `gradle clean`
 BUILD_DIR="${MODULE_DIR}/gobuild"
 export GOPATH="${MODULE_DIR}/"
@@ -27,6 +27,8 @@ for ANDROID_ARCH in arm x86 arm64; do
             GOARCH=arm64
             JNI_DIR="arm64-v8a"
             GCC="aarch64-linux-android-clang"
+            # arm64 requires at least API 21.
+            MIN_SDK=21
             ;;
         x86)
             GOARCH=386
@@ -40,12 +42,12 @@ for ANDROID_ARCH in arm x86 arm64; do
 
     # Build standalone NDK toolchain if it doesn't exist.
     # https://developer.android.com/ndk/guides/standalone_toolchain.html
-    STANDALONE_NDK_DIR="${BUILD_DIR}/standalone-ndk/android-${TARGET_SDK}-${GOARCH}"
+    STANDALONE_NDK_DIR="${BUILD_DIR}/standalone-ndk/android-${MIN_SDK}-${GOARCH}"
 
     if [ ! -d "$STANDALONE_NDK_DIR" ]; then
         echo -e "Building standalone NDK\n"
         ${ANDROID_NDK_HOME}/build/tools/make-standalone-toolchain.sh \
-          --platform=android-${TARGET_SDK} --arch=${ANDROID_ARCH} \
+          --platform=android-${MIN_SDK} --arch=${ANDROID_ARCH} \
           --install-dir=${STANDALONE_NDK_DIR}
     fi
 
