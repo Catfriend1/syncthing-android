@@ -1,21 +1,22 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.github.triplet.play'
+apply plugin: 'me.tatarka.retrolambda'
 
 dependencies {
-    implementation 'eu.chainfire:libsuperuser:1.0.0.201704021214'
-    implementation 'com.android.support:design:27.0.1'
-    implementation 'com.google.zxing:android-integration:3.3.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'org.mindrot:jbcrypt:0.4'
-    implementation 'com.google.guava:guava:20.0'
-    implementation 'com.annimon:stream:1.1.9'
-    implementation 'com.android.volley:volley:1.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation "com.google.dagger:dagger:2.13"
+    compile 'eu.chainfire:libsuperuser:1.0.0.201704021214'
+    compile 'com.android.support:design:27.0.1'
+    compile 'com.google.zxing:android-integration:3.3.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'org.mindrot:jbcrypt:0.4'
+    compile 'com.google.guava:guava:20.0'
+    compile 'com.annimon:stream:1.1.9'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.google.dagger:dagger:2.13"
     annotationProcessor "com.google.dagger:dagger-compiler:2.13"
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
-    androidTestImplementation 'com.android.support:support-annotations:27.0.1'
+    androidTestCompile 'com.android.support.test:rules:1.0.1'
+    androidTestCompile 'com.android.support:support-annotations:27.0.1'
 }
 
 android {
@@ -42,9 +43,12 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(RELEASE_STORE_FILE)
+            storeFile = {
+                def path = System.getenv("SYNCTHING_RELEASE_STORE_FILE")
+                return (path) ? file(path) : null
+            }()
             storePassword System.getenv("SIGNING_PASSWORD") ?: ""
-            keyAlias RELEASE_KEY_ALIAS
+            keyAlias System.getenv("SYNCTHING_RELEASE_KEY_ALIAS") ?: ""
             keyPassword System.getenv("SIGNING_PASSWORD") ?: ""
         }
     }

@@ -38,5 +38,5 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew lintVitalRelease
+  - ./gradlew lint
   - ./gradlew buildNative assembleDebug
