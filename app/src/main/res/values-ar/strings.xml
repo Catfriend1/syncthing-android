@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="app_name">Syncthing</string>
+  <!--FirstStartActivity-->
+  <!--Title for dialog displayed on first start-->
+  <!--Text for dialog displayed on first start-->
+  <string name="cont">استمرار</string>
+  <!--MainActivity-->
+  <!--Title of the "add folder" menu action-->
+  <string name="add_folder">إضافة مجلد</string>
+  <!--Title of the "share device id" menu action-->
+  <string name="share_device_id">مشاركة معرف الجهاز</string>
+  <!--Shown in the chooser dialog when sharing a Device ID-->
+  <string name="send_device_id_to">مشاركة معرف الجهاز إلى</string>
+  <string name="yes">نعم</string>
+  <string name="no">لا</string>
+  <string name="open_website">فتح موقع الويب</string>
+  <string name="dialog_disable_battery_optimization_later">فيما بعد</string>
+  <string name="dialog_disable_battery_optimization_dont_show_again">لا تظهر ثانيةً</string>
+  <!--StateDialogActivity-->
+  <!--Text for FoldersFragment and DevicesFragment loading view-->
+  <string name="api_loading">تحميل ...</string>
+  <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
+  <!--FoldersFragment-->
+  <!--Shown if no folders exist-->
+  <!--Format string for folder file count-->
+  <!--DevicesFragment-->
+  <!--Shown if no devices exist-->
+  <!--Indicates that a folder is fully synced to the local device-->
+  <!--Indicates that the device is currently syncing. Parameter is sync percentage-->
+  <!--Indicates that there is no connection to the device-->
+  <!--Title for current download rate-->
+  <!--Title for current upload rate-->
+  <!--DrawerFragment-->
+  <!--Same as download_title with a colon and space appended-->
+  <!--Same as upload_title with a colon and space appended-->
+  <!--Title for current CPU usage-->
+  <!--Title for current RAM usage-->
+  <!--Title for announce server status-->
+  <!--FolderActivity-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Title for FolderSettingsFragment in create mode-->
+  <!--Title for FolderSettingsFragment in edit mode-->
+  <!--Menu item to confirm folder creation-->
+  <!--Dialog shown when attempting to remove a folder-->
+  <!--Toast shown when trying to create a folder with an empty ID-->
+  <!--Toast shown when trying to create a folder with an empty path-->
+  <!--DeviceActivity-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <string name="name">الاسم</string>
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
+  <!--Strings representing compression options-->
+  <!--Setting title-->
+  <!--ActionBar item-->
+  <!--Menu item to confirm adding a device-->
+  <!--Title for DeviceSettingsFragment in edit mode-->
+  <!--Dialog shown when attempting to remove a device-->
+  <!--Toast shown when trying to create a device with an empty ID-->
+  <!--Content description for device ID qr code icon-->
+  <!--Toast show if we could not get root permissions-->
+  <!--WebGuiActivity-->
+  <!--Title of the web gui activity-->
+  <!--Text for WebGuiActivity loading view-->
+  <!--SettingsFragment-->
+  <!--Preference summary in case it is enabled-->
+  <!--Preference summary in case it is disabled-->
+  <!--Dialog shown before config export-->
+  <!--Dialog shown before config import-->
+  <!--Toast shown after config was successfully exported-->
+  <!--Toast shown after config was successfully imported-->
+  <!--Toast shown after config was successfully imported-->
+  <!--Title for the preference to set STTRACE parameters-->
+  <!--Toast after entering invalid STTRACE params-->
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
+  <!--Settings item that opens the log activity-->
+  <!--Summary for the log activity-->
+  <!--Settings item that opens issue tracker-->
+  <!--Summary for the issue tracker settings item-->
+  <!--URL of the issue tracker-->
+  <!--Menu item to donate-->
+  <!--Title of the preference showing upstream version name-->
+  <!--Title of the preference showing this app's version name-->
+  <!--FolderPickerAcitivity-->
+  <!--Activity title-->
+  <!--Toast shown on devices with kitkat or higher-->
+  <!--ListView empty text-->
+  <!--Menu item to create folder on the file system-->
+  <!--Menu item to select the current folder-->
+  <!--LogActivity-->
+  <!--Title of the "log android" menu button-->
+  <!--Title of the "log Syncthing" menu button-->
+  <!--Title of the "share log" menu button-->
+  <!--ShareActivity-->
+  <!--Title of the "share" activity-->
+  <!--Title of the "save" button-->
+  <!--Title of the "cancel" button-->
+  <!--Title of the "save" button-->
+  <!--New file name template-->
+  <!--Nothing to share toast-->
+  <!--Copy success toast partially-->
+  <!--Copy success toast-->
+  <!--Copy exception toast-->
+  <!--Copy progress dialog text-->
+  <!--Sub Folder title-->
+  <!--SyncthingService-->
+  <!--Title of the "syncthing disabled" dialog-->
+  <!--Message of the "syncthing disabled" dialog-->
+  <!--Button text on the "syncthing disabled" dialog-->
+  <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
+  <!--Title of the notification shown while syncthing is running and enabled-->
+  <!--Toast shown if folder observer fails to traverse a folder-->
+  <!--Toast shown if syncthing failed to create a config-->
+  <!--Label of the default folder created of first start (camera folder).-->
+  <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
+  <!--RestApi-->
+  <!--Title of the notification shown when a restart is needed-->
+  <!--Text for positive button in restart dialog-->
+  <string name="restart_now">إعادة تشغيل اﻵن</string>
+  <!--Text for the dismiss button of the restart Activity-->
+  <string name="restart_later">فيما بعد</string>
+  <!--Text of the notification shown when a restart is needed-->
+  <!--Shown when a device ID is copied to the clipboard-->
+  <!--Strings representing units for file sizes, from smallest to largest-->
+  <!--Strings representing units for transfer rates, from smallest to largest-->
+  <!--Possible folder states-->
+  <string name="state_error">خطأ</string>
+  <string name="state_unknown">غير معروف</string>
+  <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
+  <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
+  <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
+  <!--Displays the current file versioning type in the Folder activity-->
+  <!--Information displayed about the current file versioning configuration in the folder activity-->
+  <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+</resources>

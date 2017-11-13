@@ -18,8 +18,6 @@ Pushing to Github
 git push
 git push --tags
 
-version=`git describe --tags --abbrev=0`
-
 echo "
 
 Push to Google Play

@@ -1,0 +1,4 @@
+- fix a misconfiguration that prevented Syncthing from starting on Android 5.0 and below (@nutomic)
+- fixed problems with media scanner (@nutomic)
+- updated Syncthing to v0.14.40
+- imported translations
