@@ -46,7 +46,8 @@
         <activity
             android:name=".activities.WebGuiActivity"
             android:label="@string/web_gui_title"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
