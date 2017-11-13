@@ -7,11 +7,11 @@ dist: trusty
 android:
   components:
     - tools
-    - android-26
-    - build-tools-26.0.2
+    - android-27
+    - build-tools-27.0.1
     - platform-tools
-    - build-tools-26.0.2
-    - android-26
+    - build-tools-27.0.1
+    - android-27
     - extra-android-m2repository
 
 # Install Android NDK (apparently there is no easier way to do this)
