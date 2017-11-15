@@ -141,7 +141,9 @@ public class WebGuiActivity extends StateDialogActivity
 
     @Override
     public void onWebGuiAvailable() {
-        mWebView.loadUrl(getService().getWebGuiUrl().toString());
+        if (mWebView.getUrl() == null) {
+            mWebView.loadUrl(getService().getWebGuiUrl().toString());
+        }
     }
 
     @Override
