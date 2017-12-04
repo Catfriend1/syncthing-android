@@ -53,4 +53,6 @@
 
 	<!-- Don't fail lint on translation errors -->
 	<issue id="ImpliedQuantity" severity="warning" />
+
+	<issue id="OldTargetApi" severity="ignore" />
 </lint>

@@ -536,6 +536,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="notification_crash_text">Click to view logs</string>
 
+    <string name="notifications_persistent_channel">Persistent notification</string>
+    <string name="notifications_other_channel">Other notifications</string>
+
     <!-- RestApi -->
 
 

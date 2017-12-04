@@ -98,6 +98,7 @@ public class SettingsActivity extends SyncthingActivity {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
             ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
+            mPreferences.registerOnSharedPreferenceChangeListener(this);
         }
 
         /**
@@ -125,9 +126,9 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncOnlyOnSSIDs.setEnabled(mSyncOnlyWifi.isChecked());
 
             ListPreference languagePref = (ListPreference) findPreference(Languages.PREFERENCE_LANGUAGE);
+            PreferenceScreen categoryBehaviour = (PreferenceScreen) findPreference("category_behaviour");
             if (Build.VERSION.SDK_INT >= 24) {
-                PreferenceScreen category = (PreferenceScreen) findPreference("category_behaviour");
-                category.removePreference(languagePref);
+                categoryBehaviour.removePreference(languagePref);
             } else {
                 Languages languages = new Languages(getActivity());
                 languagePref.setDefaultValue(Languages.USE_SYSTEM_DEFAULT);
@@ -137,6 +138,10 @@ public class SettingsActivity extends SyncthingActivity {
                     languages.forceChangeLanguage(getActivity(), (String) o);
                     return false;
                 });
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                categoryBehaviour.removePreference(findPreference(Constants.PREF_NOTIFICATION_TYPE));
             }
 
             mDeviceName             = (EditTextPreference) findPreference("deviceName");

@@ -1,6 +1,7 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -24,15 +25,47 @@ public class NotificationHandler {
     private static final int ID_RESTART = 2;
     private static final int ID_STOP_BACKGROUND_WARNING = 3;
     private static final int ID_CRASH = 9;
+    public static final String CHANNEL_PERSISTENT = "01_syncthing_persistent";
+    private static final String CHANNEL_INFO = "02_syncthing_notifications";
 
     private final Context mContext;
     @Inject SharedPreferences mPreferences;
     private final NotificationManager mNotificationManager;
+    private final NotificationChannel mPersistentChannel;
+    private final NotificationChannel mInfoChannel;
 
     public NotificationHandler(Context context) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         mContext = context;
         mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mPersistentChannel = new NotificationChannel(
+                    CHANNEL_PERSISTENT, mContext.getString(R.string.notifications_persistent_channel),
+                    NotificationManager.IMPORTANCE_MIN);
+            mPersistentChannel.enableLights(false);
+            mPersistentChannel.enableVibration(false);
+            mPersistentChannel.setSound(null, null);
+            mNotificationManager.createNotificationChannel(mPersistentChannel);
+            mInfoChannel = new NotificationChannel(
+                    CHANNEL_INFO, mContext.getString(R.string.notifications_other_channel),
+                    NotificationManager.IMPORTANCE_LOW);
+            mPersistentChannel.enableVibration(false);
+            mPersistentChannel.setSound(null, null);
+            mNotificationManager.createNotificationChannel(mInfoChannel);
+        } else {
+            mPersistentChannel = null;
+            mInfoChannel = null;
+        }
+    }
+
+    private NotificationCompat.Builder getNotificationBuilder(NotificationChannel channel) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return new NotificationCompat.Builder(mContext, channel.getId());
+        } else {
+            //noinspection deprecation
+            return new NotificationCompat.Builder(mContext);
+        }
     }
 
     /**
@@ -62,10 +95,11 @@ public class NotificationHandler {
             PendingIntent pi = PendingIntent.getActivity(mContext, 0,
                     new Intent(mContext, FirstStartActivity.class), 0);
             int title = syncthingRunning ? R.string.syncthing_active : R.string.syncthing_disabled;
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext)
+            NotificationCompat.Builder builder = getNotificationBuilder(mPersistentChannel)
                     .setContentTitle(mContext.getString(title))
                     .setSmallIcon(R.drawable.ic_stat_notify)
                     .setOngoing(true)
+                    .setOnlyAlertOnce(true)
                     .setContentIntent(pi);
             if (type.equals("low_priority"))
                 builder.setPriority(NotificationCompat.PRIORITY_MIN);
@@ -93,7 +127,7 @@ public class NotificationHandler {
     public void showCrashedNotification(@StringRes int title, boolean force) {
         if (force || mPreferences.getBoolean("notify_crashes", false)) {
             Intent intent = new Intent(mContext, LogActivity.class);
-            Notification n = new NotificationCompat.Builder(mContext)
+            Notification n = getNotificationBuilder(mInfoChannel)
                     .setContentTitle(mContext.getString(title))
                     .setContentText(mContext.getString(R.string.notification_crash_text))
                     .setSmallIcon(R.drawable.ic_stat_notify)
@@ -105,7 +139,7 @@ public class NotificationHandler {
     }
 
     public void showEventNotification(String text, PendingIntent pi, int id) {
-        Notification n = new NotificationCompat.Builder(mContext)
+        Notification n = getNotificationBuilder(mInfoChannel)
                 .setContentTitle(mContext.getString(R.string.app_name))
                 .setContentText(text)
                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -122,7 +156,7 @@ public class NotificationHandler {
                 .setAction(SyncthingService.ACTION_RESTART);
         PendingIntent pi = PendingIntent.getService(mContext, 0, intent, 0);
 
-        Notification n = new NotificationCompat.Builder(mContext)
+        Notification n = getNotificationBuilder(mInfoChannel)
                 .setContentTitle(mContext.getString(R.string.restart_title))
                 .setContentText(mContext.getString(R.string.restart_notification_text))
                 .setSmallIcon(R.drawable.ic_stat_notify)
@@ -138,7 +172,7 @@ public class NotificationHandler {
 
     public void showStopSyncthingWarningNotification() {
         final String msg = mContext.getString(R.string.appconfig_receiver_background_enabled);
-        NotificationCompat.Builder nb = new NotificationCompat.Builder(mContext)
+        NotificationCompat.Builder nb = getNotificationBuilder(mInfoChannel)
                 .setContentText(msg)
                 .setTicker(msg)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
