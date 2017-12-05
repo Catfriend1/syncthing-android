@@ -196,7 +196,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="global_announce_server">Globala annonseringsservrar</string>
   <string name="enable_relaying">Aktivera reläa</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
-  <string name="gui_address">GUI lyssnaradresser</string>
+  <string name="gui_address">GUI-lyssnaradresser</string>
   <string name="export_config">Exportera konfiguration</string>
   <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
   <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>

@@ -327,6 +327,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="default_folder_id">%1$s-photos</string>
   <string name="notification_crash_title">Syncthing s\'est planté</string>
   <string name="notification_crash_text">Cliquer pour voir les journaux</string>
+  <string name="notifications_persistent_channel">Notification persistante</string>
+  <string name="notifications_other_channel">Autres notifications</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Redémarrage requis</string>

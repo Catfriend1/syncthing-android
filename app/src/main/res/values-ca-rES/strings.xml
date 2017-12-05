@@ -327,6 +327,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="default_folder_id">%1$s-fotos</string>
   <string name="notification_crash_title">El Syncthing s\'ha bloquejat</string>
   <string name="notification_crash_text">Feu clic per veure els registres</string>
+  <string name="notifications_persistent_channel">Notificació persistent</string>
+  <string name="notifications_other_channel">Altres notificacions</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Cal reiniciar</string>

@@ -326,6 +326,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="default_folder_id">%1$s-foto\'s</string>
   <string name="notification_crash_title">Syncthing is gecrasht</string>
   <string name="notification_crash_text">Tik om logboeken te bekijken</string>
+  <string name="notifications_persistent_channel">Blijvende melding</string>
+  <string name="notifications_other_channel">Overige meldingen</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Herstart vereist</string>
