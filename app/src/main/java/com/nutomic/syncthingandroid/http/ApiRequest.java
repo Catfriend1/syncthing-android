@@ -1,7 +1,6 @@
 package com.nutomic.syncthingandroid.http;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -30,10 +29,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Map;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 
@@ -73,14 +70,14 @@ public abstract class ApiRequest {
     private final String mPath;
     private final String mApiKey;
 
-    public ApiRequest(Context context, URL url, String path, String apiKey) {
+    ApiRequest(Context context, URL url, String path, String apiKey) {
         mContext = context;
         mUrl           = url;
         mPath          = path;
         mApiKey        = apiKey;
     }
 
-    protected Uri buildUri(Map<String, String> params) {
+    Uri buildUri(Map<String, String> params) {
         Uri.Builder uriBuilder = Uri.parse(mUrl.toString())
                 .buildUpon()
                 .path(mPath);
@@ -93,8 +90,8 @@ public abstract class ApiRequest {
     /**
      * Opens the connection, then returns success status and response string.
      */
-    protected void connect(int requestMethod, Uri uri, @Nullable String requestBody,
-                           @Nullable OnSuccessListener listener, @Nullable OnErrorListener errorListener) {
+    void connect(int requestMethod, Uri uri, @Nullable String requestBody,
+                 @Nullable OnSuccessListener listener, @Nullable OnErrorListener errorListener) {
         StringRequest request = new StringRequest(requestMethod, uri.toString(), reply -> {
             if (listener != null)
                 listener.onSuccess(reply);
@@ -125,8 +122,8 @@ public abstract class ApiRequest {
     /**
      * Opens the connection, then returns success status and response bitmap.
      */
-    protected void makeImageRequest(Uri uri, @Nullable OnImageSuccessListener imageListener,
-                                    @Nullable OnErrorListener errorListener) {
+    void makeImageRequest(Uri uri, @Nullable OnImageSuccessListener imageListener,
+                          @Nullable OnErrorListener errorListener) {
         ImageRequest imageRequest =  new ImageRequest(uri.toString(), bitmap -> {
             if (imageListener != null) {
                 imageListener.onImageSuccess(bitmap);
@@ -158,13 +155,7 @@ public abstract class ApiRequest {
         @Override
         protected HttpURLConnection createConnection(URL url) throws IOException {
             HttpsURLConnection connection = (HttpsURLConnection) super.createConnection(url);
-            connection.setHostnameVerifier(new HostnameVerifier() {
-                @SuppressLint("BadHostnameVerifier")
-                @Override
-                public boolean verify(String hostname, SSLSession session) {
-                    return true;
-                }
-            });
+            connection.setHostnameVerifier((hostname, session) -> true);
             return connection;
         }
     }

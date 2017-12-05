@@ -16,7 +16,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,15 +34,11 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Util;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
-
-import javax.inject.Inject;
 
 /**
  * Activity that allows selecting a directory in the local file system.
@@ -54,7 +49,7 @@ public class FolderPickerActivity extends SyncthingActivity
     private static final String EXTRA_INITIAL_DIRECTORY =
             "com.nutomic.syncthingandroid.activities.FolderPickerActivity.INITIAL_DIRECTORY";
 
-    public static final String EXTRA_ROOT_DIRECTORY =
+    private static final String EXTRA_ROOT_DIRECTORY =
             "com.nutomic.syncthingandroid.activities.FolderPickerActivity.ROOT_DIRECTORY";
 
     public static final String EXTRA_RESULT_DIRECTORY =

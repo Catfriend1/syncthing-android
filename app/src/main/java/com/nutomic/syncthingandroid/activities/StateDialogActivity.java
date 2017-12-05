@@ -127,9 +127,8 @@ public abstract class StateDialogActivity extends SyncthingActivity {
                     return;
 
                 binding.loadingSlowMessage.setVisibility(View.VISIBLE);
-                binding.viewLogs.setOnClickListener(v -> {
-                    startActivity(new Intent(this, LogActivity.class));
-                });
+                binding.viewLogs.setOnClickListener(v ->
+                        startActivity(new Intent(this, LogActivity.class)));
             }, SLOW_LOADING_TIME);
         }
     }

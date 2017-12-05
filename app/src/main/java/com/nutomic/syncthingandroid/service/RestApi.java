@@ -471,8 +471,8 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
     /**
      * Normalizes a given device ID.
      */
-    public void normalizeDeviceId(String id, OnResultListener1<String> listener,
-                                  OnResultListener1<String> errorListener) {
+    private void normalizeDeviceId(String id, OnResultListener1<String> listener,
+                                   OnResultListener1<String> errorListener) {
         new GetRequest(mContext, mUrl, GetRequest.URI_DEVICEID, mApiKey,
                 ImmutableMap.of("id", id), result -> {
             JsonObject json = new JsonParser().parse(result).getAsJsonObject();

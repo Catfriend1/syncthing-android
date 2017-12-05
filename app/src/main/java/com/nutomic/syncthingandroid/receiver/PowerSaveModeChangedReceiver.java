@@ -8,7 +8,6 @@ import android.os.PowerManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.nutomic.syncthingandroid.service.DeviceStateHolder;
-import com.nutomic.syncthingandroid.service.SyncthingService;
 
 public class PowerSaveModeChangedReceiver extends BroadcastReceiver {
 

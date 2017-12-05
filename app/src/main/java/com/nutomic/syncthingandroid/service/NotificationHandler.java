@@ -25,7 +25,7 @@ public class NotificationHandler {
     private static final int ID_RESTART = 2;
     private static final int ID_STOP_BACKGROUND_WARNING = 3;
     private static final int ID_CRASH = 9;
-    public static final String CHANNEL_PERSISTENT = "01_syncthing_persistent";
+    private static final String CHANNEL_PERSISTENT = "01_syncthing_persistent";
     private static final String CHANNEL_INFO = "02_syncthing_notifications";
 
     private final Context mContext;

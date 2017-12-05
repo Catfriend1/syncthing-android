@@ -83,7 +83,7 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
     /**
      * Used for Fragments to use the Activity's service connection.
      */
-    public void registerOnServiceConnectedListener(OnServiceConnectedListener listener) {
+    void registerOnServiceConnectedListener(OnServiceConnectedListener listener) {
         if (mSyncthingService != null) {
             listener.onServiceConnected();
         } else {
@@ -94,7 +94,7 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
     /**
      * Returns service object (or null if not bound).
      */
-    public SyncthingService getService() {
+    SyncthingService getService() {
         return mSyncthingService;
     }
 

@@ -31,7 +31,7 @@ public class Constants {
     /**
      * File in the config folder that contains configuration.
      */
-    static String CONFIG_FILE = "config.xml";
+    static final String CONFIG_FILE = "config.xml";
 
     public static File getConfigFile(Context context) {
         return new File(context.getFilesDir(), CONFIG_FILE);
@@ -40,7 +40,7 @@ public class Constants {
     /**
      * Name of the public key file in the data directory.
      */
-    static String PUBLIC_KEY_FILE = "cert.pem";
+    static final String PUBLIC_KEY_FILE = "cert.pem";
 
     static File getPublicKeyFile(Context context) {
         return new File(context.getFilesDir(), PUBLIC_KEY_FILE);

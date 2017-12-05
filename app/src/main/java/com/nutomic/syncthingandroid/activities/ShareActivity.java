@@ -274,9 +274,9 @@ public class ShareActivity extends StateDialogActivity
 
     private class CopyFilesTask extends AsyncTask<Void, Void, Boolean> {
         private ProgressDialog mProgress;
-        private Map<Uri, String> mFiles;
-        private Folder mFolder;
-        private File mDirectory;
+        private final Map<Uri, String> mFiles;
+        private final Folder mFolder;
+        private final File mDirectory;
         private int mCopied = 0, mIgnored = 0;
 
         CopyFilesTask(Map<Uri, String> files, Folder folder, File directory) {
