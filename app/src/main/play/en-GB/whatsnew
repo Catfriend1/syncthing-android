@@ -1,5 +1,4 @@
-- improved handling of run conditions (@nutomic)
-- compile with clang and target=android (@nutomic)
-- fixed problems with media scanner (@nutomic)
-- updated Syncthing to v0.14.40
+- fixed unnecessary web ui reloads (@sferra)
+- implemented notification channels for Android 8 (@nutomic)
+- updated Syncthing to 0.14.41
 - imported translations
