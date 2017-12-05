@@ -8,7 +8,7 @@ dependencies {
     implementation 'com.google.zxing:android-integration:3.3.0'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'org.mindrot:jbcrypt:0.4'
-    implementation 'com.google.guava:guava:20.0'
+    implementation 'com.google.guava:guava:23.5-android'
     implementation 'com.annimon:stream:1.1.9'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
