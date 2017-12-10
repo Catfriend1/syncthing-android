@@ -1,6 +1,7 @@
 package com.nutomic.syncthingandroid.util;
 
 import android.os.FileObserver;
+import android.os.Handler;
 import android.util.Log;
 
 import com.annimon.stream.Stream;
@@ -8,6 +9,7 @@ import com.nutomic.syncthingandroid.model.Folder;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Recursively watches a directory and all subfolders.
@@ -16,21 +18,21 @@ public class FolderObserver extends FileObserver {
 
     private static final String TAG = "FolderObserver";
 
+    private static final long SCAN_DELAY_MILLIS = TimeUnit.SECONDS.toMillis(10);
+
     private final OnFolderFileChangeListener mListener;
-
     private final Folder mFolder;
-
     private final String mPath;
-
     private final ArrayList<FolderObserver> mChilds = new ArrayList<>();
+    private final Handler mHandler;
 
     public interface OnFolderFileChangeListener {
         void onFolderFileChange(String folderId, String relativePath);
     }
 
-    public FolderObserver(OnFolderFileChangeListener listener, Folder folder)
+    public FolderObserver(OnFolderFileChangeListener listener, Folder folder, Handler mainHandler)
             throws FolderNotExistingException {
-        this(listener, folder, "");
+        this(listener, folder, "", mainHandler);
         Log.i(TAG, "Observer created for (folder " + folder.id + ")");
     }
 
@@ -55,7 +57,7 @@ public class FolderObserver extends FileObserver {
      * @param folder The folder where this folder belongs to.
      * @param path path to the monitored folder, relative to folder root.
      */
-    private FolderObserver(OnFolderFileChangeListener listener, Folder folder, String path)
+    private FolderObserver(OnFolderFileChangeListener listener, Folder folder, String path, Handler handler)
             throws FolderNotExistingException {
         super(folder.path + "/" + path,
                 ATTRIB | CLOSE_WRITE | CREATE | DELETE | DELETE_SELF | MOVED_FROM |
@@ -63,6 +65,7 @@ public class FolderObserver extends FileObserver {
         mListener = listener;
         mFolder = folder;
         mPath = path;
+        mHandler = handler;
         Log.v(TAG, "Observer created for " + new File(mFolder.path, mPath).toString() + " (folder " + folder.id + ")");
         startWatching();
 
@@ -74,7 +77,7 @@ public class FolderObserver extends FileObserver {
 
         if (directories != null) {
             for (File f : directories) {
-                mChilds.add(new FolderObserver(mListener, mFolder, path + "/" + f.getName()));
+                mChilds.add(new FolderObserver(mListener, mFolder, path + "/" + f.getName(), mHandler));
             }
         }
     }
@@ -107,21 +110,23 @@ public class FolderObserver extends FileObserver {
                         break;
                     }
                 }
-                mListener.onFolderFileChange(mFolder.id, fullPath.getPath());
+                mHandler.postDelayed(() -> mListener.onFolderFileChange(mFolder.id, fullPath.getPath()),
+                        SCAN_DELAY_MILLIS);
                 break;
             case MOVED_TO:
                 // fall through
             case CREATE:
                 if (fullPath.isDirectory()) {
                     try {
-                        mChilds.add(new FolderObserver(mListener, mFolder, path));
+                        mChilds.add(new FolderObserver(mListener, mFolder, path, mHandler));
                     } catch (FolderNotExistingException e) {
                         Log.w(TAG, "Failed to add listener for nonexisting folder", e);
                     }
                 }
                 // fall through
             default:
-                mListener.onFolderFileChange(mFolder.id, fullPath.getPath());
+                mHandler.postDelayed(() -> mListener.onFolderFileChange(mFolder.id, fullPath.getPath()),
+                        SCAN_DELAY_MILLIS);
         }
     }
 

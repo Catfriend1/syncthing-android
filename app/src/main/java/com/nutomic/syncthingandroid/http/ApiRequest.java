@@ -92,6 +92,7 @@ public abstract class ApiRequest {
      */
     void connect(int requestMethod, Uri uri, @Nullable String requestBody,
                  @Nullable OnSuccessListener listener, @Nullable OnErrorListener errorListener) {
+        Log.v(TAG, "Performing request to " + uri.toString());
         StringRequest request = new StringRequest(requestMethod, uri.toString(), reply -> {
             if (listener != null)
                 listener.onSuccess(reply);

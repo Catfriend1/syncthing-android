@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -215,10 +216,11 @@ public class SyncthingService extends Service {
 
     private void onSyncthingStarted() {
         onApiChange(State.ACTIVE);
+        Handler handler = new Handler();
         new Thread(() -> {
             for (Folder r : mApi.getFolders()) {
                 try {
-                    mObservers.add(new FolderObserver(mApi, r));
+                    mObservers.add(new FolderObserver(mApi, r, handler));
                 } catch (FolderObserver.FolderNotExistingException e) {
                     Log.w(TAG, "Failed to add observer for folder", e);
                 } catch (StackOverflowError e) {
