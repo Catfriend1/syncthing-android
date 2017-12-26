@@ -1,4 +1,4 @@
-- fixed unnecessary web ui reloads (@sferra)
-- implemented notification channels for Android 8 (@nutomic)
-- updated Syncthing to 0.14.41
+- delay file scan events to prevent invalid files (@nutomic)
+- update build tools to fix crash on Cyanogenmod devices (@nutomic)
+- updated Syncthing to v0.14.42
 - imported translations
