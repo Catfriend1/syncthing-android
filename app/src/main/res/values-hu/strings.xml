@@ -335,6 +335,8 @@ Biztosan törölni szeretnéd a Syncthing index adatbázisát?</string>
   <string name="default_folder_id">%1$s-kepek</string>
   <string name="notification_crash_title">A Syncthing összeomlott</string>
   <string name="notification_crash_text">Koppints a naplók megtekintéséhez</string>
+  <string name="notifications_persistent_channel">Állandó értesítése</string>
+  <string name="notifications_other_channel">További értesítések</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Újraindítás szükséges</string>

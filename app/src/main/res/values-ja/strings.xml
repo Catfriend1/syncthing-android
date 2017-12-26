@@ -322,6 +322,8 @@
   <string name="default_folder_id">%1$s-写真</string>
   <string name="notification_crash_title">Syncthing がクラッシュしました</string>
   <string name="notification_crash_text">クリックしてログを表示</string>
+  <string name="notifications_persistent_channel">永続的な通知</string>
+  <string name="notifications_other_channel">他の通知</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">再起動が必要です</string>

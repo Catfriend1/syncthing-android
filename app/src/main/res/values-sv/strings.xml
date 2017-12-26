@@ -326,6 +326,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="default_folder_id">%1$s foton</string>
   <string name="notification_crash_title">Syncthing har kraschat</string>
   <string name="notification_crash_text">Klicka för att visa loggar</string>
+  <string name="notifications_persistent_channel">Ihållande avisering</string>
+  <string name="notifications_other_channel">Andra aviseringar</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Omstart behövs</string>
