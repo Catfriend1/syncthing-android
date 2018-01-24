@@ -41,4 +41,8 @@ public class Options {
     public boolean isUsageReportingAccepted(int urVersionMax) {
         return urAccepted == urVersionMax;
     }
+
+    public boolean isUsageReportingDecided(int urVersionMax) {
+        return isUsageReportingAccepted(urVersionMax) || urAccepted == USAGE_REPORTING_DENIED;
+    }
 }
