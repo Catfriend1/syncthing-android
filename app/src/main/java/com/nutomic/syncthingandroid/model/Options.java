@@ -18,7 +18,6 @@ public class Options {
     public int natRenewalMinutes;
     public int natTimeoutSeconds;
     public int urAccepted;
-    public int urVersionMax;
     public String urUniqueId;
     public String urURL;
     public boolean urPostInsecurely;
@@ -39,7 +38,7 @@ public class Options {
     public static final int USAGE_REPORTING_UNDECIDED = 0;
     public static final int USAGE_REPORTING_DENIED    = -1;
 
-    public boolean isUsageReportingAccepted() {
+    public boolean isUsageReportingAccepted(int urVersionMax) {
         return urAccepted == urVersionMax;
     }
 }

@@ -108,10 +108,12 @@ public class MainActivity extends StateDialogActivity
                 showBatteryOptimizationDialogIfNecessary();
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 mDrawerFragment.requestGuiUpdate();
-                if (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY &&
-                        getApi().getOptions().isUsageReportingAccepted()) {
-                    showUsageReportingDialog();
-                }
+                getApi().getSystemInfo(systemInfo -> {
+                    if (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY &&
+                            !getApi().getOptions().isUsageReportingAccepted(systemInfo.urVersionMax)) {
+                        showUsageReportingDialog();
+                    }
+                });
                 break;
             case ERROR:
                 finish();
@@ -452,7 +454,9 @@ public class MainActivity extends StateDialogActivity
             Options options = getApi().getOptions();
             switch (which) {
                 case DialogInterface.BUTTON_POSITIVE:
-                    options.urAccepted = options.urVersionMax;
+                    getApi().getSystemInfo(systemInfo -> {
+                        options.urAccepted = systemInfo.urVersionMax;
+                    });
                     break;
                 case DialogInterface.BUTTON_NEGATIVE:
                     options.urAccepted = Options.USAGE_REPORTING_DENIED;

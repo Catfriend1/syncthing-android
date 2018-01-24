@@ -11,4 +11,5 @@ public class SystemInfo {
     public boolean discoveryEnabled;
     public int discoveryMethods;
     public Map<String, String> discoveryErrors;
+    public int urVersionMax;
 }

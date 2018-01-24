@@ -239,7 +239,8 @@ public class SettingsActivity extends SyncthingActivity {
             mRelaysEnabled.setChecked(mOptions.relaysEnabled);
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
             mAddress.setText(mGui.address);
-            mUrAccepted.setChecked(mOptions.isUsageReportingAccepted());
+            mApi.getSystemInfo(systemInfo ->
+                    mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemInfo.urVersionMax)));
         }
 
         @Override
@@ -281,9 +282,12 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case "address":               mGui.address = (String) o;  break;
                 case "urAccepted":
-                    mOptions.urAccepted = ((boolean) o)
-                            ? mOptions.urVersionMax
-                            : Options.USAGE_REPORTING_DENIED;
+                    mApi.getSystemInfo(systemInfo -> {
+                        mOptions.urAccepted = ((boolean) o)
+                                ? systemInfo.urVersionMax
+                                : Options.USAGE_REPORTING_DENIED;
+                        mApi.editSettings(mGui, mOptions, getActivity());
+                    });
                     break;
                 default: throw new InvalidParameterException();
             }
