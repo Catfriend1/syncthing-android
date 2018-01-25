@@ -330,6 +330,8 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="default_folder_id">%1$s-foto</string>
   <string name="notification_crash_title">Syncthing spadl</string>
   <string name="notification_crash_text">Pro prohlížení logů klikněte</string>
+  <string name="notifications_persistent_channel">Stálé upozornění</string>
+  <string name="notifications_other_channel">Ostatní upozornění</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Je potřeba restartovat</string>

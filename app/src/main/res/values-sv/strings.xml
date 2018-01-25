@@ -176,8 +176,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   </string-array>
   <string name="preference_language_title">Språk</string>
   <string name="preference_language_summary">Ändra appens språk</string>
-  <string name="start_into_web_gui_title">Starta direkt i webb-GUI</string>
-  <string name="start_into_web_gui_summary">När du startar appen öppnar du webb-GUI istället för huvudskärmen</string>
+  <string name="start_into_web_gui_title">Starta direkt i webb-GUI:n</string>
+  <string name="start_into_web_gui_summary">När du startar appen öppnar du webb-GUI:n istället för huvudskärmen</string>
   <string name="pref_language_default">Standardspråk</string>
   <string-array name="versioning_types">
     <item>Ingen</item>
@@ -196,7 +196,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="global_announce_server">Globala annonseringsservrar</string>
   <string name="enable_relaying">Aktivera reläa</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
-  <string name="gui_address">GUI-lyssnaradresser</string>
+  <string name="gui_address">GUI lyssnaradresser</string>
   <string name="export_config">Exportera konfiguration</string>
   <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
   <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>
@@ -216,7 +216,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Toast shown after config was successfully imported-->
   <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
-  <string name="sttrace_title">STTRACE-alternativ</string>
+  <string name="sttrace_title">STTRACE alternativ</string>
   <string name="environment_variables">Miljövariabler</string>
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Endast 0-9, a-z och \',\' är tillåtna i STTRACE alternativ</string>
