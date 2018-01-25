@@ -1,4 +1,3 @@
-- delay file scan events to prevent invalid files (@nutomic)
-- update build tools to fix crash on Cyanogenmod devices (@nutomic)
-- updated Syncthing to v0.14.42
+- fixed usage reporting dialog not going away (@nutomic)
+- updated Syncthing to v0.14.43
 - imported translations
