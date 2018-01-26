@@ -110,7 +110,7 @@ public class MainActivity extends StateDialogActivity
                 mDrawerFragment.requestGuiUpdate();
                 getApi().getSystemInfo(systemInfo -> {
                     if (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY &&
-                            getApi().getOptions().isUsageReportingDecided(systemInfo.urVersionMax)) {
+                            !getApi().getOptions().isUsageReportingDecided(systemInfo.urVersionMax)) {
                         showUsageReportingDialog();
                     }
                 });
