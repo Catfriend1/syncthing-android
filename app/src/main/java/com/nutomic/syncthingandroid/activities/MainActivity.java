@@ -359,7 +359,7 @@ public class MainActivity extends StateDialogActivity
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, deviceId);
-        startActivity(Intent.createChooser(shareIntent, "Share device ID with"));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_device_id_chooser)));
     }
 
     @Override

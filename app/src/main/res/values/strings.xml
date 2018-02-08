@@ -626,5 +626,6 @@ Please report any problems you encounter via Github.</string>
     <string name="could_not_access_deviceid">Could not access device ID.</string>
     <string name="browse">Browse</string>
     <string name="no_sub_folder_is_selected">No sub folder is selected</string>
+    <string name="share_device_id_chooser">Share device ID with</string>
 
 </resources>
