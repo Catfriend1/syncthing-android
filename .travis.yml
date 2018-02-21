@@ -1,4 +1,3 @@
-sudo: required
 language: android
 jdk: oraclejdk8
 dist: trusty
@@ -7,8 +6,6 @@ dist: trusty
 android:
   components:
     - tools
-    - android-27
-    - build-tools-27.0.2
     - platform-tools
     - build-tools-27.0.2
     - android-27
@@ -21,11 +18,13 @@ before_script:
   - unzip -q android-ndk-r15c-linux-x86_64.zip
   - export ANDROID_NDK_HOME=`pwd`/android-ndk-r15c
 
-# Install Golang
 before_install:
-  - sudo add-apt-repository ppa:gophers/archive -y
-  - sudo apt-get update -qq
-  - sudo apt-get install golang-1.9-go -y
+  # Install Go using gimme tool
+  - curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+  - chmod +x ~/bin/gimme
+  - eval "$(gimme 1.9)"
+  # Hack to accept Android licenses
+  - yes | sdkmanager "platforms;android-27"
 
 # Cache gradle dependencies
 # https://docs.travis-ci.com/user/languages/android/#Caching
