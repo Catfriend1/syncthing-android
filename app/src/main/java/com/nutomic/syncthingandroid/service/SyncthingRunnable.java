@@ -394,6 +394,8 @@ public class SyncthingRunnable implements Runnable {
             // If we did not use exec, we would wait infinitely for the process to terminate (ret = process.waitFor(); in run()).
             // With exec the whole process terminates when Syncthing exits.
             suOut.writeBytes("exec " + TextUtils.join(" ", mCommand) + "\n");
+            // suOut.flush has to be called to fix issue - #1005 Endless loader after enabling "Superuser mode"
+            suOut.flush();
             return process;
         } else {
             ProcessBuilder pb = new ProcessBuilder(mCommand);
