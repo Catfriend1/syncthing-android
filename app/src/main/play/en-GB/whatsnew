@@ -1,0 +1,4 @@
+- fixed endless loading if root is enabled (@Catfriend1)
+- updated Syncthing to v0.14.45
+- imported translations
+
