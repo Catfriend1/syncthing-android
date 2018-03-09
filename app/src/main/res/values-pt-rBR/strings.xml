@@ -323,6 +323,8 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="default_folder_id">%1$s-fotos</string>
   <string name="notification_crash_title">O Syncthing fechou inesperadamente</string>
   <string name="notification_crash_text">Clique para ver os logs</string>
+  <string name="notifications_persistent_channel">Notificação persistente</string>
+  <string name="notifications_other_channel">Outras notificações</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">É necessário reiniciar</string>

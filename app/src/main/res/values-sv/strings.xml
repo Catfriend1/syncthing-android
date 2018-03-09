@@ -141,9 +141,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="toast_root_denied">Fick inte root behörigheter</string>
   <!--WebGuiActivity-->
   <!--Title of the web gui activity-->
-  <string name="web_gui_title">Webb-GUI</string>
+  <string name="web_gui_title">Webbgränssnitt</string>
   <!--Text for WebGuiActivity loading view-->
-  <string name="web_gui_loading">Väntar på GUI</string>
+  <string name="web_gui_loading">Väntar på gränssnitt</string>
   <!--SettingsFragment-->
   <string name="settings_title">Inställningar</string>
   <string name="category_run_conditions">Körbetingelser</string>
@@ -176,8 +176,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   </string-array>
   <string name="preference_language_title">Språk</string>
   <string name="preference_language_summary">Ändra appens språk</string>
-  <string name="start_into_web_gui_title">Starta direkt i webb-GUI:n</string>
-  <string name="start_into_web_gui_summary">När du startar appen öppnar du webb-GUI:n istället för huvudskärmen</string>
+  <string name="start_into_web_gui_title">Starta direkt i webbgränssnittet</string>
+  <string name="start_into_web_gui_summary">När du startar appen öppnar du webbgränssnittet istället för huvudskärmen</string>
   <string name="pref_language_default">Standardspråk</string>
   <string-array name="versioning_types">
     <item>Ingen</item>
@@ -196,7 +196,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="global_announce_server">Globala annonseringsservrar</string>
   <string name="enable_relaying">Aktivera reläa</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
-  <string name="gui_address">GUI lyssnaradresser</string>
+  <string name="gui_address">Gränssnittets lyssnaradresser</string>
   <string name="export_config">Exportera konfiguration</string>
   <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
   <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>
