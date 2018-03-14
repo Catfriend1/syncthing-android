@@ -395,4 +395,5 @@
   <string name="could_not_access_deviceid">デバイス ID にアクセスできません。</string>
   <string name="browse">閲覧</string>
   <string name="no_sub_folder_is_selected">サブフォルダーが選択されていません</string>
+  <string name="share_device_id_chooser">次とデバイス ID を共有</string>
 </resources>

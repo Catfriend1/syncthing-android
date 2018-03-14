@@ -399,4 +399,5 @@
   <string name="could_not_access_deviceid">无法获取设备 ID。</string>
   <string name="browse">浏览</string>
   <string name="no_sub_folder_is_selected">未选中子文件夹</string>
+  <string name="share_device_id_chooser">共享设备 ID 与</string>
 </resources>

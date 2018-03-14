@@ -323,6 +323,8 @@
   <string name="default_folder_id">%1$s-photos</string>
   <string name="notification_crash_title">Syncthing 已經當機</string>
   <string name="notification_crash_text">觸碰檢視日誌</string>
+  <string name="notifications_persistent_channel">持續的通知</string>
+  <string name="notifications_other_channel">其他通知</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">需要重新啟動</string>
@@ -394,4 +396,5 @@
   <string name="could_not_access_deviceid">無法存取裝置識別碼</string>
   <string name="browse">瀏覽</string>
   <string name="no_sub_folder_is_selected">無子資料夾被選擇</string>
+  <string name="share_device_id_chooser">分享裝置識別代碼</string>
 </resources>

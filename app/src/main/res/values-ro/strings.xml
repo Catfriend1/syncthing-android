@@ -404,4 +404,5 @@ atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt ș
   <string name="could_not_access_deviceid">Nu s-a putut accesa ID-ul dispozitivului.</string>
   <string name="browse">Navighează</string>
   <string name="no_sub_folder_is_selected">Nu este selectat nici un subdirector</string>
+  <string name="share_device_id_chooser">Partajează ID dispozitiv cu</string>
 </resources>

@@ -399,4 +399,5 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="could_not_access_deviceid">Kon apparaat-ID niet lezen.</string>
   <string name="browse">Bladeren</string>
   <string name="no_sub_folder_is_selected">Geen onderliggende map geselecteerd</string>
+  <string name="share_device_id_chooser">Apparaat-ID delen met</string>
 </resources>

@@ -400,4 +400,5 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="could_not_access_deviceid">No s\'ha pogut tenir accés a la ID del dispositiu.</string>
   <string name="browse">Navega</string>
   <string name="no_sub_folder_is_selected">No s\'ha triat cap subcarpeta</string>
+  <string name="share_device_id_chooser">Comparteix la ID del dispositiu amb</string>
 </resources>

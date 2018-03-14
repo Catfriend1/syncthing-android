@@ -400,4 +400,5 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="could_not_access_deviceid">Impossible d\'accéder à l\'ID de l\'appareil.</string>
   <string name="browse">Parcourir</string>
   <string name="no_sub_folder_is_selected">Aucun sous-répertoire sélectionné</string>
+  <string name="share_device_id_chooser">Partager ID de l\'appareil avec</string>
 </resources>
