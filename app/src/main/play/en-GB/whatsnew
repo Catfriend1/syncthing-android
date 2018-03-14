@@ -1,4 +1,3 @@
-- fixed endless loading if root is enabled (@Catfriend1)
-- updated Syncthing to v0.14.45
+- fixed duplicate file scans which broke sync functionality (@imsodin)
 - imported translations
-
+- updated Syncthing to v0.14.45 (with patch)
