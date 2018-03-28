@@ -22,16 +22,19 @@ import javax.inject.Inject;
 public class NotificationHandler {
 
     private static final int ID_PERSISTENT = 1;
+    private static final int ID_PERSISTENT_WAITING = 4;
     private static final int ID_RESTART = 2;
     private static final int ID_STOP_BACKGROUND_WARNING = 3;
     private static final int ID_CRASH = 9;
     private static final String CHANNEL_PERSISTENT = "01_syncthing_persistent";
     private static final String CHANNEL_INFO = "02_syncthing_notifications";
+    private static final String CHANNEL_PERSISTENT_WAITING = "03_syncthing_persistent_waiting";
 
     private final Context mContext;
     @Inject SharedPreferences mPreferences;
     private final NotificationManager mNotificationManager;
     private final NotificationChannel mPersistentChannel;
+    private final NotificationChannel mPersistentChannelWaiting;
     private final NotificationChannel mInfoChannel;
 
     public NotificationHandler(Context context) {
@@ -47,6 +50,15 @@ public class NotificationHandler {
             mPersistentChannel.enableVibration(false);
             mPersistentChannel.setSound(null, null);
             mNotificationManager.createNotificationChannel(mPersistentChannel);
+
+            mPersistentChannelWaiting = new NotificationChannel(
+                    CHANNEL_PERSISTENT_WAITING, mContext.getString(R.string.notification_persistent_waiting_channel),
+                    NotificationManager.IMPORTANCE_MIN);
+            mPersistentChannelWaiting.enableLights(false);
+            mPersistentChannelWaiting.enableVibration(false);
+            mPersistentChannelWaiting.setSound(null, null);
+            mNotificationManager.createNotificationChannel(mPersistentChannelWaiting);
+
             mInfoChannel = new NotificationChannel(
                     CHANNEL_INFO, mContext.getString(R.string.notifications_other_channel),
                     NotificationManager.IMPORTANCE_LOW);
@@ -55,6 +67,7 @@ public class NotificationHandler {
             mNotificationManager.createNotificationChannel(mInfoChannel);
         } else {
             mPersistentChannel = null;
+            mPersistentChannelWaiting = null;
             mInfoChannel = null;
         }
     }
@@ -95,7 +108,12 @@ public class NotificationHandler {
             PendingIntent pi = PendingIntent.getActivity(mContext, 0,
                     new Intent(mContext, FirstStartActivity.class), 0);
             int title = syncthingRunning ? R.string.syncthing_active : R.string.syncthing_disabled;
-            NotificationCompat.Builder builder = getNotificationBuilder(mPersistentChannel)
+            // Reason for two separate IDs: if one of the notification channels is hidden then
+            // the startForeground() below won't update the notification but use the old one
+            int idToShow = syncthingRunning ? ID_PERSISTENT : ID_PERSISTENT_WAITING;
+            int idToCancel = syncthingRunning ? ID_PERSISTENT_WAITING : ID_PERSISTENT;
+            NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
+            NotificationCompat.Builder builder = getNotificationBuilder(channel)
                     .setContentTitle(mContext.getString(title))
                     .setSmallIcon(R.drawable.ic_stat_notify)
                     .setOngoing(true)
@@ -105,11 +123,12 @@ public class NotificationHandler {
                 builder.setPriority(NotificationCompat.PRIORITY_MIN);
 
             if (foreground) {
-                service.startForeground(ID_PERSISTENT, builder.build());
+                service.startForeground(idToShow, builder.build());
             } else {
                 service.stopForeground(false); // ensure no longer running with foreground priority
-                mNotificationManager.notify(ID_PERSISTENT, builder.build());
+                mNotificationManager.notify(idToShow, builder.build());
             }
+            mNotificationManager.cancel(idToCancel);
         } else {
             // ensure no longer running with foreground priority
             cancelPersistentNotification(service);
@@ -122,6 +141,7 @@ public class NotificationHandler {
 
         service.stopForeground(false);
         mNotificationManager.cancel(ID_PERSISTENT);
+        mNotificationManager.cancel(ID_PERSISTENT_WAITING);
     }
 
     public void showCrashedNotification(@StringRes int title, boolean force) {
