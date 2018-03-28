@@ -48,6 +48,9 @@ public class SyncthingService extends Service {
     public static final String ACTION_RESET =
             "com.nutomic.syncthingandroid.service.SyncthingService.RESET";
 
+    public static final String ACTION_REFRESH_NETWORK_INFO =
+            "com.nutomic.syncthingandroid.service.SyncthingService.REFRESH_NETWORK_INFO";
+
     /**
      * Callback for when the Syncthing web interface becomes first available after service start.
      */
@@ -122,6 +125,8 @@ public class SyncthingService extends Service {
                 new SyncthingRunnable(this, SyncthingRunnable.Command.reset).run();
                 new StartupTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             });
+        } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
+            mDeviceStateHolder.refreshNetworkInfo();
         }
         return START_STICKY;
     }

@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -47,6 +49,26 @@ public class SettingsActivity extends SyncthingActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // On Android 8.1, ACCESS_COARSE_LOCATION is required, see issue #999
+        if (requestCode == Constants.PERM_REQ_ACCESS_COARSE_LOCATION) {
+            for (int i = 0; i < permissions.length; i++) {
+                if (Manifest.permission.ACCESS_COARSE_LOCATION.equals(permissions[i])) {
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        this.startService(new Intent(this, SyncthingService.class)
+                                .setAction(SyncthingService.ACTION_REFRESH_NETWORK_INFO));
+                    } else {
+                        new AlertDialog.Builder(this)
+                                .setTitle(R.string.sync_only_wifi_ssids_location_permission_rejected_dialog_title)
+                                .setMessage(R.string.sync_only_wifi_ssids_location_permission_rejected_dialog_content)
+                                .setPositiveButton(android.R.string.ok, null).show();
+                    }
+                }
+            }
+        }
     }
 
     public static class SettingsFragment extends PreferenceFragment

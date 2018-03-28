@@ -1,14 +1,21 @@
 package com.nutomic.syncthingandroid.views;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.MultiSelectListPreference;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.Toast;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.service.Constants;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -66,6 +73,19 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             super.showDialog(state);
         } else {
             Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_wifi_turn_on_wifi, Toast.LENGTH_LONG).show();
+        }
+
+        // On Android 8.1, ACCESS_COARSE_LOCATION is required, see issue #999
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (getContext() instanceof Activity) {
+                    Activity activity = (Activity) getContext();
+                    ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.ACCESS_COARSE_LOCATION }, Constants.PERM_REQ_ACCESS_COARSE_LOCATION);
+                    this.getDialog().dismiss(); // wait for result
+                } else {
+                    Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_need_to_grant_location_permission, Toast.LENGTH_LONG).show();
+                }
+            }
         }
     }
 

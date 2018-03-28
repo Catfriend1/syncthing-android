@@ -18,6 +18,12 @@ public class Constants {
     public static final String PREF_USE_WAKE_LOCK            = "wakelock_while_binary_running";
 
     /**
+     * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.
+     * This is the request code used when requesting the permission.
+     */
+    public static final int PERM_REQ_ACCESS_COARSE_LOCATION = 999; // for issue #999
+
+    /**
      * Interval in ms at which the GUI is updated (eg {@link com.nutomic.syncthingandroid.fragments.DrawerFragment}).
      */
     public static final long GUI_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(5);

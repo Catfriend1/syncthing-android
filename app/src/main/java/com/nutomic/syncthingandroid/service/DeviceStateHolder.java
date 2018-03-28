@@ -183,6 +183,11 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
         }
     }
 
+    public void refreshNetworkInfo() {
+        updateWifiSsid();
+        mListener.onDeviceStateChanged();
+    }
+
     /**
      * Determines if Syncthing should currently run.
      */
