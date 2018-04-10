@@ -1,3 +1,2 @@
-- fixed duplicate file scans which broke sync functionality (@imsodin)
-- imported translations
-- updated Syncthing to v0.14.45 (with patch)
+* Fix high CPU usage (for some devices this manifested as a crash)
+* Fix Wifi run condition on Android 8.1
