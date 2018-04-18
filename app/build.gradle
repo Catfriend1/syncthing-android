@@ -74,7 +74,7 @@ android {
 play {
     jsonFile = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
     uploadImages = false
-    track = 'production'
+    track = 'beta'
 }
 
 /**
