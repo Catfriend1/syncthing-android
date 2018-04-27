@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,8 @@ import static android.view.View.VISIBLE;
  */
 public class FoldersAdapter extends ArrayAdapter<Folder> {
 
+    private static final String TAG = "FoldersAdapter";
+
     private final HashMap<String, Model> mModels = new HashMap<>();
 
     public FoldersAdapter(Context context) {
@@ -53,11 +56,20 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         binding.openFolder.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.fromFile(new File(folder.path)), "resource/folder");
+            intent.putExtra("org.openintents.extra.ABSOLUTE_PATH", folder.path);
             intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
             if (intent.resolveActivity(getContext().getPackageManager()) != null) {
                 getContext().startActivity(intent);
             } else {
-                Toast.makeText(getContext(), R.string.toast_no_file_manager, Toast.LENGTH_SHORT).show();
+                // Try a second way to find a compatible file explorer app.
+                Log.v(TAG, "openFolder: Fallback to application chooser to open folder.");
+                intent.setDataAndType(Uri.parse(folder.path), "application/*");
+                Intent chooserIntent = Intent.createChooser(intent, getContext().getString(R.string.open_file_manager));
+                if (chooserIntent != null) {
+                    getContext().startActivity(chooserIntent);
+                } else {
+                    Toast.makeText(getContext(), R.string.toast_no_file_manager, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

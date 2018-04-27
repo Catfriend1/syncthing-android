@@ -79,6 +79,8 @@ Please report any problems you encounter via Github.</string>
         <item quantity="other">%1$d / %2$d Files</item>
     </plurals>
 
+    <string name="open_file_manager">Open file manager</string>
+
     <string name="toast_no_file_manager">No compatible file manager found</string>
 
     <!-- DevicesFragment -->
