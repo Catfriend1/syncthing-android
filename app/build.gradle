@@ -33,7 +33,7 @@ android {
     }
     defaultConfig {
         applicationId "com.nutomic.syncthingandroid"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 4141
         versionName "0.10.8"
