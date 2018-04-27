@@ -321,7 +321,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="syncthing_active">Syncthing rulează</string>
   <string name="syncthing_disabled">Syncthing este dezactivat</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Structura directorului este prea complexa. Verificați existența legăturilor simbolice</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
   <!--Label of the default folder created of first start (camera folder).-->

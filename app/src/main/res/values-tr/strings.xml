@@ -261,7 +261,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="syncthing_active">Syncthing çalışıyor</string>
   <string name="syncthing_disabled">Syncthing devre dışı</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Dizin ağacı çok derin. Döngüsel simgesel bağlantıların varlığını araştır</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

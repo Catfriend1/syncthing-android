@@ -102,6 +102,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mRelaysEnabled;
         private EditTextPreference mGlobalAnnounceServers;
         private EditTextPreference mAddress;
+        private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
 
         private Preference mCategoryBackup;
@@ -177,6 +178,7 @@ public class SettingsActivity extends SyncthingActivity {
             mRelaysEnabled          = (CheckBoxPreference) findPreference("relaysEnabled");
             mGlobalAnnounceServers  = (EditTextPreference) findPreference("globalAnnounceServers");
             mAddress                = (EditTextPreference) findPreference("address");
+            mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
 
             mCategoryBackup         = findPreference("category_backup");
@@ -188,9 +190,9 @@ public class SettingsActivity extends SyncthingActivity {
             Preference stResetDatabase      = findPreference("st_reset_database");
             Preference stResetDeltas        = findPreference("st_reset_deltas");
 
-            mUseRoot                     = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            Preference useWakelock       = findPreference(Constants.PREF_USE_WAKE_LOCK);
-            Preference useTor            = findPreference("use_tor");
+            mUseRoot                        = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
+            Preference useWakelock          = findPreference(Constants.PREF_USE_WAKE_LOCK);
+            Preference useTor               = findPreference(Constants.PREF_USE_TOR);
 
             mSyncthingVersion       = findPreference("syncthing_version");
             Preference appVersion   = screen.findPreference("app_version");
@@ -264,6 +266,7 @@ public class SettingsActivity extends SyncthingActivity {
             mRelaysEnabled.setChecked(mOptions.relaysEnabled);
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
             mAddress.setText(mGui.address);
+            mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
             mApi.getSystemInfo(systemInfo ->
                     mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemInfo.urVersionMax)));
         }
@@ -296,16 +299,33 @@ public class SettingsActivity extends SyncthingActivity {
                 case "listenAddresses":
                     mOptions.listenAddresses = Iterables.toArray(splitter.split((String) o), String.class);
                     break;
-                case "maxRecvKbps":           mOptions.maxRecvKbps = Integer.parseInt((String) o); break;
-                case "maxSendKbps":           mOptions.maxSendKbps = Integer.parseInt((String) o); break;
-                case "natEnabled":            mOptions.natEnabled = (boolean) o;                   break;
-                case "localAnnounceEnabled":  mOptions.localAnnounceEnabled = (boolean) o;         break;
-                case "globalAnnounceEnabled": mOptions.globalAnnounceEnabled = (boolean) o;        break;
-                case "relaysEnabled":         mOptions.relaysEnabled = (boolean) o;                break;
+                case "maxRecvKbps":
+                    mOptions.maxRecvKbps = Integer.parseInt((String) o);
+                    break;
+                case "maxSendKbps":
+                    mOptions.maxSendKbps = Integer.parseInt((String) o);
+                    break;
+                case "natEnabled":
+                    mOptions.natEnabled = (boolean) o;
+                    break;
+                case "localAnnounceEnabled":
+                    mOptions.localAnnounceEnabled = (boolean) o;
+                    break;
+                case "globalAnnounceEnabled":
+                    mOptions.globalAnnounceEnabled = (boolean) o;
+                    break;
+                case "relaysEnabled":
+                    mOptions.relaysEnabled = (boolean) o;
+                    break;
                 case "globalAnnounceServers":
                     mOptions.globalAnnounceServers = Iterables.toArray(splitter.split((String) o), String.class);
                     break;
-                case "address":               mGui.address = (String) o;  break;
+                case "address":
+                    mGui.address = (String) o;
+                    break;
+                case "restartOnWakeup":
+                    mOptions.restartOnWakeup = (boolean) o;
+                    break;
                 case "urAccepted":
                     mApi.getSystemInfo(systemInfo -> {
                         mOptions.urAccepted = ((boolean) o)

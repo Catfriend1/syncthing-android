@@ -32,7 +32,6 @@ import com.nutomic.syncthingandroid.model.Model;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.SystemInfo;
 import com.nutomic.syncthingandroid.model.SystemVersion;
-import com.nutomic.syncthingandroid.util.FolderObserver;
 
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -49,8 +48,7 @@ import javax.inject.Inject;
 /**
  * Provides functions to interact with the syncthing REST API.
  */
-public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
-        FolderObserver.OnFolderFileChangeListener {
+public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
 
     private static final String TAG = "RestApi";
 
@@ -145,6 +143,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
             tryIsAvailable();
         });
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
+            Log.v(TAG, "onWebGuiAvailable: " + result);
             mConfig = new Gson().fromJson(result, Config.class);
             if (mConfig == null) {
                 throw new RuntimeException("config is null: " + result);
@@ -483,14 +482,6 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener,
             if (error != null)
                 errorListener.onResult(error.getAsString());
         });
-    }
-
-    /**
-     * Force a rescan of the given subdirectory in folder.
-     */
-    @Override
-    public void onFolderFileChange(String folderId, String relativePath) {
-        new PostScanRequest(mContext, mUrl, mApiKey, folderId, relativePath);
     }
 
     /**

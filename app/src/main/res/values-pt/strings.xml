@@ -262,7 +262,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="syncthing_active">O Syncthing está a correr</string>
   <string name="syncthing_disabled">O Syncthing está desactivado</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Árvore de pastas demasiado profunda. Verifique se existem ligações simbólicas cíclicas</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Câmera</string>

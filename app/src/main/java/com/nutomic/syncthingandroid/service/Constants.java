@@ -8,14 +8,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Constants {
 
-    public static final String PREF_ALWAYS_RUN_IN_BACKGROUND = "always_run_in_background";
-    public static final String PREF_SYNC_ONLY_WIFI           = "sync_only_wifi";
-    public static final String PREF_SYNC_ONLY_WIFI_SSIDS     = "sync_only_wifi_ssids_set";
-    public static final String PREF_SYNC_ONLY_CHARGING       = "sync_only_charging";
-    public static final String PREF_RESPECT_BATTERY_SAVING   = "respect_battery_saving";
-    public static final String PREF_USE_ROOT                 = "use_root";
-    public static final String PREF_NOTIFICATION_TYPE        = "notification_type";
-    public static final String PREF_USE_WAKE_LOCK            = "wakelock_while_binary_running";
+    public static final String PREF_ALWAYS_RUN_IN_BACKGROUND    = "always_run_in_background";
+    public static final String PREF_SYNC_ONLY_WIFI              = "sync_only_wifi";
+    public static final String PREF_SYNC_ONLY_WIFI_SSIDS        = "sync_only_wifi_ssids_set";
+    public static final String PREF_SYNC_ONLY_CHARGING          = "sync_only_charging";
+    public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
+    public static final String PREF_USE_ROOT                    = "use_root";
+    public static final String PREF_NOTIFICATION_TYPE           = "notification_type";
+    public static final String PREF_USE_WAKE_LOCK               = "wakelock_while_binary_running";
+    public static final String PREF_USE_TOR                     = "use_tor";
 
     /**
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.

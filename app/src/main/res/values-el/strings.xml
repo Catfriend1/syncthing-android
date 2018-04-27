@@ -318,7 +318,6 @@
   <string name="syncthing_active">Το Syncthing εκτελείται</string>
   <string name="syncthing_disabled">Το Syncthing είναι απενεργοποιημένο</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Η ιεραρχία των φακέλων έχει υπερβολικά μεγάλο βάθος. Ελέγξτε αν υπάρχουν κυκλικοί συμβολικοί σύνδεσμοι</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
   <!--Label of the default folder created of first start (camera folder).-->

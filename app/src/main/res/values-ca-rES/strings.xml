@@ -318,7 +318,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="syncthing_active">El Syncthing s\'està executant</string>
   <string name="syncthing_disabled">El Syncthing està desactivat</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">L\'arbre de directoris és massa profund. Comproveu que no hi hagi enllaços simbòlics cíclics</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
   <!--Label of the default folder created of first start (camera folder).-->

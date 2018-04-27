@@ -318,7 +318,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="syncthing_active">Syncthing fonctionne</string>
   <string name="syncthing_disabled">Syncthing est désactivé</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Arborescence des répertoires trop profonde. Vérifiez les liens symboliques cycliques.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Echec de création du fichier de configuration</string>
   <!--Label of the default folder created of first start (camera folder).-->

@@ -240,7 +240,6 @@
   <string name="syncthing_active">Syncthing køyrer</string>
   <string name="syncthing_disabled">Syncthing er ikkje aktivert</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Mappetreet er for djupt. Sjekk om det finst sykliske symbolske lenkjer</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

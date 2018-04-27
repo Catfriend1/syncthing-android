@@ -71,6 +71,8 @@ public class SyncthingRunnable implements Runnable {
         mContext = context;
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
         mLogFile = Constants.getLogFile(mContext);
+
+        // Get preferences relevant to starting syncthing core.
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case generate:
@@ -371,7 +373,7 @@ public class SyncthingRunnable implements Runnable {
         // Disable hash benchmark for faster startup.
         // https://github.com/syncthing/syncthing/issues/4348
         targetEnv.put("STHASHING", "minio");
-        if (mPreferences.getBoolean("use_tor", false)) {
+        if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
         }

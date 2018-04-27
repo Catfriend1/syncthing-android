@@ -274,7 +274,6 @@
   <string name="syncthing_active">Syncthing запущен</string>
   <string name="syncthing_disabled">Syncthing выключен</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Слишком глубокая папка. Проверьте на цикличные симлинки</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>

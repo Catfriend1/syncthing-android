@@ -80,6 +80,16 @@
                 android:drawableStart="@drawable/ic_lock_black_24dp_active"
                 android:text="@string/folder_master" />
 
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/fileWatcher"
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:drawableLeft="@drawable/ic_autorenew_black_24dp"
+                android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                android:text="@string/folder_fileWatcher" />
+
             <LinearLayout
                 android:id="@+id/versioningContainer"
                 android:layout_width="match_parent"

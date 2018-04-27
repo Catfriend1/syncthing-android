@@ -315,7 +315,6 @@
   <string name="syncthing_active">Syncthing 正在运行</string>
   <string name="syncthing_disabled">Syncthing 已禁用</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">目录树层次过深，正在检查循环符号链接。</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">创建配置文件失败</string>
   <!--Label of the default folder created of first start (camera folder).-->

@@ -77,6 +77,7 @@ public class FolderActivity extends SyncthingActivity
     private EditText mIdView;
     private TextView mPathView;
     private SwitchCompat mFolderMasterView;
+    private SwitchCompat mFolderFileWatcher;
     private ViewGroup mDevicesContainer;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
@@ -109,6 +110,10 @@ public class FolderActivity extends SyncthingActivity
                     mFolder.type = (isChecked) ? "readonly" : "readwrite";
                     mFolderNeedsToUpdate = true;
                     break;
+                case R.id.fileWatcher:
+                    mFolder.fsWatcherEnabled = isChecked;
+                    mFolderNeedsToUpdate = true;
+                    break;
                 case R.id.device_toggle:
                     Device device = (Device) view.getTag();
                     if (isChecked) {
@@ -135,6 +140,7 @@ public class FolderActivity extends SyncthingActivity
         mIdView = findViewById(R.id.id);
         mPathView = findViewById(R.id.directoryTextView);
         mFolderMasterView = findViewById(R.id.master);
+        mFolderFileWatcher = findViewById(R.id.fileWatcher);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mDevicesContainer = findViewById(R.id.devicesContainer);
@@ -309,6 +315,7 @@ public class FolderActivity extends SyncthingActivity
         mIdView.removeTextChangedListener(mTextWatcher);
         mPathView.removeTextChangedListener(mTextWatcher);
         mFolderMasterView.setOnCheckedChangeListener(null);
+        mFolderFileWatcher.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
@@ -316,6 +323,7 @@ public class FolderActivity extends SyncthingActivity
         mPathView.setText(mFolder.path);
         updateVersioningDescription();
         mFolderMasterView.setChecked(Objects.equal(mFolder.type, "readonly"));
+        mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         List<Device> devicesList = getApi().getDevices(false);
 
         mDevicesContainer.removeAllViews();
@@ -332,6 +340,7 @@ public class FolderActivity extends SyncthingActivity
         mIdView.addTextChangedListener(mTextWatcher);
         mPathView.addTextChangedListener(mTextWatcher);
         mFolderMasterView.setOnCheckedChangeListener(mCheckedListener);
+        mFolderFileWatcher.setOnCheckedChangeListener(mCheckedListener);
     }
 
     @Override
@@ -423,13 +432,13 @@ public class FolderActivity extends SyncthingActivity
                 : generateRandomFolderId();
         mFolder.label = getIntent().getStringExtra(EXTRA_FOLDER_LABEL);
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M) {
-            // Scan every 3 days (in case inotify dropped some changes)
-            mFolder.rescanIntervalS = 259200;
+            // Scan every hour (in case real time change detection failed)
+            mFolder.rescanIntervalS = 3600;
         }
         else {
             // FileObserver is broken on Marshmallow.
             // https://github.com/syncthing/syncthing-android/issues/787
-            mFolder.rescanIntervalS = 60;
+            mFolder.rescanIntervalS = 300;
         }
         mFolder.versioning = new Folder.Versioning();
     }

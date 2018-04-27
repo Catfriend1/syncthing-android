@@ -1,8 +1,10 @@
 package com.nutomic.syncthingandroid.util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -23,6 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -45,6 +48,7 @@ public class ConfigXml {
     private static final String TAG = "ConfigXml";
 
     private final Context mContext;
+    @Inject SharedPreferences mPreferences;
 
     private final File mConfigFile;
 
@@ -62,8 +66,18 @@ public class ConfigXml {
         readConfig();
 
         if (isFirstStart) {
+            boolean changed = false;
+
+            /* Synthing devices */
             changeLocalDeviceName();
-            changeDefaultFolder();
+
+            /* Syncthing folders */
+            changed = changeDefaultFolder() || changed;
+
+            // Save changes if we made any.
+            if (changed) {
+                saveChanges();
+            }
         }
     }
 
@@ -110,9 +124,15 @@ public class ConfigXml {
      */
     @SuppressWarnings("SdCardPath")
     public void updateIfNeeded() {
-        Log.i(TAG, "Checking for needed config updates");
         boolean changed = false;
+
+        /* Perform one-time migration tasks on syncthing's config file when coming from an older config version. */
+        changed = migrateSyncthingOptions() || changed;
+
+        /* Get refs to important config objects */
         NodeList folders = mConfig.getDocumentElement().getElementsByTagName("folder");
+
+        /* Section - folders */
         for (int i = 0; i < folders.getLength(); i++) {
             Element r = (Element) folders.item(i);
             // Set ignorePerms attribute.
@@ -128,6 +148,7 @@ public class ConfigXml {
             changed = setConfigElement(r, "hashers", "1") || changed;
         }
 
+        /* Section - GUI */
         // Enforce TLS.
         Element gui = getGuiElement();
         changed = setConfigElement(gui, "tls", "true") || changed;
@@ -156,14 +177,76 @@ public class ConfigXml {
             changed = true;
         }
 
+        /* Section - options */
         // Disable weak hash benchmark for faster startup.
         // https://github.com/syncthing/syncthing/issues/4348
         Element options = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("options").item(0);
         changed = setConfigElement(options, "weakHashSelectionMethod", "never") || changed;
 
+        /* Dismiss "fsWatcherNotification" according to https://github.com/syncthing/syncthing-android/pull/1051 */
+        NodeList childNodes = options.getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeName().equals("unackedNotificationID")) {
+                if (node.equals("fsWatcherNotification")) {
+                    Log.i(TAG, "Remove found unackedNotificationID 'fsWatcherNotification'.");
+                    options.removeChild(node);
+                    changed = true;
+                    break;
+                }
+            }
+        }
+
+        // Save changes if we made any.
         if (changed) {
             saveChanges();
+        }
+    }
+
+    /**
+     * Updates syncthing options to a version specific target setting in the config file.
+     *
+     * Used for one-time config migration from a lower syncthing version to the current version.
+     * Enables filesystem watcher.
+     * Returns if changes to the config have been made.
+     */
+    private boolean migrateSyncthingOptions () {
+        /* Read existing config version */
+        int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
+        int iOldConfigVersion = iConfigVersion;
+        Log.i(TAG, "Found existing config version " + Integer.toString(iConfigVersion));
+
+        /* Check if we have to do manual migration from version X to Y */
+        if (iConfigVersion == 27) {
+            /* fsWatcher transition - https://github.com/syncthing/syncthing/issues/4882 */
+            Log.i(TAG, "Migrating config version " + Integer.toString(iConfigVersion) + " to 28 ...");
+
+            /* Enable fsWatcher for all folders */
+            NodeList folders = mConfig.getDocumentElement().getElementsByTagName("folder");
+            for (int i = 0; i < folders.getLength(); i++) {
+                Element r = (Element) folders.item(i);
+
+                // Enable "fsWatcherEnabled" attribute and set default delay.
+                Log.i(TAG, "Set 'fsWatcherEnabled', 'fsWatcherDelayS' on folder " + r.getAttribute("id"));
+                r.setAttribute("fsWatcherEnabled", "true");
+                r.setAttribute("fsWatcherDelayS", "10");
+            }
+
+            /**
+            * Set config version to 28 after manual config migration
+            * This prevents "unackedNotificationID" getting populated
+            * with the fsWatcher GUI notification.
+            */
+            iConfigVersion = 28;
+        }
+
+        if (iConfigVersion != iOldConfigVersion) {
+            mConfig.getDocumentElement().setAttribute("version", Integer.toString(iConfigVersion));
+            Log.i(TAG, "New config version is " + Integer.toString(iConfigVersion));
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -203,8 +286,9 @@ public class ConfigXml {
 
     /**
      * Change default folder id to camera and path to camera folder path.
+     * Returns if changes to the config have been made.
      */
-    private void changeDefaultFolder() {
+    private boolean changeDefaultFolder() {
         Element folder = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("folder").item(0);
         String model = Build.MODEL
@@ -216,7 +300,9 @@ public class ConfigXml {
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
         folder.setAttribute("type", "readonly");
-        saveChanges();
+        folder.setAttribute("fsWatcherEnabled", "true");
+        folder.setAttribute("fsWatcherDelayS", "10");
+        return true;
     }
 
     /**

@@ -236,7 +236,6 @@
   <string name="syncthing_active">Syncthing đang chạy</string>
   <string name="syncthing_disabled">Đã tắt Syncthing</string>
   <!--Toast shown if folder observer fails to traverse a folder-->
-  <string name="toast_folder_observer_stack_overflow">Cây th.mục quá sâu. Hãy k.tra các l.kết biểu trưng trùng lặp</string>
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

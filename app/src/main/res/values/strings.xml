@@ -142,6 +142,9 @@ Please report any problems you encounter via Github.</string>
     <string name="folder_master">Send Only</string>
 
     <!-- Setting title -->
+    <string name="folder_fileWatcher">Realtime Sync</string>
+
+    <!-- Setting title -->
     <string name="devices">Devices</string>
 
     <!-- Setting title -->
@@ -344,6 +347,14 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_legacy_hashing_summary">Force Syncthing to use legacy hashing package for compatibility purposes</string>
 
+    <string name="use_folder_observer_title">Use deprecated change detection</string>
+
+    <string name="use_folder_observer_summary">Default: Disabled. Use deprecated android implementation to detect filesystem changes instead of SyncThing\'s new built-in feature.</string>
+
+    <string name="restart_on_wakeup_title">Restart on Wakeup</string>
+
+    <string name="restart_on_wakeup_summary">Default: Enabled. Disabling this feature may result in folder scans and device reconnects being delayed to save battery.</string>
+
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Do you really want to export your configuration? Existing files will be overwritten.\n\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
 
@@ -535,9 +546,6 @@ Please report any problems you encounter via Github.</string>
     <string name="syncthing_active">Syncthing is running</string>
 
     <string name="syncthing_disabled">Syncthing is disabled</string>
-
-    <!-- Toast shown if folder observer fails to traverse a folder -->
-    <string name="toast_folder_observer_stack_overflow">Directory tree too deep. Check for cyclic symlinks</string>
 
     <!-- Toast shown if syncthing failed to create a config -->
     <string name="config_create_failed">Failed to create config file</string>

@@ -18,7 +18,6 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
-import com.nutomic.syncthingandroid.util.FolderObserver;
 
 import java.io.File;
 import java.io.IOException;
@@ -95,7 +94,6 @@ public class SyncthingService extends Service {
     private DeviceStateHolder mDeviceStateHolder;
     private SyncthingRunnable mSyncthingRunnable;
 
-    private final LinkedList<FolderObserver> mObservers = new LinkedList<>();
     private final HashSet<OnApiChangeListener> mOnApiChangeListeners = new HashSet<>();
     private final SyncthingServiceBinder mBinder = new SyncthingServiceBinder(this);
 
@@ -232,22 +230,7 @@ public class SyncthingService extends Service {
 
     private void onSyncthingStarted() {
         onApiChange(State.ACTIVE);
-        Handler handler = new Handler();
-        new Thread(() -> {
-            for (Folder r : mApi.getFolders()) {
-                try {
-                    mObservers.add(new FolderObserver(mApi, r, handler));
-                } catch (FolderObserver.FolderNotExistingException e) {
-                    Log.w(TAG, "Failed to add observer for folder", e);
-                } catch (StackOverflowError e) {
-                    Log.w(TAG, "Failed to add folder observer", e);
-                    Toast.makeText(SyncthingService.this,
-                            R.string.toast_folder_observer_stack_overflow,
-                            Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-        }).start();
+        Log.i(TAG, "onSyncthingStarted(): State.ACTIVE reached.");
     }
 
     @Override
@@ -294,9 +277,6 @@ public class SyncthingService extends Service {
             mApi.shutdown();
 
         mNotificationHandler.cancelPersistentNotification(this);
-
-        Stream.of(mObservers).forEach(FolderObserver::stopWatching);
-        mObservers.clear();
 
         if (mSyncthingRunnable != null) {
             mSyncthingRunnable.killSyncthing(onKilledListener);
