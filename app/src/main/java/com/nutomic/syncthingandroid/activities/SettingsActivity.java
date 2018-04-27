@@ -80,7 +80,8 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_STTRACE = "sttrace";
         private static final String KEY_EXPORT_CONFIG = "export_config";
         private static final String KEY_IMPORT_CONFIG = "import_config";
-        private static final String KEY_STRESET = "streset";
+        private static final String KEY_ST_RESET_DATABASE = "st_reset_database";
+        private static final String KEY_ST_RESET_DELTAS = "st_reset_deltas";
 
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
@@ -184,7 +185,8 @@ public class SettingsActivity extends SyncthingActivity {
 
             Preference stTrace              = findPreference("sttrace");
             Preference environmentVariables = findPreference("environment_variables");
-            Preference stReset              = findPreference("streset");
+            Preference stResetDatabase      = findPreference("st_reset_database");
+            Preference stResetDeltas        = findPreference("st_reset_deltas");
 
             mUseRoot                     = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
             Preference useWakelock       = findPreference(Constants.PREF_USE_WAKE_LOCK);
@@ -204,7 +206,8 @@ public class SettingsActivity extends SyncthingActivity {
 
             stTrace.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
-            stReset.setOnPreferenceClickListener(this);
+            stResetDatabase.setOnPreferenceClickListener(this);
+            stResetDeltas.setOnPreferenceClickListener(this);
 
             mUseRoot.setOnPreferenceClickListener(this);
             useWakelock.setOnPreferenceChangeListener((p, o) -> requireRestart());
@@ -376,6 +379,7 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public boolean onPreferenceClick(Preference preference) {
+            final Intent intent;
             switch (preference.getKey()) {
                 case Constants.PREF_USE_ROOT:
                     if (mUseRoot.isChecked()) {
@@ -418,16 +422,31 @@ public class SettingsActivity extends SyncthingActivity {
                             .setNegativeButton(android.R.string.no, null)
                             .show();
                     return true;
-                case KEY_STRESET:
-                    final Intent intent = new Intent(getActivity(), SyncthingService.class)
-                            .setAction(SyncthingService.ACTION_RESET);
+                case KEY_ST_RESET_DATABASE:
+                    intent = new Intent(getActivity(), SyncthingService.class)
+                            .setAction(SyncthingService.ACTION_RESET_DATABASE);
 
                     new AlertDialog.Builder(getActivity())
-                            .setTitle(R.string.streset_title)
-                            .setMessage(R.string.streset_question)
+                            .setTitle(R.string.st_reset_database_title)
+                            .setMessage(R.string.st_reset_database_question)
                             .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
                                 getActivity().startService(intent);
-                                Toast.makeText(getActivity(), R.string.streset_done, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), R.string.st_reset_database_done, Toast.LENGTH_LONG).show();
+                            })
+                            .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
+                            })
+                            .show();
+                    return true;
+                case KEY_ST_RESET_DELTAS:
+                    intent = new Intent(getActivity(), SyncthingService.class)
+                            .setAction(SyncthingService.ACTION_RESET_DELTAS);
+
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle(R.string.st_reset_deltas_title)
+                            .setMessage(R.string.st_reset_deltas_question)
+                            .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                                getActivity().startService(intent);
+                                Toast.makeText(getActivity(), R.string.st_reset_deltas_done, Toast.LENGTH_LONG).show();
                             })
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                             })

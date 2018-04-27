@@ -195,13 +195,13 @@
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Только 0-9, a-z и \',\' допустимы для параметра STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Сбросить базу данных</string>
+  <string name="st_reset_database_title">Сбросить базу данных</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Это действие должно выполняться только по рекомендации нашей поддержки.
+  <string name="st_reset_database_question">Это действие должно выполняться только по рекомендации нашей поддержки.
         \nВы уверены что хотите очистить индекс базы Syncthing?
     </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">БД Syncthing успешно сброшена</string>
+  <string name="st_reset_database_done">БД Syncthing успешно сброшена</string>
   <string name="category_about">О программе</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Открыть лог</string>

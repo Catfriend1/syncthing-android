@@ -173,12 +173,12 @@
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Nullstill database</string>
+  <string name="st_reset_database_title">Nullstill database</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Denne handlinga bør berre utførast om vår brukarstøttegruppe har anbefalt det.
+  <string name="st_reset_database_question">Denne handlinga bør berre utførast om vår brukarstøttegruppe har anbefalt det.
 \nEr du sikker på at du vil nullstille indeksdatabasen til Syncthing?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Vellukka nullstilling av Syncthings database</string>
+  <string name="st_reset_database_done">Vellukka nullstilling av Syncthings database</string>
   <string name="category_about">Om</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Opne logg</string>

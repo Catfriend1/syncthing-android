@@ -191,13 +191,13 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Tylko 0-9, a-z i \",\" są dozwolone w opcjach STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Przywróć pierwotny stan bazy danych</string>
+  <string name="st_reset_database_title">Przywróć pierwotny stan bazy danych</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">To działanie powinno się przeprowadzać tylko, kiedy jest ono zalecone przez dział wsparcia programu.
+  <string name="st_reset_database_question">To działanie powinno się przeprowadzać tylko, kiedy jest ono zalecone przez dział wsparcia programu.
 
 \nPrzywrócić bazę danych do stanu początkowego?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Przywrócono stan początkowy bazy danych</string>
+  <string name="st_reset_database_done">Przywrócono stan początkowy bazy danych</string>
   <string name="category_about">O programie</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Otwórz dziennik</string>

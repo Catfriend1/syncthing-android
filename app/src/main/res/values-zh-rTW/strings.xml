@@ -221,13 +221,13 @@
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE 選項僅允許 0-9、a-z 及 \',\'</string>
   <string name="toast_invalid_environment_variables">輸入的值不是有效的環境變數字串</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">重設資料庫</string>
+  <string name="st_reset_database_title">重設資料庫</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">執行這個動作應該只會基於來自我們支援團隊的建議。
+  <string name="st_reset_database_question">執行這個動作應該只會基於來自我們支援團隊的建議。
         \n你確定要清除 Syncthing 的索引資料庫？
     </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">成功重設 Syncthing 資料庫</string>
+  <string name="st_reset_database_done">成功重設 Syncthing 資料庫</string>
   <string name="category_about">關於</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">打開日誌</string>

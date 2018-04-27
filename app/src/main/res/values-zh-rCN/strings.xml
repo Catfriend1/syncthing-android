@@ -223,12 +223,12 @@
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE 选项仅允许 0-9、a-z 与半角逗号“,”</string>
   <string name="toast_invalid_environment_variables">该值不是有效的环境变量字符串</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">重置数据库</string>
+  <string name="st_reset_database_title">重置数据库</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">本操作仅应在支持团队的推荐下进行。\n
+  <string name="st_reset_database_question">本操作仅应在支持团队的推荐下进行。\n
 您确定要清理 Syncthing 的索引数据库吗？</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">重置 Syncthing 数据库完成</string>
+  <string name="st_reset_database_done">重置 Syncthing 数据库完成</string>
   <string name="category_about">关于</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">打开日志</string>

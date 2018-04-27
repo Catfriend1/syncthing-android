@@ -223,12 +223,12 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">V STTRACE jsou povoleny pouze znaky \'0-9\', \'a-z\' a \',\'</string>
   <string name="toast_invalid_environment_variables">Hodnota není platným řetězcem proměnné prostředí</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Resetovat databázi</string>
+  <string name="st_reset_database_title">Resetovat databázi</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Tento krok by měl být proveden pouze na základě doporučení našeho technického týmu.
+  <string name="st_reset_database_question">Tento krok by měl být proveden pouze na základě doporučení našeho technického týmu.
 \nOpravdu chcete vyčistit databázi aplikace Syncthing?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Databáze aplikace Syncthing úspěšně resetována</string>
+  <string name="st_reset_database_done">Databáze aplikace Syncthing úspěšně resetována</string>
   <string name="category_about">O aplikaci</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Otevřít log</string>

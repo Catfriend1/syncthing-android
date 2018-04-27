@@ -222,12 +222,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Endast 0-9, a-z och \',\' är tillåtna i STTRACE alternativ</string>
   <string name="toast_invalid_environment_variables">Värdet är inte en giltig miljövariabel sträng</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Återställ databas</string>
+  <string name="st_reset_database_title">Återställ databas</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Denna åtgärd bör endast utföras baserad på en rekommendation från vår support grupp.
+  <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserad på en rekommendation från vår support grupp.
 \nÄr du säker på att du vill rensa Syncthings index-databas?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Syncthings databas återställdes</string>
+  <string name="st_reset_database_done">Syncthings databas återställdes</string>
   <string name="category_about">Om</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Öppna logg</string>

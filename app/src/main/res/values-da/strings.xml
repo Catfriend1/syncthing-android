@@ -221,12 +221,12 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Kun 0-9, a-z og \',\' er tilladte i STTRACE options</string>
   <string name="toast_invalid_environment_variables">Værdien er ugyldig som miljøvariablestreng</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Nulstil database</string>
+  <string name="st_reset_database_title">Nulstil database</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Denne handling burde kun gennemføres baseret på anvisning af vores support tem.
+  <string name="st_reset_database_question">Denne handling burde kun gennemføres baseret på anvisning af vores support tem.
 \nEr du sikker på at du ønsker at nulstille Syncthing\'s indeks database?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Syncthing\'s database successfuldt nulstillet</string>
+  <string name="st_reset_database_done">Syncthing\'s database successfuldt nulstillet</string>
   <string name="category_about">Omkring</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Åben Log</string>

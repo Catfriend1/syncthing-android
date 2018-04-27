@@ -156,12 +156,12 @@
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Resetovať Databázu</string>
+  <string name="st_reset_database_title">Resetovať Databázu</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Túto možnosť by ste mali využiť iba ak Vám to odporučí naša podpora.\n
+  <string name="st_reset_database_question">Túto možnosť by ste mali využiť iba ak Vám to odporučí naša podpora.\n
 Naozaj chcete resetovať databázu s indexom súborov?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Reset databázy bol úspešný</string>
+  <string name="st_reset_database_done">Reset databázy bol úspešný</string>
   <string name="category_about">O programe</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Zobraziť Záznam</string>

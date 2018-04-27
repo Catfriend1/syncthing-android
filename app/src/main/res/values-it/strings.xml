@@ -222,13 +222,13 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Solo 0-9, a-z e \',\' sono consentiti nelle opzioni STTRACE</string>
   <string name="toast_invalid_environment_variables">Il valore non è una stringa valida per una variabile d\'ambiente</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Reset del Database</string>
+  <string name="st_reset_database_title">Reset del Database</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Questa operazione dovrebbe essere eseguita solo su raccomandazione del nostro team di supporto.
+  <string name="st_reset_database_question">Questa operazione dovrebbe essere eseguita solo su raccomandazione del nostro team di supporto.
 \nSei sicuro di voler svuotare il database degli indici di Syncthing?
 </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Reset del database di Syncthing riuscito</string>
+  <string name="st_reset_database_done">Reset del database di Syncthing riuscito</string>
   <string name="category_about">Info</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Apri Registro</string>

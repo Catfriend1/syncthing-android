@@ -168,13 +168,13 @@
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Reiniciar Base de Datos</string>
+  <string name="st_reset_database_title">Reiniciar Base de Datos</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Esta acción sólo debe ser realizada basada en una recomendación de nuestro equipo de soporte.
+  <string name="st_reset_database_question">Esta acción sólo debe ser realizada basada en una recomendación de nuestro equipo de soporte.
 \n¿Está seguro que quiere limpiar el índice de la base de datos de Syncthing?
 </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Satisfactoriamente reiniciada la base de datos de Syncthing</string>
+  <string name="st_reset_database_done">Satisfactoriamente reiniciada la base de datos de Syncthing</string>
   <string name="category_about">Acerca de</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir Registro</string>

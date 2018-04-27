@@ -212,12 +212,12 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Hanya 0-9, a-z dan \',\' yang dibolehkan dalam opsi STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Reset Database</string>
+  <string name="st_reset_database_title">Reset Database</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Perintah ini sebaiknya dijalankan hanya menurut saran dari tim dukungan kami.
+  <string name="st_reset_database_question">Perintah ini sebaiknya dijalankan hanya menurut saran dari tim dukungan kami.
 \nAnda yakin ingin membersihkan database indeks Syncthing?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Berhasil melakukan reset database Syncthing</string>
+  <string name="st_reset_database_done">Berhasil melakukan reset database Syncthing</string>
   <string name="category_about">Tentang</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Buka Log</string>

@@ -191,12 +191,12 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE seçeneklerinde yalnızca 0-9, a-z ve \",\" karakterlerine izin verilir</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Veritabanını Sıfırla</string>
+  <string name="st_reset_database_title">Veritabanını Sıfırla</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Bu eylem yalnızca destek takımımızdan alınan öneriye dayanarak gerçekleştirilmelidir.
+  <string name="st_reset_database_question">Bu eylem yalnızca destek takımımızdan alınan öneriye dayanarak gerçekleştirilmelidir.
 \nSyncthing\'in dizin veritabanını temizlemek istediğine emin misin?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Syncthing\'in veritabanı başarıyla sıfırlandı.</string>
+  <string name="st_reset_database_done">Syncthing\'in veritabanı başarıyla sıfırlandı.</string>
   <string name="category_about">Hakkında</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Günlüğü Aç</string>

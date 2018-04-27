@@ -221,12 +221,12 @@
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE オプションでは、0-9、a-z および \',\' のみ使用できます。</string>
   <string name="toast_invalid_environment_variables">値は有効な環境変数文字列ではありません</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">データベースをリセットする</string>
+  <string name="st_reset_database_title">データベースをリセットする</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">この操作は、サポートチームに推奨された場合にのみ行ってください。
+  <string name="st_reset_database_question">この操作は、サポートチームに推奨された場合にのみ行ってください。
 \n本当に Syncthing のインデックスデータベースをクリアしてもよろしいですか?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">正常に Syncthing のデータベースをリセットしました</string>
+  <string name="st_reset_database_done">正常に Syncthing のデータベースをリセットしました</string>
   <string name="category_about">アプリについて</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">ログを開く</string>

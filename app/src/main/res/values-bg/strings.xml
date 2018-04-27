@@ -187,13 +187,13 @@
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">В настройките на STTRACE са разрешени само символите 0-9, a-z и \',\'</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Нулиране на базата данни</string>
+  <string name="st_reset_database_title">Нулиране на базата данни</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Действието трябва да се изпълнява след препоръка от поддържащия екип.
+  <string name="st_reset_database_question">Действието трябва да се изпълнява след препоръка от поддържащия екип.
 \nНаистина ли желаете базата данни на Syncthing\'s да бъде нулирана?
     </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Базата данни на Syncthing е нулирана успешно</string>
+  <string name="st_reset_database_done">Базата данни на Syncthing е нулирана успешно</string>
   <string name="category_about">За програмата</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Отвори журнала</string>

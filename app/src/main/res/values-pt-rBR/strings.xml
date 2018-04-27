@@ -218,13 +218,13 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Somente os caracteres 0-9, a-z e vírgula são permitidos nas opções de STTRACE</string>
   <string name="toast_invalid_environment_variables">O a variável de ambiente não é um valor válido</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Limpar banco de dados</string>
+  <string name="st_reset_database_title">Limpar banco de dados</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Esta ação deve ser executada somente com base em uma recomendação da nossa equipe de suporte.
+  <string name="st_reset_database_question">Esta ação deve ser executada somente com base em uma recomendação da nossa equipe de suporte.
 \nTem certeza de que quer limpar o banco de dados do Syncthing?
 </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">O banco de dados do Syncthing foi limpo com sucesso</string>
+  <string name="st_reset_database_done">O banco de dados do Syncthing foi limpo com sucesso</string>
   <string name="category_about">Sobre</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir log</string>

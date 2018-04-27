@@ -169,10 +169,10 @@
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_environment_variables">Значення не відповідає формату рядка змінних оточення</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Очистити базу даних</string>
+  <string name="st_reset_database_title">Очистити базу даних</string>
   <!--Syncthing was reset-->
   <!--Syncthing was reset-->
-  <string name="streset_done">База даних  Syncthing успішно очищена</string>
+  <string name="st_reset_database_done">База даних  Syncthing успішно очищена</string>
   <string name="category_about">Про додаток</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Відкрити журнал</string>

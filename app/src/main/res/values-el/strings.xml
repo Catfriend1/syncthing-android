@@ -222,13 +222,13 @@
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Οι αποδεκτοί χαρακτήρες στις επιλογές STTRACE είναι τα 0-9, a-z και το \',\'.</string>
   <string name="toast_invalid_environment_variables">Η τιμή δεν είναι έγκυρη συμβολοσειρά μεταβλητής περιβάλλοντος</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Επαναφορά βάσης δεδομένων</string>
+  <string name="st_reset_database_title">Επαναφορά βάσης δεδομένων</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Αυτή η ενέργεια πρέπει να εκτελείται μόνο κατόπιν προτροπής από την ομάδα υποστήριξης μας.
+  <string name="st_reset_database_question">Αυτή η ενέργεια πρέπει να εκτελείται μόνο κατόπιν προτροπής από την ομάδα υποστήριξης μας.
 \nΣίγουρα επιθυμείτε να διαγράψετε τη βάση δεδομένων ευρετηρίων του Syncthing;
 </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Η επαναφορά της βάσης δεδομένων του Syncthing ήταν επιτυχής</string>
+  <string name="st_reset_database_done">Η επαναφορά της βάσης δεδομένων του Syncthing ήταν επιτυχής</string>
   <string name="category_about">Σχετικά με το Syncthing</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Άνοιγμα καταγραφής συμβάντων</string>

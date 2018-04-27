@@ -198,12 +198,12 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Vain 0-9, a-z ja \',\' ovat sallittuja STTRACE valintoja</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Nollaa tietokanta</string>
+  <string name="st_reset_database_title">Nollaa tietokanta</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Tätä toimintoa tulee käyttää vain, jos tukemme suosittelee sitä.
+  <string name="st_reset_database_question">Tätä toimintoa tulee käyttää vain, jos tukemme suosittelee sitä.
 \nOletko varma, että haluat tyhjentää Synthingin indeksitietokannan?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Syncthingin tietokannan tyhjentäminen onnistui</string>
+  <string name="st_reset_database_done">Syncthingin tietokannan tyhjentäminen onnistui</string>
   <string name="category_about">Tietoja</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Avaa loki</string>

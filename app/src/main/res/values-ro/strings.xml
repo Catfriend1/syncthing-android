@@ -223,12 +223,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Doar 0-9, a-z și \',\' sunt permise în opțiunile STTRACE</string>
   <string name="toast_invalid_environment_variables">Această valoare nu este un șir de variabile de mediu valabil</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Resetează baza de date</string>
+  <string name="st_reset_database_title">Resetează baza de date</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Această acțiune ar trebui efectuată numai la recomandarea echipei noastre de suport tehnic.
+  <string name="st_reset_database_question">Această acțiune ar trebui efectuată numai la recomandarea echipei noastre de suport tehnic.
        \nSigur doriți să ștergeți indexul bazei de date Syncthing?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Baza de date Syncthing a fost resetată cu succes</string>
+  <string name="st_reset_database_done">Baza de date Syncthing a fost resetată cu succes</string>
   <string name="category_about">Despre</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Deschide jurnal de erori</string>

@@ -197,12 +197,12 @@
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Sólo se permite 0-9, a-z y coma (\',\') en las opciones de STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Restablecer base de datos</string>
+  <string name="st_reset_database_title">Restablecer base de datos</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Esta acción sólo se debería realizar por recomendación de nuestro equipo de soporte.
+  <string name="st_reset_database_question">Esta acción sólo se debería realizar por recomendación de nuestro equipo de soporte.
 \n¿Estás seguro de que quieres limpiar la base de datos de índices de Syncthing?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Base de datos de Syncthing restablecida con éxito</string>
+  <string name="st_reset_database_done">Base de datos de Syncthing restablecida con éxito</string>
   <string name="category_about">Acerca de</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir registro</string>

@@ -220,12 +220,12 @@
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE 옵션에서는 0-9, a-z 와 \'.\' 외의 문자를 사용할 수 없습니다.</string>
   <string name="toast_invalid_environment_variables">값이 유효한 환경 변수 문자열이 아닙니다</string>
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">데이터베이스 리셋</string>
+  <string name="st_reset_database_title">데이터베이스 리셋</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">이 행동은 우리의 지원팀이 권장한 경우에만 시도하세요.
+  <string name="st_reset_database_question">이 행동은 우리의 지원팀이 권장한 경우에만 시도하세요.
 \n정말로 Syncthing의 인덱스 데이터베이스를 지우시겠습니까?</string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Syncthing의 데이터베이스가 성공적으로 리셋되었습니다</string>
+  <string name="st_reset_database_done">Syncthing의 데이터베이스가 성공적으로 리셋되었습니다</string>
   <string name="category_about">정보</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">로그 열기</string>

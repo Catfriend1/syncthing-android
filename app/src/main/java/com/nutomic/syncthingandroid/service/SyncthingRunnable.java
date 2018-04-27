@@ -55,9 +55,10 @@ public class SyncthingRunnable implements Runnable {
     @Inject NotificationHandler mNotificationHandler;
 
     public enum Command {
-        generate, // Generate keys, a config file and immediately exit.
-        main,     // Run the main Syncthing application.
-        reset,    // Reset Syncthing's indexes
+        generate,           // Generate keys, a config file and immediately exit.
+        main,               // Run the main Syncthing application.
+        resetdatabase,      // Reset Syncthing's database
+        resetdeltas,        // Reset Syncthing's delta indexes
     }
 
     /**
@@ -78,8 +79,11 @@ public class SyncthingRunnable implements Runnable {
             case main:
                 mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-no-browser", "-logflags=0" };
                 break;
-            case reset:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset", "-logflags=0" };
+            case resetdatabase:
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-database", "-logflags=0" };
+                break;
+            case resetdeltas:
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-deltas", "-logflags=0" };
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");

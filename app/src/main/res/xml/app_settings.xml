@@ -174,8 +174,13 @@
             android:inputType="textNoSuggestions"/>
 
         <Preference
-            android:key="streset"
-            android:title="@string/streset_title"
+            android:key="st_reset_database"
+            android:title="@string/st_reset_database_title"
+            android:singleLine="true" />
+
+        <Preference
+            android:key="st_reset_deltas"
+            android:title="@string/st_reset_deltas_title"
             android:singleLine="true" />
 
     </PreferenceScreen>

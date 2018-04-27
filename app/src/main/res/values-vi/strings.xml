@@ -168,13 +168,13 @@
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
   <!--Title for the preference to reset Syncthing indexes-->
-  <string name="streset_title">Cài lại CSDL</string>
+  <string name="st_reset_database_title">Cài lại CSDL</string>
   <!--Syncthing was reset-->
-  <string name="streset_question">Chỉ nên thực hiện thao tác này dựa trên khuyến nghị từ nhóm hỗ trợ của chúng tôi.
+  <string name="st_reset_database_question">Chỉ nên thực hiện thao tác này dựa trên khuyến nghị từ nhóm hỗ trợ của chúng tôi.
 \nCó chắc là bạn muốn xoá CSDL chỉ mục của Syncthing?
 </string>
   <!--Syncthing was reset-->
-  <string name="streset_done">Cài lại thành công CSDL của Syncthing</string>
+  <string name="st_reset_database_done">Cài lại thành công CSDL của Syncthing</string>
   <string name="category_about">Thông tin về</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Mở lịch sử</string>
