@@ -349,10 +349,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_legacy_hashing_summary">Force Syncthing to use legacy hashing package for compatibility purposes</string>
 
-    <string name="use_folder_observer_title">Use deprecated change detection</string>
-
-    <string name="use_folder_observer_summary">Default: Disabled. Use deprecated android implementation to detect filesystem changes instead of SyncThing\'s new built-in feature.</string>
-
     <string name="restart_on_wakeup_title">Restart on Wakeup</string>
 
     <string name="restart_on_wakeup_summary">Default: Enabled. Disabling this feature may result in folder scans and device reconnects being delayed to save battery.</string>

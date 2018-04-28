@@ -262,7 +262,7 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * Stop Syncthing and all helpers like event processor, api handler and folder observers.
+     * Stop Syncthing and all helpers like event processor and api handler.
      *
      * Sets {@link #mCurrentState} to newState, and calls onKilledListener once Syncthing is killed.
      */
