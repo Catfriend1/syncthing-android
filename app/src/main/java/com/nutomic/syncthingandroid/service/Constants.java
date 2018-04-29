@@ -17,6 +17,8 @@ public class Constants {
     public static final String PREF_NOTIFICATION_TYPE           = "notification_type";
     public static final String PREF_USE_WAKE_LOCK               = "wakelock_while_binary_running";
     public static final String PREF_USE_TOR                     = "use_tor";
+    public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";
+    public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
 
     /**
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.

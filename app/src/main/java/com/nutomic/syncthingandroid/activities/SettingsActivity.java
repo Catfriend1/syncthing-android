@@ -13,6 +13,7 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -107,7 +108,11 @@ public class SettingsActivity extends SyncthingActivity {
 
         private Preference mCategoryBackup;
 
+        /* Experimental options */
         private CheckBoxPreference mUseRoot;
+        private CheckBoxPreference mUseTor;
+        private EditTextPreference mSocksProxyAddress;
+        private EditTextPreference mHttpProxyAddress;
 
         private Preference mSyncthingVersion;
 
@@ -191,8 +196,10 @@ public class SettingsActivity extends SyncthingActivity {
             Preference stResetDeltas        = findPreference("st_reset_deltas");
 
             mUseRoot                        = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            Preference useWakelock          = findPreference(Constants.PREF_USE_WAKE_LOCK);
-            Preference useTor               = findPreference(Constants.PREF_USE_TOR);
+            Preference useWakelock          = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
+            mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
+            mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);
+            mHttpProxyAddress               = (EditTextPreference) findPreference(Constants.PREF_HTTP_PROXY_ADDRESS);
 
             mSyncthingVersion       = findPreference("syncthing_version");
             Preference appVersion   = screen.findPreference("app_version");
@@ -211,9 +218,20 @@ public class SettingsActivity extends SyncthingActivity {
             stResetDatabase.setOnPreferenceClickListener(this);
             stResetDeltas.setOnPreferenceClickListener(this);
 
+            /* Experimental options */
             mUseRoot.setOnPreferenceClickListener(this);
             useWakelock.setOnPreferenceChangeListener((p, o) -> requireRestart());
-            useTor.setOnPreferenceChangeListener((p, o) -> requireRestart());
+            mUseTor.setOnPreferenceChangeListener(this);
+
+            mSocksProxyAddress.setEnabled(!(Boolean) mUseTor.isChecked());
+            mSocksProxyAddress.setOnPreferenceChangeListener(this);
+            mHttpProxyAddress.setEnabled(!(Boolean) mUseTor.isChecked());
+            mHttpProxyAddress.setOnPreferenceChangeListener(this);
+
+            /* Initialize summaries */
+            mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
+            handleHttpProxyPreferenceChange(screen.findPreference(Constants.PREF_HTTP_PROXY_ADDRESS), mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, ""));
 
             try {
                 appVersion.setSummary(getActivity().getPackageManager()
@@ -392,6 +410,29 @@ public class SettingsActivity extends SyncthingActivity {
                         return false;
                     }
                     break;
+                case Constants.PREF_USE_TOR:
+                    mSocksProxyAddress.setEnabled(!(Boolean) o);
+                    mHttpProxyAddress.setEnabled(!(Boolean) o);
+                    requireRestart();
+                    break;
+                case Constants.PREF_SOCKS_PROXY_ADDRESS:
+                    if (o.toString().trim().equals(mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, "")))
+                        return false;
+                    if (handleSocksProxyPreferenceChange(preference, o.toString().trim())) {
+                        requireRestart();
+                    } else {
+                        return false;
+                    }
+                    break;
+                case Constants.PREF_HTTP_PROXY_ADDRESS:
+                    if (o.toString().trim().equals(mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, "")))
+                        return false;
+                    if (handleHttpProxyPreferenceChange(preference, o.toString().trim())) {
+                        requireRestart();
+                    } else {
+                        return false;
+                    }
+                    break;
             }
 
             return true;
@@ -510,6 +551,44 @@ public class SettingsActivity extends SyncthingActivity {
                     Toast.makeText(getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)
                             .show();
                 }
+            }
+        }
+
+        /**
+         * Handles a new user input for the SOCKS proxy preference.
+         * Returns if the changed setting requires a restart.
+         */
+        private boolean handleSocksProxyPreferenceChange(Preference preference, String newValue) {
+            // Valid input is either a proxy address or an empty field to disable the proxy.
+            if (newValue.equals("")) {
+                preference.setSummary(getString(R.string.do_not_use_proxy) + " " + getString(R.string.generic_example) + ": " + getString(R.string.socks_proxy_address_example));
+                return true;
+            } else if (newValue.matches("^socks5://.*:\\d{1,5}$")) {
+                preference.setSummary(getString(R.string.use_proxy) + " " + newValue);
+                return true;
+            } else {
+                Toast.makeText(getActivity(), R.string.toast_invalid_socks_proxy_address, Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        }
+
+        /**
+         * Handles a new user input for the HTTP(S) proxy preference.
+         * Returns if the changed setting requires a restart.
+         */
+        private boolean handleHttpProxyPreferenceChange(Preference preference, String newValue) {
+            // Valid input is either a proxy address or an empty field to disable the proxy.
+            if (newValue.equals("")) {
+                preference.setSummary(getString(R.string.do_not_use_proxy) + " " + getString(R.string.generic_example) + ": " + getString(R.string.http_proxy_address_example));
+                return true;
+            } else if (newValue.matches("^http://.*:\\d{1,5}$")) {
+                preference.setSummary(getString(R.string.use_proxy) + " " + newValue);
+                return true;
+            } else {
+                Toast.makeText(getActivity(), R.string.toast_invalid_http_proxy_address, Toast.LENGTH_SHORT)
+                        .show();
+                return false;
             }
         }
     }

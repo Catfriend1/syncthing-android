@@ -376,6 +376,17 @@ public class SyncthingRunnable implements Runnable {
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
+        } else {
+            String socksProxyAddress = mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, "");
+            if (!socksProxyAddress.equals("")) {
+                targetEnv.put("all_proxy", socksProxyAddress);
+            }
+
+            String httpProxyAddress = mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, "");
+            if (!httpProxyAddress.equals("")) {
+                targetEnv.put("http_proxy", httpProxyAddress);
+                targetEnv.put("https_proxy", httpProxyAddress);
+            }
         }
         if (mPreferences.getBoolean("use_legacy_hashing", false))
             targetEnv.put("STHASHING", "standard");
