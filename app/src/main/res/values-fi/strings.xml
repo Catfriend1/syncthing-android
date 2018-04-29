@@ -10,6 +10,7 @@
 Jakaaksesi tietoa toisten laitteiden kanssa, sinun tarvitsee lisätä niiden yksilölliset laitetunnukset laiteluetteloon. Myöhemmin voit valita, mitkä kansiot jaetaan minkä laitteiden kanssa.\n\
 Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta.</string>
   <string name="cont">Jatka</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Lisää kansio</string>
@@ -55,6 +56,8 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="device_syncing">Synkronoidaan (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Ei yhteyttä</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Tuntematon</string>
   <!--Title for current download rate-->
   <string name="download_title">Lataus</string>
   <!--Title for current upload rate-->
@@ -81,6 +84,8 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="directory">Hakemisto</string>
   <!--Setting title-->
   <string name="folder_master">Vain lähetys</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Laitteet</string>
   <!--Setting title-->
@@ -119,6 +124,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   </string-array>
   <!--Setting title-->
   <string name="introducer">Esittelijä</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Poista laite</string>
   <string name="add_device">Lisää laite</string>
@@ -177,10 +183,12 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="usage_reporting">Anonyymi käytönseuranta</string>
   <string name="gui_address">Käyttöliittymän kuunteluosoite</string>
   <string name="export_config">Vie asetukset</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
   <string name="keep_wakelock_while_binary_running_summary">Käytä tätä asetusta, jos yhteydet katkeilevat odottamattomasti laitteen käydessä akkuvirralla. Tämä lisää virran kulutusta.</string>
   <string name="use_tor_title">Käytä Tor-verkkoa</string>
-  <string name="use_tor_summary">Pakota kaikki liikenne Tor-verkkoon yksityisyyden parantamiseksi. Vaatii Orbot-sovelluksen.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Käytä vanhaa tarkistussumman laskentaa</string>
   <string name="use_legacy_hashing_summary">Pakota Syncthing käyttämään vanhaa tarkistussumman laskentapakettia yhteensopivuuden parantamiseksi</string>
   <!--Dialog shown before config export-->
@@ -200,10 +208,11 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Nollaa tietokanta</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Tätä toimintoa tulee käyttää vain, jos tukemme suosittelee sitä.
-\nOletko varma, että haluat tyhjentää Synthingin indeksitietokannan?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthingin tietokannan tyhjentäminen onnistui</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Tietoja</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Avaa loki</string>
@@ -277,7 +286,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing on käynnissä</string>
   <string name="syncthing_disabled">Syncthing on poistettu käytöstä</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

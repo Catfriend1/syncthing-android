@@ -10,6 +10,7 @@
 他のデバイスとデータを共有するには、デバイスリストにその一意のデバイス ID を追加する必要があります。その後で、そのデバイスと共有するフォルダーを選択することができます。\n\
 発生した問題は何でも Github で報告してください。</string>
   <string name="cont">続行</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">フォルダーを追加</string>
@@ -56,6 +57,8 @@
   <string name="device_syncing">同期中 (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">切断中</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">不明</string>
   <!--Title for current download rate-->
   <string name="download_title">ダウンロード</string>
   <!--Title for current upload rate-->
@@ -82,6 +85,8 @@
   <string name="directory">ディレクトリー</string>
   <!--Setting title-->
   <string name="folder_master">送信のみ</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">デバイス</string>
   <!--Setting title-->
@@ -123,6 +128,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">紹介者デバイス</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">デバイスを削除</string>
   <string name="add_device">デバイスを追加</string>
@@ -197,10 +203,12 @@
   <string name="usage_reporting">匿名での使用状況レポート</string>
   <string name="gui_address">GUI 待ち受けアドレス</string>
   <string name="export_config">設定のエクスポート</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">実行中は CPU をオンのままにする</string>
   <string name="keep_wakelock_while_binary_running_summary">バッテリーでの動作中に予期しない切断が発生する場合オンにしてください。バッテリー消費量が増える場合があります。</string>
   <string name="use_tor_title">Tor を使用する</string>
-  <string name="use_tor_summary">プライバシー保護のため、強制的にすべてのトラフィックを Tor を介します。Orbot が必要です</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">レガシーハッシュを使用する</string>
   <string name="use_legacy_hashing_summary">互換性のため従来のハッシュパッケージの使用を強制</string>
   <!--Dialog shown before config export-->
@@ -223,10 +231,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">データベースをリセットする</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">この操作は、サポートチームに推奨された場合にのみ行ってください。
-\n本当に Syncthing のインデックスデータベースをクリアしてもよろしいですか?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">正常に Syncthing のデータベースをリセットしました</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">アプリについて</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">ログを開く</string>
@@ -312,7 +321,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing は実行中です</string>
   <string name="syncthing_disabled">Syncthing は無効になりました</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">設定ファイルの作成に失敗しました</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -321,7 +329,6 @@
   <string name="default_folder_id">%1$s-写真</string>
   <string name="notification_crash_title">Syncthing がクラッシュしました</string>
   <string name="notification_crash_text">クリックしてログを表示</string>
-  <string name="notifications_persistent_channel">永続的な通知</string>
   <string name="notifications_other_channel">他の通知</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

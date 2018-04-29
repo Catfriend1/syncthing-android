@@ -10,6 +10,7 @@
 For at dele data med andre enheder, skal du tilføje deres enheds unikke ID til enhedslisten. Efter dette kan du vælge hvilke mapper der skal deles med hvilke enheder.\n\
 Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="cont">Fortsæt</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Tilføj mappe</string>
@@ -56,6 +57,8 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="device_syncing">Synkroniserer (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Forbindelse afbrudt</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Ukendt</string>
   <!--Title for current download rate-->
   <string name="download_title">Download</string>
   <!--Title for current upload rate-->
@@ -82,6 +85,8 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="directory">Katalog</string>
   <!--Setting title-->
   <string name="folder_master">Send kun</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Enheder</string>
   <!--Setting title-->
@@ -123,6 +128,7 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introducer</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Slet Enhed</string>
   <string name="add_device">Tilføj Enhed</string>
@@ -197,10 +203,12 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="usage_reporting">Anonym Forburgsrapportering</string>
   <string name="gui_address">GUI Listen Addresser</string>
   <string name="export_config">Eksporter Konfigurering</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Lad CPU\'en køre imens Syncthing kører</string>
   <string name="keep_wakelock_while_binary_running_summary">Brug denne indstilling hvis du oplever uventede forbindelsesbrud imens batteriet bruges. Dette vil resultere i forøget batteriforbrug.</string>
   <string name="use_tor_title">Brug Tor</string>
-  <string name="use_tor_summary">Tving al traffik gennem Tor for øget privatliv. Orbot er en forudsætning</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Brug legacy hashing</string>
   <string name="use_legacy_hashing_summary">Tving Syncthing til at bruge legacy hashing pakken af kompatibilitetsgrunde </string>
   <!--Dialog shown before config export-->
@@ -223,10 +231,11 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Nulstil database</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Denne handling burde kun gennemføres baseret på anvisning af vores support tem.
-\nEr du sikker på at du ønsker at nulstille Syncthing\'s indeks database?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthing\'s database successfuldt nulstillet</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Omkring</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Åben Log</string>
@@ -312,7 +321,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing kører</string>
   <string name="syncthing_disabled">Syncthing er slået fra</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

@@ -6,6 +6,7 @@
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Víta Vás Syncthing pre Android</string>
   <!--Text for dialog displayed on first start-->
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Pridať Adresár</string>
@@ -40,6 +41,8 @@
   <string name="device_syncing">Synchronizuje sa (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Odpojené</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Neznámy</string>
   <!--Title for current download rate-->
   <string name="download_title">Sťahovanie</string>
   <!--Title for current upload rate-->
@@ -61,6 +64,8 @@
   <!--Setting title-->
   <!--Setting title-->
   <string name="directory">Adersár</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Zariadenia</string>
@@ -97,6 +102,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introducer</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Odstrániť Zariadenie</string>
   <string name="add_device">Pridať Zariadenie</string>
@@ -143,6 +149,9 @@
   <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
   <string name="gui_address">Adresa pre GUI</string>
   <string name="export_config">Exportovať Konfiguráciu</string>
+  <!--Experimental options-->
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <!--Dialog shown before config import-->
   <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu? Existujúce súbory budú prepísané.</string>
@@ -158,10 +167,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Resetovať Databázu</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Túto možnosť by ste mali využiť iba ak Vám to odporučí naša podpora.\n
-Naozaj chcete resetovať databázu s indexom súborov?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Reset databázy bol úspešný</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">O programe</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Zobraziť Záznam</string>
@@ -221,7 +231,6 @@ Naozaj chcete resetovať databázu s indexom súborov?</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing beží</string>
   <string name="syncthing_disabled">Syncthing je zakázaný</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

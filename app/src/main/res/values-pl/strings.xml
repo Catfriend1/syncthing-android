@@ -10,6 +10,7 @@
 Aby udostępnić dane innemu urządzeniu, należy dodać jego unikalny identyfikator do listy urządzeń. Następnie wymagane jest wskazanie katalogów udostępnianych urządzeniu.\n\
 Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.</string>
   <string name="cont">Kontynuuj</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Dodaj katalog</string>
@@ -30,16 +31,24 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="dialog_disable_battery_optimization_later">Później</string>
   <string name="dialog_disable_battery_optimization_dont_show_again">Nie pokazuj ponownie</string>
   <string name="dialog_disable_battery_optimization_turn_off">Wyłącz dla Syncthing</string>
+  <string name="dialog_disable_battery_optimizations_not_supported">Twoje urządzenie nie wspiera wyłączania optymalizacji baterii</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Wczytywanie...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Generowanie kluczy bezpieczeństwa. To może zająć kilka minut.</string>
+  <string name="syncthing_loading_slow_message">Syncthing potrzebuje zbyt wiele czasu na załadowanie. Sprawdź logi pod kątem błędów.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Katalogi</string>
   <!--Shown if no folders exist-->
   <string name="folder_list_empty">Nie odnaleziono katalogów</string>
   <!--Format string for folder file count-->
+  <plurals name="files">
+    <item quantity="one">1%1$d / 2%2$d plik</item>
+    <item quantity="few">%1$d / %2$d pliki</item>
+    <item quantity="many">%1$d / %2$d plików</item>
+    <item quantity="other">%1$d / %2$d</item>
+  </plurals>
   <string name="toast_no_file_manager">Nie znaleziono kompatybilnego menadżera plików</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Urządzenia</string>
@@ -51,6 +60,8 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="device_syncing">Synchronizowanie (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Rozłączony</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Nieznany</string>
   <!--Title for current download rate-->
   <string name="download_title">Pobieranie</string>
   <!--Title for current upload rate-->
@@ -78,6 +89,8 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Setting title-->
   <string name="folder_master">Tylko wyślij</string>
   <!--Setting title-->
+  <!--Setting title-->
+  <!--Setting title-->
   <string name="devices">Urządzenia</string>
   <!--Setting title-->
   <string name="keep_versions">Pamiętanie wersji</string>
@@ -96,6 +109,9 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Ścieżka katalogu nie może być pusta</string>
   <string name="dialog_discard_changes">Porzucić zmiany?</string>
+  <string name="ignore_patterns">Wzorce ignorowania</string>
+  <string name="create_ignore_file_error">Nie powiodło się tworzenie pliku ze wzorcami ignorowania. Czy do folderu można zapisywać?</string>
+  <string name="edit_ignore_file_error">Nie znaleziono edytora tekstu</string>
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">Identyfikator urządzenia</string>
@@ -115,6 +131,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   </string-array>
   <!--Setting title-->
   <string name="introducer">Wprowadzający</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Usuń urządzenie</string>
   <string name="add_device">Dodaj urządzenie</string>
@@ -148,6 +165,8 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="always_run_in_background_enabled">Uruchamia program w tle zgodnie z poniższymi preferencjami</string>
   <!--Preference summary in case it is disabled-->
   <string name="always_run_in_background_disabled">Uruchamia program ręcznie i kończy jego działanie przyciskiem w menu</string>
+  <string name="sync_only_charging">Działaj tylko w trakcie ładowania</string>
+  <string name="sync_only_wifi">Synchronizuj tylko przez WiFi</string>
   <string name="sync_only_wifi_ssids">Ogranicz do określonych sieci WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Proszę włącz WiFi dla wybranych sieci</string>
   <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
@@ -158,6 +177,18 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="use_root_summary">To jest niestabilna funkcja, która może sprawiać problemy z Syncthing i urządzeniami. W przypadku napotkania błędów możliwe, że niezbędne będzie przeinstalowanie programu. </string>
   <string name="notification_type_title">Powiadomienie</string>
   <string name="notification_type_summary">Wybiera rodzaj powiadomienia</string>
+  <string name="preference_language_title">Język</string>
+  <string name="preference_language_summary">Zmień język aplikacji</string>
+  <string name="start_into_web_gui_title">Startuj bezpośrednio do trybu web GUI</string>
+  <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz web GUI zamiast głównego ekranu</string>
+  <string name="pref_language_default">Domyślny język</string>
+  <string-array name="versioning_types">
+    <item>Żaden</item>
+    <item>Śmientik</item>
+    <item>Proste</item>
+    <item>Rozszerzone</item>
+    <item>Zewnętrzne</item>
+  </string-array>
   <string name="device_name">Nazwa urządzenia</string>
   <string name="listen_address">Adres nasłuchiwania protokołu</string>
   <string name="max_recv_kbps">Limit pobierania (KiB/s)</string>
@@ -170,10 +201,12 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="usage_reporting">Anonimowe statystyki użycia</string>
   <string name="gui_address">Adres nasłuchiwania</string>
   <string name="export_config">Eksportuj ustawienia</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
   <string name="keep_wakelock_while_binary_running_summary">Używaj, jeśli doświadczasz nieoczekiwanych rozłączeń w trakcie działania na baterii. Spowoduje to zwiększone jej zużycie.</string>
   <string name="use_tor_title">Korzystanie z Tor</string>
-  <string name="use_tor_summary">Wymusza cały ruch przez Tor dla zwiększenia prywatności. Wymaga Orbot.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Użyj starego mechanizmu haszowania</string>
   <string name="use_legacy_hashing_summary">Wymuś użycie przedawnionego hashowania paczki dla zachowania kompatybilności</string>
   <!--Dialog shown before config export-->
@@ -188,16 +221,19 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Toast shown after config was successfully imported-->
   <string name="config_import_failed">Nie udało się zaimportować ustawień. Proszę upewnić się, że pliki znajdują się w położeniu %1$s.</string>
   <!--Title for the preference to set STTRACE parameters-->
+  <string name="sttrace_title">Opcje STTRACE</string>
+  <string name="environment_variables">Zmienne środowiskowe</string>
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Tylko 0-9, a-z i \",\" są dozwolone w opcjach STTRACE</string>
+  <string name="toast_invalid_environment_variables">Value nie jest prawidłowwą zmienną środowiskową</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Przywróć pierwotny stan bazy danych</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">To działanie powinno się przeprowadzać tylko, kiedy jest ono zalecone przez dział wsparcia programu.
-
-\nPrzywrócić bazę danych do stanu początkowego?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Przywrócono stan początkowy bazy danych</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">O programie</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Otwórz dziennik</string>
@@ -232,6 +268,8 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="select_folder">Wybierz katalog</string>
   <string name="create_folder_failed">Nie udało się utworzyć katalogu</string>
   <!--LogActivity-->
+  <string name="syncthing_log_title">Log Syncthing</string>
+  <string name="android_log_title">Log Androida</string>
   <!--Title of the "log android" menu button-->
   <string name="view_android_log">Wyświetl dziennik systemu</string>
   <!--Title of the "log Syncthing" menu button-->
@@ -253,10 +291,31 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Nothing to share toast-->
   <string name="nothing_share">Nic do udostępnienia</string>
   <!--Copy success toast partially-->
+  <plurals name="copy_success_partially">
+    <item quantity="one">%1$d plik skopiowano do folderu \"%2$s\", %3$d już istnieje</item>
+    <item quantity="few">%1$d pliki skopiowano do folderu \"%2$s\", %3$d już istnieje</item>
+    <item quantity="many">%1$d plików skopiowano do folderu \"%2$s\", %3$d już istnieje</item>
+    <item quantity="other">%1$d plików skopiowano do folderu \"%2$s\", %3$d już istnieje</item>
+  </plurals>
   <!--Copy success toast-->
+  <plurals name="copy_success">
+    <item quantity="one">%1$d plik skopiowano do \"%2$s\"</item>
+    <item quantity="few">%1$dplików skopiowano do folderu \"%2$s\"</item>
+    <item quantity="many">%1$dplików skopiowano do folderu \"%2$s\"</item>
+    <item quantity="other">%1$d pliki skopiowano do folderu \"%2$s\"</item>
+  </plurals>
   <!--Copy exception toast-->
+  <string name="copy_exception">Wystąpił błąd podczas udostępniania. Sprawdź logi aplikacji</string>
   <!--Copy progress dialog text-->
+  <string name="copy_progress">Udostępnianie plików...</string>
+  <plurals name="file_name_title">
+    <item quantity="one">Nazwa pliku</item>
+    <item quantity="few">Lista plików</item>
+    <item quantity="many">Lista plików</item>
+    <item quantity="other">Lista plików</item>
+  </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">Podfolder</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing jest wyłączony</string>
@@ -269,12 +328,15 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing jest uruchomiony</string>
   <string name="syncthing_disabled">Syncthing jest wyłączony</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-zdjęcia</string>
+  <string name="notification_crash_title">Syncthing spadło z rowerka :(</string>
+  <string name="notification_crash_text">Dotknij, by zobaczyć logi</string>
+  <string name="notifications_other_channel">Inne powiadomienia</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Wymagane ponowne uruchomienie</string>
@@ -313,9 +375,37 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Zatrzymywanie programu nie jest obsługiwane podczas działania w tle.</string>
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
+  <string name="maximum_age">Maksymalny wiek</string>
+  <string name="clean_out_after">Posprzątaj po</string>
   <string name="file_versioning">System wersjonowania plików</string>
+  <string name="finish">Koniec</string>
+  <string name="none">Żaden</string>
+  <string name="versions_path">Ścieżka wersji</string>
+  <string name="command">Polecenie</string>
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
+  <string name="keep_versions_description">Ilość  wersji do trzymania per plik</string>
+  <string name="simple_file_versioning_description">Pliki są przenoszone do oznaczonych datą wersji w folderze .stversions przy modyfikacji lub usuwaniu przez Syncthing</string>
+  <string name="trashcan_versioning_description">Pliki przenoszone są do folderu .stversions, gdy są zmieniane lub usuwane przez Syncthing</string>
+  <string name="staggered_versioning_description">Pliki są przenoszone do folderu .stversions, oraz dodawana jest do nich data. Dzieje się to kiedy pliki są zmieniane lub usuwane przez Syncthing. Wersje są automatycznie usuwane jeśli są starsze niż maksymalny wiek, lub przekraczają ilość plików dopuszczalną w interwale.\n\nNastępujące interwaly są używane: przez pierwszą godzinę, wersja jest zapisywana przez każde 30 sekund, przez pierwszy dzień wersja jest trzymana co godzinę, przez pierwsze 30 dni wersja jest trzymana z każdego dnia, dopóki maksymalny wiek nie zostanie osiągnięty (sprawdzane co tydzień) </string>
+  <string name="maximum_age_description">Maksymalny czas trzymania wersji (w dniach, ustaw 0 by trzymać je wiecznie)</string>
+  <string name="versions_path_description">Ścieżka, gdzie mają być przetrzymywane wersje (pozostaw puste, dla domyślnego folderu .stversions wewnątrz dzielonego)</string>
+  <string name="cleanout_after_description">Ilość dni, przez które mają być trzymane pliki w śmietniku. Zero oznacza, że nie będą w ogóle usuwane.</string>
+  <string name="external_versioning_description">Pierwszy parametr jest ścieżką folderu, drugi to ścieżka relatywna wewnątrz</string>
+  <string name="no_versioning_description">Wybierz typ wersjonowania, by je włączyć</string>
   <!--Displays the current file versioning type in the Folder activity-->
+  <string name="type_simple">Typ: prosty</string>
+  <string name="type_trashcan">Typ: śmietnik</string>
+  <string name="type_staggered">Typ: rozbudowane</string>
+  <string name="type_external">Typ: zewnętrzne</string>
   <!--Information displayed about the current file versioning configuration in the folder activity-->
+  <string name="trashcan_versioning_info">Czyszczenie po: %1$s</string>
+  <string name="staggered_versioning_info">Maksymalny wiek: %1$d \nŁatka wersjI: %2$s</string>
+  <string name="external_versioning_info">Polecenie: %1$s</string>
+  <string name="simple_versioning_info">Trzymaj wersje: %1$s</string>
+  <string name="show_device_id">Pokaż ID urządzenia</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+  <string name="could_not_access_deviceid">Nie można uzyskać dostępu do ID urządzenia</string>
+  <string name="browse">Przeglądaj</string>
+  <string name="no_sub_folder_is_selected">Żaden podfolder nie został wybrany</string>
+  <string name="share_device_id_chooser">Udostępnij ID urządzenia</string>
 </resources>

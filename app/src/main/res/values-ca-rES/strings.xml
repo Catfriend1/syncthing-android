@@ -10,6 +10,7 @@
 Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.\n\
 Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="cont">Continua</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Afegeix una carpeta</string>
@@ -57,6 +58,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="device_syncing">Sincronitzant (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconnectat</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Desconegut</string>
   <!--Title for current download rate-->
   <string name="download_title">Descàrrega</string>
   <!--Title for current upload rate-->
@@ -83,6 +86,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="directory">Directori</string>
   <!--Setting title-->
   <string name="folder_master">Només envia</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Dispositius</string>
   <!--Setting title-->
@@ -124,6 +129,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introductor</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Esborra el dispositiu</string>
   <string name="add_device">Afegeix un dispositiu</string>
@@ -198,10 +204,12 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="usage_reporting">Informes d\'ús anònims</string>
   <string name="gui_address">Adreça d\'escolta de la interfície gràfica</string>
   <string name="export_config">Exporta la configuració</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Activeu-ho si experimenteu desconnexions inesperades quan treballeu amb bateria. S\'incrementarà el consum de la bateria.</string>
   <string name="use_tor_title">Utilitza Tor</string>
-  <string name="use_tor_summary">Desvia tot el trànsit de dades a través de Tor per incrementar la privacitat. Es requereix Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Genera els hash amb el sistema antic</string>
   <string name="use_legacy_hashing_summary">Es forçarà el Syncthing a utilitzar el paquet de hashing antic per compatibilitat</string>
   <!--Dialog shown before config export-->
@@ -224,11 +232,11 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reinicia la base de dades</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Només hauríeu de fer això si us ho recomana el nostre equip de suport.
-        \nSegur que voleu esborrar la base de dades d\'índexs del Syncthing?
-    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">La base de dades del Syncthing s\'ha reiniciat amb èxit</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Quant a</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Obre el registre</string>
@@ -317,7 +325,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">El Syncthing s\'està executant</string>
   <string name="syncthing_disabled">El Syncthing està desactivat</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -326,7 +333,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="default_folder_id">%1$s-fotos</string>
   <string name="notification_crash_title">El Syncthing s\'ha bloquejat</string>
   <string name="notification_crash_text">Feu clic per veure els registres</string>
-  <string name="notifications_persistent_channel">Notificació persistent</string>
   <string name="notifications_other_channel">Altres notificacions</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

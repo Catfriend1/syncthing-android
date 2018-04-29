@@ -10,6 +10,7 @@
 若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要分享哪些文件夹至该设备上。
 请通过 GitHub 报告任何你遇到的问题。</string>
   <string name="cont">继续</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">添加文件夹</string>
@@ -58,6 +59,8 @@
   <string name="device_syncing">正在同步 (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">连接断开</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">未知</string>
   <!--Title for current download rate-->
   <string name="download_title">下载速度</string>
   <!--Title for current upload rate-->
@@ -84,6 +87,8 @@
   <string name="directory">目录</string>
   <!--Setting title-->
   <string name="folder_master">仅发送</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">设备</string>
   <!--Setting title-->
@@ -125,6 +130,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">介绍人</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">删除设备</string>
   <string name="add_device">添加设备</string>
@@ -199,10 +205,12 @@
   <string name="usage_reporting">匿名使用报告</string>
   <string name="gui_address">管理页监听地址</string>
   <string name="export_config">导出设置</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>
   <string name="keep_wakelock_while_binary_running_summary">使用此设置如果您在电池上运行时遇到意外的断开连接。这将会导致电量消耗的增加。</string>
   <string name="use_tor_title">使用 Tor</string>
-  <string name="use_tor_summary">强制所有流量通过 TOR 以提高保密性。需要 Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">使用传统哈希</string>
   <string name="use_legacy_hashing_summary">强制 syncthing 使用传统哈希包出于兼容目的</string>
   <!--Dialog shown before config export-->
@@ -225,10 +233,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">重置数据库</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">本操作仅应在支持团队的推荐下进行。\n
-您确定要清理 Syncthing 的索引数据库吗？</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">重置 Syncthing 数据库完成</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">关于</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">打开日志</string>
@@ -314,7 +323,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing 正在运行</string>
   <string name="syncthing_disabled">Syncthing 已禁用</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">创建配置文件失败</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -323,7 +331,6 @@
   <string name="default_folder_id">%1$s-照片</string>
   <string name="notification_crash_title">Syncthing 已崩溃</string>
   <string name="notification_crash_text">点击查看日志</string>
-  <string name="notifications_persistent_channel">常驻通知</string>
   <string name="notifications_other_channel">其他通知</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

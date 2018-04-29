@@ -10,6 +10,7 @@
 Pro sdílení dat s dalšími přístroji je třeba přidat jejich unikátní ID do seznamu. Poté lze určovat, které adresáře jsou sdíleny s kterými přístroji.\n\
 Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="cont">Pokračovat</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Přidat adresář</string>
@@ -58,6 +59,8 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="device_syncing">Synchronizuje se (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Odpojen</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Neznámý</string>
   <!--Title for current download rate-->
   <string name="download_title">Rychlost stahování</string>
   <!--Title for current upload rate-->
@@ -84,6 +87,8 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="directory">Adresář</string>
   <!--Setting title-->
   <string name="folder_master">Pouze Odesílat</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Přístroje</string>
   <!--Setting title-->
@@ -125,6 +130,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   </string-array>
   <!--Setting title-->
   <string name="introducer">Zavaděč</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Smazat přístroj</string>
   <string name="add_device">Přidat přístroj</string>
@@ -199,10 +205,12 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="usage_reporting">Anonymní hlášení o používání</string>
   <string name="gui_address">Adresy naslouchání GUI</string>
   <string name="export_config">Zálohovat nastavení</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Použijte toto nastavení pokud zaznamenáváte neočekávaná ukončení spojení při běhu na baterii. Toto bude mít za následek vyšší spotřebu energie.</string>
   <string name="use_tor_title">Použít Tor</string>
-  <string name="use_tor_summary">Pro zvýšení bezpečnosti použít výhradně přenosy po síti TOR. Vyžadován Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Používat standardní kontrolní součet</string>
   <string name="use_legacy_hashing_summary">Vynutit použití původního hashovacího algoritmu pro lepší kompatibilitu</string>
   <!--Dialog shown before config export-->
@@ -225,10 +233,11 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Resetovat databázi</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Tento krok by měl být proveden pouze na základě doporučení našeho technického týmu.
-\nOpravdu chcete vyčistit databázi aplikace Syncthing?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Databáze aplikace Syncthing úspěšně resetována</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">O aplikaci</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Otevřít log</string>
@@ -320,7 +329,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing běží</string>
   <string name="syncthing_disabled">Syncthing je vypnutý</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Vytváření konfiguračního souboru selhalo</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -329,7 +337,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="default_folder_id">%1$s-foto</string>
   <string name="notification_crash_title">Syncthing spadl</string>
   <string name="notification_crash_text">Pro prohlížení logů klikněte</string>
-  <string name="notifications_persistent_channel">Stálé upozornění</string>
   <string name="notifications_other_channel">Ostatní upozornění</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -401,4 +408,5 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="could_not_access_deviceid">Nemůžu přistoupit k ID zařízení.</string>
   <string name="browse">Procházet</string>
   <string name="no_sub_folder_is_selected">Není vybrána žádná podsložka</string>
+  <string name="share_device_id_chooser">Sdílet ID zařízení s</string>
 </resources>

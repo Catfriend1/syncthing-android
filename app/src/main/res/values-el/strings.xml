@@ -10,6 +10,7 @@
 Για να μοιραστείτε δεδομένα με άλλες συσκευές, πρέπει να προσθέσετε τα μοναδικά αναγνωριστικά τους στη λίστα συσκευών. Μετά μπορείτε να επιλέξετε ποίοι φάκελοι θα διαμοιραστούν με ποιες συσκευές.\n\
 Παρακαλώ αναφέρετε τυχόν προβλήματα που αντιμετωπίσετε μέσω του Github.</string>
   <string name="cont">Συνέχεια</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Προσθήκη φακέλου</string>
@@ -57,6 +58,8 @@
   <string name="device_syncing">Συγχρονισμός (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Αποσυνδεδεμένο</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Άγνωστο</string>
   <!--Title for current download rate-->
   <string name="download_title">Λήψη</string>
   <!--Title for current upload rate-->
@@ -83,6 +86,8 @@
   <string name="directory">Κατάλογος</string>
   <!--Setting title-->
   <string name="folder_master">Μόνο αποστολή</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Συσκευές</string>
   <!--Setting title-->
@@ -124,6 +129,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Βασικός κόμβος</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Διαγραφή συσκευής</string>
   <string name="add_device">Προσθήκη συσκευής</string>
@@ -198,10 +204,12 @@
   <string name="usage_reporting">Ανώνυμη αναφορά δεδομένων χρήσης</string>
   <string name="gui_address">Διευθύνσεις ακρόασης του GUI</string>
   <string name="export_config">Εξαγωγή ρυθμίσεων</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Χρησιμοποιήστε αυτή την επιλογή αν παρατηρείτε απρόσμενες αποσυνδέσεις κατά τη λειτουργία με μπαταρία. Θα έχει ως συνέπεια την υψηλότερη κατανάλωση ενέργειας.</string>
   <string name="use_tor_title">Χρήση του Tor</string>
-  <string name="use_tor_summary">Αναγκαστική δρομολόγηση όλης της κίνησης δεδομένων μέσω του Tor για αυξημένη ιδιωτικότητα. Προαπαιτεί το Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Χρήση κατακερματισμού παλαιού τύπου</string>
   <string name="use_legacy_hashing_summary">Χρήση του πακέτου κατακερματισμού (hashing) παλαιού τύπου για λόγους συμβατότητας</string>
   <!--Dialog shown before config export-->
@@ -224,11 +232,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Επαναφορά βάσης δεδομένων</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Αυτή η ενέργεια πρέπει να εκτελείται μόνο κατόπιν προτροπής από την ομάδα υποστήριξης μας.
-\nΣίγουρα επιθυμείτε να διαγράψετε τη βάση δεδομένων ευρετηρίων του Syncthing;
-</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Η επαναφορά της βάσης δεδομένων του Syncthing ήταν επιτυχής</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Σχετικά με το Syncthing</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Άνοιγμα καταγραφής συμβάντων</string>
@@ -317,7 +325,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Το Syncthing εκτελείται</string>
   <string name="syncthing_disabled">Το Syncthing είναι απενεργοποιημένο</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -326,7 +333,6 @@
   <string name="default_folder_id">%1$s-photos</string>
   <string name="notification_crash_title">Το Syncthing κατέρρευσε</string>
   <string name="notification_crash_text">Πατήστε για να δείτε την καταγραφή συμβάντων</string>
-  <string name="notifications_persistent_channel">Μόνιμη ειδοποίηση</string>
   <string name="notifications_other_channel">Άλλες ειδοποιήσεις</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -398,4 +404,5 @@
   <string name="could_not_access_deviceid">Δεν ήταν δυνατή η ανάγνωση του ID της συσκευής.</string>
   <string name="browse">Περιήγηση</string>
   <string name="no_sub_folder_is_selected">Δεν έχει επιλεγεί υποφάκελος</string>
+  <string name="share_device_id_chooser">Διαμοιρασμός ID συσκευής με</string>
 </resources>

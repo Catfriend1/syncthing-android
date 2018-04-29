@@ -11,6 +11,7 @@ Diğer aygıtlarla veri paylaşmak için, onların eşsiz aygıt ID\'lerini ayg�
 Ardından hangi klasörlerin hangi aygıtlar ile paylaşılacağını seçebilirsin.\n\
 Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</string>
   <string name="cont">Devam et</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Klasör Ekleme</string>
@@ -52,6 +53,8 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="device_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Bağlantı kesik</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Bilinmiyor</string>
   <!--Title for current download rate-->
   <string name="download_title">İndirme</string>
   <!--Title for current upload rate-->
@@ -76,6 +79,8 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="folder_label">Klasör Etiketi</string>
   <!--Setting title-->
   <string name="directory">Dizin</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Aygıtlar</string>
@@ -115,6 +120,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   </string-array>
   <!--Setting title-->
   <string name="introducer">Tanıtıcı</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Aygıt Sil</string>
   <string name="add_device">Aygıt Ekleme</string>
@@ -172,10 +178,12 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="usage_reporting">Anonim Kullanım Raporlama</string>
   <string name="gui_address">Arayüz Dinleme Adresleri</string>
   <string name="export_config">Yapılandırmayı Dışa Aktar</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
   <string name="keep_wakelock_while_binary_running_summary">Eğer batarya üzerinde çalışırken beklenmedik kopmalar yaşıyorsanız bu ayarı kullanın. Bu artırılmış batarya tüketimiyle sonuçlanacak.</string>
   <string name="use_tor_title">Tor kullan</string>
-  <string name="use_tor_summary">Artırılmış gizlilik için tüm trafiği Tor üzerinden yönlendir. Orbot gerektirir</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>
   <!--Dialog shown before config import-->
@@ -193,10 +201,11 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Veritabanını Sıfırla</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Bu eylem yalnızca destek takımımızdan alınan öneriye dayanarak gerçekleştirilmelidir.
-\nSyncthing\'in dizin veritabanını temizlemek istediğine emin misin?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthing\'in veritabanı başarıyla sıfırlandı.</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Hakkında</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Günlüğü Aç</string>
@@ -260,7 +269,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing çalışıyor</string>
   <string name="syncthing_disabled">Syncthing devre dışı</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

@@ -6,6 +6,7 @@
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bienvenido a Syncthing para Android</string>
   <!--Text for dialog displayed on first start-->
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Añadir carpeta</string>
@@ -42,6 +43,8 @@
   <string name="device_syncing">Sincronizando (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconectado</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Desconocido</string>
   <!--Title for current download rate-->
   <string name="download_title">Descarga</string>
   <!--Title for current upload rate-->
@@ -64,6 +67,8 @@
   <!--Setting title-->
   <!--Setting title-->
   <string name="directory">Directorio</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Dispositivos</string>
@@ -102,6 +107,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introductor</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Eliminar dispositivo</string>
   <string name="add_device">Añadir dispositivo</string>
@@ -152,8 +158,11 @@
   <string name="usage_reporting">Reporte de uso anónimo</string>
   <string name="gui_address">Direcciones de escucha de la interfaz gráfica</string>
   <string name="export_config">Exportar Configuración</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Mantener el CPU encendido mientras Syncthing está en ejecución</string>
   <string name="keep_wakelock_while_binary_running_summary">Use estos ajustes si experimenta desconexiones inesperadas mientras opera con la batería. Esto resultará en un consumo elevado de batería.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">¿Realmente quiere exportar su configuración? Los archivos existentes se sobreescribirán.\n\n¡ADVERTENCIA! Otras aplicaciones pudieran leer la llave privada desde la ubicación del respaldo y usarla para descargar/modificar los archivos sincronizados.</string>
   <!--Dialog shown before config import-->
@@ -170,11 +179,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reiniciar Base de Datos</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Esta acción sólo debe ser realizada basada en una recomendación de nuestro equipo de soporte.
-\n¿Está seguro que quiere limpiar el índice de la base de datos de Syncthing?
-</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Satisfactoriamente reiniciada la base de datos de Syncthing</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Acerca de</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir Registro</string>
@@ -235,7 +244,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing está en ejecución</string>
   <string name="syncthing_disabled">Syncthing está deshabilitado</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

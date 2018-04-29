@@ -10,6 +10,7 @@
 Para compartilhar dados com outros dispositivos, você precisa adicionar seus identificadores únicos à sua lista de dispositivos. Assim você pode selecionar quais pastas compartilhará\n\
 Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</string>
   <string name="cont">Continuar</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adicionar pasta</string>
@@ -53,6 +54,8 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="device_syncing">Sincronizando (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconectado</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Desconhecido</string>
   <!--Title for current download rate-->
   <string name="download_title">Recepção</string>
   <!--Title for current upload rate-->
@@ -79,6 +82,8 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="directory">Pasta</string>
   <!--Setting title-->
   <string name="folder_master">Somente envio</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Dispositivos</string>
   <!--Setting title-->
@@ -120,6 +125,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   </string-array>
   <!--Setting title-->
   <string name="introducer">Apresentador</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Apagar dispositivo</string>
   <string name="add_device">Adicionar dispositivo</string>
@@ -194,10 +200,12 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="usage_reporting">Relatório anônimo de uso</string>
   <string name="gui_address">Endereços de escuta da interface</string>
   <string name="export_config">Exportar configuração</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada</string>
   <string name="keep_wakelock_while_binary_running_summary">Marque esta opção se você observar desconexões inesperadas enquanto a bateria do dispositivo não está sendo carregada. Isto resultará em maior uso da bateria.</string>
   <string name="use_tor_title">Usar Tor</string>
-  <string name="use_tor_summary">Forçar o tráfego de dados pela rede Tor para maior privacidade. Orbot deve ser instalado</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Usar hashing legado</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar hashing legado para fins de compatibilidade</string>
   <!--Dialog shown before config export-->
@@ -220,11 +228,11 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Limpar banco de dados</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Esta ação deve ser executada somente com base em uma recomendação da nossa equipe de suporte.
-\nTem certeza de que quer limpar o banco de dados do Syncthing?
-</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">O banco de dados do Syncthing foi limpo com sucesso</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Sobre</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir log</string>
@@ -313,7 +321,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">O Syncthing está rodando</string>
   <string name="syncthing_disabled">O Syncthing está desabilitado</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -322,7 +329,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="default_folder_id">%1$s-fotos</string>
   <string name="notification_crash_title">O Syncthing fechou inesperadamente</string>
   <string name="notification_crash_text">Clique para ver os logs</string>
-  <string name="notifications_persistent_channel">Notificação persistente</string>
   <string name="notifications_other_channel">Outras notificações</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

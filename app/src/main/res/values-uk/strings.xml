@@ -5,6 +5,7 @@
   <string name="welcome_title">Вітаємо в Syncthing для Android</string>
   <!--Text for dialog displayed on first start-->
   <string name="cont">Продовжити</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Додати каталог</string>
@@ -36,6 +37,8 @@
   <string name="device_syncing">Синхронізуються (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Від\'єднано</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Невідомо</string>
   <!--Title for current download rate-->
   <string name="download_title">Завантаження</string>
   <!--Title for current upload rate-->
@@ -61,6 +64,8 @@
   <string name="directory">Каталог</string>
   <!--Setting title-->
   <string name="folder_master">Лише відправка</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Пристрої</string>
   <!--Setting title-->
@@ -93,6 +98,7 @@
   <!--Setting title-->
   <string name="compression">Стиснення</string>
   <!--Strings representing compression options-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Видалити пристрій</string>
@@ -151,9 +157,11 @@
   <string name="enable_relaying">Дозволити ретрансляцію (Relaying)</string>
   <string name="usage_reporting">Статистика анонімного використання</string>
   <string name="export_config">Експорт налаштувань</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Перешкоджати режиму сну під час роботи Syncthing </string>
   <string name="use_tor_title">Використовувати Tor</string>
-  <string name="use_tor_summary">Примусово направляти весь трафік через Tor для посилення анонімності. Необхідний встановлений Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Старий спосіб хешування</string>
   <!--Dialog shown before config export-->
   <!--Dialog shown before config import-->
@@ -173,6 +181,9 @@
   <!--Syncthing was reset-->
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">База даних  Syncthing успішно очищена</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Про додаток</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Відкрити журнал</string>
@@ -232,7 +243,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing працює</string>
   <string name="syncthing_disabled">Syncthing заборонено</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>

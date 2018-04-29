@@ -6,6 +6,7 @@
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Velkommen til Syncthing for Android</string>
   <!--Text for dialog displayed on first start-->
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Legg til Mappe</string>
@@ -42,6 +43,8 @@
   <string name="device_syncing">Synkroniserer (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Frakoblet</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Ukjent</string>
   <!--Title for current download rate-->
   <string name="download_title">Nedlasting</string>
   <!--Title for current upload rate-->
@@ -66,6 +69,8 @@
   <string name="folder_label">Mappenavn</string>
   <!--Setting title-->
   <string name="directory">Katalog</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Enheter</string>
@@ -104,6 +109,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Innføring</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Slett Enhet</string>
   <string name="add_device">Legg Til Enhet</string>
@@ -157,8 +163,11 @@
   <string name="usage_reporting">Anonym bruksrapportering</string>
   <string name="gui_address">GUI Lytteadresser</string>
   <string name="export_config">Eksporter innstillinger</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
   <string name="keep_wakelock_while_binary_running_summary">Bruk denne innstillingen dersom du opplever uventede frakoblinger mens enheten går på batteri. Dette vil medføre økt batteriforbruk.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
   <!--Dialog shown before config import-->
@@ -175,10 +184,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Nullstill database</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Denne operasjonen bør bare utføres på anbefaling fra vår brukerstøttegruppe.
-\nEr du sikker på at du vil nullstille Syncthings indeks-database?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Nullstilling av Syncthings database var vellykket</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Om</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Åpne logg</string>
@@ -239,7 +249,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing kjører</string>
   <string name="syncthing_disabled">Syncthing er deaktivert</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>

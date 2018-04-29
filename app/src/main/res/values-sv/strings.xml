@@ -10,6 +10,7 @@
 För att dela data med andra enheter måste du lägga till deras unika enhet-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\
 Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="cont">Fortsätt</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Lägg till mapp</string>
@@ -57,15 +58,17 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="device_syncing">Synkroniserar (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Frånkopplad</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Okänd</string>
   <!--Title for current download rate-->
-  <string name="download_title">Nedladdning</string>
+  <string name="download_title">Hämtning</string>
   <!--Title for current upload rate-->
-  <string name="upload_title">Uppladdning</string>
+  <string name="upload_title">Skickar</string>
   <!--DrawerFragment-->
   <!--Same as download_title with a colon and space appended-->
-  <string name="download_title_colon">Nedladdning:\u0020</string>
+  <string name="download_title_colon">Hämtning:\u0020</string>
   <!--Same as upload_title with a colon and space appended-->
-  <string name="upload_title_colon">Uppladdning:\u0020</string>
+  <string name="upload_title_colon">Skickar:\u0020</string>
   <!--Title for current CPU usage-->
   <string name="cpu_usage">CPU användning</string>
   <!--Title for current RAM usage-->
@@ -83,6 +86,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="directory">Katalog</string>
   <!--Setting title-->
   <string name="folder_master">Skicka endast</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Enheter</string>
   <!--Setting title-->
@@ -124,6 +129,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introduktör</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Ta bort enhet</string>
   <string name="add_device">Lägg till enhet</string>
@@ -161,9 +167,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="sync_only_wifi">Kör endast på wifi</string>
   <string name="sync_only_wifi_ssids">Begränsa till vissa wifi-nätverk</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
-  <string name="respect_battery_saving_title">Respektera Android-batterisparainställning</string>
+  <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
   <string name="respect_battery_saving_summary">Avaktivera Syncthing om batterispara är aktiv</string>
-  <string name="advanced_folder_picker">Använd avancerad mapp-väljare</string>
+  <string name="advanced_folder_picker">Använd avancerad mappväljare</string>
   <string name="advanced_folder_picker_summary">Välj någon mapp på enheten för synkronisering</string>
   <string name="use_root_title">Kör som superanvändare</string>
   <string name="use_root_summary">Detta är en instabil funktion som kan orsaka problem med Syncthing och med din enhet enhet. Om du stöter på problem, kan du behöva installera om Syncthing.</string>
@@ -198,10 +204,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
   <string name="gui_address">Gränssnittets lyssnaradresser</string>
   <string name="export_config">Exportera konfiguration</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
   <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>
   <string name="use_tor_title">Använd Tor</string>
-  <string name="use_tor_summary">Tvinga all trafik genom Tor för ökad integritet. Kräver Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Använd legacy hashing</string>
   <string name="use_legacy_hashing_summary">Tvinga Syncthing att använda legacy hashningspaket för kompatibilitetsändamål</string>
   <!--Dialog shown before config export-->
@@ -224,10 +232,11 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Återställ databas</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserad på en rekommendation från vår support grupp.
-\nÄr du säker på att du vill rensa Syncthings index-databas?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthings databas återställdes</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Om</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Öppna logg</string>
@@ -251,7 +260,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="app_version_title">Syncthing-Android version</string>
   <!--FolderPickerAcitivity-->
   <!--Activity title-->
-  <string name="folder_picker_title">Mapp-väljare</string>
+  <string name="folder_picker_title">Mappväljare</string>
   <!--Toast shown on devices with kitkat or higher-->
   <string name="kitkat_external_storage_warning">Varning: Din Android version tillåter inte synkronisering till externa lagringsenheter</string>
   <!--ListView empty text-->
@@ -316,7 +325,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing körs</string>
   <string name="syncthing_disabled">Syncthing är inaktiverad</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -325,7 +333,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="default_folder_id">%1$s foton</string>
   <string name="notification_crash_title">Syncthing har kraschat</string>
   <string name="notification_crash_text">Klicka för att visa loggar</string>
-  <string name="notifications_persistent_channel">Ihållande avisering</string>
   <string name="notifications_other_channel">Andra aviseringar</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

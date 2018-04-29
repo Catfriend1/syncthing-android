@@ -7,9 +7,10 @@
   <string name="welcome_title">Willkommen bei Syncthing für Android</string>
   <!--Text for dialog displayed on first start-->
   <string name="welcome_text">Syncthing ist eine quelloffene Software zur Datensynchronisierung.\n\
-Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zu Geräteliste hinzufügen.\n\
-Bitte melden Sie auftretende Probleme via Github.</string>
+Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zur Geräteliste hinzufügen.\n\
+Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="cont">Weiter</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Verzeichnis hinzufügen</string>
@@ -17,7 +18,7 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="share_device_id">Geräte-ID teilen</string>
   <!--Shown in the chooser dialog when sharing a Device ID-->
   <string name="send_device_id_to">Geräte-ID senden an</string>
-  <string name="usage_reporting_dialog_title">anonymen Nutzungsbericht erlauben?</string>
+  <string name="usage_reporting_dialog_title">Anonymen Nutzungsbericht erlauben?</string>
   <string name="usage_reporting_dialog_description">Der verschlüsselte Nutzungsbericht wird täglich versendet. Er wird verwendet, um Statistiken über die genutzten Plattformen, Verzeichnisgrößen und Syncthing-Versionen zu erstellen. Wenn sich der übermittelte Datenumfang ändert, werden Sie erneut um Erlaubnis gefragt. Die zusammengeführten Statistiken sind unter https://data.syncthing.net zu finden.</string>
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
@@ -57,6 +58,8 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="device_syncing">Synchronisiere (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Getrennt</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Unbekannt</string>
   <!--Title for current download rate-->
   <string name="download_title">Download</string>
   <!--Title for current upload rate-->
@@ -83,6 +86,8 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="directory">Verzeichnis</string>
   <!--Setting title-->
   <string name="folder_master">Nur senden</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Geräte</string>
   <!--Setting title-->
@@ -124,6 +129,7 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   </string-array>
   <!--Setting title-->
   <string name="introducer">Verteilergerät</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Gerät löschen</string>
   <string name="add_device">Gerät hinzufügen</string>
@@ -192,16 +198,18 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="max_send_kbps">Ausgehende Datenrate Limite (KiB/s)</string>
   <string name="global_announce_enabled">Globale Gerätesuche</string>
   <string name="local_announce_enabled">Lokale Gerätesuche</string>
-  <string name="enable_nat_traversal">NAT-Traversal aktivieren</string>
+  <string name="enable_nat_traversal">NAT-Durchdringung aktivieren</string>
   <string name="global_announce_server">Globale Auffindungs Server</string>
   <string name="enable_relaying">Weiterleitung aktivieren</string>
   <string name="usage_reporting">Anonymer Nutzungsbericht</string>
   <string name="gui_address">Adressen für Weboberfläche</string>
   <string name="export_config">Konfiguration exportieren</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Prozessor wach halten während Syncthing läuft.</string>
   <string name="keep_wakelock_while_binary_running_summary">Nutze dieses Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
   <string name="use_tor_title">Tor benutzen</string>
-  <string name="use_tor_summary">Der gesamte Netzwerkverkehr wird zur Erhöhung der Privatsphäre über Tor geleitet. Benötigt Orbot.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Nutze veraltetes Hashing</string>
   <string name="use_legacy_hashing_summary">Für Abwärtskompatibilität soll Syncthing die alten Hashfunktionen verwenden</string>
   <!--Dialog shown before config export-->
@@ -224,10 +232,11 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Datenbank zurücksetzen</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Diese Aktion sollte nur auf Empfehlung des Support-Teams ausgeführt werden.
-\nBist du sicher, dass du die Syncthing Datenbank leeren möchtest?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Datenbank erfolgreich zurückgesetzt</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Über</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Log öffnen</string>
@@ -316,15 +325,15 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing läuft</string>
   <string name="syncthing_disabled">Syncthing ist deaktiviert</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Erstellen der Konfigurationsdatei fehlgeschalgen</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-Bilder</string>
-  <string name="notification_crash_title">Syncthing abgestürzt</string>
+  <string name="notification_crash_title">Syncthing ist abgestürzt</string>
   <string name="notification_crash_text">Klicken um Logs anzuzeigen</string>
+  <string name="notifications_other_channel">Andere Benachrichtigungen</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Neustart erforderlich</string>
@@ -395,4 +404,5 @@ Bitte melden Sie auftretende Probleme via Github.</string>
   <string name="could_not_access_deviceid">Kein Zugriff auf die Geräte-ID möglich</string>
   <string name="browse">Durchsuchen</string>
   <string name="no_sub_folder_is_selected">Kein Verzeichnis ausgewählt</string>
+  <string name="share_device_id_chooser">Teile Geräte ID mit</string>
 </resources>

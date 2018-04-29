@@ -6,10 +6,11 @@
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bienvenue dans Syncthing pour Android</string>
   <!--Text for dialog displayed on first start-->
-  <string name="welcome_text">Syncthing est une application, à code source ouvert, de synchronisation de fichiers.\n\
+  <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert.\n\
 Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..\n\
 S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
   <string name="cont">Continuer</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Ajouter un partage</string>
@@ -57,6 +58,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="device_syncing">Synchronisation (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Déconnecté</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Inconnu</string>
   <!--Title for current download rate-->
   <string name="download_title">Réception</string>
   <!--Title for current upload rate-->
@@ -83,6 +86,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="directory">Répertoire</string>
   <!--Setting title-->
   <string name="folder_master">Envoyer uniquement</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Appareils</string>
   <!--Setting title-->
@@ -124,6 +129,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   </string-array>
   <!--Setting title-->
   <string name="introducer">Initiateur</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Supprimer l\'appareil</string>
   <string name="add_device">Ajout d\'un appareil</string>
@@ -198,10 +204,12 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="usage_reporting">Rapports anonymes d\'utilisation</string>
   <string name="gui_address">Adresse pour l\'interface WEB</string>
   <string name="export_config">Exporter la configuration</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
   <string name="keep_wakelock_while_binary_running_summary">Utilisez ce paramètre si vous rencontrez des déconnexions inattendues en fonctionnant sur batterie. Il en résultera une augmentation de la consommation de la batterie.</string>
   <string name="use_tor_title">Utiliser Tor</string>
-  <string name="use_tor_summary">Force tout le trafic à passer par Tor pour plus de discrétion. Nécessite Orbot.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Utiliser le hachage habituel</string>
   <string name="use_legacy_hashing_summary">Force Syncthing à utiliser le hachage d\'origine pour des raisons de compatibilité.</string>
   <!--Dialog shown before config export-->
@@ -224,11 +232,11 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Remise à zéro de la base de données</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
-        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
-    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Réinitialisation réussie de la base de données Syncthing</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">A propos</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Ouvrir le journal</string>
@@ -317,7 +325,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing fonctionne</string>
   <string name="syncthing_disabled">Syncthing est désactivé</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Echec de création du fichier de configuration</string>
   <!--Label of the default folder created of first start (camera folder).-->
@@ -326,7 +333,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="default_folder_id">%1$s-photos</string>
   <string name="notification_crash_title">Syncthing s\'est planté</string>
   <string name="notification_crash_text">Cliquer pour voir les journaux</string>
-  <string name="notifications_persistent_channel">Notification persistante</string>
   <string name="notifications_other_channel">Autres notifications</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->

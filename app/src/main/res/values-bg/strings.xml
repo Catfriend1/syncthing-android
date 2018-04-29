@@ -10,6 +10,7 @@
 За да споделите информация с друго устройство е необходимо да добавите уникалния идентификатор, на даденото устройство, към списъка с устройства. След това можете да определите кои папки с кои устройства да бъдат споделени.\n\
 Ако срещнете проблем моля докладвайте в Github.</string>
   <string name="cont">Напред</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Добави папка</string>
@@ -49,6 +50,8 @@
   <string name="device_syncing">Синхронизиране (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Не е свързано</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Неясно</string>
   <!--Title for current download rate-->
   <string name="download_title">Сваляне</string>
   <!--Title for current upload rate-->
@@ -73,6 +76,8 @@
   <string name="folder_label">Етикет на папката</string>
   <!--Setting title-->
   <string name="directory">Директория</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Устройства</string>
@@ -112,6 +117,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Може да предлага други устройства</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Изтриване на устройството</string>
   <string name="add_device">Добави устройство</string>
@@ -170,8 +176,10 @@
   <string name="usage_reporting"> Анонимен доклад за ползване на програмата</string>
   <string name="gui_address">Адрес за свързване с потребителския интерфейс</string>
   <string name="export_config">Изнасяне на настройките</string>
+  <!--Experimental options-->
   <string name="use_tor_title">Ползване на Tor</string>
-  <string name="use_tor_summary">Пренасочва целия трафик през Tor. Изисква Orbot.</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
   <!--Dialog shown before config import-->
@@ -189,11 +197,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Нулиране на базата данни</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Действието трябва да се изпълнява след препоръка от поддържащия екип.
-\nНаистина ли желаете базата данни на Syncthing\'s да бъде нулирана?
-    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Базата данни на Syncthing е нулирана успешно</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">За програмата</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Отвори журнала</string>
@@ -255,7 +263,6 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing работи</string>
   <string name="syncthing_disabled">Syncthing не работи</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>

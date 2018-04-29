@@ -10,6 +10,7 @@
 다른 장치들과 데이터를 공유하기 위해서는 기기 목록에 고유 기기 ID를 추가해야 합니다. 그 후에 기기와 공유하는 폴더를 선택할 수 있습니다.\n\
 발생한 문제는 무엇이든 Github를 통해 알려주시기 바랍니다.</string>
   <string name="cont">계속</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">폴더 추가</string>
@@ -36,6 +37,7 @@
   <string name="api_loading">로드 중...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">보안 키 생성 중. 몇 분 정도 소요될 수 있습니다.</string>
+  <string name="syncthing_loading_slow_message">Syncthing를 로드하는데 너무 오랜 시간이 걸리고 있습니다. 로그를 사용하여 오류가 있는지 확인하십시오.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">폴더</string>
   <!--Shown if no folders exist-->
@@ -55,6 +57,8 @@
   <string name="device_syncing">동기화 중 (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">연결 끊김</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">알 수 없음</string>
   <!--Title for current download rate-->
   <string name="download_title">다운로드</string>
   <!--Title for current upload rate-->
@@ -81,6 +85,8 @@
   <string name="directory">디렉토리</string>
   <!--Setting title-->
   <string name="folder_master">송신 전용</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <string name="devices">기기</string>
   <!--Setting title-->
@@ -122,6 +128,7 @@
   </string-array>
   <!--Setting title-->
   <string name="introducer">Introducer</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">기기 삭제</string>
   <string name="add_device">기기 추가</string>
@@ -196,10 +203,12 @@
   <string name="usage_reporting">익명 사용 기록 </string>
   <string name="gui_address">접속 대기 주소</string>
   <string name="export_config">설정 내보내기</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
   <string name="keep_wakelock_while_binary_running_summary">만약 배터리로 사용중 예상하지 못한 접속 끊김이 발생 했다면 이 설정을 사용합니다. 이 기능은 배터리 소비를 늘립니다.</string>
   <string name="use_tor_title">Tor 사용</string>
-  <string name="use_tor_summary">프라이버시 향상을 위해 모든 트래픽을 Tor로 통과시킵니다. Orbot이 필요합니다</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">레가시 해싱 쓰기</string>
   <string name="use_legacy_hashing_summary">호환성의 목적을 위하여 Syncthing이 Legacy Hashing 패키지를 쓰도록 강제합니다</string>
   <!--Dialog shown before config export-->
@@ -222,10 +231,11 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">데이터베이스 리셋</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">이 행동은 우리의 지원팀이 권장한 경우에만 시도하세요.
-\n정말로 Syncthing의 인덱스 데이터베이스를 지우시겠습니까?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthing의 데이터베이스가 성공적으로 리셋되었습니다</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">정보</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">로그 열기</string>
@@ -260,6 +270,8 @@
   <string name="select_folder">폴더 선택</string>
   <string name="create_folder_failed">폴더를 생성할 수 없었습니다</string>
   <!--LogActivity-->
+  <string name="syncthing_log_title">Syncthing 로그</string>
+  <string name="android_log_title">Android 로그</string>
   <!--Title of the "log android" menu button-->
   <string name="view_android_log">Android 로그 보기</string>
   <!--Title of the "log Syncthing" menu button-->
@@ -296,6 +308,7 @@
     <item quantity="other">파일 목록</item>
   </plurals>
   <!--Sub Folder title-->
+  <string name="sub_folder">하위 폴더</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing이 비활성화되었습니다</string>
@@ -308,14 +321,15 @@
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing이 작동 중입니다</string>
   <string name="syncthing_disabled">Syncthing이 비활성화되었습니다</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
+  <string name="config_create_failed">구성 파일을 만드는데 실패 했습니다.</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">카메라</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-사진</string>
   <string name="notification_crash_title">Syncthing이 충돌하였습니다.</string>
   <string name="notification_crash_text">클릭해서 로그 보기</string>
+  <string name="notifications_other_channel">기타 알림</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">재시작 필요</string>
@@ -384,4 +398,7 @@
   <string name="show_device_id">기기 ID 보기</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
   <string name="could_not_access_deviceid">기기 ID에 접근 할 수 없습니다.</string>
+  <string name="browse">탐색</string>
+  <string name="no_sub_folder_is_selected">하위 폴더가 선택되지 않았습니다</string>
+  <string name="share_device_id_chooser">기기 ID 공유</string>
 </resources>

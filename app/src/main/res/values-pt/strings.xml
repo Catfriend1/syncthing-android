@@ -10,6 +10,7 @@
 Para partilhar dados com outros dispositivos, tem que adicionar o seu ID único de dispositivo à lista de dispositivos. Depois pode seleccionar quais as pastas a partilhar com os dispositivos.\n\
 Reporte, através do Github, quaisquer problemas que encontre, por favor.</string>
   <string name="cont">Continuar</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adicionar pasta</string>
@@ -51,6 +52,8 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="device_syncing">Sincronizando (%1$d%%)</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconectado</string>
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">Desconhecido</string>
   <!--Title for current download rate-->
   <string name="download_title">Recepção</string>
   <!--Title for current upload rate-->
@@ -75,6 +78,8 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="folder_label">Etiqueta da pasta</string>
   <!--Setting title-->
   <string name="directory">Pasta</string>
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Dispositivos</string>
@@ -114,6 +119,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   </string-array>
   <!--Setting title-->
   <string name="introducer">Apresentador</string>
+  <!--Setting title-->
   <!--ActionBar item-->
   <string name="delete_device">Eliminar dispositivo</string>
   <string name="add_device">Adicionar dispositivo</string>
@@ -172,10 +178,12 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="usage_reporting">Enviar relatórios anónimos de utilização</string>
   <string name="gui_address">Endereço de escuta da interface gráfica</string>
   <string name="export_config">Exportar configuração</string>
+  <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
   <string name="keep_wakelock_while_binary_running_summary">Use esta definição se experimentar desconectações inesperadas enquanto estiver a trabalhar com a bateria. Isto irá resultar num aumento do consumo da carga da bateria.</string>
   <string name="use_tor_title">Utilizar o Tor</string>
-  <string name="use_tor_summary">Forçar todo o tráfego através do Tor para aumentar a privacidade. Exige Orbot</string>
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Usar verificação antiga</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar um pacote de verificação antiga por questões de compatabilidade</string>
   <!--Dialog shown before config export-->
@@ -195,11 +203,11 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reiniciar a base de dados</string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Esta acção só deve ser executada com base numa recomendação da nossa equipa de suporte.
-\nTem a certeza que quer limpar o índice da base de dados do Syncthing?
-    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Base de dados do Syncthing reiniciada com sucesso.</string>
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <string name="category_about">Sobre</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Abrir registo</string>
@@ -261,7 +269,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">O Syncthing está a correr</string>
   <string name="syncthing_disabled">O Syncthing está desactivado</string>
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Câmera</string>

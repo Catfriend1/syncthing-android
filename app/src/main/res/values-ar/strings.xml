@@ -5,6 +5,7 @@
   <!--Title for dialog displayed on first start-->
   <!--Text for dialog displayed on first start-->
   <string name="cont">استمرار</string>
+  <!--Generic texts used everywhere-->
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">إضافة مجلد</string>
@@ -29,6 +30,8 @@
   <!--Indicates that a folder is fully synced to the local device-->
   <!--Indicates that the device is currently syncing. Parameter is sync percentage-->
   <!--Indicates that there is no connection to the device-->
+  <!--Indicates that the device is paused and does not sync-->
+  <string name="device_state_unknown">غير معروف</string>
   <!--Title for current download rate-->
   <!--Title for current upload rate-->
   <!--DrawerFragment-->
@@ -38,6 +41,8 @@
   <!--Title for current RAM usage-->
   <!--Title for announce server status-->
   <!--FolderActivity-->
+  <!--Setting title-->
+  <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
@@ -60,6 +65,7 @@
   <!--Setting title-->
   <!--Strings representing compression options-->
   <!--Setting title-->
+  <!--Setting title-->
   <!--ActionBar item-->
   <!--Menu item to confirm adding a device-->
   <!--Title for DeviceSettingsFragment in edit mode-->
@@ -73,6 +79,9 @@
   <!--SettingsFragment-->
   <!--Preference summary in case it is enabled-->
   <!--Preference summary in case it is disabled-->
+  <!--Experimental options-->
+  <!--Toast after entering invalid socks proxy address-->
+  <!--Toast after entering invalid http proxy address-->
   <!--Dialog shown before config export-->
   <!--Dialog shown before config import-->
   <!--Toast shown after config was successfully exported-->
@@ -80,6 +89,9 @@
   <!--Toast shown after config was successfully imported-->
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
+  <!--Title for the preference to reset Syncthing indexes-->
+  <!--Syncthing was reset-->
+  <!--Syncthing was reset-->
   <!--Title for the preference to reset Syncthing indexes-->
   <!--Syncthing was reset-->
   <!--Syncthing was reset-->
@@ -119,7 +131,6 @@
   <!--Button text on the "syncthing disabled" dialog-->
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
   <!--Title of the notification shown while syncthing is running and enabled-->
-  <!--Toast shown if folder observer fails to traverse a folder-->
   <!--Toast shown if syncthing failed to create a config-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
