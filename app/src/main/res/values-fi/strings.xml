@@ -314,7 +314,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Possible folder states-->
   <string name="state_idle">toimeton</string>
   <string name="state_scanning">Skannataan</string>
-  <string name="state_cleaning">Puhdistetaan</string>
   <string name="state_syncing">Synkronoidaan (%1$d%%)</string>
   <string name="state_error">Virhe</string>
   <string name="state_unknown">Tuntematon</string>

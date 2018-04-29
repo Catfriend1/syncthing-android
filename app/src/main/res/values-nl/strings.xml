@@ -357,7 +357,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Possible folder states-->
   <string name="state_idle">Inactief</string>
   <string name="state_scanning">Bezig met scannen</string>
-  <string name="state_cleaning">Bezig met opruimen</string>
   <string name="state_syncing">Bezig met synchroniseren (%1$d%%)</string>
   <string name="state_error">Fout</string>
   <string name="state_unknown">Onbekend</string>

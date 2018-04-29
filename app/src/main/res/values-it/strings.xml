@@ -358,7 +358,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Possible folder states-->
   <string name="state_idle">Inattivo</string>
   <string name="state_scanning">Scansione in corso</string>
-  <string name="state_cleaning">Pulizia</string>
   <string name="state_syncing">Sincronizzazione (%1$d%%)</string>
   <string name="state_error">Errore</string>
   <string name="state_unknown">Sconosciuto</string>

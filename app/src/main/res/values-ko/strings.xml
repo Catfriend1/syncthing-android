@@ -346,7 +346,6 @@
   <!--Possible folder states-->
   <string name="state_idle">대기</string>
   <string name="state_scanning">스캔 중</string>
-  <string name="state_cleaning">지우는 중</string>
   <string name="state_syncing">동기화 중 (%1$d%%)</string>
   <string name="state_error">오류</string>
   <string name="state_unknown">알 수 없음</string>

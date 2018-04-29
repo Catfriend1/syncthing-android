@@ -103,6 +103,12 @@ Please report any problems you encounter via Github.</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnected</string>
 
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">Paused</string>
+
+    !-- Indicates that the device connection is unknown -->
+    <string name="device_state_unknown">Unknown</string>
+
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
 
@@ -148,6 +154,9 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Setting title -->
     <string name="folder_fileWatcher">Realtime Sync</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Pause Folder</string>
 
     <!-- Setting title -->
     <string name="devices">Devices</string>
@@ -211,6 +220,9 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Setting title -->
     <string name="introducer">Introducer</string>
+
+    <!-- Setting title -->
+    <string name="pause_device">Pause Device</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Delete Device</string>
@@ -620,10 +632,10 @@ Please report any problems you encounter via Github.</string>
     <!-- Possible folder states -->
     <string name="state_idle">Idle</string>
     <string name="state_scanning">Scanning</string>
-    <string name="state_cleaning">Cleaning</string>
     <string name="state_syncing">Syncing (%1$d%%)</string>
     <string name="state_error">Error</string>
     <string name="state_unknown">Unknown</string>
+    <string name="state_paused">Paused</string>
     <string name="status_outofsync">Out of Sync</string>
 
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->

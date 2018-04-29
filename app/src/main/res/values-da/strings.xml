@@ -350,7 +350,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <!--Possible folder states-->
   <string name="state_idle">Ledig</string>
   <string name="state_scanning">Scanner</string>
-  <string name="state_cleaning">Gør rent</string>
   <string name="state_syncing">Synkroniserer (%1$d%%)</string>
   <string name="state_error">Fejl</string>
   <string name="state_unknown">Ukendt</string>

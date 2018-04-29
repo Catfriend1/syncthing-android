@@ -11,6 +11,7 @@ public class Device {
     public String compression;
     public String certName;
     public boolean introducer;
+    public boolean paused;
 
     /**
      * Returns the device name, or the first characters of the ID if the name is empty.

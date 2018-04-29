@@ -296,7 +296,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Possible folder states-->
   <string name="state_idle">Boşta</string>
   <string name="state_scanning">Taranıyor</string>
-  <string name="state_cleaning">Temizleniyor</string>
   <string name="state_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
   <string name="state_error">Hata</string>
   <string name="state_unknown">Bilinmiyor</string>

@@ -358,7 +358,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Possible folder states-->
   <string name="state_idle">Inactiu</string>
   <string name="state_scanning">Escanejant</string>
-  <string name="state_cleaning">Netejant</string>
   <string name="state_syncing">Sincronitzant (%1$d%%)</string>
   <string name="state_error">Error</string>
   <string name="state_unknown">Desconegut</string>

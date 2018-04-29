@@ -357,7 +357,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Possible folder states-->
   <string name="state_idle">Inaktiv</string>
   <string name="state_scanning">Skannar</string>
-  <string name="state_cleaning">Städar</string>
   <string name="state_syncing">Synkroniserar (%1$d%%)</string>
   <string name="state_error">Fel</string>
   <string name="state_unknown">Okänd</string>

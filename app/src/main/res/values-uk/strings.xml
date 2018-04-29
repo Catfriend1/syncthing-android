@@ -254,7 +254,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Очікування</string>
   <string name="state_scanning">Сканування</string>
-  <string name="state_cleaning">Очистка</string>
   <string name="state_syncing">Синхронізуються (%1$d%%)</string>
   <string name="state_error">Помилка</string>
   <string name="state_unknown">Невідомо</string>

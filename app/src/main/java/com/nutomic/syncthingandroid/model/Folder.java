@@ -13,6 +13,7 @@ public class Folder {
 
     public String id;
     public String label;
+    public String filesystemType = "basic";
     public String path;
     public String type;
     public boolean fsWatcherEnabled = true;
@@ -24,18 +25,19 @@ public class Folder {
     public MinDiskFree minDiskFree;
     public Versioning versioning;
     public int copiers;
-    public int pullers;
+    public int pullerMaxPendingKiB;
     public int hashers;
     public String order;
     public boolean ignoreDelete;
     public int scanProgressIntervalS;
-    public int pullerSleepS;
     public int pullerPauseS;
     public int maxConflicts = 10;
     public boolean disableSparseFiles;
     public boolean disableTempIndexes;
+    public boolean paused;
+    public int weakHashThresholdPct = 25;
+    public String markerName = ".stfolder";
     public String invalid;
-    public boolean fsync = true;
 
     public static class Versioning implements Serializable {
         public String type;

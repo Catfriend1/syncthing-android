@@ -78,6 +78,7 @@ public class FolderActivity extends SyncthingActivity
     private TextView mPathView;
     private SwitchCompat mFolderMasterView;
     private SwitchCompat mFolderFileWatcher;
+    private SwitchCompat mFolderPaused;
     private ViewGroup mDevicesContainer;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
@@ -114,6 +115,10 @@ public class FolderActivity extends SyncthingActivity
                     mFolder.fsWatcherEnabled = isChecked;
                     mFolderNeedsToUpdate = true;
                     break;
+                case R.id.folderPause:
+                    mFolder.paused = isChecked;
+                    mFolderNeedsToUpdate = true;
+                    break;
                 case R.id.device_toggle:
                     Device device = (Device) view.getTag();
                     if (isChecked) {
@@ -141,6 +146,7 @@ public class FolderActivity extends SyncthingActivity
         mPathView = findViewById(R.id.directoryTextView);
         mFolderMasterView = findViewById(R.id.master);
         mFolderFileWatcher = findViewById(R.id.fileWatcher);
+        mFolderPaused = findViewById(R.id.folderPause);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mDevicesContainer = findViewById(R.id.devicesContainer);
@@ -316,6 +322,7 @@ public class FolderActivity extends SyncthingActivity
         mPathView.removeTextChangedListener(mTextWatcher);
         mFolderMasterView.setOnCheckedChangeListener(null);
         mFolderFileWatcher.setOnCheckedChangeListener(null);
+        mFolderPaused.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
@@ -324,6 +331,7 @@ public class FolderActivity extends SyncthingActivity
         updateVersioningDescription();
         mFolderMasterView.setChecked(Objects.equal(mFolder.type, "readonly"));
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
+        mFolderPaused.setChecked(mFolder.paused);
         List<Device> devicesList = getApi().getDevices(false);
 
         mDevicesContainer.removeAllViews();
@@ -341,6 +349,7 @@ public class FolderActivity extends SyncthingActivity
         mPathView.addTextChangedListener(mTextWatcher);
         mFolderMasterView.setOnCheckedChangeListener(mCheckedListener);
         mFolderFileWatcher.setOnCheckedChangeListener(mCheckedListener);
+        mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
     }
 
     @Override
@@ -438,6 +447,7 @@ public class FolderActivity extends SyncthingActivity
          * syncthing when the file watcher is enabled and a new folder is created.
          */
         mFolder.rescanIntervalS = 3600;
+        mFolder.paused = false;
         mFolder.versioning = new Folder.Versioning();
     }
 

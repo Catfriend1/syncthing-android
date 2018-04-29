@@ -358,7 +358,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Possible folder states-->
   <string name="state_idle">En veille</string>
   <string name="state_scanning">Analyse en cours</string>
-  <string name="state_cleaning">Effacement en cours</string>
   <string name="state_syncing">Synchronisation (%1$d%%)</string>
   <string name="state_error">Erreur</string>
   <string name="state_unknown">Inconnu</string>

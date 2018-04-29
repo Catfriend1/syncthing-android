@@ -358,7 +358,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Αδρανής</string>
   <string name="state_scanning">Σάρωση</string>
-  <string name="state_cleaning">Εκκαθάριση</string>
   <string name="state_syncing">Συγχρονισμός (%1$d%%)</string>
   <string name="state_error">Σφάλμα</string>
   <string name="state_unknown">Άγνωστο</string>

@@ -275,7 +275,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Kviler</string>
   <string name="state_scanning">Skannar</string>
-  <string name="state_cleaning">Reingjer</string>
   <string name="state_syncing">Synkroniserer (%1$d%%)</string>
   <string name="state_error">Feil</string>
   <string name="state_unknown">Ukjend</string>

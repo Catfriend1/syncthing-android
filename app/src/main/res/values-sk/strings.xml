@@ -256,7 +256,6 @@ Naozaj chcete resetovať databázu s indexom súborov?</string>
   <!--Possible folder states-->
   <string name="state_idle">Nečinné</string>
   <string name="state_scanning">Skenovanie</string>
-  <string name="state_cleaning">Čistenie</string>
   <string name="state_syncing">Synchronizuje sa (%1$d%%)</string>
   <string name="state_error">Chyba</string>
   <string name="state_unknown">Neznámy</string>

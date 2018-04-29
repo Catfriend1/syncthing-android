@@ -361,7 +361,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Possible folder states-->
   <string name="state_idle">Inactiv</string>
   <string name="state_scanning">Scanare</string>
-  <string name="state_cleaning">Curățare</string>
   <string name="state_syncing">Se sincronizează(%1$d%%)</string>
   <string name="state_error">Eroare</string>
   <string name="state_unknown">Necunoscut</string>

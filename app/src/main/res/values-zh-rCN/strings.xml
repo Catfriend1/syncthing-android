@@ -355,7 +355,6 @@
   <!--Possible folder states-->
   <string name="state_idle">空闲</string>
   <string name="state_scanning">正在扫描</string>
-  <string name="state_cleaning">正在清理</string>
   <string name="state_syncing">正在同步 (%1$d%%)</string>
   <string name="state_error">错误</string>
   <string name="state_unknown">未知</string>

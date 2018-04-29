@@ -311,7 +311,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Бездействие</string>
   <string name="state_scanning">Сканирование</string>
-  <string name="state_cleaning">Очистка</string>
   <string name="state_syncing">Синхронизация (%1$d%%)</string>
   <string name="state_error">Ошибка</string>
   <string name="state_unknown">Неизвестно</string>

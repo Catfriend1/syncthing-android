@@ -270,7 +270,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Sin utilizar</string>
   <string name="state_scanning">Escaneando</string>
-  <string name="state_cleaning">Limpiando</string>
   <string name="state_syncing">Sincronizando (%1$d%%)</string>
   <string name="state_error">Error</string>
   <string name="state_unknown">Desconocido</string>

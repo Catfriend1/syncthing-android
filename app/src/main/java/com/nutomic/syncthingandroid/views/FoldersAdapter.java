@@ -82,18 +82,22 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 binding.state.setText(getContext().getString(R.string.status_outofsync));
                 binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
             } else {
-                binding.state.setText(getLocalizedState(getContext(), model.state, percentage));
-                switch(model.state) {
-                    case "idle":
-                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
-                        break;
-                    case "scanning":
-                    case "cleaning":
-                    case "syncing":
-                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
-                        break;
-                    default:
-                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+                if (folder.paused) {
+                    binding.state.setText(getContext().getString(R.string.state_paused));
+                    binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_black));
+                } else {
+                    binding.state.setText(getLocalizedState(getContext(), model.state, percentage));
+                    switch(model.state) {
+                        case "idle":
+                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                            break;
+                        case "scanning":
+                        case "syncing":
+                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                            break;
+                        default:
+                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+                    }
                 }
             }
             binding.items.setVisibility(VISIBLE);
@@ -118,18 +122,13 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
      */
     private static String getLocalizedState(Context c, String state, int percentage) {
         switch (state) {
-            case "idle":     return c.getString(R.string.state_idle);
-            case "scanning": return c.getString(R.string.state_scanning);
-            case "cleaning": return c.getString(R.string.state_cleaning);
-            case "syncing":  return c.getString(R.string.state_syncing, percentage);
-            case "error":    return c.getString(R.string.state_error);
-            case "unknown":  // Fallthrough
-            case "":         return c.getString(R.string.state_unknown);
+            case "idle":        return c.getString(R.string.state_idle);
+            case "scanning":    return c.getString(R.string.state_scanning);
+            case "syncing":     return c.getString(R.string.state_syncing, percentage);
+            case "error":       return c.getString(R.string.state_error);
+            case "unknown":     return c.getString(R.string.state_unknown);
+            default:            return state;
         }
-        if (BuildConfig.DEBUG) {
-            throw new AssertionError("Unexpected folder state " + state);
-        }
-        return "";
     }
 
     /**

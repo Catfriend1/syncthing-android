@@ -275,7 +275,6 @@
   <!--Possible folder states-->
   <string name="state_idle">Inaktiv</string>
   <string name="state_scanning">Skanner</string>
-  <string name="state_cleaning">Rydder</string>
   <string name="state_syncing">Synkroniserer (%1$d%%)</string>
   <string name="state_error">Feil</string>
   <string name="state_unknown">Ukjent</string>

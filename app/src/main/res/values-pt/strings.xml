@@ -297,7 +297,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Possible folder states-->
   <string name="state_idle">Em espera</string>
   <string name="state_scanning">Verificando</string>
-  <string name="state_cleaning">Limpando</string>
   <string name="state_syncing">Sincronizando (%1$d%%)</string>
   <string name="state_error">Erro</string>
   <string name="state_unknown">Desconhecido</string>
