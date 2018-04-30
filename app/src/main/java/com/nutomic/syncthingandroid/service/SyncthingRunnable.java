@@ -55,6 +55,7 @@ public class SyncthingRunnable implements Runnable {
     @Inject NotificationHandler mNotificationHandler;
 
     public enum Command {
+        deviceid,           // Output the device ID to the command line.
         generate,           // Generate keys, a config file and immediately exit.
         main,               // Run the main Syncthing application.
         resetdatabase,      // Reset Syncthing's database
@@ -75,6 +76,9 @@ public class SyncthingRunnable implements Runnable {
         // Get preferences relevant to starting syncthing core.
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
+            case deviceid:
+                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "--device-id" };
+                break;
             case generate:
                 mCommand = new String[]{ mSyncthingBinary.getPath(), "-generate", mContext.getFilesDir().toString(), "-logflags=0" };
                 break;
@@ -94,8 +98,13 @@ public class SyncthingRunnable implements Runnable {
 
     @Override
     public void run() {
+        run(false);
+    }
+
+    public String run(boolean returnStdOut) {
         trimLogFile();
         int ret;
+        String capturedStdOut = "";
         // Make sure Syncthing is executable
         try {
             ProcessBuilder pb = new ProcessBuilder("chmod", "500", mSyncthingBinary.getPath());
@@ -120,16 +129,37 @@ public class SyncthingRunnable implements Runnable {
 
             mSyncthing.set(process);
 
-            Thread lInfo = log(process.getInputStream(), Log.INFO, true);
-            Thread lWarn = log(process.getErrorStream(), Log.WARN, true);
+            Thread lInfo = null;
+            Thread lWarn = null;
+            if (returnStdOut) {
+                BufferedReader br = null;
+                try {
+                    br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charsets.UTF_8));
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        Log.println(Log.INFO, TAG_NATIVE, line);
+                        capturedStdOut = capturedStdOut + line + "\n";
+                    }
+                } catch (IOException e) {
+                    Log.w(TAG, "Failed to read Syncthing's command line output", e);
+                } finally {
+                    if (br != null)
+                        br.close();
+                }
+            } else {
+                lInfo = log(process.getInputStream(), Log.INFO, true);
+                lWarn = log(process.getErrorStream(), Log.WARN, true);
+            }
 
             niceSyncthing();
 
             ret = process.waitFor();
             Log.i(TAG, "Syncthing exited with code " + ret);
             mSyncthing.set(null);
-            lInfo.join();
-            lWarn.join();
+            if (lInfo != null)
+                lInfo.join();
+            if (lWarn != null)
+                lWarn.join();
 
             switch (ret) {
                 case 0:
@@ -157,6 +187,7 @@ public class SyncthingRunnable implements Runnable {
             if (process != null)
                 process.destroy();
         }
+        return capturedStdOut;
     }
 
     private void putCustomEnvironmentVariables(Map<String, String> environment, SharedPreferences sp) {
@@ -307,9 +338,9 @@ public class SyncthingRunnable implements Runnable {
      */
     private Thread log(final InputStream is, final int priority, final boolean saveLog) {
         Thread t = new Thread(() -> {
+            BufferedReader br = null;
             try {
-                InputStreamReader isr = new InputStreamReader(is, Charsets.UTF_8);
-                BufferedReader br = new BufferedReader(isr);
+                br = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
                 String line;
                 while ((line = br.readLine()) != null) {
                     Log.println(priority, TAG_NATIVE, line);
@@ -320,6 +351,13 @@ public class SyncthingRunnable implements Runnable {
                 }
             } catch (IOException e) {
                 Log.w(TAG, "Failed to read Syncthing's command line output", e);
+            }
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    Log.w(TAG, "log: Failed to close bufferedReader", e);
+                }
             }
         });
         t.start();

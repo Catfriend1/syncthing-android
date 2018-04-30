@@ -47,6 +47,15 @@ public class Constants {
     }
 
     /**
+     * File in the config folder we write to temporarily before renaming to CONFIG_FILE.
+     */
+    static final String CONFIG_TEMP_FILE = "config.xml.tmp";
+
+    public static File getConfigTempFile(Context context) {
+        return new File(context.getFilesDir(), CONFIG_TEMP_FILE);
+    }
+
+    /**
      * Name of the public key file in the data directory.
      */
     static final String PUBLIC_KEY_FILE = "cert.pem";

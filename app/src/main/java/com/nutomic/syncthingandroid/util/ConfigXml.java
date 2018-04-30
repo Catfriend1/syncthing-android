@@ -19,11 +19,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 import javax.xml.parsers.DocumentBuilder;
@@ -60,7 +64,7 @@ public class ConfigXml {
         boolean isFirstStart = !mConfigFile.exists();
         if (isFirstStart) {
             Log.i(TAG, "App started for the first time. Generating keys and config.");
-            generateKeysConfig(context);
+            new SyncthingRunnable(context, SyncthingRunnable.Command.generate).run();
         }
 
         readConfig();
@@ -68,10 +72,13 @@ public class ConfigXml {
         if (isFirstStart) {
             boolean changed = false;
 
-            /* Synthing devices */
-            changeLocalDeviceName();
-
-            /* Syncthing folders */
+            Log.i(TAG, "Starting syncthing to retrieve local device id.");
+            String logOutput = new SyncthingRunnable(context, SyncthingRunnable.Command.deviceid).run(true);
+            String localDeviceID = logOutput.replace("\n", "");
+            // Verify local device ID is correctly formatted.
+            if (localDeviceID.matches("^([A-Z0-9]{7}-){7}[A-Z0-9]{7}$")) {
+                changed = changeLocalDeviceName(localDeviceID) || changed;
+            }
             changed = changeDefaultFolder() || changed;
 
             // Save changes if we made any.
@@ -94,10 +101,6 @@ public class ConfigXml {
             throw new OpenConfigException();
         }
         Log.i(TAG, "Loaded Syncthing config file");
-    }
-
-    private void generateKeysConfig(Context context) {
-        new SyncthingRunnable(context, SyncthingRunnable.Command.generate).run();
     }
 
     public URL getWebGuiUrl() {
@@ -271,17 +274,23 @@ public class ConfigXml {
      * Set model name as device name for Syncthing.
      *
      * We need to iterate through XML nodes manually, as mConfig.getDocumentElement() will also
-     * return nested elements inside folder element.
+     * return nested elements inside folder element. We have to check that we only rename the
+     * device corresponding to the local device ID.
+     * Returns if changes to the config have been made.
      */
-    private void changeLocalDeviceName() {
+    private boolean changeLocalDeviceName(String localDeviceID) {
         NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node node = childNodes.item(i);
             if (node.getNodeName().equals("device")) {
-                ((Element) node).setAttribute("name", Build.MODEL);
+                if (((Element) node).getAttribute("id").equals(localDeviceID)) {
+                    Log.i(TAG, "changeLocalDeviceName: Rename device ID " + localDeviceID + " to " + Build.MODEL);
+                    ((Element) node).setAttribute("name", Build.MODEL);
+                    return true;
+                }
             }
         }
-        saveChanges();
+        return false;
     }
 
     /**
@@ -313,15 +322,23 @@ public class ConfigXml {
             Log.w(TAG, "Failed to save updated config. Cannot change the owner of the config file.");
             return;
         }
+
+        Log.i(TAG, "Writing updated config file");
+        File mConfigTempFile = Constants.getConfigTempFile(mContext);
         try {
-            Log.i(TAG, "Writing updated config back to file");
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(mConfig);
-            StreamResult streamResult = new StreamResult(mConfigFile);
+            StreamResult streamResult = new StreamResult(mConfigTempFile);
             transformer.transform(domSource, streamResult);
         } catch (TransformerException e) {
-            Log.w(TAG, "Failed to save updated config", e);
+            Log.w(TAG, "Failed to save temporary config file", e);
+            return;
+        }
+        try {
+            mConfigTempFile.renameTo(mConfigFile);
+        } catch (Exception e) {
+            Log.w(TAG, "Failed to rename temporary config file to original file");
         }
     }
 }
