@@ -47,7 +47,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         Resources r = getContext().getResources();
 
         Connections.Connection conn = null;
-        if (mConnections != null || mConnections.connections.containsKey(deviceId)) {
+        if (mConnections != null && mConnections.connections.containsKey(deviceId)) {
             conn = mConnections.connections.get(deviceId);
         }
 
