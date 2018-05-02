@@ -2,13 +2,17 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.net.http.SslCertificate;
 import android.net.http.SslError;
+import android.net.Proxy;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Parcelable;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.webkit.HttpAuthHandler;
@@ -26,7 +30,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -34,6 +41,7 @@ import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.Properties;
 
 /**
  * Holds a WebView that shows the web ui of the local syncthing instance.
@@ -129,6 +137,7 @@ public class WebGuiActivity extends StateDialogActivity
 
         mWebView = findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.clearCache(true);
     }
@@ -142,6 +151,8 @@ public class WebGuiActivity extends StateDialogActivity
     @Override
     public void onWebGuiAvailable() {
         if (mWebView.getUrl() == null) {
+            mWebView.stopLoading();
+            setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
             mWebView.loadUrl(getService().getWebGuiUrl().toString());
         }
     }
@@ -176,5 +187,64 @@ public class WebGuiActivity extends StateDialogActivity
                 Log.w(TAG, e);
             }
         }
+    }
+
+    /**
+     * Set webview proxy and sites that are not retrieved using proxy.
+     * Compatible with KitKat or higher android version.
+     * Returns boolean if successful.
+     * Source: https://stackoverflow.com/a/26781539
+     */
+    public static boolean setWebViewProxy(Context appContext, String host, int port, String exclusionList) {
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            // Not supported on android version lower than KitKat.
+            return false;
+        }
+
+        Properties properties = System.getProperties();
+        properties.setProperty("http.proxyHost", host);
+        properties.setProperty("http.proxyPort", Integer.toString(port));
+        properties.setProperty("https.proxyHost", host);
+        properties.setProperty("https.proxyPort", Integer.toString(port));
+        properties.setProperty("http.nonProxyHosts", exclusionList);
+        properties.setProperty("https.nonProxyHosts", exclusionList);
+
+        try {
+            Class applictionCls = Class.forName("android.app.Application");
+            Field loadedApkField = applictionCls.getDeclaredField("mLoadedApk");
+            loadedApkField.setAccessible(true);
+            Object loadedApk = loadedApkField.get(appContext);
+            Class loadedApkCls = Class.forName("android.app.LoadedApk");
+            Field receiversField = loadedApkCls.getDeclaredField("mReceivers");
+            receiversField.setAccessible(true);
+            ArrayMap receivers = (ArrayMap) receiversField.get(loadedApk);
+            for (Object receiverMap : receivers.values()) {
+                for (Object rec : ((ArrayMap) receiverMap).keySet()) {
+                    Class clazz = rec.getClass();
+                    if (clazz.getName().contains("ProxyChangeListener")) {
+                        Method onReceiveMethod = clazz.getDeclaredMethod("onReceive", Context.class, Intent.class);
+                        Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
+
+                        String CLASS_NAME;
+                        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
+                            CLASS_NAME = "android.net.ProxyProperties";
+                        } else {
+                            CLASS_NAME = "android.net.ProxyInfo";
+                        }
+                        Class cls = Class.forName(CLASS_NAME);
+                        Constructor constructor = cls.getConstructor(String.class, Integer.TYPE, String.class);
+                        constructor.setAccessible(true);
+                        Object proxyProperties = constructor.newInstance(host, port, exclusionList);
+                        intent.putExtra("proxy", (Parcelable) proxyProperties);
+
+                        onReceiveMethod.invoke(rec, appContext, intent);
+                    }
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            Log.w(TAG, "setWebViewProxy exception", e);
+        }
+        return false;
     }
 }
