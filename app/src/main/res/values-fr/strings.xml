@@ -11,6 +11,7 @@ Pour partager des données avec d\'autres appareils, vous devez ajouter leur ide
 S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
   <string name="cont">Continuer</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exemple</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Ajouter un partage</string>
@@ -47,6 +48,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <item quantity="one">%1$d / %2$d Fichier</item>
     <item quantity="other">%1$d / %2$d Fichiers</item>
   </plurals>
+  <string name="open_file_manager">Ouvrir le gestionnaire de fichiers</string>
   <string name="toast_no_file_manager">Aucun gestionnaire de fichiers compatible n\'a été trouvé</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Appareils</string>
@@ -59,6 +61,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Déconnecté</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">En pause</string>
   <string name="device_state_unknown">Inconnu</string>
   <!--Title for current download rate-->
   <string name="download_title">Réception</string>
@@ -87,7 +90,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Setting title-->
   <string name="folder_master">Envoyer uniquement</string>
   <!--Setting title-->
+  <string name="folder_fileWatcher">Synchronisation temps réel</string>
   <!--Setting title-->
+  <string name="folder_pause">Mettre le partage en pause</string>
   <!--Setting title-->
   <string name="devices">Appareils</string>
   <!--Setting title-->
@@ -130,6 +135,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Setting title-->
   <string name="introducer">Initiateur</string>
   <!--Setting title-->
+  <string name="pause_device">Mettre l\'appareil en pause</string>
   <!--ActionBar item-->
   <string name="delete_device">Supprimer l\'appareil</string>
   <string name="add_device">Ajout d\'un appareil</string>
@@ -167,6 +173,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="sync_only_wifi">Exécuter uniquement en WiFi</string>
   <string name="sync_only_wifi_ssids">Limiter à certains réseaux WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le WiFi pour sélectionner un réseau</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Vous devez accorder la permission LOCALISATION pour utiliser cette fonctionnalité.</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission requise</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">À partir d\'Android 8.1, l\'accès à la localisation est nécessaire pour pouvoir lire le nom du WiFi. Vous pouvez utiliser cette fonctionnalité uniquement si vous accordez cette autorisation.</string>
   <string name="respect_battery_saving_title">Sauvegarde batterie selon les réglages Android</string>
   <string name="respect_battery_saving_summary">Désactiver Synthing si la sauvegarde batterie est active.</string>
   <string name="advanced_folder_picker">Choix étendu des répertoires</string>
@@ -205,13 +214,24 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="gui_address">Adresse pour l\'interface WEB</string>
   <string name="export_config">Exporter la configuration</string>
   <!--Experimental options-->
+  <string name="use_proxy">Se connecter via un proxy</string>
+  <string name="do_not_use_proxy">Ne pas se connecter via un proxy</string>
   <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
   <string name="keep_wakelock_while_binary_running_summary">Utilisez ce paramètre si vous rencontrez des déconnexions inattendues en fonctionnant sur batterie. Il en résultera une augmentation de la consommation de la batterie.</string>
   <string name="use_tor_title">Utiliser Tor</string>
+  <string name="use_tor_summary">Forcer tout le trafic à travers Tor mieux préserver sa vie privée. Nécessite Orbot. Désactive les options de proxy.</string>
+  <string name="socks_proxy_address_title">Proxy SOCKS5</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">Proxy HTTP(S)</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Utiliser le hachage habituel</string>
   <string name="use_legacy_hashing_summary">Force Syncthing à utiliser le hachage d\'origine pour des raisons de compatibilité.</string>
+  <string name="restart_on_wakeup_title">Redémarrer en cas de réveil</string>
+  <string name="restart_on_wakeup_summary">Par défaut: Activé. La désactivation de cette fonction, pour économiser la batterie, peut entraîner des retards dans l\'analyse des partages et dans la reconnexion des appareils.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés.\n\n ATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
   <!--Dialog shown before config import-->
@@ -232,11 +252,19 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Remise à zéro de la base de données</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
+        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
+    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Réinitialisation réussie de la base de données Syncthing</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Réinitialiser les index delta</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
+        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
+    </string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>
   <string name="category_about">A propos</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Ouvrir le journal</string>
@@ -333,6 +361,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="default_folder_id">%1$s-photos</string>
   <string name="notification_crash_title">Syncthing s\'est planté</string>
   <string name="notification_crash_text">Cliquer pour voir les journaux</string>
+  <string name="notifications_persistent_channel">Syncthing en marche</string>
+  <string name="notification_persistent_waiting_channel">Surveillance des conditions de fonctionnement</string>
   <string name="notifications_other_channel">Autres notifications</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -367,6 +397,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="state_syncing">Synchronisation (%1$d%%)</string>
   <string name="state_error">Erreur</string>
   <string name="state_unknown">Inconnu</string>
+  <string name="state_paused">En pause</string>
   <string name="status_outofsync">Désynchronisé</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

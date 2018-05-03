@@ -11,6 +11,7 @@ Om gegevens met andere apparaten te delen moet je hun unieke apparaats-ID toevoe
 Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="cont">Verder</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Voorbeeld</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Map toevoegen</string>
@@ -47,6 +48,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <item quantity="one">%1$d / %2$d bestand</item>
     <item quantity="other">%1$d / %2$d bestanden</item>
   </plurals>
+  <string name="open_file_manager">Bestandsbeheerder openen</string>
   <string name="toast_no_file_manager">Geen compatibele bestandsbeheerder gevonden</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Apparaten</string>
@@ -59,6 +61,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Niet verbonden</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Gepauzeerd</string>
   <string name="device_state_unknown">Onbekend</string>
   <!--Title for current download rate-->
   <string name="download_title">Download</string>
@@ -87,7 +90,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Setting title-->
   <string name="folder_master">Enkel versturen</string>
   <!--Setting title-->
+  <string name="folder_fileWatcher">Realtime-synchronisatie</string>
   <!--Setting title-->
+  <string name="folder_pause">Map pauzeren</string>
   <!--Setting title-->
   <string name="devices">Apparaten</string>
   <!--Setting title-->
@@ -130,6 +135,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Setting title-->
   <string name="introducer">Introduceerder</string>
   <!--Setting title-->
+  <string name="pause_device">Apparaat pauzeren</string>
   <!--ActionBar item-->
   <string name="delete_device">Apparaat verwijderen</string>
   <string name="add_device">Apparaat toevoegen</string>
@@ -167,6 +173,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="sync_only_wifi">Enkel uitvoeren via wifi</string>
   <string name="sync_only_wifi_ssids">Beperken tot bepaalde wifinetwerken</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Schakel wifi in om netwerken te selecteren.</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Geef de LOCATIE-toestemming om deze functie te gebruiken.</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Toestemming vereist</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Vanaf Android 8.1 wordt toegang tot de locatie vereist om de naam van het wifinetwerk te kunnen lezen. Deze functie kan enkel gebruikt worden als je deze toestemming geeft.</string>
   <string name="respect_battery_saving_title">Eerbiedig de batterijbesparingsinstellingen van Android</string>
   <string name="respect_battery_saving_summary">Schakel Syncthing uit wanneer batterijbesparing actief is</string>
   <string name="advanced_folder_picker">Gebruik geavanceerde mapkiezer</string>
@@ -205,13 +214,24 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="gui_address">GUI-luisteradressen</string>
   <string name="export_config">Configuratie exporteren</string>
   <!--Experimental options-->
+  <string name="use_proxy">Verbinden via een proxy</string>
+  <string name="do_not_use_proxy">Niet verbinden via een proxy</string>
   <string name="keep_wakelock_while_binary_running">Laat de CPU niet slapen wanneer Syncthing wordt uitgevoerd</string>
   <string name="keep_wakelock_while_binary_running_summary">Gebruik deze instelling als je onverwacht losgekoppeld wordt wanneer je op batterij werkt. Dit zal leiden tot verhoogd batterijverbruik.</string>
   <string name="use_tor_title">Gebruik Tor</string>
+  <string name="use_tor_summary">Dwing alle verkeer door Tor voor verhoogde privacy. Schakelt proxyopties uit.</string>
+  <string name="socks_proxy_address_title">SOCKS5-proxy</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">Invoer is geen correcte proxysyntax \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">HTTP(S)-proxy</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Gebruik verouderde hashing</string>
   <string name="use_legacy_hashing_summary">Dwing Syncthing om het verouderd hashingpakket te gebruiken voor compatibiliteitsredenen</string>
+  <string name="restart_on_wakeup_title">Herstarten bij wekken</string>
+  <string name="restart_on_wakeup_summary">Standaard: ingeschakeld. Deze functie uitschakelen kan ertoe leiden dat het scannen van mappen en opnieuw verbinden met apparaten uitgesteld wordt om de batterij te besparen.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Wil je je configuratie echt exporteren? Bestaande bestanden worden overschreven.\n\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
   <!--Dialog shown before config import-->
@@ -232,11 +252,19 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Database opnieuw instellen</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
+\nBen je zeker dat je de database van Syncthing wil wissen?
+</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Opnieuw instellen van Syncthing-database geslaagd</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Delta-indexen opnieuw instellen</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
+\nBen je zeker dat je de delta-indexen van Syncthing wil wissen?
+</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">Delta-indexen van Syncthing opnieuw ingesteld</string>
   <string name="category_about">Over</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Log openen</string>
@@ -333,6 +361,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="default_folder_id">%1$s-foto\'s</string>
   <string name="notification_crash_title">Syncthing is gecrasht</string>
   <string name="notification_crash_text">Tik om logboeken te bekijken</string>
+  <string name="notifications_persistent_channel">Syncthing is actief</string>
+  <string name="notification_persistent_waiting_channel">Uitvoervoorwaarden controleren</string>
   <string name="notifications_other_channel">Overige meldingen</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -367,6 +397,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="state_syncing">Bezig met synchroniseren (%1$d%%)</string>
   <string name="state_error">Fout</string>
   <string name="state_unknown">Onbekend</string>
+  <string name="state_paused">Gepauzeerd</string>
   <string name="status_outofsync">Niet gesynchroniseerd</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

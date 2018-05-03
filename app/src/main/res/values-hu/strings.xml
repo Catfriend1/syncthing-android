@@ -13,6 +13,7 @@ Az adatok más eszközökkel való megosztásához hozzá kell adnod egyedi eszk
 Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</string>
   <string name="cont">Folytatás</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Példa</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Mappa hozzáadása</string>
@@ -53,6 +54,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
     <item quantity="one">%1$d / %2$d fájl</item>
     <item quantity="other">%1$d / %2$d fájl</item>
   </plurals>
+  <string name="open_file_manager">Fájlkezelő megnyitása</string>
   <string name="toast_no_file_manager">Nem található kompatibilis fájlkezelő</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Eszközök</string>
@@ -65,6 +67,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Kapcsolat bontva</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Szünteteltetve</string>
   <string name="device_state_unknown">Ismeretlen</string>
   <!--Title for current download rate-->
   <string name="download_title">Letöltés</string>
@@ -93,7 +96,9 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <!--Setting title-->
   <string name="folder_master">Csak küldés</string>
   <!--Setting title-->
+  <string name="folder_fileWatcher">Valósidejű szinkron</string>
   <!--Setting title-->
+  <string name="folder_pause">Mappa szüneteltetés</string>
   <!--Setting title-->
   <string name="devices">Eszközök</string>
   <!--Setting title-->
@@ -136,6 +141,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <!--Setting title-->
   <string name="introducer">Bemutató</string>
   <!--Setting title-->
+  <string name="pause_device">Eszköz szüneteltetés</string>
   <!--ActionBar item-->
   <string name="delete_device">Eszköz törlése</string>
   <string name="add_device">Eszköz hozzáadása</string>
@@ -173,6 +179,9 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="sync_only_wifi">Csak wifi hálózat esetén fusson</string>
   <string name="sync_only_wifi_ssids">Korlátozás bizonyos wifi hálózatokra</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
   <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
   <string name="respect_battery_saving_summary">Syncthing tiltása, ha az akkumulátor-optimalizáció aktív</string>
   <string name="advanced_folder_picker">Advanced mappaválasztó használata</string>
@@ -211,13 +220,24 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="gui_address">GUI IP címe</string>
   <string name="export_config">Beállítások mentése</string>
   <!--Experimental options-->
+  <string name="use_proxy">Kapcsolódás porxyn keresztül</string>
+  <string name="do_not_use_proxy">Ne kapcsolódjon proxyn keresztül</string>
   <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
   <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
   <string name="use_tor_title">Tor használata</string>
+  <string name="use_tor_summary">A megnövelt biztonság érdekében minden forgalom a TOR-on keresztül. Orbot szükséges. Letiltja a proxy beállításokat.</string>
+  <string name="socks_proxy_address_title">SOCKS5 proxy</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">A bemenet sérti a proxy szintaxist \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">HTTP(S) proxy</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">A bemenet sérti a proxy szintaxist \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
   <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>
+  <string name="restart_on_wakeup_title">Újraindítás felébresztéskor</string>
+  <string name="restart_on_wakeup_summary">Alapértelmezés: bekapcsolva. A funckió bekapcsolása a mappák szkennelésének és az eszközök újracsatlakozásának késleltetését okozza az akkumulátor kímélése érdekében.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva.
 
@@ -240,11 +260,17 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Adatbázis törlése</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
+ \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát?</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">A Syncthing adatbázisának törlése megtörtént</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Különbségi indexek visszaállítása</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
+ \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit?</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">A Syncthing különbségi indexei sikeresen visszaállítva</string>
   <string name="category_about">Névjegy</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Napló megnyitása</string>
@@ -341,6 +367,8 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="default_folder_id">%1$s-kepek</string>
   <string name="notification_crash_title">A Syncthing összeomlott</string>
   <string name="notification_crash_text">Koppints a naplók megtekintéséhez</string>
+  <string name="notifications_persistent_channel">Syncthing aktív</string>
+  <string name="notification_persistent_waiting_channel">Futási feltételek monitorozása</string>
   <string name="notifications_other_channel">További értesítések</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -375,6 +403,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="state_syncing">Szinkronizálás (%1$d%%)</string>
   <string name="state_error">Hiba</string>
   <string name="state_unknown">Ismeretlen</string>
+  <string name="state_paused">Szünteteltetve</string>
   <string name="status_outofsync">Nincs szinkronban</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
