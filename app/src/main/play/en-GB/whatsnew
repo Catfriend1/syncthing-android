@@ -1,2 +1,11 @@
-* Fix high CPU usage (for some devices this manifested as a crash)
-* Fix Wifi run condition on Android 8.1
+* Update syncthing to v0.14.47
+* Minimum supported Android version is now 4.1
+* Migrated to built-in syncthing file watcher
+* Added pause button for folders and devices
+* Support more file managers when opening folders from the application
+* Ability to set proxy settings
+* Added experimental toggle for disabling restarts after beind suspended, which when enabled can reduce battery usage yet increase the time it takes to reconnect
+* Fix issue when web UI was inaccessible when network connected configured a proxy
+* Add support for reseting delta indexes from the UI
+* Fixed issue with device names being overwritten after config restore
+* Potential fix for config corruption
