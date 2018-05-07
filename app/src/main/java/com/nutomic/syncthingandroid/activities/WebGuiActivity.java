@@ -162,8 +162,30 @@ public class WebGuiActivity extends StateDialogActivity
         if (mWebView.canGoBack()) {
             mWebView.goBack();
         } else {
+            finish();
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onPause() {
+        mWebView.onPause();
+        mWebView.pauseTimers();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mWebView.resumeTimers();
+        mWebView.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mWebView.destroy();
+        mWebView = null;
+        super.onDestroy();
     }
 
     /**
