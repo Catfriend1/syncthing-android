@@ -156,6 +156,16 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
         });
     }
 
+    public void reloadConfig() {
+        new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
+            Log.v(TAG, "reloadConfig: " + result);
+            mConfig = new Gson().fromJson(result, Config.class);
+            if (mConfig == null) {
+                throw new RuntimeException("config is null: " + result);
+            }
+        });
+    }
+
     /**
      * Increments mAvailableCount by one, and, if it reached TOTAL_STARTUP_CALLS,
      * calls {@link SyncthingService#onApiChange}.

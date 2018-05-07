@@ -94,6 +94,12 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
     @Override
     public void onEvent(Event event) {
         switch (event.type) {
+            case "ConfigSaved":
+                if (mApi != null) {
+                    Log.v(TAG, "Forwarding ConfigSaved event to RestApi to get the updated config.");
+                    mApi.reloadConfig();
+                }
+                break;
             case "DeviceRejected":
                 String deviceId = (String) event.data.get("device");
                 Log.d(TAG, "Unknwon device " + deviceId + " wants to connect");
