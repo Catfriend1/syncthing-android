@@ -87,7 +87,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         mAdapter.clear();
         List<Folder> folders = activity.getApi().getFolders();
         mAdapter.addAll(folders);
-        mAdapter.updateModel(activity.getApi());
+        mAdapter.updateFolderStatus(activity.getApi());
         mAdapter.notifyDataSetChanged();
         setListShown(true);
     }

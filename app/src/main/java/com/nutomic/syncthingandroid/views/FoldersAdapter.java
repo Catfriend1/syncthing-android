@@ -15,11 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.databinding.ItemFolderListBinding;
 import com.nutomic.syncthingandroid.model.Folder;
-import com.nutomic.syncthingandroid.model.Model;
+import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.util.Util;
 
@@ -36,7 +35,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
     private static final String TAG = "FoldersAdapter";
 
-    private final HashMap<String, Model> mModels = new HashMap<>();
+    private final HashMap<String, FolderStatus> mLocalFolderStatuses = new HashMap<>();
 
     public FoldersAdapter(Context context) {
         super(context, 0);
@@ -50,7 +49,6 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 : DataBindingUtil.bind(convertView);
 
         Folder folder = getItem(position);
-        Model model = mModels.get(folder.id);
         binding.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
         binding.directory.setText(folder.path);
         binding.openFolder.setOnClickListener(v -> {
@@ -73,48 +71,53 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             }
         });
 
-        if (model != null) {
-            int percentage = (model.globalBytes != 0)
-                    ? Math.round(100 * model.inSyncBytes / model.globalBytes)
-                    : 100;
-            long neededItems = model.needFiles + model.needDirectories + model.needSymlinks + model.needDeletes;
-            if (model.state.equals("idle") && neededItems > 0) {
-                binding.state.setText(getContext().getString(R.string.status_outofsync));
-                binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
-            } else {
-                if (folder.paused) {
-                    binding.state.setText(getContext().getString(R.string.state_paused));
-                    binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_black));
-                } else {
-                    binding.state.setText(getLocalizedState(getContext(), model.state, percentage));
-                    switch(model.state) {
-                        case "idle":
-                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
-                            break;
-                        case "scanning":
-                        case "syncing":
-                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
-                            break;
-                        default:
-                            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
-                    }
-                }
-            }
-            binding.items.setVisibility(VISIBLE);
-            binding.items.setText(getContext().getResources()
-                    .getQuantityString(R.plurals.files, (int) model.inSyncFiles, model.inSyncFiles, model.globalFiles));
-            binding.size.setVisibility(VISIBLE);
-            binding.size.setText(getContext().getString(R.string.folder_size_format,
-                    Util.readableFileSize(getContext(), model.inSyncBytes),
-                    Util.readableFileSize(getContext(), model.globalBytes)));
-            setTextOrHide(binding.invalid, model.invalid);
-        } else {
+        updateFolderStatusView(binding, folder);
+        return binding.getRoot();
+    }
+
+    private void updateFolderStatusView(ItemFolderListBinding binding, Folder folder) {
+        FolderStatus folderStatus = mLocalFolderStatuses.get(folder.id);
+        if (folderStatus == null) {
             binding.items.setVisibility(GONE);
             binding.size.setVisibility(GONE);
             setTextOrHide(binding.invalid, folder.invalid);
+            return;
         }
 
-        return binding.getRoot();
+        int percentage = (folderStatus.globalBytes != 0)
+                ? Math.round(100 * folderStatus.inSyncBytes / folderStatus.globalBytes)
+                : 100;
+        long neededItems = folderStatus.needFiles + folderStatus.needDirectories + folderStatus.needSymlinks + folderStatus.needDeletes;
+        if (folderStatus.state.equals("idle") && neededItems > 0) {
+            binding.state.setText(getContext().getString(R.string.status_outofsync));
+            binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+        } else {
+            if (folder.paused) {
+                binding.state.setText(getContext().getString(R.string.state_paused));
+                binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_black));
+            } else {
+                binding.state.setText(getLocalizedState(getContext(), folderStatus.state, percentage));
+                switch(folderStatus.state) {
+                    case "idle":
+                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                        break;
+                    case "scanning":
+                    case "syncing":
+                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                        break;
+                    default:
+                        binding.state.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+                }
+            }
+        }
+        binding.items.setVisibility(VISIBLE);
+        binding.items.setText(getContext().getResources()
+                .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles));
+        binding.size.setVisibility(VISIBLE);
+        binding.size.setText(getContext().getString(R.string.folder_size_format,
+                Util.readableFileSize(getContext(), folderStatus.inSyncBytes),
+                Util.readableFileSize(getContext(), folderStatus.globalBytes)));
+        setTextOrHide(binding.invalid, folderStatus.invalid);
     }
 
     /**
@@ -132,16 +135,16 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
     }
 
     /**
-     * Requests updated model info from the api for all visible items.
+     * Requests updated folder status from the api for all visible items.
      */
-    public void updateModel(RestApi api) {
+    public void updateFolderStatus(RestApi api) {
         for (int i = 0; i < getCount(); i++) {
-            api.getModel(getItem(i).id, this::onReceiveModel);
+            api.getFolderStatus(getItem(i).id, this::onReceiveFolderStatus);
         }
     }
 
-    private void onReceiveModel(String folderId, Model model) {
-        mModels.put(folderId, model);
+    private void onReceiveFolderStatus(String folderId, FolderStatus folderStatus) {
+        mLocalFolderStatuses.put(folderId, folderStatus);
         notifyDataSetChanged();
     }
 

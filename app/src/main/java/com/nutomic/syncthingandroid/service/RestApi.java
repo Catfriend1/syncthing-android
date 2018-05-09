@@ -24,11 +24,13 @@ import com.nutomic.syncthingandroid.http.GetRequest;
 import com.nutomic.syncthingandroid.http.PostConfigRequest;
 import com.nutomic.syncthingandroid.http.PostScanRequest;
 import com.nutomic.syncthingandroid.model.Config;
+import com.nutomic.syncthingandroid.model.Completion;
+import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
-import com.nutomic.syncthingandroid.model.Model;
+import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.SystemInfo;
 import com.nutomic.syncthingandroid.model.SystemVersion;
@@ -95,10 +97,14 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     private long mPreviousConnectionTime = 0;
 
     /**
-     * Stores the latest result of {@link #getModel} for each folder, for calculating device
-     * percentage in {@link #getConnections}.
+     * Stores the latest result of {@link #getFolderStatus} for each folder
      */
-    private final HashMap<String, Model> mCachedModelInfo = new HashMap<>();
+    private HashMap<String, FolderStatus> mCachedFolderStatuses = new HashMap<>();
+
+    /**
+     * Stores the latest result of device and folder completion events.
+     */
+    private Completion mCompletion = new Completion();
 
     @Inject NotificationHandler mNotificationHandler;
 
@@ -143,11 +149,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
             tryIsAvailable();
         });
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
-            Log.v(TAG, "onWebGuiAvailable: " + result);
-            mConfig = new Gson().fromJson(result, Config.class);
-            if (mConfig == null) {
-                throw new RuntimeException("config is null: " + result);
-            }
+            onReloadConfigComplete(result);
             tryIsAvailable();
         });
         getSystemInfo(info -> {
@@ -157,13 +159,18 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     }
 
     public void reloadConfig() {
-        new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
-            Log.v(TAG, "reloadConfig: " + result);
-            mConfig = new Gson().fromJson(result, Config.class);
-            if (mConfig == null) {
-                throw new RuntimeException("config is null: " + result);
-            }
-        });
+        new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, this::onReloadConfigComplete);
+    }
+
+    private void onReloadConfigComplete(String result) {
+        Log.v(TAG, "onReloadConfigComplete: " + result);
+        mConfig = new Gson().fromJson(result, Config.class);
+        if (mConfig == null) {
+            throw new RuntimeException("config is null: " + result);
+        }
+
+        // Update cached device and folder information stored in the mCompletion model.
+        mCompletion.updateFromConfig(getDevices(true), getFolders());
     }
 
     /**
@@ -241,6 +248,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
 
     public void removeFolder(String id) {
         removeFolderInternal(id);
+        // mCompletion will be updated after the ConfigSaved event.
         sendConfig();
         // Remove saved data from share activity for this folder.
         PreferenceManager.getDefaultSharedPreferences(mContext).edit()
@@ -300,6 +308,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
 
     public void removeDevice(String deviceId) {
         removeDeviceInternal(deviceId);
+        // mCompletion will be updated after the ConfigSaved event.
         sendConfig();
     }
 
@@ -374,7 +383,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
             mPreviousConnectionTime = now;
             Connections connections = new Gson().fromJson(result, Connections.class);
             for (Map.Entry<String, Connections.Connection> e : connections.connections.entrySet()) {
-                e.getValue().completion = getDeviceCompletion(e.getKey());
+                e.getValue().completion = mCompletion.getDeviceCompletion(e.getKey());
 
                 Connections.Connection prev =
                         (mPreviousConnections.isPresent() && mPreviousConnections.get().connections.containsKey(e.getKey()))
@@ -391,45 +400,13 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     }
 
     /**
-     * Calculates completion percentage for the given device using {@link #mCachedModelInfo}.
-     */
-    private int getDeviceCompletion(String deviceId) {
-        int folderCount = 0;
-        float percentageSum = 0;
-        // Syncthing UI limits pending deletes to 95% completion of a device
-        int maxPercentage = 100;
-        for (Map.Entry<String, Model> modelInfo : mCachedModelInfo.entrySet()) {
-            boolean isShared = false;
-            for (Folder r : getFolders()) {
-                if (r.getDevice(deviceId) != null) {
-                    isShared = true;
-                    break;
-                }
-            }
-            if (isShared) {
-                long global = modelInfo.getValue().globalBytes;
-                long local = modelInfo.getValue().inSyncBytes;
-                if (modelInfo.getValue().needFiles == 0 && modelInfo.getValue().needDeletes > 0)
-                    maxPercentage = 95;
-                percentageSum += (global != 0)
-                        ? (local * 100f) / global
-                        : 100f;
-                folderCount++;
-            }
-        }
-        return (folderCount != 0)
-                ? Math.min(Math.round(percentageSum / folderCount), maxPercentage)
-                : 100;
-    }
-
-    /**
      * Returns status information about the folder with the given id.
      */
-    public void getModel(final String folderId, final OnResultListener2<String, Model> listener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_MODEL, mApiKey,
+    public void getFolderStatus(final String folderId, final OnResultListener2<String, FolderStatus> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_STATUS, mApiKey,
                     ImmutableMap.of("folder", folderId), result -> {
-            Model m = new Gson().fromJson(result, Model.class);
-            mCachedModelInfo.put(folderId, m);
+            FolderStatus m = new Gson().fromJson(result, FolderStatus.class);
+            mCachedFolderStatuses.put(folderId, m);
             listener.onResult(folderId, m);
         });
     }
@@ -492,6 +469,14 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
             if (error != null)
                 errorListener.onResult(error.getAsString());
         });
+    }
+
+
+    /**
+     * Updates cached folder and device completion info according to event data.
+     */
+    public void setCompletionInfo(String deviceId, String folderId, CompletionInfo completionInfo) {
+        mCompletion.setCompletionInfo(deviceId, folderId, completionInfo);
     }
 
     /**

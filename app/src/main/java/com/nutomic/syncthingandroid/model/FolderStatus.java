@@ -1,6 +1,6 @@
 package com.nutomic.syncthingandroid.model;
 
-public class Model {
+public class FolderStatus {
     public long globalBytes;
     public long globalDeleted;
     public long globalDirectories;

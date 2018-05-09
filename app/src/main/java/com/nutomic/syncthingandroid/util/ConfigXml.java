@@ -271,7 +271,7 @@ public class ConfigXml {
     }
 
     /**
-     * Set model name as device name for Syncthing.
+     * Set device model name as device name for Syncthing.
      *
      * We need to iterate through XML nodes manually, as mConfig.getDocumentElement() will also
      * return nested elements inside folder element. We have to check that we only rename the
@@ -300,12 +300,12 @@ public class ConfigXml {
     private boolean changeDefaultFolder() {
         Element folder = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("folder").item(0);
-        String model = Build.MODEL
+        String deviceModel = Build.MODEL
                 .replace(" ", "_")
                 .toLowerCase(Locale.US)
                 .replaceAll("[^a-z0-9_-]", "");
         folder.setAttribute("label", mContext.getString(R.string.default_folder_label));
-        folder.setAttribute("id", mContext.getString(R.string.default_folder_id, model));
+        folder.setAttribute("id", mContext.getString(R.string.default_folder_id, deviceModel));
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
         folder.setAttribute("type", "readonly");
