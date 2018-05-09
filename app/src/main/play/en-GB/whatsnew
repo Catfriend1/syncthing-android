@@ -3,7 +3,5 @@
 * Using syncthing's built-in file watcher
 * Pause buttons for folders and devices
 * Support more file managers
-* UI to setup socks/http proxy
-* Toggle for disabling restarts after beind suspended, which when enabled can reduce battery usage yet increase the time it takes to reconnect
-* Fix web UI being inaccessible when network configures proxy
-* Fixed issue with device names being overwritten after config restore
+
+Other fixes/features, check github.
