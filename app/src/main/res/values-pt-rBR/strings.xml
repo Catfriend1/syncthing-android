@@ -11,6 +11,7 @@ Para compartilhar dados com outros dispositivos, você precisa adicionar seus id
 Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</string>
   <string name="cont">Continuar</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exemplo</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adicionar pasta</string>
@@ -43,6 +44,11 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Shown if no folders exist-->
   <string name="folder_list_empty">Nenhuma pasta encontrada</string>
   <!--Format string for folder file count-->
+  <plurals name="files">
+    <item quantity="one">%1$d/%2$dArquivo</item>
+    <item quantity="other">%1$d/%2$dArquivos</item>
+  </plurals>
+  <string name="open_file_manager">Abrir gerenciador de arquivos</string>
   <string name="toast_no_file_manager">Nenhum gerenciador de arquivos compatível foi encontrado</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Dispositivos</string>
@@ -55,6 +61,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconectado</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Pausado</string>
   <string name="device_state_unknown">Desconhecido</string>
   <!--Title for current download rate-->
   <string name="download_title">Recepção</string>
@@ -82,7 +89,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="directory">Pasta</string>
   <!--Setting title-->
   <string name="folder_master">Somente envio</string>
-  <!--Setting title-->
+  <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
   <string name="devices">Dispositivos</string>
@@ -126,6 +133,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Setting title-->
   <string name="introducer">Apresentador</string>
   <!--Setting title-->
+  <string name="pause_device">Pausar Dispositivo</string>
   <!--ActionBar item-->
   <string name="delete_device">Apagar dispositivo</string>
   <string name="add_device">Adicionar dispositivo</string>
@@ -163,6 +171,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="sync_only_wifi">Rodar somente com o aparelho conectado ao Wi-Fi</string>
   <string name="sync_only_wifi_ssids">Limitar a certas redes WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para selecionar as redes</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permissão requerida</string>
   <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
   <string name="respect_battery_saving_summary">Desabilitar Syncthing caso a economia de bateria esteja ativa</string>
   <string name="advanced_folder_picker">Usar seletor de pasta avançado</string>
@@ -205,6 +214,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="keep_wakelock_while_binary_running_summary">Marque esta opção se você observar desconexões inesperadas enquanto a bateria do dispositivo não está sendo carregada. Isto resultará em maior uso da bateria.</string>
   <string name="use_tor_title">Usar Tor</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
   <string name="use_legacy_hashing_title">Usar hashing legado</string>
   <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar hashing legado para fins de compatibilidade</string>
@@ -363,6 +373,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="state_syncing">Sincronizando (%1$d%%)</string>
   <string name="state_error">Erro</string>
   <string name="state_unknown">Desconhecido</string>
+  <string name="state_paused">Pausado</string>
   <string name="status_outofsync">Fora de sincronia</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

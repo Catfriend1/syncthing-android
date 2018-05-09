@@ -95,8 +95,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="directory">Mappa</string>
   <!--Setting title-->
   <string name="folder_master">Csak küldés</string>
-  <!--Setting title-->
-  <string name="folder_fileWatcher">Valósidejű szinkron</string>
+  <!--Setting title and description-->
   <!--Setting title-->
   <string name="folder_pause">Mappa szüneteltetés</string>
   <!--Setting title-->

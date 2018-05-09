@@ -89,8 +89,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="directory">Map</string>
   <!--Setting title-->
   <string name="folder_master">Enkel versturen</string>
-  <!--Setting title-->
-  <string name="folder_fileWatcher">Realtime-synchronisatie</string>
+  <!--Setting title and description-->
   <!--Setting title-->
   <string name="folder_pause">Map pauzeren</string>
   <!--Setting title-->

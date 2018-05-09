@@ -89,8 +89,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="directory">Verzeichnis</string>
   <!--Setting title-->
   <string name="folder_master">Nur senden</string>
-  <!--Setting title-->
-  <string name="folder_fileWatcher">Echtzeit-Synchronisation</string>
+  <!--Setting title and description-->
   <!--Setting title-->
   <string name="folder_pause">Ordner pausieren</string>
   <!--Setting title-->

@@ -89,8 +89,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="directory">Répertoire</string>
   <!--Setting title-->
   <string name="folder_master">Envoyer uniquement</string>
-  <!--Setting title-->
-  <string name="folder_fileWatcher">Synchronisation temps réel</string>
+  <!--Setting title and description-->
   <!--Setting title-->
   <string name="folder_pause">Mettre le partage en pause</string>
   <!--Setting title-->
