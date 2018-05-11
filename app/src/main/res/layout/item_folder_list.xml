@@ -78,6 +78,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/inner"
             android:background="@null"
+            android:contentDescription="@string/open_file_manager"
             android:paddingBottom="5dp"
             android:paddingEnd="20dp"
             android:paddingLeft="25dp"
