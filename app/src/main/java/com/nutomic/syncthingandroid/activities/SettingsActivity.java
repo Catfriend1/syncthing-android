@@ -318,10 +318,26 @@ public class SettingsActivity extends SyncthingActivity {
                     mOptions.listenAddresses = Iterables.toArray(splitter.split((String) o), String.class);
                     break;
                 case "maxRecvKbps":
-                    mOptions.maxRecvKbps = Integer.parseInt((String) o);
+                    int maxRecvKbps = 0;
+                    try {
+                        maxRecvKbps = Integer.parseInt((String) o);
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.invalid_integer_value, 0, Integer.MAX_VALUE), Toast.LENGTH_LONG)
+                                .show();
+                        return false;
+                    }
+                    mOptions.maxRecvKbps = maxRecvKbps;
                     break;
                 case "maxSendKbps":
-                    mOptions.maxSendKbps = Integer.parseInt((String) o);
+                    int maxSendKbps = 0;
+                    try {
+                        maxSendKbps = Integer.parseInt((String) o);
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.invalid_integer_value, 0, Integer.MAX_VALUE), Toast.LENGTH_LONG)
+                                .show();
+                        return false;
+                    }
+                    mOptions.maxSendKbps = maxSendKbps;
                     break;
                 case "natEnabled":
                     mOptions.natEnabled = (boolean) o;

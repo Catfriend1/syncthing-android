@@ -353,6 +353,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="export_config">Export Configuration</string>
 
+    <!-- Toast after entering invalid integer value -->
+    <string name="invalid_integer_value">Input value not valid. Please enter value between %1$d and %2$d.</string>
+
     <!-- Experimental options -->
     <string name="use_proxy">Connect through a proxy</string>
     <string name="do_not_use_proxy">No proxy configured.</string>
