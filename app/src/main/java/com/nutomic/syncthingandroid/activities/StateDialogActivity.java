@@ -111,8 +111,8 @@ public abstract class StateDialogActivity extends SyncthingActivity {
 
         DialogLoadingBinding binding = DataBindingUtil.inflate(
                 getLayoutInflater(), R.layout.dialog_loading, null, false);
-        boolean isFirstStart = getIntent().getBooleanExtra(EXTRA_FIRST_START, false);
-        binding.loadingText.setText((isFirstStart)
+        boolean isGeneratingKeys = getIntent().getBooleanExtra(EXTRA_KEY_GENERATION_IN_PROGRESS, false);
+        binding.loadingText.setText((isGeneratingKeys)
                 ? R.string.web_gui_creating_key
                 : R.string.api_loading);
 
@@ -121,7 +121,7 @@ public abstract class StateDialogActivity extends SyncthingActivity {
                 .setView(binding.getRoot())
                 .show();
 
-        if (!isFirstStart) {
+        if (!isGeneratingKeys) {
             new Handler().postDelayed(() -> {
                 if (isFinishing() || mLoadingDialog == null)
                     return;

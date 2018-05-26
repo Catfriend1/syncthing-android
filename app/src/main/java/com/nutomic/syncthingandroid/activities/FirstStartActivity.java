@@ -62,7 +62,7 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
         // In case start_into_web_gui option is enabled, start both activities so that back
         // navigation works as expected.
         Intent mainIntent = new Intent(this, MainActivity.class);
-        mainIntent.putExtra(MainActivity.EXTRA_FIRST_START, isFirstStart);
+        mainIntent.putExtra(MainActivity.EXTRA_KEY_GENERATION_IN_PROGRESS, isFirstStart);
         Intent webIntent = new Intent(this, WebGuiActivity.class);
         if (mPreferences.getBoolean("start_into_web_gui", false)) {
             startActivities(new Intent[] {mainIntent, webIntent});

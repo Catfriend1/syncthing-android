@@ -22,7 +22,7 @@ import java.util.LinkedList;
  */
 public abstract class SyncthingActivity extends AppCompatActivity implements ServiceConnection {
 
-    public static final String EXTRA_FIRST_START = "com.nutomic.syncthing-android.SyncthingActivity.FIRST_START";
+    public static final String EXTRA_KEY_GENERATION_IN_PROGRESS = "com.nutomic.syncthing-android.SyncthingActivity.KEY_GENERATION_IN_PROGRESS";
 
     private SyncthingService mSyncthingService;
 

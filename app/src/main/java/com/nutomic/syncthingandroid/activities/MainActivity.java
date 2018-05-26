@@ -105,6 +105,7 @@ public class MainActivity extends StateDialogActivity
             case STARTING:
                 break;
             case ACTIVE:
+                getIntent().putExtra(this.EXTRA_KEY_GENERATION_IN_PROGRESS, false);
                 showBatteryOptimizationDialogIfNecessary();
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 mDrawerFragment.requestGuiUpdate();
