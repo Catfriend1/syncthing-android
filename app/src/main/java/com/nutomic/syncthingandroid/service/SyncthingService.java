@@ -184,7 +184,6 @@ public class SyncthingService extends Service {
         mHandler = new Handler();
         
         mDeviceStateHolder = new DeviceStateHolder(SyncthingService.this, this::updateState);
-        updateState();
         mNotificationHandler.updatePersistentNotification(this);
     }
 
