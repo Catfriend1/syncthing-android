@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Constants {
 
+    public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
+
     public static final String PREF_ALWAYS_RUN_IN_BACKGROUND    = "always_run_in_background";
     public static final String PREF_SYNC_ONLY_WIFI              = "sync_only_wifi";
     public static final String PREF_SYNC_ONLY_WIFI_SSIDS        = "sync_only_wifi_ssids_set";
@@ -81,7 +83,7 @@ public class Constants {
     }
 
     static File getSyncthingBinary(Context context) {
-        return new File(context.getApplicationInfo().nativeLibraryDir, "libsyncthing.so");
+        return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);
     }
 
     static File getLogFile(Context context) {

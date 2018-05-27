@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 
 public class FirstStartActivity extends Activity implements Button.OnClickListener {
 
+    private static String TAG = "FirstStartActivity";
     private static final int REQUEST_WRITE_STORAGE = 142;
 
     @Inject SharedPreferences mPreferences;
@@ -32,18 +34,13 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
-        startService(new Intent(this, SyncthingService.class));
 
         if (!isFirstStart()) {
-            if (haveStoragePermission()) {
-                startApp();
-                return;
-            }
-            else {
-                requestStoragePermission();
-            }
+            startApp();
+            return;
         }
 
+        // Show first start UI.
         setContentView(R.layout.activity_first_start);
         Button cont = findViewById(R.id.cont);
         cont.setOnClickListener(this);
@@ -54,10 +51,22 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
     }
 
     private void startApp() {
+        if (!haveStoragePermission()) {
+            requestStoragePermission();
+            /**
+             * startApp will be called in {@link #onRequestPermissionsResult()}
+             * after permission was granted.
+             */
+            return;
+        }
+
         boolean isFirstStart = isFirstStart();
         if (isFirstStart) {
+            Log.v(TAG, "User completed first start UI.");
             mPreferences.edit().putBoolean("first_start", false).apply();
         }
+
+        startService(new Intent(this, SyncthingService.class));
 
         // In case start_into_web_gui option is enabled, start both activities so that back
         // navigation works as expected.
@@ -86,12 +95,7 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (!haveStoragePermission()) {
-            requestStoragePermission();
-        }
-        else {
-            startApp();
-        }
+        startApp();
     }
 
     @Override
