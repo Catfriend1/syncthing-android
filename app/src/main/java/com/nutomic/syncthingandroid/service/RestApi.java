@@ -163,11 +163,11 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     }
 
     private void onReloadConfigComplete(String result) {
-        Log.v(TAG, "onReloadConfigComplete: " + result);
         mConfig = new Gson().fromJson(result, Config.class);
         if (mConfig == null) {
             throw new RuntimeException("config is null: " + result);
         }
+        Log.v(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
