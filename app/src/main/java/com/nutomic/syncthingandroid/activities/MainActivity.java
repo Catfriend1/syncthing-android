@@ -467,7 +467,8 @@ public class MainActivity extends StateDialogActivity
                     startActivity(new Intent(Intent.ACTION_VIEW, uri));
                     break;
             }
-            getApi().editSettings(getApi().getGui(), options, this);
+            getApi().editSettings(getApi().getGui(), options);
+            getApi().restart();
         };
 
         getApi().getUsageReport(report -> {

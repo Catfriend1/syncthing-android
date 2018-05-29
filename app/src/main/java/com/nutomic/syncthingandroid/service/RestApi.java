@@ -18,7 +18,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.activities.RestartActivity;
 import com.nutomic.syncthingandroid.activities.ShareActivity;
 import com.nutomic.syncthingandroid.http.GetRequest;
 import com.nutomic.syncthingandroid.http.PostConfigRequest;
@@ -83,7 +82,6 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     private String mVersion;
     private Config mConfig;
     private String mLocalDeviceId;
-    private boolean mRestartPostponed = false;
 
     /**
      * Stores the result of the last successful request to {@link GetRequest#URI_CONNECTIONS},
@@ -188,23 +186,13 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     }
 
     /**
-     * Either shows a restart dialog, or only updates the config, depending on
-     * {@link #mRestartPostponed}.
-     */
-    public void showRestartDialog(Activity activity) {
-        if (mRestartPostponed) {
-            sendConfig();
-        } else {
-            activity.startActivity(new Intent(mContext, RestartActivity.class));
-        }
-        mOnConfigChangedListener.onConfigChanged();
-    }
-
-    /**
      * Sends current config to Syncthing.
+     * Will result in a "ConfigSaved" event.
+     * EventProcessor will trigger this.reloadConfig().
      */
     private void sendConfig() {
         new PostConfigRequest(mContext, mUrl, mApiKey, new Gson().toJson(mConfig), null);
+        mOnConfigChangedListener.onConfigChanged();
     }
 
     /**
@@ -216,11 +204,11 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
                     .setAction(SyncthingService.ACTION_RESTART);
             mContext.startService(intent);
         });
+        mOnConfigChangedListener.onConfigChanged();
     }
 
     public void shutdown() {
         mNotificationHandler.cancelRestartNotification();
-        mRestartPostponed = false;
     }
 
     /**
@@ -330,10 +318,9 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
         return deepCopy(mConfig.gui, Config.Gui.class);
     }
 
-    public void editSettings(Config.Gui newGui, Options newOptions, Activity activity) {
+    public void editSettings(Config.Gui newGui, Options newOptions) {
         mConfig.gui = newGui;
         mConfig.options = newOptions;
-        showRestartDialog(activity);
     }
 
     /**
@@ -488,10 +475,6 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             listener.onResult(gson.toJson(json));
         });
-    }
-
-    public void setRestartPostponed() {
-        mRestartPostponed = true;
     }
 
     public URL getUrl() {

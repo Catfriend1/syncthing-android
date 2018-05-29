@@ -341,9 +341,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Wymagane ponowne uruchomienie</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Uruchom ponownie</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Później</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Proszę kliknąć, aby uruchomić program ponownie</string>
   <!--Shown when a device ID is copied to the clipboard-->

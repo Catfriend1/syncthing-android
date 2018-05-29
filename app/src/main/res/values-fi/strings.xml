@@ -296,9 +296,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Uudelleenkäynnistys tarvitaan</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Uudelleenkäynnistä nyt</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Myöhemmin</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Paina tästä uudelleenkäynnistääksesi Syncthingin nyt.</string>
   <!--Shown when a device ID is copied to the clipboard-->

@@ -252,9 +252,7 @@
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Cần kh.động lại</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Kh.động lại ngay</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Để sau</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Nhấp để kh.động lại Syncthing ngay</string>
   <!--Shown when a device ID is copied to the clipboard-->

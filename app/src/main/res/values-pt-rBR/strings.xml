@@ -344,9 +344,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">É necessário reiniciar</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Reiniciar agora</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Depois</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Toque aqui para reiniciar o Syncthing agora</string>
   <!--Shown when a device ID is copied to the clipboard-->

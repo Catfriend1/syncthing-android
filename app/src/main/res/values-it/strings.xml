@@ -367,9 +367,7 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Riavvio Necessario</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Riavvia ora</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Più tardi</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Tap qui per riavviare adesso syncthing</string>
   <!--Shown when a device ID is copied to the clipboard-->

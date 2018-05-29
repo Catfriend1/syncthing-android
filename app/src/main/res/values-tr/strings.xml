@@ -278,9 +278,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Yeniden Başlatma Gerekli</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Şimdi Yeniden Başlat</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Daha Sonra</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Şimdi Syncthing\'i yeniden başlatmak için tıkla</string>
   <!--Shown when a device ID is copied to the clipboard-->

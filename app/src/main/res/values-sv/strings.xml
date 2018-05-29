@@ -338,9 +338,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Omstart behövs</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Startar om nu</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Senare</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Klicka här för att starta om Syncthing nu</string>
   <!--Shown when a device ID is copied to the clipboard-->

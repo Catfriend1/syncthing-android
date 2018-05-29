@@ -334,9 +334,7 @@
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">再起動が必要です</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">今すぐ再起動</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">後で</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">今すぐ Syncthing を再起動する</string>
   <!--Shown when a device ID is copied to the clipboard-->

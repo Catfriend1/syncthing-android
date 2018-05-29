@@ -17,6 +17,7 @@ public class Constants {
     public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_NOTIFICATION_TYPE           = "notification_type";
+    public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";
     public static final String PREF_USE_WAKE_LOCK               = "wakelock_while_binary_running";
     public static final String PREF_USE_TOR                     = "use_tor";
     public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";

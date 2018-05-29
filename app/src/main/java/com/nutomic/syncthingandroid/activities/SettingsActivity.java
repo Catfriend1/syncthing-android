@@ -110,6 +110,7 @@ public class SettingsActivity extends SyncthingActivity {
 
         /* Experimental options */
         private CheckBoxPreference mUseRoot;
+        private CheckBoxPreference mUseWakelock;
         private CheckBoxPreference mUseTor;
         private EditTextPreference mSocksProxyAddress;
         private EditTextPreference mHttpProxyAddress;
@@ -121,6 +122,8 @@ public class SettingsActivity extends SyncthingActivity {
 
         private Options mOptions;
         private Config.Gui mGui;
+
+        private Boolean mRequireRestart = false;
 
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -196,7 +199,7 @@ public class SettingsActivity extends SyncthingActivity {
             Preference stResetDeltas        = findPreference("st_reset_deltas");
 
             mUseRoot                        = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            Preference useWakelock          = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
+            mUseWakelock                    = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
             mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
             mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);
             mHttpProxyAddress               = (EditTextPreference) findPreference(Constants.PREF_HTTP_PROXY_ADDRESS);
@@ -220,7 +223,7 @@ public class SettingsActivity extends SyncthingActivity {
 
             /* Experimental options */
             mUseRoot.setOnPreferenceClickListener(this);
-            useWakelock.setOnPreferenceChangeListener((p, o) -> requireRestart());
+            mUseWakelock.setOnPreferenceChangeListener(this);
             mUseTor.setOnPreferenceChangeListener(this);
 
             mSocksProxyAddress.setEnabled(!(Boolean) mUseTor.isChecked());
@@ -291,10 +294,11 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onDestroy() {
-            super.onDestroy();
             mPreferences.unregisterOnSharedPreferenceChangeListener(this);
-            if (mSyncthingService != null)
+            if (mSyncthingService != null) {
                 mSyncthingService.unregisterOnApiChangeListener(this);
+            }
+            super.onDestroy();
         }
 
         private void setPreferenceCategoryChangeListener(
@@ -365,22 +369,26 @@ public class SettingsActivity extends SyncthingActivity {
                         mOptions.urAccepted = ((boolean) o)
                                 ? systemInfo.urVersionMax
                                 : Options.USAGE_REPORTING_DENIED;
-                        mApi.editSettings(mGui, mOptions, getActivity());
                     });
                     break;
                 default: throw new InvalidParameterException();
             }
 
-            mApi.editSettings(mGui, mOptions, getActivity());
+            mApi.editSettings(mGui, mOptions);
+            mRequireRestart = true;
             return true;
         }
 
-        public boolean requireRestart() {
-            if (mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED &&
-                    mSyncthingService.getApi() != null) {
-                mSyncthingService.getApi().showRestartDialog(getActivity());
+        @Override
+        public void onStop() {
+            if (mRequireRestart) {
+                if (mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED &&
+                        mSyncthingService.getApi() != null) {
+                    mSyncthingService.getApi().restart();
+                    mRequireRestart = false;
+                }
             }
-            return true;
+            super.onStop();
         }
 
         /**
@@ -409,16 +417,16 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case KEY_STTRACE:
                     if (((String) o).matches("[0-9a-z, ]*"))
-                        requireRestart();
+                        mRequireRestart = true;
                     else {
                         Toast.makeText(getActivity(), R.string.toast_invalid_sttrace, Toast.LENGTH_SHORT)
                                 .show();
                         return false;
                     }
                     break;
-                case "environment_variables":
+                case Constants.PREF_ENVIRONMENT_VARIABLES:
                     if (((String) o).matches("^(\\w+=[\\w:/\\.]+)?( \\w+=[\\w:/\\.]+)*$")) {
-                        requireRestart();
+                        mRequireRestart = true;
                     }
                     else {
                         Toast.makeText(getActivity(), R.string.toast_invalid_environment_variables, Toast.LENGTH_SHORT)
@@ -426,16 +434,19 @@ public class SettingsActivity extends SyncthingActivity {
                         return false;
                     }
                     break;
+                case Constants.PREF_USE_WAKE_LOCK:
+                    mRequireRestart = true;
+                    break;
                 case Constants.PREF_USE_TOR:
                     mSocksProxyAddress.setEnabled(!(Boolean) o);
                     mHttpProxyAddress.setEnabled(!(Boolean) o);
-                    requireRestart();
+                    mRequireRestart = true;
                     break;
                 case Constants.PREF_SOCKS_PROXY_ADDRESS:
                     if (o.toString().trim().equals(mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, "")))
                         return false;
                     if (handleSocksProxyPreferenceChange(preference, o.toString().trim())) {
-                        requireRestart();
+                        mRequireRestart = true;
                     } else {
                         return false;
                     }
@@ -444,7 +455,7 @@ public class SettingsActivity extends SyncthingActivity {
                     if (o.toString().trim().equals(mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, "")))
                         return false;
                     if (handleHttpProxyPreferenceChange(preference, o.toString().trim())) {
-                        requireRestart();
+                        mRequireRestart = true;
                     } else {
                         return false;
                     }
@@ -465,7 +476,7 @@ public class SettingsActivity extends SyncthingActivity {
                         new TestRootTask().execute();
                     } else {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
-                        requireRestart();
+                        mRequireRestart = true;
                     }
                     return true;
                 case KEY_EXPORT_CONFIG:
@@ -561,7 +572,7 @@ public class SettingsActivity extends SyncthingActivity {
             @Override
             protected void onPostExecute(Boolean haveRoot) {
                 if (haveRoot) {
-                    requireRestart();
+                    mRequireRestart = true;
                     mUseRoot.setChecked(true);
                 } else {
                     Toast.makeText(getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)

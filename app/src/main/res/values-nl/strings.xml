@@ -367,9 +367,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Herstart vereist</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">Nu herstarten</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">Later</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Klik hier om Syncthing nu te herstarten</string>
   <!--Shown when a device ID is copied to the clipboard-->

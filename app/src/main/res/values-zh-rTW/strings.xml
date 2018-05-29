@@ -334,9 +334,7 @@
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">需要重新啟動</string>
   <!--Text for positive button in restart dialog-->
-  <string name="restart_now">現在重新啟動</string>
   <!--Text for the dismiss button of the restart Activity-->
-  <string name="restart_later">稍後</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">按此以重新啟動 syncthing</string>
   <!--Shown when a device ID is copied to the clipboard-->
