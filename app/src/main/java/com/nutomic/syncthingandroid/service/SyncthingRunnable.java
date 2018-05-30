@@ -27,6 +27,7 @@ import java.io.LineNumberReader;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -437,7 +438,7 @@ public class SyncthingRunnable implements Runnable {
         HashMap<String, String> targetEnv = new HashMap<>();
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
-        targetEnv.put("STTRACE", mPreferences.getString("sttrace", ""));
+        targetEnv.put("STTRACE", TextUtils.join(" ", mPreferences.getStringSet("sttrace", new HashSet<>())));
         File externalFilesDir = mContext.getExternalFilesDir(null);
         if (externalFilesDir != null)
             targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
