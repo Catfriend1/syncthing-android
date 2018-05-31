@@ -99,7 +99,6 @@
                 android:layout_marginTop="-20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:text="@string/folder_fileWatcherDescription" />
-                />
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/folderPause"
