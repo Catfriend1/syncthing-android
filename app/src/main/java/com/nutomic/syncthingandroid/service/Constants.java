@@ -24,6 +24,12 @@ public class Constants {
     public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
 
     /**
+     * Available options cache for preference {@link app_settings#sttrace}
+     * Read via REST API call in {@link RestApi#updateDebugFacilitiesCache} after first successful binary startup.
+     */
+    public static final String PREF_STTRACE_AVAILABLE_OPTIONS   = "sttrace_available_options";
+
+    /**
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.
      * This is the request code used when requesting the permission.
      */

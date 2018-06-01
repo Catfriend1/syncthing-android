@@ -8,6 +8,9 @@ import android.preference.MultiSelectListPreference;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
+
+import com.nutomic.syncthingandroid.service.Constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,6 +32,8 @@ import java.util.TreeSet;
  *
  */
 public class SttracePreference extends MultiSelectListPreference {
+
+    private final String TAG = "SttracePreference";
 
     public SttracePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -69,32 +74,46 @@ public class SttracePreference extends MultiSelectListPreference {
      * Returns all debug facilities available in the currently syncthing version.
      */
     private CharSequence[] getDebugFacilities() {
-        // Syncthing v0.14.47 debug facilities.
-        List<String> debugFacilities = new ArrayList<String>();
-        debugFacilities.add("beacon");
-        debugFacilities.add("config");
-        debugFacilities.add("connections");
-        debugFacilities.add("db");
-        debugFacilities.add("dialer");
-        debugFacilities.add("discover");
-        debugFacilities.add("events");
-        debugFacilities.add("fs");
-        debugFacilities.add("http");
-        debugFacilities.add("main");
-        debugFacilities.add("model");
-        debugFacilities.add("nat");
-        debugFacilities.add("pmp");
-        debugFacilities.add("protocol");
-        debugFacilities.add("scanner");
-        debugFacilities.add("sha256");
-        debugFacilities.add("stats");
-        debugFacilities.add("sync");
-        debugFacilities.add("upgrade");
-        debugFacilities.add("upnp");
-        debugFacilities.add("versioner");
-        debugFacilities.add("walkfs");
-        debugFacilities.add("watchaggregator");
-        return debugFacilities.toArray(new CharSequence[debugFacilities.size()]);
+        List<String> retDebugFacilities = new ArrayList<String>();
+        Set<String> availableDebugFacilities = getSharedPreferences().getStringSet(Constants.PREF_STTRACE_AVAILABLE_OPTIONS, new HashSet<>());
+        // from JavaDoc: Note that you must not modify the set instance returned by this call.
+        // therefore required to make a defensive copy of the elements
+        availableDebugFacilities = new HashSet<>(availableDebugFacilities);
+        if (!availableDebugFacilities.isEmpty()) {
+            for (String facilityName : availableDebugFacilities) {
+                retDebugFacilities.add(facilityName);
+            }
+        } else {
+            Log.w(TAG, "getDebugFacilities: Failed to get facilities from prefs, falling back to hardcoded list.");
+
+            // Syncthing v0.14.47 debug facilities.
+            retDebugFacilities.add("beacon");
+            retDebugFacilities.add("config");
+            retDebugFacilities.add("connections");
+            retDebugFacilities.add("db");
+            retDebugFacilities.add("dialer");
+            retDebugFacilities.add("discover");
+            retDebugFacilities.add("events");
+            retDebugFacilities.add("fs");
+            retDebugFacilities.add("http");
+            retDebugFacilities.add("main");
+            retDebugFacilities.add("model");
+            retDebugFacilities.add("nat");
+            retDebugFacilities.add("pmp");
+            retDebugFacilities.add("protocol");
+            retDebugFacilities.add("scanner");
+            retDebugFacilities.add("sha256");
+            retDebugFacilities.add("stats");
+            retDebugFacilities.add("sync");
+            retDebugFacilities.add("upgrade");
+            retDebugFacilities.add("upnp");
+            retDebugFacilities.add("versioner");
+            retDebugFacilities.add("walkfs");
+            retDebugFacilities.add("watchaggregator");
+        }
+        CharSequence[] retDebugFacilitiesArray = retDebugFacilities.toArray(new CharSequence[retDebugFacilities.size()]);
+        Arrays.sort(retDebugFacilitiesArray);
+        return retDebugFacilitiesArray;
     }
 
 }

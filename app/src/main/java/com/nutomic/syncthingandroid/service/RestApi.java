@@ -33,15 +33,18 @@ import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.SystemInfo;
 import com.nutomic.syncthingandroid.model.SystemVersion;
+import com.nutomic.syncthingandroid.service.Constants;
 
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.inject.Inject;
@@ -145,6 +148,7 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
             mVersion = json.get("version").getAsString();
             Log.i(TAG, "Syncthing version is " + mVersion);
             tryIsAvailable();
+            updateDebugFacilitiesCache();
         });
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
             onReloadConfigComplete(result);
@@ -169,6 +173,40 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
+    }
+
+    /**
+     * Queries debug facilities available from the currently running syncthing binary
+     * if the syncthing binary version changed. First launch of the binary is also
+     * considered as a version change.
+     * Precondition: {@link #mVersion} read from REST
+     */
+    private void updateDebugFacilitiesCache() {
+        final String PREF_LAST_BINARY_VERSION = "lastBinaryVersion";
+        if (!mVersion.equals(PreferenceManager.getDefaultSharedPreferences(mContext).getString(PREF_LAST_BINARY_VERSION, ""))) {
+            // First binary launch or binary upgraded case.
+            new GetRequest(mContext, mUrl, GetRequest.URI_DEBUG, mApiKey, null, result -> {
+                try {
+                    Set<String> facilitiesToStore = new HashSet<String>();
+                    JsonObject json = new JsonParser().parse(result).getAsJsonObject();
+                    JsonObject jsonFacilities = json.getAsJsonObject("facilities");
+                    for (String facilityName : jsonFacilities.keySet()) {
+                        facilitiesToStore.add(facilityName);
+                    }
+                    PreferenceManager.getDefaultSharedPreferences(mContext).edit()
+                        .putStringSet(Constants.PREF_STTRACE_AVAILABLE_OPTIONS, facilitiesToStore)
+                        .apply();
+
+                    // Store current binary version so we will only store this information again
+                    // after a binary update.
+                    PreferenceManager.getDefaultSharedPreferences(mContext).edit()
+                        .putString(PREF_LAST_BINARY_VERSION, mVersion)
+                        .apply();
+                } catch (Exception e) {
+                    Log.w(TAG, "updateDebugFacilitiesCache: Failed to get debug facilities. result=" + result);
+                }
+            });
+        }
     }
 
     /**
