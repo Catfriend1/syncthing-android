@@ -217,6 +217,7 @@ public class WebGuiActivity extends StateDialogActivity
      * Returns boolean if successful.
      * Source: https://stackoverflow.com/a/26781539
      */
+    @SuppressLint("PrivateApi")
     public static boolean setWebViewProxy(Context appContext, String host, int port, String exclusionList) {
         if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             // Not supported on android version lower than KitKat.

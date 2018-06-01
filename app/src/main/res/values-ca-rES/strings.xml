@@ -227,7 +227,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="sttrace_title">Opcions de STTRACE</string>
   <string name="environment_variables">Variables d\'entorn</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Només es permet utilitzar 0-9, a-z i \',\' a les opcions de STTRACE</string>
   <string name="toast_invalid_environment_variables">Aquest valor no és una cadena de variable d\'entorn vàlida</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reinicia la base de dades</string>

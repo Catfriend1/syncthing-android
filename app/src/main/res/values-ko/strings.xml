@@ -226,7 +226,6 @@
   <string name="sttrace_title">STTRACE 옵션</string>
   <string name="environment_variables">환경 변수</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE 옵션에서는 0-9, a-z 와 \'.\' 외의 문자를 사용할 수 없습니다.</string>
   <string name="toast_invalid_environment_variables">값이 유효한 환경 변수 문자열이 아닙니다</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">데이터베이스 리셋</string>

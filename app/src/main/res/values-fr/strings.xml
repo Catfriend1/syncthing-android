@@ -246,7 +246,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="sttrace_title">Options STTRACE</string>
   <string name="environment_variables">Variables d\'environnement</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Seulement 0-9, a-z et \',\' sont autorisés dans les options STTRACE</string>
   <string name="toast_invalid_environment_variables">La valeur n\'est pas une chaîne de variable d\'environnement valide</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Remise à zéro de la base de données</string>

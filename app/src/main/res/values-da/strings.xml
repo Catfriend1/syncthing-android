@@ -226,7 +226,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="sttrace_title">Debug Muligheder</string>
   <string name="environment_variables">Miljøvariabler</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Kun 0-9, a-z og \',\' er tilladte i STTRACE options</string>
   <string name="toast_invalid_environment_variables">Værdien er ugyldig som miljøvariablestreng</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Nulstil database</string>

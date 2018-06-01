@@ -226,7 +226,6 @@
   <string name="sttrace_title">STTRACE 選項</string>
   <string name="environment_variables">環境變數</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE 選項僅允許 0-9、a-z 及 \',\'</string>
   <string name="toast_invalid_environment_variables">輸入的值不是有效的環境變數字串</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">重設資料庫</string>

@@ -246,7 +246,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="sttrace_title">STTRACE-opties</string>
   <string name="environment_variables">Omgevingsvariabelen</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Enkel 0-9, a-z en \',\' zijn toegestaan in STTRACE-opties</string>
   <string name="toast_invalid_environment_variables">Waarde is geen geldige omgevingsvariabele</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Database opnieuw instellen</string>

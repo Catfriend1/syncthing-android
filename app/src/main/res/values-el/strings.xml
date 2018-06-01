@@ -227,7 +227,6 @@
   <string name="sttrace_title">Επιλογές STTRACE</string>
   <string name="environment_variables">Μεταβλητές περιβάλλοντος</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Οι αποδεκτοί χαρακτήρες στις επιλογές STTRACE είναι τα 0-9, a-z και το \',\'.</string>
   <string name="toast_invalid_environment_variables">Η τιμή δεν είναι έγκυρη συμβολοσειρά μεταβλητής περιβάλλοντος</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Επαναφορά βάσης δεδομένων</string>

@@ -227,7 +227,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="sttrace_title">STTRACE alternativ</string>
   <string name="environment_variables">Miljövariabler</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Endast 0-9, a-z och \',\' är tillåtna i STTRACE alternativ</string>
   <string name="toast_invalid_environment_variables">Värdet är inte en giltig miljövariabel sträng</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Återställ databas</string>

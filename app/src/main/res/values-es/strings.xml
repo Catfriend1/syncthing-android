@@ -203,7 +203,6 @@
   <string name="config_import_failed">Importación de la configuración fallida, comprueba que los ficheros están en %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Sólo se permite 0-9, a-z y coma (\',\') en las opciones de STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Restablecer base de datos</string>
   <!--Syncthing was reset-->

@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -105,6 +106,7 @@ public class SyncthingRunnable implements Runnable {
         run(false);
     }
 
+    @SuppressLint("WakelockTimeout")
     public String run(boolean returnStdOut) {
         trimLogFile();
         int ret;

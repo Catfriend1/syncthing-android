@@ -193,7 +193,6 @@
   <string name="config_import_failed">Внасянето на настройките се провали. Уверете се, че файловете са в %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">В настройките на STTRACE са разрешени само символите 0-9, a-z и \',\'</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Нулиране на базата данни</string>
   <!--Syncthing was reset-->

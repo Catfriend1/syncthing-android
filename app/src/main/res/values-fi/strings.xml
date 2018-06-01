@@ -204,7 +204,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="config_import_failed">Asetusten tuonti epäonnistui. Varmista, että tiedostot ovat kansiossa %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Vain 0-9, a-z ja \',\' ovat sallittuja STTRACE valintoja</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Nollaa tietokanta</string>
   <!--Syncthing was reset-->

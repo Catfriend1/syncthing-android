@@ -224,7 +224,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="sttrace_title">Opcje STTRACE</string>
   <string name="environment_variables">Zmienne środowiskowe</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Tylko 0-9, a-z i \",\" są dozwolone w opcjach STTRACE</string>
   <string name="toast_invalid_environment_variables">Value nie jest prawidłowwą zmienną środowiskową</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Przywróć pierwotny stan bazy danych</string>

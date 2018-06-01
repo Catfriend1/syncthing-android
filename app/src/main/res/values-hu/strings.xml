@@ -254,7 +254,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="sttrace_title">STTRACE beállítások</string>
   <string name="environment_variables">Környezeti változók</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Az STTRACE beállítás csak 0-9, a-z és \',\' karaktereket tartalmazhat</string>
   <string name="toast_invalid_environment_variables">Az érték nem egy érvényes környezeti változó string</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Adatbázis törlése</string>

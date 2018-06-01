@@ -228,7 +228,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="sttrace_title">Možnosti STTRACE</string>
   <string name="environment_variables">Proměnné prostředí</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">V STTRACE jsou povoleny pouze znaky \'0-9\', \'a-z\' a \',\'</string>
   <string name="toast_invalid_environment_variables">Hodnota není platným řetězcem proměnné prostředí</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Resetovat databázi</string>

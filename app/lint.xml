@@ -2,57 +2,60 @@
 <lint>
     <!-- We don't care about incomplete translations. -->
     <issue id="MissingTranslation" severity="ignore" />
-	
-	<!-- Ignore "Value overridden by Gradle build script" for app
-	version (which is actually read from manifest by gradle). -->
-	<issue id="GradleOverrides" severity="ignore" />
-
-	<!-- Some attributes aren't used on older Android versions,
-	but we don't care or use alternative attributes for these
-	platforms -->
-	<issue id="UnusedAttribute" severity="ignore" />
-
-	<!-- We don't care about Google App Indexing -->
-	<issue id="GoogleAppIndexingWarning" severity="ignore" />
-
-	<!-- Disabling battery optimizations is optional, so this warning doesn't apply to us -->
-	<issue id="BatteryLife" severity="ignore" />
-
-	<!-- Ignore types in translations (not handled by us) -->
-	<issue id="Typos">
-		<ignore path="src/main/res/values-ar" />
-		<ignore path="src/main/res/values-cs" />
-		<ignore path="src/main/res/values-da" />
-		<ignore path="src/main/res/values-da-rDK" />
-		<ignore path="src/main/res/values-de" />
-		<ignore path="src/main/res/values-el" />
-		<ignore path="src/main/res/values-es" />
-		<ignore path="src/main/res/values-fi" />
-		<ignore path="src/main/res/values-fr" />
-		<ignore path="src/main/res/values-fr-rFR" />
-		<ignore path="src/main/res/values-hu" />
-		<ignore path="src/main/res/values-in" />
-		<ignore path="src/main/res/values-it" />
-		<ignore path="src/main/res/values-ja" />
-		<ignore path="src/main/res/values-ko" />
-		<ignore path="src/main/res/values-nb" />
-		<ignore path="src/main/res/values-nl" />
-		<ignore path="src/main/res/values-pl" />
-		<ignore path="src/main/res/values-pl-rPL" />
-		<ignore path="src/main/res/values-pt" />
-		<ignore path="src/main/res/values-pt-rBR" />
-		<ignore path="src/main/res/values-ru" />
-		<ignore path="src/main/res/values-sk" />
-		<ignore path="src/main/res/values-sl" />
-		<ignore path="src/main/res/values-sr" />
-		<ignore path="src/main/res/values-sv" />
-		<ignore path="src/main/res/values-tr" />
-		<ignore path="src/main/res/values-zh-rCN" />
-		<ignore path="src/main/res/values-zh-rTW" />
-	</issue>
-
-	<!-- Don't fail lint on translation errors -->
-	<issue id="ImpliedQuantity" severity="warning" />
-
-	<issue id="OldTargetApi" severity="ignore" />
+    <!-- Ignore "Value overridden by Gradle build script" for app
+    version (which is actually read from manifest by gradle). -->
+    <issue id="GradleOverrides" severity="ignore" />
+    <!-- Some attributes aren't used on older Android versions,
+    but we don't care or use alternative attributes for these
+    platforms -->
+    <issue id="UnusedAttribute" severity="ignore" />
+    <!-- We don't care about Google App Indexing -->
+    <issue id="GoogleAppIndexingWarning" severity="ignore" />
+    <!-- Disabling battery optimizations is optional, so this warning doesn't apply to us -->
+    <issue id="BatteryLife" severity="ignore" />
+    <!-- Ignore types in translations (not handled by us) -->
+    <issue id="Typos">
+        <ignore path="src/main/res/values-ar" />
+        <ignore path="src/main/res/values-cs" />
+        <ignore path="src/main/res/values-da" />
+        <ignore path="src/main/res/values-da-rDK" />
+        <ignore path="src/main/res/values-de" />
+        <ignore path="src/main/res/values-el" />
+        <ignore path="src/main/res/values-es" />
+        <ignore path="src/main/res/values-fi" />
+        <ignore path="src/main/res/values-fr" />
+        <ignore path="src/main/res/values-fr-rFR" />
+        <ignore path="src/main/res/values-hu" />
+        <ignore path="src/main/res/values-in" />
+        <ignore path="src/main/res/values-it" />
+        <ignore path="src/main/res/values-ja" />
+        <ignore path="src/main/res/values-ko" />
+        <ignore path="src/main/res/values-nb" />
+        <ignore path="src/main/res/values-nl" />
+        <ignore path="src/main/res/values-pl" />
+        <ignore path="src/main/res/values-pl-rPL" />
+        <ignore path="src/main/res/values-pt" />
+        <ignore path="src/main/res/values-pt-rBR" />
+        <ignore path="src/main/res/values-ru" />
+        <ignore path="src/main/res/values-sk" />
+        <ignore path="src/main/res/values-sl" />
+        <ignore path="src/main/res/values-sr" />
+        <ignore path="src/main/res/values-sv" />
+        <ignore path="src/main/res/values-tr" />
+        <ignore path="src/main/res/values-zh-rCN" />
+        <ignore path="src/main/res/values-zh-rTW" />
+    </issue>
+    <!-- Ignore lint on ... not being replaced by the ellipsis character -->
+    <issue id="TypographyEllipsis" severity="ignore" />
+    <!-- Don't fail lint on translation errors, they have to be resolve on transifex -->
+    <issue id="ImpliedQuantity" severity="warning">
+        <ignore path="src/main/res/values-fr" />
+        <ignore path="src/main/res/values-pt-rBR" />
+        <ignore path="src/main/res/values-ru" />
+    </issue>
+    <!-- Having an expandable drawer for the menu will always cause overdrawing regions -->
+    <issue id="Overdraw">
+        <ignore path="src/main/res/layout/widget_toolbar.xml" />
+    </issue>
+    <issue id="OldTargetApi" severity="ignore" />
 </lint>

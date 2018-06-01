@@ -229,7 +229,6 @@
   <string name="sttrace_title">STTRACE Options</string>
   <string name="environment_variables">Environment variables</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Только 0-9, a-z и \',\' допустимы для параметра STTRACE</string>
   <string name="toast_invalid_environment_variables">Value is not a valid environment variable string</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Сбросить базу данных</string>

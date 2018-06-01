@@ -217,7 +217,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Title for the preference to set STTRACE parameters-->
   <string name="sttrace_title">Opsi STTRACE</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Hanya 0-9, a-z dan \',\' yang dibolehkan dalam opsi STTRACE</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reset Database</string>
   <!--Syncthing was reset-->

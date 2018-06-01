@@ -226,7 +226,6 @@
   <string name="sttrace_title">STTRACE オプション</string>
   <string name="environment_variables">環境変数</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE オプションでは、0-9、a-z および \',\' のみ使用できます。</string>
   <string name="toast_invalid_environment_variables">値は有効な環境変数文字列ではありません</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">データベースをリセットする</string>

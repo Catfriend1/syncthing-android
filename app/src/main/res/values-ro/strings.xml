@@ -228,7 +228,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="sttrace_title">Opțiuni STTRACE</string>
   <string name="environment_variables">Variabile de mediu</string>
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">Doar 0-9, a-z și \',\' sunt permise în opțiunile STTRACE</string>
   <string name="toast_invalid_environment_variables">Această valoare nu este un șir de variabile de mediu valabil</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Resetează baza de date</string>

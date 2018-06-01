@@ -197,7 +197,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="config_import_failed">Yapılandırma içe aktarılamadı, dosyaların %1$s içinde olduğundan emin olun</string>
   <!--Title for the preference to set STTRACE parameters-->
   <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_sttrace" tools:ignore="TypographyDashes">STTRACE seçeneklerinde yalnızca 0-9, a-z ve \",\" karakterlerine izin verilir</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Veritabanını Sıfırla</string>
   <!--Syncthing was reset-->
