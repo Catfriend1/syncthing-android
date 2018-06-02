@@ -65,7 +65,7 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
     }
 
     public interface OnDeviceStateChangedListener {
-        void onDeviceStateChanged();
+        void onDeviceStateChanged(boolean shouldRun);
     }
 
     private final Context mContext;
@@ -74,16 +74,22 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
     private final OnDeviceStateChangedListener mListener;
     @Inject SharedPreferences mPreferences;
 
-    private @Nullable NetworkReceiver mNetworkReceiver;
-    private @Nullable BatteryReceiver mBatteryReceiver;
-    private @Nullable BroadcastReceiver mPowerSaveModeChangedReceiver;
+    private @Nullable NetworkReceiver mNetworkReceiver = null;
+    private @Nullable BatteryReceiver mBatteryReceiver = null;
+    private @Nullable BroadcastReceiver mPowerSaveModeChangedReceiver = null;
 
     private boolean mIsAllowedNetworkConnection;
     private String mWifiSsid;
     private boolean mIsCharging;
     private boolean mIsPowerSaving;
 
+    /**
+     * Stores the result of the last call to {@link decideShouldRun}.
+     */
+    private boolean lastDeterminedShouldRun = false;
+
     public DeviceStateHolder(Context context, OnDeviceStateChangedListener listener) {
+        Log.v(TAG, "Created new instance");
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         mContext = context;
         mBroadcastManager = LocalBroadcastManager.getInstance(mContext);
@@ -94,6 +100,7 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
     }
 
     public void shutdown() {
+        Log.v(TAG, "Shutting down");
         mBroadcastManager.unregisterReceiver(mReceiver);
         mPreferences.unregisterOnSharedPreferenceChangeListener(this);
 
@@ -166,9 +173,7 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
             mIsPowerSaving = intent.getBooleanExtra(EXTRA_IS_POWER_SAVING, mIsPowerSaving);
             Log.i(TAG, "State updated, allowed network connection: " + mIsAllowedNetworkConnection +
                     ", charging: " + mIsCharging + ", power saving: " + mIsPowerSaving);
-
-            updateWifiSsid();
-            mListener.onDeviceStateChanged();
+            updateShouldRunDecision();
         }
     }
 
@@ -183,15 +188,20 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
         }
     }
 
-    public void refreshNetworkInfo() {
-        updateWifiSsid();
-        mListener.onDeviceStateChanged();
+    public void updateShouldRunDecision() {
+        // Check if the current conditions changed the result of decideShouldRun()
+        // compared to the last determined result.
+        boolean newShouldRun = decideShouldRun();
+        if (newShouldRun != lastDeterminedShouldRun) {
+            mListener.onDeviceStateChanged(newShouldRun);
+            lastDeterminedShouldRun = newShouldRun;
+        }
     }
 
     /**
      * Determines if Syncthing should currently run.
      */
-    boolean shouldRun() {
+    private boolean decideShouldRun() {
         boolean prefRespectPowerSaving = mPreferences.getBoolean("respect_battery_saving", true);
         if (prefRespectPowerSaving && mIsPowerSaving)
             return false;
@@ -200,6 +210,7 @@ public class DeviceStateHolder implements SharedPreferences.OnSharedPreferenceCh
             boolean prefStopMobileData = mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_WIFI, false);
             boolean prefStopNotCharging = mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_CHARGING, false);
 
+            updateWifiSsid();
             if (prefStopMobileData && !isWhitelistedNetworkConnection())
                 return false;
 

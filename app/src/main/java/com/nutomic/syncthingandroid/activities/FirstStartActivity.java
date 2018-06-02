@@ -107,6 +107,7 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
                         grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, R.string.toast_write_storage_permission_required,
                             Toast.LENGTH_LONG).show();
+                    this.finish();
                 } else {
                     startApp();
                 }

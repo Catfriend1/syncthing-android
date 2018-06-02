@@ -578,6 +578,8 @@ Please report any problems you encounter via Github.</string>
 
     <string name="syncthing_disabled">Syncthing is disabled</string>
 
+    <string name="syncthing_terminated">Syncthing was terminated</string>
+
     <!-- Toast shown if syncthing failed to create a config -->
     <string name="config_create_failed">Failed to create config file</string>
 

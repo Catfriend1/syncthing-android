@@ -26,6 +26,7 @@ public class NotificationHandler {
     private static final int ID_RESTART = 2;
     private static final int ID_STOP_BACKGROUND_WARNING = 3;
     private static final int ID_CRASH = 9;
+    private static final int ID_MISSING_PERM = 10;
     private static final String CHANNEL_PERSISTENT = "01_syncthing_persistent";
     private static final String CHANNEL_INFO = "02_syncthing_notifications";
     private static final String CHANNEL_PERSISTENT_WAITING = "03_syncthing_persistent_waiting";
@@ -169,6 +170,19 @@ public class NotificationHandler {
                 .setAutoCancel(true)
                 .build();
         mNotificationManager.notify(id, n);
+    }
+
+    public void showStoragePermissionRevokedNotification() {
+        Intent intent = new Intent(mContext, FirstStartActivity.class);
+        Notification n = getNotificationBuilder(mInfoChannel)
+                .setContentTitle(mContext.getString(R.string.syncthing_terminated))
+                .setContentText(mContext.getString(R.string.toast_write_storage_permission_required))
+                .setSmallIcon(R.drawable.ic_stat_notify)
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0))
+                .setAutoCancel(true)
+                .setOnlyAlertOnce(true)
+                .build();
+        mNotificationManager.notify(ID_MISSING_PERM, n);
     }
 
     public void showRestartNotification() {

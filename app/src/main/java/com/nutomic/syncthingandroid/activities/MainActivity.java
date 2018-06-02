@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.Manifest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -253,6 +255,17 @@ public class MainActivity extends StateDialogActivity
         setOptimalDrawerWidth(findViewById(R.id.drawer));
 
         onNewIntent(getIntent());
+    }
+
+    @Override
+    public void onResume() {
+        // Check if storage permission has been revoked at runtime.
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+            PackageManager.PERMISSION_GRANTED)) {
+            startActivity(new Intent(this, FirstStartActivity.class));
+            this.finish();
+        }
+        super.onResume();
     }
 
     @Override
