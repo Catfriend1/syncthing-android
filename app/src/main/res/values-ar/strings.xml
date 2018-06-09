@@ -79,6 +79,7 @@
   <!--SettingsFragment-->
   <!--Preference summary in case it is enabled-->
   <!--Preference summary in case it is disabled-->
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <!--Toast after entering invalid socks proxy address-->
   <!--Toast after entering invalid http proxy address-->

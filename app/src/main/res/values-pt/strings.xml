@@ -11,6 +11,7 @@ Para partilhar dados com outros dispositivos, tem que adicionar o seu ID único 
 Reporte, através do Github, quaisquer problemas que encontre, por favor.</string>
   <string name="cont">Continuar</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exemplo</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adicionar pasta</string>
@@ -53,6 +54,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconectado</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Pausado(a)</string>
   <string name="device_state_unknown">Desconhecido</string>
   <!--Title for current download rate-->
   <string name="download_title">Recepção</string>
@@ -178,6 +180,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="usage_reporting">Enviar relatórios anónimos de utilização</string>
   <string name="gui_address">Endereço de escuta da interface gráfica</string>
   <string name="export_config">Exportar configuração</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
   <string name="keep_wakelock_while_binary_running_summary">Use esta definição se experimentar desconectações inesperadas enquanto estiver a trabalhar com a bateria. Isto irá resultar num aumento do consumo da carga da bateria.</string>
@@ -304,6 +307,7 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="state_syncing">Sincronizando (%1$d%%)</string>
   <string name="state_error">Erro</string>
   <string name="state_unknown">Desconhecido</string>
+  <string name="state_paused">Pausado(a)</string>
   <string name="status_outofsync">Fora de sincronia</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

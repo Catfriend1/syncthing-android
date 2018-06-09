@@ -176,6 +176,7 @@
   <string name="usage_reporting"> Анонимен доклад за ползване на програмата</string>
   <string name="gui_address">Адрес за свързване с потребителския интерфейс</string>
   <string name="export_config">Изнасяне на настройките</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="use_tor_title">Ползване на Tor</string>
   <!--Toast after entering invalid socks proxy address-->

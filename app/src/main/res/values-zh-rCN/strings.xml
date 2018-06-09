@@ -205,6 +205,7 @@
   <string name="usage_reporting">匿名使用报告</string>
   <string name="gui_address">管理页监听地址</string>
   <string name="export_config">导出设置</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>
   <string name="keep_wakelock_while_binary_running_summary">使用此设置如果您在电池上运行时遇到意外的断开连接。这将会导致电量消耗的增加。</string>

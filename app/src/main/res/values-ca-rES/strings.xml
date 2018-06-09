@@ -204,6 +204,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="usage_reporting">Informes d\'ús anònims</string>
   <string name="gui_address">Adreça d\'escolta de la interfície gràfica</string>
   <string name="export_config">Exporta la configuració</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Activeu-ho si experimenteu desconnexions inesperades quan treballeu amb bateria. S\'incrementarà el consum de la bateria.</string>

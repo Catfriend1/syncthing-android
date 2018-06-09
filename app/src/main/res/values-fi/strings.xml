@@ -11,6 +11,7 @@ Jakaaksesi tietoa toisten laitteiden kanssa, sinun tarvitsee lisätä niiden yks
 Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta.</string>
   <string name="cont">Jatka</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Esimerkki</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Lisää kansio</string>
@@ -31,11 +32,13 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="dialog_disable_battery_optimization_later">Myöhemmin</string>
   <string name="dialog_disable_battery_optimization_dont_show_again">Älä näytä uudelleen</string>
   <string name="dialog_disable_battery_optimization_turn_off">Poista käytöstä Synthingille</string>
+  <string name="dialog_disable_battery_optimizations_not_supported">Laitteesi ei tue akun käytön optimoinnin poistamista käytöstä</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Lataa...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Luodaan salausavaimia. Tämä voi kestää muutaman minuutin.</string>
+  <string name="syncthing_loading_slow_message">Synthingin käynnistyminen kestää erittäin kauan. Tarkista lokit virheiden varalta.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Kansiot</string>
   <!--Shown if no folders exist-->
@@ -45,6 +48,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <item quantity="one">%1$d / %2$d tiedosto</item>
     <item quantity="other">%1$d / %2$d tiedostoa</item>
   </plurals>
+  <string name="open_file_manager">Avaa tiedostonhallinta</string>
   <string name="toast_no_file_manager">Yhteensopivaa tiedostonhallintaa ei löydy</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Laitteet</string>
@@ -57,6 +61,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Ei yhteyttä</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Tauolla</string>
   <string name="device_state_unknown">Tuntematon</string>
   <!--Title for current download rate-->
   <string name="download_title">Lataus</string>
@@ -183,6 +188,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="usage_reporting">Anonyymi käytönseuranta</string>
   <string name="gui_address">Käyttöliittymän kuunteluosoite</string>
   <string name="export_config">Vie asetukset</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
   <string name="keep_wakelock_while_binary_running_summary">Käytä tätä asetusta, jos yhteydet katkeilevat odottamattomasti laitteen käydessä akkuvirralla. Tämä lisää virran kulutusta.</string>
@@ -246,6 +252,8 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="select_folder">Valitse kansio</string>
   <string name="create_folder_failed">Kansion luominen epäonnistui</string>
   <!--LogActivity-->
+  <string name="syncthing_log_title">Syncthingin loki</string>
+  <string name="android_log_title">Androidin loki</string>
   <!--Title of the "log android" menu button-->
   <string name="view_android_log">Näytä Android loki</string>
   <!--Title of the "log Syncthing" menu button-->
@@ -273,6 +281,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Copy progress dialog text-->
   <string name="copy_progress">Jaetaan tiedostoja...</string>
   <!--Sub Folder title-->
+  <string name="sub_folder">Alikansio</string>
   <!--SyncthingService-->
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing on poistettu käytöstä</string>
@@ -322,6 +331,7 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="state_syncing">Synkronoidaan (%1$d%%)</string>
   <string name="state_error">Virhe</string>
   <string name="state_unknown">Tuntematon</string>
+  <string name="state_paused">Tauolla</string>
   <string name="status_outofsync">Ei ajan tasalla</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
@@ -342,4 +352,5 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="external_versioning_info">Komento: %1$s</string>
   <string name="show_device_id">Näytä laitteen tunnus</string>
   <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+  <string name="browse">Selaa</string>
 </resources>

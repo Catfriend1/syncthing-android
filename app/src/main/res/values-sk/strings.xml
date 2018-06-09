@@ -149,6 +149,7 @@
   <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
   <string name="gui_address">Adresa pre GUI</string>
   <string name="export_config">Exportovať Konfiguráciu</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <!--Toast after entering invalid socks proxy address-->
   <!--Toast after entering invalid http proxy address-->

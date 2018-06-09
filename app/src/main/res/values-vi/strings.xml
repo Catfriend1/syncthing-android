@@ -158,6 +158,7 @@
   <string name="usage_reporting">Báo cáo sử dụng ẩn danh</string>
   <string name="gui_address">Các đ.chỉ lắng nghe GUI</string>
   <string name="export_config">Xuất cấu hình</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Giữ CPU thức khi Syncthing đang chạy</string>
   <string name="keep_wakelock_while_binary_running_summary">Dùng tuỳ chỉnh này nếu bạn bị mất kết nối bất ngờ khi đang dùng pin. Nó sẽ tiêu thụ nhiều pin hơn.</string>

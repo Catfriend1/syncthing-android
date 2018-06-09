@@ -178,6 +178,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="usage_reporting">Anonim Kullanım Raporlama</string>
   <string name="gui_address">Arayüz Dinleme Adresleri</string>
   <string name="export_config">Yapılandırmayı Dışa Aktar</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
   <string name="keep_wakelock_while_binary_running_summary">Eğer batarya üzerinde çalışırken beklenmedik kopmalar yaşıyorsanız bu ayarı kullanın. Bu artırılmış batarya tüketimiyle sonuçlanacak.</string>

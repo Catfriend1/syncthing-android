@@ -201,6 +201,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="usage_reporting">Anonimowe statystyki użycia</string>
   <string name="gui_address">Adres nasłuchiwania</string>
   <string name="export_config">Eksportuj ustawienia</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
   <string name="keep_wakelock_while_binary_running_summary">Używaj, jeśli doświadczasz nieoczekiwanych rozłączeń w trakcie działania na baterii. Spowoduje to zwiększone jej zużycie.</string>

@@ -11,6 +11,7 @@ För att dela data med andra enheter måste du lägga till deras unika enhet-ID 
 Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="cont">Fortsätt</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exempel</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Lägg till mapp</string>
@@ -47,6 +48,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <item quantity="one">%1$d / %2$d fil</item>
     <item quantity="other">%1$d / %2$d filer</item>
   </plurals>
+  <string name="open_file_manager">Öppna filhanteraren</string>
   <string name="toast_no_file_manager">Ingen kompatibel filhanterare hittad</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Enheter</string>
@@ -59,14 +61,15 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Frånkopplad</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Pausad</string>
   <string name="device_state_unknown">Okänd</string>
   <!--Title for current download rate-->
-  <string name="download_title">Hämtning</string>
+  <string name="download_title">Hämtar</string>
   <!--Title for current upload rate-->
   <string name="upload_title">Skickar</string>
   <!--DrawerFragment-->
   <!--Same as download_title with a colon and space appended-->
-  <string name="download_title_colon">Hämtning:\u0020</string>
+  <string name="download_title_colon">Hämtar:\u0020</string>
   <!--Same as upload_title with a colon and space appended-->
   <string name="upload_title_colon">Skickar:\u0020</string>
   <!--Title for current CPU usage-->
@@ -87,7 +90,10 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Setting title-->
   <string name="folder_master">Skicka endast</string>
   <!--Setting title and description-->
+  <string name="folder_fileWatcher">Håll utkik efter ändringar</string>
+  <string name="folder_fileWatcherDescription">Frågar operativsystemet att meddela om ändringar i filer. Om inaktiverad faller tillbaka på återkommande skanningar varje timme.</string>
   <!--Setting title-->
+  <string name="folder_pause">Pausa mapp</string>
   <!--Setting title-->
   <string name="devices">Enheter</string>
   <!--Setting title-->
@@ -106,7 +112,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="folder_id_required">Mapp-ID får inte vara tom</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Mapp-sökvägen får inte vara tom</string>
-  <string name="dialog_discard_changes">Kassera dina ändringar?</string>
+  <string name="dialog_discard_changes">Kasta dina ändringar?</string>
   <string name="ignore_patterns">Ignorera mönster</string>
   <string name="create_ignore_file_error">Misslyckades med att skapa ignorera-fil. Är katalogen skrivbar?</string>
   <string name="edit_ignore_file_error">Ingen textredigerare hittades</string>
@@ -130,6 +136,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Setting title-->
   <string name="introducer">Introduktör</string>
   <!--Setting title-->
+  <string name="pause_device">Pausa enhet</string>
   <!--ActionBar item-->
   <string name="delete_device">Ta bort enhet</string>
   <string name="add_device">Lägg till enhet</string>
@@ -152,7 +159,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="web_gui_loading">Väntar på gränssnitt</string>
   <!--SettingsFragment-->
   <string name="settings_title">Inställningar</string>
-  <string name="category_run_conditions">Körbetingelser</string>
+  <string name="category_run_conditions">Körvillkor</string>
   <string name="category_behaviour">Beteende</string>
   <string name="category_syncthing_options">Syncthing alternativ</string>
   <string name="category_backup">Säkerhetskopiera</string>
@@ -167,6 +174,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="sync_only_wifi">Kör endast på wifi</string>
   <string name="sync_only_wifi_ssids">Begränsa till vissa wifi-nätverk</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
   <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
   <string name="respect_battery_saving_summary">Avaktivera Syncthing om batterispara är aktiv</string>
   <string name="advanced_folder_picker">Använd avancerad mappväljare</string>
@@ -204,14 +214,25 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
   <string name="gui_address">Gränssnittets lyssnaradresser</string>
   <string name="export_config">Exportera konfiguration</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
+  <string name="use_proxy">Anslut via en proxy</string>
   <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
   <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>
   <string name="use_tor_title">Använd Tor</string>
+  <string name="use_tor_summary">Tvinga all trafik genom Tor för ökad integritet. Kräver Orbot. Inaktiverar proxyalternativ.</string>
+  <string name="socks_proxy_address_title">SOCKS5-proxy</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">Inmatning bryter mot proxysyntaxen \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">HTTP(S)-proxy</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Använd legacy hashing</string>
   <string name="use_legacy_hashing_summary">Tvinga Syncthing att använda legacy hashningspaket för kompatibilitetsändamål</string>
+  <string name="restart_on_wakeup_title">Starta om på Vakna upp</string>
+  <string name="restart_on_wakeup_summary">Standard: Aktiverad. Om du inaktiverar den här funktionen kan det resultera i försenade mappsökningar och återkopplingar av enheter för att spara batteri.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
   <!--Dialog shown before config import-->
@@ -231,11 +252,19 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Återställ databas</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
+        \nÄr du säker på att du vill rensa Syncthings databas?
+    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Syncthings databas återställdes</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Återställ deltaindex</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
+        \nÄr du säker på att du vill rensa Syncthings deltaindex?
+    </string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">Syncthings deltaindex återställdes</string>
   <string name="category_about">Om</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Öppna logg</string>
@@ -273,9 +302,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="syncthing_log_title">Syncthing-logg</string>
   <string name="android_log_title">Android-logg</string>
   <!--Title of the "log android" menu button-->
-  <string name="view_android_log">Visa Android logg</string>
+  <string name="view_android_log">Visa Android-logg</string>
   <!--Title of the "log Syncthing" menu button-->
-  <string name="view_syncthing_log">Visa Syncthing logg</string>
+  <string name="view_syncthing_log">Visa Syncthing-logg</string>
   <string name="retrieving_logs">Hämtar loggar...</string>
   <!--Title of the "share log" menu button-->
   <string name="share_title">Dela</string>
@@ -332,6 +361,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="default_folder_id">%1$s foton</string>
   <string name="notification_crash_title">Syncthing har kraschat</string>
   <string name="notification_crash_text">Klicka för att visa loggar</string>
+  <string name="notifications_persistent_channel">Syncthing är aktiv</string>
+  <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>
   <string name="notifications_other_channel">Andra aviseringar</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -364,6 +395,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="state_syncing">Synkroniserar (%1$d%%)</string>
   <string name="state_error">Fel</string>
   <string name="state_unknown">Okänd</string>
+  <string name="state_paused">Pausad</string>
   <string name="status_outofsync">Osynkroniserad</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
@@ -385,7 +417,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="versions_path_description">Sökväg där versioner ska lagras (lämna tom för standard .stversions-katalogen i den delade mappen).</string>
   <string name="cleanout_after_description">Antalet dagar att behålla filer i papperskorgen. Noll betyder för evigt</string>
   <string name="external_versioning_description">Den första kommandoradsparametern är mappsökvägen och den andra parametern är den relativa sökvägen i mappen.</string>
-  <string name="no_versioning_description">Välj ett versions typ för att aktivera versionshantering.</string>
+  <string name="no_versioning_description">Välj en versioner-typ för att aktivera versionshantering.</string>
   <!--Displays the current file versioning type in the Folder activity-->
   <string name="type_simple">Typ: Enkel</string>
   <string name="type_trashcan">Typ: Papperskorg</string>
@@ -401,4 +433,5 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="could_not_access_deviceid">Det gick inte att komma åt enhetens ID.</string>
   <string name="browse">Bläddra</string>
   <string name="no_sub_folder_is_selected">Ingen undermapp är vald</string>
+  <string name="share_device_id_chooser">Dela enhetens ID med</string>
 </resources>

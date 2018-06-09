@@ -11,6 +11,7 @@
 Пожалуйста, сообщайте о возникших проблемах через Github.</string>
   <string name="cont">Продолжить</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Пример</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Добавить папку</string>
@@ -49,6 +50,7 @@
     <item quantity="many">%1$d / %2$d Файлов</item>
     <item quantity="other">%1$d / %2$d Файла</item>
   </plurals>
+  <string name="open_file_manager">Открыть файловый менеджер</string>
   <string name="toast_no_file_manager">Не найдено совместимого файлового менеджера</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Устройства</string>
@@ -61,6 +63,7 @@
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Отсоединено</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Остановлено</string>
   <string name="device_state_unknown">Неизвестно</string>
   <!--Title for current download rate-->
   <string name="download_title">Скачивание</string>
@@ -89,7 +92,10 @@
   <!--Setting title-->
   <string name="folder_master">Только отправка</string>
   <!--Setting title and description-->
+  <string name="folder_fileWatcher">Следить за изменениями</string>
+  <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
   <!--Setting title-->
+  <string name="folder_pause">Приостановить папку</string>
   <!--Setting title-->
   <string name="devices">Устройства</string>
   <!--Setting title-->
@@ -132,6 +138,7 @@
   <!--Setting title-->
   <string name="introducer">Рекомендатель</string>
   <!--Setting title-->
+  <string name="pause_device">Приостановить устройство</string>
   <!--ActionBar item-->
   <string name="delete_device">Удалить устройство</string>
   <string name="add_device">Доб устройство</string>
@@ -169,6 +176,9 @@
   <string name="sync_only_wifi">Синхронизация только по Wi-Fi</string>
   <string name="sync_only_wifi_ssids">Ограничить определёнными wifi сетями</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование. </string>
   <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
   <string name="respect_battery_saving_summary">Отключить Syncthing, если включено энергосбережение</string>
   <string name="advanced_folder_picker">Использовать продвинутый выбор папок</string>
@@ -206,14 +216,25 @@
   <string name="usage_reporting">Анонимные Отчёты Использования</string>
   <string name="gui_address">Адрес Ожидания GUI</string>
   <string name="export_config">Экспорт настроек</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
+  <string name="use_proxy">Подсоединиться через прокси</string>
   <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
   <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
   <string name="use_tor_title">Использовать Tor</string>
+  <string name="use_tor_summary">Для дополнительной приватности перенаправлять весь трафик через Tor. Требует наличия Orbot. Отключает опции прокси.</string>
+  <string name="socks_proxy_address_title">SOCKS5 прокси</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">Данные не соответствуют синтаксису прокси \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">HTTP(S) прокси</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
   <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>
+  <string name="restart_on_wakeup_title">Перезапуск при пробуждении</string>
+  <string name="restart_on_wakeup_summary">По умолчанию: Включено. Выключение данной функции может вызывать задержки сканирования папок и переподключения устройства для экономии заряда батареи.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию? Существующие файлы будут перезаписаны.\n\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
   <!--Dialog shown before config import-->
@@ -233,18 +254,26 @@
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Сбросить базу данных</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Это действие должно выполняться только по рекомендации нашей поддержки.
+        \nВы уверены что хотите очистить базу данных Syncthing?
+    </string>
   <!--Syncthing was reset-->
-  <string name="st_reset_database_done">БД Syncthing успешно сброшена</string>
+  <string name="st_reset_database_done">База данных Syncthing успешно сброшена</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Сбросить изменения индексов</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
+\nAre you sure you want to clear Syncthing\'s delta indexes?
+ </string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">Изменения индексов Syncthing успешно сброшены</string>
   <string name="category_about">О программе</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Открыть лог</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Открывает логи Syncthing и Android</string>
   <string name="notify_crashes_title">Сообщать о сбоях Syncthing</string>
-  <string name="notify_crashes_summary">Показывать нотифи</string>
+  <string name="notify_crashes_summary">Показывать уведомлениепри обнаружении сбоев Syncthing</string>
   <string name="syncthing_forum_title">Форум Syncthing</string>
   <string name="syncthing_forum_summary">Перейти на форум Syncthing</string>
   <!--Settings item that opens issue tracker-->
@@ -340,6 +369,8 @@
   <string name="default_folder_id">%1$s фото</string>
   <string name="notification_crash_title">Syncthing завершился из-за сбоя</string>
   <string name="notification_crash_text">Нажмите для просмотра логов</string>
+  <string name="notifications_persistent_channel">Syncthing работает</string>
+  <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>
   <string name="notifications_other_channel">Другие уведомления</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -372,6 +403,7 @@
   <string name="state_syncing">Синхронизация (%1$d%%)</string>
   <string name="state_error">Ошибка</string>
   <string name="state_unknown">Неизвестно</string>
+  <string name="state_paused">Приостановлено</string>
   <string name="status_outofsync">Нет синхронизации</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

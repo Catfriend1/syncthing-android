@@ -11,6 +11,7 @@ Pentru a partaja date cu alte dispozitive, trebuie să le adăugați ID-ul unic 
 Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.</string>
   <string name="cont">Continuare</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exemplu</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adăugare director</string>
@@ -48,6 +49,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <item quantity="few">%1$d / %2$d fișiere</item>
     <item quantity="other">%1$d / %2$d de fișiere</item>
   </plurals>
+  <string name="open_file_manager">Deschide managerul de fișiere</string>
   <string name="toast_no_file_manager">Nici un manager de fișiere compatibil găsit</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Dispozitive</string>
@@ -60,6 +62,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Deconectat</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">Întrerupt</string>
   <string name="device_state_unknown">Necunoscut</string>
   <!--Title for current download rate-->
   <string name="download_title">Descărcare </string>
@@ -88,7 +91,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Setting title-->
   <string name="folder_master">Doar trimitere</string>
   <!--Setting title and description-->
+  <string name="folder_fileWatcher">Monitorizează schimbările</string>
+  <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>
   <!--Setting title-->
+  <string name="folder_pause">Întrerupe director</string>
   <!--Setting title-->
   <string name="devices">Dispozitive</string>
   <!--Setting title-->
@@ -131,6 +137,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Setting title-->
   <string name="introducer">Prezentator</string>
   <!--Setting title-->
+  <string name="pause_device">Întrerupe dispozitiv</string>
   <!--ActionBar item-->
   <string name="delete_device">Șterge dispozitiv</string>
   <string name="add_device">Adaugă dispozitiv</string>
@@ -168,6 +175,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="sync_only_wifi">Rulează numai prin Wi-Fi</string>
   <string name="sync_only_wifi_ssids">Restricționează la anumite rețele Wi-Fi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Necesită permisiunea</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Începând cu Android 8.1, este necesar accesul la locație pentru a putea citii numele rețelei Wi-Fi. Această caracteristică poate fi folosită doar dacă acordați această permisiune.</string>
   <string name="respect_battery_saving_title">Se va respecta setarea de economisire a bateriei din Android</string>
   <string name="respect_battery_saving_summary">Syncthing va fi dezactivat dacă economisirea bateriei este activată</string>
   <string name="advanced_folder_picker">Folosește selectorul avansat de directoare</string>
@@ -205,14 +215,25 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="usage_reporting">Raport utilizare anonim</string>
   <string name="gui_address">Adresa de ascultare a interfeței</string>
   <string name="export_config">Exportă configurația</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
+  <string name="use_proxy">Conectare printr-un proxy</string>
   <string name="keep_wakelock_while_binary_running">Ține procesorul activ când rulează</string>
   <string name="keep_wakelock_while_binary_running_summary">Folosiți această setare dacă vă confruntați cu deconectări neașteptate atunci când dispozitivul se alimentează de la baterie. Această opțiune poate duce la o creștere a consumului bateriei.</string>
   <string name="use_tor_title">Folosește Tor</string>
+  <string name="use_tor_summary">Forțează tot traficul prin rețeaua Tor pentru a spori confidențialitatea. Necesită aplicația Orbot. Dezactivează opțiunile proxy.</string>
+  <string name="socks_proxy_address_title">Proxy SOCKS5</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">Textul nu respectă sintaxa proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">Proxy HTTP(S)</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">Textul nu respectă sintaxa proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Folosește modul vechi de hashing</string>
   <string name="use_legacy_hashing_summary">Forțează utilizarea pachetului de hashing vechi din motive de compatibilitate</string>
+  <string name="restart_on_wakeup_title">Repornire la trezire</string>
+  <string name="restart_on_wakeup_summary">Implicit: Activat. Dezactivarea acestei caracteristici ar putea duce la amânarea scanării directoarelor și a conectării dispozitivelor pentru a putea micșora consumul bateriei.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Chiar doriți să exportați configurația? Fișierele existente vor fi suprascrise.\n\nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
   <!--Dialog shown before config import-->
@@ -232,11 +253,19 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Resetează baza de date</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Acestă acțiune trebuie realizată numai în baza unei recomandări din partea echipei noastre de asistență.
+        \nSigur doriți să curățați baza de date Syncthing?
+    </string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">Baza de date Syncthing a fost resetată cu succes</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Resetare index diferențe</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Acestă acțiune trebuie realizată numai în baza unei recomandări din partea echipei noastre de asistență.
+        \nSigur doriți să curățați indexul diferențelor Syncthing?
+    </string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">Indexul cu diferențe Syncthing a fost resetat cu succes</string>
   <string name="category_about">Despre</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Deschide jurnal de erori</string>
@@ -336,6 +365,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="default_folder_id">%1$s-fotografii</string>
   <string name="notification_crash_title">Syncthing s-a oprit neașteptat</string>
   <string name="notification_crash_text">Atingeți pentru a vedea jurnalele de erori</string>
+  <string name="notifications_persistent_channel">Syncthing este activ</string>
+  <string name="notification_persistent_waiting_channel">Monitorizare condiții rulare</string>
   <string name="notifications_other_channel">Alte notificări</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -368,6 +399,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="state_syncing">Se sincronizează(%1$d%%)</string>
   <string name="state_error">Eroare</string>
   <string name="state_unknown">Necunoscut</string>
+  <string name="state_paused">Întrerupt</string>
   <string name="status_outofsync">Desincronizat</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>

@@ -163,6 +163,7 @@
   <string name="usage_reporting">Anonym rapportering av bruk</string>
   <string name="gui_address">Grensesnitt: lytteadresser</string>
   <string name="export_config">Eksporter innstillingar</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Hald prosessoren vaken medan Syncthing køyrer</string>
   <string name="keep_wakelock_while_binary_running_summary">Bruk denne innstillinga om du opplever uventa avkoplingar medan du køyrer på batteri. Dette vil føre til auka batteriforbruk.</string>

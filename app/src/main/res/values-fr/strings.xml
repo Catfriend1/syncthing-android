@@ -90,6 +90,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Setting title-->
   <string name="folder_master">Envoyer uniquement</string>
   <!--Setting title and description-->
+  <string name="folder_fileWatcher">Surveiller les changements</string>
+  <string name="folder_fileWatcherDescription">Demande au système d\'exploitation de signaler les modifications apportées aux fichiers. Si désactivé, revient aux analyses horaires périodiques.</string>
   <!--Setting title-->
   <string name="folder_pause">Mettre le partage en pause</string>
   <!--Setting title-->
@@ -212,9 +214,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="usage_reporting">Rapports anonymes d\'utilisation</string>
   <string name="gui_address">Adresse pour l\'interface WEB</string>
   <string name="export_config">Exporter la configuration</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="use_proxy">Se connecter via un proxy</string>
-  <string name="do_not_use_proxy">Ne pas se connecter via un proxy</string>
   <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
   <string name="keep_wakelock_while_binary_running_summary">Utilisez ce paramètre si vous rencontrez des déconnexions inattendues en fonctionnant sur batterie. Il en résultera une augmentation de la consommation de la batterie.</string>
   <string name="use_tor_title">Utiliser Tor</string>

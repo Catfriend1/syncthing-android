@@ -46,6 +46,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <plurals name="files">
     <item quantity="one">%1$d / %2$d soubor</item>
     <item quantity="few">%1$d / %2$d souborů</item>
+    <item quantity="many">%1$d / %2$d souborů</item>
     <item quantity="other">%1$d / %2$d souborů</item>
   </plurals>
   <string name="toast_no_file_manager">Nenalezen žádný kompatibilní manažer souborů</string>
@@ -205,6 +206,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="usage_reporting">Anonymní hlášení o používání</string>
   <string name="gui_address">Adresy naslouchání GUI</string>
   <string name="export_config">Zálohovat nastavení</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Použijte toto nastavení pokud zaznamenáváte neočekávaná ukončení spojení při běhu na baterii. Toto bude mít za následek vyšší spotřebu energie.</string>
@@ -297,12 +299,14 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <plurals name="copy_success_partially">
     <item quantity="one">%1$d soubor zkopírován do složky \"%2$s\", %3$d už existuje</item>
     <item quantity="few">%1$d soubory zkopírovány do složky \"%2$s\", %3$d už existuje</item>
+    <item quantity="many">%1$d souborů zkopírováno do složky \"%2$s\", %3$d už existuje</item>
     <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\", %3$d už existuje</item>
   </plurals>
   <!--Copy success toast-->
   <plurals name="copy_success">
     <item quantity="one">%1$d soubor zkopírován do složky \"%2$s\"</item>
     <item quantity="few">%1$d soubory zkopírovány do složky \"%2$s\"</item>
+    <item quantity="many">%1$d souborů zkopírováno do složky \"%2$s\"</item>
     <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\"</item>
   </plurals>
   <!--Copy exception toast-->
@@ -312,6 +316,7 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <plurals name="file_name_title">
     <item quantity="one">Název souboru</item>
     <item quantity="few">Názvy souborů</item>
+    <item quantity="many">Seznam souborů</item>
     <item quantity="other">Seznam souborů</item>
   </plurals>
   <!--Sub Folder title-->

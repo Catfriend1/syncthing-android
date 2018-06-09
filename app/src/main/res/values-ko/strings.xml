@@ -203,6 +203,7 @@
   <string name="usage_reporting">익명 사용 기록 </string>
   <string name="gui_address">접속 대기 주소</string>
   <string name="export_config">설정 내보내기</string>
+  <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
   <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
   <string name="keep_wakelock_while_binary_running_summary">만약 배터리로 사용중 예상하지 못한 접속 끊김이 발생 했다면 이 설정을 사용합니다. 이 기능은 배터리 소비를 늘립니다.</string>
