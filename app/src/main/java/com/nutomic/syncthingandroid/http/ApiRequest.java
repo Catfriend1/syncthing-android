@@ -94,13 +94,15 @@ public abstract class ApiRequest {
                  @Nullable OnSuccessListener listener, @Nullable OnErrorListener errorListener) {
         Log.v(TAG, "Performing request to " + uri.toString());
         StringRequest request = new StringRequest(requestMethod, uri.toString(), reply -> {
-            if (listener != null)
+            if (listener != null) {
                 listener.onSuccess(reply);
+            }
         }, error -> {
-            if (errorListener != null)
+            if (errorListener != null) {
                 errorListener.onError(error);
-            else
-                Log.w(TAG, "Request to " + uri + " failed", error);
+            } else {
+                Log.w(TAG, "Request to " + uri + " failed, " + error.getMessage());
+            }
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {

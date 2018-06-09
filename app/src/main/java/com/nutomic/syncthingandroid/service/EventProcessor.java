@@ -33,8 +33,7 @@ import javax.inject.Inject;
  *
  * It uses {@link RestApi#getEvents} to read the pending events and wait for new events.
  */
-public class EventProcessor implements SyncthingService.OnWebGuiAvailableListener, Runnable,
-        RestApi.OnReceiveEventListener {
+public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener {
 
     private static final String TAG = "EventProcessor";
     private static final String PREF_LAST_SYNC_ID = "last_sync_id";
@@ -67,7 +66,7 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
 
     @Override
     public void run() {
-        // Restore the last event id if the event processor may have been restartet.
+        // Restore the last event id if the event processor may have been restarted.
         if (mLastEventId == 0) {
             mLastEventId = mPreferences.getLong(PREF_LAST_SYNC_ID, 0);
         }
@@ -223,9 +222,8 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
         }
     }
 
-    @Override
-    public void onWebGuiAvailable() {
-        Log.d(TAG, "WebGUI available. Starting event processor.");
+    public void start() {
+        Log.d(TAG, "Starting event processor.");
 
         // Remove all pending callbacks and add a new one. This makes sure that only one
         // event poller is running at any given time.
@@ -236,8 +234,8 @@ public class EventProcessor implements SyncthingService.OnWebGuiAvailableListene
         }
     }
 
-    public void shutdown() {
-        Log.d(TAG, "Shutdown event processor.");
+    public void stop() {
+        Log.d(TAG, "Stopping event processor.");
         synchronized (mMainThreadHandler) {
             mShutdown = true;
             mMainThreadHandler.removeCallbacks(this);

@@ -12,6 +12,7 @@ import android.view.View;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.databinding.DialogLoadingBinding;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingService.State;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.util.concurrent.TimeUnit;
@@ -23,6 +24,7 @@ public abstract class StateDialogActivity extends SyncthingActivity {
 
     private static final long SLOW_LOADING_TIME = TimeUnit.SECONDS.toMillis(30);
 
+    private State mServiceState = State.INIT;
     private AlertDialog mLoadingDialog;
     private AlertDialog mDisabledDialog;
     private boolean mIsPaused = true;
@@ -31,13 +33,20 @@ public abstract class StateDialogActivity extends SyncthingActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         registerOnServiceConnectedListener(() ->
-                getService().registerOnApiChangeListener(this::onApiChange));
+                getService().registerOnServiceStateChangeListener(this::onServiceStateChange));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         mIsPaused = false;
+        switch (mServiceState) {
+            case DISABLED:
+                showDisabledDialog();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -52,13 +61,14 @@ public abstract class StateDialogActivity extends SyncthingActivity {
     protected void onDestroy() {
         super.onDestroy();
         if (getService() != null) {
-            getService().unregisterOnApiChangeListener(this::onApiChange);
+            getService().unregisterOnServiceStateChangeListener(this::onServiceStateChange);
         }
         dismissDisabledDialog();
     }
 
-    private void onApiChange(SyncthingService.State currentState) {
-        switch (currentState) {
+    private void onServiceStateChange(SyncthingService.State currentState) {
+        mServiceState = currentState;
+        switch (mServiceState) {
             case INIT: // fallthrough
             case STARTING:
                 dismissDisabledDialog();
@@ -69,24 +79,25 @@ public abstract class StateDialogActivity extends SyncthingActivity {
                 dismissLoadingDialog();
                 break;
             case DISABLED:
-                dismissLoadingDialog();
-                if (!isFinishing()) {
+                if (!mIsPaused) {
                     showDisabledDialog();
                 }
+                break;
+            case ERROR: // fallthrough
+            default:
                 break;
         }
     }
 
     private void showDisabledDialog() {
-        if (mIsPaused)
+        if (this.isFinishing() && (mDisabledDialog != null)) {
             return;
-
+        }
         mDisabledDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.syncthing_disabled_title)
                 .setMessage(R.string.syncthing_disabled_message)
                 .setPositiveButton(R.string.syncthing_disabled_change_settings,
                         (dialogInterface, i) -> {
-                            finish();
                             startActivity(new Intent(this, SettingsActivity.class));
                         }
                 )
@@ -123,7 +134,7 @@ public abstract class StateDialogActivity extends SyncthingActivity {
 
         if (!isGeneratingKeys) {
             new Handler().postDelayed(() -> {
-                if (isFinishing() || mLoadingDialog == null)
+                if (this.isFinishing() || mLoadingDialog == null)
                     return;
 
                 binding.loadingSlowMessage.setVisibility(View.VISIBLE);

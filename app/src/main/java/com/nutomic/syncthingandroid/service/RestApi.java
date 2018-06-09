@@ -52,7 +52,7 @@ import javax.inject.Inject;
 /**
  * Provides functions to interact with the syncthing REST API.
  */
-public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
+public class RestApi {
 
     private static final String TAG = "RestApi";
 
@@ -98,6 +98,24 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     private long mPreviousConnectionTime = 0;
 
     /**
+     * In the last-finishing {@link readConfigFromRestApi} callback, we have to call
+     * {@link SyncthingService#onApiAvailable} to indicate that the RestApi class is fully initialized.
+     * We do this to avoid getting stuck with our main thread due to synchronous REST queries.
+     * The correct indication of full initialisation is crucial to stability as other listeners of
+     * {@link SettingsActivity#onServiceStateChange} needs cached config and system information available.
+     * e.g. SettingsFragment need "mLocalDeviceId"
+     */
+    private Boolean asyncQueryConfigComplete = false;
+    private Boolean asyncQueryVersionComplete = false;
+    private Boolean asyncQuerySystemInfoComplete = false;
+
+    /**
+     * Object that must be locked upon accessing the following variables:
+     * asyncQueryConfigComplete, asyncQueryVersionComplete, asyncQuerySystemInfoComplete
+     */
+    private final Object mAsyncQueryCompleteLock = new Object();
+
+    /**
      * Stores the latest result of {@link #getFolderStatus} for each folder
      */
     private HashMap<String, FolderStatus> mCachedFolderStatuses = new HashMap<>();
@@ -119,16 +137,6 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
         mOnConfigChangedListener = configListener;
     }
 
-    /**
-     * Number of previous calls to {@link #tryIsAvailable()}.
-     */
-    private final AtomicInteger mAvailableCount = new AtomicInteger(0);
-
-    /**
-     * Number of asynchronous calls performed in {@link #onWebGuiAvailable()}.
-     */
-    private static final int TOTAL_STARTUP_CALLS = 3;
-
     public interface OnApiAvailableListener {
         void onApiAvailable();
     }
@@ -140,24 +148,44 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     /**
      * Gets local device ID, syncthing version and config, then calls all OnApiAvailableListeners.
      */
-    @Override
-    public void onWebGuiAvailable() {
-        mAvailableCount.set(0);
+    public void readConfigFromRestApi() {
+        Log.v(TAG, "Reading config from REST ...");
+        synchronized (mAsyncQueryCompleteLock) {
+            asyncQueryVersionComplete = false;
+            asyncQueryConfigComplete = false;
+            asyncQuerySystemInfoComplete = false;
+        }
         new GetRequest(mContext, mUrl, GetRequest.URI_VERSION, mApiKey, null, result -> {
             JsonObject json = new JsonParser().parse(result).getAsJsonObject();
             mVersion = json.get("version").getAsString();
             Log.i(TAG, "Syncthing version is " + mVersion);
-            tryIsAvailable();
             updateDebugFacilitiesCache();
+            synchronized (mAsyncQueryCompleteLock) {
+                asyncQueryVersionComplete = true;
+                checkReadConfigFromRestApiCompleted();
+            }
         });
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
             onReloadConfigComplete(result);
-            tryIsAvailable();
+            synchronized (mAsyncQueryCompleteLock) {
+                asyncQueryConfigComplete = true;
+                checkReadConfigFromRestApiCompleted();
+            }
         });
         getSystemInfo(info -> {
             mLocalDeviceId = info.myID;
-            tryIsAvailable();
+            synchronized (mAsyncQueryCompleteLock) {
+                asyncQuerySystemInfoComplete = true;
+                checkReadConfigFromRestApiCompleted();
+            }
         });
+    }
+
+    private void checkReadConfigFromRestApiCompleted() {
+        if (asyncQueryVersionComplete && asyncQueryConfigComplete && asyncQuerySystemInfoComplete) {
+            Log.v(TAG, "Reading config from REST completed.");
+            mOnApiAvailableListener.onApiAvailable();
+        }
     }
 
     public void reloadConfig() {
@@ -206,20 +234,6 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
                     Log.w(TAG, "updateDebugFacilitiesCache: Failed to get debug facilities. result=" + result);
                 }
             });
-        }
-    }
-
-    /**
-     * Increments mAvailableCount by one, and, if it reached TOTAL_STARTUP_CALLS,
-     * calls {@link SyncthingService#onApiChange}.
-     */
-    private void tryIsAvailable() {
-        int value = mAvailableCount.incrementAndGet();
-        if (BuildConfig.DEBUG && value > TOTAL_STARTUP_CALLS) {
-            throw new AssertionError("Too many startup calls");
-        }
-        if (value == TOTAL_STARTUP_CALLS) {
-            mOnApiAvailableListener.onApiAvailable();
         }
     }
 
@@ -311,12 +325,17 @@ public class RestApi implements SyncthingService.OnWebGuiAvailableListener {
     }
 
     public Device getLocalDevice() {
-        for (Device d : getDevices(true)) {
+        List<Device> devices = getDevices(true);
+        if (devices.isEmpty()) {
+            throw new RuntimeException("RestApi.getLocalDevice: devices is empty.");
+        }
+        Log.v(TAG, "getLocalDevice: Looking for local device ID " + mLocalDeviceId);
+        for (Device d : devices) {
             if (d.deviceID.equals(mLocalDeviceId)) {
                 return deepCopy(d, Device.class);
             }
         }
-        throw new RuntimeException();
+        throw new RuntimeException("RestApi.getLocalDevice: Failed to get the local device crucial to continuing execution.");
     }
 
     public void addDevice(Device device, OnResultListener1<String> errorListener) {

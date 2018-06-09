@@ -16,6 +16,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.FirstStartActivity;
 import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
+import com.nutomic.syncthingandroid.service.SyncthingService.State;
 
 import javax.inject.Inject;
 
@@ -101,14 +102,32 @@ public class NotificationHandler {
             type = "low_priority";
         }
 
-        boolean syncthingRunning = service.getCurrentState() == SyncthingService.State.ACTIVE ||
-                service.getCurrentState() == SyncthingService.State.STARTING;
+        State currentServiceState = service.getCurrentState();
+        boolean syncthingRunning = currentServiceState == SyncthingService.State.ACTIVE ||
+                    currentServiceState == SyncthingService.State.STARTING;
         if (foreground || (syncthingRunning && !type.equals("none"))) {
-            // Launch FirstStartActivity instead of MainActivity so we can request permission if
-            // necessary.
-            PendingIntent pi = PendingIntent.getActivity(mContext, 0,
-                    new Intent(mContext, FirstStartActivity.class), 0);
-            int title = syncthingRunning ? R.string.syncthing_active : R.string.syncthing_disabled;
+            int title = R.string.syncthing_terminated;
+            switch (currentServiceState) {
+                case ERROR:
+                case INIT:
+                    break;
+                case DISABLED:
+                    title = R.string.syncthing_disabled;
+                    break;
+                case STARTING:
+                case ACTIVE:
+                    title = R.string.syncthing_active;
+                    break;
+                default:
+                    break;
+            }
+
+            /**
+             * We no longer need to launch FirstStartActivity instead of MainActivity as
+             * {@link SyncthingService#onStartCommand} will check for denied permissions.
+             */
+            Intent intent = new Intent(mContext, MainActivity.class);
+
             // Reason for two separate IDs: if one of the notification channels is hidden then
             // the startForeground() below won't update the notification but use the old one
             int idToShow = syncthingRunning ? ID_PERSISTENT : ID_PERSISTENT_WAITING;
@@ -119,7 +138,7 @@ public class NotificationHandler {
                     .setSmallIcon(R.drawable.ic_stat_notify)
                     .setOngoing(true)
                     .setOnlyAlertOnce(true)
-                    .setContentIntent(pi);
+                    .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0));
             if (type.equals("low_priority"))
                 builder.setPriority(NotificationCompat.PRIORITY_MIN);
 

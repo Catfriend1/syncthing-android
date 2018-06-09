@@ -44,7 +44,7 @@ import java.util.Iterator;
  * Activity that allows selecting a directory in the local file system.
  */
 public class FolderPickerActivity extends SyncthingActivity
-        implements AdapterView.OnItemClickListener, SyncthingService.OnApiChangeListener {
+        implements AdapterView.OnItemClickListener, SyncthingService.OnServiceStateChangeListener {
 
     private static final String EXTRA_INITIAL_DIRECTORY =
             "com.nutomic.syncthingandroid.activities.FolderPickerActivity.INITIAL_DIRECTORY";
@@ -156,13 +156,16 @@ public class FolderPickerActivity extends SyncthingActivity
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnApiChangeListener(this);
+        getService().registerOnServiceStateChangeListener(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getService().unregisterOnApiChangeListener(this);
+        SyncthingService syncthingService = getService();
+        if (syncthingService != null) {
+            syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
+        }
     }
 
     @Override
@@ -323,7 +326,7 @@ public class FolderPickerActivity extends SyncthingActivity
     }
 
     @Override
-    public void onApiChange(SyncthingService.State currentState) {
+    public void onServiceStateChange(SyncthingService.State currentState) {
         if (!isFinishing() && currentState != SyncthingService.State.ACTIVE) {
             setResult(Activity.RESULT_CANCELED);
             finish();

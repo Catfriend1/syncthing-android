@@ -24,7 +24,7 @@ import java.util.TimerTask;
 /**
  * Displays a list of all existing folders.
  */
-public class FolderListFragment extends ListFragment implements SyncthingService.OnApiChangeListener,
+public class FolderListFragment extends ListFragment implements SyncthingService.OnServiceStateChangeListener,
         AdapterView.OnItemClickListener {
 
     private FoldersAdapter mAdapter;
@@ -40,7 +40,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
     }
 
     @Override
-    public void onApiChange(SyncthingService.State currentState) {
+    public void onServiceStateChange(SyncthingService.State currentState) {
         if (currentState != SyncthingService.State.ACTIVE)
             return;
 

@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.service.SyncthingService;
 
 import javax.inject.Inject;
 
@@ -65,8 +64,6 @@ public class FirstStartActivity extends Activity implements Button.OnClickListen
             Log.v(TAG, "User completed first start UI.");
             mPreferences.edit().putBoolean("first_start", false).apply();
         }
-
-        startService(new Intent(this, SyncthingService.class));
 
         // In case start_into_web_gui option is enabled, start both activities so that back
         // navigation works as expected.

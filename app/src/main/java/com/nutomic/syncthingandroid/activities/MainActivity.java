@@ -66,7 +66,7 @@ import static java.lang.Math.min;
  * {@link DrawerFragment} in the navigation drawer.
  */
 public class MainActivity extends StateDialogActivity
-        implements SyncthingService.OnApiChangeListener {
+        implements SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "MainActivity";
     private static final String IS_SHOWING_RESTART_DIALOG = "RESTART_DIALOG_STATE";
@@ -102,7 +102,7 @@ public class MainActivity extends StateDialogActivity
      * Handles various dialogs based on current state.
      */
     @Override
-    public void onApiChange(SyncthingService.State currentState) {
+    public void onServiceStateChange(SyncthingService.State currentState) {
         switch (currentState) {
             case STARTING:
                 break;
@@ -254,6 +254,10 @@ public class MainActivity extends StateDialogActivity
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         setOptimalDrawerWidth(findViewById(R.id.drawer));
 
+        // SyncthingService needs to be started from this activity as the user
+        // can directly launch this activity from the recent activity switcher.
+        startService(new Intent(this, SyncthingService.class));
+
         onNewIntent(getIntent());
     }
 
@@ -271,19 +275,20 @@ public class MainActivity extends StateDialogActivity
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (getService() != null) {
-            getService().unregisterOnApiChangeListener(this);
-            getService().unregisterOnApiChangeListener(mFolderListFragment);
-            getService().unregisterOnApiChangeListener(mDeviceListFragment);
+        SyncthingService mSyncthingService = getService();
+        if (mSyncthingService != null) {
+            mSyncthingService.unregisterOnServiceStateChangeListener(this);
+            mSyncthingService.unregisterOnServiceStateChangeListener(mFolderListFragment);
+            mSyncthingService.unregisterOnServiceStateChangeListener(mDeviceListFragment);
         }
     }
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnApiChangeListener(this);
-        getService().registerOnApiChangeListener(mFolderListFragment);
-        getService().registerOnApiChangeListener(mDeviceListFragment);
+        getService().registerOnServiceStateChangeListener(this);
+        getService().registerOnServiceStateChangeListener(mFolderListFragment);
+        getService().registerOnServiceStateChangeListener(mDeviceListFragment);
     }
 
     /**
@@ -430,15 +435,19 @@ public class MainActivity extends StateDialogActivity
         return super.onKeyDown(keyCode, e);
     }
 
-    /**
-     * Close drawer on back button press.
-     */
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START))
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            // Close drawer on back button press.
             closeDrawer();
-        else
-            super.onBackPressed();
+        } else {
+            /**
+             * Leave MainActivity in its state as the home button was pressed.
+             * This will avoid waiting for the loading spinner when getting back
+             * and give changes to do UI updates based on EventProcessor in the future.
+             */
+            moveTaskToBack(true);
+        }
     }
 
     /**

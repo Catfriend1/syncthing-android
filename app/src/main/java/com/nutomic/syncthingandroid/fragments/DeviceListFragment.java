@@ -27,7 +27,7 @@ import java.util.TimerTask;
 /**
  * Displays a list of all existing devices.
  */
-public class DeviceListFragment extends ListFragment implements SyncthingService.OnApiChangeListener,
+public class DeviceListFragment extends ListFragment implements SyncthingService.OnServiceStateChangeListener,
         ListView.OnItemClickListener {
 
     private final static Comparator<Device> DEVICES_COMPARATOR = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
@@ -45,7 +45,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     }
 
     @Override
-    public void onApiChange(SyncthingService.State currentState) {
+    public void onServiceStateChange(SyncthingService.State currentState) {
         if (currentState != SyncthingService.State.ACTIVE)
             return;
 

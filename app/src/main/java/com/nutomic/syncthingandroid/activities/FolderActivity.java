@@ -51,7 +51,7 @@ import static com.nutomic.syncthingandroid.service.SyncthingService.State.ACTIVE
  * Shows folder details and allows changing them.
  */
 public class FolderActivity extends SyncthingActivity
-        implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnApiChangeListener {
+        implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_IS_CREATE =
             "com.nutomic.syncthingandroid.activities.DeviceActivity.IS_CREATE";
@@ -234,8 +234,9 @@ public class FolderActivity extends SyncthingActivity
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (getService() != null) {
-            getService().unregisterOnApiChangeListener(this);
+        SyncthingService syncthingService = getService();
+        if (syncthingService != null) {
+            syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
         }
         mLabelView.removeTextChangedListener(mTextWatcher);
         mIdView.removeTextChangedListener(mTextWatcher);
@@ -270,11 +271,11 @@ public class FolderActivity extends SyncthingActivity
      */
     @Override
     public void onServiceConnected() {
-        getService().registerOnApiChangeListener(this);
+        getService().registerOnServiceStateChangeListener(this);
     }
 
     @Override
-    public void onApiChange(SyncthingService.State currentState) {
+    public void onServiceStateChange(SyncthingService.State currentState) {
         if (currentState != ACTIVE) {
             finish();
             return;
@@ -308,7 +309,7 @@ public class FolderActivity extends SyncthingActivity
 
     // If the FolderActivity gets recreated after the VersioningDialogActivity is closed, then the result from the VersioningDialogActivity will be received before
     // the mFolder variable has been recreated, so the versioning config will be stored in the mVersioning variable until the mFolder variable has been
-    // recreated in the onApiChange(). This has been observed to happen after the screen orientation has changed while the VersioningDialogActivity was open.
+    // recreated in the onServiceStateChange(). This has been observed to happen after the screen orientation has changed while the VersioningDialogActivity was open.
     private void attemptToApplyVersioningConfig() {
         if (mFolder != null && mVersioning != null){
             mFolder.versioning = mVersioning;

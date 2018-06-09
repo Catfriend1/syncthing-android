@@ -25,8 +25,14 @@ public class PollWebGuiAvailableTask extends ApiRequest {
      */
     private static final long WEB_GUI_POLL_INTERVAL = 100;
 
-    private final OnSuccessListener mListener;
     private final Handler mHandler = new Handler();
+
+    private OnSuccessListener mListener;
+
+    /**
+     * Object that must be locked upon accessing mListener
+     */
+    private final Object mListenerLock = new Object();
 
     public PollWebGuiAvailableTask(Context context, URL url, String apiKey,
                                    OnSuccessListener listener) {
@@ -36,14 +42,36 @@ public class PollWebGuiAvailableTask extends ApiRequest {
         performRequest();
     }
 
+    public void cancelRequestsAndCallback() {
+        synchronized(mListenerLock) {
+            mListener = null;
+        }
+    }
+
     private void performRequest() {
         Uri uri = buildUri(Collections.emptyMap());
-        connect(Request.Method.GET, uri, null, mListener, this::onError);
+        connect(Request.Method.GET, uri, null, this::onSuccess, this::onError);
+    }
+
+    private void onSuccess(String result) {
+        synchronized(mListenerLock) {
+            if (mListener != null) {
+                mListener.onSuccess(result);
+            } else {
+                Log.v(TAG, "Cancelled callback and outstanding requests");
+            }
+        }
     }
 
     private void onError(VolleyError error) {
-        mHandler.postDelayed(this::performRequest, WEB_GUI_POLL_INTERVAL);
+        synchronized(mListenerLock) {
+            if (mListener == null) {
+                Log.v(TAG, "Cancelled callback and outstanding requests");
+                return;
+            }
+        }
 
+        mHandler.postDelayed(this::performRequest, WEB_GUI_POLL_INTERVAL);
         Throwable cause = error.getCause();
         if (cause == null || cause.getClass().equals(ConnectException.class)) {
             Log.v(TAG, "Polling web gui");

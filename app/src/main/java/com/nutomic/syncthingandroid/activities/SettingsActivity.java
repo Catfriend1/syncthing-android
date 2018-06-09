@@ -74,7 +74,7 @@ public class SettingsActivity extends SyncthingActivity {
 
     public static class SettingsFragment extends PreferenceFragment
             implements SyncthingActivity.OnServiceConnectedListener,
-            SyncthingService.OnApiChangeListener, Preference.OnPreferenceChangeListener,
+            SyncthingService.OnServiceStateChangeListener, Preference.OnPreferenceChangeListener,
             Preference.OnPreferenceClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
         private static final String TAG = "SettingsFragment";
@@ -246,32 +246,26 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onServiceConnected() {
+            Log.v(TAG, "onServiceConnected");
             if (getActivity() == null)
                 return;
 
             mSyncthingService = ((SyncthingActivity) getActivity()).getService();
-            mSyncthingService.registerOnApiChangeListener(this);
-            // Use callback to make sure getApi() doesn't return null.
-            mSyncthingService.registerOnWebGuiAvailableListener(() -> {
-                if (mSyncthingService.getApi().isConfigLoaded()) {
-                    mGui = mSyncthingService.getApi().getGui();
-                    mOptions = mSyncthingService.getApi().getOptions();
-                }
-
-            });
+            mSyncthingService.registerOnServiceStateChangeListener(this);
         }
 
         @Override
-        public void onApiChange(SyncthingService.State currentState) {
-            boolean syncthingActive = currentState == SyncthingService.State.ACTIVE;
-            boolean isSyncthingRunning = syncthingActive && mSyncthingService.getApi().isConfigLoaded();
+        public void onServiceStateChange(SyncthingService.State currentState) {
+            mApi = mSyncthingService.getApi();
+            boolean isSyncthingRunning = (mApi != null) &&
+                        mApi.isConfigLoaded() &&
+                        (currentState == SyncthingService.State.ACTIVE);
             mCategorySyncthingOptions.setEnabled(isSyncthingRunning);
             mCategoryBackup.setEnabled(isSyncthingRunning);
 
             if (!isSyncthingRunning)
                 return;
 
-            mApi = mSyncthingService.getApi();
             mSyncthingVersion.setSummary(mApi.getVersion());
             mOptions = mApi.getOptions();
             mGui = mApi.getGui();
@@ -296,7 +290,7 @@ public class SettingsActivity extends SyncthingActivity {
         public void onDestroy() {
             mPreferences.unregisterOnSharedPreferenceChangeListener(this);
             if (mSyncthingService != null) {
-                mSyncthingService.unregisterOnApiChangeListener(this);
+                mSyncthingService.unregisterOnServiceStateChangeListener(this);
             }
             super.onDestroy();
         }
@@ -382,9 +376,9 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public void onStop() {
             if (mRequireRestart) {
-                if (mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED &&
-                        mSyncthingService.getApi() != null) {
-                    mSyncthingService.getApi().restart();
+                if (mSyncthingService != null && mApi != null &&
+                        mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
+                    mApi.restart();
                     mRequireRestart = false;
                 }
             }
@@ -405,7 +399,7 @@ public class SettingsActivity extends SyncthingActivity {
                             : R.string.always_run_in_background_disabled);
                     mSyncOnlyCharging.setEnabled(value);
                     mSyncOnlyWifi.setEnabled(value);
-                    mSyncOnlyOnSSIDs.setEnabled(mSyncOnlyWifi.isChecked());
+                    mSyncOnlyOnSSIDs.setEnabled(false);
                     // Uncheck items when disabled, so it is clear they have no effect.
                     if (!value) {
                         mSyncOnlyCharging.setChecked(false);

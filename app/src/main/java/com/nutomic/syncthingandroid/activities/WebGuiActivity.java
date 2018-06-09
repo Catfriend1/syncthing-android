@@ -47,7 +47,7 @@ import java.util.Properties;
  * Holds a WebView that shows the web ui of the local syncthing instance.
  */
 public class WebGuiActivity extends StateDialogActivity
-        implements SyncthingService.OnWebGuiAvailableListener {
+        implements SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "WebGuiActivity";
 
@@ -140,20 +140,31 @@ public class WebGuiActivity extends StateDialogActivity
         mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.clearCache(true);
+
+        // SyncthingService needs to be started from this activity as the user
+        // can directly launch this activity from the recent activity switcher.
+        startService(new Intent(this, SyncthingService.class));
     }
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnWebGuiAvailableListener(WebGuiActivity.this);
+        getService().registerOnServiceStateChangeListener(this);
     }
 
     @Override
-    public void onWebGuiAvailable() {
-        if (mWebView.getUrl() == null) {
-            mWebView.stopLoading();
-            setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
-            mWebView.loadUrl(getService().getWebGuiUrl().toString());
+    public void onServiceStateChange(SyncthingService.State newState) {
+        Log.v(TAG, "onServiceStateChange(" + newState + ")");
+        if (newState == SyncthingService.State.ACTIVE) {
+            if (mWebView == null) {
+                Log.v(TAG, "onWebGuiAvailable: Skipped event due to mWebView == null");
+                return;
+            }
+            if (mWebView.getUrl() == null) {
+                mWebView.stopLoading();
+                setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
+                mWebView.loadUrl(getService().getWebGuiUrl().toString());
+            }
         }
     }
 
@@ -183,6 +194,10 @@ public class WebGuiActivity extends StateDialogActivity
 
     @Override
     protected void onDestroy() {
+        SyncthingService mSyncthingService = getService();
+        if (mSyncthingService != null) {
+            mSyncthingService.unregisterOnServiceStateChangeListener(this);
+        }
         mWebView.destroy();
         mWebView = null;
         super.onDestroy();

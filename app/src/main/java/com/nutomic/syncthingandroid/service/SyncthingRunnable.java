@@ -263,48 +263,43 @@ public class SyncthingRunnable implements Runnable {
      * Look for a running libsyncthing.so process and nice its IO.
      */
     private void niceSyncthing() {
-        new Thread() {
-            public void run() {
-                Process nice = null;
-                DataOutputStream niceOut = null;
-                int ret = 1;
-                try {
-                    Thread.sleep(1000); // Wait a second before getting the pid
-                    List<String> syncthingPIDs = getSyncthingPIDs();
-                    if (syncthingPIDs.isEmpty()) {
-                        Log.w(TAG, "niceSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
-                    } else {
-                        nice = Runtime.getRuntime().exec((mUseRoot) ? "su" : "sh");
-                        niceOut = new DataOutputStream(nice.getOutputStream());
-                        for (String syncthingPID : syncthingPIDs) {
-                            // Set best-effort, low priority using ionice.
-                            niceOut.writeBytes("ionice " + syncthingPID + " be 7\n");
-                        }
-                        niceOut.writeBytes("exit\n");
-                        log(nice.getErrorStream(), Log.WARN, false);
-                        niceOut.flush();
-                        ret = nice.waitFor();
-                        Log.i(TAG_NICE, "ionice performed on " + Constants.FILENAME_SYNCTHING_BINARY);
-                    }
-                } catch (IOException | InterruptedException e) {
-                    Log.e(TAG_NICE, "Failed to execute ionice binary", e);
-                } finally {
-                    try {
-                        if (niceOut != null) {
-                            niceOut.close();
-                        }
-                    } catch (IOException e) {
-                        Log.w(TAG_NICE, "Failed to close shell stream", e);
-                    }
-                    if (nice != null) {
-                        nice.destroy();
-                    }
-                    if (ret != 0) {
-                        Log.e(TAG_NICE, "Failed to set ionice " + Integer.toString(ret));
-                    }
+        Process nice = null;
+        DataOutputStream niceOut = null;
+        int ret = 1;
+        try {
+            List<String> syncthingPIDs = getSyncthingPIDs();
+            if (syncthingPIDs.isEmpty()) {
+                Log.w(TAG, "niceSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
+            } else {
+                nice = Runtime.getRuntime().exec((mUseRoot) ? "su" : "sh");
+                niceOut = new DataOutputStream(nice.getOutputStream());
+                for (String syncthingPID : syncthingPIDs) {
+                    // Set best-effort, low priority using ionice.
+                    niceOut.writeBytes("/system/bin/ionice " + syncthingPID + " be 7\n");
                 }
+                niceOut.writeBytes("exit\n");
+                log(nice.getErrorStream(), Log.WARN, false);
+                niceOut.flush();
+                ret = nice.waitFor();
+                Log.i(TAG_NICE, "ionice performed on " + Constants.FILENAME_SYNCTHING_BINARY);
             }
-        }.start();
+        } catch (IOException | InterruptedException e) {
+            Log.e(TAG_NICE, "Failed to execute ionice binary", e);
+        } finally {
+            try {
+                if (niceOut != null) {
+                    niceOut.close();
+                }
+            } catch (IOException e) {
+                Log.w(TAG_NICE, "Failed to close shell stream", e);
+            }
+            if (nice != null) {
+                nice.destroy();
+            }
+            if (ret != 0) {
+                Log.e(TAG_NICE, "Failed to set ionice " + Integer.toString(ret));
+            }
+        }
     }
 
     public interface OnSyncthingKilled {
@@ -314,21 +309,18 @@ public class SyncthingRunnable implements Runnable {
      * Look for running libsyncthing.so processes and kill them.
      * Try a SIGINT first, then try again with SIGKILL.
      */
-    public void killSyncthing(OnSyncthingKilled onKilledListener) {
-        new Thread(() -> {
-            for (int i = 0; i < 2; i++) {
-                List<String> syncthingPIDs = getSyncthingPIDs();
-                if (syncthingPIDs.isEmpty()) {
-                    Log.d(TAG, "killSyncthing: Found no more running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
-                    break;
-                }
-
-                for (String syncthingPID : syncthingPIDs) {
-                    killProcessId(syncthingPID, i > 0);
-                }
+    public void killSyncthing() {
+        for (int i = 0; i < 2; i++) {
+            List<String> syncthingPIDs = getSyncthingPIDs();
+            if (syncthingPIDs.isEmpty()) {
+                Log.d(TAG, "killSyncthing: Found no more running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
+                break;
             }
-            onKilledListener.onKilled();
-        }).start();
+
+            for (String syncthingPID : syncthingPIDs) {
+                killProcessId(syncthingPID, i > 0);
+            }
+        }
     }
 
     /**

@@ -59,18 +59,8 @@ public class SyncthingService extends Service {
     public static final String ACTION_REFRESH_NETWORK_INFO =
             "com.nutomic.syncthingandroid.service.SyncthingService.REFRESH_NETWORK_INFO";
 
-    /**
-     * Callback for when the Syncthing web interface becomes first available after service start.
-     */
-    public interface OnWebGuiAvailableListener {
-        void onWebGuiAvailable();
-    }
-
-    private final HashSet<OnWebGuiAvailableListener> mOnWebGuiAvailableListeners =
-            new HashSet<>();
-
-    public interface OnApiChangeListener {
-        void onApiChange(State currentState);
+    public interface OnServiceStateChangeListener {
+        void onServiceStateChange(State currentState);
     }
 
     /**
@@ -81,40 +71,54 @@ public class SyncthingService extends Service {
         INIT,
         /** Syncthing binary is starting. */
         STARTING,
-        /** Syncthing binary is running, API is available. */
+        /** Syncthing binary is running,
+         * Rest API is available,
+         * RestApi class read the config and is fully initialized.
+         */
         ACTIVE,
-        /** Syncthing is stopped according to user preferences. */
+        /** Syncthing binary is shutting down. */
         DISABLED,
         /** There is some problem that prevents Syncthing from running. */
         ERROR,
     }
 
-    private State mCurrentState = State.INIT;
+    /**
+     * Initialize the service with State.DISABLED as {@link DeviceStateHolder} will
+     * send an update if we should run the binary after it got instantiated in
+     * {@link onStartCommand}.
+     */
+    private State mCurrentState = State.DISABLED;
 
     private ConfigXml mConfig;
-    private RestApi mApi;
-    private EventProcessor mEventProcessor;
+    private @Nullable PollWebGuiAvailableTask mPollWebGuiAvailableTask = null;
+    private @Nullable RestApi mApi = null;
+    private @Nullable EventProcessor mEventProcessor = null;
     private @Nullable DeviceStateHolder mDeviceStateHolder = null;
-    private SyncthingRunnable mSyncthingRunnable;
+    private @Nullable SyncthingRunnable mSyncthingRunnable = null;
+    private Thread mSyncthingRunnableThread = null;
     private Handler mHandler;
 
-    private final HashSet<OnApiChangeListener> mOnApiChangeListeners = new HashSet<>();
+    private final HashSet<OnServiceStateChangeListener> mOnServiceStateChangeListeners = new HashSet<>();
     private final SyncthingServiceBinder mBinder = new SyncthingServiceBinder(this);
 
     @Inject NotificationHandler mNotificationHandler;
     @Inject SharedPreferences mPreferences;
 
     /**
-     * Object that can be locked upon when accessing mCurrentState
-     * Currently used to male onDestroy() and PollWebGuiAvailableTaskImpl.onPostExcecute() tread-safe
+     * Object that must be locked upon accessing mCurrentState
      */
     private final Object mStateLock = new Object();
 
     /**
-     * True if a stop was requested while syncthing is starting, in that case, perform stop in
-     * {@link #pollWebGui}.
+     * Stores the result of the last should run decision received by OnDeviceStateChangedListener.
      */
-    private boolean mStopScheduled = false;
+    private boolean mLastDeterminedShouldRun = false;
+
+    /**
+     * True if a service {@link onDestroy} was requested while syncthing is starting,
+     * in that case, perform stop in {@link onApiAvailable}.
+     */
+    private boolean mDestroyScheduled = false;
 
     /**
      * True if the user granted the storage permission.
@@ -126,6 +130,7 @@ public class SyncthingService extends Service {
      */
     @Override
     public void onCreate() {
+        Log.v(TAG, "onCreate");
         super.onCreate();
         PRNGFixes.apply();
         ((SyncthingApp) getApplication()).component().inject(this);
@@ -148,6 +153,7 @@ public class SyncthingService extends Service {
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.v(TAG, "onStartCommand");
         if (!mStoragePermissionGranted) {
             Log.e(TAG, "User revoked storage permission. Stopping service.");
             if (mNotificationHandler != null) {
@@ -157,7 +163,27 @@ public class SyncthingService extends Service {
             return START_NOT_STICKY;
         }
 
-        mDeviceStateHolder = new DeviceStateHolder(SyncthingService.this, this::onUpdatedShouldRunDecision);
+        /**
+         * Send current service state to listening endpoints.
+         * This is required that components know about the service State.DISABLED
+         * if DeviceStateHolder does not send a "shouldRun = true" callback
+         * to start the binary according to preferences shortly after its creation.
+         * See {@link mLastDeterminedShouldRun} defaulting to "false".
+         */
+        if (mCurrentState == State.DISABLED) {
+            synchronized(mStateLock) {
+                onServiceStateChange(mCurrentState);
+            }
+        }
+        if (mDeviceStateHolder == null) {
+            /**
+             * Instantiate the run condition monitor on first onStartCommand and
+             * enable callback on run condition change affecting the final decision to
+             * run/terminate syncthing. After initial run conditions are collected
+             * the first decision is sent to {@link onUpdatedShouldRunDecision}.
+             */
+            mDeviceStateHolder = new DeviceStateHolder(SyncthingService.this, this::onUpdatedShouldRunDecision);
+        }
         mNotificationHandler.updatePersistentNotification(this);
 
         if (intent == null)
@@ -185,35 +211,41 @@ public class SyncthingService extends Service {
      * After run conditions monitored by {@link DeviceStateHolder} changed and
      * it had an influence on the decision to run/terminate syncthing, this
      * function is called to notify this class to run/terminate the syncthing binary.
-     * {@link #onApiChange} is called while applying the decision change.
+     * {@link #onServiceStateChange} is called while applying the decision change.
      */
-    private void onUpdatedShouldRunDecision(boolean shouldRun) {
-        if (shouldRun) {
-            // Start syncthing.
-            switch (mCurrentState) {
-                case DISABLED:
-                case INIT:
-                    // HACK: Make sure there is no syncthing binary left running from an improper
-                    // shutdown (eg Play Store update).
-                    shutdown(State.INIT, () -> {
-                        Log.i(TAG, "Starting syncthing according to current state and preferences after State.INIT");
-                        new StartupTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                    });
-                    break;
-                case STARTING:
-                case ACTIVE:
-                    mStopScheduled = false;
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            // Stop syncthing.
-            if (mCurrentState == State.DISABLED)
-                return;
+    private void onUpdatedShouldRunDecision(boolean newShouldRunDecision) {
+        if (newShouldRunDecision != mLastDeterminedShouldRun) {
+            Log.i(TAG, "shouldRun decision changed to " + newShouldRunDecision + " according to configured run conditions.");
+            mLastDeterminedShouldRun = newShouldRunDecision;
 
-            Log.i(TAG, "Stopping syncthing according to current state and preferences");
-            shutdown(State.DISABLED, () -> {});
+            // React to the shouldRun condition change.
+            if (newShouldRunDecision) {
+                // Start syncthing.
+                switch (mCurrentState) {
+                    case DISABLED:
+                    case INIT:
+                        // HACK: Make sure there is no syncthing binary left running from an improper
+                        // shutdown (eg Play Store update).
+                        shutdown(State.INIT, () -> {
+                            Log.v(TAG, "Starting syncthing");
+                            new StartupTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        });
+                        break;
+                    case STARTING:
+                    case ACTIVE:
+                    case ERROR:
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                // Stop syncthing.
+                if (mCurrentState == State.DISABLED) {
+                    return;
+                }
+                Log.v(TAG, "Stopping syncthing");
+                shutdown(State.DISABLED, () -> {});
+            }
         }
     }
 
@@ -223,8 +255,16 @@ public class SyncthingService extends Service {
      */
     private class StartupTask extends AsyncTask<Void, Void, Void> {
 
-        public StartupTask() {
-            onApiChange(State.STARTING);
+        @Override
+        protected void onPreExecute() {
+            synchronized(mStateLock) {
+                if (mCurrentState != State.INIT) {
+                    Log.e(TAG, "StartupTask: Wrong state " + mCurrentState + " detected. Cancelling.");
+                    cancel(true);
+                    return;
+                }
+                onServiceStateChange(State.STARTING);
+            }
         }
 
         @Override
@@ -234,7 +274,9 @@ public class SyncthingService extends Service {
                 mConfig.updateIfNeeded();
             } catch (ConfigXml.OpenConfigException e) {
                 mNotificationHandler.showCrashedNotification(R.string.config_create_failed, true);
-                onApiChange(State.ERROR);
+                synchronized (mStateLock) {
+                    onServiceStateChange(State.ERROR);
+                }
                 cancel(true);
             }
             return null;
@@ -242,26 +284,77 @@ public class SyncthingService extends Service {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            mApi = new RestApi(SyncthingService.this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
-                    SyncthingService.this::onSyncthingStarted, () -> onApiChange(mCurrentState));
+            if (mApi == null) {
+                mApi = new RestApi(SyncthingService.this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
+                                    SyncthingService.this::onApiAvailable, () -> onServiceStateChange(mCurrentState));
+                Log.i(TAG, "Web GUI will be available at " + mConfig.getWebGuiUrl());
+            }
 
-            mEventProcessor = new EventProcessor(SyncthingService.this, mApi);
-
-            if (mApi != null)
-                registerOnWebGuiAvailableListener(mApi);
-            if (mEventProcessor != null)
-                registerOnWebGuiAvailableListener(mEventProcessor);
-            Log.i(TAG, "Web GUI will be available at " + mConfig.getWebGuiUrl());
-
-            pollWebGui();
+            // Start the syncthing binary.
+            if (mSyncthingRunnable != null || mSyncthingRunnableThread != null) {
+                Log.e(TAG, "StartupTask/onPostExecute: Syncthing binary lifecycle violated");
+                return;
+            }
             mSyncthingRunnable = new SyncthingRunnable(SyncthingService.this, SyncthingRunnable.Command.main);
-            new Thread(mSyncthingRunnable).start();
+            mSyncthingRunnableThread = new Thread(mSyncthingRunnable);
+            mSyncthingRunnableThread.start();
+
+            /**
+             * Wait for the web-gui of the native syncthing binary to come online.
+             *
+             * In case the binary is to be stopped, also be aware that another thread could request
+             * to stop the binary in the time while waiting for the GUI to become active. See the comment
+             * for SyncthingService.onDestroy for details.
+             */
+            if (mPollWebGuiAvailableTask == null) {
+                mPollWebGuiAvailableTask = new PollWebGuiAvailableTask(
+                        SyncthingService.this,
+                        getWebGuiUrl(),
+                        mConfig.getApiKey(),
+                        result -> {
+                    Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
+                    if (mApi != null) {
+                        mApi.readConfigFromRestApi();
+                    }
+                });
+            }
         }
     }
 
-    private void onSyncthingStarted() {
-        onApiChange(State.ACTIVE);
-        Log.i(TAG, "onSyncthingStarted(): State.ACTIVE reached.");
+    /**
+     * Called when {@link PollWebGuiAvailableTask} confirmed the REST API is available.
+     * We can assume mApi being available under normal conditions.
+     * UI stressing results in mApi getting null on simultaneous shutdown, so
+     * we check it for safety.
+     */
+    private void onApiAvailable() {
+        if (mApi == null) {
+            Log.e(TAG, "onApiAvailable: Did we stop the binary during startup? mApi == null");
+            return;
+        }
+        synchronized (mStateLock) {
+            if (mCurrentState != State.STARTING) {
+                Log.e(TAG, "onApiAvailable: Wrong state " + mCurrentState + " detected. Cancelling callback.");
+                return;
+            }
+            onServiceStateChange(State.ACTIVE);
+        }
+
+        /**
+         * If the service instance got an onDestroy() event while being in
+         * State.STARTING we'll trigger the service onDestroy() now. this
+         * allows the syncthing binary to get gracefully stopped.
+         */
+        if (mDestroyScheduled) {
+            mDestroyScheduled = false;
+            stopSelf();
+            return;
+        }
+
+        if (mEventProcessor == null) {
+            mEventProcessor = new EventProcessor(SyncthingService.this, mApi);
+            mEventProcessor.start();
+        }
     }
 
     @Override
@@ -271,18 +364,23 @@ public class SyncthingService extends Service {
 
     /**
      * Stops the native binary.
-     *
-     * The native binary crashes if stopped before it is fully active. In that case signal the
-     * stop request to PollWebGuiAvailableTaskImpl that is active in that situation and terminate
-     * the service there.
+     * Shuts down DeviceStateHolder instance.
      */
     @Override
     public void onDestroy() {
+        Log.v(TAG, "onDestroy");
+        if (mDeviceStateHolder != null) {
+            /**
+             * Shut down the OnDeviceStateChangedListener so we won't get interrupted by run
+             * condition events that occur during shutdown.
+             */
+            mDeviceStateHolder.shutdown();
+        }
         if (mStoragePermissionGranted) {
             synchronized (mStateLock) {
-                if (mCurrentState == State.INIT || mCurrentState == State.STARTING) {
+                if (mCurrentState == State.STARTING) {
                     Log.i(TAG, "Delay shutting down synchting binary until initialisation finished");
-                    mStopScheduled = true;
+                    mDestroyScheduled = true;
                 } else {
                     Log.i(TAG, "Shutting down syncthing binary immediately");
                     shutdown(State.DISABLED, () -> {});
@@ -294,10 +392,7 @@ public class SyncthingService extends Service {
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
             shutdown(State.DISABLED, () -> {});
         }
-
-        if (mDeviceStateHolder != null) {
-            mDeviceStateHolder.shutdown();
-        }
+        super.onDestroy();
     }
 
     /**
@@ -307,37 +402,44 @@ public class SyncthingService extends Service {
      */
     private void shutdown(State newState, SyncthingRunnable.OnSyncthingKilled onKilledListener) {
         Log.i(TAG, "Shutting down background service");
-        onApiChange(newState);
+        synchronized(mStateLock) {
+            onServiceStateChange(newState);
+        }
 
-        if (mEventProcessor != null)
-            mEventProcessor.shutdown();
+        if (mPollWebGuiAvailableTask != null) {
+            mPollWebGuiAvailableTask.cancelRequestsAndCallback();
+            mPollWebGuiAvailableTask = null;
+        }
 
-        if (mApi != null)
+        if (mEventProcessor != null) {
+            mEventProcessor.stop();
+            mEventProcessor = null;
+        }
+
+        if (mApi != null) {
             mApi.shutdown();
+            mApi = null;
+        }
 
-        if (mNotificationHandler != null)
+        if (mNotificationHandler != null) {
             mNotificationHandler.cancelPersistentNotification(this);
+        }
 
         if (mSyncthingRunnable != null) {
-            mSyncthingRunnable.killSyncthing(onKilledListener);
+            mSyncthingRunnable.killSyncthing();
+            if (mSyncthingRunnableThread != null) {
+                Log.v(TAG, "Waiting for mSyncthingRunnableThread to finish after killSyncthing ...");
+                try {
+                    mSyncthingRunnableThread.join();
+                } catch (InterruptedException e) {
+                    Log.w(TAG, "mSyncthingRunnableThread InterruptedException");
+                }
+                Log.v(TAG, "Finished mSyncthingRunnableThread.");
+                mSyncthingRunnableThread = null;
+            }
             mSyncthingRunnable = null;
-        } else {
-            onKilledListener.onKilled();
         }
-    }
-
-    /**
-     * Register a listener for the web gui becoming available..
-     *
-     * If the web gui is already available, listener will be called immediately.
-     * Listeners are unregistered automatically after being called.
-     */
-    public void registerOnWebGuiAvailableListener(OnWebGuiAvailableListener listener) {
-        if (mCurrentState == State.ACTIVE) {
-            listener.onWebGuiAvailable();
-        } else {
-            mOnWebGuiAvailableListeners.add(listener);
-        }
+        onKilledListener.onKilled();
     }
 
     public @Nullable RestApi getApi() {
@@ -350,60 +452,37 @@ public class SyncthingService extends Service {
      * The listener is called immediately with the current state, and again whenever the state
      * changes. The call is always from the GUI thread.
      *
-     * @see #unregisterOnApiChangeListener
+     * @see #unregisterOnServiceStateChangeListener
      */
-    public void registerOnApiChangeListener(OnApiChangeListener listener) {
+    public void registerOnServiceStateChangeListener(OnServiceStateChangeListener listener) {
         // Make sure we don't send an invalid state or syncthing might show a "disabled" message
         // when it's just starting up.
-        listener.onApiChange(mCurrentState);
-        mOnApiChangeListeners.add(listener);
+        listener.onServiceStateChange(mCurrentState);
+        mOnServiceStateChangeListeners.add(listener);
     }
 
     /**
      * Unregisters a previously registered listener.
      *
-     * @see #registerOnApiChangeListener
+     * @see #registerOnServiceStateChangeListener
      */
-    public void unregisterOnApiChangeListener(OnApiChangeListener listener) {
-        mOnApiChangeListeners.remove(listener);
-    }
-
-    /**
-     * Wait for the web-gui of the native syncthing binary to come online.
-     *
-     * In case the binary is to be stopped, also be aware that another thread could request
-     * to stop the binary in the time while waiting for the GUI to become active. See the comment
-     * for SyncthingService.onDestroy for details.
-     */
-    private void pollWebGui() {
-        new PollWebGuiAvailableTask(this, getWebGuiUrl(), mConfig.getApiKey(), result -> {
-            synchronized (mStateLock) {
-                if (mStopScheduled) {
-                    shutdown(State.DISABLED, () -> {});
-                    mStopScheduled = false;
-                    stopSelf();
-                    return;
-                }
-            }
-            Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
-            onApiChange(State.STARTING);
-            Stream.of(mOnWebGuiAvailableListeners).forEach(OnWebGuiAvailableListener::onWebGuiAvailable);
-            mOnWebGuiAvailableListeners.clear();
-        });
+    public void unregisterOnServiceStateChangeListener(OnServiceStateChangeListener listener) {
+        mOnServiceStateChangeListeners.remove(listener);
     }
 
     /**
      * Called to notifiy listeners of an API change.
      */
-    private void onApiChange(State newState) {
+    private void onServiceStateChange(State newState) {
+        Log.v(TAG, "onServiceStateChange: from " + mCurrentState + " to " + newState);
+        mCurrentState = newState;
         mHandler.post(() -> {
-            mCurrentState = newState;
             mNotificationHandler.updatePersistentNotification(this);
-            for (Iterator<OnApiChangeListener> i = mOnApiChangeListeners.iterator();
+            for (Iterator<OnServiceStateChangeListener> i = mOnServiceStateChangeListeners.iterator();
                  i.hasNext(); ) {
-                OnApiChangeListener listener = i.next();
+                OnServiceStateChangeListener listener = i.next();
                 if (listener != null) {
-                    listener.onApiChange(mCurrentState);
+                    listener.onServiceStateChange(mCurrentState);
                 } else {
                     i.remove();
                 }
