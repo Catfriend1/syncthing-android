@@ -28,3 +28,6 @@ project.properties
 # Gradle wrapper
 gradle/wrapper/gradle/
 gradle/wrapper/gradlew*
+
+# External build artifacts
+ext/
