@@ -18,16 +18,17 @@ public class Constants {
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_NOTIFICATION_TYPE           = "notification_type";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";
+    public static final String PREF_DEBUG_FACILITIES_ENABLED    = "debug_facilities_enabled";
     public static final String PREF_USE_WAKE_LOCK               = "wakelock_while_binary_running";
     public static final String PREF_USE_TOR                     = "use_tor";
     public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";
     public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
 
     /**
-     * Available options cache for preference {@link app_settings#sttrace}
+     * Available options cache for preference {@link app_settings#debug_facilities_enabled}
      * Read via REST API call in {@link RestApi#updateDebugFacilitiesCache} after first successful binary startup.
      */
-    public static final String PREF_STTRACE_AVAILABLE_OPTIONS   = "sttrace_available_options";
+    public static final String PREF_DEBUG_FACILITIES_AVAILABLE  = "sttrace_available_options";
 
     /**
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.

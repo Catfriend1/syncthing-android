@@ -221,7 +221,7 @@ public class RestApi {
                         facilitiesToStore.add(facilityName);
                     }
                     PreferenceManager.getDefaultSharedPreferences(mContext).edit()
-                        .putStringSet(Constants.PREF_STTRACE_AVAILABLE_OPTIONS, facilitiesToStore)
+                        .putStringSet(Constants.PREF_DEBUG_FACILITIES_AVAILABLE, facilitiesToStore)
                         .apply();
 
                     // Store current binary version so we will only store this information again

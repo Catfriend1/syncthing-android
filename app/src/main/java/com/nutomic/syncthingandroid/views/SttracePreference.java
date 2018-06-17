@@ -75,7 +75,7 @@ public class SttracePreference extends MultiSelectListPreference {
      */
     private CharSequence[] getDebugFacilities() {
         List<String> retDebugFacilities = new ArrayList<String>();
-        Set<String> availableDebugFacilities = getSharedPreferences().getStringSet(Constants.PREF_STTRACE_AVAILABLE_OPTIONS, new HashSet<>());
+        Set<String> availableDebugFacilities = getSharedPreferences().getStringSet(Constants.PREF_DEBUG_FACILITIES_AVAILABLE, new HashSet<>());
         // from JavaDoc: Note that you must not modify the set instance returned by this call.
         // therefore required to make a defensive copy of the elements
         availableDebugFacilities = new HashSet<>(availableDebugFacilities);

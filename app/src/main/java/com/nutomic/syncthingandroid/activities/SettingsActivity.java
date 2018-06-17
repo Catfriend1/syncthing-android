@@ -78,7 +78,6 @@ public class SettingsActivity extends SyncthingActivity {
             Preference.OnPreferenceClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
         private static final String TAG = "SettingsFragment";
-        private static final String KEY_STTRACE = "sttrace";
         private static final String KEY_EXPORT_CONFIG = "export_config";
         private static final String KEY_IMPORT_CONFIG = "import_config";
         private static final String KEY_ST_RESET_DATABASE = "st_reset_database";
@@ -193,10 +192,10 @@ public class SettingsActivity extends SyncthingActivity {
             Preference exportConfig = findPreference("export_config");
             Preference importConfig = findPreference("import_config");
 
-            Preference stTrace              = findPreference("sttrace");
-            Preference environmentVariables = findPreference("environment_variables");
-            Preference stResetDatabase      = findPreference("st_reset_database");
-            Preference stResetDeltas        = findPreference("st_reset_deltas");
+            Preference debugFacilitiesEnabled   = findPreference(Constants.PREF_DEBUG_FACILITIES_ENABLED);
+            Preference environmentVariables     = findPreference("environment_variables");
+            Preference stResetDatabase          = findPreference("st_reset_database");
+            Preference stResetDeltas            = findPreference("st_reset_deltas");
 
             mUseRoot                        = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
             mUseWakelock                    = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
@@ -216,7 +215,7 @@ public class SettingsActivity extends SyncthingActivity {
             exportConfig.setOnPreferenceClickListener(this);
             importConfig.setOnPreferenceClickListener(this);
 
-            stTrace.setOnPreferenceChangeListener(this);
+            debugFacilitiesEnabled.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
             stResetDatabase.setOnPreferenceClickListener(this);
             stResetDeltas.setOnPreferenceClickListener(this);
@@ -409,7 +408,7 @@ public class SettingsActivity extends SyncthingActivity {
                 case Constants.PREF_SYNC_ONLY_WIFI:
                     mSyncOnlyOnSSIDs.setEnabled((Boolean) o);
                     break;
-                case KEY_STTRACE:
+                case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mRequireRestart = true;
                     break;
                 case Constants.PREF_ENVIRONMENT_VARIABLES:

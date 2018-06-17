@@ -168,7 +168,7 @@
             android:summary="@string/notify_crashes_summary"/>
 
         <com.nutomic.syncthingandroid.views.SttracePreference
-            android:key="sttrace"
+            android:key="debug_facilities_enabled"
             android:title="@string/sttrace_title" />
 
         <EditTextPreference
