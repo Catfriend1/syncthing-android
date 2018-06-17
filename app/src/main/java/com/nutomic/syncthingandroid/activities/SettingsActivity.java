@@ -36,6 +36,7 @@ import com.nutomic.syncthingandroid.util.Languages;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
+import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
 
 import javax.inject.Inject;
@@ -460,7 +461,7 @@ public class SettingsActivity extends SyncthingActivity {
                     if (mUseRoot.isChecked()) {
                         // Only check preference after root was granted.
                         mUseRoot.setChecked(false);
-                        new TestRootTask().execute();
+                        new TestRootTask(this).execute();
                     } else {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
                         mRequireRestart = true;
@@ -550,7 +551,13 @@ public class SettingsActivity extends SyncthingActivity {
         /**
          * Enables or disables {@link #mUseRoot} preference depending whether root is available.
          */
-        private class TestRootTask extends AsyncTask<Void, Void, Boolean> {
+        private static class TestRootTask extends AsyncTask<Void, Void, Boolean> {
+            private WeakReference<SettingsFragment> refSettingsFragment;
+
+            TestRootTask(SettingsFragment context) {
+                refSettingsFragment = new WeakReference<>(context);
+            }
+
             @Override
             protected Boolean doInBackground(Void... params) {
                 return Shell.SU.available();
@@ -558,11 +565,16 @@ public class SettingsActivity extends SyncthingActivity {
 
             @Override
             protected void onPostExecute(Boolean haveRoot) {
+                // Get a reference to the fragment if it is still there.
+                SettingsFragment settingsFragment = refSettingsFragment.get();
+                if (settingsFragment == null) {
+                    return;
+                }
                 if (haveRoot) {
-                    mRequireRestart = true;
-                    mUseRoot.setChecked(true);
+                    settingsFragment.mRequireRestart = true;
+                    settingsFragment.mUseRoot.setChecked(true);
                 } else {
-                    Toast.makeText(getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)
+                    Toast.makeText(settingsFragment.getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)
                             .show();
                 }
             }
