@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -150,7 +151,8 @@ public class ShareActivity extends StateDialogActivity
                 files.entrySet().iterator().next().setValue(mShareName.getText().toString());
             Folder folder = (Folder) mFoldersSpinner.getSelectedItem();
             File directory = new File(folder.path, getSavedSubDirectory());
-            new CopyFilesTask(files, folder, directory).execute();
+            CopyFilesTask mCopyFilesTask = new CopyFilesTask(this, files, folder, directory);
+            mCopyFilesTask.execute();
         });
 
         mFoldersSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -272,25 +274,37 @@ public class ShareActivity extends StateDialogActivity
         return savedSubDirectory;
     }
 
-    private class CopyFilesTask extends AsyncTask<Void, Void, Boolean> {
+    private static class CopyFilesTask extends AsyncTask<Void, Void, Boolean> {
+        private WeakReference<ShareActivity> refShareActivity;
         private ProgressDialog mProgress;
         private final Map<Uri, String> mFiles;
         private final Folder mFolder;
         private final File mDirectory;
         private int mCopied = 0, mIgnored = 0;
 
-        CopyFilesTask(Map<Uri, String> files, Folder folder, File directory) {
+        CopyFilesTask(ShareActivity context, Map<Uri, String> files, Folder folder, File directory) {
+            refShareActivity = new WeakReference<>(context);
             this.mFiles = files;
             this.mFolder = folder;
             this.mDirectory = directory;
         }
 
         protected void onPreExecute() {
-            mProgress = ProgressDialog.show(ShareActivity.this, null,
-                    getString(R.string.copy_progress), true);
+            // Get a reference to the activity if it is still there.
+            ShareActivity shareActivity = refShareActivity.get();
+            // shareActivity cannot be null before the task executes.
+            mProgress = ProgressDialog.show(shareActivity, null,
+                    shareActivity.getString(R.string.copy_progress), true);
         }
 
         protected Boolean doInBackground(Void... params) {
+            // Get a reference to the activity if it is still there.
+            ShareActivity shareActivity = refShareActivity.get();
+            if (shareActivity == null || shareActivity.isFinishing()) {
+                cancel(true);
+                return true;
+            }
+
             boolean isError = false;
             for (Map.Entry<Uri, String> entry : mFiles.entrySet()) {
                 InputStream inputStream = null;
@@ -300,7 +314,7 @@ public class ShareActivity extends StateDialogActivity
                         mIgnored++;
                         continue;
                     }
-                    inputStream = getContentResolver().openInputStream(entry.getKey());
+                    inputStream = shareActivity.getContentResolver().openInputStream(entry.getKey());
                     Files.asByteSink(outFile).writeFrom(inputStream);
                     mCopied++;
                 } catch (FileNotFoundException e) {
@@ -324,18 +338,23 @@ public class ShareActivity extends StateDialogActivity
         }
 
         protected void onPostExecute(Boolean isError) {
-            Util.dismissDialogSafe(mProgress, ShareActivity.this);
-            Toast.makeText(ShareActivity.this, mIgnored > 0 ?
-                            getResources().getQuantityString(R.plurals.copy_success_partially, mCopied,
+            // Get a reference to the activity if it is still there.
+            ShareActivity shareActivity = refShareActivity.get();
+            if (shareActivity == null || shareActivity.isFinishing()) {
+                return;
+            }
+            Util.dismissDialogSafe(mProgress, shareActivity);
+            Toast.makeText(shareActivity, mIgnored > 0 ?
+                            shareActivity.getResources().getQuantityString(R.plurals.copy_success_partially, mCopied,
                                     mCopied, mFolder.label, mIgnored) :
-                            getResources().getQuantityString(R.plurals.copy_success, mCopied, mCopied,
+                            shareActivity.getResources().getQuantityString(R.plurals.copy_success, mCopied, mCopied,
                                     mFolder.label),
                     Toast.LENGTH_LONG).show();
             if (isError) {
-                Toast.makeText(ShareActivity.this, getString(R.string.copy_exception),
+                Toast.makeText(shareActivity, shareActivity.getString(R.string.copy_exception),
                         Toast.LENGTH_SHORT).show();
             }
-            finish();
+            shareActivity.finish();
         }
     }
 
