@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ import java.util.TimerTask;
  * Displays information about the local device.
  */
 public class DrawerFragment extends Fragment implements View.OnClickListener {
+
+    private static final String TAG = "DrawerFragment";
 
     private TextView mCpuUsage;
     private TextView mRamUsage;
@@ -206,15 +209,24 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
      */
 
     private void showQrCode() {
-        //The QRCode request takes one paramteer called "text", which is the text to be converted to a QRCode.
-        String apiKey = mActivity.getApi().getGui().apiKey;
-        String deviceId = mActivity.getApi().getLocalDevice().deviceID;
-        URL url = mActivity.getApi().getUrl();
-        new ImageGetRequest(mActivity, url, ImageGetRequest.QR_CODE_GENERATOR, apiKey,
-                ImmutableMap.of("text", deviceId),qrCodeBitmap -> {
-            mActivity.showQrCodeDialog(deviceId, qrCodeBitmap);
-            mActivity.closeDrawer();
-        }, error -> Toast.makeText(mActivity, R.string.could_not_access_deviceid, Toast.LENGTH_SHORT).show());
+        RestApi restApi = mActivity.getApi();
+        if (restApi == null) {
+            Toast.makeText(mActivity, R.string.syncthing_terminated, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try {
+            String apiKey = restApi.getGui().apiKey;
+            String deviceId = restApi.getLocalDevice().deviceID;
+            URL url = restApi.getUrl();
+            //The QRCode request takes one paramteer called "text", which is the text to be converted to a QRCode.
+            new ImageGetRequest(mActivity, url, ImageGetRequest.QR_CODE_GENERATOR, apiKey,
+                    ImmutableMap.of("text", deviceId),qrCodeBitmap -> {
+                mActivity.showQrCodeDialog(deviceId, qrCodeBitmap);
+                mActivity.closeDrawer();
+            }, error -> Toast.makeText(mActivity, R.string.could_not_access_deviceid, Toast.LENGTH_SHORT).show());
+        } catch (Exception e) {
+            Log.e(TAG, "showQrCode", e);
+        }
     }
 
     @Override
