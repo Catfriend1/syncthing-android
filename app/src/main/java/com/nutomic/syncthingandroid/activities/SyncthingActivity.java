@@ -69,8 +69,8 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        SyncthingServiceBinder binder = (SyncthingServiceBinder) iBinder;
-        mSyncthingService = binder.getService();
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        mSyncthingService = syncthingServiceBinder.getService();
         Stream.of(mServiceConnectedListeners).forEach(OnServiceConnectedListener::onServiceConnected);
         mServiceConnectedListeners.clear();
     }

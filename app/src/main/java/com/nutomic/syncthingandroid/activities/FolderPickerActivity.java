@@ -32,6 +32,7 @@ import com.google.common.collect.Sets;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
@@ -156,7 +157,8 @@ public class FolderPickerActivity extends SyncthingActivity
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnServiceStateChangeListener(this);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        syncthingServiceBinder.getService().registerOnServiceStateChangeListener(this);
     }
 
     @Override

@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.Manifest;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -388,7 +387,7 @@ public class SyncthingService extends Service {
     }
 
     @Override
-    public IBinder onBind(Intent intent) {
+    public SyncthingServiceBinder onBind(Intent intent) {
         return mBinder;
     }
 

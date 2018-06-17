@@ -51,6 +51,7 @@ import com.nutomic.syncthingandroid.fragments.DrawerFragment;
 import com.nutomic.syncthingandroid.fragments.FolderListFragment;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.util.Date;
@@ -286,9 +287,11 @@ public class MainActivity extends StateDialogActivity
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnServiceStateChangeListener(this);
-        getService().registerOnServiceStateChangeListener(mFolderListFragment);
-        getService().registerOnServiceStateChangeListener(mDeviceListFragment);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        SyncthingService syncthingService = syncthingServiceBinder.getService();
+        syncthingService.registerOnServiceStateChangeListener(this);
+        syncthingService.registerOnServiceStateChangeListener(mFolderListFragment);
+        syncthingService.registerOnServiceStateChangeListener(mDeviceListFragment);
     }
 
     /**

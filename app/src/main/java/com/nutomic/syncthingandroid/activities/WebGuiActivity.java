@@ -23,6 +23,7 @@ import android.webkit.WebViewClient;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 
 import java.io.File;
@@ -149,7 +150,8 @@ public class WebGuiActivity extends StateDialogActivity
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
-        getService().registerOnServiceStateChangeListener(this);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        syncthingServiceBinder.getService().registerOnServiceStateChangeListener(this);
     }
 
     @Override
