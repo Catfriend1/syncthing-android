@@ -17,6 +17,7 @@ import com.nutomic.syncthingandroid.R;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 
 /**
  * Shows the log information from Syncthing.
@@ -27,7 +28,7 @@ public class LogActivity extends SyncthingActivity {
 
     private TextView mLog;
     private boolean mSyncthingLog = true;
-    private AsyncTask mFetchLogTask;
+    private AsyncTask mFetchLogTask = null;
     private ScrollView mScrollView;
     private Intent mShareIntent;
 
@@ -97,63 +98,80 @@ public class LogActivity extends SyncthingActivity {
         }
     }
 
-    private void scrollToBottom() {
-        mScrollView.post(() -> mScrollView.scrollTo(0, mLog.getBottom()));
-    }
-
     private void updateLog() {
-        if (mFetchLogTask != null)
+        if (mFetchLogTask != null) {
             mFetchLogTask.cancel(true);
+        }
         mLog.setText(R.string.retrieving_logs);
-        mFetchLogTask = new AsyncTask<Void, Void, String>() {
-            @Override
-            protected String doInBackground(Void... params) {
-                return getLog(mSyncthingLog);
-            }
-            @Override
-            protected void onPostExecute(String log) {
-                mLog.setText(log);
-                if (mShareIntent != null)
-                    mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, log);
-                scrollToBottom();
-            }
-        }.execute();
+        mFetchLogTask = new UpdateLogTask(this).execute();
     }
 
-    /**
-     * Queries logcat to obtain a log.
-     *
-     * @param syncthingLog Filter on Syncthing's native messages.
-     */
-    private String getLog(final boolean syncthingLog) {
-        Process process = null;
-        try {
-            ProcessBuilder pb;
-            if (syncthingLog) {
-                pb = new ProcessBuilder("/system/bin/logcat", "-t", "300", "-v", "time", "-s", "SyncthingNativeCode");
-            } else {
-                pb = new ProcessBuilder("/system/bin/logcat", "-t", "300", "-v", "time", "*:i ps:s art:s");
-            }
-            pb.redirectErrorStream(true);
-            process = pb.start();
-            BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream(), "UTF-8"), 8192);
-            StringBuilder log = new StringBuilder();
-            String line;
-            String sep = System.getProperty("line.separator");
-            while ((line = bufferedReader.readLine()) != null) {
-                log.append(line);
-                log.append(sep);
-            }
-            return log.toString();
-        } catch (IOException e) {
-            Log.w(TAG, "Error reading Android log", e);
-        } finally {
-            if (process != null) {
-                process.destroy();
-            }
+    private static class UpdateLogTask extends AsyncTask<Void, Void, String> {
+        private WeakReference<LogActivity> refLogActivity;
+
+        UpdateLogTask(LogActivity context) {
+            refLogActivity = new WeakReference<>(context);
         }
-        return "";
+
+        protected String doInBackground(Void... params) {
+            // Get a reference to the activity if it is still there.
+            LogActivity logActivity = refLogActivity.get();
+            if (logActivity == null || logActivity.isFinishing()) {
+                cancel(true);
+                return "";
+            }
+            return getLog(logActivity.mSyncthingLog);
+        }
+
+        protected void onPostExecute(String log) {
+            // Get a reference to the activity if it is still there.
+            LogActivity logActivity = refLogActivity.get();
+            if (logActivity == null || logActivity.isFinishing()) {
+                return;
+            }
+            logActivity.mLog.setText(log);
+            if (logActivity.mShareIntent != null) {
+                logActivity.mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, log);
+            }
+            // Scroll to bottom
+            logActivity.mScrollView.post(() -> logActivity.mScrollView.scrollTo(0, logActivity.mLog.getBottom()));
+        }
+
+        /**
+         * Queries logcat to obtain a log.
+         *
+         * @param syncthingLog Filter on Syncthing's native messages.
+         */
+        private String getLog(final boolean syncthingLog) {
+            Process process = null;
+            try {
+                ProcessBuilder pb;
+                if (syncthingLog) {
+                    pb = new ProcessBuilder("/system/bin/logcat", "-t", "300", "-v", "time", "-s", "SyncthingNativeCode");
+                } else {
+                    pb = new ProcessBuilder("/system/bin/logcat", "-t", "300", "-v", "time", "*:i ps:s art:s");
+                }
+                pb.redirectErrorStream(true);
+                process = pb.start();
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(process.getInputStream(), "UTF-8"), 8192);
+                StringBuilder log = new StringBuilder();
+                String line;
+                String sep = System.getProperty("line.separator");
+                while ((line = bufferedReader.readLine()) != null) {
+                    log.append(line);
+                    log.append(sep);
+                }
+                return log.toString();
+            } catch (IOException e) {
+                Log.w(TAG, "Error reading Android log", e);
+            } finally {
+                if (process != null) {
+                    process.destroy();
+                }
+            }
+            return "";
+        }
     }
 
 }
