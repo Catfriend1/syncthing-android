@@ -583,6 +583,9 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast shown if syncthing failed to create a config -->
     <string name="config_create_failed">Failed to create config file</string>
 
+    <!-- Toast shown if a config file crucial to operation is missing -->
+    <string name="config_file_missing">A config file crucial to operation is missing</string>
+
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Camera</string>
 
