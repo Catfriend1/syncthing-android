@@ -378,7 +378,7 @@ public class SettingsActivity extends SyncthingActivity {
             if (mRequireRestart) {
                 if (mSyncthingService != null && mApi != null &&
                         mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                    mApi.restart();
+                    mApi.saveConfigAndRestart();
                     mRequireRestart = false;
                 }
             }

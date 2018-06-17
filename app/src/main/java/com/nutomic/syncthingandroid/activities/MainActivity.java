@@ -493,7 +493,7 @@ public class MainActivity extends StateDialogActivity
                     break;
             }
             getApi().editSettings(getApi().getGui(), options);
-            getApi().restart();
+            getApi().saveConfigAndRestart();
         };
 
         getApi().getUsageReport(report -> {

@@ -249,7 +249,7 @@ public class RestApi {
     /**
      * Sends current config and restarts Syncthing.
      */
-    public void restart() {
+    public void saveConfigAndRestart() {
         new PostConfigRequest(mContext, mUrl, mApiKey, new Gson().toJson(mConfig), result -> {
             Intent intent = new Intent(mContext, SyncthingService.class)
                     .setAction(SyncthingService.ACTION_RESTART);
