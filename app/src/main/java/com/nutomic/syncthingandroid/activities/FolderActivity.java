@@ -480,6 +480,7 @@ public class FolderActivity extends SyncthingActivity
     private void addDeviceViewAndSetListener(Device device, LayoutInflater inflater) {
         inflater.inflate(R.layout.item_device_form, mDevicesContainer);
         SwitchCompat deviceView = (SwitchCompat) mDevicesContainer.getChildAt(mDevicesContainer.getChildCount()-1);
+        deviceView.setOnCheckedChangeListener(null);
         deviceView.setChecked(mFolder.getDevice(device.deviceID) != null);
         deviceView.setText(device.getDisplayName());
         deviceView.setTag(device);
