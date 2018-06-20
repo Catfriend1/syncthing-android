@@ -218,20 +218,25 @@ public class MainActivity extends StateDialogActivity
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        mViewPager = findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = findViewById(R.id.tabContainer);
-        tabLayout.setupWithViewPager(mViewPager);
-
+        FragmentManager fm = getSupportFragmentManager();
         if (savedInstanceState != null) {
-            FragmentManager fm = getSupportFragmentManager();
             mFolderListFragment = (FolderListFragment) fm.getFragment(
                     savedInstanceState, FolderListFragment.class.getName());
             mDeviceListFragment = (DeviceListFragment) fm.getFragment(
                     savedInstanceState, DeviceListFragment.class.getName());
             mDrawerFragment = (DrawerFragment) fm.getFragment(
                     savedInstanceState, DrawerFragment.class.getName());
+        } else {
+            mFolderListFragment = new FolderListFragment();
+            mDeviceListFragment = new DeviceListFragment();
+            mDrawerFragment = new DrawerFragment();
+        }
+
+        mViewPager = findViewById(R.id.pager);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabContainer);
+        tabLayout.setupWithViewPager(mViewPager);
+        if (savedInstanceState != null) {
             mViewPager.setCurrentItem(savedInstanceState.getInt("currentTab"));
             if (savedInstanceState.getBoolean(IS_SHOWING_RESTART_DIALOG)){
                 showRestartDialog();
@@ -240,16 +245,9 @@ public class MainActivity extends StateDialogActivity
             if(savedInstanceState.getBoolean(IS_QRCODE_DIALOG_DISPLAYED)) {
                 showQrCodeDialog(savedInstanceState.getString(DEVICEID_KEY), savedInstanceState.getParcelable(QRCODE_BITMAP_KEY));
             }
-        } else {
-            mFolderListFragment = new FolderListFragment();
-            mDeviceListFragment = new DeviceListFragment();
-            mDrawerFragment = new DrawerFragment();
         }
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.drawer, mDrawerFragment)
-                .commit();
+        fm.beginTransaction().replace(R.id.drawer, mDrawerFragment).commit();
         mDrawerToggle = new Toggle(this, mDrawerLayout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
