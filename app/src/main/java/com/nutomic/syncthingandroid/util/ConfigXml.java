@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,6 +51,7 @@ public class ConfigXml {
     }
 
     private static final String TAG = "ConfigXml";
+    private static final int FOLDER_ID_APPENDIX_LENGTH = 4;
 
     private final Context mContext;
     @Inject SharedPreferences mPreferences;
@@ -304,14 +306,28 @@ public class ConfigXml {
                 .replace(" ", "_")
                 .toLowerCase(Locale.US)
                 .replaceAll("[^a-z0-9_-]", "");
+        String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
         folder.setAttribute("label", mContext.getString(R.string.default_folder_label));
-        folder.setAttribute("id", mContext.getString(R.string.default_folder_id, deviceModel));
+        folder.setAttribute("id", mContext.getString(R.string.default_folder_id, defaultFolderId));
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
         folder.setAttribute("type", "readonly");
         folder.setAttribute("fsWatcherEnabled", "true");
         folder.setAttribute("fsWatcherDelayS", "10");
         return true;
+    }
+
+    /**
+     * Generates a random String with a given length
+     */
+    private String generateRandomString(int length) {
+        char[] chars = "abcdefghjkmnpqrstuvwxyz123456789".toCharArray();
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; ++i) {
+            sb.append(chars[random.nextInt(chars.length)]);
+        }
+        return sb.toString();
     }
 
     /**
