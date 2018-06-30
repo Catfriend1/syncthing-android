@@ -130,7 +130,6 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.add(Environment.getExternalStorageDirectory());
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
-            roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
