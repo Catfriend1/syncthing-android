@@ -94,9 +94,6 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
      */
     @Override
     public void onEvent(Event event) {
-        String deviceId;
-        String folderId;
-
         switch (event.type) {
             case "ConfigSaved":
                 if (mApi != null) {
@@ -105,56 +102,26 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 }
                 break;
             case "DeviceRejected":
-                deviceId = (String) event.data.get("device");
-                Log.d(TAG, "Unknown device " + deviceId + " wants to connect");
-
-                Intent intent = new Intent(mContext, DeviceActivity.class)
-                        .putExtra(DeviceActivity.EXTRA_IS_CREATE, true)
-                        .putExtra(DeviceActivity.EXTRA_DEVICE_ID, deviceId);
-                // HACK: Use a random, deterministic ID to make multiple PendingIntents
-                //       distinguishable
-                int requestCode = deviceId.hashCode();
-                PendingIntent pi = PendingIntent.getActivity(mContext, requestCode, intent, 0);
-
-                String title = mContext.getString(R.string.device_rejected,
-                        deviceId.substring(0, 7));
-
-                notify(title, pi);
+                onDeviceRejected(
+                    (String) event.data.get("device"),          // deviceId
+                    (String) event.data.get("name")             // deviceName
+                );
                 break;
             case "FolderCompletion":
-                deviceId = (String) event.data.get("device");
-                folderId = (String) event.data.get("folder");
                 CompletionInfo completionInfo = new CompletionInfo();
                 completionInfo.completion = (Double) event.data.get("completion");
-                mApi.setCompletionInfo(deviceId, folderId, completionInfo);
+                mApi.setCompletionInfo(
+                    (String) event.data.get("device"),          // deviceId
+                    (String) event.data.get("folder"),          // folderId
+                    completionInfo
+                );
                 break;
             case "FolderRejected":
-                deviceId = (String) event.data.get("device");
-                folderId = (String) event.data.get("folder");
-                String folderLabel = (String) event.data.get("folderLabel");
-                Log.d(TAG, "Device " + deviceId + " wants to share folder " + folderId);
-
-                boolean isNewFolder = Stream.of(mApi.getFolders())
-                        .noneMatch(f -> f.id.equals(folderId));
-                intent = new Intent(mContext, FolderActivity.class)
-                        .putExtra(FolderActivity.EXTRA_IS_CREATE, isNewFolder)
-                        .putExtra(FolderActivity.EXTRA_DEVICE_ID, deviceId)
-                        .putExtra(FolderActivity.EXTRA_FOLDER_ID, folderId)
-                        .putExtra(FolderActivity.EXTRA_FOLDER_LABEL, folderLabel);
-                // HACK: Use a random, deterministic ID to make multiple PendingIntents
-                //       distinguishable
-                requestCode = (deviceId + folderId + folderLabel).hashCode();
-                pi = PendingIntent.getActivity(mContext, requestCode, intent, 0);
-
-                String deviceName = null;
-                for (Device d : mApi.getDevices(false)) {
-                    if (d.deviceID.equals(deviceId))
-                        deviceName = d.getDisplayName();
-                }
-                title = mContext.getString(R.string.folder_rejected, deviceName,
-                        folderLabel.isEmpty() ? folderId : folderLabel + " (" + folderId + ")");
-
-                notify(title, pi);
+                onFolderRejected(
+                    (String) event.data.get("device"),          // deviceId
+                    (String) event.data.get("folder"),          // folderId
+                    (String) event.data.get("folderLabel")      // folderLabel
+                );
                 break;
             case "ItemFinished":
                 String folder = (String) event.data.get("folder");
@@ -242,10 +209,78 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         }
     }
 
-    private void notify(String text, PendingIntent pi) {
-        // HACK: Use a random, deterministic ID between 1000 and 2000 to avoid duplicate
-        //       notifications.
-        int notificationId = 1000 + text.hashCode() % 1000;
-        mNotificationHandler.showEventNotification(text, pi, notificationId);
+    private void onDeviceRejected(String deviceId, String deviceName) {
+        if (deviceId == null) {
+            return;
+        }
+        Log.d(TAG, "Unknown device " + deviceName + "(" + deviceId + ") wants to connect");
+
+        String title = mContext.getString(R.string.device_rejected,
+                deviceName.isEmpty() ? deviceId.substring(0, 7) : deviceName);
+        int notificationId = mNotificationHandler.getNotificationIdFromText(title);
+
+        // Prepare "accept" action.
+        Intent intentAccept = new Intent(mContext, DeviceActivity.class)
+                .putExtra(DeviceActivity.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(DeviceActivity.EXTRA_IS_CREATE, true)
+                .putExtra(DeviceActivity.EXTRA_DEVICE_ID, deviceId)
+                .putExtra(DeviceActivity.EXTRA_DEVICE_NAME, deviceName);
+        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
+            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Prepare "ignore" action.
+        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
+                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId);
+        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_DEVICE);
+        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
+            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Show notification.
+        mNotificationHandler.showConsentNotification(notificationId, title, piAccept, piIgnore);
+    }
+
+    private void onFolderRejected(String deviceId, String folderId,
+                                    String folderLabel) {
+        if (deviceId == null || folderId == null) {
+            return;
+        }
+        Log.d(TAG, "Device " + deviceId + " wants to share folder " +
+            folderLabel + " (" + folderId + ")");
+
+        // Find the deviceName corresponding to the deviceId
+        String deviceName = null;
+        for (Device d : mApi.getDevices(false)) {
+            if (d.deviceID.equals(deviceId)) {
+                deviceName = d.getDisplayName();
+                break;
+            }
+        }
+        String title = mContext.getString(R.string.folder_rejected, deviceName,
+                folderLabel.isEmpty() ? folderId : folderLabel + " (" + folderId + ")");
+        int notificationId = mNotificationHandler.getNotificationIdFromText(title);
+
+        // Prepare "accept" action.
+        boolean isNewFolder = Stream.of(mApi.getFolders())
+                .noneMatch(f -> f.id.equals(folderId));
+        Intent intentAccept = new Intent(mContext, FolderActivity.class)
+                .putExtra(FolderActivity.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(FolderActivity.EXTRA_IS_CREATE, isNewFolder)
+                .putExtra(FolderActivity.EXTRA_DEVICE_ID, deviceId)
+                .putExtra(FolderActivity.EXTRA_FOLDER_ID, folderId)
+                .putExtra(FolderActivity.EXTRA_FOLDER_LABEL, folderLabel);
+        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
+            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Prepare "ignore" action.
+        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
+                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(SyncthingService.EXTRA_FOLDER_ID, folderId);
+        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_FOLDER);
+        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
+            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Show notification.
+        mNotificationHandler.showConsentNotification(notificationId, title, piAccept, piIgnore);
     }
 }

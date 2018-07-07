@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -22,6 +23,7 @@ import javax.inject.Inject;
 
 public class NotificationHandler {
 
+    private static final String TAG = "NotificationHandler";
     private static final int ID_PERSISTENT = 1;
     private static final int ID_PERSISTENT_WAITING = 4;
     private static final int ID_RESTART = 2;
@@ -178,17 +180,51 @@ public class NotificationHandler {
         }
     }
 
-    public void showEventNotification(String text, PendingIntent pi, int id) {
+    /**
+     * Calculate a deterministic ID between 1000 and 2000 to avoid duplicate
+     * notification ids for different device, folder consent popups triggered
+     * by {@link EventProcessor}.
+     */
+    public int getNotificationIdFromText(String text) {
+        return 1000 + text.hashCode() % 1000;
+    }
+
+    /**
+     * Closes a notification. Required after the user hit an action button.
+     */
+    public void cancelConsentNotification(int notificationId) {
+        if (notificationId == 0) {
+            return;
+        }
+        Log.v(TAG, "Cancelling notification with id " + notificationId);
+        mNotificationManager.cancel(notificationId);
+    }
+
+    /**
+     * Used by {@link EventProcessor}
+     */
+    public void showConsentNotification(int notificationId,
+                                        String text,
+                                        PendingIntent piAccept,
+                                        PendingIntent piIgnore) {
+        /**
+         * As we know the id for a specific notification text,
+         * we'll dismiss this notification as it may be outdated.
+         * This is also valid if the notification does not exist.
+         */
+        mNotificationManager.cancel(notificationId);
         Notification n = getNotificationBuilder(mInfoChannel)
                 .setContentTitle(mContext.getString(R.string.app_name))
                 .setContentText(text)
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(text))
-                .setContentIntent(pi)
+                .setContentIntent(piAccept)
+                .addAction(R.drawable.ic_stat_notify, mContext.getString(R.string.accept), piAccept)
+                .addAction(R.drawable.ic_stat_notify, mContext.getString(R.string.ignore), piIgnore)
                 .setSmallIcon(R.drawable.ic_stat_notify)
                 .setAutoCancel(true)
                 .build();
-        mNotificationManager.notify(id, n);
+        mNotificationManager.notify(notificationId, n);
     }
 
     public void showStoragePermissionRevokedNotification() {

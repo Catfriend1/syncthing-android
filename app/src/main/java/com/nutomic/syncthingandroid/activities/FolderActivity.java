@@ -54,8 +54,10 @@ import static com.nutomic.syncthingandroid.service.SyncthingService.State.ACTIVE
 public class FolderActivity extends SyncthingActivity
         implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnServiceStateChangeListener {
 
+    public static final String EXTRA_NOTIFICATION_ID =
+            "com.nutomic.syncthingandroid.activities.FolderActivity.NOTIFICATION_ID";
     public static final String EXTRA_IS_CREATE =
-            "com.nutomic.syncthingandroid.activities.DeviceActivity.IS_CREATE";
+            "com.nutomic.syncthingandroid.activities.FolderActivity.IS_CREATE";
     public static final String EXTRA_FOLDER_ID =
             "com.nutomic.syncthingandroid.activities.FolderActivity.FOLDER_ID";
     public static final String EXTRA_FOLDER_LABEL =
@@ -237,6 +239,7 @@ public class FolderActivity extends SyncthingActivity
         super.onDestroy();
         SyncthingService syncthingService = getService();
         if (syncthingService != null) {
+            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
             syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
         }
         mLabelView.removeTextChangedListener(mTextWatcher);
@@ -272,7 +275,10 @@ public class FolderActivity extends SyncthingActivity
      */
     @Override
     public void onServiceConnected() {
-        getService().registerOnServiceStateChangeListener(this);
+        Log.v(TAG, "onServiceConnected");
+        SyncthingService syncthingService = (SyncthingService) getService();
+        syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+        syncthingService.registerOnServiceStateChangeListener(this);
     }
 
     @Override

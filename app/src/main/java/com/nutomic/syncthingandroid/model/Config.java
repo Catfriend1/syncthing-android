@@ -4,11 +4,12 @@ import java.util.List;
 
 public class Config {
     public int version;
-    public String[] ignoredDevices;
     public List<Device> devices;
     public List<Folder> folders;
     public Gui gui;
     public Options options;
+    public List<String> ignoredFolders;
+    public List<String> ignoredDevices;
 
     public class Gui {
         public boolean enabled;

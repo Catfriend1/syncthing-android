@@ -25,8 +25,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="no">Nein</string>
   <string name="open_website">Webseite öffnen</string>
   <string name="toast_write_storage_permission_required">Diese App benötigt Schreibzugriff auf den Gerätespeicher</string>
-  <string name="device_rejected">Gerät %1$s möchte sich verbinden</string>
-  <string name="folder_rejected">Gerät %1$s möchte Verzeichnis %2$s teilen</string>
+  <string name="device_rejected">Gerät \"%1$s\" möchte sich verbinden</string>
+  <string name="folder_rejected">Gerät \"%1$s\" möchte Verzeichnis \"%2$s\" teilen</string>
   <string name="dialog_disable_battery_optimization_title">Batterielaufzeit Optimierung</string>
   <string name="dialog_disable_battery_optimization_message">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern kann der Energiesparmodus deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch in die Ausnahmeliste hinzugefügt werden.</string>
   <string name="dialog_disable_battery_optimization_later">Später</string>

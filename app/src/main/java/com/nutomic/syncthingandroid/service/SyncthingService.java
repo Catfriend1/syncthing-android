@@ -59,6 +59,36 @@ public class SyncthingService extends Service {
     public static final String ACTION_REFRESH_NETWORK_INFO =
             "com.nutomic.syncthingandroid.service.SyncthingService.REFRESH_NETWORK_INFO";
 
+    /**
+     * Intent action to permanently ignore a device connection request.
+     */
+    public static final String ACTION_IGNORE_DEVICE =
+            "com.nutomic.syncthingandroid.service.SyncthingService.IGNORE_DEVICE";
+
+    /**
+     * Intent action to permanently ignore a folder share request.
+     */
+    public static final String ACTION_IGNORE_FOLDER =
+            "com.nutomic.syncthingandroid.service.SyncthingService.IGNORE_FOLDER";
+
+    /**
+     * Extra used together with ACTION_IGNORE_DEVICE, ACTION_IGNORE_FOLDER.
+     */
+    public static final String EXTRA_NOTIFICATION_ID =
+            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_NOTIFICATION_ID";
+
+    /**
+     * Extra used together with ACTION_IGNORE_DEVICE
+     */
+    public static final String EXTRA_DEVICE_ID =
+            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_DEVICE_ID";
+
+    /**
+     * Extra used together with ACTION_IGNORE_FOLDER
+     */
+    public static final String EXTRA_FOLDER_ID =
+            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_FOLDER_ID";
+
     public interface OnServiceStateChangeListener {
         void onServiceStateChange(State currentState);
     }
@@ -204,6 +234,14 @@ public class SyncthingService extends Service {
             });
         } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
             mDeviceStateHolder.updateShouldRunDecision();
+        } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
+            // mApi is not null due to State.ACTIVE
+            mApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
+            mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+        } else if (ACTION_IGNORE_FOLDER.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
+            // mApi is not null due to State.ACTIVE
+            mApi.ignoreFolder(intent.getStringExtra(EXTRA_FOLDER_ID));
+            mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         }
         return START_STICKY;
     }
@@ -525,6 +563,10 @@ public class SyncthingService extends Service {
 
     public State getCurrentState() {
         return mCurrentState;
+    }
+
+    public NotificationHandler getNotificationHandler() {
+        return mNotificationHandler;
     }
 
     /**

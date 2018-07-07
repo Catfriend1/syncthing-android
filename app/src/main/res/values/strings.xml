@@ -21,6 +21,10 @@ Please report any problems you encounter via Github.</string>
     <!-- Generic texts used everywhere -->
     <string name="generic_example">Example</string>
 
+    <string name="accept">Accept</string>
+
+    <string name="ignore">Ignore</string>
+
     <!-- MainActivity -->
 
 
@@ -46,9 +50,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="toast_write_storage_permission_required">Write storage permission is required for this app</string>
 
-    <string name="device_rejected">Device %1$s wants to connect</string>
+    <string name="device_rejected">Device \"%1$s\" wants to connect</string>
 
-    <string name="folder_rejected">Device %1$s wants to share folder %2$s</string>
+    <string name="folder_rejected">Device \"%1$s\" wants to share folder \"%2$s\"</string>
 
     <string name="dialog_disable_battery_optimization_title">Battery Optimization</string>
     <string name="dialog_disable_battery_optimization_message">Android may stop synchronization after some time. To prevent this, turn off battery optimization.\n\nSome devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>

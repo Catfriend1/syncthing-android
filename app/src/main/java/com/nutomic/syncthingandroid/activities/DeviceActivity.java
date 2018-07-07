@@ -48,8 +48,12 @@ import static com.nutomic.syncthingandroid.util.Compression.METADATA;
  */
 public class DeviceActivity extends SyncthingActivity implements View.OnClickListener {
 
+    public static final String EXTRA_NOTIFICATION_ID =
+            "com.nutomic.syncthingandroid.activities.DeviceActivity.NOTIFICATION_ID";
     public static final String EXTRA_DEVICE_ID =
             "com.nutomic.syncthingandroid.activities.DeviceActivity.DEVICE_ID";
+    public static final String EXTRA_DEVICE_NAME =
+            "com.nutomic.syncthingandroid.activities.DeviceActivity.DEVICE_NAME";
     public static final String EXTRA_IS_CREATE =
             "com.nutomic.syncthingandroid.activities.DeviceActivity.IS_CREATE";
 
@@ -215,6 +219,7 @@ public class DeviceActivity extends SyncthingActivity implements View.OnClickLis
         super.onDestroy();
         SyncthingService syncthingService = getService();
         if (syncthingService != null) {
+            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
             syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
         }
         mIdView.removeTextChangedListener(mIdTextWatcher);
@@ -253,7 +258,10 @@ public class DeviceActivity extends SyncthingActivity implements View.OnClickLis
     }
 
     private void onServiceConnected() {
-        getService().registerOnServiceStateChangeListener(this::onServiceStateChange);
+        Log.v(TAG, "onServiceConnected");
+        SyncthingService syncthingService = (SyncthingService) getService();
+        syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+        syncthingService.registerOnServiceStateChangeListener(this::onServiceStateChange);
     }
 
     /**
@@ -394,7 +402,7 @@ public class DeviceActivity extends SyncthingActivity implements View.OnClickLis
 
     private void initDevice() {
         mDevice = new Device();
-        mDevice.name = "";
+        mDevice.name = getIntent().getStringExtra(EXTRA_DEVICE_NAME);
         mDevice.deviceID = getIntent().getStringExtra(EXTRA_DEVICE_ID);
         mDevice.addresses = DYNAMIC_ADDRESS;
         mDevice.compression = METADATA.getValue(this);

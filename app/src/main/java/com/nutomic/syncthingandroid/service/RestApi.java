@@ -243,6 +243,32 @@ public class RestApi {
     }
 
     /**
+     * Permanently ignore a device when it tries to connect.
+     * Ignored devices will not trigger the "DeviceRejected" event
+     * in {@link EventProcessor#onEvent}.
+     */
+    public void ignoreDevice(String deviceId) {
+        if (!mConfig.ignoredDevices.contains(deviceId)) {
+            mConfig.ignoredDevices.add(deviceId);
+            sendConfig();
+            Log.d(TAG, "Ignored device [" + deviceId + "]");
+        }
+    }
+
+    /**
+     * Permanently ignore a folder share request.
+     * Ignored folders will not trigger the "FolderRejected" event
+     * in {@link EventProcessor#onEvent}.
+     */
+    public void ignoreFolder(String folderId) {
+        if (!mConfig.ignoredFolders.contains(folderId)) {
+            mConfig.ignoredFolders.add(folderId);
+            sendConfig();
+            Log.d(TAG, "Ignored folder [" + folderId + "]");
+        }
+    }
+
+    /**
      * Sends current config to Syncthing.
      * Will result in a "ConfigSaved" event.
      * EventProcessor will trigger this.reloadConfig().
