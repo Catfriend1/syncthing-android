@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="?dialogPreferredPadding"
+    style="@style/Theme.Syncthing.Dialog">
+
+
+    <Spinner
+        android:id="@+id/pullOrderTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/pull_order_types"
+        style="@style/Widget.AppCompat.Spinner.Underlined" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/finish_btn"
+                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:text="@string/finish"
+                android:textColor="@color/primary_dark" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

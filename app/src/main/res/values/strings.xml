@@ -325,6 +325,15 @@ Please report any problems you encounter via Github.</string>
 
     <string name="pref_language_default">Default Language</string>
 
+    <string-array name="pull_order_types">
+        <item>Random</item>
+        <item>Alphabetic</item>
+        <item>Smallest First</item>
+        <item>Largest First</item>
+        <item>Oldest First</item>
+        <item>Newest First</item>
+    </string-array>
+
     <string-array name="versioning_types">
         <item>None</item>
         <item>TrashCan</item>
@@ -649,6 +658,25 @@ Please report any problems you encounter via Github.</string>
     <string name="folder_size_format">%1$s / %2$s</string>
 
     <string name="appconfig_receiver_background_enabled">Stopping Syncthing is not supported when running in background is enabled.</string>
+
+    <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
+    <string name="pull_order">File Pull Order</string>
+
+    <!-- Displays the current pull order type in the Folder activity -->
+    <string name="pull_order_type_random">Random</string>
+    <string name="pull_order_type_alphabetic">Alphabetic</string>
+    <string name="pull_order_type_smallestFirst">Smallest First</string>
+    <string name="pull_order_type_largestFirst">Largest First</string>
+    <string name="pull_order_type_oldestFirst">Oldest First</string>
+    <string name="pull_order_type_newestFirst">Newest First</string>
+
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">Pull files in random order.</string>
+    <string name="pull_order_type_alphabetic_description">Pull files ordered by file name alphabetically.</string>
+    <string name="pull_order_type_smallestFirst_description">Pull files ordered by file size. Smallest first respectively.</string>
+    <string name="pull_order_type_largestFirst_description">Pull files ordered by file size. Largest first respectively.</string>
+    <string name="pull_order_type_oldestFirst_description">Pull files ordered by modification time. Oldest first respectively.</string>
+    <string name="pull_order_type_newestFirst_description">Pull files ordered by modification time. Newest first respectively.</string>
 
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximum Age</string>

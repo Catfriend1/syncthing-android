@@ -71,6 +71,7 @@ public class FolderActivity extends SyncthingActivity
     private static final String IS_SHOW_DISCARD_DIALOG = "DISCARD_FOLDER_DIALOG_STATE";
 
     private static final int FILE_VERSIONING_DIALOG_REQUEST = 3454;
+    private static final int PULL_ORDER_DIALOG_REQUEST = 3455;
 
     private static final String IGNORE_FILE_NAME = ".stignore";
 
@@ -83,6 +84,8 @@ public class FolderActivity extends SyncthingActivity
     private SwitchCompat mFolderFileWatcher;
     private SwitchCompat mFolderPaused;
     private ViewGroup mDevicesContainer;
+    private TextView mPullOrderTypeView;
+    private TextView mPullOrderDescriptionView;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private TextView mEditIgnores;
@@ -150,6 +153,8 @@ public class FolderActivity extends SyncthingActivity
         mFolderMasterView = findViewById(R.id.master);
         mFolderFileWatcher = findViewById(R.id.fileWatcher);
         mFolderPaused = findViewById(R.id.folderPause);
+        mPullOrderTypeView = findViewById(R.id.pullOrderType);
+        mPullOrderDescriptionView = findViewById(R.id.pullOrderDescription);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mDevicesContainer = findViewById(R.id.devicesContainer);
@@ -158,6 +163,7 @@ public class FolderActivity extends SyncthingActivity
         mPathView.setOnClickListener(view ->
                 startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null), FolderPickerActivity.DIRECTORY_REQUEST_CODE));
 
+        findViewById(R.id.pullOrderContainer).setOnClickListener(v -> showPullOrderDialog());
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
         mEditIgnores.setOnClickListener(v -> editIgnores());
 
@@ -211,6 +217,12 @@ public class FolderActivity extends SyncthingActivity
             Log.w(TAG, e);
             Toast.makeText(this, R.string.edit_ignore_file_error, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showPullOrderDialog() {
+        Intent intent = new Intent(this, PullOrderDialogActivity.class);
+        intent.putExtra(PullOrderDialogActivity.EXTRA_PULL_ORDER, mFolder.order);
+        startActivityForResult(intent, PULL_ORDER_DIALOG_REQUEST);
     }
 
     private void showVersioningDialog() {
@@ -336,6 +348,7 @@ public class FolderActivity extends SyncthingActivity
         mLabelView.setText(mFolder.label);
         mIdView.setText(mFolder.id);
         mPathView.setText(mFolder.path);
+        updatePullOrderDescription();
         updateVersioningDescription();
         mFolderMasterView.setChecked(Objects.equal(mFolder.type, "readonly"));
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
@@ -430,6 +443,10 @@ public class FolderActivity extends SyncthingActivity
             mEditIgnores.setEnabled(true);
         } else if (resultCode == Activity.RESULT_OK && requestCode == FILE_VERSIONING_DIALOG_REQUEST) {
             updateVersioning(data.getExtras());
+        } else if (resultCode == Activity.RESULT_OK && requestCode == PULL_ORDER_DIALOG_REQUEST) {
+            mFolder.order = data.getStringExtra(PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER);
+            updatePullOrderDescription();
+            mFolderNeedsToUpdate = true;
         }
     }
 
@@ -544,6 +561,50 @@ public class FolderActivity extends SyncthingActivity
         attemptToApplyVersioningConfig();
         updateVersioningDescription();
         mFolderNeedsToUpdate = true;
+    }
+
+    private void updatePullOrderDescription() {
+        if (mFolder == null) {
+            return;
+        }
+
+        if (TextUtils.isEmpty(mFolder.order)) {
+            setPullOrderDescription(getString(R.string.pull_order_type_random),
+                    getString(R.string.pull_order_type_random_description));
+            return;
+        }
+
+        switch (mFolder.order) {
+            case "random":
+                setPullOrderDescription(getString(R.string.pull_order_type_random),
+                        getString(R.string.pull_order_type_random_description));
+                break;
+            case "alphabetic":
+                setPullOrderDescription(getString(R.string.pull_order_type_alphabetic),
+                        getString(R.string.pull_order_type_alphabetic_description));
+                break;
+            case "smallestFirst":
+                setPullOrderDescription(getString(R.string.pull_order_type_smallestFirst),
+                        getString(R.string.pull_order_type_smallestFirst_description));
+                break;
+            case "largestFirst":
+                setPullOrderDescription(getString(R.string.pull_order_type_largestFirst),
+                        getString(R.string.pull_order_type_largestFirst_description));
+                break;
+            case "oldestFirst":
+                setPullOrderDescription(getString(R.string.pull_order_type_oldestFirst),
+                        getString(R.string.pull_order_type_oldestFirst_description));
+                break;
+            case "newestFirst":
+                setPullOrderDescription(getString(R.string.pull_order_type_newestFirst),
+                        getString(R.string.pull_order_type_newestFirst_description));
+                break;
+        }
+    }
+
+    private void setPullOrderDescription(String type, String description) {
+        mPullOrderTypeView.setText(type);
+        mPullOrderDescriptionView.setText(description);
     }
 
     private void updateVersioningDescription() {

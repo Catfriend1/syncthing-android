@@ -111,6 +111,44 @@
                 android:text="@string/folder_pause" />
 
             <LinearLayout
+                android:id="@+id/pullOrderContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_content_copy_black_24dp"
+                    android:drawableStart="@drawable/ic_content_copy_black_24dp"
+                    android:text="@string/pull_order" />
+
+                <TextView
+                    android:id="@+id/pullOrderType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                <TextView
+                    android:id="@+id/pullOrderDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/versioningContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
