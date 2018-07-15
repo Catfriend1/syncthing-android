@@ -80,6 +80,16 @@
                 android:drawableStart="@drawable/ic_lock_black_24dp_active"
                 android:text="@string/folder_master" />
 
+            <TextView
+                android:id="@+id/accessExplanationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="-20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:focusable="false"/>
+
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/fileWatcher"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -98,7 +108,8 @@
                 android:layout_marginStart="75dp"
                 android:layout_marginTop="-20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:text="@string/folder_fileWatcherDescription" />
+                android:text="@string/folder_fileWatcherDescription"
+                android:focusable="false"/>
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/folderPause"

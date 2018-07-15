@@ -192,6 +192,15 @@ Please report any problems you encounter via Github.</string>
 
     <string name="dialog_discard_changes">Discard your changes?</string>
 
+    <!-- Summary shown if we only have readonly access to the folder path -->
+    <string name="folder_path_readonly">Your Android version only grants Syncthing readonly access to the selected folder.</string>
+
+    <!-- Summary shown if we only have readwrite access to the folder path -->
+    <string name="folder_path_readwrite">Your Android version grants Syncthing read and write access to the selected folder.</string>
+
+    <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
+    <string name="toast_invalid_folder_selected">Sorry. The selected folder cannot be used. Please select a folder located on the internal or external storage.</string>
+
     <string name="ignore_patterns">Ignore Patterns</string>
 
     <string name="create_ignore_file_error">Failed to create ignore file. Is the directory writable?</string>

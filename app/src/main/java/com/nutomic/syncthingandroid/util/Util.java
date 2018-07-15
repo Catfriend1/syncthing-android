@@ -8,10 +8,12 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.service.Constants;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -120,6 +122,81 @@ public class Util {
             Log.w(TAG, "This should not happen", e);
         }
         return false;
+    }
+
+    /**
+     * Returns if the syncthing binary would be able to write a file into
+     * the given folder given the configured access level.
+     */
+    public static boolean nativeBinaryCanWriteToPath(Context context, String absoluteFolderPath) {
+        final String TOUCH_FILE_NAME = ".stwritetest";
+        Boolean useRoot = false;
+        Boolean prefUseRoot = PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(Constants.PREF_USE_ROOT, false);
+        if (prefUseRoot && Shell.SU.available()) {
+            useRoot = true;
+        }
+
+        // Write permission test file.
+        String touchFile = absoluteFolderPath + "/" + TOUCH_FILE_NAME;
+        int exitCode = runShellCommand("echo \"\" > \"" + touchFile + "\"\n", useRoot);
+        if (exitCode != 0) {
+            String error;
+            switch (exitCode) {
+                case 1:
+                    error = "Permission denied";
+                    break;
+                default:
+                    error = "Shell execution failed";
+            }
+            Log.i(TAG, "Failed to write test file '" + touchFile +
+                "', " + error);
+            return false;
+        }
+
+        // Detected we have write permission.
+        Log.i(TAG, "Successfully wrote test file '" + touchFile + "'");
+
+        // Remove test file.
+        if (runShellCommand("rm \"" + touchFile + "\"\n", useRoot) != 0) {
+            // This is very unlikely to happen, so we have less error handling.
+            Log.i(TAG, "Failed to remove test file");
+        }
+        return true;
+    }
+
+    /**
+     * Run command in a shell and return the exit code.
+     */
+    public static int runShellCommand(String cmd, Boolean useRoot) {
+        // Assume "failure" exit code if an error is caught.
+        int exitCode = 255;
+        Process shellProc = null;
+        DataOutputStream shellOut = null;
+        try {
+            shellProc = Runtime.getRuntime().exec((useRoot) ? "su" : "sh");
+            shellOut = new DataOutputStream(shellProc.getOutputStream());
+            Log.d(TAG, "runShellCommand: " + cmd);
+            shellOut.writeBytes(cmd);
+            shellOut.flush();
+            shellOut.close();
+            shellOut = null;
+            exitCode = shellProc.waitFor();
+        } catch (IOException | InterruptedException e) {
+            Log.w(TAG, "runShellCommand: Exception", e);
+        } finally {
+            try {
+                if (shellOut != null) {
+                    shellOut.close();
+                }
+            } catch (IOException e) {
+                Log.w(TAG, "Failed to close shell stream", e);
+            }
+            if (shellProc != null) {
+                shellProc.destroy();
+            }
+        }
+        return exitCode;
     }
 
     /**

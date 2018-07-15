@@ -307,14 +307,20 @@ public class RestApi {
         return folders;
     }
 
-    public void addFolder(Folder folder) {
+    /**
+     * This is only used for new folder creation, see {@link FolderActivity}.
+     */
+    public void createFolder(Folder folder) {
+        // Add the new folder to the model.
         mConfig.folders.add(folder);
+        // Send model changes to syncthing, does not require a restart.
         sendConfig();
     }
 
-    public void editFolder(Folder newFolder) {
+    public void updateFolder(Folder newFolder) {
         removeFolderInternal(newFolder.id);
-        addFolder(newFolder);
+        mConfig.folders.add(newFolder);
+        sendConfig();
     }
 
     public void removeFolder(String id) {
