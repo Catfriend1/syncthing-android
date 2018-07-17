@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -14,6 +15,7 @@ import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -47,7 +49,6 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG = "SyncthingRunnable";
     private static final String TAG_NATIVE = "SyncthingNativeCode";
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
-    private static final String TAG_KILL = "SyncthingRunnableKill";
     private static final int LOG_FILE_MAX_LINES = 10;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
@@ -240,7 +241,7 @@ public class SyncthingRunnable implements Runnable {
                 }
             }
         } catch (IOException | InterruptedException e) {
-            Log.w(TAG_KILL, "Failed list Syncthing processes", e);
+            Log.w(TAG, "Failed to list Syncthing processes", e);
         } finally {
             try {
                 if (br != null) {
@@ -250,7 +251,7 @@ public class SyncthingRunnable implements Runnable {
                     psOut.close();
                 }
             } catch (IOException e) {
-                Log.w(TAG_KILL, "Failed close the psOut stream", e);
+                Log.w(TAG, "Failed to close psOut stream", e);
             }
             if (ps != null) {
                 ps.destroy();
@@ -263,42 +264,23 @@ public class SyncthingRunnable implements Runnable {
      * Look for a running libsyncthing.so process and nice its IO.
      */
     private void niceSyncthing() {
-        Process nice = null;
-        DataOutputStream niceOut = null;
-        int ret = 1;
-        try {
-            List<String> syncthingPIDs = getSyncthingPIDs();
-            if (syncthingPIDs.isEmpty()) {
-                Log.w(TAG, "niceSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
-            } else {
-                nice = Runtime.getRuntime().exec((mUseRoot) ? "su" : "sh");
-                niceOut = new DataOutputStream(nice.getOutputStream());
-                for (String syncthingPID : syncthingPIDs) {
-                    // Set best-effort, low priority using ionice.
-                    niceOut.writeBytes("/system/bin/ionice " + syncthingPID + " be 7\n");
-                }
-                niceOut.writeBytes("exit\n");
-                log(nice.getErrorStream(), Log.WARN, false);
-                niceOut.flush();
-                ret = nice.waitFor();
-                Log.i(TAG_NICE, "ionice performed on " + Constants.FILENAME_SYNCTHING_BINARY);
-            }
-        } catch (IOException | InterruptedException e) {
-            Log.e(TAG_NICE, "Failed to execute ionice binary", e);
-        } finally {
-            try {
-                if (niceOut != null) {
-                    niceOut.close();
-                }
-            } catch (IOException e) {
-                Log.w(TAG_NICE, "Failed to close shell stream", e);
-            }
-            if (nice != null) {
-                nice.destroy();
-            }
-            if (ret != 0) {
-                Log.e(TAG_NICE, "Failed to set ionice " + Integer.toString(ret));
-            }
+        if (!mUseRoot || !Shell.SU.available()) {
+            Log.i(TAG_NICE, "Root is not available. Cannot nice syncthing.");
+            return;
+        }
+
+        List<String> syncthingPIDs = getSyncthingPIDs();
+        if (syncthingPIDs.isEmpty()) {
+            Log.i(TAG_NICE, "Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
+            return;
+        }
+
+        // Ionice all running syncthing processes.
+        for (String syncthingPID : syncthingPIDs) {
+            // Set best-effort, low priority using ionice.
+            int exitCode = Util.runShellCommand("/system/bin/ionice " + syncthingPID + " be 7\n", true);
+            Log.i(TAG_NICE, "ionice returned " + Integer.toString(exitCode) +
+                " on " + Constants.FILENAME_SYNCTHING_BINARY);
         }
     }
 
@@ -317,44 +299,22 @@ public class SyncthingRunnable implements Runnable {
                 break;
             }
 
+            int exitCode;
             for (String syncthingPID : syncthingPIDs) {
-                killProcessId(syncthingPID, i > 0);
-            }
-        }
-    }
-
-    /**
-     * Kill a given process ID
-     *
-     * @param force Whether to use a SIGKILL.
-     */
-    private void killProcessId(String id, boolean force) {
-        Process kill = null;
-        DataOutputStream killOut = null;
-        try {
-            kill = Runtime.getRuntime().exec((mUseRoot) ? "su" : "sh");
-            killOut = new DataOutputStream(kill.getOutputStream());
-            if (!force) {
-                killOut.writeBytes("kill -SIGINT " + id + "\n");
-                killOut.writeBytes("sleep 1\n");
-            } else {
-                killOut.writeBytes("sleep 3\n");
-                killOut.writeBytes("kill -SIGKILL " + id + "\n");
-            }
-            killOut.writeBytes("exit\n");
-            killOut.flush();
-            kill.waitFor();
-            Log.i(TAG_KILL, "Killed Syncthing process "+id);
-        } catch (IOException | InterruptedException e) {
-            Log.w(TAG_KILL, "Failed to kill process id "+id, e);
-        } finally {
-            try {
-                if (killOut != null)
-                    killOut.close();
-            } catch (IOException e) {
-                Log.w(TAG_KILL, "Failed close the killOut stream", e);}
-            if (kill != null) {
-                kill.destroy();
+                if (i > 0) {
+                    // Force termination of the process by sending SIGKILL.
+                    SystemClock.sleep(3000);
+                    exitCode = Util.runShellCommand("kill -SIGKILL " + syncthingPID + "\n", mUseRoot);
+                } else {
+                    exitCode = Util.runShellCommand("kill -SIGINT " + syncthingPID + "\n", mUseRoot);
+                    SystemClock.sleep(1000);
+                }
+                if (exitCode == 0) {
+                    Log.d(TAG, "Killed Syncthing process " + syncthingPID);
+                } else {
+                    Log.w(TAG, "Failed to kill Syncthing process " + syncthingPID +
+                        " exit code " + Integer.toString(exitCode));
+                }
             }
         }
     }
