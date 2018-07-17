@@ -27,17 +27,8 @@ Make sure you clone the project with
 `git clone https://github.com/syncthing/syncthing-android.git --recursive`. Alternatively, run
 `git submodule init && git submodule update` in the project folder.
 
-Build Syncthing using `./syncthing/build-syncthing.bash`. Then use `./gradlew assembleDebug` or
+Build Syncthing using `./gradlew buildNative`. Then use `./gradlew assembleDebug` or
 Android Studio to build the apk.
-
-### Building on Windows
-
-To build the Syncthing app on Windows we need to have cygwin installed.
-
-From a cygwin shell in the project directory, build Syncthing using `./syncthing/build-syncthing.bash`
-
-Lastly, use `./gradlew assembleDebug` in the project directory to compile the APK, or use Android
-Studio to build/deploy the APK.
 
 # License
 

@@ -1,21 +1,14 @@
-import org.gradle.internal.os.OperatingSystem
-
 task buildNative(type: Exec) {
-    outputs.upToDateWhen { false }
-    if (OperatingSystem.current().isWindows()) {
-        if (!file("../app/src/main/jniLibs").exists()) {
-            throw new GradleException('Please run ./build-syncthing.bash via cygwin/MinGW manually')
-        }
-        executable = 'rundll32' // Does nothing
-    } else {
-        executable = './build-syncthing.bash'
-    }
+    inputs.dir("$projectDir/src/")
+    outputs.dir("$projectDir/../app/src/main/jniLibs/")
+    executable = 'python'
+    args = ['-u', './build-syncthing.py']
 }
 
 /**
  * Use separate task instead of standard clean(), so these folders aren't deleted by `gradle clean`.
  */
 task cleanNative(type: Delete) {
-    delete "../app/src/main/jniLibs/"
+    delete "$projectDir/../app/src/main/jniLibs/"
     delete "gobuild"
 }

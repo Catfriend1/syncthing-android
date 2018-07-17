@@ -4,7 +4,7 @@
 
 for ARCH in arm x86 arm64; do
   GOARCH=${ARCH}
-  SDK=14
+  SDK=16
   case ${ARCH} in
       arm)
         GCC="arm-linux-androideabi-clang"
