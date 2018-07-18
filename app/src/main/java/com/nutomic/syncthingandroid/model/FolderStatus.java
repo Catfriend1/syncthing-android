@@ -25,5 +25,6 @@ public class FolderStatus {
     public String state;
     public String stateChanged;
     public long version;
+    public String error;
     public String watchError;
 }
