@@ -20,6 +20,7 @@ import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.ShareActivity;
 import com.nutomic.syncthingandroid.http.GetRequest;
+import com.nutomic.syncthingandroid.http.PostRequest;
 import com.nutomic.syncthingandroid.http.PostConfigRequest;
 import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Completion;
@@ -266,6 +267,16 @@ public class RestApi {
             sendConfig();
             Log.d(TAG, "Ignored folder [" + folderId + "]");
         }
+    }
+
+    /**
+     * Override folder changes. This is the same as hitting
+     * the "override changes" button from the web UI.
+     */
+    public void overrideChanges(String folderId) {
+        Log.d(TAG, "overrideChanges '" + folderId + "'");
+        new PostRequest(mContext, mUrl, PostRequest.URI_DB_OVERRIDE, mApiKey,
+            ImmutableMap.of("folder", folderId), null);
     }
 
     /**

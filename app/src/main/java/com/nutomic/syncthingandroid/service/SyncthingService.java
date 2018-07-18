@@ -72,6 +72,12 @@ public class SyncthingService extends Service {
             "com.nutomic.syncthingandroid.service.SyncthingService.IGNORE_FOLDER";
 
     /**
+     * Intent action to override folder changes.
+     */
+    public static final String ACTION_OVERRIDE_CHANGES =
+            "com.nutomic.syncthingandroid.service.SyncthingService.OVERRIDE_CHANGES";
+
+    /**
      * Extra used together with ACTION_IGNORE_DEVICE, ACTION_IGNORE_FOLDER.
      */
     public static final String EXTRA_NOTIFICATION_ID =
@@ -242,6 +248,8 @@ public class SyncthingService extends Service {
             // mApi is not null due to State.ACTIVE
             mApi.ignoreFolder(intent.getStringExtra(EXTRA_FOLDER_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+        } else if (ACTION_OVERRIDE_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
+            mApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
         }
         return START_STICKY;
     }
