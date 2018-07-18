@@ -270,6 +270,15 @@ public class RestApi {
     }
 
     /**
+     * Undo ignoring devices and folders.
+     */
+    public void undoIgnoredDevicesAndFolders() {
+        Log.d(TAG, "Undo ignoring devices and folders ...");
+        mConfig.ignoredDevices.clear();
+        mConfig.ignoredFolders.clear();
+    }
+
+    /**
      * Override folder changes. This is the same as hitting
      * the "override changes" button from the web UI.
      */

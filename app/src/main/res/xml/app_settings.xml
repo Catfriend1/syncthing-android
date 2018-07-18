@@ -136,6 +136,11 @@
             android:title="@string/usage_reporting"
             android:persistent="false" />
 
+        <Preference
+            android:key="undo_ignored_devices_folders"
+            android:title="@string/undo_ignored_devices_folders_title"
+            android:singleLine="true" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

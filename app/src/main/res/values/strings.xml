@@ -20,6 +20,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Generic texts used everywhere -->
     <string name="generic_example">Example</string>
+    <string name="generic_error">Error</string>
 
     <string name="accept">Accept</string>
 
@@ -374,6 +375,11 @@ Please report any problems you encounter via Github.</string>
     <string name="usage_reporting">Anonymous Usage Reporting</string>
 
     <string name="gui_address">GUI Listen Addresses</string>
+
+    <!-- Titles for the preference to undo ignored devices and folders -->
+    <string name="undo_ignored_devices_folders_title">Undo ignoring devices and folders</string>
+    <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue?</string>
+    <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
     <string name="export_config">Export Configuration</string>
 
