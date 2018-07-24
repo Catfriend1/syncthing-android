@@ -11,6 +11,7 @@
 발생한 문제는 무엇이든 Github를 통해 알려주시기 바랍니다.</string>
   <string name="cont">계속</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">오류</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">폴더 추가</string>
@@ -24,8 +25,6 @@
   <string name="no">아니오</string>
   <string name="open_website">웹사이트 열기</string>
   <string name="toast_write_storage_permission_required">스토리지 쓰기 권한이 필요합니다</string>
-  <string name="device_rejected">%1$s 장치가 연결을 원하고 있습니다</string>
-  <string name="folder_rejected">%1$s 장치가 %2$s 폴더를 공유하길 원하고 있습니다</string>
   <string name="dialog_disable_battery_optimization_title">배터리 최적화</string>
   <string name="dialog_disable_battery_optimization_message">안드로이드 운영체제는 시간이 지나면 동기화를 정지시킬 수도 있습니다. 이를 막기 위해 배터리 최적화 기능을 꺼주시기 바랍니다.\n\n몇몇 기기들은 추가적인 태스크 관리 앱이 선탑재되어 있습니다. 태스크 관리 앱의 신뢰목록에 등록함으로써 역시 문제를 해결하실 수 있습니다.</string>
   <string name="dialog_disable_battery_optimization_later">나중에</string>
@@ -106,6 +105,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">폴더 경로를 공백으로 둘 수 없습니다</string>
   <string name="dialog_discard_changes">설정 변경을 취소합니까?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">패턴 무시하기</string>
   <string name="create_ignore_file_error">무시 파일을 만들지 못했습니다. 디렉토리가 쓰기 가능합니까?</string>
   <string name="edit_ignore_file_error">텍스트 편집기를 찾을 수 없습니다</string>
@@ -202,6 +204,7 @@
   <string name="enable_relaying">Relaying 활성화</string>
   <string name="usage_reporting">익명 사용 기록 </string>
   <string name="gui_address">접속 대기 주소</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">설정 내보내기</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -323,6 +326,7 @@
   <string name="syncthing_disabled">Syncthing이 비활성화되었습니다</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">구성 파일을 만드는데 실패 했습니다.</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">카메라</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -365,6 +369,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">백그라운드에서 실행이 활성화되어 있을 때는 Syncthing 중단은 지원되지 않습니다.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">최대 저장 기간</string>
   <string name="clean_out_after">다음 기간 후 제거</string>

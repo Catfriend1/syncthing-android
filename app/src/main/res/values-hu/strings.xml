@@ -14,6 +14,7 @@ Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</stri
   <string name="cont">Folytatás</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Példa</string>
+  <string name="generic_error">Hiba</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Mappa hozzáadása</string>
@@ -29,8 +30,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
   <string name="no">Nem</string>
   <string name="open_website">Weblap megnyitása</string>
   <string name="toast_write_storage_permission_required">Az alkalmazás használatához háttértár-hozzáférési jogra van szükség</string>
-  <string name="device_rejected">A %1$s eszköz csatlakozni szeretne</string>
-  <string name="folder_rejected">A %1$s eszköz szeretné megosztani a következő mappát: %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Akkumulátor optimalizáció</string>
   <string name="dialog_disable_battery_optimization_message">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
 
@@ -119,6 +118,9 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">A mappaútvonal nem lehet üres</string>
   <string name="dialog_discard_changes">Elveted a módosításaidat?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Kihagyási minták</string>
   <string name="create_ignore_file_error">Nem sikerült létrehozni a kihagyási fájlt. Írható a könyvtár?</string>
   <string name="edit_ignore_file_error">Nem található szövegszerkesztő</string>
@@ -219,6 +221,7 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="enable_relaying">Relaying engedélyezése</string>
   <string name="usage_reporting">Anonim használati statisztikák küldése</string>
   <string name="gui_address">Webes felület IP címe</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Beállítások mentése</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -361,6 +364,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="syncthing_disabled">A Syncthing le van tiltva</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -406,6 +410,9 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Maximális kor</string>
   <string name="clean_out_after">Takarítás ennyi idő után</string>

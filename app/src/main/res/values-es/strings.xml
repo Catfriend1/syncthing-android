@@ -9,6 +9,7 @@
   <string name="welcome_text">Syncthing es una aplicación para sincronización de ficheros de fuentes abiertas.\nPara compartir datos con otros dispisitivos, necesitas añadir sus identificadores únicos de dispositivo a la lista de dispositivos. Después, puedes seleccionar qué carpetas vas a compartir con qué dispositivos.\nPor favor, informa de cualquier problema que te encuentres vía Github.</string>
   <string name="cont">Continuar</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Error</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Añadir carpeta</string>
@@ -22,8 +23,6 @@
   <string name="no">No</string>
   <string name="open_website">Sitio abierto</string>
   <string name="toast_write_storage_permission_required">Esta app necesita permiso para escribir al sistema de almacenamiento</string>
-  <string name="device_rejected">El dispositivo %1$s desea conectar</string>
-  <string name="folder_rejected">El dispositivo %1$s desea compartir la carpeta %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optimización de batería</string>
   <string name="dialog_disable_battery_optimization_message">Andoid puede detener la sincronización pasado un tiempo. Para evitarlo, deshabilita la optimización de batería.\n\nAlgunos dispositivos tienen instaladas aplicaciones adicionales para terminar tareas. Igualmente, deberías añadir Syncthing a su lista blanca.</string>
   <string name="dialog_disable_battery_optimization_later">Después</string>
@@ -99,6 +98,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">La ruta a la carpeta no debe estar vacía</string>
   <string name="dialog_discard_changes">¿Descartar tus cambios?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">ID del dispositivo</string>
@@ -181,6 +183,7 @@
   <string name="enable_relaying">Activar retransmisión (Relaying)</string>
   <string name="usage_reporting">Informe de uso anónimo</string>
   <string name="gui_address">Direcciones de escucha de la interfaz</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Exportar configuración</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -298,6 +301,7 @@
   <string name="syncthing_active">Syncthing se está ejecutando</string>
   <string name="syncthing_disabled">Syncthing está deshabilitado</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Cámara</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -339,6 +343,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">No está soportado detener Syncthing mientras está activada la ejecución en segundo plano.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Antigüedad Máxima</string>
   <string name="file_versioning">Versionado de Archivos</string>

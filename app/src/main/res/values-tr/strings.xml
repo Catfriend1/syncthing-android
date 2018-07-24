@@ -12,6 +12,7 @@ Ardından hangi klasörlerin hangi aygıtlar ile paylaşılacağını seçebilir
 Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</string>
   <string name="cont">Devam et</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Hata</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Klasör Ekleme</string>
@@ -25,8 +26,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="no">Hayır</string>
   <string name="open_website">Web sitesini aç</string>
   <string name="toast_write_storage_permission_required">Bu uygulama için belleğe yazma yetkisi gerekmektedir.</string>
-  <string name="device_rejected">%1$s aygıtı bağlanmak istiyor</string>
-  <string name="folder_rejected">%1$s aygıtı %2$s klasörünü paylaşmak istiyor</string>
   <string name="dialog_disable_battery_optimization_title">Batarya İyileştirme</string>
   <string name="dialog_disable_battery_optimization_message">Android, birkaç zaman sonra eşzamanlamayı durdurabilir. Bunu önlemek için batarya iyileştirmesini kapat.\n\nBazı aygıtlar ek olarak görev bitirme uygulamalarıyla yüklü gelir. Syncthing\'i onların beyaz listesine ayrıca eklemelisiniz.</string>
   <string name="dialog_disable_battery_optimization_later">Daha sonra</string>
@@ -101,6 +100,9 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Klasör yolu boş olmamalı</string>
   <string name="dialog_discard_changes">Değişiklikleri göz ardı et?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">Aygıt ID</string>
@@ -177,6 +179,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="global_announce_server">Küresel Bulunabilirlik Sunucuları</string>
   <string name="usage_reporting">Anonim Kullanım Raporlama</string>
   <string name="gui_address">Arayüz Dinleme Adresleri</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Yapılandırmayı Dışa Aktar</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -270,6 +273,7 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="syncthing_active">Syncthing çalışıyor</string>
   <string name="syncthing_disabled">Syncthing devre dışı</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -309,6 +313,9 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Arka planda çalışma etkinken Syncthing\'i durdurma desteklenmiyor.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="file_versioning">Dosya Sürümlendirme</string>
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->

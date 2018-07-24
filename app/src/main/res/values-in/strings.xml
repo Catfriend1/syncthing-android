@@ -24,8 +24,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="no">Tidak</string>
   <string name="open_website">Buka Situs</string>
   <string name="toast_write_storage_permission_required">Aplikasi ini membutuuhkan kewenangan penulisan storage.</string>
-  <string name="device_rejected">Perangkat %1$s ingin tersambung</string>
-  <string name="folder_rejected">Perangkat %1$s untuk berbagi folder %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optimisasi Baterai</string>
   <string name="dialog_disable_battery_optimization_message">Android mungkin akan menghentikan penyelarasan setelah beberapa waktu. Untuk mencegah hal ini, matikan optimisasi baterai.\n\nBeberapa perangkat mungkin sudah memiliki aplikasi penghentian tugas. Anda juga perlu memasukkan Syncthing pada whitelist aplikasi tersebut.</string>
   <string name="dialog_disable_battery_optimization_later">Nanti</string>
@@ -105,6 +103,9 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Path/lokasi folder tidak boleh kosong</string>
   <string name="dialog_discard_changes">Abaikan perubahan anda?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Pola pengabaian</string>
   <string name="create_ignore_file_error">Gagal membuat berkas ignore. Apakah direktori bisa ditulisi?</string>
   <string name="edit_ignore_file_error">Tidak ada editor teks yang ditemukan</string>
@@ -194,6 +195,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="enable_relaying">Aktfikan Relay</string>
   <string name="usage_reporting">Laporan Penggunaan Anonim</string>
   <string name="gui_address">Alamat Listen GUI</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Ekspor Konfigurasi</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -309,6 +311,7 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="syncthing_active">Syncthing dinyalakan</string>
   <string name="syncthing_disabled">Syncthing dimatikan</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <!--RestApi-->
@@ -322,6 +325,9 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <!--Possible folder states-->
   <string name="state_syncing">Sinkronisasi (%1$d%%)</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
   <!--Displays the current file versioning type in the Folder activity-->

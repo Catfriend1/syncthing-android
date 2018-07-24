@@ -11,6 +11,8 @@ Per compartir dades amb altres dispositius, cal que afegiu els seus identificado
 Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="cont">Continua</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_example">Exemple</string>
+  <string name="generic_error">Error</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Afegeix una carpeta</string>
@@ -24,8 +26,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="no">No</string>
   <string name="open_website">Obre la pàgina web</string>
   <string name="toast_write_storage_permission_required">Aquesta aplicació requereix el permís d\'escriptura a l\'emmagatzematge</string>
-  <string name="device_rejected">El dispositiu %1$s es vol connectar</string>
-  <string name="folder_rejected">El dispositiu %1$s vol compartir la carpeta %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optimització de bateria</string>
   <string name="dialog_disable_battery_optimization_message">Passat algun temps, l\'Android podria aturar la sincronització. Per evitar-ho, apagueu l\'optimitzador de bateria.\n\nAlguns dispositius porten pre-instal·lades aplicacions que finalitzen les tasques automàticament, en aquest cas hauríeu d\'afegir el Syncthing a la seva llista d\'aplicacions autoritzades.</string>
   <string name="dialog_disable_battery_optimization_later">Més tard</string>
@@ -47,6 +47,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <item quantity="one">%1$d / %2$d Fitxer</item>
     <item quantity="other">%1$d / %2$d Fitxers</item>
   </plurals>
+  <string name="open_file_manager">Obre l\'administrador d\'arxius</string>
   <string name="toast_no_file_manager">No s\'ha trobat cap gestor de fitxers compatible</string>
   <!--DevicesFragment-->
   <string name="devices_fragment_title">Dispositius</string>
@@ -59,6 +60,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Indicates that there is no connection to the device-->
   <string name="device_disconnected">Desconnectat</string>
   <!--Indicates that the device is paused and does not sync-->
+  <string name="device_paused">En pausa</string>
   <string name="device_state_unknown">Desconegut</string>
   <!--Title for current download rate-->
   <string name="download_title">Descàrrega</string>
@@ -87,7 +89,10 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Setting title-->
   <string name="folder_master">Només envia</string>
   <!--Setting title and description-->
+  <string name="folder_fileWatcher">Vigila els canvis</string>
+  <string name="folder_fileWatcherDescription">Demana al sistema que notifiqui dels canvis als fitxers. Si es desactiva es faran comprovacions cada hora.</string>
   <!--Setting title-->
+  <string name="folder_pause">Posa la carpeta en pausa</string>
   <!--Setting title-->
   <string name="devices">Dispositius</string>
   <!--Setting title-->
@@ -107,6 +112,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">El camí de la carpeta no pot ser buit</string>
   <string name="dialog_discard_changes">Voleu descartar els canvis?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Patrons a ignorar</string>
   <string name="create_ignore_file_error">No s\'ha pogut crear el fitxer d\'ignorats. Es pot escriure al directori?</string>
   <string name="edit_ignore_file_error">No hi ha cap editor de text</string>
@@ -130,6 +138,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Setting title-->
   <string name="introducer">Introductor</string>
   <!--Setting title-->
+  <string name="pause_device">Posa el dispositiu en pausa</string>
   <!--ActionBar item-->
   <string name="delete_device">Esborra el dispositiu</string>
   <string name="add_device">Afegeix un dispositiu</string>
@@ -167,6 +176,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="sync_only_wifi">Executa només amb wifi</string>
   <string name="sync_only_wifi_ssids">Restringeix a xarxes wifi concretes</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Enceneu el WiFi per seleccionar xarxes.</string>
+  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Heu de proporcionar el permís d\'UBICACIÓ per poder fer això.</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>
+  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de l\'Android 8.1, cal tenir accés a la ubicació per poder llegir el nom de la WiFi. Només ho podreu fer si concediu aquest permís.</string>
   <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
   <string name="respect_battery_saving_summary">Desactiva el Syncthing quan s\'activi l\'estalvi de bateria</string>
   <string name="advanced_folder_picker">Utilitza el selector de carpetes avançat</string>
@@ -203,16 +215,29 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="enable_relaying">Permet la retransmissió</string>
   <string name="usage_reporting">Informes d\'ús anònims</string>
   <string name="gui_address">Adreça d\'escolta de la interfície gràfica</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Exporta la configuració</string>
   <!--Toast after entering invalid integer value-->
+  <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Valor no vàlid. Introduïu un valor entre %1$d i %2$d.</string>
   <!--Experimental options-->
+  <string name="use_proxy">Connecta emprant un proxy</string>
+  <string name="do_not_use_proxy">No s\'ha configurat cap proxy.</string>
   <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
   <string name="keep_wakelock_while_binary_running_summary">Activeu-ho si experimenteu desconnexions inesperades quan treballeu amb bateria. S\'incrementarà el consum de la bateria.</string>
   <string name="use_tor_title">Utilitza Tor</string>
+  <string name="use_tor_summary">Força la connexió a través de Tor per millorar la privacitat. Requereix Orbot. Desactiva les opcions del proxy.</string>
+  <string name="socks_proxy_address_title">Proxy SOCKS5</string>
+  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
   <!--Toast after entering invalid socks proxy address-->
+  <string name="toast_invalid_socks_proxy_address">No compleix la sintaxi de proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+  <string name="http_proxy_address_title">Proxy HTTP(S)</string>
+  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
   <!--Toast after entering invalid http proxy address-->
+  <string name="toast_invalid_http_proxy_address">No compleix la sintaxi de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
   <string name="use_legacy_hashing_title">Genera els hash amb el sistema antic</string>
   <string name="use_legacy_hashing_summary">Es forçarà el Syncthing a utilitzar el paquet de hashing antic per compatibilitat</string>
+  <string name="restart_on_wakeup_title">Reinicia en despertar-se</string>
+  <string name="restart_on_wakeup_summary">Per defecte: Activat. Si es desactiva pot provocar retards en la comprovació de carpetes i reconnexions del dispositiu per estalviar bateria.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Realment voleu exportar la configuració? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
   <!--Dialog shown before config import-->
@@ -232,11 +257,19 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title for the preference to reset Syncthing indexes-->
   <string name="st_reset_database_title">Reinicia la base de dades</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_database_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
+        \nSegur que voleu esborrar la base de dades del Syncthing?
+</string>
   <!--Syncthing was reset-->
   <string name="st_reset_database_done">La base de dades del Syncthing s\'ha reiniciat amb èxit</string>
   <!--Title for the preference to reset Syncthing indexes-->
+  <string name="st_reset_deltas_title">Reinicia els Índexs Delta</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
+        \nSegur que voleu esborrar els índex delta del Syncthing?
+</string>
   <!--Syncthing was reset-->
+  <string name="st_reset_deltas_done">S\'han reiniciat correctament els índexs delta del Syncthing</string>
   <string name="category_about">Quant a</string>
   <!--Settings item that opens the log activity-->
   <string name="open_log">Obre el registre</string>
@@ -325,14 +358,18 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">El Syncthing s\'està executant</string>
   <string name="syncthing_disabled">El Syncthing està desactivat</string>
+  <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Càmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-fotos</string>
   <string name="notification_crash_title">El Syncthing s\'ha bloquejat</string>
   <string name="notification_crash_text">Feu clic per veure els registres</string>
+  <string name="notifications_persistent_channel">El Syncthing està actiu</string>
+  <string name="notification_persistent_waiting_channel">Vigilant les condicions d\'execució</string>
   <string name="notifications_other_channel">Altres notificacions</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
@@ -365,10 +402,14 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="state_syncing">Sincronitzant (%1$d%%)</string>
   <string name="state_error">Error</string>
   <string name="state_unknown">Desconegut</string>
+  <string name="state_paused">En pausa</string>
   <string name="status_outofsync">No sincronitzat</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">No es permet aturar el Syncthing mentre s\'està executant en segon pla.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Antiguitat Màxima</string>
   <string name="clean_out_after">Neteja després de</string>

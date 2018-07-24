@@ -11,6 +11,7 @@
 Παρακαλώ αναφέρετε τυχόν προβλήματα που αντιμετωπίσετε μέσω του Github.</string>
   <string name="cont">Συνέχεια</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Σφάλμα</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Προσθήκη φακέλου</string>
@@ -24,8 +25,6 @@
   <string name="no">Όχι</string>
   <string name="open_website">Άνοιγμα ιστοσελίδας</string>
   <string name="toast_write_storage_permission_required">Απαιτείται η άδεια αποθήκευσης δεδομένων για αυτή την εφαρμογή</string>
-  <string name="device_rejected">Η συσκευή %1$s επιθυμεί να συνδεθεί</string>
-  <string name="folder_rejected">Η συσκευή %1$s επιθυμεί να διαμοιραστεί τον φάκελο %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Βελτιστοποίηση μπαταρίας</string>
   <string name="dialog_disable_battery_optimization_message">Το Android ενδέχεται να σταματήσει τον συγχρονισμό μετά από κάποιο χρονικό διάστημα. Για να αποφευχθεί αυτό, απενεργοποιήστε τη βελτιστοποίηση μπαταρίας.\n\nΚάποιες συσκευές διαθέτουν επίσης προεγκατεστημένες εφαρμογές τερματισμού διεργασιών. Προσθέστε το Syncthing στο whitelist τους.</string>
   <string name="dialog_disable_battery_optimization_later">Αργότερα</string>
@@ -107,6 +106,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Το μονοπάτι του φακέλου δεν μπορεί να είναι κενό</string>
   <string name="dialog_discard_changes">Να απορριφθούν οι αλλαγές που κάνατε;</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Πρότυπα για αγνόηση</string>
   <string name="create_ignore_file_error">Αδυναμία δημιουργίας αρχείου προτύπων αγνόησης. Υπάρχει δικαίωμα εγγραφής στον κατάλογο;</string>
   <string name="edit_ignore_file_error">Δεν βρέθηκε επεξεργαστής κειμένου</string>
@@ -203,6 +205,7 @@
   <string name="enable_relaying">Ενεργοποίηση αναμετάδοσης</string>
   <string name="usage_reporting">Ανώνυμη αναφορά δεδομένων χρήσης</string>
   <string name="gui_address">Διευθύνσεις ακρόασης του GUI</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Εξαγωγή ρυθμίσεων</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -327,6 +330,7 @@
   <string name="syncthing_disabled">Το Syncthing είναι απενεργοποιημένο</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Φωτογραφική μηχανή</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -369,6 +373,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Ο τερματισμός του Syncthing δεν υποστηρίζεται όταν έχει ενεργοποιηθεί η εκτέλεση στο παρασκήνιο.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Μέγιστη ηλικία</string>
   <string name="clean_out_after">Εκκαθάριση μετά από</string>

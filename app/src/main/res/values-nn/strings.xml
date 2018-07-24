@@ -7,6 +7,7 @@
   <string name="welcome_title">Velkommen til Synchting for Android</string>
   <!--Text for dialog displayed on first start-->
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Feil</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Legg til mappe</string>
@@ -20,8 +21,6 @@
   <string name="no">Nei</string>
   <string name="open_website">Opne nettstad</string>
   <string name="toast_write_storage_permission_required">Løyve til å skrive data er naudsynt for å bruke appen</string>
-  <string name="device_rejected">Eininga %1$s vil kople til</string>
-  <string name="folder_rejected">Eininga %1$s vil dele mappa %2$s</string>
   <string name="dialog_disable_battery_optimization_later">Seinare</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
@@ -90,6 +89,9 @@
   <string name="folder_id_required">Mappe-ID kan ikkje vere tom</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Mappestien kan ikkje vere tom</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">Einings-ID</string>
@@ -162,6 +164,7 @@
   <string name="enable_relaying">Aktiver Reléer</string>
   <string name="usage_reporting">Anonym rapportering av bruk</string>
   <string name="gui_address">Grensesnitt: lytteadresser</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Eksporter innstillingar</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -251,6 +254,7 @@
   <string name="syncthing_active">Syncthing køyrer</string>
   <string name="syncthing_disabled">Syncthing er ikkje aktivert</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -290,6 +294,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Du kan ikkje stoppe Syncthing når «køyr i bakgrunnen» er skrudd på.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
   <!--Displays the current file versioning type in the Folder activity-->

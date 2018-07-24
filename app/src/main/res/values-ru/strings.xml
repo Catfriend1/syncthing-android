@@ -12,6 +12,8 @@
   <string name="cont">Продолжить</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Пример</string>
+  <string name="generic_error">Ошибка</string>
+  <string name="ignore">Игнорировать</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Добавить папку</string>
@@ -25,8 +27,6 @@
   <string name="no">Нет</string>
   <string name="open_website">Открыть сайт</string>
   <string name="toast_write_storage_permission_required">Приложению требуется право на запись</string>
-  <string name="device_rejected">Устройство %1$s запрашивает подключение</string>
-  <string name="folder_rejected">Устройство %1$s предлагает расшаренную папку %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Оптимизация батареи</string>
   <string name="dialog_disable_battery_optimization_message">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
   <string name="dialog_disable_battery_optimization_later">Позже</string>
@@ -115,6 +115,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Путь к папке не может быть пустым</string>
   <string name="dialog_discard_changes">Отменить внесённые изменения?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Шаблоны игнорирования</string>
   <string name="create_ignore_file_error">Ошибка при попытке создания файла с шаблонами игнорирования. У папки есть право на запись?</string>
   <string name="edit_ignore_file_error">Текстовый редактор не найден</string>
@@ -215,6 +218,7 @@
   <string name="enable_relaying">Включить релеи</string>
   <string name="usage_reporting">Анонимные Отчёты Использования</string>
   <string name="gui_address">Адрес Ожидания GUI</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Экспорт настроек</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -363,6 +367,7 @@
   <string name="syncthing_disabled">Syncthing выключен</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Ошибка при создании файла конфигурации</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -408,6 +413,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Остановка Syncthing не поддерживается, если включено выполнение в фоновом режиме.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Максимальный срок</string>
   <string name="clean_out_after">Очистить после</string>

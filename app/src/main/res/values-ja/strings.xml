@@ -11,6 +11,8 @@
 発生した問題は何でも Github で報告してください。</string>
   <string name="cont">続行</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">エラー</string>
+  <string name="ignore">無視</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">フォルダーを追加</string>
@@ -24,8 +26,6 @@
   <string name="no">いいえ</string>
   <string name="open_website">Web サイトを開く</string>
   <string name="toast_write_storage_permission_required">このアプリはストレージの書き込みアクセス許可が必要です</string>
-  <string name="device_rejected">デバイス %1$s が接続を求めています</string>
-  <string name="folder_rejected">デバイス %1$s がフォルダー %2$s の共有を求めています</string>
   <string name="dialog_disable_battery_optimization_title">バッテリー最適化</string>
   <string name="dialog_disable_battery_optimization_message">Android はしばらくすると同期を停止することがあります。 これを防ぐには、バッテリーの最適化をオフにしてください。\n\n一部のデバイスには、タスク終了アプリが別途プリインストールされています。 これらのホワイトリストにも Syncthing を追加する必要があります。</string>
   <string name="dialog_disable_battery_optimization_later">後で</string>
@@ -106,6 +106,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">フォルダーのパスは空にできません</string>
   <string name="dialog_discard_changes">変更を破棄しますか?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">無視するパターン</string>
   <string name="create_ignore_file_error">無視ファイルの作成に失敗しました。ディレクトリは書き込み可能ですか?</string>
   <string name="edit_ignore_file_error">テキストエディタが見つかりません</string>
@@ -202,6 +205,7 @@
   <string name="enable_relaying">リレーを有効にする</string>
   <string name="usage_reporting">匿名での使用状況レポート</string>
   <string name="gui_address">GUI 待ち受けアドレス</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">設定のエクスポート</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -323,6 +327,7 @@
   <string name="syncthing_disabled">Syncthing は無効になりました</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">設定ファイルの作成に失敗しました</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">カメラ</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -365,6 +370,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">バックグラウンドでの実行が有効になっている場合、Syncthing の停止はサポートされていません。</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">最大保存日数</string>
   <string name="clean_out_after">以下の期間後に完全に削除</string>

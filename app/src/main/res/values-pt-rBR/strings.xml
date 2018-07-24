@@ -12,6 +12,8 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="cont">Continuar</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Exemplo</string>
+  <string name="generic_error">Erro</string>
+  <string name="ignore">Ignorar</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adicionar pasta</string>
@@ -25,8 +27,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="no">Não</string>
   <string name="open_website">Abrir site</string>
   <string name="toast_write_storage_permission_required">A permissão de escrita em armazenamento é obrigatória para este aplicativo</string>
-  <string name="device_rejected">O dispositivo %1$s quer se conectar</string>
-  <string name="folder_rejected">O dispostivo %1$s quer compartilhar a pasta %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Otimização de bateria</string>
   <string name="dialog_disable_battery_optimization_message">O Android poder parar a sincronização após algum tempo. Para evitar isto, desabilite a otimização de bateria.\n\nAlguns dispositivos possuem  aplicativos para \"matar\" tarefas. Você também deve adicionar o Syncthing às listas brancas deles.</string>
   <string name="dialog_disable_battery_optimization_later">Depois</string>
@@ -113,6 +113,9 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">O caminho da pasta não pode ficar vazio</string>
   <string name="dialog_discard_changes">Descartar as alterações?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Filtros</string>
   <string name="create_ignore_file_error">Não foi possível criar o arquivo de filtros. Este diretório tem permissões de escrita?</string>
   <string name="edit_ignore_file_error">Nenhum editor de texto foi encontrado</string>
@@ -213,6 +216,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="enable_relaying">Habilitar retransmissão</string>
   <string name="usage_reporting">Relatório anônimo de uso</string>
   <string name="gui_address">Endereços de escuta da interface</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Exportar configuração</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -348,6 +352,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="syncthing_disabled">O Syncthing está desabilitado</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Câmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -393,6 +398,9 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Não é possível parar o Syncthing enquanto ele estiver configurado para rodar em segundo plano.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Idade máxima</string>
   <string name="clean_out_after">Limpar depois de</string>

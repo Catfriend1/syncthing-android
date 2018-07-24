@@ -7,6 +7,8 @@
   <string name="welcome_title">Chào mừng đến với Syncthing cho Android</string>
   <!--Text for dialog displayed on first start-->
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Lỗi</string>
+  <string name="ignore">Bỏ qua</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Thêm th.mục</string>
@@ -20,8 +22,6 @@
   <string name="no">Không</string>
   <string name="open_website">Mở trang web</string>
   <string name="toast_write_storage_permission_required">Ứng dụng này cần được phép chép vào ổ lưu trữ</string>
-  <string name="device_rejected">Thiết bị %1$s muốn kết nối</string>
-  <string name="folder_rejected">Thiết bị %1$s muốn chia sẻ thư mục %2$s</string>
   <string name="dialog_disable_battery_optimization_later">Để sau</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
@@ -88,6 +88,9 @@
   <string name="folder_id_required">Không được để trống ID thư mục</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Không được để trống đường dẫn thư mục</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">ID thiết bị</string>
@@ -157,6 +160,7 @@
   <string name="local_announce_enabled">Dò tìm cục bộ</string>
   <string name="usage_reporting">Báo cáo sử dụng ẩn danh</string>
   <string name="gui_address">Các đ.chỉ lắng nghe GUI</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Xuất cấu hình</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -246,6 +250,7 @@
   <string name="syncthing_active">Syncthing đang chạy</string>
   <string name="syncthing_disabled">Đã tắt Syncthing</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-ảnh</string>
@@ -283,6 +288,9 @@
   <string name="status_outofsync">Mất đồng bộ</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
   <!--Displays the current file versioning type in the Folder activity-->

@@ -12,6 +12,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="cont">Continuare</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Exemplu</string>
+  <string name="generic_error">Eroare</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adăugare director</string>
@@ -25,8 +26,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="no">Nu</string>
   <string name="open_website">Deschide site</string>
   <string name="toast_write_storage_permission_required">Permisiunea de scriere pe spațiul de stocare este necesară acestei aplicații</string>
-  <string name="device_rejected">Dispozitivul%1$s dorește să se conecteze</string>
-  <string name="folder_rejected">Dispozitivul %1$s dorește să partajeze%2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optimizare baterie</string>
   <string name="dialog_disable_battery_optimization_message">Android poate oprii sincronizarea după un timp. Pentru a prevenii asta, opriți optimizarea bateriei.\n\nUnele dispozitive au aplicații adiționale preinstalate care pot oprii aplicațiile. Ar trebui să adăugați Syncthing și în listele lor de excepții.</string>
   <string name="dialog_disable_battery_optimization_later">Mai târziu </string>
@@ -114,6 +113,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Calea directorului nu poate fi goală</string>
   <string name="dialog_discard_changes">Eliminăm schimbările dumneavoastră?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Ignoră șabloane</string>
   <string name="create_ignore_file_error">Nu s-a putut crea fișierul de ignorare. Se poate scrie în director?</string>
   <string name="edit_ignore_file_error">Nu s-a găsit nici un editor de text</string>
@@ -214,10 +216,13 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="enable_relaying">Activează transmiterea prin relee</string>
   <string name="usage_reporting">Raport utilizare anonim</string>
   <string name="gui_address">Adresa de ascultare a interfeței</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Exportă configurația</string>
   <!--Toast after entering invalid integer value-->
+  <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Valoarea nu este validă. Vă rugăm să introduceți o valoare între %1$d și %2$d.</string>
   <!--Experimental options-->
   <string name="use_proxy">Conectare printr-un proxy</string>
+  <string name="do_not_use_proxy">Nici un proxy configurat.</string>
   <string name="keep_wakelock_while_binary_running">Ține procesorul activ când rulează</string>
   <string name="keep_wakelock_while_binary_running_summary">Folosiți această setare dacă vă confruntați cu deconectări neașteptate atunci când dispozitivul se alimentează de la baterie. Această opțiune poate duce la o creștere a consumului bateriei.</string>
   <string name="use_tor_title">Folosește Tor</string>
@@ -357,8 +362,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing rulează</string>
   <string name="syncthing_disabled">Syncthing este dezactivat</string>
+  <string name="syncthing_terminated">Syncthing a fost închis</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Camera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -404,6 +411,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Vârstă maximă</string>
   <string name="clean_out_after">Curățare după</string>

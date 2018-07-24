@@ -12,6 +12,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="cont">Weiter</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Beispiel</string>
+  <string name="generic_error">Fehler</string>
+  <string name="ignore">Ignorieren</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Verzeichnis hinzufügen</string>
@@ -25,8 +27,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="no">Nein</string>
   <string name="open_website">Webseite öffnen</string>
   <string name="toast_write_storage_permission_required">Diese App benötigt Schreibzugriff auf den Gerätespeicher</string>
-  <string name="device_rejected">Gerät \"%1$s\" möchte sich verbinden</string>
-  <string name="folder_rejected">Gerät \"%1$s\" möchte Verzeichnis \"%2$s\" teilen</string>
   <string name="dialog_disable_battery_optimization_title">Batterielaufzeit Optimierung</string>
   <string name="dialog_disable_battery_optimization_message">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern kann der Energiesparmodus deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch in die Ausnahmeliste hinzugefügt werden.</string>
   <string name="dialog_disable_battery_optimization_later">Später</string>
@@ -113,6 +113,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Der Verzeichnispfad darf nicht leer sein</string>
   <string name="dialog_discard_changes">Deine Änderungen verwerfen?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Ausschluss Muster</string>
   <string name="create_ignore_file_error">Erstellen der ignore Datei fehlgeschlagen. Kann ins Verzeichnis geschrieben werden?</string>
   <string name="edit_ignore_file_error">Texteditor nicht gefunden</string>
@@ -213,10 +216,13 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="enable_relaying">Weiterleitung aktivieren</string>
   <string name="usage_reporting">Anonymer Nutzungsbericht</string>
   <string name="gui_address">Adressen für Weboberfläche</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Konfiguration exportieren</string>
   <!--Toast after entering invalid integer value-->
+  <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Der eingegebene Wert ist ungültig. Bitte gib eine Zahl zwischen %1$d und %2$d ein.</string>
   <!--Experimental options-->
   <string name="use_proxy">Über einen Proxy verbinden</string>
+  <string name="do_not_use_proxy">Kein Proxy eingestellt.</string>
   <string name="keep_wakelock_while_binary_running">Prozessor wach halten während Syncthing läuft.</string>
   <string name="keep_wakelock_while_binary_running_summary">Nutze dieses Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
   <string name="use_tor_title">Tor benutzen</string>
@@ -236,7 +242,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Dialog shown before config export-->
   <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden? Vorhandene Dateien werden überschrieben.\n\nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
   <!--Dialog shown before config import-->
-  <string name="dialog_confirm_import">Soll wirlkich eine neue Konfiguration importiert werden? Vorhandene Dateien werden überschrieben.</string>
+  <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden? Die vorhandene Konfiguration wird überschrieben.</string>
   <!--Toast shown after config was successfully exported-->
   <string name="config_export_successful">Konfiguration exportiert nach %1$s</string>
   <string name="import_config">Konfiguration importieren</string>
@@ -349,8 +355,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing läuft</string>
   <string name="syncthing_disabled">Syncthing ist deaktiviert</string>
+  <string name="syncthing_terminated">Syncthing wurde beendet</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Erstellen der Konfigurationsdatei fehlgeschalgen</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -396,6 +404,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Syncthing zu stoppen wird nicht unterstützt solange das Ausführen im Hintergrund aktiviert ist.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Höchstalter</string>
   <string name="clean_out_after">Aufräumen nach</string>

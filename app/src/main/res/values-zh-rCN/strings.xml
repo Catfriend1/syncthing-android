@@ -11,6 +11,8 @@
 请通过 GitHub 报告任何你遇到的问题。</string>
   <string name="cont">继续</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">错误</string>
+  <string name="ignore">忽略</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">添加文件夹</string>
@@ -24,8 +26,6 @@
   <string name="no">否</string>
   <string name="open_website">打开主页</string>
   <string name="toast_write_storage_permission_required">本应用需要写存储的权限</string>
-  <string name="device_rejected">%1$s 想要连接</string>
-  <string name="folder_rejected">设备 %1$s 想要分享文件夹 %2$s</string>
   <string name="dialog_disable_battery_optimization_title">电池优化</string>
   <string name="dialog_disable_battery_optimization_message">Android 可能会在一段时间后停止同步。为防这种情况，请关闭电池优化。
 
@@ -108,6 +108,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">文件夹路径不得为空</string>
   <string name="dialog_discard_changes">放弃所做的更改？</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">忽略列表</string>
   <string name="create_ignore_file_error">创建忽略文件失败。文件夹可写吗？</string>
   <string name="edit_ignore_file_error">未找到文本编辑器</string>
@@ -204,6 +207,7 @@
   <string name="enable_relaying">启用中继</string>
   <string name="usage_reporting">匿名使用报告</string>
   <string name="gui_address">管理页监听地址</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">导出设置</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -325,6 +329,7 @@
   <string name="syncthing_disabled">Syncthing 已禁用</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">创建配置文件失败</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">摄像机</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -367,6 +372,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">当启用后台运行时不支持停止 Syncthing。</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">最长保留时间</string>
   <string name="clean_out_after">在该时间后清除</string>

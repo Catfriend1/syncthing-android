@@ -11,6 +11,7 @@ For at dele data med andre enheder, skal du tilføje deres enheds unikke ID til 
 Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="cont">Fortsæt</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Fejl</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Tilføj mappe</string>
@@ -24,8 +25,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="no">Nej</string>
   <string name="open_website">Åben Hjemmeside</string>
   <string name="toast_write_storage_permission_required">Write storage rettigheder er nødvendige for denne app.</string>
-  <string name="device_rejected">Enhed %1$s ønsker at forbinde</string>
-  <string name="folder_rejected">Enhed %1$s ønsker at dele mappe %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Batterioptimering</string>
   <string name="dialog_disable_battery_optimization_message">Android stopper måske synkroniseringen efter noget tid. For at undgå dette, vælg batterioptimering fra.\n\nNogle enheder har ekstra job-afsluttende apps installeret. Du burde også tilføje Syncthing til deres whitelist. </string>
   <string name="dialog_disable_battery_optimization_later">Senere</string>
@@ -106,6 +105,9 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Mappens sti må ikke være tom</string>
   <string name="dialog_discard_changes">Slet dine ændringer?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Ignorer-mønstre</string>
   <string name="create_ignore_file_error">Kunne ikke danne ignorer-filen. Er mappen skrivebeskyttet?</string>
   <string name="edit_ignore_file_error">Intet tekstbehandlingsprogram blev fundet</string>
@@ -202,6 +204,7 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="enable_relaying">Aktiver Relaying</string>
   <string name="usage_reporting">Anonym Forburgsrapportering</string>
   <string name="gui_address">GUI Listen Addresser</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Eksporter Konfigurering</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -322,6 +325,7 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="syncthing_active">Syncthing kører</string>
   <string name="syncthing_disabled">Syncthing er slået fra</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -363,6 +367,9 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">At stoppe Syncthing er ikke understøttet når kørsel i baggrunden er aktiveret.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Maksimal Alder</string>
   <string name="clean_out_after">Gør rent efter</string>

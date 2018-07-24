@@ -11,6 +11,8 @@
 Ако срещнете проблем моля докладвайте в Github.</string>
   <string name="cont">Напред</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Грешка</string>
+  <string name="ignore">Игнориране</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Добави папка</string>
@@ -24,8 +26,6 @@
   <string name="no">Не</string>
   <string name="open_website">Отвори уеб сайта</string>
   <string name="toast_write_storage_permission_required">Приложението изисква права за записване в хранилището на данни</string>
-  <string name="device_rejected">Заявка за връзка от %1$s</string>
-  <string name="folder_rejected">Устройство %1$s споделя папка %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Пестене на батерия</string>
   <string name="dialog_disable_battery_optimization_later">По-късно</string>
   <string name="dialog_disable_battery_optimization_dont_show_again">Без повторно запитване</string>
@@ -98,6 +98,9 @@
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Наложително е да въведете път до папката</string>
   <string name="dialog_discard_changes">Отказвате ли се от направените промени?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <!--DeviceActivity-->
   <!--Setting title-->
   <string name="device_id">Идентификатор на устройството</string>
@@ -175,6 +178,7 @@
   <string name="enable_relaying">Разрешава препращане</string>
   <string name="usage_reporting"> Анонимен доклад за ползване на програмата</string>
   <string name="gui_address">Адрес за свързване с потребителския интерфейс</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Изнасяне на настройките</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -264,6 +268,7 @@
   <string name="syncthing_active">Syncthing работи</string>
   <string name="syncthing_disabled">Syncthing не работи</string>
   <!--Toast shown if syncthing failed to create a config-->
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -302,6 +307,9 @@
   <string name="status_outofsync">Несинхронизирано</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="file_versioning">Версии на файловете</string>
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->

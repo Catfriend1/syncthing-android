@@ -12,6 +12,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="cont">Continuer</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Exemple</string>
+  <string name="generic_error">Erreur</string>
+  <string name="ignore">Ignorer</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Ajouter un partage</string>
@@ -25,8 +27,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="no">Non</string>
   <string name="open_website">Ouvrir le site WEB</string>
   <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application.</string>
-  <string name="device_rejected">L\'appareil %1$s veut se connecter</string>
-  <string name="folder_rejected">L\'appareil %1$s veut partager %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optimisation de la batterie</string>
   <string name="dialog_disable_battery_optimization_message">Android peut arrêter la synchronisation après un certain temps.  Pour éviter cela, désactivez l\'optimisation de la batterie.\n\nCertains appareils disposent d\'applications préinstallées pour tuer les tâches.  Vous devrez ajouter Syncthing à leur liste blanche.</string>
   <string name="dialog_disable_battery_optimization_later">Plus tard</string>
@@ -113,6 +113,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Le chemin du répertoire ne doit pas être vide</string>
   <string name="dialog_discard_changes">Annuler vos modifications ?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Ignorer les exclusions</string>
   <string name="create_ignore_file_error">Création de fichier échoué, fichier ignoré. Le répertoire est-il accessible en écriture ?</string>
   <string name="edit_ignore_file_error">Editeur de texte non trouvé</string>
@@ -213,10 +216,13 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="enable_relaying">Activer le relayage</string>
   <string name="usage_reporting">Rapports anonymes d\'utilisation</string>
   <string name="gui_address">Adresse pour l\'interface WEB</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Exporter la configuration</string>
   <!--Toast after entering invalid integer value-->
+  <string name="invalid_integer_value" tools:ignore="PluralsCandidate">La valeur entrée ne convient pas. SVP, entrez une valeur comprise entre %1$det %2$d.</string>
   <!--Experimental options-->
   <string name="use_proxy">Se connecter via un proxy</string>
+  <string name="do_not_use_proxy">Aucun proxy configuré</string>
   <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
   <string name="keep_wakelock_while_binary_running_summary">Utilisez ce paramètre si vous rencontrez des déconnexions inattendues en fonctionnant sur batterie. Il en résultera une augmentation de la consommation de la batterie.</string>
   <string name="use_tor_title">Utiliser Tor</string>
@@ -353,8 +359,10 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Title of the notification shown while syncthing is running and enabled-->
   <string name="syncthing_active">Syncthing fonctionne</string>
   <string name="syncthing_disabled">Syncthing est désactivé</string>
+  <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Echec de création du fichier de configuration</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Caméra</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -400,6 +408,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">L\'arrêt de Syncthing n\'est pas supporté quand le fonctionnement en tâche de fond est activé.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Age maximum</string>
   <string name="clean_out_after">Nettoyer après</string>

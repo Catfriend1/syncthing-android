@@ -11,6 +11,8 @@ Aby udostępnić dane innemu urządzeniu, należy dodać jego unikalny identyfik
 Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.</string>
   <string name="cont">Kontynuuj</string>
   <!--Generic texts used everywhere-->
+  <string name="generic_error">Błąd</string>
+  <string name="ignore">Ignoru</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Dodaj katalog</string>
@@ -24,8 +26,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="no">Nie</string>
   <string name="open_website">Otwórz stronę internetową</string>
   <string name="toast_write_storage_permission_required">Wymagane zezwolenie na zapisywanie do pamięci zewnętrznej</string>
-  <string name="device_rejected">Urządzenie %1$s chce nawiązać połączenie</string>
-  <string name="folder_rejected">Urządzenie %1$s chce udostępnić katalog %2$s</string>
   <string name="dialog_disable_battery_optimization_title">Optymalizacja akumulatora</string>
   <string name="dialog_disable_battery_optimization_message">Android może wstrzymać synchronizację po pewnym czasie. By temu zapobiedz, wyłącz optymalizację baterii.\n\nNiektóre urządzenia posiadają dodatkowe preinstalowane aplikacje zatrzymujące zadania - dobrze byłoby dopisać Syncthing do listy ich wyjątków.</string>
   <string name="dialog_disable_battery_optimization_later">Później</string>
@@ -109,6 +109,9 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Ścieżka katalogu nie może być pusta</string>
   <string name="dialog_discard_changes">Porzucić zmiany?</string>
+  <!--Summary shown if we only have readonly access to the folder path-->
+  <!--Summary shown if we only have readwrite access to the folder path-->
+  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
   <string name="ignore_patterns">Wzorce ignorowania</string>
   <string name="create_ignore_file_error">Nie powiodło się tworzenie pliku ze wzorcami ignorowania. Czy do folderu można zapisywać?</string>
   <string name="edit_ignore_file_error">Nie znaleziono edytora tekstu</string>
@@ -200,6 +203,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="enable_relaying">Włącz przekazywanie</string>
   <string name="usage_reporting">Anonimowe statystyki użycia</string>
   <string name="gui_address">Adres nasłuchiwania</string>
+  <!--Titles for the preference to undo ignored devices and folders-->
   <string name="export_config">Eksportuj ustawienia</string>
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -330,6 +334,7 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="syncthing_disabled">Syncthing jest wyłączony</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego</string>
+  <!--Toast shown if a config file crucial to operation is missing-->
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -372,6 +377,9 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Zatrzymywanie programu nie jest obsługiwane podczas działania w tle.</string>
+  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <!--Displays the current pull order type in the Folder activity-->
+  <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Maksymalny wiek</string>
   <string name="clean_out_after">Posprzątaj po</string>
