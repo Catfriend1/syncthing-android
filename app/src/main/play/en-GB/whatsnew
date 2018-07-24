@@ -1,2 +1,6 @@
-* Update syncthing to 0.14.48
-* Various fixes
+* Update syncthing to v0.14.49
+* Various bug and crash fixes
+* Expose folder errors in Android UI
+* Add Override changes button for send-only folders
+* Add pull order to folder creation dialog
+* Add option to undo ignoring device connection/folder share requests
