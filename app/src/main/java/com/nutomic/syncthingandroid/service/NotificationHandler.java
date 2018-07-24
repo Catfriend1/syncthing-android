@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.FirstStartActivity;
 import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService.State;
 
 import javax.inject.Inject;
@@ -96,7 +98,7 @@ public class NotificationHandler {
         // is not killed, and we don't miss wifi/charging events.
         // On Android 8, this behaviour is mandatory to receive broadcasts.
         // https://stackoverflow.com/a/44505719/1837158
-        boolean foreground = DeviceStateHolder.alwaysRunInBackground(mContext);
+        boolean foreground = mPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
 
         // Foreground priority requires a notification so this ensures that we either have a
         // "default" or "low_priority" notification, but not "none".
@@ -158,7 +160,7 @@ public class NotificationHandler {
     }
 
     public void cancelPersistentNotification(SyncthingService service) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && DeviceStateHolder.alwaysRunInBackground(mContext))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && alwaysRunInBackground())
             return;
 
         service.stopForeground(false);
@@ -277,5 +279,10 @@ public class NotificationHandler {
             nb.setCategory(Notification.CATEGORY_ERROR);
         }
         mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
+    }
+
+    private boolean alwaysRunInBackground() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
+        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
     }
 }

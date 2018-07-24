@@ -3,9 +3,11 @@ package com.nutomic.syncthingandroid.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 
-import com.nutomic.syncthingandroid.service.DeviceStateHolder;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
 public class BootReceiver extends BroadcastReceiver {
@@ -16,7 +18,7 @@ public class BootReceiver extends BroadcastReceiver {
                 !intent.getAction().equals(Intent.ACTION_MY_PACKAGE_REPLACED))
             return;
 
-        if (!DeviceStateHolder.alwaysRunInBackground(context))
+        if (!alwaysRunInBackground(context))
             return;
 
         startServiceCompat(context);
@@ -35,5 +37,10 @@ public class BootReceiver extends BroadcastReceiver {
         else {
             context.startService(intent);
         }
+    }
+
+    private static boolean alwaysRunInBackground(Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
     }
 }

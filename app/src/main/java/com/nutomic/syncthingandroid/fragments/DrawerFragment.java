@@ -1,7 +1,9 @@
 package com.nutomic.syncthingandroid.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -22,7 +24,6 @@ import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.SystemInfo;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
-import com.nutomic.syncthingandroid.service.DeviceStateHolder;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Util;
@@ -115,7 +116,7 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
     }
 
     private void updateExitButtonVisibility() {
-        boolean alwaysInBackground = DeviceStateHolder.alwaysRunInBackground(getActivity());
+        boolean alwaysInBackground = alwaysRunInBackground();
         mExitButton.setVisibility(alwaysInBackground ? View.GONE : View.VISIBLE);
     }
 
@@ -253,5 +254,10 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
                 showQrCode();
                 break;
         }
+    }
+
+    private boolean alwaysRunInBackground() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
     }
 }

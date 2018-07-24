@@ -119,7 +119,7 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * Initialize the service with State.DISABLED as {@link DeviceStateHolder} will
+     * Initialize the service with State.DISABLED as {@link RunConditionMonitor} will
      * send an update if we should run the binary after it got instantiated in
      * {@link onStartCommand}.
      */
@@ -129,7 +129,7 @@ public class SyncthingService extends Service {
     private @Nullable PollWebGuiAvailableTask mPollWebGuiAvailableTask = null;
     private @Nullable RestApi mApi = null;
     private @Nullable EventProcessor mEventProcessor = null;
-    private @Nullable DeviceStateHolder mDeviceStateHolder = null;
+    private @Nullable RunConditionMonitor mRunConditionMonitor = null;
     private @Nullable SyncthingRunnable mSyncthingRunnable = null;
     private StartupTask mStartupTask = null;
     private Thread mSyncthingRunnableThread = null;
@@ -184,9 +184,7 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * Handles intents, either {@link #ACTION_RESTART}, or intents having
-     * {@link DeviceStateHolder#EXTRA_IS_ALLOWED_NETWORK_CONNECTION} or
-     * {@link DeviceStateHolder#EXTRA_IS_CHARGING} (which are handled by {@link DeviceStateHolder}.
+     * Handles intent actions, e.g. {@link #ACTION_RESTART}
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -203,7 +201,7 @@ public class SyncthingService extends Service {
         /**
          * Send current service state to listening endpoints.
          * This is required that components know about the service State.DISABLED
-         * if DeviceStateHolder does not send a "shouldRun = true" callback
+         * if RunConditionMonitor does not send a "shouldRun = true" callback
          * to start the binary according to preferences shortly after its creation.
          * See {@link mLastDeterminedShouldRun} defaulting to "false".
          */
@@ -212,14 +210,14 @@ public class SyncthingService extends Service {
                 onServiceStateChange(mCurrentState);
             }
         }
-        if (mDeviceStateHolder == null) {
+        if (mRunConditionMonitor == null) {
             /**
              * Instantiate the run condition monitor on first onStartCommand and
              * enable callback on run condition change affecting the final decision to
              * run/terminate syncthing. After initial run conditions are collected
              * the first decision is sent to {@link onUpdatedShouldRunDecision}.
              */
-            mDeviceStateHolder = new DeviceStateHolder(SyncthingService.this, this::onUpdatedShouldRunDecision);
+            mRunConditionMonitor = new RunConditionMonitor(SyncthingService.this, this::onUpdatedShouldRunDecision);
         }
         mNotificationHandler.updatePersistentNotification(this);
 
@@ -239,7 +237,7 @@ public class SyncthingService extends Service {
                 launchStartupTask();
             });
         } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
-            mDeviceStateHolder.updateShouldRunDecision();
+            mRunConditionMonitor.updateShouldRunDecision();
         } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             // mApi is not null due to State.ACTIVE
             mApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
@@ -255,7 +253,7 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * After run conditions monitored by {@link DeviceStateHolder} changed and
+     * After run conditions monitored by {@link RunConditionMonitor} changed and
      * it had an influence on the decision to run/terminate syncthing, this
      * function is called to notify this class to run/terminate the syncthing binary.
      * {@link #onServiceStateChange} is called while applying the decision change.
@@ -439,17 +437,17 @@ public class SyncthingService extends Service {
 
     /**
      * Stops the native binary.
-     * Shuts down DeviceStateHolder instance.
+     * Shuts down RunConditionMonitor instance.
      */
     @Override
     public void onDestroy() {
         Log.v(TAG, "onDestroy");
-        if (mDeviceStateHolder != null) {
+        if (mRunConditionMonitor != null) {
             /**
              * Shut down the OnDeviceStateChangedListener so we won't get interrupted by run
              * condition events that occur during shutdown.
              */
-            mDeviceStateHolder.shutdown();
+            mRunConditionMonitor.shutdown();
         }
         if (mStoragePermissionGranted) {
             synchronized (mStateLock) {
