@@ -437,6 +437,8 @@ public class FolderActivity extends SyncthingActivity
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
                     mFolderUri != null &&
+                    mFolder != null &&
+                    mFolder.type != null &&
                     mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY)) {
                     /**
                      * Normally, syncthing takes care of creating the ".stfolder" marker.
