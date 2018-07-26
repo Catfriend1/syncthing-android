@@ -436,10 +436,17 @@ public class FolderActivity extends SyncthingActivity
                     return true;
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
-                    mFolderUri != null &&
-                    mFolder != null &&
-                    mFolder.type != null &&
-                    mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY)) {
+                    mFolderUri != null) {
+                    if (mFolder == null) {
+                        Log.e(TAG, "mFolder == null");
+                    }
+                    if (mFolder.type == null) {
+                        Log.e(TAG, "mFolder.type == null");
+                    }
+                    if (mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY)) {
+                        Log.e(TAG, "mFolder.type == Constants.FOLDER_TYPE_SEND_ONLY");
+                    }
+
                     /**
                      * Normally, syncthing takes care of creating the ".stfolder" marker.
                      * This fails on newer android versions if the syncthing binary only has
