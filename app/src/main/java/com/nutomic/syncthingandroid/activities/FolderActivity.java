@@ -572,6 +572,7 @@ public class FolderActivity extends SyncthingActivity
         }
         return sb.toString();
     }
+
     private void initFolder() {
         mFolder = new Folder();
         mFolder.id = (getIntent().hasExtra(EXTRA_FOLDER_ID))
@@ -586,6 +587,7 @@ public class FolderActivity extends SyncthingActivity
          */
         mFolder.rescanIntervalS = 3600;
         mFolder.paused = false;
+        mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;
         mFolder.versioning = new Folder.Versioning();
     }
 
