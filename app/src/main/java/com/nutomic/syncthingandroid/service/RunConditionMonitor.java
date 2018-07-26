@@ -13,7 +13,6 @@ import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.PowerManager;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -34,7 +33,7 @@ import javax.inject.Inject;
  * This information is actively read on instance creation, and then updated from intents
  * that are passed with {@link #ACTION_DEVICE_STATE_CHANGED}.
  */
-public class RunConditionMonitor implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class RunConditionMonitor {
 
     private static final String TAG = "RunConditionMonitor";
 
@@ -60,7 +59,6 @@ public class RunConditionMonitor implements SharedPreferences.OnSharedPreference
         Log.v(TAG, "Created new instance");
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         mContext = context;
-        mPreferences.registerOnSharedPreferenceChangeListener(this);
         mOnRunConditionChangedListener = listener;
 
         /**
@@ -88,20 +86,7 @@ public class RunConditionMonitor implements SharedPreferences.OnSharedPreference
 
     public void shutdown() {
         Log.v(TAG, "Shutting down");
-        mPreferences.unregisterOnSharedPreferenceChangeListener(this);
         mReceiverManager.unregisterAllReceivers(mContext);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        List<String> watched = Lists.newArrayList(
-            Constants.PREF_SYNC_ONLY_CHARGING,
-            Constants.PREF_SYNC_ONLY_WIFI, Constants.PREF_RESPECT_BATTERY_SAVING,
-            Constants.PREF_SYNC_ONLY_WIFI_SSIDS);
-        if (watched.contains(key)) {
-            // Force a re-evaluation of which run conditions apply according to the changed prefs.
-            updateShouldRunDecision();
-        }
     }
 
     private class BatteryReceiver extends BroadcastReceiver {

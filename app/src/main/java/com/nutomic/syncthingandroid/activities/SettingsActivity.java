@@ -88,6 +88,7 @@ public class SettingsActivity extends SyncthingActivity {
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
 
+        private Preference         mCategoryRunConditions;
         private CheckBoxPreference mAlwaysRunInBackground;
         private CheckBoxPreference mSyncOnlyCharging;
         private CheckBoxPreference mSyncOnlyWifi;
@@ -125,6 +126,12 @@ public class SettingsActivity extends SyncthingActivity {
         private Config.Gui mGui;
 
         private Boolean mPendingConfig = false;
+
+        /**
+         * Indicates if run conditions were changed and need to be
+         * re-evaluated when the user leaves the preferences screen.
+         */
+        private Boolean mPendingRunConditions = false;
 
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -210,10 +217,11 @@ public class SettingsActivity extends SyncthingActivity {
             Preference appVersion   = screen.findPreference("app_version");
 
             mSyncOnlyOnSSIDs.setEnabled(mSyncOnlyWifi.isChecked());
-            setPreferenceCategoryChangeListener(findPreference("category_run_conditions"), this);
 
             mCategorySyncthingOptions = findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
+            mCategoryRunConditions = findPreference("category_run_conditions");
+            setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
 
             exportConfig.setOnPreferenceClickListener(this);
             importConfig.setOnPreferenceClickListener(this);
@@ -307,6 +315,30 @@ public class SettingsActivity extends SyncthingActivity {
             }
         }
 
+        public boolean onRunConditionPreferenceChange(Preference preference, Object o) {
+            switch (preference.getKey()) {
+                case Constants.PREF_ALWAYS_RUN_IN_BACKGROUND:
+                    boolean value = (Boolean) o;
+                    mAlwaysRunInBackground.setSummary((value)
+                            ? R.string.always_run_in_background_enabled
+                            : R.string.always_run_in_background_disabled);
+                    mSyncOnlyCharging.setEnabled(value);
+                    mSyncOnlyWifi.setEnabled(value);
+                    mSyncOnlyOnSSIDs.setEnabled(false);
+                    // Uncheck items when disabled, so it is clear they have no effect.
+                    if (!value) {
+                        mSyncOnlyCharging.setChecked(false);
+                        mSyncOnlyWifi.setChecked(false);
+                    }
+                    break;
+                case Constants.PREF_SYNC_ONLY_WIFI:
+                    mSyncOnlyOnSSIDs.setEnabled((Boolean) o);
+                    break;
+            }
+            mPendingRunConditions = true;
+            return true;
+        }
+
         public boolean onSyncthingPreferenceChange(Preference preference, Object o) {
             Splitter splitter = Splitter.on(",").trimResults().omitEmptyStrings();
             switch (preference.getKey()) {
@@ -385,6 +417,11 @@ public class SettingsActivity extends SyncthingActivity {
                     mPendingConfig = false;
                 }
             }
+            if (mPendingRunConditions) {
+                if (mSyncthingService != null) {
+                    mSyncthingService.evaluateRunConditions();
+                }
+            }
             super.onStop();
         }
 
@@ -395,23 +432,6 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object o) {
             switch (preference.getKey()) {
-                case Constants.PREF_ALWAYS_RUN_IN_BACKGROUND:
-                    boolean value = (Boolean) o;
-                    mAlwaysRunInBackground.setSummary((value)
-                            ? R.string.always_run_in_background_enabled
-                            : R.string.always_run_in_background_disabled);
-                    mSyncOnlyCharging.setEnabled(value);
-                    mSyncOnlyWifi.setEnabled(value);
-                    mSyncOnlyOnSSIDs.setEnabled(false);
-                    // Uncheck items when disabled, so it is clear they have no effect.
-                    if (!value) {
-                        mSyncOnlyCharging.setChecked(false);
-                        mSyncOnlyWifi.setChecked(false);
-                    }
-                    break;
-                case Constants.PREF_SYNC_ONLY_WIFI:
-                    mSyncOnlyOnSSIDs.setEnabled((Boolean) o);
-                    break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
                     break;
