@@ -572,6 +572,7 @@ public class FolderActivity extends SyncthingActivity
         }
         return sb.toString();
     }
+
     private void initFolder() {
         mFolder = new Folder();
         mFolder.id = (getIntent().hasExtra(EXTRA_FOLDER_ID))
