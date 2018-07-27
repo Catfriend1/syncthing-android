@@ -153,11 +153,10 @@ public class Util {
             }
             Log.i(TAG, "Failed to write test file '" + touchFile +
                 "', " + error);
-            return false;
+        } else {
+            // Detected we have write permission.
+            Log.i(TAG, "Successfully wrote test file '" + touchFile + "'");
         }
-
-        // Detected we have write permission.
-        Log.i(TAG, "Successfully wrote test file '" + touchFile + "'");
 
         // Remove test file.
         if (runShellCommand("rm \"" + touchFile + "\"\n", useRoot) != 0) {
