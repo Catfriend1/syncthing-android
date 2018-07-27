@@ -13,6 +13,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Generic texts used everywhere-->
   <string name="generic_example">Beispiel</string>
   <string name="generic_error">Fehler</string>
+  <string name="accept">Annehmen</string>
   <string name="ignore">Ignorieren</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -27,6 +28,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="no">Nein</string>
   <string name="open_website">Webseite öffnen</string>
   <string name="toast_write_storage_permission_required">Diese App benötigt Schreibzugriff auf den Gerätespeicher</string>
+  <string name="device_rejected">Gerät \"%1$s\" möchte sich verbinden</string>
+  <string name="folder_rejected">Gerät \"%1$s\" möchte Verzeichnis \"%2$s\" teilen</string>
   <string name="dialog_disable_battery_optimization_title">Batterielaufzeit Optimierung</string>
   <string name="dialog_disable_battery_optimization_message">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern kann der Energiesparmodus deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch in die Ausnahmeliste hinzugefügt werden.</string>
   <string name="dialog_disable_battery_optimization_later">Später</string>
@@ -48,6 +51,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <item quantity="one">%1$d / %2$d Datei</item>
     <item quantity="other">%1$d / %2$d Dateien</item>
   </plurals>
+  <string name="override_changes">Änderungen überschreiben</string>
   <string name="open_file_manager">Dateimanager öffnen</string>
   <string name="toast_no_file_manager">Kein kompatibler Dateimanager gefunden</string>
   <!--DevicesFragment-->
@@ -114,8 +118,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="folder_path_required">Der Verzeichnispfad darf nicht leer sein</string>
   <string name="dialog_discard_changes">Deine Änderungen verwerfen?</string>
   <!--Summary shown if we only have readonly access to the folder path-->
+  <string name="folder_path_readonly">Deine Android-Version erlaubt Syncthing nur schreibgeschützten Zugriff auf den ausgewählten Ordner.</string>
   <!--Summary shown if we only have readwrite access to the folder path-->
+  <string name="folder_path_readwrite">Deine Android-Version erlaubt Syncthing Lese- und Schreibzugriff auf den ausgewählten Ordner.</string>
   <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
+  <string name="toast_invalid_folder_selected">Entschuldigung. Der ausgewählte Ordner kann nicht verwendet werden. Bitte wähle einen Ordner auf dem internen oder externen Speicher aus.</string>
   <string name="ignore_patterns">Ausschluss Muster</string>
   <string name="create_ignore_file_error">Erstellen der ignore Datei fehlgeschlagen. Kann ins Verzeichnis geschrieben werden?</string>
   <string name="edit_ignore_file_error">Texteditor nicht gefunden</string>
@@ -180,7 +187,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Bitte gewähre die Standort-Berechtigung, um diese Funktion nutzen zu können.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Berechtigung benötigt</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Mit Android 8.1 beginnend wird der Standortzugriff dazu benötigt, den WLAN-Namen zu ermitteln. Daher kann diese Funktion nur genutzt werden, wenn diese Berechtigung erteilt wird.</string>
-  <string name="respect_battery_saving_title">Android Energiesparmodus Einstellung berücksichtigen</string>
+  <string name="respect_battery_saving_title">Berücksichtige Android Energiesparmodus</string>
   <string name="respect_battery_saving_summary">Syncthing deaktivieren wenn Energiesparmodus aktiv ist</string>
   <string name="advanced_folder_picker">Erweiterte Verzeichnisauswahl benutzen</string>
   <string name="advanced_folder_picker_summary">Alle Verzeichnisse auf dem Gerät für Synchronisation auswählbar</string>
@@ -198,6 +205,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="start_into_web_gui_title">Beim Start direkt die Weboberfläche öffnen</string>
   <string name="start_into_web_gui_summary">Beim Start der App die Weboberfläche anstelle des Hauptfensters öffnen</string>
   <string name="pref_language_default">Standardsprache</string>
+  <string-array name="pull_order_types">
+    <item>Zufall</item>
+    <item>Alphabetisch</item>
+    <item>Kleinstes zuerst</item>
+    <item>Größtes zuerst</item>
+    <item>Älteste zuerst</item>
+    <item>Neueste zuerst</item>
+  </string-array>
   <string-array name="versioning_types">
     <item>Keine</item>
     <item>Papierkorb</item>
@@ -217,6 +232,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="usage_reporting">Anonymer Nutzungsbericht</string>
   <string name="gui_address">Adressen für Weboberfläche</string>
   <!--Titles for the preference to undo ignored devices and folders-->
+  <string name="undo_ignored_devices_folders_title">Mache Ignorieren von Geräten und Ordnern rückgängig</string>
+  <string name="undo_ignored_devices_folders_question">Dies macht vorherige Entscheidungen, Geräte und Ordner zu ignorieren, rückgängig. Fortfahren?</string>
+  <string name="undo_ignored_devices_folders_done">Entscheidungen erfolgreich rückgängig gemacht.</string>
   <string name="export_config">Konfiguration exportieren</string>
   <!--Toast after entering invalid integer value-->
   <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Der eingegebene Wert ist ungültig. Bitte gib eine Zahl zwischen %1$d und %2$d ein.</string>
@@ -347,7 +365,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing ist deaktiviert</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Sollen die Voreinstellungen ändern werden?</string>
+  <string name="syncthing_disabled_message">Möchtest du die Laufkonditionen anpassen?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Einstellungen ändern</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -359,6 +377,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Erstellen der Konfigurationsdatei fehlgeschalgen</string>
   <!--Toast shown if a config file crucial to operation is missing-->
+  <string name="config_file_missing">Eine für den Betrieb wichtige Konfigurationsdatei fehlt</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -405,8 +424,21 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Syncthing zu stoppen wird nicht unterstützt solange das Ausführen im Hintergrund aktiviert ist.</string>
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <string name="pull_order">Dateiübertragungsreihenfolge</string>
   <!--Displays the current pull order type in the Folder activity-->
+  <string name="pull_order_type_random">Zufall</string>
+  <string name="pull_order_type_alphabetic">Alphabetisch</string>
+  <string name="pull_order_type_smallestFirst">Kleinstes zuerst</string>
+  <string name="pull_order_type_largestFirst">Größtes zuerst</string>
+  <string name="pull_order_type_oldestFirst">Älteste zuerst</string>
+  <string name="pull_order_type_newestFirst">Neueste zuerst</string>
   <!--Pull order dialog descriptions for pull order types-->
+  <string name="pull_order_type_random_description">Übertrage Dateien in zufälliger Reihenfolge.</string>
+  <string name="pull_order_type_alphabetic_description">Übertrage Dateien alphabetisch nach Dateiname geordnet.</string>
+  <string name="pull_order_type_smallestFirst_description">Übertrage Dateien geordnet nach Dateigröße. Kleinste zuerst.</string>
+  <string name="pull_order_type_largestFirst_description">Übertrage Dateien geordnet nach Dateigröße. Größte zuerst.</string>
+  <string name="pull_order_type_oldestFirst_description">Übertrage Dateien geordnet nach Änderungsdatum. Älteste zuerst.</string>
+  <string name="pull_order_type_newestFirst_description">Übertrage Dateien geordnet nach Änderungsdatum. Neueste zuerst.</string>
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Höchstalter</string>
   <string name="clean_out_after">Aufräumen nach</string>

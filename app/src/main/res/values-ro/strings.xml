@@ -13,6 +13,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Generic texts used everywhere-->
   <string name="generic_example">Exemplu</string>
   <string name="generic_error">Eroare</string>
+  <string name="accept">Acceptă</string>
+  <string name="ignore">Ignoră</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Adăugare director</string>
@@ -26,6 +28,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="no">Nu</string>
   <string name="open_website">Deschide site</string>
   <string name="toast_write_storage_permission_required">Permisiunea de scriere pe spațiul de stocare este necesară acestei aplicații</string>
+  <string name="device_rejected">Dispozitivul \"%1$s\" dorește să se conecteze</string>
+  <string name="folder_rejected">Dispozitivul \"%1$s\" dorește să partajeze directorul \"%2$s\"</string>
   <string name="dialog_disable_battery_optimization_title">Optimizare baterie</string>
   <string name="dialog_disable_battery_optimization_message">Android poate oprii sincronizarea după un timp. Pentru a prevenii asta, opriți optimizarea bateriei.\n\nUnele dispozitive au aplicații adiționale preinstalate care pot oprii aplicațiile. Ar trebui să adăugați Syncthing și în listele lor de excepții.</string>
   <string name="dialog_disable_battery_optimization_later">Mai târziu </string>
@@ -48,6 +52,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <item quantity="few">%1$d / %2$d fișiere</item>
     <item quantity="other">%1$d / %2$d de fișiere</item>
   </plurals>
+  <string name="override_changes">Suprascrie schimbări</string>
   <string name="open_file_manager">Deschide managerul de fișiere</string>
   <string name="toast_no_file_manager">Nici un manager de fișiere compatibil găsit</string>
   <!--DevicesFragment-->
@@ -114,8 +119,11 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="folder_path_required">Calea directorului nu poate fi goală</string>
   <string name="dialog_discard_changes">Eliminăm schimbările dumneavoastră?</string>
   <!--Summary shown if we only have readonly access to the folder path-->
+  <string name="folder_path_readonly">Versiunea dumneavoastră de Android a permis Synthing numai acces citire pentru directorul selectat.</string>
   <!--Summary shown if we only have readwrite access to the folder path-->
+  <string name="folder_path_readwrite">Versiunea dumneavoastră de Android a permis Synthing acces citire și scriere pentru directorul selectat.</string>
   <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
+  <string name="toast_invalid_folder_selected">Ne pare rău. Directorul selectat nu poate fi folosit. Vă rugăm să alegeți un director localizat pe stocarea internă sau externă.</string>
   <string name="ignore_patterns">Ignoră șabloane</string>
   <string name="create_ignore_file_error">Nu s-a putut crea fișierul de ignorare. Se poate scrie în director?</string>
   <string name="edit_ignore_file_error">Nu s-a găsit nici un editor de text</string>
@@ -198,6 +206,14 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="start_into_web_gui_title">Pornire direct în interfața web</string>
   <string name="start_into_web_gui_summary">Când aplicația pornește se deschide direct interfața web în loc de ecranul principal</string>
   <string name="pref_language_default">Limba implicită</string>
+  <string-array name="pull_order_types">
+    <item>Aleator</item>
+    <item>Alfabetic</item>
+    <item>Cel mai mic întâi</item>
+    <item>Cel mai mare întâi</item>
+    <item>Cel mai vechi întâi</item>
+    <item>Cel mai nou intâi</item>
+  </string-array>
   <string-array name="versioning_types">
     <item>Nici unu</item>
     <item>Coș de gunoi</item>
@@ -217,6 +233,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="usage_reporting">Raport utilizare anonim</string>
   <string name="gui_address">Adresa de ascultare a interfeței</string>
   <!--Titles for the preference to undo ignored devices and folders-->
+  <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
+  <string name="undo_ignored_devices_folders_question">Această acțiune va reface decizia precedentă de ignorare a dispozitivelor și directoarelor. Continuați?</string>
+  <string name="undo_ignored_devices_folders_done">Acțiune refăcută cu succes.</string>
   <string name="export_config">Exportă configurația</string>
   <!--Toast after entering invalid integer value-->
   <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Valoarea nu este validă. Vă rugăm să introduceți o valoare între %1$d și %2$d.</string>
@@ -366,6 +385,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
   <!--Toast shown if a config file crucial to operation is missing-->
+  <string name="config_file_missing">Un fișier de configurare esențial pentru această operație lipsește</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Camera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -412,8 +432,21 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată</string>
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
+  <string name="pull_order">Ordinea de preluare a fișierelor</string>
   <!--Displays the current pull order type in the Folder activity-->
+  <string name="pull_order_type_random">Aleator</string>
+  <string name="pull_order_type_alphabetic">Alfabetic</string>
+  <string name="pull_order_type_smallestFirst">Cel mai mic întâi</string>
+  <string name="pull_order_type_largestFirst">Cel mai mare întâi</string>
+  <string name="pull_order_type_oldestFirst">Cel mai vechi întâi</string>
+  <string name="pull_order_type_newestFirst">Cel mai nou întâi</string>
   <!--Pull order dialog descriptions for pull order types-->
+  <string name="pull_order_type_random_description">Preluare fișiere în ordine aleatoare</string>
+  <string name="pull_order_type_alphabetic_description">Preluare fișiere după nume, în ordine alfabetică.</string>
+  <string name="pull_order_type_smallestFirst_description">Preluare fișiere în funcție de mărime. Cele mai mici primele.</string>
+  <string name="pull_order_type_largestFirst_description">Preluare fișiere în funcție de mărime. Cele mai mari primele.</string>
+  <string name="pull_order_type_oldestFirst_description">Preluare fișiere în funcție de data modificării. Cele mai vechi primele.</string>
+  <string name="pull_order_type_newestFirst_description">Preluare fișiere în funcție de data modificării. Cele mai noi primele.</string>
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Vârstă maximă</string>
   <string name="clean_out_after">Curățare după</string>
