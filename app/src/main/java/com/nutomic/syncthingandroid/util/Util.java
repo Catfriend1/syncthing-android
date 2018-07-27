@@ -15,9 +15,11 @@ import android.widget.Toast;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 
 import eu.chainfire.libsuperuser.Shell;
@@ -178,9 +180,10 @@ public class Util {
         try {
             shellProc = Runtime.getRuntime().exec((useRoot) ? "su" : "sh");
             shellOut = new DataOutputStream(shellProc.getOutputStream());
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(shellOut));
             Log.d(TAG, "runShellCommand: " + cmd);
-            shellOut.writeBytes(cmd);
-            shellOut.flush();
+            bufferedWriter.write(cmd);
+            bufferedWriter.flush();
             shellOut.close();
             shellOut = null;
             exitCode = shellProc.waitFor();
