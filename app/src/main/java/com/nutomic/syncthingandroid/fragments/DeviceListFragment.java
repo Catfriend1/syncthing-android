@@ -15,6 +15,7 @@ import com.nutomic.syncthingandroid.activities.DeviceActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.views.DevicesAdapter;
 
@@ -78,10 +79,17 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
      */
     private void updateList() {
         SyncthingActivity activity = (SyncthingActivity) getActivity();
-        if (activity == null || activity.getApi() == null || !activity.getApi().isConfigLoaded() ||
-                getView() == null || activity.isFinishing())
+        if (activity == null || getView() == null || activity.isFinishing()) {
             return;
-
+        }
+        RestApi restApi = activity.getApi();
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            return;
+        }
+        List<Device> devices = restApi.getDevices(false);
+        if (devices == null) {
+            return;
+        }
         if (mAdapter == null) {
             mAdapter = new DevicesAdapter(activity);
             setListAdapter(mAdapter);
@@ -90,10 +98,9 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         // Prevent scroll position reset due to list update from clear().
         mAdapter.setNotifyOnChange(false);
         mAdapter.clear();
-        List<Device> devices = activity.getApi().getDevices(false);
         Collections.sort(devices, DEVICES_COMPARATOR);
         mAdapter.addAll(devices);
-        mAdapter.updateConnections(activity.getApi());
+        mAdapter.updateConnections(restApi);
         mAdapter.notifyDataSetChanged();
         setListShown(true);
     }
