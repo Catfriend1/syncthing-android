@@ -17,6 +17,7 @@
         android:id="@+id/commandTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/command"
         android:ems="10"
         android:inputType="textPersonName"
          />

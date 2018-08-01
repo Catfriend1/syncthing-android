@@ -10,11 +10,13 @@ public class Constants {
 
     public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
 
+    public static final String PREF_FIRST_START                 = "first_start";
     public static final String PREF_ALWAYS_RUN_IN_BACKGROUND    = "always_run_in_background";
     public static final String PREF_SYNC_ONLY_WIFI              = "sync_only_wifi";
     public static final String PREF_SYNC_ONLY_WIFI_SSIDS        = "sync_only_wifi_ssids_set";
     public static final String PREF_SYNC_ONLY_CHARGING          = "sync_only_charging";
     public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
+    public static final String PREF_START_INTO_WEB_GUI          = "start_into_web_gui";
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_NOTIFICATION_TYPE           = "notification_type";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";

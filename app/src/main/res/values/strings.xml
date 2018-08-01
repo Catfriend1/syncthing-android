@@ -11,16 +11,29 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Welcome to Syncthing for Android</string>
 
-    <!-- Text for dialog displayed on first start -->
+    <!-- Welcome wizard -->
+    <!-- Slide 1 -->
+    <string name="introduction">Introduction</string>
     <string name="welcome_text">Syncthing is an open-source file synchronization application.\n\
 To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.\n\
 Please report any problems you encounter via Github.</string>
 
-    <string name="cont">Continue</string>
+    <!-- Slide 2 -->
+    <string name="storage_permission_title">Storage Permission</string>
+    <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization.</string>
+
+    <!-- Slide 3 -->
+    <string name="location_permission_title">Location Permission</string>
+    <string name="location_permission_desc">Syncthing can be configured to run on selected wifi networks. Android requires applications to have location permissions to be able look up active WiFi network name, as you can sometimes infer users location from the name of the network they are connected to. If you want to use this feature, press the button above to give the required location permissions to Syncthing. Otherwise you can skip this step.</string>
 
     <!-- Generic texts used everywhere -->
+    <string name="back">Back</string>
+    <string name="cont">Continue</string>
+    <string name="finish">Finish</string>
     <string name="generic_example">Example</string>
     <string name="generic_error">Error</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="permission_granted">Permission granted</string>
 
     <string name="accept">Accept</string>
 
@@ -699,7 +712,6 @@ Please report any problems you encounter via Github.</string>
     <string name="maximum_age">Maximum Age</string>
     <string name="clean_out_after">Clean out after</string>
     <string name="file_versioning">File Versioning</string>
-    <string name="finish">Finish</string>
     <string name="none"> None</string>
     <string name="versions_path">Versions Path</string>
     <string name="command">Command</string>
