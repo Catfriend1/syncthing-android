@@ -135,12 +135,8 @@
   <string name="settings_title">Configuración</string>
   <string name="category_syncthing_options">Opciones de Syncthing</string>
   <string name="category_experimental">Experimental</string>
-  <string name="always_run_in_background">Siempre ejecutar en el fondo</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing siempre se ejecuta en el fondo, de acuerdo a las preferencias debajo.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing sólo se ejecuta cuando es explícitamente iniciado, y puede ser detenido usando el botón en el menú.</string>
-  <string name="sync_only_wifi_ssids">Restringir a ciertas redes wifi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor encienda el WiFi para seleccionar redes.</string>
   <string name="advanced_folder_picker">Usar el avanzado Seleccionador de Carpetas</string>
   <string name="advanced_folder_picker_summary">Seleccionar cualquier carpeta en el dispositivo para sincronizar</string>

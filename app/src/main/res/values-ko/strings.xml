@@ -159,14 +159,8 @@
   <string name="category_backup">백업</string>
   <string name="category_debug">디버그</string>
   <string name="category_experimental">실험적인 기능</string>
-  <string name="always_run_in_background">백그라운드에서 항상 실행</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing이 항상 백그라운드에서 실행되도록, 다음의 설정을 변경할 수 있습니다.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing은 제대로 시작된 경우에만 작동하며, 메뉴 버튼을 눌러 정지할 수 있습니다.</string>
-  <string name="sync_only_charging">충전시에만 작동</string>
-  <string name="sync_only_wifi">WiFi에서만 작동</string>
-  <string name="sync_only_wifi_ssids">특정 WI-FI 네트워크로 제한하기</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">WI-FI를 활성화하고 네트워크를 선택해주세요.</string>
   <string name="respect_battery_saving_title">안드로이드 배터리 절약 설정 우선</string>
   <string name="respect_battery_saving_summary">배터리 절약 기능이 작동중인 경우 Syncthing 비활성화</string>

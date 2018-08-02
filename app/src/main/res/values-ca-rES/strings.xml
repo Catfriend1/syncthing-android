@@ -167,14 +167,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="category_backup">Còpia de seguretat</string>
   <string name="category_debug">Depuració</string>
   <string name="category_experimental">Experimental</string>
-  <string name="always_run_in_background">Executa sempre en segon pla</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">El Syncthing s\'executa contínuament en segon pla i seguint les preferències indicades a sota.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">El Syncthing només s\'executa quan l\'inicieu manualment, i es pot aturar amb el botó del menú.</string>
-  <string name="sync_only_charging">Executa només durant la càrrega</string>
-  <string name="sync_only_wifi">Executa només amb wifi</string>
-  <string name="sync_only_wifi_ssids">Restringeix a xarxes wifi concretes</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Enceneu el WiFi per seleccionar xarxes.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Heu de proporcionar el permís d\'UBICACIÓ per poder fer això.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>

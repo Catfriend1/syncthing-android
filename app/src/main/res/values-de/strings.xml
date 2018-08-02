@@ -175,14 +175,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="category_backup">Datensicherung</string>
   <string name="category_debug">Fehleranalyse</string>
   <string name="category_experimental">Experimentell</string>
-  <string name="always_run_in_background">Immer im Hintergrund ausführen</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing läuft immer im Hintergrund, entsprechend den untenstehenden Einstellungen.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing läuft nur wenn es explizit gestartet wird und kann über das Menü gestoppt werden. </string>
-  <string name="sync_only_charging">Nur beim Aufladen aktiv</string>
-  <string name="sync_only_wifi">Nur mit WLAN aktiv</string>
-  <string name="sync_only_wifi_ssids">Nur in bestimmten WLAN Netzwerken</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Bitte WLAN aktivieren, um eines zu wählen.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Bitte gewähre die Standort-Berechtigung, um diese Funktion nutzen zu können.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Berechtigung benötigt</string>

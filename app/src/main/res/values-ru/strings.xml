@@ -170,14 +170,8 @@
   <string name="category_backup">Резервная копия</string>
   <string name="category_debug">Отладка</string>
   <string name="category_experimental">Экспериментальное</string>
-  <string name="always_run_in_background">Фоновый режим</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Автозапуск при перезагрузке устройства и работа в фоне</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing работает только когда запущен специально и может быть остановлен кнопкой в меню.</string>
-  <string name="sync_only_charging">Синхронизация только во время зарядки</string>
-  <string name="sync_only_wifi">Синхронизация только по Wi-Fi</string>
-  <string name="sync_only_wifi_ssids">Ограничить определёнными wifi сетями</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>

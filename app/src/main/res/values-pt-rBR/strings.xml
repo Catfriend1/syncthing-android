@@ -168,14 +168,8 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="category_backup">Backup</string>
   <string name="category_debug">Depuração</string>
   <string name="category_experimental">Configurações experimentais</string>
-  <string name="always_run_in_background">Sempre rodar em segundo plano</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">O Syncthing sempre rodará em segundo plano de acordo com as preferências abaixo.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">O Syncthing sempre rodará quando iniciado manualmente e pode ser parado pelo botão de menu.</string>
-  <string name="sync_only_charging">Rodar somente durante a carga do aparelho</string>
-  <string name="sync_only_wifi">Rodar somente com o aparelho conectado ao Wi-Fi</string>
-  <string name="sync_only_wifi_ssids">Limitar a certas redes WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para selecionar as redes</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Você precisa dar permissão de localização para usar esse recurso.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permissão requerida</string>

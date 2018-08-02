@@ -17,7 +17,9 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import com.google.common.base.Joiner;
@@ -38,6 +40,8 @@ import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -45,11 +49,18 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsActivity extends SyncthingActivity {
 
+    public static final String EXTRA_OPEN_SUB_PREF_SCREEN =
+            "com.nutomic.syncthingandroid.activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SettingsFragment settingsFragment = new SettingsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(EXTRA_OPEN_SUB_PREF_SCREEN, getIntent().getStringExtra(EXTRA_OPEN_SUB_PREF_SCREEN));
+        settingsFragment.setArguments(bundle);
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new SettingsFragment())
+                .replace(android.R.id.content, settingsFragment)
                 .commit();
     }
 
@@ -90,9 +101,12 @@ public class SettingsActivity extends SyncthingActivity {
 
         private Preference         mCategoryRunConditions;
         private CheckBoxPreference mAlwaysRunInBackground;
-        private CheckBoxPreference mSyncOnlyCharging;
-        private CheckBoxPreference mSyncOnlyWifi;
-        private WifiSsidPreference mSyncOnlyOnSSIDs;
+        private ListPreference     mPowerSource;
+        private CheckBoxPreference mRunOnMobileData;
+        private CheckBoxPreference mRunOnWifi;
+        private CheckBoxPreference mRunOnMeteredWifi;
+        private WifiSsidPreference mWifiSsidWhitelist;
+        private CheckBoxPreference mRunInFlightMode;
 
         private Preference         mCategorySyncthingOptions;
         private EditTextPreference mDeviceName;
@@ -154,16 +168,18 @@ public class SettingsActivity extends SyncthingActivity {
             PreferenceScreen screen = getPreferenceScreen();
             mAlwaysRunInBackground =
                     (CheckBoxPreference) findPreference(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND);
-            mSyncOnlyCharging =
-                    (CheckBoxPreference) findPreference(Constants.PREF_SYNC_ONLY_CHARGING);
-            mSyncOnlyWifi =
-                    (CheckBoxPreference) findPreference(Constants.PREF_SYNC_ONLY_WIFI);
-            mSyncOnlyOnSSIDs =
-                    (WifiSsidPreference) findPreference(Constants.PREF_SYNC_ONLY_WIFI_SSIDS);
-
-            mSyncOnlyCharging.setEnabled(mAlwaysRunInBackground.isChecked());
-            mSyncOnlyWifi.setEnabled(mAlwaysRunInBackground.isChecked());
-            mSyncOnlyOnSSIDs.setEnabled(mSyncOnlyWifi.isChecked());
+            mPowerSource =
+                    (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
+            mRunOnMobileData =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
+            mRunOnWifi =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
+            mRunOnMeteredWifi =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_METERED_WIFI);
+            mWifiSsidWhitelist =
+                    (WifiSsidPreference) findPreference(Constants.PREF_WIFI_SSID_WHITELIST);
+            mRunInFlightMode =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
 
             ListPreference languagePref = (ListPreference) findPreference(Languages.PREFERENCE_LANGUAGE);
             PreferenceScreen categoryBehaviour = (PreferenceScreen) findPreference("category_behaviour");
@@ -216,7 +232,8 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingVersion       = findPreference("syncthing_version");
             Preference appVersion   = screen.findPreference("app_version");
 
-            mSyncOnlyOnSSIDs.setEnabled(mSyncOnlyWifi.isChecked());
+            mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
+            mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked());
 
             mCategorySyncthingOptions = findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
@@ -244,6 +261,12 @@ public class SettingsActivity extends SyncthingActivity {
 
             /* Initialize summaries */
             mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
+            String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
+            screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
+                getString(R.string.run_on_all_wifi_networks) :
+                getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
+            );
             handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
             handleHttpProxyPreferenceChange(screen.findPreference(Constants.PREF_HTTP_PROXY_ADDRESS), mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, ""));
 
@@ -252,6 +275,30 @@ public class SettingsActivity extends SyncthingActivity {
                         .getPackageInfo(getActivity().getPackageName(), 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.d(TAG, "Failed to get app version name");
+            }
+
+            openSubPrefScreen(screen);
+        }
+
+        private void openSubPrefScreen(PreferenceScreen prefScreen) {
+            Bundle bundle = getArguments();
+            if (bundle == null) {
+                return;
+            }
+            String openSubPrefScreen = bundle.getString(EXTRA_OPEN_SUB_PREF_SCREEN, "");
+            // Open sub preferences screen if EXTRA_OPEN_SUB_PREF_SCREEN was passed in bundle.
+            if (openSubPrefScreen != null && !TextUtils.isEmpty(openSubPrefScreen)) {
+                Log.v(TAG, "Transitioning to pref screen " + openSubPrefScreen);
+                PreferenceScreen categoryRunConditions = (PreferenceScreen) findPreference(openSubPrefScreen);
+                final ListAdapter listAdapter = prefScreen.getRootAdapter();
+                final int itemsCount = listAdapter.getCount();
+                for (int itemNumber = 0; itemNumber < itemsCount; ++itemNumber) {
+                    if (listAdapter.getItem(itemNumber).equals(categoryRunConditions)) {
+                        // Simulates click on the sub-preference
+                        prefScreen.onItemClick(null, null, itemNumber, 0);
+                        break;
+                    }
+                }
             }
         }
 
@@ -317,22 +364,20 @@ public class SettingsActivity extends SyncthingActivity {
 
         public boolean onRunConditionPreferenceChange(Preference preference, Object o) {
             switch (preference.getKey()) {
-                case Constants.PREF_ALWAYS_RUN_IN_BACKGROUND:
-                    boolean value = (Boolean) o;
-                    mAlwaysRunInBackground.setSummary((value)
-                            ? R.string.always_run_in_background_enabled
-                            : R.string.always_run_in_background_disabled);
-                    mSyncOnlyCharging.setEnabled(value);
-                    mSyncOnlyWifi.setEnabled(value);
-                    mSyncOnlyOnSSIDs.setEnabled(false);
-                    // Uncheck items when disabled, so it is clear they have no effect.
-                    if (!value) {
-                        mSyncOnlyCharging.setChecked(false);
-                        mSyncOnlyWifi.setChecked(false);
-                    }
+                case Constants.PREF_POWER_SOURCE:
+                    mPowerSource.setValue(o.toString());
+                    preference.setSummary(mPowerSource.getEntry());
                     break;
-                case Constants.PREF_SYNC_ONLY_WIFI:
-                    mSyncOnlyOnSSIDs.setEnabled((Boolean) o);
+                case Constants.PREF_RUN_ON_WIFI:
+                    mRunOnMeteredWifi.setEnabled((Boolean) o);
+                    mWifiSsidWhitelist.setEnabled((Boolean) o);
+                    break;
+                case Constants.PREF_WIFI_SSID_WHITELIST:
+                    String wifiSsidSummary = TextUtils.join(", ", (Set<String>) o);
+                    preference.setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
+                        getString(R.string.run_on_all_wifi_networks) :
+                        getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
+                    );
                     break;
             }
             mPendingRunConditions = true;

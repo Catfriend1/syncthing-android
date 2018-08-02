@@ -160,14 +160,8 @@
   <string name="category_backup">Αντίγραφο ασφαλείας</string>
   <string name="category_debug">Αποσφαλμάτωση</string>
   <string name="category_experimental">Πειραματικά</string>
-  <string name="always_run_in_background">Να εκτελείται πάντα στο παρασκήνιο</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Το Syncthing θα εκτελείται συνεχώς στο παρασκήνιο σύμφωνα με τις παρακάτω ρυθμίσεις.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Το Syncthing θα εκτελείται μόνο αν εκκινηθεί από τον χρήστη και μπορεί να τερματιστεί από το κουμπί του μενού.</string>
-  <string name="sync_only_charging">Εκτέλεση μόνο κατά τη φόρτιση</string>
-  <string name="sync_only_wifi">Εκτέλεση μόνο μέσω WiFi</string>
-  <string name="sync_only_wifi_ssids">Περιορισμός σε συγκεκριμένα δίκτυα WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Παρακαλώ ενεργοποιήστε το WiFi για να επιλέξετε δίκτυα.</string>
   <string name="respect_battery_saving_title">Υπακοή στη ρύθμιση εξοικονόμησης ενέργειας του Android</string>
   <string name="respect_battery_saving_summary">Απενεργοποίηση του Syncthing όταν είναι ενεργή η λειτουργία εξοικονόμησης ενέργειας</string>

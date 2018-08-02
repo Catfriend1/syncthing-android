@@ -168,14 +168,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="category_backup">Säkerhetskopiera</string>
   <string name="category_debug">Felsök</string>
   <string name="category_experimental">Experimentell</string>
-  <string name="always_run_in_background">Kör alltid i bakgrunden</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing körs alltid i bakgrunden, enligt inställningar nedan.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing körs bara när den uttryckligen har startats, och kan stoppas genom menyknapp.</string>
-  <string name="sync_only_charging">Kör endast vid laddning</string>
-  <string name="sync_only_wifi">Kör endast på wifi</string>
-  <string name="sync_only_wifi_ssids">Begränsa till vissa wifi-nätverk</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>

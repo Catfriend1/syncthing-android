@@ -173,14 +173,8 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="category_backup">Biztonsági mentés</string>
   <string name="category_debug">Hibakeresés</string>
   <string name="category_experimental">Kísérleti</string>
-  <string name="always_run_in_background">Mindig fusson a háttérben</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">A Syncthing folyamatosan fut a háttérben, a lenti beállításoknak megfelelően.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">A Syncthing csak kifejezett kérésre indul, melyet a menüből le lehet állítani.</string>
-  <string name="sync_only_charging">Csak töltés közben fusson</string>
-  <string name="sync_only_wifi">Csak wifi hálózat esetén fusson</string>
-  <string name="sync_only_wifi_ssids">Korlátozás bizonyos wifi hálózatokra</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>

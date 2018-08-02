@@ -130,12 +130,8 @@
   <string name="category_syncthing_options">Опції Syncthing</string>
   <string name="category_debug">Відладка</string>
   <string name="category_experimental">Експериментальне</string>
-  <string name="always_run_in_background">Завжди працювати в фоновому режимі</string>
   <!--Preference summary in case it is enabled-->
   <!--Preference summary in case it is disabled-->
-  <string name="sync_only_charging">Синхронізація лише під час зарядки</string>
-  <string name="sync_only_wifi">Синхронізація лише через Wi-Fi</string>
-  <string name="sync_only_wifi_ssids">Працювати  лише в заданих Wi-Fi мережах</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь-ласка, увімкніть Wi-Fi, щоби вибрати мережі</string>
   <string name="respect_battery_saving_title">Відповідно до налаштувань енергозбереження пристрою в системі</string>
   <string name="respect_battery_saving_summary">Заборонити Syncthing під час режиму енергозбереження пристрою</string>

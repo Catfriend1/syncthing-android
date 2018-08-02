@@ -160,14 +160,8 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="category_backup">Varmuuskopio</string>
   <string name="category_debug">Vianhaku</string>
   <string name="category_experimental">Kokeellinen</string>
-  <string name="always_run_in_background">Aja aina taustalla</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Synthing ajetaan aina taustalla alla olevien asetusten mukaan.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing käy vain kun se on erikseen käynnistetty, ja se voidaan sammuttaa valikon painikkeella.</string>
-  <string name="sync_only_charging">Aja ainoastaan latauksen aikana</string>
-  <string name="sync_only_wifi">Aja ainoastaan Wifi-yhteydellä</string>
-  <string name="sync_only_wifi_ssids">Rajoita tiettyihin Wifi-verkkoihin</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Laita Wifi päälle valitaksesi verkkoja.</string>
   <string name="respect_battery_saving_title">Noudata Androidin virransäästöasetusta</string>
   <string name="respect_battery_saving_summary">Poista Syncthing käytöstä jos virransäästö on käytössä</string>

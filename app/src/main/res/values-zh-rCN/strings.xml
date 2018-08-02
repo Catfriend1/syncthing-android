@@ -162,14 +162,8 @@
   <string name="category_backup">备份</string>
   <string name="category_debug">调试</string>
   <string name="category_experimental">实验性</string>
-  <string name="always_run_in_background">总是在后台运行</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing 会根据下方的偏好运行在后台</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing 仅在运行后启动同步并且可以通过点按菜单按钮停止</string>
-  <string name="sync_only_charging">仅在充电时运行</string>
-  <string name="sync_only_wifi">仅在连着 Wi-Fi 时运行</string>
-  <string name="sync_only_wifi_ssids">对某些无线网络下限制同步</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
   <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
   <string name="respect_battery_saving_summary">禁用 Syncthing 如果省电模式已启用</string>

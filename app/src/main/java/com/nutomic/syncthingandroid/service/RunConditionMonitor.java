@@ -2,10 +2,12 @@ package com.nutomic.syncthingandroid.service;
 
 import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.SyncStatusObserver;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -36,6 +38,18 @@ import javax.inject.Inject;
 public class RunConditionMonitor {
 
     private static final String TAG = "RunConditionMonitor";
+
+    private static final String POWER_SOURCE_AC_BATTERY = "ac_and_battery_power";
+    private static final String POWER_SOURCE_AC = "ac_power";
+    private static final String POWER_SOURCE_BATTERY = "battery_power";
+
+    private @Nullable Object mSyncStatusObserverHandle = null;
+    private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
+        @Override
+        public void onStatusChanged(int which) {
+            updateShouldRunDecision();
+        }
+    };
 
     public interface OnRunConditionChangedListener {
         void onRunConditionChanged(boolean shouldRun);
@@ -80,12 +94,20 @@ public class RunConditionMonitor {
                     new IntentFilter(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED));
         }
 
+        // SyncStatusObserver to monitor android's "AutoSync" quick toggle.
+        mSyncStatusObserverHandle = ContentResolver.addStatusChangeListener(
+                ContentResolver.SYNC_OBSERVER_TYPE_SETTINGS, mSyncStatusObserver);
+
         // Initially determine if syncthing should run under current circumstances.
         updateShouldRunDecision();
     }
 
     public void shutdown() {
         Log.v(TAG, "Shutting down");
+        if (mSyncStatusObserverHandle != null) {
+            ContentResolver.removeStatusChangeListener(mSyncStatusObserverHandle);
+            mSyncStatusObserverHandle = null;
+        }
         mReceiverManager.unregisterAllReceivers(mContext);
     }
 
@@ -134,64 +156,106 @@ public class RunConditionMonitor {
      */
     private boolean decideShouldRun() {
         // Get run conditions preferences.
-        boolean prefAlwaysRunInBackground = mPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
-        boolean prefRespectPowerSaving = mPreferences.getBoolean(Constants.PREF_RESPECT_BATTERY_SAVING, true);
-        boolean prefRunOnlyOnWifi= mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_WIFI, false);
-        boolean prefRunOnlyWhenCharging = mPreferences.getBoolean(Constants.PREF_SYNC_ONLY_CHARGING, false);
-        Set<String> whitelistedWifiSsids = mPreferences.getStringSet(Constants.PREF_SYNC_ONLY_WIFI_SSIDS, new HashSet<>());
+        boolean prefRunOnMobileData= mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, false);
+        boolean prefRunOnWifi= mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
+        boolean prefRunOnMeteredWifi= mPreferences.getBoolean(Constants.PREF_RUN_ON_METERED_WIFI, false);
+        Set<String> whitelistedWifiSsids = mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>());
         boolean prefWifiWhitelistEnabled = !whitelistedWifiSsids.isEmpty();
+        boolean prefRunInFlightMode = mPreferences.getBoolean(Constants.PREF_RUN_IN_FLIGHT_MODE, false);
+        String prefPowerSource = mPreferences.getString(Constants.PREF_POWER_SOURCE, POWER_SOURCE_AC_BATTERY);
+        boolean prefRespectPowerSaving = mPreferences.getBoolean(Constants.PREF_RESPECT_BATTERY_SAVING, true);
+        boolean prefRespectMasterSync = mPreferences.getBoolean(Constants.PREF_RESPECT_MASTER_SYNC, false);
+
+        // PREF_POWER_SOURCE
+        switch (prefPowerSource) {
+            case POWER_SOURCE_AC:
+                if (!isOnAcPower()) {
+                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_AC && !isOnAcPower");
+                    return false;
+                }
+                break;
+            case POWER_SOURCE_BATTERY:
+                if (isOnAcPower()) {
+                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_BATTERY && isOnAcPower");
+                    return false;
+                }
+                break;
+            case POWER_SOURCE_AC_BATTERY:
+            default:
+                break;
+        }
 
         // Power saving
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (prefRespectPowerSaving && isPowerSaving()) {
+                Log.v(TAG, "decideShouldRun: prefRespectPowerSaving && isPowerSaving");
                 return false;
             }
         }
 
-        // Always run in background
-        if (!prefAlwaysRunInBackground) {
-            /**
-             * User did not specify run conditions in the options.
-             * The app is displaying a foreground activity and syncthing should run.
-             */
-            Log.v(TAG, "decideShouldRun: !prefAlwaysRunInBackground");
+        // Android global AutoSync setting.
+        if (prefRespectMasterSync && !ContentResolver.getMasterSyncAutomatically()) {
+            Log.v(TAG, "decideShouldRun: prefRespectMasterSync && !getMasterSyncAutomatically");
+            return false;
+        }
+
+        // Run on mobile data.
+        if (prefRunOnMobileData && isMobileDataConnection()) {
+            Log.v(TAG, "decideShouldRun: prefRunOnMobileData && isMobileDataConnection");
             return true;
         }
 
-        // Run only when charging.
-        if (prefRunOnlyWhenCharging && !isCharging()) {
-            Log.v(TAG, "decideShouldRun: prefRunOnlyWhenCharging && !isCharging");
-            return false;
+        // Run on wifi.
+        if (prefRunOnWifi && isWifiOrEthernetConnection()) {
+            if (prefRunOnMeteredWifi) {
+                // We are on non-metered or metered wifi. Check if wifi whitelist run condition is met.
+                if (wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
+                    Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && prefRunOnMeteredWifi && wifiWhitelistConditionMet");
+                    return true;
+                }
+            } else {
+                // Check if we are on a non-metered wifi and if wifi whitelist run condition is met.
+                if (!isMeteredNetworkConnection() && wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
+                    Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && !prefRunOnMeteredWifi && !isMeteredNetworkConnection && wifiWhitelistConditionMet");
+                    return true;
+                }
+            }
         }
 
-        // Run only on wifi.
-        if (prefRunOnlyOnWifi && !isWifiOrEthernetConnection()) {
-            // Not on wifi.
-            Log.v(TAG, "decideShouldRun: prefRunOnlyOnWifi && !isWifiOrEthernetConnection");
-            return false;
-        }
-
-        // Run only on whitelisted wifi ssids.
-        if (prefRunOnlyOnWifi && prefWifiWhitelistEnabled) {
-            // Wifi connection detected. Wifi ssid whitelist enabled.
-            Log.v(TAG, "decideShouldRun: prefRunOnlyOnWifi && prefWifiWhitelistEnabled");
-            return isWifiConnectionWhitelisted(whitelistedWifiSsids);
+        // Run in flight mode.
+        if (prefRunInFlightMode && isFlightMode()) {
+            Log.v(TAG, "decideShouldRun: prefRunInFlightMode && isFlightMode");
+            return true;
         }
 
         /**
-         * Respect power saving, device is not in power-save mode.
-         * Always run in background is the only pref that is enabled.
-         * Run only when charging, charging.
-         * Run only on wifi, wifi connection detected, wifi ssid whitelist disabled.
+         * If none of the above run conditions matched, don't run.
          */
-        Log.v(TAG, "decideShouldRun: return true");
-        return true;
+        Log.v(TAG, "decideShouldRun: return false");
+        return false;
+    }
+
+    /**
+     * Return whether the wifi whitelist run condition is met.
+     * Precondition: An active wifi connection has been detected.
+     */
+    private boolean wifiWhitelistConditionMet(boolean prefWifiWhitelistEnabled,
+            Set<String> whitelistedWifiSsids) {
+        if (!prefWifiWhitelistEnabled) {
+            Log.v(TAG, "handleWifiWhitelist: !prefWifiWhitelistEnabled");
+            return true;
+        }
+        if (isWifiConnectionWhitelisted(whitelistedWifiSsids)) {
+            Log.v(TAG, "handleWifiWhitelist: isWifiConnectionWhitelisted");
+            return true;
+        }
+        return false;
     }
 
     /**
      * Functions for run condition information retrieval.
      */
-    private boolean isCharging() {
+    private boolean isOnAcPower() {
         Intent batteryIntent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         int status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         return status == BatteryManager.BATTERY_STATUS_CHARGING ||
@@ -210,6 +274,48 @@ public class RunConditionMonitor {
             return false;
         }
         return powerManager.isPowerSaveMode();
+    }
+
+    private boolean isFlightMode() {
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        return ni == null;
+    }
+
+    private boolean isMeteredNetworkConnection() {
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            // In flight mode.
+            return false;
+        }
+        if (!ni.isConnected()) {
+            // No network connection.
+            return false;
+        }
+        return cm.isActiveNetworkMetered();
+    }
+
+    private boolean isMobileDataConnection() {
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            // In flight mode.
+            return false;
+        }
+        if (!ni.isConnected()) {
+            // No network connection.
+            return false;
+        }
+        switch (ni.getType()) {
+            case ConnectivityManager.TYPE_BLUETOOTH:
+            case ConnectivityManager.TYPE_MOBILE:
+            case ConnectivityManager.TYPE_MOBILE_DUN:
+            case ConnectivityManager.TYPE_MOBILE_HIPRI:
+                return true;
+            default:
+                return false;
+        }
     }
 
     private boolean isWifiOrEthernetConnection() {

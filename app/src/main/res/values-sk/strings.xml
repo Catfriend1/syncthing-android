@@ -129,11 +129,8 @@
   <!--SettingsFragment-->
   <string name="settings_title">Nastavenia</string>
   <string name="category_syncthing_options">Nastavenia Syncthing</string>
-  <string name="always_run_in_background">Vždy bežať na pozadí</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing vždy beží na pozadí, podla nasledovných nastavení.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing beží len ak je ručne spustené a môže byť vypnuté pomocou tlačítka v menu.</string>
   <string name="advanced_folder_picker">Použiť rozšírený dialóg pre volbu adresára</string>
   <string name="advanced_folder_picker_summary">Vyberte ľubovolný adresár pre synchronizáciu</string>
   <string name="use_root_title">Spúšťať Syncthing s root oprávneniami</string>

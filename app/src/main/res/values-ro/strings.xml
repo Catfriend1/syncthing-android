@@ -176,14 +176,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="category_backup">Copie de rezervă</string>
   <string name="category_debug">Depanare</string>
   <string name="category_experimental">Experimental</string>
-  <string name="always_run_in_background">Rulează mereu în fundal</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing v-a rula mereu în fundal, conform setării de mai jos.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing v-a rula doar când e pornit explicit și poate fi oprit din buton din meniu.</string>
-  <string name="sync_only_charging">Rulează numai când se încarcă</string>
-  <string name="sync_only_wifi">Rulează numai prin Wi-Fi</string>
-  <string name="sync_only_wifi_ssids">Restricționează la anumite rețele Wi-Fi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Necesită permisiunea</string>

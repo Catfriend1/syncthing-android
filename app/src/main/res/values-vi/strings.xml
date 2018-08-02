@@ -135,12 +135,8 @@
   <string name="settings_title">Cài đặt</string>
   <string name="category_syncthing_options">Tuỳ chọn Syncthing</string>
   <string name="category_experimental">Thực nghiệm</string>
-  <string name="always_run_in_background">Luôn chạy nền</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing luôn chạy nền theo như tuỳ chỉnh bên dưới.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing chỉ chạy khi được bật thủ công và có thể được tắt bởi nút trình đơn.</string>
-  <string name="sync_only_wifi_ssids">Hạn chế với vài mạng wifi nhất định</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hãy bật WiFi để lựa chọn mạng.</string>
   <string name="advanced_folder_picker">S.dụng trình chọn th.mục nâng cao</string>
   <string name="advanced_folder_picker_summary">Chọn bất kỳ th.mục nào trên th.bị để đồng bộ</string>

@@ -270,6 +270,12 @@ public class MainActivity extends StateDialogActivity
             startActivity(new Intent(this, FirstStartActivity.class));
             this.finish();
         }
+
+        // Evaluate run conditions to detect changes made to the metered wifi flags.
+        SyncthingService mSyncthingService = getService();
+        if (mSyncthingService != null) {
+            mSyncthingService.evaluateRunConditions();
+        }
         super.onResume();
     }
 

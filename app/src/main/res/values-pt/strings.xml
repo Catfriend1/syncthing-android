@@ -152,12 +152,8 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="category_backup">Cópia de segurança</string>
   <string name="category_debug">Depuração</string>
   <string name="category_experimental">Experimental</string>
-  <string name="always_run_in_background">Correr sempre em segundo plano</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing corre sempre em segundo plano, de acordo com as preferências abaixo.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing apenas corre quando iniciado explicitamente e pode ser parado com o botão do menu.</string>
-  <string name="sync_only_wifi_ssids">Restringir a certas redes wifi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para seleccionar redes.</string>
   <string name="advanced_folder_picker">Usar selector de pasta avançado</string>
   <string name="advanced_folder_picker_summary">Seleccione qualquer pasta no dispositivo para sincronizar</string>

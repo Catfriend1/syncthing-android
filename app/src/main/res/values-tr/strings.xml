@@ -151,12 +151,8 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="category_backup">Yedekleme</string>
   <string name="category_debug">Hata ayıklama</string>
   <string name="category_experimental">Deneysel</string>
-  <string name="always_run_in_background">Her zaman arka planda çalış</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing, her zaman aşağıdaki tercihlere göre arka planda çalışır.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing, yalnızca doğrudan başlatıldığında çalışır ve menü tuşu tarafından durdurulur.</string>
-  <string name="sync_only_wifi_ssids">Belirlenmiş kablosuz ağlarla sınırlandır</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ağ seçmek için lütfen kablosuz bağlantınızı açın.</string>
   <string name="advanced_folder_picker">Gelişmiş Klasör Seçici kullan</string>
   <string name="advanced_folder_picker_summary">Eşzamanlama yapmak için aygıttan herhangi bir klasör seçin</string>

@@ -136,12 +136,8 @@
   <string name="settings_title">Innstillinger</string>
   <string name="category_syncthing_options">Valg for Syncthing</string>
   <string name="category_experimental">Eksperimentelt</string>
-  <string name="always_run_in_background">Kjør alltid i bakgrunnen</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing kjører alltid i bakgrunnen, i henhold til valgene nedenfor.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing kjører bare når eksplisitt startet, og kan stoppes med meny-knappen.</string>
-  <string name="sync_only_wifi_ssids">Begrens til visse wifi-nettverk</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vennligst skru på WiFi for å velge nettverk.</string>
   <string name="advanced_folder_picker">Bruk avansert mappevelger</string>
   <string name="advanced_folder_picker_summary">Velg en mappe på enheten for synkronisering</string>

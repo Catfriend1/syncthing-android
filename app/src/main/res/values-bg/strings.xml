@@ -149,12 +149,8 @@
   <string name="category_backup">Резервно копие</string>
   <string name="category_debug">Дебъг</string>
   <string name="category_experimental">Експериментални</string>
-  <string name="always_run_in_background">Постоянна работа на заден план</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Постоянно синхронизиране, според следващите опции.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Синхронизиране само след стартиране на Syncthing. Може бъде спряно от меню бутона \"Изход\".</string>
-  <string name="sync_only_wifi_ssids">Ограничаване до определени WiFi мрежи</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежа, моля включете WiFi</string>
   <string name="advanced_folder_picker">Избор на папка, за напреднали</string>
   <string name="advanced_folder_picker_summary">Изберете папка, от устройството, за синхронизиране</string>

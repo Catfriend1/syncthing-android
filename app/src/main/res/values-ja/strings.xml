@@ -160,14 +160,8 @@
   <string name="category_backup">バックアップ</string>
   <string name="category_debug">デバッグ</string>
   <string name="category_experimental">実験的</string>
-  <string name="always_run_in_background">常にバックグラウンドで実行</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">以下の設定に応じて常にバックグラウンドで実行されます。</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">明示的に開始したときのみ同期を実行し、メニューから停止することができます。</string>
-  <string name="sync_only_charging">充電中のみ実行</string>
-  <string name="sync_only_wifi">Wi-Fi 接続時のみ実行</string>
-  <string name="sync_only_wifi_ssids">特定の Wi-Fi ネットワークに制限する</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">ネットワークを選択するために Wi-Fi をオンにしてください。</string>
   <string name="respect_battery_saving_title">Android の節電設定に従う</string>
   <string name="respect_battery_saving_summary">バッテリー節約が有効な場合は、Syncthing を無効にします</string>

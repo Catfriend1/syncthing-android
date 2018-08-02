@@ -163,14 +163,8 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="category_backup">Záloha</string>
   <string name="category_debug">Ladění</string>
   <string name="category_experimental">Experimentální</string>
-  <string name="always_run_in_background">Vždy spuštěné na pozadí</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing poběží vždy v pozadí, podle nastavení níže.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing poběží pouze pokud bude ručně spuštěn a může být ukončen tlačítkem z menu.</string>
-  <string name="sync_only_charging">Spustit pouze při nabíjení</string>
-  <string name="sync_only_wifi">Spustit pouze na wifi</string>
-  <string name="sync_only_wifi_ssids">Omezit na vybrané sítě wifi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Pro výběr sítí prosím zapněte WiFi.</string>
   <string name="respect_battery_saving_title">Dodržovat nastavení úspory baterie z Androidu</string>
   <string name="respect_battery_saving_summary">Vypnout Syncthing pokud je aktivní režim úspory baterie</string>

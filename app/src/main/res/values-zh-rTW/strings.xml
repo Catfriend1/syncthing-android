@@ -159,14 +159,8 @@
   <string name="category_backup">備份</string>
   <string name="category_debug">除錯</string>
   <string name="category_experimental">實驗性</string>
-  <string name="always_run_in_background">永遠在背景執行</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">根據下列的偏好設定，Syncthing 會永遠在背景執行。</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing 只會在明確地被要求時才會啟動，且可透過選單的按鈕停止。</string>
-  <string name="sync_only_charging">僅限充電時執行</string>
-  <string name="sync_only_wifi">僅限 Wi-Fi</string>
-  <string name="sync_only_wifi_ssids">限制特定的 Wi-Fi 網路</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">請開啟 Wi-Fi 來選擇網路</string>
   <string name="respect_battery_saving_title">遵守 Android 節省電池設定</string>
   <string name="respect_battery_saving_summary">如果節省電池啟用，停用 Syncthing</string>

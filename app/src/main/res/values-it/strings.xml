@@ -168,14 +168,8 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="category_backup">Backup</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Sperimentale</string>
-  <string name="always_run_in_background">Esegui sempre in background</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing è sempre in esecuzione in modalità background.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing si attiva solo quando viene avviato manualmente e si arresta utilizzando il pulsante del menu.</string>
-  <string name="sync_only_charging">Esegui solo quando in carica</string>
-  <string name="sync_only_wifi">Esegui solo con wifi</string>
-  <string name="sync_only_wifi_ssids">Solo determinate reti wifi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Si prega di attivare il WiFi per selezionare le reti.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">È necessario concedere l\'autorizzazione alla LOCALIZZAZIONE per utilizzare questa funzione.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Autorizzazione richiesta</string>

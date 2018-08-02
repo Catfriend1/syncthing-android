@@ -168,14 +168,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="category_backup">Back-up</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Experimenteel</string>
-  <string name="always_run_in_background">Altijd draaien in achtergrond</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing draait altijd in de achtergrond, volgens de hieronder weergegeven voorkeuren.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing draait enkel wanneer expliciet gestart, en kan gestopt worden door de menu-knop.</string>
-  <string name="sync_only_charging">Enkel uitvoeren tijdens opladen</string>
-  <string name="sync_only_wifi">Enkel uitvoeren via wifi</string>
-  <string name="sync_only_wifi_ssids">Beperken tot bepaalde wifinetwerken</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Schakel wifi in om netwerken te selecteren.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Geef de LOCATIE-toestemming om deze functie te gebruiken.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Toestemming vereist</string>

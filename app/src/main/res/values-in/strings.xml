@@ -157,14 +157,8 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="category_backup">Backup</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Ujicoba</string>
-  <string name="always_run_in_background">Sellau jalankan di background</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing selalu berjalan di background, menurut pengaturan di bawah.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing hanya berjalan jika diaktifkan, dan bisa dihentikan lewat tombol menu.</string>
-  <string name="sync_only_charging">Jalankan hanya saat mengisi baterai</string>
-  <string name="sync_only_wifi">Jalankan hanya saat menggunakan wifi</string>
-  <string name="sync_only_wifi_ssids">Batasi pada jaringan wifi tertentu</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Mohon aktifkan WiFi untuk memilih jaringan.</string>
   <string name="respect_battery_saving_title">Ikuti pengaturan penghematan baterai Android</string>
   <string name="respect_battery_saving_summary">Matikan Syncthing jika penghematan baterai sedang aktif</string>

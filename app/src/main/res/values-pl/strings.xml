@@ -163,14 +163,8 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="category_backup">Kopia zapasowa</string>
   <string name="category_debug">Diagnozowanie błędów</string>
   <string name="category_experimental">Eksperymentalne</string>
-  <string name="always_run_in_background">Działanie w tle</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Uruchamia program w tle zgodnie z poniższymi preferencjami</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Uruchamia program ręcznie i kończy jego działanie przyciskiem w menu</string>
-  <string name="sync_only_charging">Działaj tylko w trakcie ładowania</string>
-  <string name="sync_only_wifi">Synchronizuj tylko przez WiFi</string>
-  <string name="sync_only_wifi_ssids">Ogranicz do określonych sieci WiFi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Proszę włącz WiFi dla wybranych sieci</string>
   <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
   <string name="respect_battery_saving_summary">Wyłącz Syncthing, jeśli włączone jest oszczędzanie energii</string>

@@ -159,14 +159,8 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="category_backup">Backup</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Eksperimentalt</string>
-  <string name="always_run_in_background">Kør altid i baggrunden</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing kører altid i baggrunden, ifølge nedenstående indstillinger.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing kører kun hvis eksplicit staret og kan stoppes gennem menu knappen.</string>
-  <string name="sync_only_charging">Synkronisér kun under opladning</string>
-  <string name="sync_only_wifi">Synkronisér kun gennem WiFi</string>
-  <string name="sync_only_wifi_ssids">Begræns til specifikke netværk</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vær venlig at slukke WiFi for at vælge netværk.</string>
   <string name="respect_battery_saving_title">Respekter Android battery saving indstillinger</string>
   <string name="respect_battery_saving_summary">Deaktiver Syncthing hvis battery saving er aktiv</string>

@@ -149,12 +149,8 @@
   <string name="category_backup">Copia de seguridad</string>
   <string name="category_debug">Depuración</string>
   <string name="category_experimental">Experimental</string>
-  <string name="always_run_in_background">Ejecutar siempre en segundo plano</string>
   <!--Preference summary in case it is enabled-->
-  <string name="always_run_in_background_enabled">Syncthing se ejecutará siempre en segundo plano, de acuerdo a la siguiente configuración.</string>
   <!--Preference summary in case it is disabled-->
-  <string name="always_run_in_background_disabled">Syncthing sólo se ejecutará cuando se inicie explícitamente, y puede ser detenido por el botón de menú.</string>
-  <string name="sync_only_wifi_ssids">Restringir a determinadas redes wifi</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor enciende el wifi para seleccionar redes.</string>
   <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
   <string name="respect_battery_saving_summary">Desactivar sincronización si el ahorro de batería está activo</string>

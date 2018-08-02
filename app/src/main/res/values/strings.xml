@@ -298,19 +298,22 @@ Please report any problems you encounter via Github.</string>
     <string name="category_debug">Debug</string>
     <string name="category_experimental">Experimental</string>
 
-    <string name="always_run_in_background">Always run in background</string>
+    <!-- Preference screen - Run conditions -->
+    <string name="run_conditions_title">Run Conditions</string>
+    <string name="run_conditions_summary">Use the following options to decide when Syncthing will run.</string>
 
-    <!-- Preference summary in case it is enabled -->
-    <string name="always_run_in_background_enabled">Syncthing always runs in the background, according to preferences below.</string>
+    <string name="run_on_mobile_data_title">Run on mobile data</string>
+    <string name="run_on_mobile_data_summary">Run when device is connected via the mobile data network. Warning: This can consume a lot of data from your mobile operator data plan if you sync large amounts of data.</string>
 
-    <!-- Preference summary in case it is disabled -->
-    <string name="always_run_in_background_disabled">Syncthing only runs when explicitly started, and can be stopped by menu button.</string>
+    <string name="run_on_wifi_title">Run on wifi</string>
+    <string name="run_on_wifi_summary">Run when device is connected to a wifi network.</string>
 
-    <string name="sync_only_charging">Run only when charging</string>
+    <string name="run_on_metered_wifi_title">Run on metered wifi</string>
+    <string name="run_on_metered_wifi_summary">Run when device is connected to a metered wifi network e.g. a hotspot or tethered network. Attention: This can consume large portion of your data plan if you sync a lot of data.</string>
 
-    <string name="sync_only_wifi">Run only on wifi</string>
-
-    <string name="sync_only_wifi_ssids">Restrict to certain wifi networks</string>
+    <string name="run_on_whitelisted_wifi_title">Run on specified wifi networks</string>
+    <string name="run_on_whitelisted_wifi_networks">Run only on selected wifi networks: %1$s</string>
+    <string name="run_on_all_wifi_networks">Run on all wifi networks.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Please turn on WiFi to select networks.</string>
 
@@ -319,9 +322,29 @@ Please report any problems you encounter via Github.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission required</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Starting with Android 8.1, location access is required to be able to read the WiFi\'s name. You can use this feature only if you grant this permission.</string>
 
-    <string name="respect_battery_saving_title">Respect Android battery saving setting</string>
-    <string name="respect_battery_saving_summary">Disable Syncthing if battery saving is active</string>
+    <string name="power_source_title">Run when device is powered by</string>
 
+    <string-array name="power_source_entries">
+        <item>AC and battery power.</item>
+        <item>AC power.</item>
+        <item>Battery power.</item>
+    </string-array>
+
+    <string name="respect_battery_saving_title">Respect Android battery saving setting</string>
+    <string name="respect_battery_saving_summary">Disable Syncthing if battery saving is active.</string>
+
+    <string name="respect_master_sync_title">Respect Android \'Auto-sync data\' setting</string>
+    <string name="respect_master_sync_summary">Disable Syncthing when the quick settings tile \'Auto-sync data\' is toggled off.</string>
+
+    <string name="run_in_flight_mode_title">Run when device is in flight mode</string>
+    <string name="run_in_flight_mode_summary">Enable if your phone has problems detecting manual wifi connections during flight mode.</string>
+
+    <string name="service_settings_title">Service setting</string>
+    <string name="service_settings_summary">Run Syncthing as a service. Adds a persistent notification to prevent it from being terminated by Android. Checking this option starts Syncthing on operating system startup.</string>
+
+    <string name="run_as_background_service">Start service automatically on boot</string>
+
+    <!-- Preferences - Behaviour -->
     <string name="advanced_folder_picker">Use advanced Folder Picker</string>
 
     <string name="advanced_folder_picker_summary">Select any folder on the device for syncing</string>
@@ -608,7 +631,7 @@ Please report any problems you encounter via Github.</string>
     <string name="syncthing_disabled_title">Syncthing is disabled</string>
 
     <!-- Message of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_message">Do you want to change your preferences?</string>
+    <string name="syncthing_disabled_message">Do you want to change the run conditions?</string>
 
     <!-- Button text on the "syncthing disabled" dialog -->
     <string name="syncthing_disabled_change_settings">Change Settings</string>
