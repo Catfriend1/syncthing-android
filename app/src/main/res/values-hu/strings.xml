@@ -93,7 +93,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <!--Setting title-->
   <string name="directory">Mappa</string>
   <!--Setting title-->
-  <string name="folder_master">Csak küldés</string>
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Figyeli a változásokat</string>
   <string name="folder_fileWatcherDescription">Megkéri az operációs rendszert, hogy értesítsen a fájlok módosításairól. Kikapcsolt állapotban, visszatér az időszakos óránkénti ellenőrzésekhez.</string>

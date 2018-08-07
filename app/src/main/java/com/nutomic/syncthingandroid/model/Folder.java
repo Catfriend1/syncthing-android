@@ -2,6 +2,8 @@ package com.nutomic.syncthingandroid.model;
 
 import android.text.TextUtils;
 
+import com.nutomic.syncthingandroid.service.Constants;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +17,7 @@ public class Folder {
     public String label;
     public String filesystemType = "basic";
     public String path;
-    public String type;
+    public String type = Constants.FOLDER_TYPE_SEND_RECEIVE;
     public boolean fsWatcherEnabled = true;
     public int fsWatcherDelayS = 10;
     private List<Device> devices = new ArrayList<>();

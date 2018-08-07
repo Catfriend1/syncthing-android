@@ -77,6 +77,7 @@ public class FolderActivity extends SyncthingActivity
 
     private static final int FILE_VERSIONING_DIALOG_REQUEST = 3454;
     private static final int PULL_ORDER_DIALOG_REQUEST = 3455;
+    private static final int FOLDER_TYPE_DIALOG_REQUEST =3456;
     private static final int CHOOSE_FOLDER_REQUEST = 3459;
 
     private static final String FOLDER_MARKER_NAME = ".stfolder";
@@ -85,12 +86,15 @@ public class FolderActivity extends SyncthingActivity
     private Folder mFolder;
     // Contains SAF readwrite access URI on API level >= Build.VERSION_CODES.LOLLIPOP (21)
     private Uri mFolderUri = null;
+    // Indicates the result of the write test to mFolder.path on dialog init or after a path change.
+    Boolean mCanWriteToPath = false;
 
     private EditText mLabelView;
     private EditText mIdView;
     private TextView mPathView;
     private TextView mAccessExplanationView;
-    private SwitchCompat mFolderMasterView;
+    private TextView mFolderTypeView;
+    private TextView mFolderTypeDescriptionView;
     private SwitchCompat mFolderFileWatcher;
     private SwitchCompat mFolderPaused;
     private ViewGroup mDevicesContainer;
@@ -123,10 +127,6 @@ public class FolderActivity extends SyncthingActivity
         @Override
         public void onCheckedChanged(CompoundButton view, boolean isChecked) {
             switch (view.getId()) {
-                case R.id.master:
-                    mFolder.type = (isChecked) ? Constants.FOLDER_TYPE_SEND_ONLY : Constants.FOLDER_TYPE_SEND_RECEIVE;
-                    mFolderNeedsToUpdate = true;
-                    break;
                 case R.id.fileWatcher:
                     mFolder.fsWatcherEnabled = isChecked;
                     mFolderNeedsToUpdate = true;
@@ -161,7 +161,8 @@ public class FolderActivity extends SyncthingActivity
         mIdView = findViewById(R.id.id);
         mPathView = findViewById(R.id.directoryTextView);
         mAccessExplanationView = findViewById(R.id.accessExplanationView);
-        mFolderMasterView = findViewById(R.id.master);
+        mFolderTypeView = findViewById(R.id.folderType);
+        mFolderTypeDescriptionView = findViewById(R.id.folderTypeDescription);
         mFolderFileWatcher = findViewById(R.id.fileWatcher);
         mFolderPaused = findViewById(R.id.folderPause);
         mPullOrderTypeView = findViewById(R.id.pullOrderType);
@@ -173,6 +174,7 @@ public class FolderActivity extends SyncthingActivity
 
         mPathView.setOnClickListener(view -> onPathViewClick());
 
+        findViewById(R.id.folderTypeContainer).setOnClickListener(v -> showFolderTypeDialog());
         findViewById(R.id.pullOrderContainer).setOnClickListener(v -> showPullOrderDialog());
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
         mEditIgnores.setOnClickListener(v -> editIgnores());
@@ -255,6 +257,28 @@ public class FolderActivity extends SyncthingActivity
             Log.w(TAG, e);
             Toast.makeText(this, R.string.edit_ignore_file_error, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showFolderTypeDialog() {
+        if (TextUtils.isEmpty(mFolder.path)) {
+            Toast.makeText(this, R.string.folder_path_required, Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+        if (!mCanWriteToPath) {
+            /**
+             * Do not handle the click as the children in the folder type layout are disabled
+             * and an explanation is already given on the UI why the only allowed folder type
+             * is "sendonly".
+            */
+            Toast.makeText(this, R.string.folder_path_readonly, Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+        // The user selected folder path is writeable, offer to choose from all available folder types.
+        Intent intent = new Intent(this, FolderTypeDialogActivity.class);
+        intent.putExtra(FolderTypeDialogActivity.EXTRA_FOLDER_TYPE, mFolder.type);
+        startActivityForResult(intent, FOLDER_TYPE_DIALOG_REQUEST);
     }
 
     private void showPullOrderDialog() {
@@ -377,16 +401,15 @@ public class FolderActivity extends SyncthingActivity
     private void updateViewsAndSetListeners() {
         mLabelView.removeTextChangedListener(mTextWatcher);
         mIdView.removeTextChangedListener(mTextWatcher);
-        mFolderMasterView.setOnCheckedChangeListener(null);
         mFolderFileWatcher.setOnCheckedChangeListener(null);
         mFolderPaused.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
         mIdView.setText(mFolder.id);
+        updateFolderTypeDescription();
         updatePullOrderDescription();
         updateVersioningDescription();
-        mFolderMasterView.setChecked(Objects.equal(mFolder.type, Constants.FOLDER_TYPE_SEND_ONLY));
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         mFolderPaused.setChecked(mFolder.paused);
         List<Device> devicesList = getApi().getDevices(false);
@@ -403,7 +426,6 @@ public class FolderActivity extends SyncthingActivity
         // Keep state updated
         mLabelView.addTextChangedListener(mTextWatcher);
         mIdView.addTextChangedListener(mTextWatcher);
-        mFolderMasterView.setOnCheckedChangeListener(mCheckedListener);
         mFolderFileWatcher.setOnCheckedChangeListener(mCheckedListener);
         mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
     }
@@ -517,6 +539,10 @@ public class FolderActivity extends SyncthingActivity
             mFolderNeedsToUpdate = true;
         } else if (resultCode == Activity.RESULT_OK && requestCode == FILE_VERSIONING_DIALOG_REQUEST) {
             updateVersioning(data.getExtras());
+        } else if (resultCode == Activity.RESULT_OK && requestCode == FOLDER_TYPE_DIALOG_REQUEST) {
+            mFolder.type = data.getStringExtra(FolderTypeDialogActivity.EXTRA_RESULT_FOLDER_TYPE);
+            updateFolderTypeDescription();
+            mFolderNeedsToUpdate = true;
         } else if (resultCode == Activity.RESULT_OK && requestCode == PULL_ORDER_DIALOG_REQUEST) {
             mFolder.order = data.getStringExtra(PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER);
             updatePullOrderDescription();
@@ -538,24 +564,26 @@ public class FolderActivity extends SyncthingActivity
          * Access level readonly: folder can only be configured "sendonly".
          * Access level readwrite: folder can be configured "sendonly" or "sendreceive".
          */
-        Boolean canWrite = Util.nativeBinaryCanWriteToPath(FolderActivity.this, mFolder.path);
-        if (canWrite) {
-            /**
-             * Suggest FOLDER_TYPE_SEND_RECEIVE folder because the user most probably
-             * intentionally chose a special folder like
-             * "[storage]/Android/data/com.nutomic.syncthingandroid/files"
-             * or enabled root mode thus having write access.
-             */
+        mCanWriteToPath = Util.nativeBinaryCanWriteToPath(FolderActivity.this, mFolder.path);
+        if (mCanWriteToPath) {
             mAccessExplanationView.setText(R.string.folder_path_readwrite);
-            mFolderMasterView.setChecked(false);
-            mFolderMasterView.setEnabled(true);
+            mFolderTypeView.setEnabled(true);
             mEditIgnores.setEnabled(true);
+            if (mIsCreateMode) {
+                /**
+                 * Suggest folder type FOLDER_TYPE_SEND_RECEIVE for folders to be created
+                 * because the user most probably intentionally chose a special folder like
+                 * "[storage]/Android/data/com.nutomic.syncthingandroid/files"
+                 * or enabled root mode thus having write access.
+                 */
+                mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;
+            }
         } else {
             // Force "sendonly" folder.
             mAccessExplanationView.setText(R.string.folder_path_readonly);
-            mFolderMasterView.setChecked(true);
-            mFolderMasterView.setEnabled(false);
+            mFolderTypeView.setEnabled(false);
             mEditIgnores.setEnabled(false);
+            mFolder.type = Constants.FOLDER_TYPE_SEND_ONLY;
         }
     }
 
@@ -669,6 +697,32 @@ public class FolderActivity extends SyncthingActivity
         attemptToApplyVersioningConfig();
         updateVersioningDescription();
         mFolderNeedsToUpdate = true;
+    }
+
+    private void updateFolderTypeDescription() {
+        if (mFolder == null) {
+            return;
+        }
+
+        switch (mFolder.type) {
+            case Constants.FOLDER_TYPE_SEND_RECEIVE:
+                setFolderTypeDescription(getString(R.string.folder_type_sendreceive),
+                        getString(R.string.folder_type_sendreceive_description));
+                break;
+            case Constants.FOLDER_TYPE_SEND_ONLY:
+                setFolderTypeDescription(getString(R.string.folder_type_sendonly),
+                        getString(R.string.folder_type_sendonly_description));
+                break;
+            case Constants.FOLDER_TYPE_RECEIVE_ONLY:
+                setFolderTypeDescription(getString(R.string.folder_type_receiveonly),
+                        getString(R.string.folder_type_receiveonly_description));
+                break;
+        }
+    }
+
+    private void setFolderTypeDescription(String type, String description) {
+        mFolderTypeView.setText(type);
+        mFolderTypeDescriptionView.setText(description);
     }
 
     private void updatePullOrderDescription() {

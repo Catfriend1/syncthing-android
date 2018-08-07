@@ -92,7 +92,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <!--Setting title-->
   <string name="directory">Verzeichnis</string>
   <!--Setting title-->
-  <string name="folder_master">Nur senden</string>
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Auf Änderungen achten</string>
   <string name="folder_fileWatcherDescription">Fordert das Betriebssystem auf, über Änderungen an Dateien zu informieren. Falls deaktiviert erfolgt stattdessen stündliches Scannen.</string>

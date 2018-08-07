@@ -88,7 +88,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <!--Setting title-->
   <string name="directory">Répertoire</string>
   <!--Setting title-->
-  <string name="folder_master">Envoyer uniquement</string>
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Surveiller les changements</string>
   <string name="folder_fileWatcherDescription">Demande au système d\'exploitation de signaler les modifications apportées aux fichiers. Si désactivé, revient aux analyses horaires périodiques.</string>

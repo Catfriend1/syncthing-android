@@ -88,7 +88,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Setting title-->
   <string name="directory">Cartella</string>
   <!--Setting title-->
-  <string name="folder_master">Invia Soltanto</string>
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Monitorare i cambiamenti</string>
   <string name="folder_fileWatcherDescription">Chiede al sistema operativo di notificare le modifiche ai file. Se disabilitato, ritorna a scansioni orarie periodiche.</string>
