@@ -130,6 +130,7 @@ public class SyncthingRunnable implements Runnable {
         try {
             if (wakeLock != null)
                 wakeLock.acquire();
+            increaseInotifyWatches();
 
             HashMap<String, String> targetEnv = buildEnvironment();
             process = setupAndLaunch(targetEnv);
@@ -258,6 +259,20 @@ public class SyncthingRunnable implements Runnable {
             }
         }
         return syncthingPIDs;
+    }
+
+    /**
+     * Root-only: Temporarily increase "fs.inotify.max_user_watches"
+     * as Android has a default limit of 8192 watches.
+     * Manually run "sysctl fs.inotify" in a root shell terminal to check current limit.
+     */
+    private void increaseInotifyWatches() {
+        if (!mUseRoot || !Shell.SU.available()) {
+            Log.i(TAG, "increaseInotifyWatches: Root is not available. Cannot increase inotify limit.");
+            return;
+        }
+        int exitCode = Util.runShellCommand("sysctl -n -w fs.inotify.max_user_watches=131072\n", true);
+        Log.i(TAG, "increaseInotifyWatches: sysctl returned " + Integer.toString(exitCode));
     }
 
     /**
