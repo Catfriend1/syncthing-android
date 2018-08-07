@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Добро пожаловать в Syncthing для Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing - это приложение с открытым исходным кодом для синхронизации файлов.\n
 Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n
 Пожалуйста, сообщайте о возникших проблемах через Github.</string>
-  <string name="cont">Продолжить</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Продолжить</string>
+  <string name="finish">Принять</string>
   <string name="generic_example">Пример</string>
   <string name="generic_error">Ошибка</string>
   <string name="ignore">Игнорировать</string>
@@ -89,7 +93,6 @@
   <string name="folder_label">Ярлык папки</string>
   <!--Setting title-->
   <string name="directory">Папка</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Следить за изменениями</string>
   <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
@@ -169,14 +172,14 @@
   <string name="category_backup">Резервная копия</string>
   <string name="category_debug">Отладка</string>
   <string name="category_experimental">Экспериментальное</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Условия выполнения</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование. </string>
   <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
-  <string name="respect_battery_saving_summary">Отключить Syncthing, если включено энергосбережение</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Использовать продвинутый выбор папок</string>
   <string name="advanced_folder_picker_summary">Выберите любую папку на устройстве для синхронизации</string>
   <string name="use_root_title">Запуск Syncthing с рут-правами</string>
@@ -350,7 +353,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing выключен</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Вы хотите изменить ваши настройки?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Изменить настройки</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -406,6 +408,10 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Остановка Syncthing не поддерживается, если включено выполнение в фоновом режиме.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Только отправка</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -413,7 +419,6 @@
   <string name="maximum_age">Максимальный срок</string>
   <string name="clean_out_after">Очистить после</string>
   <string name="file_versioning">Управление версиями</string>
-  <string name="finish">Принять</string>
   <string name="none">Отключено</string>
   <string name="versions_path">Путь к версиям</string>
   <string name="command">Команда</string>

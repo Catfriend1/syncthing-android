@@ -5,13 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Android için Syncthing\'e Hoş Geldiniz</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing bir açık kaynaklı dosya eşzamanlama uygulamasıdır.\n\
 Diğer aygıtlarla veri paylaşmak için, onların eşsiz aygıt ID\'lerini aygıt listesine eklemen gerekir.
 Ardından hangi klasörlerin hangi aygıtlar ile paylaşılacağını seçebilirsin.\n\
 Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</string>
-  <string name="cont">Devam et</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Devam et</string>
   <string name="generic_error">Hata</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -78,7 +81,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="folder_label">Klasör Etiketi</string>
   <!--Setting title-->
   <string name="directory">Dizin</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -151,9 +153,10 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="category_backup">Yedekleme</string>
   <string name="category_debug">Hata ayıklama</string>
   <string name="category_experimental">Deneysel</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Çalışma Koşulları</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ağ seçmek için lütfen kablosuz bağlantınızı açın.</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Gelişmiş Klasör Seçici kullan</string>
   <string name="advanced_folder_picker_summary">Eşzamanlama yapmak için aygıttan herhangi bir klasör seçin</string>
   <string name="use_root_title">Syncthing\'i Superuser/Ayrıcalıklı Kullanıcı olarak Çalıştır</string>
@@ -260,7 +263,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing devre dışı</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Tercihlerinizi değiştirmek istiyor musunuz?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Ayarları Değiştir</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -309,6 +311,9 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Arka planda çalışma etkinken Syncthing\'i durdurma desteklenmiyor.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

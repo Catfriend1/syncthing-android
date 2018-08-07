@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Witamy w Syncthing dla systemu Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing jest programem do synchronizacji plików o otwartych źródłach.\n\
 Aby udostępnić dane innemu urządzeniu, należy dodać jego unikalny identyfikator do listy urządzeń. Następnie wymagane jest wskazanie katalogów udostępnianych urządzeniu.\n\
 Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.</string>
-  <string name="cont">Kontynuuj</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Kontynuuj</string>
+  <string name="finish">Koniec</string>
   <string name="generic_error">Błąd</string>
   <string name="ignore">Ignoru</string>
   <!--MainActivity-->
@@ -86,7 +90,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="folder_label">Etykieta katalogu</string>
   <!--Setting title-->
   <string name="directory">Katalog</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -162,11 +165,11 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="category_backup">Kopia zapasowa</string>
   <string name="category_debug">Diagnozowanie błędów</string>
   <string name="category_experimental">Eksperymentalne</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Warunki działania</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Proszę włącz WiFi dla wybranych sieci</string>
   <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
-  <string name="respect_battery_saving_summary">Wyłącz Syncthing, jeśli włączone jest oszczędzanie energii</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Zaawansowane wybieranie katalogów</string>
   <string name="advanced_folder_picker_summary">Wskazuje dowolny katalog na urządzeniu do zsynchronizowania</string>
   <string name="use_root_title">Synchronizuje zawartość z uprawnieniami użytkownika Superuser</string>
@@ -317,7 +320,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing jest wyłączony</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Zmienić ustawienia?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Zmień ustawienia</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -370,6 +372,10 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Zatrzymywanie programu nie jest obsługiwane podczas działania w tle.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Tylko wyślij</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -377,7 +383,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="maximum_age">Maksymalny wiek</string>
   <string name="clean_out_after">Posprzątaj po</string>
   <string name="file_versioning">System wersjonowania plików</string>
-  <string name="finish">Koniec</string>
   <string name="none">Żaden</string>
   <string name="versions_path">Ścieżka wersji</string>
   <string name="command">Polecenie</string>

@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Syncthing for Android にようこそ</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing は、オープンソースのファイル同期アプリケーションです。\n\
 他のデバイスとデータを共有するには、デバイスリストにその一意のデバイス ID を追加する必要があります。その後で、そのデバイスと共有するフォルダーを選択することができます。\n\
 発生した問題は何でも Github で報告してください。</string>
-  <string name="cont">続行</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">続行</string>
+  <string name="finish">完了</string>
   <string name="generic_error">エラー</string>
   <string name="ignore">無視</string>
   <!--MainActivity-->
@@ -83,7 +87,6 @@
   <string name="folder_label">フォルダー ラベル</string>
   <!--Setting title-->
   <string name="directory">ディレクトリー</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -159,11 +162,11 @@
   <string name="category_backup">バックアップ</string>
   <string name="category_debug">デバッグ</string>
   <string name="category_experimental">実験的</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">実行条件</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">ネットワークを選択するために Wi-Fi をオンにしてください。</string>
   <string name="respect_battery_saving_title">Android の節電設定に従う</string>
-  <string name="respect_battery_saving_summary">バッテリー節約が有効な場合は、Syncthing を無効にします</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">高度なフォルダー選択を使用</string>
   <string name="advanced_folder_picker_summary">デバイス上の任意のフォルダーを選択できます</string>
   <string name="use_root_title">スーパーユーザーとして実行</string>
@@ -310,7 +313,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing は無効になりました</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">プリファレンスを変更しますか?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">設定を変更</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -363,6 +365,10 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">バックグラウンドでの実行が有効になっている場合、Syncthing の停止はサポートされていません。</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">送信のみ</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -370,7 +376,6 @@
   <string name="maximum_age">最大保存日数</string>
   <string name="clean_out_after">以下の期間後に完全に削除</string>
   <string name="file_versioning">バージョン管理</string>
-  <string name="finish">完了</string>
   <string name="none">なし</string>
   <string name="versions_path">古いバージョンを保存するパス</string>
   <string name="command">コマンド</string>

@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Benvenuto in Syncthing per Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing è un\'applicazione open-source di sincronizzazione file.\n\
 Per condividere i dati con altri dispositivi, è necessario aggiungere il rispettivo ID Dispositivo nell\'elenco dei dispositivi. Successivamente è possibile selezionare quali cartelle condividere con quali dispositivi.\n\
 Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
-  <string name="cont">Continua</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Continua</string>
+  <string name="finish">Completato</string>
   <string name="generic_example">Esempio</string>
   <string name="generic_error">Errore</string>
   <string name="ignore">Ignora</string>
@@ -87,7 +91,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="folder_label">Etichetta Cartella</string>
   <!--Setting title-->
   <string name="directory">Cartella</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Monitorare i cambiamenti</string>
   <string name="folder_fileWatcherDescription">Chiede al sistema operativo di notificare le modifiche ai file. Se disabilitato, ritorna a scansioni orarie periodiche.</string>
@@ -167,14 +170,14 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="category_backup">Backup</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Sperimentale</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Condizioni di funzionamento</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Si prega di attivare il WiFi per selezionare le reti.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">È necessario concedere l\'autorizzazione alla LOCALIZZAZIONE per utilizzare questa funzione.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Autorizzazione richiesta</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partire da Android 8.1, è necessario l\'accesso alla posizione per poter leggere il nome del WiFi. È possibile utilizzare questa funzionalità solo se si concede questa autorizzazione.</string>
   <string name="respect_battery_saving_title">Rispetta l\'impostazione di risparmio batteria di Android</string>
-  <string name="respect_battery_saving_summary">Disabilitare Syncthing se il risparmio della batteria è attivo</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Utilizza Selettore Cartella avanzato</string>
   <string name="advanced_folder_picker_summary">Selezionare una cartella sul dispositivo per la sincronizzazione</string>
   <string name="use_root_title">Esegui Syncthing come Superutente</string>
@@ -344,7 +347,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing è disabilitato</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Vuoi cambiare le tue preferenze?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Cambia Impostazioni</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -401,6 +403,10 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Arrestare Syncthing non è  possibile quando è abilitato il funzionamento in background.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Invia Soltanto</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -408,7 +414,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="maximum_age">Età Massima</string>
   <string name="clean_out_after">Pulire dopo</string>
   <string name="file_versioning">Controllo Versione File</string>
-  <string name="finish">Completato</string>
   <string name="none">Nessuno</string>
   <string name="versions_path">Percorso Versioni</string>
   <string name="command">Comando</string>

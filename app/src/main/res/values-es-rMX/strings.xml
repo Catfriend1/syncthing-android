@@ -5,7 +5,10 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bienvenido a Syncthing para Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
   <string name="generic_error">Error</string>
   <string name="ignore">Ignorar</string>
@@ -67,7 +70,6 @@
   <!--Setting title-->
   <!--Setting title-->
   <string name="directory">Directorio</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -135,9 +137,9 @@
   <string name="settings_title">Configuración</string>
   <string name="category_syncthing_options">Opciones de Syncthing</string>
   <string name="category_experimental">Experimental</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor encienda el WiFi para seleccionar redes.</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Usar el avanzado Seleccionador de Carpetas</string>
   <string name="advanced_folder_picker_summary">Seleccionar cualquier carpeta en el dispositivo para sincronizar</string>
   <string name="use_root_title">Ejecutar Syncthing como Superusuario</string>
@@ -237,7 +239,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing está deshabilitado</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">¿Quiere cambiar sus preferencias?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Cambiar ajustes</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -284,6 +285,9 @@
   <string name="status_outofsync">No sincronizado</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Tervetuloa Syncthingiin Androidille</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing on avoimen lähdekoodin tiedostojensynkronointisovellus.\n\
 Jakaaksesi tietoa toisten laitteiden kanssa, sinun tarvitsee lisätä niiden yksilölliset laitetunnukset laiteluetteloon. Myöhemmin voit valita, mitkä kansiot jaetaan minkä laitteiden kanssa.\n\
 Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta.</string>
-  <string name="cont">Jatka</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Jatka</string>
+  <string name="finish">Valmis</string>
   <string name="generic_example">Esimerkki</string>
   <string name="generic_error">Virhe</string>
   <!--MainActivity-->
@@ -86,7 +90,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="folder_label">Kansion tunnus</string>
   <!--Setting title-->
   <string name="directory">Hakemisto</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -159,11 +162,11 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="category_backup">Varmuuskopio</string>
   <string name="category_debug">Vianhaku</string>
   <string name="category_experimental">Kokeellinen</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Käyntiehdot</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Laita Wifi päälle valitaksesi verkkoja.</string>
   <string name="respect_battery_saving_title">Noudata Androidin virransäästöasetusta</string>
-  <string name="respect_battery_saving_summary">Poista Syncthing käytöstä jos virransäästö on käytössä</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Käytä edistynyttä Kansionvalitsinta</string>
   <string name="advanced_folder_picker_summary">Valitse mikä tahansa laitteen kansio synkronointiin.</string>
   <string name="use_root_title">Käynnistä Syncthing pääkäyttäjän oikeuksin.</string>
@@ -284,7 +287,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing on poistettu käytöstä</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Haluatko muuttaa asetuksia?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Muuta asetuksia</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -335,13 +337,16 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Syncthingin pysäyttäminen ei ole käytettävissä kun käynti taustalla on valittuna.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Vain lähetys</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Maksimi ikä</string>
   <string name="file_versioning">Tiedostoversiointi</string>
-  <string name="finish">Valmis</string>
   <string name="none">Ei mitään</string>
   <string name="command">Komento</string>
   <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->

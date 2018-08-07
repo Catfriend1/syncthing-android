@@ -5,28 +5,35 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Välkommen till Syncthing för Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing är en filsynkroniseringsapplikation med öppen källkod.\n\
-För att dela data med andra enheter måste du lägga till deras unika enhet-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\
+För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\
 Vänligen rapportera eventuella problem du stöter på via Github.</string>
-  <string name="cont">Fortsätt</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Fortsätt</string>
+  <string name="finish">Färdig</string>
   <string name="generic_example">Exempel</string>
   <string name="generic_error">Fel</string>
+  <string name="accept">Acceptera</string>
   <string name="ignore">Ignorera</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
   <string name="add_folder">Lägg till mapp</string>
   <!--Title of the "share device id" menu action-->
-  <string name="share_device_id">Dela enhet-ID</string>
+  <string name="share_device_id">Dela enhets-ID</string>
   <!--Shown in the chooser dialog when sharing a Device ID-->
-  <string name="send_device_id_to">Skicka enhet-ID till</string>
+  <string name="send_device_id_to">Skicka enhets-ID till</string>
   <string name="usage_reporting_dialog_title">Tillåt anonym användningsrapportering?</string>
   <string name="usage_reporting_dialog_description">Den krypterade användningsrapporten skickas dagligen. Den används för att spåra vanliga plattformar, mappstorlekar och appversioner. Om uppsättningen av de rapporterade uppgifterna ändras kommer du att bli tillfrågad med den här dialogrutan igen.\n\nDen aggregerade statistiken är offentligt tillgänglig på https://data.syncthing.net.</string>
   <string name="yes">Ja</string>
   <string name="no">Nej</string>
   <string name="open_website">Öppna hemsida</string>
   <string name="toast_write_storage_permission_required">Skrivlagringstillstånd krävs för denna applikation</string>
+  <string name="device_rejected">Enhet \"%1$s\" vill ansluta</string>
+  <string name="folder_rejected">Enhet \"%1$s\" vill dela mapp \"%2$s\"</string>
   <string name="dialog_disable_battery_optimization_title">Batterioptimering</string>
   <string name="dialog_disable_battery_optimization_message">Android kan stoppa synkronisering efter en viss tid. För att förhindra detta, stäng av batterioptimering.\n\nNågra enheter har ytterligare uppgiftsdödande appar förinstallerade. Ni bör lägga till Syncthing till deras vitlista, också.</string>
   <string name="dialog_disable_battery_optimization_later">Senare</string>
@@ -48,6 +55,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <item quantity="one">%1$d / %2$d fil</item>
     <item quantity="other">%1$d / %2$d filer</item>
   </plurals>
+  <string name="override_changes">Åsidosätt ändringar</string>
   <string name="open_file_manager">Öppna filhanteraren</string>
   <string name="toast_no_file_manager">Ingen kompatibel filhanterare hittad</string>
   <!--DevicesFragment-->
@@ -87,7 +95,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="folder_label">Mapp-etikett</string>
   <!--Setting title-->
   <string name="directory">Katalog</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Håll utkik efter ändringar</string>
   <string name="folder_fileWatcherDescription">Frågar operativsystemet att meddela om ändringar i filer. Om inaktiverad faller tillbaka på återkommande skanningar varje timme.</string>
@@ -111,16 +118,19 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="folder_id_required">Mapp-ID får inte vara tom</string>
   <!--Toast shown when trying to create a folder with an empty path-->
   <string name="folder_path_required">Mapp-sökvägen får inte vara tom</string>
-  <string name="dialog_discard_changes">Kasta dina ändringar?</string>
+  <string name="dialog_discard_changes">Kassera dina ändringar?</string>
   <!--Summary shown if we only have readonly access to the folder path-->
+  <string name="folder_path_readonly">Din Android-version ger Syncthing endast skrivskyddad åtkomst till den valda mappen.</string>
   <!--Summary shown if we only have readwrite access to the folder path-->
+  <string name="folder_path_readwrite">Din Android-version ger Syncthing läs- och skrivåtkomst till den valda mappen.</string>
   <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
+  <string name="toast_invalid_folder_selected">Tyvärr. Den valda mappen kan inte användas. Välj en mapp som finns på intern eller extern lagring.</string>
   <string name="ignore_patterns">Ignorera mönster</string>
   <string name="create_ignore_file_error">Misslyckades med att skapa ignorera-fil. Är katalogen skrivbar?</string>
   <string name="edit_ignore_file_error">Ingen textredigerare hittades</string>
   <!--DeviceActivity-->
   <!--Setting title-->
-  <string name="device_id">Enhet-ID</string>
+  <string name="device_id">Enhets-ID</string>
   <!--Setting title-->
   <string name="name">Namn</string>
   <!--Setting title-->
@@ -167,14 +177,14 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="category_backup">Säkerhetskopiera</string>
   <string name="category_debug">Felsök</string>
   <string name="category_experimental">Experimentell</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Körvillkor</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
   <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
-  <string name="respect_battery_saving_summary">Avaktivera Syncthing om batterispara är aktiv</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Använd avancerad mappväljare</string>
   <string name="advanced_folder_picker_summary">Välj någon mapp på enheten för synkronisering</string>
   <string name="use_root_title">Kör som superanvändare</string>
@@ -191,6 +201,14 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="start_into_web_gui_title">Starta direkt i webbgränssnittet</string>
   <string name="start_into_web_gui_summary">När du startar appen öppnar du webbgränssnittet istället för huvudskärmen</string>
   <string name="pref_language_default">Standardspråk</string>
+  <string-array name="pull_order_types">
+    <item>Slumpmässig</item>
+    <item>Alfabetisk</item>
+    <item>Minsta först</item>
+    <item>Största först</item>
+    <item>Äldsta först</item>
+    <item>Nyaste först</item>
+  </string-array>
   <string-array name="versioning_types">
     <item>Ingen</item>
     <item>Papperskorg</item>
@@ -210,6 +228,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="usage_reporting">Anonym användningsrapportering</string>
   <string name="gui_address">Gränssnittets lyssnaradresser</string>
   <!--Titles for the preference to undo ignored devices and folders-->
+  <string name="undo_ignored_devices_folders_title">Ångra ignorerande enheter och mappar</string>
+  <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta?</string>
   <string name="export_config">Exportera konfiguration</string>
   <!--Toast after entering invalid integer value-->
   <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Inmatningsvärdet är inte giltigt. Ange ett värde mellan%1$d och %2$d.</string>
@@ -244,7 +264,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Toast shown after config was successfully imported-->
   <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
   <!--Title for the preference to set STTRACE parameters-->
-  <string name="sttrace_title">STTRACE alternativ</string>
+  <string name="sttrace_title">STTRACE-alternativ</string>
   <string name="environment_variables">Miljövariabler</string>
   <!--Toast after entering invalid STTRACE params-->
   <string name="toast_invalid_environment_variables">Värdet är inte en giltig miljövariabel sträng</string>
@@ -344,7 +364,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing är inaktiverad</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Vill du ändra inställningarna?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Ändra inställningar</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -356,6 +375,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Toast shown if syncthing failed to create a config-->
   <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
   <!--Toast shown if a config file crucial to operation is missing-->
+  <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -373,7 +393,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Text of the notification shown when a restart is needed-->
   <string name="restart_notification_text">Klicka här för att starta om Syncthing nu</string>
   <!--Shown when a device ID is copied to the clipboard-->
-  <string name="device_id_copied_to_clipboard">Enhet-ID kopierad till urklipp</string>
+  <string name="device_id_copied_to_clipboard">Enhets-ID kopierad till urklipp</string>
   <!--Strings representing units for file sizes, from smallest to largest-->
   <string-array name="file_size_units">
     <item>B</item>
@@ -401,14 +421,23 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Det går inte att stoppa Syncthing när körning i bakgrunden är aktiverad.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Skicka endast</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
+  <string name="pull_order_type_random">Slumpmässig</string>
+  <string name="pull_order_type_alphabetic">Alfabetisk</string>
+  <string name="pull_order_type_smallestFirst">Minsta först</string>
+  <string name="pull_order_type_largestFirst">Största först</string>
+  <string name="pull_order_type_oldestFirst">Äldsta först</string>
+  <string name="pull_order_type_newestFirst">Nyaste först</string>
   <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Maximal ålder</string>
   <string name="clean_out_after">Rensa upp efter</string>
   <string name="file_versioning">Filversionshantering</string>
-  <string name="finish">Färdig</string>
   <string name="none">Inga</string>
   <string name="versions_path">Versioner sökväg</string>
   <string name="command">Kommando</string>

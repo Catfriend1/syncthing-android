@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Καλώς ορίσατε στο Syncthing για Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Το Syncthing είναι μια ανοιχτού κώδικα εφαρμογή συγχρονισμού αρχείων.\n\
 Για να μοιραστείτε δεδομένα με άλλες συσκευές, πρέπει να προσθέσετε τα μοναδικά αναγνωριστικά τους στη λίστα συσκευών. Μετά μπορείτε να επιλέξετε ποίοι φάκελοι θα διαμοιραστούν με ποιες συσκευές.\n\
 Παρακαλώ αναφέρετε τυχόν προβλήματα που αντιμετωπίσετε μέσω του Github.</string>
-  <string name="cont">Συνέχεια</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Συνέχεια</string>
+  <string name="finish">Τέλος</string>
   <string name="generic_error">Σφάλμα</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -83,7 +87,6 @@
   <string name="folder_label">Ετικέτα φακέλου</string>
   <!--Setting title-->
   <string name="directory">Κατάλογος</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -159,11 +162,11 @@
   <string name="category_backup">Αντίγραφο ασφαλείας</string>
   <string name="category_debug">Αποσφαλμάτωση</string>
   <string name="category_experimental">Πειραματικά</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Συνθήκες εκτέλεσης</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Παρακαλώ ενεργοποιήστε το WiFi για να επιλέξετε δίκτυα.</string>
   <string name="respect_battery_saving_title">Υπακοή στη ρύθμιση εξοικονόμησης ενέργειας του Android</string>
-  <string name="respect_battery_saving_summary">Απενεργοποίηση του Syncthing όταν είναι ενεργή η λειτουργία εξοικονόμησης ενέργειας</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Χρήση προχωρημένου επιλογέα φακέλων</string>
   <string name="advanced_folder_picker_summary">Επιλογή οποιουδήποτε φακέλου στη συσκευή για συγχρονισμό</string>
   <string name="use_root_title">Εκτέλεση του Syncthing ως υπερχρήστης</string>
@@ -313,7 +316,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Το Syncthing είναι απενεργοποιημένο</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Επιθυμείτε να αλλάξετε τις ρυθμίσεις σας;</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Αλλαγή ρυθμίσεως</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -366,6 +368,10 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Ο τερματισμός του Syncthing δεν υποστηρίζεται όταν έχει ενεργοποιηθεί η εκτέλεση στο παρασκήνιο.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Μόνο αποστολή</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -373,7 +379,6 @@
   <string name="maximum_age">Μέγιστη ηλικία</string>
   <string name="clean_out_after">Εκκαθάριση μετά από</string>
   <string name="file_versioning">Τήρηση εκδόσεων αρχείων</string>
-  <string name="finish">Τέλος</string>
   <string name="none">Απενεργοποιημένη</string>
   <string name="versions_path">Φάκελος τήρησης εκδόσεων</string>
   <string name="command">Εντολή</string>

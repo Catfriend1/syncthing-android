@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Android용 Syncthing에 어서오세요</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing은 오픈소스 파일 동기화 어플리케이션입니다.\n\
 다른 장치들과 데이터를 공유하기 위해서는 기기 목록에 고유 기기 ID를 추가해야 합니다. 그 후에 기기와 공유하는 폴더를 선택할 수 있습니다.\n\
 발생한 문제는 무엇이든 Github를 통해 알려주시기 바랍니다.</string>
-  <string name="cont">계속</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">계속</string>
+  <string name="finish">완료</string>
   <string name="generic_error">오류</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -82,7 +86,6 @@
   <string name="folder_label">폴더 라벨</string>
   <!--Setting title-->
   <string name="directory">디렉토리</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -158,11 +161,11 @@
   <string name="category_backup">백업</string>
   <string name="category_debug">디버그</string>
   <string name="category_experimental">실험적인 기능</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">작동 상태</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">WI-FI를 활성화하고 네트워크를 선택해주세요.</string>
   <string name="respect_battery_saving_title">안드로이드 배터리 절약 설정 우선</string>
-  <string name="respect_battery_saving_summary">배터리 절약 기능이 작동중인 경우 Syncthing 비활성화</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">고급 폴더 선택기 사용</string>
   <string name="advanced_folder_picker_summary">기기에서 동기화에 사용할 폴더를 골라 주세요</string>
   <string name="use_root_title">Syncthing을 Superuser로 실행</string>
@@ -309,7 +312,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing이 비활성화되었습니다</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">정말로 설정을 변경하시겠습니까?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">설정 변경</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -362,6 +364,10 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">백그라운드에서 실행이 활성화되어 있을 때는 Syncthing 중단은 지원되지 않습니다.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">송신 전용</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -369,7 +375,6 @@
   <string name="maximum_age">최대 저장 기간</string>
   <string name="clean_out_after">다음 기간 후 제거</string>
   <string name="file_versioning">파일 버전</string>
-  <string name="finish">완료</string>
   <string name="none">없음</string>
   <string name="versions_path">버전을 저장할 경로</string>
   <string name="command">명령</string>

@@ -5,7 +5,10 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Velkommen til Syncthing for Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
   <string name="generic_error">Feil</string>
   <!--MainActivity-->
@@ -68,7 +71,6 @@
   <string name="folder_label">Mappenavn</string>
   <!--Setting title-->
   <string name="directory">Katalog</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -136,9 +138,9 @@
   <string name="settings_title">Innstillinger</string>
   <string name="category_syncthing_options">Valg for Syncthing</string>
   <string name="category_experimental">Eksperimentelt</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vennligst skru på WiFi for å velge nettverk.</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Bruk avansert mappevelger</string>
   <string name="advanced_folder_picker_summary">Velg en mappe på enheten for synkronisering</string>
   <string name="use_root_title">Kjør Syncthing som superbruker</string>
@@ -241,7 +243,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing er deaktivert</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Vil du endre dine valg?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Endre Innstillinger</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -290,6 +291,9 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Du kan ikke stoppe Syncthing når «kjør i bakgrunnen» er skrudd på.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

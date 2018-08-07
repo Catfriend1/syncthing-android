@@ -3,9 +3,12 @@
   <string name="app_name">Syncthing</string>
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
-  <!--Text for dialog displayed on first start-->
-  <string name="cont">استمرار</string>
+  <!--Welcome wizard-->
+  <!--Slide 1-->
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">استمرار</string>
   <string name="generic_error">خطأ</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -45,7 +48,6 @@
   <!--Setting title-->
   <!--Setting title-->
   <!--Setting title-->
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -81,8 +83,8 @@
   <!--Title of the web gui activity-->
   <!--Text for WebGuiActivity loading view-->
   <!--SettingsFragment-->
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <!--Preferences - Behaviour-->
   <!--Titles for the preference to undo ignored devices and folders-->
   <!--Toast after entering invalid integer value-->
   <!--Experimental options-->
@@ -153,6 +155,9 @@
   <string name="state_error">خطأ</string>
   <string name="state_unknown">غير معروف</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

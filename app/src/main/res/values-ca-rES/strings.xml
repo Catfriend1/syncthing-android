@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Benvinguts al Syncthing per Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert.\n\
 Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.\n\
 Ens podeu informar dels problemes que trobeu a través de Github.</string>
-  <string name="cont">Continua</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Continua</string>
+  <string name="finish">Finalitza</string>
   <string name="generic_example">Exemple</string>
   <string name="generic_error">Error</string>
   <!--MainActivity-->
@@ -86,7 +90,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="folder_label">Etiqueta de la carpeta</string>
   <!--Setting title-->
   <string name="directory">Directori</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Vigila els canvis</string>
   <string name="folder_fileWatcherDescription">Demana al sistema que notifiqui dels canvis als fitxers. Si es desactiva es faran comprovacions cada hora.</string>
@@ -166,14 +169,14 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="category_backup">Còpia de seguretat</string>
   <string name="category_debug">Depuració</string>
   <string name="category_experimental">Experimental</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Condicions d\'execució</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Enceneu el WiFi per seleccionar xarxes.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Heu de proporcionar el permís d\'UBICACIÓ per poder fer això.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de l\'Android 8.1, cal tenir accés a la ubicació per poder llegir el nom de la WiFi. Només ho podreu fer si concediu aquest permís.</string>
   <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
-  <string name="respect_battery_saving_summary">Desactiva el Syncthing quan s\'activi l\'estalvi de bateria</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Utilitza el selector de carpetes avançat</string>
   <string name="advanced_folder_picker_summary">Seleccioneu qualsevol carpeta del dispositiu per sincronitzar-la</string>
   <string name="use_root_title">Executa el Syncthing com a Superusuari</string>
@@ -343,7 +346,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">El Syncthing està desactivat</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Voleu canviar les vostres preferències?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Canvia la configuració</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -400,6 +402,10 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">No es permet aturar el Syncthing mentre s\'està executant en segon pla.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Només envia</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -407,7 +413,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="maximum_age">Antiguitat Màxima</string>
   <string name="clean_out_after">Neteja després de</string>
   <string name="file_versioning">Versions dels fitxers</string>
-  <string name="finish">Finalitza</string>
   <string name="none">Cap</string>
   <string name="versions_path">Camí de les versions</string>
   <string name="command">Ordre</string>

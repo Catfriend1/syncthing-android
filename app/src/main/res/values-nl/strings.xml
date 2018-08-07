@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Welkom bij Syncthing voor Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing.\n\
 Om gegevens met andere apparaten te delen moet je hun unieke apparaats-ID toevoegen aan de lijst met apparaten. Nadien kan je kiezen welke mappen je met welke apparaten wil delen.\n\
 Als je problemen tegenkomt, meld ze dan via GitHub.</string>
-  <string name="cont">Verder</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Verder</string>
+  <string name="finish">Voltooien</string>
   <string name="generic_example">Voorbeeld</string>
   <string name="generic_error">Fout</string>
   <string name="ignore">Negeren</string>
@@ -87,7 +91,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="folder_label">Maplabel</string>
   <!--Setting title-->
   <string name="directory">Map</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Controleren op wijzigingen</string>
   <string name="folder_fileWatcherDescription">Vraagt het besturingssysteem om meldingen over gewijzigde bestanden. Indien uitgeschakeld wordt elk uur gescand.</string>
@@ -167,14 +170,14 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="category_backup">Back-up</string>
   <string name="category_debug">Debug</string>
   <string name="category_experimental">Experimenteel</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Uitvoervoorwaarden</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Schakel wifi in om netwerken te selecteren.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Geef de LOCATIE-toestemming om deze functie te gebruiken.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Toestemming vereist</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Vanaf Android 8.1 wordt toegang tot de locatie vereist om de naam van het wifinetwerk te kunnen lezen. Deze functie kan enkel gebruikt worden als je deze toestemming geeft.</string>
   <string name="respect_battery_saving_title">Eerbiedig de batterijbesparingsinstellingen van Android</string>
-  <string name="respect_battery_saving_summary">Schakel Syncthing uit wanneer batterijbesparing actief is</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Gebruik geavanceerde mapkiezer</string>
   <string name="advanced_folder_picker_summary">Selecteer een map op het toestel om te synchroniseren</string>
   <string name="use_root_title">Syncthing uitvoeren als superuser</string>
@@ -344,7 +347,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing is uitgeschakeld</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Wil je je voorkeuren wijzigen?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Instellingen wijzigen</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -401,6 +403,10 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Syncthing stoppen terwijl uitvoeren in achtergrond is ingeschakeld wordt niet ondersteund.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Enkel versturen</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -408,7 +414,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="maximum_age">Maximumleeftijd</string>
   <string name="clean_out_after">Legen na</string>
   <string name="file_versioning">Bestandsversies</string>
-  <string name="finish">Voltooien</string>
   <string name="none">Geen</string>
   <string name="versions_path">Versiepad</string>
   <string name="command">Opdracht</string>

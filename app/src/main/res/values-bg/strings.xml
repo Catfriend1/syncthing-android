@@ -5,12 +5,15 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Добре дошли в Syncthing за Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing е приложение с отворен код, за синхронизиране на файлове.\n\
 За да споделите информация с друго устройство е необходимо да добавите уникалния идентификатор, на даденото устройство, към списъка с устройства. След това можете да определите кои папки с кои устройства да бъдат споделени.\n\
 Ако срещнете проблем моля докладвайте в Github.</string>
-  <string name="cont">Напред</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Напред</string>
   <string name="generic_error">Грешка</string>
   <string name="ignore">Игнориране</string>
   <!--MainActivity-->
@@ -76,7 +79,6 @@
   <string name="folder_label">Етикет на папката</string>
   <!--Setting title-->
   <string name="directory">Директория</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -149,9 +151,10 @@
   <string name="category_backup">Резервно копие</string>
   <string name="category_debug">Дебъг</string>
   <string name="category_experimental">Експериментални</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Условия на работа</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежа, моля включете WiFi</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Избор на папка, за напреднали</string>
   <string name="advanced_folder_picker_summary">Изберете папка, от устройството, за синхронизиране</string>
   <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
@@ -255,7 +258,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing не работи</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Наистина ли желаете да промените настройките?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Промяна на настройките</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -303,6 +305,9 @@
   <string name="status_outofsync">Несинхронизирано</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

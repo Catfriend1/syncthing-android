@@ -5,10 +5,14 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bienvenido a Syncthing para Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing es una aplicación para sincronización de ficheros de fuentes abiertas.\nPara compartir datos con otros dispisitivos, necesitas añadir sus identificadores únicos de dispositivo a la lista de dispositivos. Después, puedes seleccionar qué carpetas vas a compartir con qué dispositivos.\nPor favor, informa de cualquier problema que te encuentres vía Github.</string>
-  <string name="cont">Continuar</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Continuar</string>
+  <string name="finish">Finalizar</string>
   <string name="generic_error">Error</string>
   <!--MainActivity-->
   <!--Title of the "add folder" menu action-->
@@ -75,7 +79,6 @@
   <string name="folder_label">Etiqueta de carpeta</string>
   <!--Setting title-->
   <string name="directory">Directorio</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -148,11 +151,11 @@
   <string name="category_backup">Copia de seguridad</string>
   <string name="category_debug">Depuración</string>
   <string name="category_experimental">Experimental</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Condiciones de ejecución</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor enciende el wifi para seleccionar redes.</string>
   <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
-  <string name="respect_battery_saving_summary">Desactivar sincronización si el ahorro de batería está activo</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Usar selección avanzada de carpeta</string>
   <string name="advanced_folder_picker_summary">Escoja alguna carpeta del dispositivo para sincronizar</string>
   <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
@@ -287,7 +290,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing está deshabilitado</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">¿Quieres cambiar tus preferencias?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Cambiar la configuración</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -338,13 +340,16 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">No está soportado detener Syncthing mientras está activada la ejecución en segundo plano.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Solamente enviar</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
   <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
   <string name="maximum_age">Antigüedad Máxima</string>
   <string name="file_versioning">Versionado de Archivos</string>
-  <string name="finish">Finalizar</string>
   <string name="none">Ninguno/a</string>
   <string name="versions_path">Ruta de Versiones</string>
   <string name="command">Comando</string>

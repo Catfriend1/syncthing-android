@@ -5,12 +5,15 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bem vindo(a) ao Syncthing para Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">O Syncthing é uma aplicação de sincronização de ficheiros de código aberto.\n\
 Para partilhar dados com outros dispositivos, tem que adicionar o seu ID único de dispositivo à lista de dispositivos. Depois pode seleccionar quais as pastas a partilhar com os dispositivos.\n\
 Reporte, através do Github, quaisquer problemas que encontre, por favor.</string>
-  <string name="cont">Continuar</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Continuar</string>
   <string name="generic_example">Exemplo</string>
   <string name="generic_error">Erro</string>
   <!--MainActivity-->
@@ -79,7 +82,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="folder_label">Etiqueta da pasta</string>
   <!--Setting title-->
   <string name="directory">Pasta</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -152,9 +154,10 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="category_backup">Cópia de segurança</string>
   <string name="category_debug">Depuração</string>
   <string name="category_experimental">Experimental</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Condições de execução</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para seleccionar redes.</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Usar selector de pasta avançado</string>
   <string name="advanced_folder_picker_summary">Seleccione qualquer pasta no dispositivo para sincronizar</string>
   <string name="use_root_title">Correr o Syncthing como superutilizador</string>
@@ -262,7 +265,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">O Syncthing está desactivado</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Quer alterar as suas preferências?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Alterar configurações</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -312,6 +314,9 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Parar o Syncthing não é suportado quando está activada a opção para correr em segundo plano.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

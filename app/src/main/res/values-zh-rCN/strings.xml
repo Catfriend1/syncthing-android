@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">欢迎使用 Android 版 Syncthing</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。
 若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要分享哪些文件夹至该设备上。
 请通过 GitHub 报告任何你遇到的问题。</string>
-  <string name="cont">继续</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">继续</string>
+  <string name="finish">完成</string>
   <string name="generic_error">错误</string>
   <string name="ignore">忽略</string>
   <!--MainActivity-->
@@ -85,7 +89,6 @@
   <string name="folder_label">文件夹标签</string>
   <!--Setting title-->
   <string name="directory">目录</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -161,11 +164,11 @@
   <string name="category_backup">备份</string>
   <string name="category_debug">调试</string>
   <string name="category_experimental">实验性</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">运行条件</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
   <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
-  <string name="respect_battery_saving_summary">禁用 Syncthing 如果省电模式已启用</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">使用高级文件夹选择器</string>
   <string name="advanced_folder_picker_summary">可以选择设备上任何文件夹</string>
   <string name="use_root_title">Syncthing 运行于超级用户</string>
@@ -312,7 +315,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing 已禁用</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">您确定要变更您的设置吗？</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">变更设置</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -365,6 +367,10 @@
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">当启用后台运行时不支持停止 Syncthing。</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">仅发送</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -372,7 +378,6 @@
   <string name="maximum_age">最长保留时间</string>
   <string name="clean_out_after">在该时间后清除</string>
   <string name="file_versioning">版本控制</string>
-  <string name="finish">完成</string>
   <string name="none">无</string>
   <string name="versions_path">历史版本路径</string>
   <string name="command">命令</string>

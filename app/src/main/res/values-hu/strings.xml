@@ -5,14 +5,18 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Üdvözöl az androidos Syncthing.</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás.
 
 Az adatok más eszközökkel való megosztásához hozzá kell adnod egyedi eszközazonosítójukat az eszközlistához. Utána kiválaszthatod, hogy mely mappákat mely eszközökkel osztasz meg.
 
 Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</string>
-  <string name="cont">Folytatás</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Folytatás</string>
+  <string name="finish">Befejezés</string>
   <string name="generic_example">Példa</string>
   <string name="generic_error">Hiba</string>
   <!--MainActivity-->
@@ -92,7 +96,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="folder_label">Mappa címke</string>
   <!--Setting title-->
   <string name="directory">Mappa</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Figyeli a változásokat</string>
   <string name="folder_fileWatcherDescription">Megkéri az operációs rendszert, hogy értesítsen a fájlok módosításairól. Kikapcsolt állapotban, visszatér az időszakos óránkénti ellenőrzésekhez.</string>
@@ -172,14 +175,14 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
   <string name="category_backup">Biztonsági mentés</string>
   <string name="category_debug">Hibakeresés</string>
   <string name="category_experimental">Kísérleti</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Futás feltételei</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
   <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
-  <string name="respect_battery_saving_summary">Syncthing tiltása, ha az akkumulátor-optimalizáció aktív</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Advanced mappaválasztó használata</string>
   <string name="advanced_folder_picker_summary">Bármely mappa kiválasztható szinkronizáláshoz</string>
   <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
@@ -347,7 +350,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">A Syncthing le van tiltva</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Meg akarod változtatni a beállításokat?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Beállítások megváltoztatása</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -403,6 +405,10 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Csak küldés</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -410,7 +416,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="maximum_age">Maximális kor</string>
   <string name="clean_out_after">Takarítás ennyi idő után</string>
   <string name="file_versioning">Fájl verziózás</string>
-  <string name="finish">Befejezés</string>
   <string name="none">Semmi</string>
   <string name="versions_path">Verziók útvonala</string>
   <string name="command">Parancs</string>

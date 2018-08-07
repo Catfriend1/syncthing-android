@@ -5,7 +5,10 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Víta Vás Syncthing pre Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
   <string name="generic_error">Chyba</string>
   <!--MainActivity-->
@@ -65,7 +68,6 @@
   <!--Setting title-->
   <!--Setting title-->
   <string name="directory">Adersár</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -129,8 +131,8 @@
   <!--SettingsFragment-->
   <string name="settings_title">Nastavenia</string>
   <string name="category_syncthing_options">Nastavenia Syncthing</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Použiť rozšírený dialóg pre volbu adresára</string>
   <string name="advanced_folder_picker_summary">Vyberte ľubovolný adresár pre synchronizáciu</string>
   <string name="use_root_title">Spúšťať Syncthing s root oprávneniami</string>
@@ -226,7 +228,6 @@
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing je zakázaný</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Chcete zmeniť svoje nastavenia?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Zmeniť Nastavenia</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -272,6 +273,9 @@
   <string name="state_unknown">Neznámy</string>
   <string name="status_outofsync">Nesynchronizované</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->

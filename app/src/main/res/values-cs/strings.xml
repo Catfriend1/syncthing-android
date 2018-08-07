@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Vítejte v Syncthing pro Android</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing je synchronizační aplikace s otevřeným zdrojovým kódem.\n\
 Pro sdílení dat s dalšími přístroji je třeba přidat jejich unikátní ID do seznamu. Poté lze určovat, které adresáře jsou sdíleny s kterými přístroji.\n\
 Všechny zaznamenané chyby prosím hlašte přes Github.</string>
-  <string name="cont">Pokračovat</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Pokračovat</string>
+  <string name="finish">Dokončit</string>
   <string name="generic_error">Chyba</string>
   <string name="ignore">Ignorovat</string>
   <!--MainActivity-->
@@ -86,7 +90,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="folder_label">Popis Adresáře</string>
   <!--Setting title-->
   <string name="directory">Adresář</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <!--Setting title-->
   <!--Setting title-->
@@ -162,11 +165,11 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="category_backup">Záloha</string>
   <string name="category_debug">Ladění</string>
   <string name="category_experimental">Experimentální</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Podmínky spuštění</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Pro výběr sítí prosím zapněte WiFi.</string>
   <string name="respect_battery_saving_title">Dodržovat nastavení úspory baterie z Androidu</string>
-  <string name="respect_battery_saving_summary">Vypnout Syncthing pokud je aktivní režim úspory baterie</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Použít rozšířený výběr adresáře</string>
   <string name="advanced_folder_picker_summary">Vyberte jakýkoliv adresář v přístroji pro synchronizaci</string>
   <string name="use_root_title">Spustit syncthing jako superuživatel</string>
@@ -322,7 +325,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing je vypnutý</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Chcete změnit svoje nastavení?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Změnit nastavení</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -375,6 +377,10 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Syncthing nelze zastavit když je povolený běh na pozadí.</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Pouze Odesílat</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <!--Displays the current pull order type in the Folder activity-->
   <!--Pull order dialog descriptions for pull order types-->
@@ -382,7 +388,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="maximum_age">Maximální stáří</string>
   <string name="clean_out_after">Vyčistit po</string>
   <string name="file_versioning">Verze souborů</string>
-  <string name="finish">Dokončit</string>
   <string name="none">Žádný</string>
   <string name="versions_path">Cesta k verzím</string>
   <string name="command">Příkaz</string>

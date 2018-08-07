@@ -5,12 +5,16 @@
   <!--FirstStartActivity-->
   <!--Title for dialog displayed on first start-->
   <string name="welcome_title">Bine ați venit la Syncthing pentru Android!</string>
-  <!--Text for dialog displayed on first start-->
+  <!--Welcome wizard-->
+  <!--Slide 1-->
   <string name="welcome_text">Syncthing este o aplicație, cu sursă deschisă, de sincronizare a fișierelor.\n\
 Pentru a partaja date cu alte dispozitive, trebuie să le adăugați ID-ul unic de dispozitiv la lista dumneavoastră de dispozitive. După aceea puteți selecta care directoare le veți partaja cu care dispozitive.\n\
 Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.</string>
-  <string name="cont">Continuare</string>
+  <!--Slide 2-->
+  <!--Slide 3-->
   <!--Generic texts used everywhere-->
+  <string name="cont">Continuare</string>
+  <string name="finish">Terminat</string>
   <string name="generic_example">Exemplu</string>
   <string name="generic_error">Eroare</string>
   <string name="accept">Acceptă</string>
@@ -92,7 +96,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="folder_label">Etichetă director</string>
   <!--Setting title-->
   <string name="directory">Director</string>
-  <!--Setting title-->
   <!--Setting title and description-->
   <string name="folder_fileWatcher">Monitorizează schimbările</string>
   <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>
@@ -175,14 +178,14 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="category_backup">Copie de rezervă</string>
   <string name="category_debug">Depanare</string>
   <string name="category_experimental">Experimental</string>
-  <!--Preference summary in case it is enabled-->
-  <!--Preference summary in case it is disabled-->
+  <!--Preference screen - Run conditions-->
+  <string name="run_conditions_title">Condiții de rulare</string>
   <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
   <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Necesită permisiunea</string>
   <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Începând cu Android 8.1, este necesar accesul la locație pentru a putea citii numele rețelei Wi-Fi. Această caracteristică poate fi folosită doar dacă acordați această permisiune.</string>
   <string name="respect_battery_saving_title">Se va respecta setarea de economisire a bateriei din Android</string>
-  <string name="respect_battery_saving_summary">Syncthing va fi dezactivat dacă economisirea bateriei este activată</string>
+  <!--Preferences - Behaviour-->
   <string name="advanced_folder_picker">Folosește selectorul avansat de directoare</string>
   <string name="advanced_folder_picker_summary">Alegeți orice director de pe dispozitiv pentru sincronizare</string>
   <string name="use_root_title">Rulează ca root</string>
@@ -366,7 +369,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Title of the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_title">Syncthing este dezactivat</string>
   <!--Message of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_message">Doriți să schimbați setările?</string>
   <!--Button text on the "syncthing disabled" dialog-->
   <string name="syncthing_disabled_change_settings">Schimbă setări</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
@@ -424,6 +426,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
   <string name="folder_size_format">%1$s / %2$s</string>
   <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată</string>
+  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
+  <!--Displays the current folder type in the folder activity-->
+  <string name="folder_type_sendonly">Doar trimitere</string>
+  <!--Folder type dialog descriptions for folder types-->
   <!--Titles used in the pull order dialog and pull order button in the folder activity-->
   <string name="pull_order">Ordinea de preluare a fișierelor</string>
   <!--Displays the current pull order type in the Folder activity-->
@@ -444,7 +450,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="maximum_age">Vârstă maximă</string>
   <string name="clean_out_after">Curățare după</string>
   <string name="file_versioning">Versiuni fișiere</string>
-  <string name="finish">Terminat</string>
   <string name="none">Nici unul</string>
   <string name="versions_path">Cale versiune</string>
   <string name="command">Comandă</string>
