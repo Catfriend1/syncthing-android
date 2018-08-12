@@ -37,6 +37,7 @@ public class Folder {
     public boolean disableSparseFiles;
     public boolean disableTempIndexes;
     public boolean paused;
+    public boolean useLargeBlocks;
     public int weakHashThresholdPct = 25;
     public String markerName = ".stfolder";
     public String invalid;
