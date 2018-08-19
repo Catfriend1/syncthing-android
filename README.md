@@ -2,6 +2,10 @@ This a fork. There are no builds of it on GPlay nor F-Droid. If you'd like to ha
 
 Important: Please don't file bugs at the upstream repository syncthing-android if you are using this fork.
 
+# Major enhancements in this fork are:
+- UI explains why syncthing is running or not running according to the run conditions set in preferences.
+- A welcome wizard guiding you through initial setup on first launch or if mandatory prerequisites are missing like for example the storage permission.
+
 # syncthing-android
 android)
 [![License: MPLv2](https://img.shields.io/badge/License-MPLv2-blue.svg)](https://opensource.org/licenses/MPL-2.0)
