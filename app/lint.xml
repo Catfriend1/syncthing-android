@@ -62,4 +62,10 @@
         <ignore path="src/main/res/layout/widget_toolbar.xml" />
     </issue>
     <issue id="OldTargetApi" severity="ignore" />
+    <!-- Temporary ignored until it's time to fix them -->
+    <issue id="Overdraw" severity="ignore" />
+    <issue id="PrivateResource" severity="ignore" />
+    <issue id="RelativeOverlap">
+        <ignore path="src/main/res/layout/activity_first_start.xml" />
+    </issue>
 </lint>
