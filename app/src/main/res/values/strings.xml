@@ -38,6 +38,7 @@ Please report any problems you encounter via Github.</string>
     <string name="generic_error">Error</string>
     <string name="grant_permission">Grant permission</string>
     <string name="permission_granted">Permission granted</string>
+    <string name="reason">Reason:</string>
 
     <string name="accept">Accept</string>
 
@@ -139,6 +140,13 @@ Please report any problems you encounter via Github.</string>
     <!-- Title for current upload rate -->
     <string name="upload_title">Upload</string>
 
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Status</string>
+    <string name="syncthing_starting">Syncthing is starting.</string>
+    <string name="syncthing_running">Syncthing is running.</string>
+    <string name="syncthing_not_running">Syncthing is not running.</string>
+    <string name="syncthing_has_crashed">Syncthing has crashed.</string>
+
     <!-- DrawerFragment -->
 
 
@@ -155,7 +163,7 @@ Please report any problems you encounter via Github.</string>
     <string name="ram_usage">RAM Usage</string>
 
     <!-- Title for announce server status -->
-    <string name="announce_server">Announce Server</string>
+    <string name="announce_server">Configured Announce Server</string>
 
     <string name="restart">Restart</string>
 
@@ -631,18 +639,29 @@ Please report any problems you encounter via Github.</string>
     <!-- Sub Folder title -->
     <string name="sub_folder">Sub folder</string>
 
+    <!-- RunConditionMonitor -->
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_on_ac_power">Phone is not running on AC power.</string>
+    <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
+    <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
+    <string name="reason_on_mobile_data">Syncthing is running as mobile data is currently connected.</string>
+    <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
+    <string name="reason_on_wifi">Syncthing is allowed to run on WiFi and WiFi is currently connected.</string>
+    <string name="reason_not_on_wifi">Syncthing is allowed to run on WiFi but WiFi isn\'t connected or the phone is in flight mode.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing is allowed to run on metered and non-metered WiFi connections.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing is allowed to run on the current WiFi network.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing is not running as the current WiFi network\'s name is not whitelisted.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing is allowed to run on non-metered WiFi connections. The active WiFi connection is non-metered.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
+    <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
+
     <!-- SyncthingService -->
 
 
     <!-- Title of the "syncthing disabled" dialog -->
     <string name="syncthing_disabled_title">Syncthing is disabled</string>
-
-    <!-- Message of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_message">Do you want to change the run conditions?</string>
-
-    <!-- Button text on the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_change_settings">Change Settings</string>
-
     <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
     <string name="exit">Exit</string>
 

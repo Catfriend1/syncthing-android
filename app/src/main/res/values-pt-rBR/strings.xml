@@ -339,7 +339,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="syncthing_disabled_title">O Syncthing está desabilitado</string>
   <!--Message of the "syncthing disabled" dialog-->
   <!--Button text on the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_change_settings">Alterar configurações</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
   <string name="exit">Sair</string>
   <!--Title of the notification shown while syncthing is running and enabled-->

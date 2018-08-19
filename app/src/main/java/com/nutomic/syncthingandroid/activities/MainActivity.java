@@ -24,7 +24,7 @@ import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -49,6 +49,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.fragments.DeviceListFragment;
 import com.nutomic.syncthingandroid.fragments.DrawerFragment;
 import com.nutomic.syncthingandroid.fragments.FolderListFragment;
+import com.nutomic.syncthingandroid.fragments.StatusFragment;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -89,11 +90,13 @@ public class MainActivity extends StateDialogActivity
     private Dialog mRestartDialog;
 
     private boolean mBatteryOptimizationDialogDismissed;
+    private SyncthingService.State mSyncthingServiceState = SyncthingService.State.INIT;
 
     private ViewPager mViewPager;
 
     private FolderListFragment mFolderListFragment;
     private DeviceListFragment mDeviceListFragment;
+    private StatusFragment     mStatusFragment;
     private DrawerFragment     mDrawerFragment;
 
     private ActionBarDrawerToggle mDrawerToggle;
@@ -105,13 +108,17 @@ public class MainActivity extends StateDialogActivity
      */
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
+        if (currentState != mSyncthingServiceState) {
+            mSyncthingServiceState = currentState;
+            updateViewPager();
+        }
+
         switch (currentState) {
             case STARTING:
                 break;
             case ACTIVE:
                 showBatteryOptimizationDialogIfNecessary();
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                mDrawerFragment.requestGuiUpdate();
 
                 // Check if the usage reporting minimum delay passed by.
                 Boolean usageReportingDelayPassed = (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY);
@@ -176,39 +183,6 @@ public class MainActivity extends StateDialogActivity
         return firstInstallTime;
     }
 
-    private final FragmentPagerAdapter mSectionsPagerAdapter =
-            new FragmentPagerAdapter(getSupportFragmentManager()) {
-
-                @Override
-                public Fragment getItem(int position) {
-                    switch (position) {
-                        case 0:
-                            return mFolderListFragment;
-                        case 1:
-                            return mDeviceListFragment;
-                        default:
-                            return null;
-                    }
-                }
-
-                @Override
-                public int getCount() {
-                    return 2;
-                }
-
-                @Override
-                public CharSequence getPageTitle(int position) {
-                    switch (position) {
-                        case 0:
-                            return getResources().getString(R.string.folders_fragment_title);
-                        case 1:
-                            return getResources().getString(R.string.devices_fragment_title);
-                        default:
-                            return String.valueOf(position);
-                    }
-                }
-            };
-
     /**
      * Initializes tab navigation.
      */
@@ -218,6 +192,7 @@ public class MainActivity extends StateDialogActivity
 
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        mViewPager = findViewById(R.id.pager);
 
         FragmentManager fm = getSupportFragmentManager();
         if (savedInstanceState != null) {
@@ -225,18 +200,24 @@ public class MainActivity extends StateDialogActivity
                     savedInstanceState, FolderListFragment.class.getName());
             mDeviceListFragment = (DeviceListFragment) fm.getFragment(
                     savedInstanceState, DeviceListFragment.class.getName());
+            mStatusFragment = (StatusFragment) fm.getFragment(
+                    savedInstanceState, StatusFragment.class.getName());
             mDrawerFragment = (DrawerFragment) fm.getFragment(
                     savedInstanceState, DrawerFragment.class.getName());
-        } else {
+        }
+        if (mFolderListFragment == null) {
             mFolderListFragment = new FolderListFragment();
+        }
+        if (mDeviceListFragment == null) {
             mDeviceListFragment = new DeviceListFragment();
+        }
+        if (mStatusFragment == null) {
+            mStatusFragment = new StatusFragment();
+        }
+        if (mDrawerFragment == null) {
             mDrawerFragment = new DrawerFragment();
         }
 
-        mViewPager = findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabLayout = findViewById(R.id.tabContainer);
-        tabLayout.setupWithViewPager(mViewPager);
         if (savedInstanceState != null) {
             mViewPager.setCurrentItem(savedInstanceState.getInt("currentTab"));
             if (savedInstanceState.getBoolean(IS_SHOWING_RESTART_DIALOG)){
@@ -246,6 +227,8 @@ public class MainActivity extends StateDialogActivity
             if(savedInstanceState.getBoolean(IS_QRCODE_DIALOG_DISPLAYED)) {
                 showQrCodeDialog(savedInstanceState.getString(DEVICEID_KEY), savedInstanceState.getParcelable(QRCODE_BITMAP_KEY));
             }
+        } else {
+            updateViewPager();
         }
 
         fm.beginTransaction().replace(R.id.drawer, mDrawerFragment).commit();
@@ -259,6 +242,74 @@ public class MainActivity extends StateDialogActivity
         startService(new Intent(this, SyncthingService.class));
 
         onNewIntent(getIntent());
+    }
+
+    /**
+     * Updates the ViewPager to show tabs depending on the service state.
+     */
+    private void updateViewPager() {
+        FragmentStatePagerAdapter mSectionsPagerAdapter =
+                new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+
+            @Override
+            public Fragment getItem(int position) {
+                if (mSyncthingServiceState == SyncthingService.State.ACTIVE) {
+                    switch (position) {
+                        case 0:
+                            return mFolderListFragment;
+                        case 1:
+                            return mDeviceListFragment;
+                        case 2:
+                            return mStatusFragment;
+                        default:
+                            return null;
+                    }
+                } else {
+                    switch (position) {
+                        case 0:
+                            return mStatusFragment;
+                        default:
+                            return null;
+                    }
+                }
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return this.POSITION_NONE;
+            }
+
+            @Override
+            public int getCount() {
+                return mSyncthingServiceState == SyncthingService.State.ACTIVE ? 3 : 1;
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                if (mSyncthingServiceState == SyncthingService.State.ACTIVE) {
+                    switch (position) {
+                        case 0:
+                            return getResources().getString(R.string.folders_fragment_title);
+                        case 1:
+                            return getResources().getString(R.string.devices_fragment_title);
+                        case 2:
+                            return getResources().getString(R.string.status_fragment_title);
+                        default:
+                            return String.valueOf(position);
+                    }
+                } else {
+                    switch (position) {
+                        case 0:
+                            return getResources().getString(R.string.status_fragment_title);
+                        default:
+                            return String.valueOf(position);
+                        }
+                }
+            }
+        };
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabContainer);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
@@ -286,6 +337,8 @@ public class MainActivity extends StateDialogActivity
             mSyncthingService.unregisterOnServiceStateChangeListener(this);
             mSyncthingService.unregisterOnServiceStateChangeListener(mFolderListFragment);
             mSyncthingService.unregisterOnServiceStateChangeListener(mDeviceListFragment);
+            mSyncthingService.unregisterOnServiceStateChangeListener(mDrawerFragment);
+            mSyncthingService.unregisterOnServiceStateChangeListener(mStatusFragment);
         }
     }
 
@@ -297,6 +350,8 @@ public class MainActivity extends StateDialogActivity
         syncthingService.registerOnServiceStateChangeListener(this);
         syncthingService.registerOnServiceStateChangeListener(mFolderListFragment);
         syncthingService.registerOnServiceStateChangeListener(mDeviceListFragment);
+        syncthingService.registerOnServiceStateChangeListener(mDrawerFragment);
+        syncthingService.registerOnServiceStateChangeListener(mStatusFragment);
     }
 
     /**
@@ -314,6 +369,7 @@ public class MainActivity extends StateDialogActivity
         };
         putFragment.accept(mFolderListFragment);
         putFragment.accept(mDeviceListFragment);
+        putFragment.accept(mStatusFragment);
         putFragment.accept(mDrawerFragment);
 
         outState.putInt("currentTab", mViewPager.getCurrentItem());
@@ -400,18 +456,6 @@ public class MainActivity extends StateDialogActivity
     private class Toggle extends ActionBarDrawerToggle {
         public Toggle(Activity activity, DrawerLayout drawerLayout) {
             super(activity, drawerLayout, R.string.app_name, R.string.app_name);
-        }
-
-        @Override
-        public void onDrawerOpened(View drawerView) {
-            super.onDrawerOpened(drawerView);
-            mDrawerFragment.onDrawerOpened();
-        }
-
-        @Override
-        public void onDrawerClosed(View view) {
-            super.onDrawerClosed(view);
-            mDrawerFragment.onDrawerClosed();
         }
 
         @Override

@@ -225,8 +225,7 @@ public class RestApi {
      * Precondition: {@link #mVersion} read from REST
      */
     private void updateDebugFacilitiesCache() {
-        final String PREF_LAST_BINARY_VERSION = "lastBinaryVersion";
-        if (!mVersion.equals(PreferenceManager.getDefaultSharedPreferences(mContext).getString(PREF_LAST_BINARY_VERSION, ""))) {
+        if (!mVersion.equals(PreferenceManager.getDefaultSharedPreferences(mContext).getString(Constants.PREF_LAST_BINARY_VERSION, ""))) {
             // First binary launch or binary upgraded case.
             new GetRequest(mContext, mUrl, GetRequest.URI_DEBUG, mApiKey, null, result -> {
                 try {
@@ -243,7 +242,7 @@ public class RestApi {
                     // Store current binary version so we will only store this information again
                     // after a binary update.
                     PreferenceManager.getDefaultSharedPreferences(mContext).edit()
-                        .putString(PREF_LAST_BINARY_VERSION, mVersion)
+                        .putString(Constants.PREF_LAST_BINARY_VERSION, mVersion)
                         .apply();
                 } catch (Exception e) {
                     Log.w(TAG, "updateDebugFacilitiesCache: Failed to get debug facilities. result=" + result);

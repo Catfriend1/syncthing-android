@@ -92,7 +92,7 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
     /**
      * Returns service object (or null if not bound).
      */
-    SyncthingService getService() {
+    public SyncthingService getService() {
         return mSyncthingService;
     }
 

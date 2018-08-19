@@ -313,7 +313,6 @@
   <string name="syncthing_disabled_title">Syncthing이 비활성화되었습니다</string>
   <!--Message of the "syncthing disabled" dialog-->
   <!--Button text on the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_change_settings">설정 변경</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
   <string name="exit">나가기</string>
   <!--Title of the notification shown while syncthing is running and enabled-->

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class Constants {
 
     public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
+    public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
 
     // Preferences - Run conditions
     public static final String PREF_ALWAYS_RUN_IN_BACKGROUND    = "always_run_in_background";

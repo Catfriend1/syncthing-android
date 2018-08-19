@@ -40,20 +40,12 @@ public abstract class StateDialogActivity extends SyncthingActivity {
     protected void onResume() {
         super.onResume();
         mIsPaused = false;
-        switch (mServiceState) {
-            case DISABLED:
-                showDisabledDialog();
-                break;
-            default:
-                break;
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         mIsPaused = true;
-        dismissDisabledDialog();
         dismissLoadingDialog();
     }
 
@@ -63,7 +55,6 @@ public abstract class StateDialogActivity extends SyncthingActivity {
         if (getService() != null) {
             getService().unregisterOnServiceStateChangeListener(this::onServiceStateChange);
         }
-        dismissDisabledDialog();
     }
 
     private void onServiceStateChange(SyncthingService.State currentState) {
@@ -71,48 +62,16 @@ public abstract class StateDialogActivity extends SyncthingActivity {
         switch (mServiceState) {
             case INIT: // fallthrough
             case STARTING:
-                dismissDisabledDialog();
                 showLoadingDialog();
                 break;
             case ACTIVE:
-                dismissDisabledDialog();
                 dismissLoadingDialog();
                 break;
-            case DISABLED:
-                if (!mIsPaused) {
-                    showDisabledDialog();
-                }
-                break;
+            case DISABLED: // fallthrough
             case ERROR: // fallthrough
             default:
                 break;
         }
-    }
-
-    private void showDisabledDialog() {
-        if (this.isFinishing() && (mDisabledDialog != null)) {
-            return;
-        }
-        mDisabledDialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.syncthing_disabled_title)
-                .setMessage(R.string.syncthing_disabled_message)
-                .setPositiveButton(R.string.syncthing_disabled_change_settings,
-                        (dialogInterface, i) -> {
-                            Intent intent = new Intent(this, SettingsActivity.class);
-                            intent.putExtra(SettingsActivity.EXTRA_OPEN_SUB_PREF_SCREEN, "category_run_conditions");
-                            startActivity(intent);
-                        }
-                )
-                .setNegativeButton(R.string.exit,
-                        (dialogInterface, i) -> ActivityCompat.finishAffinity(this)
-                )
-                .setCancelable(false)
-                .show();
-    }
-
-    private void dismissDisabledDialog() {
-        Util.dismissDialogSafe(mDisabledDialog, this);
-        mDisabledDialog = null;
     }
 
     /**

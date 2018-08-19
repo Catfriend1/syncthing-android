@@ -587,6 +587,13 @@ public class SyncthingService extends Service {
         return mNotificationHandler;
     }
 
+    public String getRunDecisionExplanation() {
+        if (mRunConditionMonitor == null) {
+            return "This should not happen: mRunConditionMonitor is not instantiated.";
+        }
+        return mRunConditionMonitor.getRunDecisionExplanation();
+    }
+
     /**
      * Exports the local config and keys to {@link Constants#EXPORT_PATH}.
      */

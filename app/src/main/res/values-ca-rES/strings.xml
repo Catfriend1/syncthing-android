@@ -347,7 +347,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="syncthing_disabled_title">El Syncthing està desactivat</string>
   <!--Message of the "syncthing disabled" dialog-->
   <!--Button text on the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_change_settings">Canvia la configuració</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
   <string name="exit">Surt</string>
   <!--Title of the notification shown while syncthing is running and enabled-->

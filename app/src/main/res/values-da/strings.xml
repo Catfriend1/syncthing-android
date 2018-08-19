@@ -313,7 +313,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="syncthing_disabled_title">Syncthing er slået fra</string>
   <!--Message of the "syncthing disabled" dialog-->
   <!--Button text on the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_change_settings">Ændre Indstillinger</string>
   <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
   <string name="exit">Afslut</string>
   <!--Title of the notification shown while syncthing is running and enabled-->
