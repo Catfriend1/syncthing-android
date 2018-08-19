@@ -20,10 +20,12 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android.
 ### Build instructions
 
 Make sure you clone the project with
-`git clone https://github.com/syncthing/syncthing-android.git --recursive`. Alternatively, run
+`git clone https://github.com/Catfriend1/syncthing-android.git --recursive`. Alternatively, run
 `git submodule init && git submodule update` in the project folder.
 
-Build Syncthing using `./gradlew buildNative`. Then use `./gradlew assembleDebug` or
+A Linux VM, for example running Debian, is recommended to build this.
+
+Build Syncthing using `./gradlew cleanNative buildNative`. Then use `./gradlew assembleDebug` or
 Android Studio to build the apk.
 
 # License
