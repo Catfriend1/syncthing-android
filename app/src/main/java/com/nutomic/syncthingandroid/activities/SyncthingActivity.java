@@ -22,8 +22,6 @@ import java.util.LinkedList;
  */
 public abstract class SyncthingActivity extends AppCompatActivity implements ServiceConnection {
 
-    public static final String EXTRA_KEY_GENERATION_IN_PROGRESS = "com.nutomic.syncthing-android.SyncthingActivity.KEY_GENERATION_IN_PROGRESS";
-
     private SyncthingService mSyncthingService;
 
     private final LinkedList<OnServiceConnectedListener> mServiceConnectedListeners = new LinkedList<>();

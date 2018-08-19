@@ -337,7 +337,7 @@ public class SyncthingService extends Service {
                  syncthingService.mConfig = new ConfigXml(syncthingService);
                  syncthingService.mConfig.updateIfNeeded();
              } catch (ConfigXml.OpenConfigException e) {
-                 syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_create_failed, true);
+                 syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, true);
                  synchronized (syncthingService.mStateLock) {
                      syncthingService.onServiceStateChange(State.ERROR);
                  }

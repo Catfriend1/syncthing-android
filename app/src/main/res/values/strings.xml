@@ -12,19 +12,23 @@
     <string name="welcome_title">Welcome to Syncthing for Android</string>
 
     <!-- Welcome wizard -->
-    <!-- Slide 1 -->
+    <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
     <string name="welcome_text">Syncthing is an open-source file synchronization application.\n\
 To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.\n\
 Please report any problems you encounter via Github.</string>
 
-    <!-- Slide 2 -->
+    <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Storage Permission</string>
     <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization.</string>
 
-    <!-- Slide 3 -->
+    <!-- Slide "Location Permission"" -->
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_desc">Syncthing can be configured to run on selected Wi-Fi networks. Android requires applications to have location permissions to be able look up active Wi-Fi network name, as you can sometimes infer users location from the name of the network they are connected to. If you want to use this feature, press the button above to give the required location permissions to Syncthing. Otherwise you can skip this step.</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Key Generation</string>
+    <string name="key_generation_success">Secure keys for private data exchange have been successfully generated.</string>
 
     <!-- Generic texts used everywhere -->
     <string name="back">Back</string>
@@ -82,7 +86,7 @@ Please report any problems you encounter via Github.</string>
     <string name="api_loading">Loading&#8230;</string>
 
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes.</string>
+    <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes&#8230;</string>
 
     <string name="syncthing_loading_slow_message">Syncthing is taking very long to load. Use the logs to check for any errors.</string>
 
@@ -649,8 +653,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="syncthing_terminated">Syncthing was terminated</string>
 
-    <!-- Toast shown if syncthing failed to create a config -->
-    <string name="config_create_failed">Failed to create config file</string>
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="config_create_failed">Failed to create configuration.</string>
+    <string name="config_read_failed">Failed to read configuration. Consider backing up data from your sync folders, then clear this app\'s data from Android settings and launch it again.</string>
 
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">A config file crucial to operation is missing</string>

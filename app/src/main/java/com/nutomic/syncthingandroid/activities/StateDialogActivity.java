@@ -124,26 +124,21 @@ public abstract class StateDialogActivity extends SyncthingActivity {
 
         DialogLoadingBinding binding = DataBindingUtil.inflate(
                 getLayoutInflater(), R.layout.dialog_loading, null, false);
-        boolean isGeneratingKeys = getIntent().getBooleanExtra(EXTRA_KEY_GENERATION_IN_PROGRESS, false);
-        binding.loadingText.setText((isGeneratingKeys)
-                ? R.string.web_gui_creating_key
-                : R.string.api_loading);
+        binding.loadingText.setText(R.string.api_loading);
 
         mLoadingDialog = new AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setView(binding.getRoot())
                 .show();
 
-        if (!isGeneratingKeys) {
-            new Handler().postDelayed(() -> {
-                if (this.isFinishing() || mLoadingDialog == null)
-                    return;
+        new Handler().postDelayed(() -> {
+            if (this.isFinishing() || mLoadingDialog == null)
+                return;
 
-                binding.loadingSlowMessage.setVisibility(View.VISIBLE);
-                binding.viewLogs.setOnClickListener(v ->
-                        startActivity(new Intent(this, LogActivity.class)));
-            }, SLOW_LOADING_TIME);
-        }
+            binding.loadingSlowMessage.setVisibility(View.VISIBLE);
+            binding.viewLogs.setOnClickListener(v ->
+                    startActivity(new Intent(this, LogActivity.class)));
+        }, SLOW_LOADING_TIME);
     }
 
     private void dismissLoadingDialog() {
