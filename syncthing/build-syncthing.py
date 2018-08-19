@@ -105,8 +105,6 @@ for target in BUILD_TARGETS:
             '-v'
         ])
 
-    print('Building syncthing')
-
     environ = os.environ.copy()
     environ.update({
         'GOPATH': module_dir,
@@ -114,8 +112,18 @@ for target in BUILD_TARGETS:
         'CC': os.path.join(standalone_ndk_dir, 'bin', target['cc'])
     })
 
+    syncthingVersion = subprocess.check_output([
+        'git',
+        '-C',
+        syncthing_dir,
+        'describe',
+        '--always'
+    ]).strip();
+    syncthingVersion = syncthingVersion.replace("rc", "preview");
+    print('Building syncthing version', syncthingVersion);
     subprocess.check_call([
                               'go', 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
+                              '-version', syncthingVersion
                           ] + pkg_argument + ['-no-upgrade', 'build'], env=environ, cwd=syncthing_dir)
 
     # Copy compiled binary to jniLibs folder
