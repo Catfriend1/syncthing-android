@@ -32,12 +32,12 @@ android {
         }
     }
     defaultConfig {
-        applicationId "com.nutomic.syncthingandroid"
+        applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 4147
-        versionName "0.10.14-beta1"
-        testApplicationId 'com.nutomic.syncthingandroid.test'
+        versionCode 4149
+        versionName "0.14.50.rc2.1"
+        testApplicationId 'com.github.catfriend1.syncthingandroid.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         playAccountConfig = playAccountConfigs.defaultAccountConfig
     }
@@ -58,10 +58,6 @@ android {
             signingConfig = signingConfigs.release.storeFile ? signingConfigs.release : null
         }
         debug {
-            debuggable true
-            jniDebuggable true
-            renderscriptDebuggable true
-            minifyEnabled false
         }
     }
 
