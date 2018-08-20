@@ -242,16 +242,12 @@
   <string name="open_log_summary">Syncthing 및 Android 로그 윈도우 열기</string>
   <string name="notify_crashes_title">Syncthing 충돌에 대해 알려주기</string>
   <string name="notify_crashes_summary">Syncthing 충돌이 감지 되었을 때 알림을 보여줍니다</string>
-  <string name="syncthing_forum_title">Syncthing 포럼</string>
-  <string name="syncthing_forum_summary">Syncthing 포럼으로 이동</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">문제 보고</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Syncthing-Android 이슈 트래커 열기</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">기부하기</string>
-  <string name="donate_summary">도메인과 호스팅 요금을 위해 저희를 도와주세요</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing 버전</string>
   <!--Title of the preference showing this app's version name-->

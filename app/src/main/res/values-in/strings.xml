@@ -230,16 +230,12 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="open_log_summary">Buat jendela log Syncthing dan Android</string>
   <string name="notify_crashes_title">Beritahu jika aplikasi Syncthing mati</string>
   <string name="notify_crashes_summary">Tampilkan notifikasi jika kegagalan Syncthing ditemukan</string>
-  <string name="syncthing_forum_title">Forum Syncthing</string>
-  <string name="syncthing_forum_summary">Masuk ke Forum Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Laporkan Masalah</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Buka penelusuran masalah Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donasi</string>
-  <string name="donate_summary">Bantu kami dalam pembiayaan domain dan hosting</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versi Syncthing</string>
   <!--Title of the preference showing this app's version name-->

@@ -293,16 +293,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="open_log_summary">Deschide fereastra de jurnal de erori Syncthing și Android</string>
   <string name="notify_crashes_title">Notifică despre opririle neașteptate ale Syncthing</string>
   <string name="notify_crashes_summary">Arată o notificare de fiecare dată când Syncthing s-a oprit pe neașteptate</string>
-  <string name="syncthing_forum_title">Forum Syncthing</string>
-  <string name="syncthing_forum_summary">Mergi la Forum Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Raportează problemă</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Deschide lista de probleme Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donează</string>
-  <string name="donate_summary">Ajutați-ne să plătim costurile pentru domenii și găzduirea siteurilor</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versiune Syncthing</string>
   <!--Title of the preference showing this app's version name-->

@@ -277,16 +277,12 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="open_log_summary">A Syncthing és az Android naplók megnyitása</string>
   <string name="notify_crashes_title">Értesítés a Syncthing összeomlásáról</string>
   <string name="notify_crashes_summary">Megjelenít egy értesítést, amennyiben a Syncthing összeomlik</string>
-  <string name="syncthing_forum_title">Syncthing fórum</string>
-  <string name="syncthing_forum_summary">A Syncthing fórum megnyitása</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Hibabejelentés</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">A Syncthing-Android hibajegyek megnyitása</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Támogatás</string>
-  <string name="donate_summary">Segíts a domain és hosting költségek fedezésében</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing verzió</string>
   <!--Title of the preference showing this app's version name-->

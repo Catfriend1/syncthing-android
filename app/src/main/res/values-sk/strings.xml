@@ -188,7 +188,6 @@
   <string name="report_issue_summary">Otvoriť stránku pre hlásenie chýb v Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Prispieť</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Verzia Syncthing</string>
   <!--Title of the preference showing this app's version name-->

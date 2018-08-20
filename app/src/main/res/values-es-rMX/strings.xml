@@ -198,8 +198,6 @@
   <string name="report_issue_summary">Abrir el rastreador de problemas de Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donar</string>
-  <string name="donate_summary">Ayúdenos a pagar los dominios y los costos de hospedaje</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versión de Syncthing</string>
   <!--Title of the preference showing this app's version name-->

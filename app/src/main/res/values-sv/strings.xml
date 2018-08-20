@@ -291,16 +291,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="open_log_summary">Öppna loggfönstret för Syncthing och Android</string>
   <string name="notify_crashes_title">Meddela om Syncthing kraschar</string>
   <string name="notify_crashes_summary">Visa en avisering när en Syncthing krasch detekteras</string>
-  <string name="syncthing_forum_title">Syncthing forum</string>
-  <string name="syncthing_forum_summary">Gå till Syncthingforumet</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Rapportera problem</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Öppna Syncthing-Android problemspårning</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donera</string>
-  <string name="donate_summary">Hjälp oss att betala för domäner och värdsavgifter</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing version</string>
   <!--Title of the preference showing this app's version name-->

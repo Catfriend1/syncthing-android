@@ -243,16 +243,12 @@
   <string name="open_log_summary">Άνοιγμα του παραθύρου καταγραφής συμβάντων του Syncthing και Android</string>
   <string name="notify_crashes_title">Ειδοποίηση για καταρρεύσεις του Syncthing</string>
   <string name="notify_crashes_summary">Να εμφανίζεται μια ειδοποίηση όποτε ανιχνεύεται κατάρρευση του Syncthing</string>
-  <string name="syncthing_forum_title">Φόρουμ του Syncthing</string>
-  <string name="syncthing_forum_summary">Μετάβαση στο φόρουμ του Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Αναφορά προβλήματος</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Άνοιγμα της ιστοσελίδας καταγραφής προβλημάτων του Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Κάνετε δωρεά</string>
-  <string name="donate_summary">Βοηθήστε μας να πληρώσουμε τα έξοδα των domain και της φιλοξενίας ιστοσελίδας</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Έκδοση Syncthing</string>
   <!--Title of the preference showing this app's version name-->

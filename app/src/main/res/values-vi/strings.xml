@@ -198,8 +198,6 @@
   <string name="report_issue_summary">Mở trình theo dõi lỗi của Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Quyên góp</string>
-  <string name="donate_summary">Xin hỗ trợ chúng tôi phí tên miền và dịch vụ</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Phiên bản Syncthing</string>
   <!--Title of the preference showing this app's version name-->

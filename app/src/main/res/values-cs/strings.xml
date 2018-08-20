@@ -246,16 +246,12 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="open_log_summary">Otevřít okno logu pro Syncthing a Android</string>
   <string name="notify_crashes_title">Upozornit na pády Syncthing</string>
   <string name="notify_crashes_summary">Zobraz upozornění pokaždé, kdy je zaznamenán pád Syncthing</string>
-  <string name="syncthing_forum_title">Syncthing fórum</string>
-  <string name="syncthing_forum_summary">Jdi na Syncthing fórum</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Nahlásit chybu</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Otevřít hlášení chyb Syncthing pro Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Přispět</string>
-  <string name="donate_summary">Pomozte nám platit za domény a hostingové poplatky</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Verze Syncthing</string>
   <!--Title of the preference showing this app's version name-->

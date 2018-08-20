@@ -202,8 +202,6 @@
   <string name="report_issue_summary">Opne Syncting-Androids problemverktøy</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donér</string>
-  <string name="donate_summary">Hjelp oss å betale for domene og tenarar</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing-versjon</string>
   <!--Title of the preference showing this app's version name-->

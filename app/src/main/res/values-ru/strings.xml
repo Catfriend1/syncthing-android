@@ -274,16 +274,12 @@
   <string name="open_log_summary">Открывает логи Syncthing и Android</string>
   <string name="notify_crashes_title">Сообщать о сбоях Syncthing</string>
   <string name="notify_crashes_summary">Показывать уведомлениепри обнаружении сбоев Syncthing</string>
-  <string name="syncthing_forum_title">Форум Syncthing</string>
-  <string name="syncthing_forum_summary">Перейти на форум Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Сообщить о проблеме</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Открыть трекер проблем Syncthing-Android </string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Пожертвовать</string>
-  <string name="donate_summary">Внесите вклад в поддержку хостинга проекта</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Версия ядра</string>
   <!--Title of the preference showing this app's version name-->

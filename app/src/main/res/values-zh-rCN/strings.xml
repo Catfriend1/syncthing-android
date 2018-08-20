@@ -245,16 +245,12 @@
   <string name="open_log_summary">打开 Syncthing 与 Android 系统日志窗口</string>
   <string name="notify_crashes_title">通知 Syncthing 崩溃</string>
   <string name="notify_crashes_summary">当检查到 Syncthing 崩溃时显示通知</string>
-  <string name="syncthing_forum_title">Syncthing 论坛</string>
-  <string name="syncthing_forum_summary">转到 Syncthing 论坛</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">回报问题</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">打开 Android 版 Syncthing 问题追踪页</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">捐赠</string>
-  <string name="donate_summary">帮助我们支付域名和托管费用</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing 版本</string>
   <!--Title of the preference showing this app's version name-->

@@ -265,16 +265,12 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="open_log_summary">Abrir a janela de log do Syncthing e do Android</string>
   <string name="notify_crashes_title">Notificar sobre as falhas do Syncthing</string>
   <string name="notify_crashes_summary">Exibir uma notificação quando uma falha no Syncthing for detectada</string>
-  <string name="syncthing_forum_title">Fórum do Syncthing</string>
-  <string name="syncthing_forum_summary">Ir para o Fórum do Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Reportar problema</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Abrir o gerenciador de problemas do Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Doações</string>
-  <string name="donate_summary">Ajude-nos a pagar a manutenção de domínios e servidores</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versão do Syncthing</string>
   <!--Title of the preference showing this app's version name-->

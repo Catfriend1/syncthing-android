@@ -241,16 +241,12 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
   <string name="open_log_summary">Wyświetla dzienniki Syncthing oraz Androida</string>
   <string name="notify_crashes_title">Powiadamiaj o awariach Syncthing</string>
   <string name="notify_crashes_summary">Powiadamiaj za każdym razem, kiedy wykryta zostanie awaria Syncthing</string>
-  <string name="syncthing_forum_title">Forum Syncthing</string>
-  <string name="syncthing_forum_summary">Idź do forum Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Zgłoś błąd</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Otwiera serwis zgłaszania błędów</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Wspomóż</string>
-  <string name="donate_summary">Pomaga nam opłacić domeny i hosting</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Wersja Syncthing</string>
   <!--Title of the preference showing this app's version name-->

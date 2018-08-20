@@ -243,16 +243,12 @@
   <string name="open_log_summary">Syncthing と Android のログウインドウを開く</string>
   <string name="notify_crashes_title">Syncthing のクラッシュを通知</string>
   <string name="notify_crashes_summary">Syncthing のクラッシュを検知した時に通知を表示します</string>
-  <string name="syncthing_forum_title">Syncthing フォーラム</string>
-  <string name="syncthing_forum_summary">Syncthing フォーラムに移動します</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">問題を報告</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Syncthing-Android 課題管理システムを開く</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">寄付</string>
-  <string name="donate_summary">ドメインとホスティング手数料の支払いをご支援ください</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing バージョン</string>
   <!--Title of the preference showing this app's version name-->

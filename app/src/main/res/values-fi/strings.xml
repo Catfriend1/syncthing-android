@@ -226,16 +226,12 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="open_log_summary">Avaa Syncthingin ja Androidin loki-ikkuna</string>
   <string name="notify_crashes_title">Ilmoita Syncthingin kaatumisista</string>
   <string name="notify_crashes_summary">Näytä ilmoitus kun Syncthingin kaatuminen havaitaan</string>
-  <string name="syncthing_forum_title">Syncthing Foorumi</string>
-  <string name="syncthing_forum_summary">Mene Syncthing Foorimille</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Ilmoita ongelmasta</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Avaa Syncthing-Androidin ongelmienseuranta</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Lahjoita</string>
-  <string name="donate_summary">Auta meitä kustantamaan verkkotunnus- ja webhotellimaksut</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthingin versio</string>
   <!--Title of the preference showing this app's version name-->

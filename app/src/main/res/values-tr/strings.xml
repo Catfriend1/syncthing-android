@@ -213,16 +213,12 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="open_log">Günlüğü Aç</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Syncthing ve Android günlük kayıtları penceresini aç</string>
-  <string name="syncthing_forum_title">Syncthing Forumu</string>
-  <string name="syncthing_forum_summary">Syncthing Forumu\'na git</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Hata Bildir</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Syncthing-Android hata takip sistemini aç</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Bağış yap</string>
-  <string name="donate_summary">Alan adlarını ve barındırma ücretlerini ödememizde bize yardım edin</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Syncthing Sürümü</string>
   <!--Title of the preference showing this app's version name-->

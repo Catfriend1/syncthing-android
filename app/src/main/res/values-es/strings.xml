@@ -220,16 +220,12 @@
   <string name="open_log_summary">Abrir ventana de registro de Syncthing y Android</string>
   <string name="notify_crashes_title">Notificar sobre los accidentes de Syncthing</string>
   <string name="notify_crashes_summary">Mostrar una notificación cada vez que se detecta un bloqueo de Syncthing</string>
-  <string name="syncthing_forum_title">Foro de Syncthing</string>
-  <string name="syncthing_forum_summary">Ir al foro de Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Informar de un problema</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Abrir el seguimiento de incidencias Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Donar</string>
-  <string name="donate_summary">Ayúdanos a pagar los costes de dominios y servidores web</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versión de Syncthing</string>
   <!--Title of the preference showing this app's version name-->

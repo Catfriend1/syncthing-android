@@ -273,16 +273,12 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="open_log_summary">Obre la finestra de registre del Syncthing i de l\'Android</string>
   <string name="notify_crashes_title">Notifica els bloquejos del Syncthing</string>
   <string name="notify_crashes_summary">Mostra una notificació si es detecta que el Syncthing s\'ha bloquejat</string>
-  <string name="syncthing_forum_title">Fòrum del Syncthing</string>
-  <string name="syncthing_forum_summary">Ves al fòrum del Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Informeu d\'un problema</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">Obre el seguiment d\'incidències del Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Feu una donació</string>
-  <string name="donate_summary">Ajudeu-nos a pagar les despeses de dominis i allotjament</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Versió del Syncthing</string>
   <!--Title of the preference showing this app's version name-->

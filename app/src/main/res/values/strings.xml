@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Syncthing</string>
+    <string name="app_name">Syncthing-Fork</string>
 
     <string name="app_description">An open, trustworthy and decentralized file synchronization application.</string>
 
@@ -528,10 +528,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="notify_crashes_summary">Show a notification whenever a Syncthing crash is detected</string>
 
-    <string name="syncthing_forum_title">Syncthing Forum</string>
-    <string name="syncthing_forum_summary">Go to the Syncthing Forum</string>
-    <string name="syncthing_forum_url" translatable="false">https://forum.syncthing.net/</string>
-
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Report Issue</string>
 
@@ -539,16 +535,10 @@ Please report any problems you encounter via Github.</string>
     <string name="report_issue_summary">Open the Syncthing-Android issue tracker</string>
 
     <!-- URL of the issue tracker -->
-    <string name="issue_tracker_url" translatable="false">https://github.com/syncthing/syncthing-android/issues</string>
+    <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>
 
 
     <!-- Menu item to donate -->
-    <string name="donate_title">Donate</string>
-
-    <string name="donate_summary">Help us pay for domains and hosting fees</string>
-
-    <string name="donate_url" translatable="false">https://syncthing.net/#donate</string>
-
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Version</string>
 

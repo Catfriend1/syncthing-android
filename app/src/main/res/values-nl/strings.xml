@@ -274,16 +274,12 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="open_log_summary">Open het Syncthing- en Android-logvenster</string>
   <string name="notify_crashes_title">Toon melding wanneer Syncthing crasht</string>
   <string name="notify_crashes_summary">Toon een melding wanneer een crash van Syncthing wordt gedetecteerd</string>
-  <string name="syncthing_forum_title">Syncthing-forum</string>
-  <string name="syncthing_forum_summary">Ga naar het forum van Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Probleem rapporteren</string>
   <!--Summary for the issue tracker settings item-->
   <string name="report_issue_summary">De Syncthing-Android probleemtracker openen</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Doneren</string>
-  <string name="donate_summary">Help ons betalen voor domeinen en hostingkosten</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Synthing-versie</string>
   <!--Title of the preference showing this app's version name-->

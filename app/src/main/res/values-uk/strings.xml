@@ -198,7 +198,6 @@
   <!--Summary for the issue tracker settings item-->
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Пожертвувати</string>
   <!--Title of the preference showing upstream version name-->
   <!--Title of the preference showing this app's version name-->
   <!--FolderPickerAcitivity-->

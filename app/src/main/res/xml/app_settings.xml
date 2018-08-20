@@ -281,27 +281,11 @@
         android:title="@string/category_about">
 
         <Preference
-            android:title="@string/syncthing_forum_title"
-            android:summary="@string/syncthing_forum_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/syncthing_forum_url" />
-        </Preference>
-
-        <Preference
             android:title="@string/report_issue_title"
             android:summary="@string/report_issue_summary">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/issue_tracker_url" />
-        </Preference>
-
-        <Preference
-            android:title="@string/donate_title"
-            android:summary="@string/donate_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/donate_url" />
         </Preference>
 
         <Preference

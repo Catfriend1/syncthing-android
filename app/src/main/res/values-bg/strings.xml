@@ -216,8 +216,6 @@
   <string name="report_issue_summary">Отваря уеб страницата за проблеми на Syncthing-Android</string>
   <!--URL of the issue tracker-->
   <!--Menu item to donate-->
-  <string name="donate_title">Дарете</string>
-  <string name="donate_summary">Помогнете с разходите за домейн и хостинг</string>
   <!--Title of the preference showing upstream version name-->
   <string name="syncthing_version_title">Версия на Syncthing</string>
   <!--Title of the preference showing this app's version name-->
