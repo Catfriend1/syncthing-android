@@ -1,6 +1,6 @@
-This a fork. There are no builds of it on GPlay nor F-Droid. If you'd like to have one, you can build it yourself. Please open an issue under this fork if you need my help.
+This a fork. There are no builds of it on GPlay nor F-Droid. Head to the "releases" section for builds. Please open an issue under this fork if you need help.
 
-Important: Please don't file bugs at the upstream repository syncthing-android if you are using this fork.
+Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
 # Major enhancements in this fork are:
 - UI explains why syncthing is running or not running according to the run conditions set in preferences.
