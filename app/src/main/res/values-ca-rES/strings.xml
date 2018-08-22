@@ -266,8 +266,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="open_log">Obre el registre</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Obre la finestra de registre del Syncthing i de l\'Android</string>
-  <string name="notify_crashes_title">Notifica els bloquejos del Syncthing</string>
-  <string name="notify_crashes_summary">Mostra una notificació si es detecta que el Syncthing s\'ha bloquejat</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Informeu d\'un problema</string>
   <!--Summary for the issue tracker settings item-->

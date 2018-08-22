@@ -236,8 +236,6 @@
   <string name="open_log">Άνοιγμα καταγραφής συμβάντων</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Άνοιγμα του παραθύρου καταγραφής συμβάντων του Syncthing και Android</string>
-  <string name="notify_crashes_title">Ειδοποίηση για καταρρεύσεις του Syncthing</string>
-  <string name="notify_crashes_summary">Να εμφανίζεται μια ειδοποίηση όποτε ανιχνεύεται κατάρρευση του Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Αναφορά προβλήματος</string>
   <!--Summary for the issue tracker settings item-->

@@ -270,8 +270,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
   <string name="open_log">Napló megnyitása</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">A Syncthing és az Android naplók megnyitása</string>
-  <string name="notify_crashes_title">Értesítés a Syncthing összeomlásáról</string>
-  <string name="notify_crashes_summary">Megjelenít egy értesítést, amennyiben a Syncthing összeomlik</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Hibabejelentés</string>
   <!--Summary for the issue tracker settings item-->

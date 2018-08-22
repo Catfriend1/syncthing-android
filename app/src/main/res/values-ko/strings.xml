@@ -235,8 +235,6 @@
   <string name="open_log">로그 열기</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Syncthing 및 Android 로그 윈도우 열기</string>
-  <string name="notify_crashes_title">Syncthing 충돌에 대해 알려주기</string>
-  <string name="notify_crashes_summary">Syncthing 충돌이 감지 되었을 때 알림을 보여줍니다</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">문제 보고</string>
   <!--Summary for the issue tracker settings item-->

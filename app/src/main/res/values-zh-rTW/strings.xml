@@ -235,8 +235,6 @@
   <string name="open_log">打開日誌</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">開啟 Syncthing 及 Android 日誌視窗</string>
-  <string name="notify_crashes_title">通知關於 Syncthing 當機</string>
-  <string name="notify_crashes_summary">當偵測到 Syncthing 當機，顯示通知</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">回報問題</string>
   <!--Summary for the issue tracker settings item-->

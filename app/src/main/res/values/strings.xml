@@ -353,7 +353,7 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_root_title">Run Syncthing as Superuser</string>
 
-    <string name="use_root_summary">This is an unstable feature that may cause problems with Syncthing and with your device. If you encounter problems, you may have to reinstall Syncthing.</string>
+    <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature cautious.</string>
 
     <string name="notification_type_title">Notification</string>
 
@@ -516,11 +516,6 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Open the Syncthing and Android log window</string>
-
-    <string name="notify_crashes_title">Notify about Syncthing crashes</string>
-
-    <string name="notify_crashes_summary">Show a notification whenever a Syncthing crash is detected</string>
-
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Report Issue</string>
 

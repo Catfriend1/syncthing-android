@@ -188,7 +188,6 @@
   <!--Settings item that opens the log activity-->
   <string name="open_log">Відкрити журнал</string>
   <!--Summary for the log activity-->
-  <string name="notify_crashes_title">Повідомляти про аварійні завершення роботи Syncthing </string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Повідомити про проблему</string>
   <!--Summary for the issue tracker settings item-->

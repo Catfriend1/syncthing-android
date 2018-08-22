@@ -258,8 +258,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="open_log">Abrir log</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Abrir a janela de log do Syncthing e do Android</string>
-  <string name="notify_crashes_title">Notificar sobre as falhas do Syncthing</string>
-  <string name="notify_crashes_summary">Exibir uma notificação quando uma falha no Syncthing for detectada</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Reportar problema</string>
   <!--Summary for the issue tracker settings item-->

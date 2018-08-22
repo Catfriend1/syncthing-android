@@ -239,8 +239,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="open_log">Otevřít log</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Otevřít okno logu pro Syncthing a Android</string>
-  <string name="notify_crashes_title">Upozornit na pády Syncthing</string>
-  <string name="notify_crashes_summary">Zobraz upozornění pokaždé, kdy je zaznamenán pád Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Nahlásit chybu</string>
   <!--Summary for the issue tracker settings item-->

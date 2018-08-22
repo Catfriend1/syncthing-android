@@ -236,8 +236,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="open_log">Åben Log</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Åben Syncthing\'s og Android\'s log vindue</string>
-  <string name="notify_crashes_title">Underret om Syncthing crashes</string>
-  <string name="notify_crashes_summary">Vis en notifikation hver gang et Syncthing crash bliver opdaget</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Rapporter problem</string>
   <!--Summary for the issue tracker settings item-->

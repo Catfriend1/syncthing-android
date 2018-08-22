@@ -267,8 +267,6 @@
   <string name="open_log">Открыть лог</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Открывает логи Syncthing и Android</string>
-  <string name="notify_crashes_title">Сообщать о сбоях Syncthing</string>
-  <string name="notify_crashes_summary">Показывать уведомлениепри обнаружении сбоев Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Сообщить о проблеме</string>
   <!--Summary for the issue tracker settings item-->

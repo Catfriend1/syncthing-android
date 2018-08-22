@@ -223,8 +223,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="open_log">Buka Log</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Buat jendela log Syncthing dan Android</string>
-  <string name="notify_crashes_title">Beritahu jika aplikasi Syncthing mati</string>
-  <string name="notify_crashes_summary">Tampilkan notifikasi jika kegagalan Syncthing ditemukan</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Laporkan Masalah</string>
   <!--Summary for the issue tracker settings item-->

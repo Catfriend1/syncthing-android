@@ -219,8 +219,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="open_log">Avaa loki</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Avaa Syncthingin ja Androidin loki-ikkuna</string>
-  <string name="notify_crashes_title">Ilmoita Syncthingin kaatumisista</string>
-  <string name="notify_crashes_summary">Näytä ilmoitus kun Syncthingin kaatuminen havaitaan</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Ilmoita ongelmasta</string>
   <!--Summary for the issue tracker settings item-->

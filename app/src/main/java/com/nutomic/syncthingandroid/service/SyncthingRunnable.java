@@ -185,7 +185,7 @@ public class SyncthingRunnable implements Runnable {
                     break;
                 default:
                     Log.w(TAG, "Syncthing has crashed (exit code " + ret + ")");
-                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, false);
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title);
             }
         } catch (IOException | InterruptedException e) {
             Log.e(TAG, "Failed to execute syncthing binary or read output", e);

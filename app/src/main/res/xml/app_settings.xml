@@ -68,6 +68,12 @@
         android:title="@string/category_behaviour">
 
         <CheckBoxPreference
+            android:key="use_root"
+            android:title="@string/use_root_title"
+            android:summary="@string/use_root_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="advanced_folder_picker"
             android:title="@string/advanced_folder_picker"
             android:summary="@string/advanced_folder_picker_summary"
@@ -210,11 +216,6 @@
                 android:action=".activities.LogActivity" />
         </Preference>
 
-        <CheckBoxPreference
-            android:key="notify_crashes"
-            android:title="@string/notify_crashes_title"
-            android:summary="@string/notify_crashes_summary"/>
-
         <com.nutomic.syncthingandroid.views.SttracePreference
             android:key="debug_facilities_enabled"
             android:title="@string/sttrace_title" />
@@ -240,12 +241,6 @@
     <PreferenceScreen
         android:title="@string/category_experimental"
         android:key="category_experimental">
-
-        <CheckBoxPreference
-            android:key="use_root"
-            android:title="@string/use_root_title"
-            android:summary="@string/use_root_summary"
-            android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="wakelock_while_binary_running"

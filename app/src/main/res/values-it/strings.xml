@@ -267,8 +267,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
   <string name="open_log">Apri Registro</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Apre la finestra di log di Syncthing e Android</string>
-  <string name="notify_crashes_title">Notifica i crash di Syncthing</string>
-  <string name="notify_crashes_summary">Mostra una notifica ogni volta che viene rilevato un crash di Syncthing</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Segnala Problema</string>
   <!--Summary for the issue tracker settings item-->

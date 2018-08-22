@@ -238,8 +238,6 @@
   <string name="open_log">打开日志</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">打开 Syncthing 与 Android 系统日志窗口</string>
-  <string name="notify_crashes_title">通知 Syncthing 崩溃</string>
-  <string name="notify_crashes_summary">当检查到 Syncthing 崩溃时显示通知</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">回报问题</string>
   <!--Summary for the issue tracker settings item-->

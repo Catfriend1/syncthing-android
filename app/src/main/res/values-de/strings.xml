@@ -184,7 +184,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="advanced_folder_picker">Erweiterte Verzeichnisauswahl benutzen</string>
   <string name="advanced_folder_picker_summary">Alle Verzeichnisse auf dem Gerät für Synchronisation auswählbar</string>
   <string name="use_root_title">Syncthing mit Superuser Rechten ausführen</string>
-  <string name="use_root_summary">Dies ist eine instabile Funktion, welche Probleme mit Syncthing und deinem Gerät verursachen könnte. Wenn du Probleme feststellst, musst du Syncthing möglicherweise neu installieren.</string>
+  <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
   <string name="notification_type_title">Permanente Benachrichtigung</string>
   <string name="notification_type_summary">Wähle die Art der Benachrichtigung</string>
   <string-array name="notification_type_entries">
@@ -282,8 +282,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="open_log">Log öffnen</string>
   <!--Summary for the log activity-->
   <string name="open_log_summary">Öffne das Syncthing und Android Log Fenster</string>
-  <string name="notify_crashes_title">Syncthing Abstürze benachrichtigen</string>
-  <string name="notify_crashes_summary">Benachrichtigung anzeigen wenn ein Syncthing Absturz erkannt wurde</string>
   <!--Settings item that opens issue tracker-->
   <string name="report_issue_title">Fehler melden</string>
   <!--Summary for the issue tracker settings item-->
