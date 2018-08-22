@@ -30,11 +30,8 @@
   <string name="no">いいえ</string>
   <string name="open_website">Web サイトを開く</string>
   <string name="toast_write_storage_permission_required">このアプリはストレージの書き込みアクセス許可が必要です</string>
-  <string name="dialog_disable_battery_optimization_title">バッテリー最適化</string>
-  <string name="dialog_disable_battery_optimization_message">Android はしばらくすると同期を停止することがあります。 これを防ぐには、バッテリーの最適化をオフにしてください。\n\n一部のデバイスには、タスク終了アプリが別途プリインストールされています。 これらのホワイトリストにも Syncthing を追加する必要があります。</string>
-  <string name="dialog_disable_battery_optimization_later">後で</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">再度表示しない</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Syncthing のためにオフにします</string>
+  <string name="ignore_doze_permission_title">バッテリー最適化</string>
+  <string name="ignore_doze_permission_desc">Android はしばらくすると同期を停止することがあります。 これを防ぐには、バッテリーの最適化をオフにしてください。\n\n一部のデバイスには、タスク終了アプリが別途プリインストールされています。 これらのホワイトリストにも Syncthing を追加する必要があります。</string>
   <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

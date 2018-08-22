@@ -73,11 +73,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="folder_rejected">Device \"%1$s\" wants to share folder \"%2$s\"</string>
 
-    <string name="dialog_disable_battery_optimization_title">Battery Optimization</string>
-    <string name="dialog_disable_battery_optimization_message">Android may stop synchronization after some time. To prevent this, turn off battery optimization.\n\nSome devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
-    <string name="dialog_disable_battery_optimization_later">Later</string>
-    <string name="dialog_disable_battery_optimization_dont_show_again">Don\'t show again</string>
-    <string name="dialog_disable_battery_optimization_turn_off">Turn off for Syncthing</string>
+    <string name="ignore_doze_permission_title">Battery Optimization</string>
+    <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization.\n\nSome devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
+    <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Your device does not support disabling battery optimizations</string>
 
     <!-- StateDialogActivity -->

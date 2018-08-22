@@ -31,11 +31,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
   <string name="no">Nee</string>
   <string name="open_website">Website openen</string>
   <string name="toast_write_storage_permission_required">Schrijftoegang is vereist voor deze applicatie</string>
-  <string name="dialog_disable_battery_optimization_title">Batterijoptimalisatie</string>
-  <string name="dialog_disable_battery_optimization_message">Android kan je synchronisatie na een tijdje stoppen. Om dit te voorkomen kan je batterijoptimalisatie uitschakelen\n\nOp sommige apparaten staan extra apps voor beëindigen van taken, voeg Syncthing ook aan hun witte lijsten toe.</string>
-  <string name="dialog_disable_battery_optimization_later">Later</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Niet meer tonen</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Uitschakelen voor Syncthing</string>
+  <string name="ignore_doze_permission_title">Batterijoptimalisatie</string>
+  <string name="ignore_doze_permission_desc">Android kan je synchronisatie na een tijdje stoppen. Om dit te voorkomen kan je batterijoptimalisatie uitschakelen\n\nOp sommige apparaten staan extra apps voor beëindigen van taken, voeg Syncthing ook aan hun witte lijsten toe.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Je apparaat biedt geen ondersteuning voor het uitschakelen van batterijoptimalisatie</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

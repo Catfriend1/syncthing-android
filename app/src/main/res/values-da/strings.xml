@@ -29,11 +29,8 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
   <string name="no">Nej</string>
   <string name="open_website">Åben Hjemmeside</string>
   <string name="toast_write_storage_permission_required">Write storage rettigheder er nødvendige for denne app.</string>
-  <string name="dialog_disable_battery_optimization_title">Batterioptimering</string>
-  <string name="dialog_disable_battery_optimization_message">Android stopper måske synkroniseringen efter noget tid. For at undgå dette, vælg batterioptimering fra.\n\nNogle enheder har ekstra job-afsluttende apps installeret. Du burde også tilføje Syncthing til deres whitelist. </string>
-  <string name="dialog_disable_battery_optimization_later">Senere</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Vis ikke igen</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Sluk for Syncthing</string>
+  <string name="ignore_doze_permission_title">Batterioptimering</string>
+  <string name="ignore_doze_permission_desc">Android stopper måske synkroniseringen efter noget tid. For at undgå dette, vælg batterioptimering fra.\n\nNogle enheder har ekstra job-afsluttende apps installeret. Du burde også tilføje Syncthing til deres whitelist. </string>
   <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

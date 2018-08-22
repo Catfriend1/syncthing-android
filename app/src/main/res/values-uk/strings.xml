@@ -21,9 +21,6 @@
   <string name="no">Ні</string>
   <string name="open_website">Відкрити сайт</string>
   <string name="toast_write_storage_permission_required">Додаток потребує прав на запис на носій(картку)</string>
-  <string name="dialog_disable_battery_optimization_later">Пізніше</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Більше не відображати</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Вимкнути для Syncthing</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Завантажується...</string>

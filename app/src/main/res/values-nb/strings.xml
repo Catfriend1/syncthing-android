@@ -24,7 +24,6 @@
   <string name="no">Nei</string>
   <string name="open_website">Åpne nettsted</string>
   <string name="toast_write_storage_permission_required">Skriverettigheter til lagringsenheten kreves av denne appen</string>
-  <string name="dialog_disable_battery_optimization_later">Senere</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Laster...</string>

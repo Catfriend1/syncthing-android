@@ -34,11 +34,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="toast_write_storage_permission_required">Skrivlagringstillstånd krävs för denna applikation</string>
   <string name="device_rejected">Enhet \"%1$s\" vill ansluta</string>
   <string name="folder_rejected">Enhet \"%1$s\" vill dela mapp \"%2$s\"</string>
-  <string name="dialog_disable_battery_optimization_title">Batterioptimering</string>
-  <string name="dialog_disable_battery_optimization_message">Android kan stoppa synkronisering efter en viss tid. För att förhindra detta, stäng av batterioptimering.\n\nNågra enheter har ytterligare uppgiftsdödande appar förinstallerade. Ni bör lägga till Syncthing till deras vitlista, också.</string>
-  <string name="dialog_disable_battery_optimization_later">Senare</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Visa inte igen</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Stäng av för Syncthing</string>
+  <string name="ignore_doze_permission_title">Batterioptimering</string>
+  <string name="ignore_doze_permission_desc">Android kan stoppa synkronisering efter en viss tid. För att förhindra detta, stäng av batterioptimering.\n\nNågra enheter har ytterligare uppgiftsdödande appar förinstallerade. Ni bör lägga till Syncthing till deras vitlista, också.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Din enhet har inte stöd för att inaktivera batterioptimeringar</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

@@ -24,7 +24,6 @@
   <string name="no">Nei</string>
   <string name="open_website">Opne nettstad</string>
   <string name="toast_write_storage_permission_required">Løyve til å skrive data er naudsynt for å bruke appen</string>
-  <string name="dialog_disable_battery_optimization_later">Seinare</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Laster…</string>

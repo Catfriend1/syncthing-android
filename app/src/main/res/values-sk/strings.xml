@@ -24,7 +24,6 @@
   <string name="no">Nie</string>
   <string name="open_website">Otvoriť Webovú Stránku</string>
   <string name="toast_write_storage_permission_required">Táto aplikácia potrebuje práva pre zápis na úložisko</string>
-  <string name="dialog_disable_battery_optimization_later">Neskôr</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Načítavam...</string>

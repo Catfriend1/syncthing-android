@@ -29,10 +29,7 @@
   <string name="no">Не</string>
   <string name="open_website">Отвори уеб сайта</string>
   <string name="toast_write_storage_permission_required">Приложението изисква права за записване в хранилището на данни</string>
-  <string name="dialog_disable_battery_optimization_title">Пестене на батерия</string>
-  <string name="dialog_disable_battery_optimization_later">По-късно</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Без повторно запитване</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Изключване за синхронизирането</string>
+  <string name="ignore_doze_permission_title">Пестене на батерия</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Зареждане...</string>

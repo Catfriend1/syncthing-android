@@ -25,7 +25,6 @@
   <string name="no">Không</string>
   <string name="open_website">Mở trang web</string>
   <string name="toast_write_storage_permission_required">Ứng dụng này cần được phép chép vào ổ lưu trữ</string>
-  <string name="dialog_disable_battery_optimization_later">Để sau</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Đang tải...</string>

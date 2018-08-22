@@ -29,11 +29,8 @@
   <string name="no">아니오</string>
   <string name="open_website">웹사이트 열기</string>
   <string name="toast_write_storage_permission_required">스토리지 쓰기 권한이 필요합니다</string>
-  <string name="dialog_disable_battery_optimization_title">배터리 최적화</string>
-  <string name="dialog_disable_battery_optimization_message">안드로이드 운영체제는 시간이 지나면 동기화를 정지시킬 수도 있습니다. 이를 막기 위해 배터리 최적화 기능을 꺼주시기 바랍니다.\n\n몇몇 기기들은 추가적인 태스크 관리 앱이 선탑재되어 있습니다. 태스크 관리 앱의 신뢰목록에 등록함으로써 역시 문제를 해결하실 수 있습니다.</string>
-  <string name="dialog_disable_battery_optimization_later">나중에</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">다시 보지 않기</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Syncthing을 위해서 끄기</string>
+  <string name="ignore_doze_permission_title">배터리 최적화</string>
+  <string name="ignore_doze_permission_desc">안드로이드 운영체제는 시간이 지나면 동기화를 정지시킬 수도 있습니다. 이를 막기 위해 배터리 최적화 기능을 꺼주시기 바랍니다.\n\n몇몇 기기들은 추가적인 태스크 관리 앱이 선탑재되어 있습니다. 태스크 관리 앱의 신뢰목록에 등록함으로써 역시 문제를 해결하실 수 있습니다.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">기기가 배터리 최적화 비활성화를 지원하지 않습니다.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,8 +18,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
-import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -73,7 +70,6 @@ public class MainActivity extends StateDialogActivity
 
     private static final String TAG = "MainActivity";
     private static final String IS_SHOWING_RESTART_DIALOG = "RESTART_DIALOG_STATE";
-    private static final String BATTERY_DIALOG_DISMISSED = "BATTERY_DIALOG_STATE";
     private static final String IS_QRCODE_DIALOG_DISPLAYED = "QRCODE_DIALOG_STATE";
     private static final String QRCODE_BITMAP_KEY = "QRCODE_BITMAP";
     private static final String DEVICEID_KEY = "DEVICEID";
@@ -89,7 +85,6 @@ public class MainActivity extends StateDialogActivity
     private AlertDialog mQrCodeDialog;
     private Dialog mRestartDialog;
 
-    private boolean mBatteryOptimizationDialogDismissed;
     private SyncthingService.State mSyncthingServiceState = SyncthingService.State.INIT;
 
     private ViewPager mViewPager;
@@ -117,7 +112,6 @@ public class MainActivity extends StateDialogActivity
             case STARTING:
                 break;
             case ACTIVE:
-                showBatteryOptimizationDialogIfNecessary();
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
 
                 // Check if the usage reporting minimum delay passed by.
@@ -133,40 +127,6 @@ public class MainActivity extends StateDialogActivity
             case DISABLED:
                 break;
         }
-    }
-
-    private void showBatteryOptimizationDialogIfNecessary() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            return;
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        boolean dontShowAgain = mPreferences.getBoolean("battery_optimization_dont_show_again", false);
-        if (dontShowAgain || mBatteryOptimizationsDialog != null ||
-                pm.isIgnoringBatteryOptimizations(getPackageName()) ||
-                mBatteryOptimizationDialogDismissed) {
-            return;
-        }
-
-        mBatteryOptimizationsDialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.dialog_disable_battery_optimization_title)
-                .setMessage(R.string.dialog_disable_battery_optimization_message)
-                .setPositiveButton(R.string.dialog_disable_battery_optimization_turn_off, (d, i) -> {
-                    Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
-                    intent.setData(Uri.parse("package:" + getPackageName()));
-                    try {
-                        startActivity(intent);
-                    } catch (ActivityNotFoundException e) {
-                        // Some devices dont seem to support this request (according to Google Play
-                        // crash reports).
-                        Log.w(TAG, "Request ignore battery optimizations not supported", e);
-                        Toast.makeText(this, R.string.dialog_disable_battery_optimizations_not_supported, Toast.LENGTH_LONG).show();
-                        mPreferences.edit().putBoolean("battery_optimization_dont_show_again", true).apply();
-                    }
-                })
-                .setNeutralButton(R.string.dialog_disable_battery_optimization_later, (d, i) -> mBatteryOptimizationDialogDismissed = true)
-                .setNegativeButton(R.string.dialog_disable_battery_optimization_dont_show_again, (d, i) ->
-                        mPreferences.edit().putBoolean("battery_optimization_dont_show_again", true).apply())
-                .setOnCancelListener(d -> mBatteryOptimizationDialogDismissed = true)
-                .show();
     }
 
     /**
@@ -223,7 +183,6 @@ public class MainActivity extends StateDialogActivity
             if (savedInstanceState.getBoolean(IS_SHOWING_RESTART_DIALOG)){
                 showRestartDialog();
             }
-            mBatteryOptimizationDialogDismissed = savedInstanceState.getBoolean(BATTERY_DIALOG_DISMISSED);
             if(savedInstanceState.getBoolean(IS_QRCODE_DIALOG_DISPLAYED)) {
                 showQrCodeDialog(savedInstanceState.getString(DEVICEID_KEY), savedInstanceState.getParcelable(QRCODE_BITMAP_KEY));
             }
@@ -373,7 +332,6 @@ public class MainActivity extends StateDialogActivity
         putFragment.accept(mDrawerFragment);
 
         outState.putInt("currentTab", mViewPager.getCurrentItem());
-        outState.putBoolean(BATTERY_DIALOG_DISMISSED, mBatteryOptimizationsDialog == null || !mBatteryOptimizationsDialog.isShowing());
         outState.putBoolean(IS_SHOWING_RESTART_DIALOG, mRestartDialog != null && mRestartDialog.isShowing());
         if(mQrCodeDialog != null && mQrCodeDialog.isShowing()) {
             outState.putBoolean(IS_QRCODE_DIALOG_DISPLAYED, true);

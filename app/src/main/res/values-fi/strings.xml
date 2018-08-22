@@ -30,11 +30,8 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
   <string name="no">Ei</string>
   <string name="open_website">Avaa verkkosivu</string>
   <string name="toast_write_storage_permission_required">Tämä sovellus vaatii tallennustilan kirjoitusoikeuden</string>
-  <string name="dialog_disable_battery_optimization_title">Akun käytön optimointi</string>
-  <string name="dialog_disable_battery_optimization_message">Android saattaa pysäyttää synkronoinnin jonkin ajan kuluttua. Tämän estämiseksi, poista käytöstä akun käytön optimointi.\n\nJoissain laitteissa on lisäksi prosessienhallintasovelluksia valmiiksi asennettuna. Sinun tulisi lisätä Syncthing myös niiden sallittujen sovellusten listalle.</string>
-  <string name="dialog_disable_battery_optimization_later">Myöhemmin</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Älä näytä uudelleen</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Poista käytöstä Synthingille</string>
+  <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
+  <string name="ignore_doze_permission_desc">Android saattaa pysäyttää synkronoinnin jonkin ajan kuluttua. Tämän estämiseksi, poista käytöstä akun käytön optimointi.\n\nJoissain laitteissa on lisäksi prosessienhallintasovelluksia valmiiksi asennettuna. Sinun tulisi lisätä Syncthing myös niiden sallittujen sovellusten listalle.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Laitteesi ei tue akun käytön optimoinnin poistamista käytöstä</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

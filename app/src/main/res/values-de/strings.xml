@@ -31,14 +31,12 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="open_website">Webseite öffnen</string>
-  <string name="toast_write_storage_permission_required">Diese App benötigt Schreibzugriff auf den Gerätespeicher</string>
+  <string name="toast_write_storage_permission_required">Diese App benötigt Schreibzugriff auf den Gerätespeicher.</string>
   <string name="device_rejected">Gerät \"%1$s\" möchte sich verbinden</string>
   <string name="folder_rejected">Gerät \"%1$s\" möchte Verzeichnis \"%2$s\" teilen</string>
-  <string name="dialog_disable_battery_optimization_title">Batterielaufzeit Optimierung</string>
-  <string name="dialog_disable_battery_optimization_message">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern kann der Energiesparmodus deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch in die Ausnahmeliste hinzugefügt werden.</string>
-  <string name="dialog_disable_battery_optimization_later">Später</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Nicht mehr zeigen.</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Für Syncthing abstellen.</string>
+  <string name="ignore_doze_permission_title">Batterielaufzeit Optimierung</string>
+  <string name="ignore_doze_permission_desc">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern, muss der Energiesparmodus \"Doze\" deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch dort in die Ausnahmeliste hinzugefügt werden.</string>
+  <string name="toast_ignore_doze_permission_required">Diese App funktioniert nur dann zuverlässig, wenn Sie vom \"Doze\" Energiesparmodus ausgenommen wird.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Dein Gerät unterstützt das deaktivieren der Batterielaufzeit Optimierung nicht</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

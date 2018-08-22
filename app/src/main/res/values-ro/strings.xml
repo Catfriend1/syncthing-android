@@ -34,11 +34,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="toast_write_storage_permission_required">Permisiunea de scriere pe spațiul de stocare este necesară acestei aplicații</string>
   <string name="device_rejected">Dispozitivul \"%1$s\" dorește să se conecteze</string>
   <string name="folder_rejected">Dispozitivul \"%1$s\" dorește să partajeze directorul \"%2$s\"</string>
-  <string name="dialog_disable_battery_optimization_title">Optimizare baterie</string>
-  <string name="dialog_disable_battery_optimization_message">Android poate oprii sincronizarea după un timp. Pentru a prevenii asta, opriți optimizarea bateriei.\n\nUnele dispozitive au aplicații adiționale preinstalate care pot oprii aplicațiile. Ar trebui să adăugați Syncthing și în listele lor de excepții.</string>
-  <string name="dialog_disable_battery_optimization_later">Mai târziu </string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Nu mai afișa </string>
-  <string name="dialog_disable_battery_optimization_turn_off">Închide Syncthing</string>
+  <string name="ignore_doze_permission_title">Optimizare baterie</string>
+  <string name="ignore_doze_permission_desc">Android poate oprii sincronizarea după un timp. Pentru a prevenii asta, opriți optimizarea bateriei.\n\nUnele dispozitive au aplicații adiționale preinstalate care pot oprii aplicațiile. Ar trebui să adăugați Syncthing și în listele lor de excepții.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Dispozitivul dumneavoastră nu suportă dezactivarea optimizărilor de baterie</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

@@ -31,11 +31,8 @@
   <string name="no">Нет</string>
   <string name="open_website">Открыть сайт</string>
   <string name="toast_write_storage_permission_required">Приложению требуется право на запись</string>
-  <string name="dialog_disable_battery_optimization_title">Оптимизация батареи</string>
-  <string name="dialog_disable_battery_optimization_message">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
-  <string name="dialog_disable_battery_optimization_later">Позже</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Больше не показывать</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Отключить для Syncthing</string>
+  <string name="ignore_doze_permission_title">Оптимизация батареи</string>
+  <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

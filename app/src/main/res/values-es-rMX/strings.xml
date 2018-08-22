@@ -25,7 +25,6 @@
   <string name="no">No</string>
   <string name="open_website">Abrir Sitio web</string>
   <string name="toast_write_storage_permission_required">Esta aplicación requiere permiso para escribir en el almacenamiento</string>
-  <string name="dialog_disable_battery_optimization_later">Después</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Cargando...</string>

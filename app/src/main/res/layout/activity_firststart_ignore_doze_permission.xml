@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen5">
+
+    <LinearLayout
+        android:background="@color/bg_screen5"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_title"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:layout_margin="30dp" />
+
+        <ImageView
+            android:layout_width="@dimen/img_width_height"
+            android:layout_height="@dimen/img_width_height"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_battery_lightning" />
+
+        <Button
+            android:id="@+id/btnGrantIgnoreDozePerm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingEnd="40dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/grant_permission"
+            android:contentDescription="@string/grant_permission"
+            android:drawableLeft="@android:drawable/ic_menu_manage"
+            android:drawableStart="@android:drawable/ic_menu_manage"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ignore_doze_permission_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:text="@string/ignore_doze_permission_desc"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_desc" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

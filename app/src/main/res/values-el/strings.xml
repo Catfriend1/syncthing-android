@@ -29,11 +29,8 @@
   <string name="no">Όχι</string>
   <string name="open_website">Άνοιγμα ιστοσελίδας</string>
   <string name="toast_write_storage_permission_required">Απαιτείται η άδεια αποθήκευσης δεδομένων για αυτή την εφαρμογή</string>
-  <string name="dialog_disable_battery_optimization_title">Βελτιστοποίηση μπαταρίας</string>
-  <string name="dialog_disable_battery_optimization_message">Το Android ενδέχεται να σταματήσει τον συγχρονισμό μετά από κάποιο χρονικό διάστημα. Για να αποφευχθεί αυτό, απενεργοποιήστε τη βελτιστοποίηση μπαταρίας.\n\nΚάποιες συσκευές διαθέτουν επίσης προεγκατεστημένες εφαρμογές τερματισμού διεργασιών. Προσθέστε το Syncthing στο whitelist τους.</string>
-  <string name="dialog_disable_battery_optimization_later">Αργότερα</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Να μην εμφανιστεί ξανά</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Να απενεργοποιηθεί για το Syncthing</string>
+  <string name="ignore_doze_permission_title">Βελτιστοποίηση μπαταρίας</string>
+  <string name="ignore_doze_permission_desc">Το Android ενδέχεται να σταματήσει τον συγχρονισμό μετά από κάποιο χρονικό διάστημα. Για να αποφευχθεί αυτό, απενεργοποιήστε τη βελτιστοποίηση μπαταρίας.\n\nΚάποιες συσκευές διαθέτουν επίσης προεγκατεστημένες εφαρμογές τερματισμού διεργασιών. Προσθέστε το Syncthing στο whitelist τους.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Η συσκευή σας δεν επιτρέπει την απενεργοποίηση των βελτιστοποιήσεων μπαταρίας</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

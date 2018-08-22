@@ -29,11 +29,8 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="no">Não</string>
   <string name="open_website">Abrir Website</string>
   <string name="toast_write_storage_permission_required">Esta aplicação precisa de permissão de escrita no armazenamento</string>
-  <string name="dialog_disable_battery_optimization_title">Optimização da bateria</string>
-  <string name="dialog_disable_battery_optimization_message">O Android pode parar a sincronização passado algum tempo. Para prevenir isso, desligue a optimização da bateria.\n\nAlguns dispositivos têm aplicações adicionais pré-instaladas para matar tarefas. Deve adicionar o Syncthing à lista de excepções dessas aplicações.</string>
-  <string name="dialog_disable_battery_optimization_later">Mais tarde</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Não apresentar novamente</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Desligar para o Syncthing</string>
+  <string name="ignore_doze_permission_title">Optimização da bateria</string>
+  <string name="ignore_doze_permission_desc">O Android pode parar a sincronização passado algum tempo. Para prevenir isso, desligue a optimização da bateria.\n\nAlguns dispositivos têm aplicações adicionais pré-instaladas para matar tarefas. Deve adicionar o Syncthing à lista de excepções dessas aplicações.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">Carregando...</string>

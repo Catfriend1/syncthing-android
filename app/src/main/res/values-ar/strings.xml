@@ -20,8 +20,6 @@
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="open_website">فتح موقع الويب</string>
-  <string name="dialog_disable_battery_optimization_later">فيما بعد</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">لا تظهر ثانيةً</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
   <string name="api_loading">تحميل ...</string>

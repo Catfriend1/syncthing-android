@@ -30,11 +30,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="no">No</string>
   <string name="open_website">Obre la pàgina web</string>
   <string name="toast_write_storage_permission_required">Aquesta aplicació requereix el permís d\'escriptura a l\'emmagatzematge</string>
-  <string name="dialog_disable_battery_optimization_title">Optimització de bateria</string>
-  <string name="dialog_disable_battery_optimization_message">Passat algun temps, l\'Android podria aturar la sincronització. Per evitar-ho, apagueu l\'optimitzador de bateria.\n\nAlguns dispositius porten pre-instal·lades aplicacions que finalitzen les tasques automàticament, en aquest cas hauríeu d\'afegir el Syncthing a la seva llista d\'aplicacions autoritzades.</string>
-  <string name="dialog_disable_battery_optimization_later">Més tard</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">No ho tornis a mostrar</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Desactiva per al Syncthing</string>
+  <string name="ignore_doze_permission_title">Optimització de bateria</string>
+  <string name="ignore_doze_permission_desc">Passat algun temps, l\'Android podria aturar la sincronització. Per evitar-ho, apagueu l\'optimitzador de bateria.\n\nAlguns dispositius porten pre-instal·lades aplicacions que finalitzen les tasques automàticament, en aquest cas hauríeu d\'afegir el Syncthing a la seva llista d\'aplicacions autoritzades.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">El teu dispositiu no permet desactivar les optimitzacions de bateria</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

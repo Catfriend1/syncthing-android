@@ -34,13 +34,10 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
   <string name="no">Nem</string>
   <string name="open_website">Weblap megnyitása</string>
   <string name="toast_write_storage_permission_required">Az alkalmazás használatához háttértár-hozzáférési jogra van szükség</string>
-  <string name="dialog_disable_battery_optimization_title">Akkumulátor optimalizáció</string>
-  <string name="dialog_disable_battery_optimization_message">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
+  <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>
+  <string name="ignore_doze_permission_desc">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
 
 Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a gyártó. Ezekben szintén érdemes a Syncthinget fehérlistára tenni.</string>
-  <string name="dialog_disable_battery_optimization_later">Később</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Ne jelenjen meg újra</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Syncthing kivételezése</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Az eszközöd nem támogatja az akkumulátor optimalizálás letiltását</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->

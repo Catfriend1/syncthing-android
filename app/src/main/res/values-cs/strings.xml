@@ -30,11 +30,8 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
   <string name="no">Ne</string>
   <string name="open_website">Otevřít webovou stránku</string>
   <string name="toast_write_storage_permission_required">Tato aplikace vyžaduje oprávnění pro zápis do úložiště</string>
-  <string name="dialog_disable_battery_optimization_title">Optimalizace využití baterie</string>
-  <string name="dialog_disable_battery_optimization_message">Po nějakém čase může Android zastavit synchronizaci. Aby se tak nestalo, vypněte optimalizaci využití baterie.\n\nNa některých zařízeních mohou být také předinstalovány aplikace ukončující úlohy. Měli byste přidat Syncthing do jejich výjimek.</string>
-  <string name="dialog_disable_battery_optimization_later">Později</string>
-  <string name="dialog_disable_battery_optimization_dont_show_again">Znovu neukazovat</string>
-  <string name="dialog_disable_battery_optimization_turn_off">Vypnout pro Syncthing</string>
+  <string name="ignore_doze_permission_title">Optimalizace využití baterie</string>
+  <string name="ignore_doze_permission_desc">Po nějakém čase může Android zastavit synchronizaci. Aby se tak nestalo, vypněte optimalizaci využití baterie.\n\nNa některých zařízeních mohou být také předinstalovány aplikace ukončující úlohy. Měli byste přidat Syncthing do jejich výjimek.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Vaše zařízení nepodporuje vypnutí optimalizací baterie</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
