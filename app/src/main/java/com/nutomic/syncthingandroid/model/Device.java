@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Device {
     public String deviceID;
-    public String name;
+    public String name = "";
     public List<String> addresses;
     public String compression;
     public String certName;
