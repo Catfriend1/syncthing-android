@@ -34,10 +34,8 @@
   <string name="dialog_disable_battery_optimizations_not_supported">기기가 배터리 최적화 비활성화를 지원하지 않습니다.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">로드 중...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">보안 키 생성 중. 몇 분 정도 소요될 수 있습니다.</string>
-  <string name="syncthing_loading_slow_message">Syncthing를 로드하는데 너무 오랜 시간이 걸리고 있습니다. 로그를 사용하여 오류가 있는지 확인하십시오.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">폴더</string>
   <!--Shown if no folders exist-->

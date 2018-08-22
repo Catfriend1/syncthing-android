@@ -26,7 +26,6 @@
   <string name="toast_write_storage_permission_required">Skriverettigheter til lagringsenheten kreves av denne appen</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Laster...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Genererer sikre nøkler. Dette kan ta noen minutter.</string>
   <!--FoldersFragment-->

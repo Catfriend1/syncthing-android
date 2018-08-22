@@ -33,7 +33,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
   <string name="ignore_doze_permission_desc">Android, birkaç zaman sonra eşzamanlamayı durdurabilir. Bunu önlemek için batarya iyileştirmesini kapat.\n\nBazı aygıtlar ek olarak görev bitirme uygulamalarıyla yüklü gelir. Syncthing\'i onların beyaz listesine ayrıca eklemelisiniz.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Yükleniyor...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Güvenli anahtarlar üretiliyor. Birkaç dakika zaman alabilir.</string>
   <!--FoldersFragment-->

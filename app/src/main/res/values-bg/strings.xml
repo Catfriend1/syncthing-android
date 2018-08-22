@@ -32,7 +32,6 @@
   <string name="ignore_doze_permission_title">Пестене на батерия</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Зареждане...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Генериране на ключове за сигурност. Може да отнеме няколко минути.</string>
   <!--FoldersFragment-->

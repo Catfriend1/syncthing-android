@@ -37,10 +37,8 @@
   <string name="dialog_disable_battery_optimizations_not_supported">您的设备不支持禁用电池优化</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">正在加载...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">正在生成安全密钥。这可能需要一段时间，请稍等。</string>
-  <string name="syncthing_loading_slow_message">Syncthing 加载时间过长。使用日志检查是否有错误。</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">文件夹</string>
   <!--Shown if no folders exist-->

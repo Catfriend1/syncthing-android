@@ -32,10 +32,8 @@ Jika ada masalah silakan laporkan lewat Github.</string>
   <string name="dialog_disable_battery_optimizations_not_supported">Perangkat anda tidak mendukung untuk mematikan optimisasi baterai</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Memuat...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Membuat kunci aman. Ini mungkin perlu beberapa menit.</string>
-  <string name="syncthing_loading_slow_message">Syncthing butuh waktu terlalu lama untuk membuka. Silakan lihat log untuk memeriksa kesalahan.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Folder</string>
   <!--Shown if no folders exist-->

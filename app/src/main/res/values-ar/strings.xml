@@ -22,7 +22,6 @@
   <string name="open_website">فتح موقع الويب</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">تحميل ...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <!--FoldersFragment-->
   <!--Shown if no folders exist-->

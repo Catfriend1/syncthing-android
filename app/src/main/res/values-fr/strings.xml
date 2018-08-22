@@ -36,10 +36,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
   <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Chargement...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes.</string>
-  <string name="syncthing_loading_slow_message">Syncthing prend très longtemps à se charger. Utilisez les journaux pour vérifier les erreurs.</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">Partages</string>
   <!--Shown if no folders exist-->

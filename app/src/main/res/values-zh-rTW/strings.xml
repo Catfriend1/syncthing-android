@@ -34,10 +34,8 @@
   <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">載入中...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">正在產生安全金鑰，這需要一些時間。</string>
-  <string name="syncthing_loading_slow_message">Syncthing 花了很久才載入。透過日誌來檢查錯誤。</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">資料夾</string>
   <!--Shown if no folders exist-->

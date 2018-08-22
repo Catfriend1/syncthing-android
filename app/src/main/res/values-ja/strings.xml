@@ -35,10 +35,8 @@
   <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">ロード中…</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">セキュア鍵を生成しています。しばらくお待ちください。</string>
-  <string name="syncthing_loading_slow_message">Syncthingの起動に非常に時間がかかっています。ログにエラーが出力されていないか確認してください。</string>
   <!--FoldersFragment-->
   <string name="folders_fragment_title">フォルダー</string>
   <!--Shown if no folders exist-->

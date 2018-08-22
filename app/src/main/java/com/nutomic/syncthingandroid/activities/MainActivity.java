@@ -65,7 +65,7 @@ import static java.lang.Math.min;
  * {@link DeviceListFragment} in different tabs, and
  * {@link DrawerFragment} in the navigation drawer.
  */
-public class MainActivity extends StateDialogActivity
+public class MainActivity extends SyncthingActivity
         implements SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "MainActivity";

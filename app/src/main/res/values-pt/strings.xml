@@ -33,7 +33,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
   <string name="ignore_doze_permission_desc">O Android pode parar a sincronização passado algum tempo. Para prevenir isso, desligue a optimização da bateria.\n\nAlguns dispositivos têm aplicações adicionais pré-instaladas para matar tarefas. Deve adicionar o Syncthing à lista de excepções dessas aplicações.</string>
   <!--StateDialogActivity-->
   <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <string name="api_loading">Carregando...</string>
   <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
   <string name="web_gui_creating_key">Gerando chaves seguras. Isto pode demorar uns minutos.</string>
   <!--FoldersFragment-->

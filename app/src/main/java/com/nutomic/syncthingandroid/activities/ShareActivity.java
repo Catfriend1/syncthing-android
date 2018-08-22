@@ -45,7 +45,7 @@ import java.util.Map;
  * {@link #getDisplayNameForUri} and {@link #getDisplayNameFromContentResolver} are taken from
  * ownCloud Android {@see https://github.com/owncloud/android/blob/79664304fdb762b2e04f1ac505f50d0923ddd212/src/com/owncloud/android/utils/UriUtils.java#L193}
  */
-public class ShareActivity extends StateDialogActivity
+public class ShareActivity extends SyncthingActivity
         implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "ShareActivity";
