@@ -45,6 +45,12 @@ public class SyncthingService extends Service {
             "com.nutomic.syncthingandroid.service.SyncthingService.RESTART";
 
     /**
+     * Intent action to perform a Syncthing stop.
+     */
+    public static final String ACTION_STOP =
+            "com.nutomic.syncthingandroid.service.SyncthingService.STOP";
+
+    /**
      * Intent action to reset Syncthing's database.
      */
     public static final String ACTION_RESET_DATABASE =
@@ -94,6 +100,10 @@ public class SyncthingService extends Service {
      */
     public static final String EXTRA_FOLDER_ID =
             "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_FOLDER_ID";
+
+    public interface OnSyncthingKilled {
+        void onKilled();
+    }
 
     public interface OnServiceStateChangeListener {
         void onServiceStateChange(State currentState);
@@ -221,11 +231,14 @@ public class SyncthingService extends Service {
         }
         mNotificationHandler.updatePersistentNotification(this);
 
-        if (intent == null)
+        if (intent == null) {
             return START_STICKY;
+        }
 
         if (ACTION_RESTART.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             shutdown(State.INIT, () -> launchStartupTask());
+        } else if (ACTION_STOP.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
+            shutdown(State.DISABLED, () -> {});
         } else if (ACTION_RESET_DATABASE.equals(intent.getAction())) {
             shutdown(State.INIT, () -> {
                 new SyncthingRunnable(this, SyncthingRunnable.Command.resetdatabase).run();
@@ -337,7 +350,7 @@ public class SyncthingService extends Service {
                  syncthingService.mConfig = new ConfigXml(syncthingService);
                  syncthingService.mConfig.updateIfNeeded();
              } catch (ConfigXml.OpenConfigException e) {
-                 syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed);
+                 syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "ConfigXml.OpenConfigException");
                  synchronized (syncthingService.mStateLock) {
                      syncthingService.onServiceStateChange(State.ERROR);
                  }
@@ -473,7 +486,7 @@ public class SyncthingService extends Service {
      *
      * Sets {@link #mCurrentState} to newState, and calls onKilledListener once Syncthing is killed.
      */
-    private void shutdown(State newState, SyncthingRunnable.OnSyncthingKilled onKilledListener) {
+    private void shutdown(State newState, OnSyncthingKilled onKilledListener) {
         Log.i(TAG, "Shutting down background service");
         synchronized(mStateLock) {
             onServiceStateChange(newState);

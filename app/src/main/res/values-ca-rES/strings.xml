@@ -349,7 +349,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
   <string name="default_folder_label">Càmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-fotos</string>
-  <string name="notification_crash_title">El Syncthing s\'ha bloquejat</string>
+  <string name="notification_crash_title">El Syncthing s\'ha bloquejat %1$s</string>
   <string name="notification_crash_text">Feu clic per veure els registres</string>
   <string name="notifications_persistent_channel">El Syncthing està actiu</string>
   <string name="notification_persistent_waiting_channel">Vigilant les condicions d\'execució</string>

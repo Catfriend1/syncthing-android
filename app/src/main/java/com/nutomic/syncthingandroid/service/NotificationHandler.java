@@ -168,10 +168,10 @@ public class NotificationHandler {
         mNotificationManager.cancel(ID_PERSISTENT_WAITING);
     }
 
-    public void showCrashedNotification(@StringRes int title) {
+    public void showCrashedNotification(@StringRes int title, String extraInfo) {
         Intent intent = new Intent(mContext, LogActivity.class);
         Notification n = getNotificationBuilder(mInfoChannel)
-                .setContentTitle(mContext.getString(title))
+                .setContentTitle(mContext.getString(title, extraInfo))
                 .setContentText(mContext.getString(R.string.notification_crash_text))
                 .setSmallIcon(R.drawable.ic_stat_notify)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0))

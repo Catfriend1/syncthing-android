@@ -368,7 +368,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
   <string name="default_folder_label">Kamera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s foton</string>
-  <string name="notification_crash_title">Syncthing har kraschat</string>
+  <string name="notification_crash_title">Syncthing har kraschat %1$s</string>
   <string name="notification_crash_text">Klicka för att visa loggar</string>
   <string name="notifications_persistent_channel">Syncthing är aktiv</string>
   <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>

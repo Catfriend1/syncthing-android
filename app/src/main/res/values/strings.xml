@@ -663,7 +663,7 @@ Please report any problems you encounter via Github.</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
 
-    <string name="notification_crash_title">Syncthing has crashed</string>
+    <string name="notification_crash_title">Syncthing has crashed (exit code %1$s)</string>
 
     <string name="notification_crash_text">Click to view logs</string>
 

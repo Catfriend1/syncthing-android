@@ -317,7 +317,7 @@
   <string name="default_folder_label">摄像机</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-照片</string>
-  <string name="notification_crash_title">Syncthing 已崩溃</string>
+  <string name="notification_crash_title">Syncthing 已崩溃 %1$s</string>
   <string name="notification_crash_text">点击查看日志</string>
   <string name="notifications_other_channel">其他通知</string>
   <!--RestApi-->

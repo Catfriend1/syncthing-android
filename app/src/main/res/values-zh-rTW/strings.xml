@@ -314,7 +314,7 @@
   <string name="default_folder_label">相機</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-photos</string>
-  <string name="notification_crash_title">Syncthing 已經當機</string>
+  <string name="notification_crash_title">Syncthing 已經當機 %1$s</string>
   <string name="notification_crash_text">觸碰檢視日誌</string>
   <string name="notifications_other_channel">其他通知</string>
   <!--RestApi-->

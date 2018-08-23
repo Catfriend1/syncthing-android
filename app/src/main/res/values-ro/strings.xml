@@ -373,7 +373,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="default_folder_label">Camera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-fotografii</string>
-  <string name="notification_crash_title">Syncthing s-a oprit neașteptat</string>
+  <string name="notification_crash_title">Syncthing s-a oprit neașteptat %1$s</string>
   <string name="notification_crash_text">Atingeți pentru a vedea jurnalele de erori</string>
   <string name="notifications_persistent_channel">Syncthing este activ</string>
   <string name="notification_persistent_waiting_channel">Monitorizare condiții rulare</string>
@@ -445,7 +445,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
   <string name="keep_versions_description">Numărul de versiuni vechi ale fișierelor ce vor fi păstrate, pentru fiecare fișier.</string>
   <string name="simple_file_versioning_description">Fișierele sunt mutate și redenumite după dată în directorul .stversions atunci când sunt înlocuite sau șterse de către Syncthing.</string>
   <string name="trashcan_versioning_description">Fișierele sunt mutate în directorul .stversions atunci când sunt înlocuite sau șterse de către Syncthing.</string>
-  <string name="staggered_versioning_description">Fișierele sunt mutate și redenumite după dată în directorul .stversions 
+  <string name="staggered_versioning_description">Fișierele sunt mutate și redenumite după dată în directorul .stversions
 atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt șterse automat dacă sunt mai vechi decât vârsta maximă sau dacă au depășit numărul de fișiere permise într-un interval.\n\nUrmătoarele intervale sunt folosite: în prima oră o versiune este păstrată pentru fiecare 30 de secunde, în prima zi o versiune este păstrată pentru fiecare oră, în primele 30 de zile o versiune este păstrată pentru fiecare zi, până la vârsta maximă o versiune este păstrată pentru fiecare săptămână.</string>
   <string name="maximum_age_description">Intervalul de timp maxim de păstrat o versiune (în zile, setați la 0 pentru a păstra versiunile pentru totdeauna)</string>
   <string name="versions_path_description">Calea unde versiunile vor fi stocate (lăsați gol pentru a folosi directorul implicit .stversions din directorul partajat)</string>

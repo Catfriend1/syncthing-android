@@ -243,7 +243,7 @@
   <!--Label of the default folder created of first start (camera folder).-->
   <string name="default_folder_label">Камера</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
-  <string name="notification_crash_title">Роботу Syncthing аварійно завершено </string>
+  <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
   <!--RestApi-->
   <!--Title of the notification shown when a restart is needed-->
   <string name="restart_title">Необхідний перезапуск</string>

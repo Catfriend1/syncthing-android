@@ -340,7 +340,7 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
   <string name="default_folder_label">Câmera</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-fotos</string>
-  <string name="notification_crash_title">O Syncthing fechou inesperadamente</string>
+  <string name="notification_crash_title">O Syncthing fechou inesperadamente %1$s</string>
   <string name="notification_crash_text">Clique para ver os logs</string>
   <string name="notifications_persistent_channel">Syncthing ativado</string>
   <string name="notification_persistent_waiting_channel">Monitorando condições de execução</string>

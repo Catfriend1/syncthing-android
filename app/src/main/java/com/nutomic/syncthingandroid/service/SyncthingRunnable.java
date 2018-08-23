@@ -109,9 +109,14 @@ public class SyncthingRunnable implements Runnable {
 
     @SuppressLint("WakelockTimeout")
     public String run(boolean returnStdOut) {
-        trimLogFile();
-        int ret;
+        Boolean sendStopToService = false;
+        Boolean restartSyncthingNative = false;
+        int exitCode;
         String capturedStdOut = "";
+
+        // Trim Syncthing log.
+        trimLogFile();
+
         // Make sure Syncthing is executable
         try {
             ProcessBuilder pb = new ProcessBuilder("chmod", "500", mSyncthingBinary.getPath());
@@ -161,31 +166,52 @@ public class SyncthingRunnable implements Runnable {
 
             niceSyncthing();
 
-            ret = process.waitFor();
-            Log.i(TAG, "Syncthing exited with code " + ret);
+            exitCode = process.waitFor();
+            Log.i(TAG, "Syncthing exited with code " + exitCode);
             mSyncthing.set(null);
-            if (lInfo != null)
+            if (lInfo != null) {
                 lInfo.join();
-            if (lWarn != null)
+            }
+            if (lWarn != null) {
                 lWarn.join();
+            }
 
-            switch (ret) {
+            switch (exitCode) {
                 case 0:
                 case 137:
-                    // Syncthing was shut down (via API or SIGKILL), do nothing.
+                    Log.i(TAG, "Syncthing was shut down normally via API or SIGKILL. Exit code = " + exitCode);
                     break;
                 case 1:
-                    Log.w(TAG, "Another Syncthing instance is already running, requesting restart via SyncthingService intent");
-                    //fallthrough
+                    Log.w(TAG, "exit reason = exitError. Another Syncthing instance may be already running.");
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, Integer.toString(exitCode));
+                    sendStopToService = true;
+                    break;
+                case 2:
+                    // This should not happen as STNOUPGRADE is set.
+                    Log.w(TAG, "exit reason = exitNoUpgradeAvailable. Another Syncthing instance may be already running.");
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, Integer.toString(exitCode));
+                    sendStopToService = true;
+                    break;
                 case 3:
                     // Restart was requested via Rest API call.
-                    Log.i(TAG, "Restarting syncthing");
-                    mContext.startService(new Intent(mContext, SyncthingService.class)
-                            .setAction(SyncthingService.ACTION_RESTART));
+                    Log.i(TAG, "exit reason = exitRestarting. Restarting syncthing.");
+                    restartSyncthingNative = true;
+                    break;
+                case 9:
+                    // Native was force killed.
+                    Log.w(TAG, "exit reason = exitForceKill.");
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, Integer.toString(exitCode));
+                    sendStopToService = true;
+                    break;
+                case 64:
+                    Log.w(TAG, "exit reason = exitInvalidCommandLine.");
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, Integer.toString(exitCode));
+                    sendStopToService = true;
                     break;
                 default:
-                    Log.w(TAG, "Syncthing has crashed (exit code " + ret + ")");
-                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title);
+                    Log.w(TAG, "Syncthing exited unexpectedly. Exit code = " + exitCode);
+                    mNotificationHandler.showCrashedNotification(R.string.notification_crash_title, Integer.toString(exitCode));
+                    sendStopToService = true;
             }
         } catch (IOException | InterruptedException e) {
             Log.e(TAG, "Failed to execute syncthing binary or read output", e);
@@ -195,6 +221,20 @@ public class SyncthingRunnable implements Runnable {
             if (process != null)
                 process.destroy();
         }
+
+        // Restart syncthing if it exited unexpectedly while running on a separate thread.
+        if (!returnStdOut && restartSyncthingNative) {
+            mContext.startService(new Intent(mContext, SyncthingService.class)
+                    .setAction(SyncthingService.ACTION_RESTART));
+        }
+
+        // Notify {@link SyncthingService} that service state State.ACTIVE is no longer valid.
+        if (!returnStdOut && sendStopToService) {
+            mContext.startService(new Intent(mContext, SyncthingService.class)
+                    .setAction(SyncthingService.ACTION_STOP));
+        }
+
+        // Return captured command line output.
         return capturedStdOut;
     }
 
@@ -299,37 +339,23 @@ public class SyncthingRunnable implements Runnable {
         }
     }
 
-    public interface OnSyncthingKilled {
-        void onKilled();
-    }
     /**
-     * Look for running libsyncthing.so processes and kill them.
-     * Try a SIGINT first, then try again with SIGKILL.
+     * Look for running libsyncthing.so processes and end them gracefully.
      */
     public void killSyncthing() {
-        for (int i = 0; i < 2; i++) {
-            List<String> syncthingPIDs = getSyncthingPIDs();
-            if (syncthingPIDs.isEmpty()) {
-                Log.d(TAG, "killSyncthing: Found no more running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
-                break;
-            }
-
-            int exitCode;
-            for (String syncthingPID : syncthingPIDs) {
-                if (i > 0) {
-                    // Force termination of the process by sending SIGKILL.
-                    SystemClock.sleep(3000);
-                    exitCode = Util.runShellCommand("kill -SIGKILL " + syncthingPID + "\n", mUseRoot);
-                } else {
-                    exitCode = Util.runShellCommand("kill -SIGINT " + syncthingPID + "\n", mUseRoot);
-                    SystemClock.sleep(1000);
-                }
-                if (exitCode == 0) {
-                    Log.d(TAG, "Killed Syncthing process " + syncthingPID);
-                } else {
-                    Log.w(TAG, "Failed to kill Syncthing process " + syncthingPID +
-                        " exit code " + Integer.toString(exitCode));
-                }
+        int exitCode;
+        List<String> syncthingPIDs = getSyncthingPIDs();
+        if (syncthingPIDs.isEmpty()) {
+            Log.d(TAG, "killSyncthing: Found no more running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
+            return;
+        }
+        for (String syncthingPID : syncthingPIDs) {
+            exitCode = Util.runShellCommand("kill -SIGINT " + syncthingPID + "\n", mUseRoot);
+            if (exitCode == 0) {
+                Log.d(TAG, "Sent kill SIGINT to process " + syncthingPID);
+            } else {
+                Log.w(TAG, "Failed to send kill SIGINT to process " + syncthingPID +
+                    " exit code " + Integer.toString(exitCode));
             }
         }
     }

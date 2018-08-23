@@ -355,7 +355,7 @@
   <string name="default_folder_label">Камера</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s фото</string>
-  <string name="notification_crash_title">Syncthing завершился из-за сбоя</string>
+  <string name="notification_crash_title">Syncthing завершился из-за сбоя %1$s</string>
   <string name="notification_crash_text">Нажмите для просмотра логов</string>
   <string name="notifications_persistent_channel">Syncthing работает</string>
   <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>

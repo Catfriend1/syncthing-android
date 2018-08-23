@@ -315,7 +315,7 @@
   <string name="default_folder_label">カメラ</string>
   <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
   <string name="default_folder_id">%1$s-写真</string>
-  <string name="notification_crash_title">Syncthing がクラッシュしました</string>
+  <string name="notification_crash_title">Syncthing がクラッシュしました %1$s</string>
   <string name="notification_crash_text">クリックしてログを表示</string>
   <string name="notifications_other_channel">他の通知</string>
   <!--RestApi-->
