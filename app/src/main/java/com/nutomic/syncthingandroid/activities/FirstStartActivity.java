@@ -144,13 +144,13 @@ public class FirstStartActivity extends Activity {
                 (showSlideKeyGeneration ? 1 : 0)
         ];
         mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_intro, colorsActive[0], colorsInactive[0]);
-        if (showSlideIgnoreDozePermission) {
-            mSlidePosIgnoreDozePermission = slideIndex;
-            mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_ignore_doze_permission, colorsActive[4], colorsInactive[4]);
-        }
         if (showSlideStoragePermission) {
             mSlidePosStoragePermission = slideIndex;
             mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_storage_permission, colorsActive[1], colorsInactive[1]);
+        }
+        if (showSlideIgnoreDozePermission) {
+            mSlidePosIgnoreDozePermission = slideIndex;
+            mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_ignore_doze_permission, colorsActive[4], colorsInactive[4]);
         }
         if (showSlideLocationPermission) {
             mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_location_permission, colorsActive[2], colorsInactive[2]);
