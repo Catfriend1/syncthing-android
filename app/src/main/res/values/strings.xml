@@ -124,7 +124,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Paused</string>
 
-    !-- Indicates that the device connection is unknown -->
+    <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unknown</string>
 
     <!-- Title for current download rate -->
@@ -620,7 +620,7 @@ Please report any problems you encounter via Github.</string>
     <!-- RunConditionMonitor -->
 
     <!-- Explanations why syncthing is running or not running -->
-    <string name="reason_not_on_ac_power">Phone is not running on AC power.</string>
+    <string name="reason_not_charging">Phone is not charging.</string>
     <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>

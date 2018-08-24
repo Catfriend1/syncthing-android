@@ -41,8 +41,8 @@ public class RunConditionMonitor {
 
     private static final String TAG = "RunConditionMonitor";
 
-    private static final String POWER_SOURCE_AC_BATTERY = "ac_and_battery_power";
-    private static final String POWER_SOURCE_AC = "ac_power";
+    private static final String POWER_SOURCE_CHARGER_BATTERY = "ac_and_battery_power";
+    private static final String POWER_SOURCE_CHARGER = "ac_power";
     private static final String POWER_SOURCE_BATTERY = "battery_power";
 
     private @Nullable Object mSyncStatusObserverHandle = null;
@@ -173,27 +173,27 @@ public class RunConditionMonitor {
         Set<String> whitelistedWifiSsids = mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>());
         boolean prefWifiWhitelistEnabled = !whitelistedWifiSsids.isEmpty();
         boolean prefRunInFlightMode = mPreferences.getBoolean(Constants.PREF_RUN_IN_FLIGHT_MODE, false);
-        String prefPowerSource = mPreferences.getString(Constants.PREF_POWER_SOURCE, POWER_SOURCE_AC_BATTERY);
+        String prefPowerSource = mPreferences.getString(Constants.PREF_POWER_SOURCE, POWER_SOURCE_CHARGER_BATTERY);
         boolean prefRespectPowerSaving = mPreferences.getBoolean(Constants.PREF_RESPECT_BATTERY_SAVING, true);
         boolean prefRespectMasterSync = mPreferences.getBoolean(Constants.PREF_RESPECT_MASTER_SYNC, false);
 
         // PREF_POWER_SOURCE
         switch (prefPowerSource) {
-            case POWER_SOURCE_AC:
-                if (!isOnAcPower()) {
-                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_AC && !isOnAcPower");
-                    mRunDecisionExplanation = res.getString(R.string.reason_not_on_ac_power);
+            case POWER_SOURCE_CHARGER:
+                if (!isCharging()) {
+                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_AC && !isCharging");
+                    mRunDecisionExplanation = res.getString(R.string.reason_not_charging);
                     return false;
                 }
                 break;
             case POWER_SOURCE_BATTERY:
-                if (isOnAcPower()) {
-                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_BATTERY && isOnAcPower");
+                if (isCharging()) {
+                    Log.v(TAG, "decideShouldRun: POWER_SOURCE_BATTERY && isCharging");
                     mRunDecisionExplanation = res.getString(R.string.reason_not_on_battery_power);
                     return false;
                 }
                 break;
-            case POWER_SOURCE_AC_BATTERY:
+            case POWER_SOURCE_CHARGER_BATTERY:
             default:
                 break;
         }
@@ -299,11 +299,31 @@ public class RunConditionMonitor {
     /**
      * Functions for run condition information retrieval.
      */
-    private boolean isOnAcPower() {
+    private boolean isCharging() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            // API level < 21
+            return isCharging_API16();
+        } else {
+            // API level >= 21
+            return isCharging_API17();
+        }
+    }
+
+    @TargetApi(16)
+    private boolean isCharging_API16() {
         Intent batteryIntent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         int status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         return status == BatteryManager.BATTERY_STATUS_CHARGING ||
             status == BatteryManager.BATTERY_STATUS_FULL;
+    }
+
+    @TargetApi(17)
+    private boolean isCharging_API17() {
+        Intent intent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        return plugged == BatteryManager.BATTERY_PLUGGED_AC ||
+            plugged == BatteryManager.BATTERY_PLUGGED_USB ||
+            plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS;
     }
 
     @TargetApi(21)
