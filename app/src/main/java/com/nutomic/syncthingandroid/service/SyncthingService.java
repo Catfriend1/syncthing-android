@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.Manifest;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -494,7 +495,15 @@ public class SyncthingService extends Service {
      * Sets {@link #mCurrentState} to newState, and calls onKilledListener once Syncthing is killed.
      */
     private void shutdown(State newState, OnSyncthingKilled onKilledListener) {
-        Log.i(TAG, "Shutting down background service");
+        if (mCurrentState == State.STARTING) {
+            Log.w(TAG, "Deferring shutdown until State.STARTING was left");
+            mHandler.postDelayed(() -> {
+                shutdown(newState, onKilledListener);
+            }, 1000);
+            return;
+        }
+
+        Log.i(TAG, "Shutting down");
         synchronized(mStateLock) {
             onServiceStateChange(newState);
         }

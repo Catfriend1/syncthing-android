@@ -266,7 +266,7 @@ public class SyncthingRunnable implements Runnable {
      * Look for running libsyncthing.so processes and return an array
      * containing the PIDs of found instances.
      */
-    private List<String> getSyncthingPIDs() {
+    private List<String> getSyncthingPIDs(Boolean enableLog) {
         List<String> syncthingPIDs = new ArrayList<String>();
         Process ps = null;
         DataOutputStream psOut = null;
@@ -283,7 +283,9 @@ public class SyncthingRunnable implements Runnable {
             while ((line = br.readLine()) != null) {
                 if (line.contains(Constants.FILENAME_SYNCTHING_BINARY)) {
                     String syncthingPID = line.trim().split("\\s+")[1];
-                    Log.v(TAG, "getSyncthingPIDs: Found process PID [" + syncthingPID + "]");
+                    if (enableLog) {
+                        Log.v(TAG, "getSyncthingPIDs: Found process PID [" + syncthingPID + "]");
+                    }
                     syncthingPIDs.add(syncthingPID);
                 }
             }
@@ -330,7 +332,7 @@ public class SyncthingRunnable implements Runnable {
             return;
         }
 
-        List<String> syncthingPIDs = getSyncthingPIDs();
+        List<String> syncthingPIDs = getSyncthingPIDs(false);
         if (syncthingPIDs.isEmpty()) {
             Log.i(TAG_NICE, "Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
             return;
@@ -350,7 +352,7 @@ public class SyncthingRunnable implements Runnable {
      */
     public void killSyncthing() {
         int exitCode;
-        List<String> syncthingPIDs = getSyncthingPIDs();
+        List<String> syncthingPIDs = getSyncthingPIDs(true);
         if (syncthingPIDs.isEmpty()) {
             Log.d(TAG, "killSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
             return;
@@ -369,7 +371,7 @@ public class SyncthingRunnable implements Runnable {
          * Wait for the syncthing instance to end.
          */
         Log.v(TAG, "Waiting for all syncthing instances to end ...");
-        while (!getSyncthingPIDs().isEmpty()) {
+        while (!getSyncthingPIDs(false).isEmpty()) {
             SystemClock.sleep(50);
         }
         Log.v(TAG, "killSyncthing: Complete.");
