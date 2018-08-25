@@ -74,21 +74,39 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     public void setUserVisibleHint(boolean isVisibleToUser)
     {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser && !mLastVisibleToUser) {
+        if (isVisibleToUser) {
             // User switched to the current tab, start handler.
-            mRestApiQueryHandler.post(mRestApiQueryRunnable);
-
-        } else if (!isVisibleToUser && mLastVisibleToUser) {
+            startRestApiQueryHandler();
+        } else {
             // User switched away to another tab, stop handler.
-            mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
+            stopRestApiQueryHandler();
         }
         mLastVisibleToUser = isVisibleToUser;
     }
 
     @Override
     public void onPause() {
-        mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
+        stopRestApiQueryHandler();
         super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mLastVisibleToUser) {
+            startRestApiQueryHandler();
+        }
+    }
+
+    private void startRestApiQueryHandler() {
+        Log.v(TAG, "startUpdateListHandler");
+        mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
+        mRestApiQueryHandler.post(mRestApiQueryRunnable);
+    }
+
+    private void stopRestApiQueryHandler() {
+        Log.v(TAG, "stopUpdateListHandler");
+        mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
     }
 
     @Override

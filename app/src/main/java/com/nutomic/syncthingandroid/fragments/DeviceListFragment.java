@@ -2,7 +2,9 @@ package com.nutomic.syncthingandroid.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.activities.DeviceActivity;
+import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -22,8 +25,6 @@ import com.nutomic.syncthingandroid.views.DevicesAdapter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Displays a list of all existing devices.
@@ -31,36 +32,65 @@ import java.util.TimerTask;
 public class DeviceListFragment extends ListFragment implements SyncthingService.OnServiceStateChangeListener,
         ListView.OnItemClickListener {
 
+    private final static String TAG = "DeviceListFragment";
+
     private final static Comparator<Device> DEVICES_COMPARATOR = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
 
-    private DevicesAdapter mAdapter;
+    private Runnable mUpdateListRunnable = new Runnable() {
+        @Override
+        public void run() {
+            onTimerEvent();
+            mUpdateListHandler.postDelayed(this, Constants.GUI_UPDATE_INTERVAL);
+        }
+    };
 
-    private Timer mTimer;
+    private final Handler mUpdateListHandler = new Handler();
+    private Boolean mLastVisibleToUser = false;
+    private DevicesAdapter mAdapter;
+    private SyncthingService.State mServiceState = SyncthingService.State.INIT;
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser)
+    {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            // User switched to the current tab, start handler.
+            startUpdateListHandler();
+        } else {
+            // User switched away to another tab, stop handler.
+            stopUpdateListHandler();
+        }
+        mLastVisibleToUser = isVisibleToUser;
+    }
 
     @Override
     public void onPause() {
+        stopUpdateListHandler();
         super.onPause();
-        if (mTimer != null) {
-            mTimer.cancel();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mLastVisibleToUser) {
+            startUpdateListHandler();
         }
+    }
+
+    private void startUpdateListHandler() {
+        Log.v(TAG, "startUpdateListHandler");
+        mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
+        mUpdateListHandler.post(mUpdateListRunnable);
+    }
+
+    private void stopUpdateListHandler() {
+        Log.v(TAG, "stopUpdateListHandler");
+        mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
     }
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
-        if (currentState != SyncthingService.State.ACTIVE)
-            return;
-
-        mTimer = new Timer();
-        mTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if (getActivity() == null)
-                    return;
-
-                getActivity().runOnUiThread(DeviceListFragment.this::updateList);
-            }
-
-        }, 0, Constants.GUI_UPDATE_INTERVAL);
+        mServiceState = currentState;
     }
 
     @Override
@@ -70,6 +100,29 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         setHasOptionsMenu(true);
         setEmptyText(getString(R.string.devices_list_empty));
         getListView().setOnItemClickListener(this);
+    }
+
+    /**
+     * Invokes updateList which polls the REST API for device status updates
+     *  while the user is looking at the current tab.
+     */
+    private void onTimerEvent() {
+        if (mServiceState != SyncthingService.State.ACTIVE) {
+            return;
+        }
+        MainActivity mainActivity = (MainActivity) getActivity();
+        if (mainActivity == null) {
+            return;
+        }
+        if (mainActivity.isFinishing()) {
+            return;
+        }
+        RestApi restApi = mainActivity.getApi();
+        if (restApi == null) {
+            return;
+        }
+        Log.v(TAG, "Invoking updateList on UI thread");
+        mainActivity.runOnUiThread(DeviceListFragment.this::updateList);
     }
 
     /**
