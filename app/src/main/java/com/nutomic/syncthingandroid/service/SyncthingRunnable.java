@@ -416,8 +416,9 @@ public class SyncthingRunnable implements Runnable {
      * Only keep last {@link #LOG_FILE_MAX_LINES} lines in log file, to avoid bloat.
      */
     private void trimLogFile() {
-        if (!mLogFile.exists())
+        if (!mLogFile.exists()) {
             return;
+        }
 
         try {
             LineNumberReader lnr = new LineNumberReader(new FileReader(mLogFile));
