@@ -1,439 +1,631 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name">Syncthing</string>
-  <string name="app_description">Открытое, надёжное и децентрализованное приложение для синхронизации файлов.</string>
-  <!--FirstStartActivity-->
-  <!--Title for dialog displayed on first start-->
-  <string name="welcome_title">Добро пожаловать в Syncthing для Android</string>
-  <!--Welcome wizard-->
-  <!--Slide 1-->
-  <string name="welcome_text">Syncthing - это приложение с открытым исходным кодом для синхронизации файлов.\n
+
+    <string name="app_name">Syncthing</string>
+
+    <string name="app_description">Открытое, надёжное и децентрализованное приложение для синхронизации файлов.</string>
+
+    <!-- FirstStartActivity -->
+
+
+    <!-- Title for dialog displayed on first start -->
+    <string name="welcome_title">Добро пожаловать в Syncthing для Android</string>
+
+    <string name="welcome_text">Syncthing - это приложение с открытым исходным кодом для синхронизации файлов.\n
 Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n
 Пожалуйста, сообщайте о возникших проблемах через Github.</string>
-  <!--Slide 2-->
-  <!--Slide 3-->
-  <!--Generic texts used everywhere-->
-  <string name="cont">Продолжить</string>
-  <string name="finish">Принять</string>
-  <string name="generic_example">Пример</string>
-  <string name="generic_error">Ошибка</string>
-  <string name="ignore">Игнорировать</string>
-  <!--MainActivity-->
-  <!--Title of the "add folder" menu action-->
-  <string name="add_folder">Добавить папку</string>
-  <!--Title of the "share device id" menu action-->
-  <string name="share_device_id">Поделиться ID устройства</string>
-  <!--Shown in the chooser dialog when sharing a Device ID-->
-  <string name="send_device_id_to">Отправить ID устройства</string>
-  <string name="usage_reporting_dialog_title">Разрешить отправлять анонимную статистику?</string>
-  <string name="usage_reporting_dialog_description">Зашифрованный ежедневный отчет отправлен. Используется для отслеживания платформ, размеров папок и версий программы. Если отправляемые данные изменятся, то это диалог появится вновь. \n\nОбобщенная статистика доступна на  https://data.syncthing.net.</string>
-  <string name="yes">Да</string>
-  <string name="no">Нет</string>
-  <string name="open_website">Открыть сайт</string>
-  <string name="toast_write_storage_permission_required">Приложению требуется право на запись</string>
-  <string name="ignore_doze_permission_title">Оптимизация батареи</string>
-  <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
-  <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
-  <!--StateDialogActivity-->
-  <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
-  <string name="web_gui_creating_key">Генерируем ключи. Это может занять несколько минут.</string>
-  <!--FoldersFragment-->
-  <string name="folders_fragment_title">Папки</string>
-  <!--Shown if no folders exist-->
-  <string name="folder_list_empty">Папки не найдены</string>
-  <!--Format string for folder file count-->
-  <plurals name="files">
-    <item quantity="one">%1$d / %2$d Файл</item>
-    <item quantity="few">%1$d / %2$d Файла</item>
-    <item quantity="many">%1$d / %2$d Файлов</item>
-    <item quantity="other">%1$d / %2$d Файла</item>
-  </plurals>
-  <string name="open_file_manager">Открыть файловый менеджер</string>
-  <string name="toast_no_file_manager">Не найдено совместимого файлового менеджера</string>
-  <!--DevicesFragment-->
-  <string name="devices_fragment_title">Устройства</string>
-  <!--Shown if no devices exist-->
-  <string name="devices_list_empty">Устройства не найдены</string>
-  <!--Indicates that a folder is fully synced to the local device-->
-  <string name="device_up_to_date">Обновлено</string>
-  <!--Indicates that the device is currently syncing. Parameter is sync percentage-->
-  <string name="device_syncing">Синхронизация (%1$d%%)</string>
-  <!--Indicates that there is no connection to the device-->
-  <string name="device_disconnected">Отсоединено</string>
-  <!--Indicates that the device is paused and does not sync-->
-  <string name="device_paused">Остановлено</string>
-  <string name="device_state_unknown">Неизвестно</string>
-  <!--Title for current download rate-->
-  <string name="download_title">Скачивание</string>
-  <!--Title for current upload rate-->
-  <string name="upload_title">Отдача</string>
-  <!--DrawerFragment-->
-  <!--Same as download_title with a colon and space appended-->
-  <string name="download_title_colon">Скачивание:\u0020</string>
-  <!--Same as upload_title with a colon and space appended-->
-  <string name="upload_title_colon">Отдача:\u0020</string>
-  <!--Title for current CPU usage-->
-  <string name="cpu_usage">Загрузка процессора</string>
-  <!--Title for current RAM usage-->
-  <string name="ram_usage">Использование памяти</string>
-  <!--Title for announce server status-->
-  <string name="announce_server">Сервера анонсов</string>
-  <string name="restart">Перезапустить</string>
-  <string name="dialog_confirm_restart">Вы хотите перезапустить Syncthing?</string>
-  <!--FolderActivity-->
-  <!--Setting title-->
-  <string name="folder_id">ID папки</string>
-  <!--Setting title-->
-  <string name="folder_label">Ярлык папки</string>
-  <!--Setting title-->
-  <string name="directory">Папка</string>
-  <!--Setting title and description-->
-  <string name="folder_fileWatcher">Следить за изменениями</string>
-  <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
-  <!--Setting title-->
-  <string name="folder_pause">Приостановить папку</string>
-  <!--Setting title-->
-  <string name="devices">Устройства</string>
-  <!--Setting title-->
-  <string name="keep_versions">Сохранять версии</string>
-  <!--Setting title-->
-  <string name="delete_folder">Удалить папку</string>
-  <!--Title for FolderSettingsFragment in create mode-->
-  <string name="create_folder">Создать папку</string>
-  <!--Title for FolderSettingsFragment in edit mode-->
-  <string name="edit_folder">Изменить папку</string>
-  <!--Menu item to confirm folder creation-->
-  <string name="create">Создать</string>
-  <!--Dialog shown when attempting to remove a folder-->
-  <string name="remove_folder_confirm">Вы точно хотите удалить эту папку с Syncthing?</string>
-  <!--Toast shown when trying to create a folder with an empty ID-->
-  <string name="folder_id_required">ID папки не может быть пустым</string>
-  <!--Toast shown when trying to create a folder with an empty path-->
-  <string name="folder_path_required">Путь к папке не может быть пустым</string>
-  <string name="dialog_discard_changes">Отменить внесённые изменения?</string>
-  <!--Summary shown if we only have readonly access to the folder path-->
-  <!--Summary shown if we only have readwrite access to the folder path-->
-  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
-  <string name="ignore_patterns">Шаблоны игнорирования</string>
-  <string name="create_ignore_file_error">Ошибка при попытке создания файла с шаблонами игнорирования. У папки есть право на запись?</string>
-  <string name="edit_ignore_file_error">Текстовый редактор не найден</string>
-  <!--DeviceActivity-->
-  <!--Setting title-->
-  <string name="device_id">ID устройства</string>
-  <!--Setting title-->
-  <string name="name">Имя</string>
-  <!--Setting title-->
-  <string name="addresses">Адреса</string>
-  <!--Setting title-->
-  <string name="current_address">Текущий адрес</string>
-  <!--Setting title-->
-  <string name="compression">Сжатие</string>
-  <!--Strings representing compression options-->
-  <string-array name="compress_entries">
-    <item>Никогда</item>
-    <item>Метаданные</item>
-    <item>Всегда</item>
-  </string-array>
-  <!--Setting title-->
-  <string name="introducer">Рекомендатель</string>
-  <!--Setting title-->
-  <string name="pause_device">Приостановить устройство</string>
-  <!--ActionBar item-->
-  <string name="delete_device">Удалить устройство</string>
-  <string name="add_device">Доб устройство</string>
-  <!--Menu item to confirm adding a device-->
-  <string name="add">Добавить</string>
-  <!--Title for DeviceSettingsFragment in edit mode-->
-  <string name="edit_device">Изменить устройство</string>
-  <!--Dialog shown when attempting to remove a device-->
-  <string name="remove_device_confirm">Вы точно хотите удалить это устройство?</string>
-  <!--Toast shown when trying to create a device with an empty ID-->
-  <string name="device_id_required">ID устройства не может быть пустым</string>
-  <!--Content description for device ID qr code icon-->
-  <string name="scan_qr_code_description">Сканировать QR Код</string>
-  <!--Toast show if we could not get root permissions-->
-  <string name="toast_root_denied">Рут права не доступны</string>
-  <!--WebGuiActivity-->
-  <!--Title of the web gui activity-->
-  <string name="web_gui_title">Веб-интерфейс</string>
-  <!--Text for WebGuiActivity loading view-->
-  <string name="web_gui_loading">Ожидание GUI</string>
-  <!--SettingsFragment-->
-  <string name="settings_title">Настройки</string>
-  <string name="category_run_conditions">Условия выполнения</string>
-  <string name="category_behaviour">Поведение</string>
-  <string name="category_syncthing_options">Настройки устройства</string>
-  <string name="category_backup">Резервная копия</string>
-  <string name="category_debug">Отладка</string>
-  <string name="category_experimental">Экспериментальное</string>
-  <!--Preference screen - Run conditions-->
-  <string name="run_conditions_title">Условия выполнения</string>
-  <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
-  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
-  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>
-  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование. </string>
-  <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
-  <!--Preferences - Behaviour-->
-  <string name="advanced_folder_picker">Использовать продвинутый выбор папок</string>
-  <string name="advanced_folder_picker_summary">Выберите любую папку на устройстве для синхронизации</string>
-  <string name="use_root_title">Запуск Syncthing с рут-правами</string>
-  <string name="use_root_summary">Это нестабильная опция, которая может вызвать проблемы как с Syncthing так и с вашим устройством. Если вы столкнетесь с проблемами, переустановите Syncthing.</string>
-  <string name="notification_type_title">Уведомление</string>
-  <string name="notification_type_summary">Выбор метода уведомления</string>
-  <string-array name="notification_type_entries">
-    <item>Нормально</item>
-    <item>Низкий</item>
-    <item>Никогда</item>
-  </string-array>
-  <string name="preference_language_title">Язык</string>
-  <string name="preference_language_summary">Изменить язык приложения</string>
-  <string name="start_into_web_gui_title">Использовать веб-интерфейс при старте</string>
-  <string name="start_into_web_gui_summary">Во время запуска приложения открывать веб-интерфейс вместо главного экрана</string>
-  <string name="pref_language_default">Язык по умолчанию</string>
-  <string-array name="versioning_types">
-    <item>Отключить</item>
-    <item>Корзина</item>
-    <item>Простое</item>
-    <item>Ступенчатое</item>
-    <item>Внешнее</item>
-  </string-array>
-  <string name="device_name">Имя устройства</string>
-  <string name="listen_address">Адрес Ожидания Протокола Синхронизации</string>
-  <string name="max_recv_kbps">Лимит Скачивания (КБ/с)</string>
-  <string name="max_send_kbps">Лимит Отдачи (КБ/с)</string>
-  <string name="global_announce_enabled">Глобальное Обнаружение</string>
-  <string name="local_announce_enabled">Локальное Обнаружение</string>
-  <string name="enable_nat_traversal">Включить NAT-T обход</string>
-  <string name="global_announce_server">Серверы Глобального Обнаружения</string>
-  <string name="enable_relaying">Включить релеи</string>
-  <string name="usage_reporting">Анонимные Отчёты Использования</string>
-  <string name="gui_address">Адрес Ожидания GUI</string>
-  <!--Titles for the preference to undo ignored devices and folders-->
-  <string name="export_config">Экспорт настроек</string>
-  <!--Toast after entering invalid integer value-->
-  <!--Experimental options-->
-  <string name="use_proxy">Подсоединиться через прокси</string>
-  <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
-  <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
-  <string name="use_tor_title">Использовать Tor</string>
-  <string name="use_tor_summary">Для дополнительной приватности перенаправлять весь трафик через Tor. Требует наличия Orbot. Отключает опции прокси.</string>
-  <string name="socks_proxy_address_title">SOCKS5 прокси</string>
-  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
-  <!--Toast after entering invalid socks proxy address-->
-  <string name="toast_invalid_socks_proxy_address">Данные не соответствуют синтаксису прокси \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-  <string name="http_proxy_address_title">HTTP(S) прокси</string>
-  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
-  <!--Toast after entering invalid http proxy address-->
-  <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
-  <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
-  <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>
-  <string name="restart_on_wakeup_title">Перезапуск при пробуждении</string>
-  <string name="restart_on_wakeup_summary">По умолчанию: Включено. Выключение данной функции может вызывать задержки сканирования папок и переподключения устройства для экономии заряда батареи.</string>
-  <!--Dialog shown before config export-->
-  <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию? Существующие файлы будут перезаписаны.\n\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
-  <!--Dialog shown before config import-->
-  <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию? Существующие файлы будут перезаписаны.</string>
-  <!--Toast shown after config was successfully exported-->
-  <string name="config_export_successful">Настройки экспортированы в %1$s</string>
-  <string name="import_config">Импорт настроек</string>
-  <!--Toast shown after config was successfully imported-->
-  <string name="config_imported_successful">Настройки импортированы</string>
-  <!--Toast shown after config was successfully imported-->
-  <string name="config_import_failed">Неудачное импортирование настроек, убедитесь что файлы находятся в %1$s</string>
-  <!--Title for the preference to set STTRACE parameters-->
-  <string name="sttrace_title">STTRACE Options</string>
-  <string name="environment_variables">Environment variables</string>
-  <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_environment_variables">Value is not a valid environment variable string</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <string name="st_reset_database_title">Сбросить базу данных</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Это действие должно выполняться только по рекомендации нашей поддержки.
+
+    <string name="cont">Продолжить</string>
+    <string name="finish">Принять</string>
+    <string name="generic_example">Пример</string>
+    <string name="generic_error">Ошибка</string>
+    <string name="ignore">Игнорировать</string>
+
+    <!-- MainActivity -->
+
+
+
+    <!-- Title of the "add folder" menu action -->
+    <string name="add_folder">Добавить папку</string>
+
+    <!-- Title of the "share device id" menu action -->
+    <string name="share_device_id">Поделиться ID устройства</string>
+
+    <!-- Shown in the chooser dialog when sharing a Device ID -->
+    <string name="send_device_id_to">Отправить ID устройства</string>
+
+    <string name="usage_reporting_dialog_title">Разрешить отправлять анонимную статистику?</string>
+
+    <string name="usage_reporting_dialog_description">Зашифрованный ежедневный отчет отправлен. Используется для отслеживания платформ, размеров папок и версий программы. Если отправляемые данные изменятся, то это диалог появится вновь. \n\nОбобщенная статистика доступна на  https://data.syncthing.net.</string>
+
+    <string name="yes">Да</string>
+
+    <string name="no">Нет</string>
+
+    <string name="open_website">Открыть сайт</string>
+
+    <string name="toast_write_storage_permission_required">Приложению требуется право на запись</string>
+
+    <string name="ignore_doze_permission_title">Оптимизация батареи</string>
+    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
+
+    <!-- StateDialogActivity -->
+
+
+    <!-- Text for FoldersFragment and DevicesFragment loading view -->
+    <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
+    <string name="web_gui_creating_key">Генерируем ключи. Это может занять несколько минут.</string>
+    <!-- FoldersFragment -->
+
+
+    <string name="folders_fragment_title">Папки</string>
+
+    <!-- Shown if no folders exist -->
+    <string name="folder_list_empty">Папки не найдены</string>
+
+    <!-- Format string for folder file count -->
+    <plurals name="files">
+        <item quantity="one">%1$d / %2$d Файл</item>
+        <item quantity="few">%1$d / %2$d Файла</item>
+        <item quantity="many">%1$d / %2$d Файлов</item>
+        <item quantity="other">%1$d / %2$d Файла</item>
+    </plurals>
+
+    <string name="open_file_manager">Открыть файловый менеджер</string>
+
+    <string name="toast_no_file_manager">Не найдено совместимого файлового менеджера</string>
+
+    <!-- DevicesFragment -->
+
+
+    <string name="devices_fragment_title">Устройства</string>
+
+    <!-- Shown if no devices exist -->
+    <string name="devices_list_empty">Устройства не найдены</string>
+
+    <!-- Indicates that a folder is fully synced to the local device -->
+    <string name="device_up_to_date">Обновлено</string>
+
+    <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
+    <string name="device_syncing">Синхронизация (%1$d%%)</string>
+
+    <!-- Indicates that there is no connection to the device -->
+    <string name="device_disconnected">Отсоединено</string>
+
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">Остановлено</string>
+
+    <!-- Indicates that the device connection is unknown -->
+    <string name="device_state_unknown">Неизвестно</string>
+
+    <!-- Title for current download rate -->
+    <string name="download_title">Скачивание</string>
+
+    <!-- Title for current upload rate -->
+    <string name="upload_title">Отдача</string>
+
+    <!-- DrawerFragment -->
+
+
+    <!-- Same as download_title with a colon and space appended -->
+    <string name="download_title_colon">Скачивание:\u0020</string>
+
+    <!-- Same as upload_title with a colon and space appended -->
+    <string name="upload_title_colon">Отдача:\u0020</string>
+
+    <!-- Title for current CPU usage -->
+    <string name="cpu_usage">Загрузка процессора</string>
+
+    <!-- Title for current RAM usage -->
+    <string name="ram_usage">Использование памяти</string>
+
+    <!-- Title for announce server status -->
+    <string name="announce_server">Сервера анонсов</string>
+
+    <string name="restart">Перезапустить</string>
+
+    <string name="dialog_confirm_restart">Вы хотите перезапустить Syncthing?</string>
+
+    <!-- FolderActivity -->
+
+
+    <!-- Setting title -->
+    <string name="folder_id">ID папки</string>
+
+    <!-- Setting title -->
+    <string name="folder_label">Ярлык папки</string>
+
+    <!-- Setting title -->
+    <string name="directory">Папка</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Следить за изменениями</string>
+    <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Приостановить папку</string>
+
+    <!-- Setting title -->
+    <string name="devices">Устройства</string>
+
+    <!-- Setting title -->
+    <string name="keep_versions">Сохранять версии</string>
+
+    <!-- Setting title -->
+    <string name="delete_folder">Удалить папку</string>
+
+    <!-- Title for FolderSettingsFragment in create mode -->
+    <string name="create_folder">Создать папку</string>
+
+    <!-- Title for FolderSettingsFragment in edit mode -->
+    <string name="edit_folder">Изменить папку</string>
+
+    <!-- Menu item to confirm folder creation -->
+    <string name="create">Создать</string>
+
+    <!-- Dialog shown when attempting to remove a folder -->
+    <string name="remove_folder_confirm">Вы точно хотите удалить эту папку с Syncthing?</string>
+
+    <!-- Toast shown when trying to create a folder with an empty ID -->
+    <string name="folder_id_required">ID папки не может быть пустым</string>
+
+    <!-- Toast shown when trying to create a folder with an empty path -->
+    <string name="folder_path_required">Путь к папке не может быть пустым</string>
+
+    <string name="dialog_discard_changes">Отменить внесённые изменения?</string>
+
+    <string name="ignore_patterns">Шаблоны игнорирования</string>
+
+    <string name="create_ignore_file_error">Ошибка при попытке создания файла с шаблонами игнорирования. У папки есть право на запись?</string>
+
+    <string name="edit_ignore_file_error">Текстовый редактор не найден</string>
+
+    <!-- DeviceActivity -->
+
+
+    <!-- Setting title -->
+    <string name="device_id">ID устройства</string>
+
+    <!-- Setting title -->
+    <string name="name">Имя</string>
+
+    <!-- Setting title -->
+    <string name="addresses">Адреса</string>
+
+    <!-- Setting title -->
+    <string name="current_address">Текущий адрес</string>
+
+    <!-- Setting title -->
+    <string name="compression">Сжатие</string>
+
+    <!-- Strings representing compression options -->
+    <string-array name="compress_entries">
+        <item>Никогда</item>
+        <item>Метаданные</item>
+        <item>Всегда</item>
+    </string-array>
+
+    <!-- Setting title -->
+    <string name="introducer">Рекомендатель</string>
+
+    <!-- Setting title -->
+    <string name="pause_device">Приостановить устройство</string>
+
+    <!-- ActionBar item -->
+    <string name="delete_device">Удалить устройство</string>
+
+    <string name="add_device">Доб устройство</string>
+
+    <!-- Menu item to confirm adding a device -->
+    <string name="add">Добавить</string>
+
+    <!-- Title for DeviceSettingsFragment in edit mode -->
+    <string name="edit_device">Изменить устройство</string>
+
+    <!-- Dialog shown when attempting to remove a device -->
+    <string name="remove_device_confirm">Вы точно хотите удалить это устройство?</string>
+
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_required">ID устройства не может быть пустым</string>
+
+    <!-- Content description for device ID qr code icon -->
+    <string name="scan_qr_code_description">Сканировать QR Код</string>
+
+    <!-- Toast show if we could not get root permissions -->
+    <string name="toast_root_denied">Рут права не доступны</string>
+
+    <!-- WebGuiActivity -->
+
+
+    <!-- Title of the web gui activity -->
+    <string name="web_gui_title">Веб-интерфейс</string>
+
+    <!-- Text for WebGuiActivity loading view -->
+    <string name="web_gui_loading">Ожидание GUI</string>
+
+    <!-- SettingsFragment -->
+
+
+    <string name="settings_title">Настройки</string>
+
+    <string name="category_run_conditions">Условия выполнения</string>
+    <string name="category_behaviour">Поведение</string>
+    <string name="category_syncthing_options">Настройки устройства</string>
+    <string name="category_backup">Резервная копия</string>
+    <string name="category_debug">Отладка</string>
+    <string name="category_experimental">Экспериментальное</string>
+
+    <!-- Preference screen - Run conditions -->
+    <string name="run_conditions_title">Условия выполнения</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
+
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
+
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование. </string>
+
+    <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
+    <!-- Preferences - Behaviour -->
+    <string name="advanced_folder_picker">Использовать продвинутый выбор папок</string>
+
+    <string name="advanced_folder_picker_summary">Выберите любую папку на устройстве для синхронизации</string>
+
+    <string name="use_root_title">Запуск Syncthing с рут-правами</string>
+
+    <string name="use_root_summary">Это нестабильная опция, которая может вызвать проблемы как с Syncthing так и с вашим устройством. Если вы столкнетесь с проблемами, переустановите Syncthing.</string>
+
+    <string name="notification_type_title">Уведомление</string>
+
+    <string name="notification_type_summary">Выбор метода уведомления</string>
+
+    <string-array name="notification_type_entries">
+        <item>Нормально</item>
+        <item>Низкий</item>
+        <item>Никогда</item>
+    </string-array>
+
+    <string name="preference_language_title">Язык</string>
+
+    <string name="preference_language_summary">Изменить язык приложения</string>
+
+    <string name="start_into_web_gui_title">Использовать веб-интерфейс при старте</string>
+
+    <string name="start_into_web_gui_summary">Во время запуска приложения открывать веб-интерфейс вместо главного экрана</string>
+
+    <string name="pref_language_default">Язык по умолчанию</string>
+
+    <string-array name="versioning_types">
+        <item>Отключить</item>
+        <item>Корзина</item>
+        <item>Простое</item>
+        <item>Ступенчатое</item>
+        <item>Внешнее</item>
+    </string-array>
+
+    <string name="device_name">Имя устройства</string>
+
+    <string name="listen_address">Адрес Ожидания Протокола Синхронизации</string>
+
+    <string name="max_recv_kbps">Лимит Скачивания (КБ/с)</string>
+
+    <string name="max_send_kbps">Лимит Отдачи (КБ/с)</string>
+
+    <string name="global_announce_enabled">Глобальное Обнаружение</string>
+
+    <string name="local_announce_enabled">Локальное Обнаружение</string>
+
+    <string name="enable_nat_traversal">Включить NAT-T обход</string>
+
+    <string name="global_announce_server">Серверы Глобального Обнаружения</string>
+
+    <string name="enable_relaying">Включить релеи</string>
+
+    <string name="usage_reporting">Анонимные Отчёты Использования</string>
+
+    <string name="gui_address">Адрес Ожидания GUI</string>
+
+    <string name="export_config">Экспорт настроек</string>
+
+    <!-- Experimental options -->
+    <string name="use_proxy">Подсоединиться через прокси</string>
+    <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
+
+    <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
+
+    <string name="use_tor_title">Использовать Tor</string>
+
+    <string name="use_tor_summary">Для дополнительной приватности перенаправлять весь трафик через Tor. Требует наличия Orbot. Отключает опции прокси.</string>
+
+    <string name="socks_proxy_address_title">SOCKS5 прокси</string>
+    <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
+
+    <!-- Toast after entering invalid socks proxy address -->
+    <string name="toast_invalid_socks_proxy_address">Данные не соответствуют синтаксису прокси \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="http_proxy_address_title">HTTP(S) прокси</string>
+    <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
+
+    <!-- Toast after entering invalid http proxy address -->
+    <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
+
+    <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>
+
+    <string name="restart_on_wakeup_title">Перезапуск при пробуждении</string>
+
+    <string name="restart_on_wakeup_summary">По умолчанию: Включено. Выключение данной функции может вызывать задержки сканирования папок и переподключения устройства для экономии заряда батареи.</string>
+
+    <!-- Dialog shown before config export -->
+    <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию? Существующие файлы будут перезаписаны.\n\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
+
+    <!-- Dialog shown before config import -->
+    <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию? Существующие файлы будут перезаписаны.</string>
+
+    <!-- Toast shown after config was successfully exported -->
+    <string name="config_export_successful">Настройки экспортированы в %1$s</string>
+
+    <string name="import_config">Импорт настроек</string>
+
+    <!-- Toast shown after config was successfully imported -->
+    <string name="config_imported_successful">Настройки импортированы</string>
+
+    <!-- Toast shown after config was successfully imported -->
+    <string name="config_import_failed">Неудачное импортирование настроек, убедитесь что файлы находятся в %1$s</string>
+
+    <!-- Title for the preference to set STTRACE parameters -->
+    <string name="sttrace_title">STTRACE Options</string>
+
+    <string name="environment_variables">Environment variables</string>
+
+    <!-- Toast after entering invalid STTRACE params -->
+    <string name="toast_invalid_environment_variables">Value is not a valid environment variable string</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_database_title">Сбросить базу данных</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_database_question">Это действие должно выполняться только по рекомендации нашей поддержки.
         \nВы уверены что хотите очистить базу данных Syncthing?
     </string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_database_done">База данных Syncthing успешно сброшена</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <string name="st_reset_deltas_title">Сбросить изменения индексов</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_database_done">База данных Syncthing успешно сброшена</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_deltas_title">Сбросить изменения индексов</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
 \nAre you sure you want to clear Syncthing\'s delta indexes?
  </string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_deltas_done">Изменения индексов Syncthing успешно сброшены</string>
-  <string name="category_about">О программе</string>
-  <!--Settings item that opens the log activity-->
-  <string name="open_log">Открыть лог</string>
-  <!--Summary for the log activity-->
-  <string name="open_log_summary">Открывает логи Syncthing и Android</string>
-  <!--Settings item that opens issue tracker-->
-  <string name="report_issue_title">Сообщить о проблеме</string>
-  <!--Summary for the issue tracker settings item-->
-  <string name="report_issue_summary">Открыть трекер проблем Syncthing-Android </string>
-  <!--URL of the issue tracker-->
-  <!--Menu item to donate-->
-  <!--Title of the preference showing upstream version name-->
-  <string name="syncthing_version_title">Версия ядра</string>
-  <!--Title of the preference showing this app's version name-->
-  <string name="app_version_title">Версия приложения</string>
-  <!--FolderPickerAcitivity-->
-  <!--Activity title-->
-  <string name="folder_picker_title">Выбор Папки</string>
-  <!--Toast shown on devices with kitkat or higher-->
-  <string name="kitkat_external_storage_warning">Внимание: Ваша версия Android не позволяет синхронизацию на внешние хранилища</string>
-  <!--ListView empty text-->
-  <string name="directory_empty">Папка пуста</string>
-  <!--Menu item to create folder on the file system-->
-  <string name="create_fs_folder">Создать новую папку</string>
-  <!--Menu item to select the current folder-->
-  <string name="select_folder">Выбрать папку</string>
-  <string name="create_folder_failed">Не удалось создать папку</string>
-  <!--LogActivity-->
-  <string name="syncthing_log_title">Журнал Syncthing</string>
-  <string name="android_log_title">Журнал Android</string>
-  <!--Title of the "log android" menu button-->
-  <string name="view_android_log">Логи Android</string>
-  <!--Title of the "log Syncthing" menu button-->
-  <string name="view_syncthing_log">Логи Syncthing</string>
-  <string name="retrieving_logs">Получение логов...</string>
-  <!--Title of the "share log" menu button-->
-  <string name="share_title">Поделиться</string>
-  <!--ShareActivity-->
-  <!--Title of the "share" activity-->
-  <string name="share_activity_title">Сохранить в Syncthing</string>
-  <!--Title of the "save" button-->
-  <string name="save_title">Сохранить</string>
-  <!--Title of the "cancel" button-->
-  <string name="cancel_title">Отмена</string>
-  <!--Title of the "save" button-->
-  <string name="folder_title">Папка</string>
-  <!--New file name template-->
-  <string name="file_name_template">Новый файл %1$s</string>
-  <!--Nothing to share toast-->
-  <string name="nothing_share">Ни один файл не скопирован</string>
-  <!--Copy success toast partially-->
-  <plurals name="copy_success_partially">
-    <item quantity="one">%1$d файл скопирован в папку \"%2$s\", %3$d уже существует</item>
-    <item quantity="few">%1$d файла скопировано в папку \"%2$s\", %3$d уже существует</item>
-    <item quantity="many">%1$d файлов скопировано в папку \"%2$s\", %3$d уже существует</item>
-    <item quantity="other">%1$d файла скопировано в папку \"%2$s\", %3$d уже существует</item>
-  </plurals>
-  <!--Copy success toast-->
-  <plurals name="copy_success">
-    <item quantity="one">%1$d файл скопирован в папку \"%2$s\"</item>
-    <item quantity="few">%1$d файла скопировано в папку \"%2$s\"</item>
-    <item quantity="many">%1$d файлов скопировано в папку \"%2$s\"</item>
-    <item quantity="other">%1$d файла скопировано в папку \"%2$s\"</item>
-  </plurals>
-  <!--Copy exception toast-->
-  <string name="copy_exception">Произошел сбой во время синхронизации, проверьте логи приложения</string>
-  <!--Copy progress dialog text-->
-  <string name="copy_progress">Копируем файлы…</string>
-  <plurals name="file_name_title">
-    <item quantity="one">Имя файла</item>
-    <item quantity="few">Список файлов</item>
-    <item quantity="many">Список файлов</item>
-    <item quantity="other">Список файлов</item>
-  </plurals>
-  <!--Sub Folder title-->
-  <string name="sub_folder">Подпапка</string>
-  <!--SyncthingService-->
-  <!--Title of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_title">Syncthing выключен</string>
-  <!--Message of the "syncthing disabled" dialog-->
-  <!--Button text on the "syncthing disabled" dialog-->
-  <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
-  <string name="exit">Выход</string>
-  <!--Title of the notification shown while syncthing is running and enabled-->
-  <string name="syncthing_active">Syncthing запущен</string>
-  <string name="syncthing_disabled">Syncthing выключен</string>
-  <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">Ошибка при создании файла конфигурации</string>
-  <!--Toast shown if a config file crucial to operation is missing-->
-  <!--Label of the default folder created of first start (camera folder).-->
-  <string name="default_folder_label">Камера</string>
-  <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
-  <string name="default_folder_id">%1$s фото</string>
-  <string name="notification_crash_title">Syncthing завершился из-за сбоя %1$s</string>
-  <string name="notification_crash_text">Нажмите для просмотра логов</string>
-  <string name="notifications_persistent_channel">Syncthing работает</string>
-  <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>
-  <string name="notifications_other_channel">Другие уведомления</string>
-  <!--RestApi-->
-  <!--Title of the notification shown when a restart is needed-->
-  <string name="restart_title">Необходим перезапуск</string>
-  <!--Text for positive button in restart dialog-->
-  <!--Text for the dismiss button of the restart Activity-->
-  <!--Text of the notification shown when a restart is needed-->
-  <string name="restart_notification_text">Нажмите здесь чтобы перезапустить Syncthing</string>
-  <!--Shown when a device ID is copied to the clipboard-->
-  <string name="device_id_copied_to_clipboard">ID устройства копирован в буфер обмена</string>
-  <!--Strings representing units for file sizes, from smallest to largest-->
-  <string-array name="file_size_units">
-    <item>Б</item>
-    <item>КБ</item>
-    <item>МБ</item>
-    <item>ГБ</item>
-    <item>ТБ</item>
-  </string-array>
-  <!--Strings representing units for transfer rates, from smallest to largest-->
-  <string-array name="transfer_rate_units">
-    <item>б/с</item>
-    <item>Кб/с</item>
-    <item>Мб/с</item>
-    <item>Гб/с</item>
-    <item>Тб/с</item>
-  </string-array>
-  <!--Possible folder states-->
-  <string name="state_idle">Бездействие</string>
-  <string name="state_scanning">Сканирование</string>
-  <string name="state_syncing">Синхронизация (%1$d%%)</string>
-  <string name="state_error">Ошибка</string>
-  <string name="state_unknown">Неизвестно</string>
-  <string name="state_paused">Приостановлено</string>
-  <string name="status_outofsync">Нет синхронизации</string>
-  <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
-  <string name="folder_size_format">%1$s / %2$s</string>
-  <string name="appconfig_receiver_background_enabled">Остановка Syncthing не поддерживается, если включено выполнение в фоновом режиме.</string>
-  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
-  <!--Displays the current folder type in the folder activity-->
-  <string name="folder_type_sendonly">Только отправка</string>
-  <!--Folder type dialog descriptions for folder types-->
-  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
-  <!--Displays the current pull order type in the Folder activity-->
-  <!--Pull order dialog descriptions for pull order types-->
-  <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
-  <string name="maximum_age">Максимальный срок</string>
-  <string name="clean_out_after">Очистить после</string>
-  <string name="file_versioning">Управление версиями</string>
-  <string name="none">Отключено</string>
-  <string name="versions_path">Путь к версиям</string>
-  <string name="command">Команда</string>
-  <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
-  <string name="keep_versions_description">Количество хранимых версий файла.</string>
-  <string name="simple_file_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions.</string>
-  <string name="trashcan_versioning_description">Когда Syncthing изменяет или удаляет файлы, они помещаются в папку .stversions.</string>
-  <string name="staggered_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions. Версии удаляются автоматически, если они существуют дольше максимального срока или превышают разрешённое количество файлов за интервал.\n\nИспользуются следующие интервалы: в первый час версия меняется каждые 30 секунд, в первый день - каждый час, первые 30 дней - каждый день, после, до максимального срока - каждую неделю.</string>
-  <string name="maximum_age_description">Максимальный срок хранения версии (в днях, 0 значит вечное хранение).</string>
-  <string name="versions_path_description">Путь, в котором нужно хранить версии (оставьте пустым для папки по умолчанию .stversions внутри общей папки).</string>
-  <string name="cleanout_after_description">Количество дней хранения файлов в корзине. Ноль значит навсегда</string>
-  <string name="external_versioning_description">Первый параметр командной строки - путь к папке, второй - относительный путь в этой папке.</string>
-  <string name="no_versioning_description">Выберите тип управления версиями</string>
-  <!--Displays the current file versioning type in the Folder activity-->
-  <string name="type_simple">Тип: Обычное</string>
-  <string name="type_trashcan">Тип: Корзина</string>
-  <string name="type_staggered">Тип: Ступенчатое</string>
-  <string name="type_external">Тип: Внешнее</string>
-  <!--Information displayed about the current file versioning configuration in the folder activity-->
-  <string name="trashcan_versioning_info">Очистка после: %1$s</string>
-  <string name="staggered_versioning_info">Максимальный срок: %1$d \nПуть к версиям: %2$s</string>
-  <string name="external_versioning_info">Команда: %1$s</string>
-  <string name="simple_versioning_info">Количество хранимых версий: %1$s</string>
-  <string name="show_device_id">Показать ID устройства</string>
-  <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-  <string name="could_not_access_deviceid">Не удалось получить ID устройства.</string>
-  <string name="browse">Обзор</string>
-  <string name="no_sub_folder_is_selected">Подпапка не выбрана</string>
-  <string name="share_device_id_chooser">Поделиться ID устройства</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_done">Изменения индексов Syncthing успешно сброшены</string>
+
+    <string name="category_about">О программе</string>
+
+    <!-- Settings item that opens the log activity -->
+    <string name="open_log">Открыть лог</string>
+
+    <!-- Summary for the log activity -->
+    <string name="open_log_summary">Открывает логи Syncthing и Android</string>
+    <!-- Settings item that opens issue tracker -->
+    <string name="report_issue_title">Сообщить о проблеме</string>
+
+    <!-- Summary for the issue tracker settings item -->
+    <string name="report_issue_summary">Открыть трекер проблем Syncthing-Android </string>
+
+    <!-- Menu item to donate -->
+    <!-- Title of the preference showing upstream version name -->
+    <string name="syncthing_version_title">Версия ядра</string>
+
+    <!-- Title of the preference showing this app's version name -->
+    <string name="app_version_title">Версия приложения</string>
+
+    <!-- FolderPickerAcitivity -->
+
+
+    <!-- Activity title -->
+    <string name="folder_picker_title">Выбор Папки</string>
+
+    <!-- Toast shown on devices with kitkat or higher -->
+    <string name="kitkat_external_storage_warning">Внимание: Ваша версия Android не позволяет синхронизацию на внешние хранилища</string>
+
+    <!-- ListView empty text -->
+    <string name="directory_empty">Папка пуста</string>
+
+    <!-- Menu item to create folder on the file system -->
+    <string name="create_fs_folder">Создать новую папку</string>
+
+    <!-- Menu item to select the current folder -->
+    <string name="select_folder">Выбрать папку</string>
+
+    <string name="create_folder_failed">Не удалось создать папку</string>
+
+    <!-- LogActivity -->
+
+
+    <string name="syncthing_log_title">Журнал Syncthing</string>
+    <string name="android_log_title">Журнал Android</string>
+
+    <!-- Title of the "log android" menu button -->
+    <string name="view_android_log">Логи Android</string>
+
+    <!-- Title of the "log Syncthing" menu button -->
+    <string name="view_syncthing_log">Логи Syncthing</string>
+
+    <string name="retrieving_logs">Получение логов...</string>
+
+    <!-- Title of the "share log" menu button -->
+    <string name="share_title">Поделиться</string>
+
+    <!-- ShareActivity -->
+
+
+    <!-- Title of the "share" activity -->
+    <string name="share_activity_title">Сохранить в Syncthing</string>
+
+    <!-- Title of the "save" button -->
+    <string name="save_title">Сохранить</string>
+
+    <!-- Title of the "cancel" button -->
+    <string name="cancel_title">Отмена</string>
+
+    <!-- Title of the "save" button -->
+    <string name="folder_title">Папка</string>
+
+    <!-- New file name template -->
+    <string name="file_name_template">Новый файл %1$s</string>
+
+    <!-- Nothing to share toast -->
+    <string name="nothing_share">Ни один файл не скопирован</string>
+
+    <!-- Copy success toast partially -->
+    <plurals name="copy_success_partially">
+        <item quantity="one">%1$d файл скопирован в папку \"%2$s\", %3$d уже существует</item>
+        <item quantity="few">%1$d файла скопировано в папку \"%2$s\", %3$d уже существует</item>
+        <item quantity="many">%1$d файлов скопировано в папку \"%2$s\", %3$d уже существует</item>
+        <item quantity="other">%1$d файла скопировано в папку \"%2$s\", %3$d уже существует</item>
+    </plurals>
+
+    <!-- Copy success toast -->
+    <plurals name="copy_success">
+        <item quantity="one">%1$d файл скопирован в папку \"%2$s\"</item>
+        <item quantity="few">%1$d файла скопировано в папку \"%2$s\"</item>
+        <item quantity="many">%1$d файлов скопировано в папку \"%2$s\"</item>
+        <item quantity="other">%1$d файла скопировано в папку \"%2$s\"</item>
+    </plurals>
+
+    <!-- Copy exception toast -->
+    <string name="copy_exception">Произошел сбой во время синхронизации, проверьте логи приложения</string>
+
+    <!-- Copy progress dialog text -->
+    <string name="copy_progress">Копируем файлы…</string>
+
+    <plurals name="file_name_title">
+        <item quantity="one">Имя файла</item>
+        <item quantity="few">Список файлов</item>
+        <item quantity="many">Список файлов</item>
+        <item quantity="other">Список файлов</item>
+    </plurals>
+
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Подпапка</string>
+
+    <!-- SyncthingService -->
+
+
+    <!-- Title of the "syncthing disabled" dialog -->
+    <string name="syncthing_disabled_title">Syncthing выключен</string>
+    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <string name="exit">Выход</string>
+
+    <!-- Title of the notification shown while syncthing is running and enabled -->
+    <string name="syncthing_active">Syncthing запущен</string>
+
+    <string name="syncthing_disabled">Syncthing выключен</string>
+
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="config_create_failed">Ошибка при создании файла конфигурации</string>
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_folder_label">Камера</string>
+
+    <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
+    <string name="default_folder_id">%1$s фото</string>
+
+    <string name="notification_crash_title">Syncthing завершился из-за сбоя %1$s</string>
+
+    <string name="notification_crash_text">Нажмите для просмотра логов</string>
+
+    <string name="notifications_persistent_channel">Syncthing работает</string>
+    <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>
+    <string name="notifications_other_channel">Другие уведомления</string>
+
+    <!-- RestApi -->
+
+
+    <!-- Title of the notification shown when a restart is needed -->
+    <string name="restart_title">Необходим перезапуск</string>
+
+    <!-- Text for positive button in restart dialog -->
+    <!-- Text for the dismiss button of the restart Activity -->
+    <!-- Text of the notification shown when a restart is needed -->
+    <string name="restart_notification_text">Нажмите здесь чтобы перезапустить Syncthing</string>
+
+    <!-- Shown when a device ID is copied to the clipboard -->
+    <string name="device_id_copied_to_clipboard">ID устройства копирован в буфер обмена</string>
+
+    <!-- Strings representing units for file sizes, from smallest to largest -->
+    <string-array name="file_size_units">
+        <item>Б</item>
+        <item>КБ</item>
+        <item>МБ</item>
+        <item>ГБ</item>
+        <item>ТБ</item>
+    </string-array>
+
+    <!-- Strings representing units for transfer rates, from smallest to largest -->
+    <string-array name="transfer_rate_units">
+        <item>б/с</item>
+        <item>Кб/с</item>
+        <item>Мб/с</item>
+        <item>Гб/с</item>
+        <item>Тб/с</item>
+    </string-array>
+
+    <!-- Possible folder states -->
+    <string name="state_idle">Бездействие</string>
+    <string name="state_scanning">Сканирование</string>
+    <string name="state_syncing">Синхронизация (%1$d%%)</string>
+    <string name="state_error">Ошибка</string>
+    <string name="state_unknown">Неизвестно</string>
+    <string name="state_paused">Приостановлено</string>
+    <string name="status_outofsync">Нет синхронизации</string>
+
+    <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
+    <string name="folder_size_format">%1$s / %2$s</string>
+
+    <string name="appconfig_receiver_background_enabled">Остановка Syncthing не поддерживается, если включено выполнение в фоновом режиме.</string>
+
+    <string name="folder_type_sendonly">Только отправка</string>
+    <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
+    <string name="maximum_age">Максимальный срок</string>
+    <string name="clean_out_after">Очистить после</string>
+    <string name="file_versioning">Управление версиями</string>
+    <string name="none">Отключено</string>
+    <string name="versions_path">Путь к версиям</string>
+    <string name="command">Команда</string>
+
+    <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
+    <string name="keep_versions_description">Количество хранимых версий файла.</string>
+    <string name="simple_file_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions.</string>
+    <string name="trashcan_versioning_description">Когда Syncthing изменяет или удаляет файлы, они помещаются в папку .stversions.</string>
+    <string name="staggered_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions. Версии удаляются автоматически, если они существуют дольше максимального срока или превышают разрешённое количество файлов за интервал.\n\nИспользуются следующие интервалы: в первый час версия меняется каждые 30 секунд, в первый день - каждый час, первые 30 дней - каждый день, после, до максимального срока - каждую неделю.</string>
+    <string name="maximum_age_description">Максимальный срок хранения версии (в днях, 0 значит вечное хранение).</string>
+    <string name="versions_path_description">Путь, в котором нужно хранить версии (оставьте пустым для папки по умолчанию .stversions внутри общей папки).</string>
+    <string name="cleanout_after_description">Количество дней хранения файлов в корзине. Ноль значит навсегда</string>
+    <string name="external_versioning_description">Первый параметр командной строки - путь к папке, второй - относительный путь в этой папке.</string>
+    <string name="no_versioning_description">Выберите тип управления версиями</string>
+
+    <!-- Displays the current file versioning type in the Folder activity -->
+    <string name="type_simple">Тип: Обычное</string>
+    <string name="type_trashcan">Тип: Корзина</string>
+    <string name="type_staggered">Тип: Ступенчатое</string>
+    <string name="type_external">Тип: Внешнее</string>
+
+    <!-- Information displayed about the current file versioning configuration in the folder activity -->
+    <string name="trashcan_versioning_info">Очистка после: %1$s</string>
+    <string name="staggered_versioning_info">Максимальный срок: %1$d \nПуть к версиям: %2$s</string>
+    <string name="external_versioning_info">Команда: %1$s</string>
+    <string name="simple_versioning_info">Количество хранимых версий: %1$s</string>
+    <string name="show_device_id">Показать ID устройства</string>
+
+    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Не удалось получить ID устройства.</string>
+    <string name="browse">Обзор</string>
+    <string name="no_sub_folder_is_selected">Подпапка не выбрана</string>
+    <string name="share_device_id_chooser">Поделиться ID устройства</string>
+
 </resources>

@@ -45,10 +45,10 @@ tx push -s
 # Force push/pull to make sure this is executed. Apparently tx only compares timestamps, not file
 # contents. So if a file was `touch`ed, it won't be updated by default.
 # Use multiple transifex instances for pulling to speed things up.
-tx pull -a -f -r "syncthing-android.stringsxml" &
-tx pull -a -f -r "syncthing-android.description_fulltxt" &
-tx pull -a -f -r "syncthing-android.description_shorttxt" &
-tx pull -a -f -r "syncthing-android.titletxt" &
+tx pull -a -f -r "syncthing-android-1.stringsxml" &
+tx pull -a -f -r "syncthing-android-1.description_fulltxt" &
+tx pull -a -f -r "syncthing-android-1.description_shorttxt" &
+tx pull -a -f -r "syncthing-android-1.titletxt" &
 wait
 ./gradlew deleteUnsupportedPlayTranslations
 git add -A "app/src/main/play/"

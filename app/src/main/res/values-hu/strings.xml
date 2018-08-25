@@ -1,436 +1,627 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name">Syncthing</string>
-  <string name="app_description">Egy nyílt, megbízható és decentralizált fájl szinkronizáló alkalmazás.</string>
-  <!--FirstStartActivity-->
-  <!--Title for dialog displayed on first start-->
-  <string name="welcome_title">Üdvözöl az androidos Syncthing.</string>
-  <!--Welcome wizard-->
-  <!--Slide 1-->
-  <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás.
+
+    <string name="app_name">Syncthing</string>
+
+    <string name="app_description">Egy nyílt, megbízható és decentralizált fájl szinkronizáló alkalmazás.</string>
+
+    <!-- FirstStartActivity -->
+
+
+    <!-- Title for dialog displayed on first start -->
+    <string name="welcome_title">Üdvözöl az androidos Syncthing.</string>
+
+    <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás.
 
 Az adatok más eszközökkel való megosztásához hozzá kell adnod egyedi eszközazonosítójukat az eszközlistához. Utána kiválaszthatod, hogy mely mappákat mely eszközökkel osztasz meg.
 
 Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</string>
-  <!--Slide 2-->
-  <!--Slide 3-->
-  <!--Generic texts used everywhere-->
-  <string name="cont">Folytatás</string>
-  <string name="finish">Befejezés</string>
-  <string name="generic_example">Példa</string>
-  <string name="generic_error">Hiba</string>
-  <!--MainActivity-->
-  <!--Title of the "add folder" menu action-->
-  <string name="add_folder">Mappa hozzáadása</string>
-  <!--Title of the "share device id" menu action-->
-  <string name="share_device_id">Eszközazonosító megosztása</string>
-  <!--Shown in the chooser dialog when sharing a Device ID-->
-  <string name="send_device_id_to">Eszközazonosító megosztása</string>
-  <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését?</string>
-  <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt.
+
+    <string name="cont">Folytatás</string>
+    <string name="finish">Befejezés</string>
+    <string name="generic_example">Példa</string>
+    <string name="generic_error">Hiba</string>
+    <!-- MainActivity -->
+
+
+
+    <!-- Title of the "add folder" menu action -->
+    <string name="add_folder">Mappa hozzáadása</string>
+
+    <!-- Title of the "share device id" menu action -->
+    <string name="share_device_id">Eszközazonosító megosztása</string>
+
+    <!-- Shown in the chooser dialog when sharing a Device ID -->
+    <string name="send_device_id_to">Eszközazonosító megosztása</string>
+
+    <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését?</string>
+
+    <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt.
 
 Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
-  <string name="yes">Igen</string>
-  <string name="no">Nem</string>
-  <string name="open_website">Weblap megnyitása</string>
-  <string name="toast_write_storage_permission_required">Az alkalmazás használatához háttértár-hozzáférési jogra van szükség</string>
-  <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>
-  <string name="ignore_doze_permission_desc">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
+
+    <string name="yes">Igen</string>
+
+    <string name="no">Nem</string>
+
+    <string name="open_website">Weblap megnyitása</string>
+
+    <string name="toast_write_storage_permission_required">Az alkalmazás használatához háttértár-hozzáférési jogra van szükség</string>
+
+    <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>
+    <string name="ignore_doze_permission_desc">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
 
 Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a gyártó. Ezekben szintén érdemes a Syncthinget fehérlistára tenni.</string>
-  <string name="dialog_disable_battery_optimizations_not_supported">Az eszközöd nem támogatja az akkumulátor optimalizálás letiltását</string>
-  <!--StateDialogActivity-->
-  <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
-  <string name="web_gui_creating_key">Biztonsági kulcsok generálása. Ez eltarthat pár percig.</string>
-  <!--FoldersFragment-->
-  <string name="folders_fragment_title">Mappák</string>
-  <!--Shown if no folders exist-->
-  <string name="folder_list_empty">Nem található mappa</string>
-  <!--Format string for folder file count-->
-  <plurals name="files">
-    <item quantity="one">%1$d / %2$d fájl</item>
-    <item quantity="other">%1$d / %2$d fájl</item>
-  </plurals>
-  <string name="open_file_manager">Fájlkezelő megnyitása</string>
-  <string name="toast_no_file_manager">Nem található kompatibilis fájlkezelő</string>
-  <!--DevicesFragment-->
-  <string name="devices_fragment_title">Eszközök</string>
-  <!--Shown if no devices exist-->
-  <string name="devices_list_empty">Nem található eszköz</string>
-  <!--Indicates that a folder is fully synced to the local device-->
-  <string name="device_up_to_date">Friss</string>
-  <!--Indicates that the device is currently syncing. Parameter is sync percentage-->
-  <string name="device_syncing">Szinkronizálás (%1$d%%)</string>
-  <!--Indicates that there is no connection to the device-->
-  <string name="device_disconnected">Kapcsolat bontva</string>
-  <!--Indicates that the device is paused and does not sync-->
-  <string name="device_paused">Szünteteltetve</string>
-  <string name="device_state_unknown">Ismeretlen</string>
-  <!--Title for current download rate-->
-  <string name="download_title">Letöltés</string>
-  <!--Title for current upload rate-->
-  <string name="upload_title">Feltöltés</string>
-  <!--DrawerFragment-->
-  <!--Same as download_title with a colon and space appended-->
-  <string name="download_title_colon">Letöltve:\u0020</string>
-  <!--Same as upload_title with a colon and space appended-->
-  <string name="upload_title_colon">Feltöltve:\u0020</string>
-  <!--Title for current CPU usage-->
-  <string name="cpu_usage">CPU használat</string>
-  <!--Title for current RAM usage-->
-  <string name="ram_usage">Memória használat</string>
-  <!--Title for announce server status-->
-  <string name="announce_server">Announce kiszolgáló</string>
-  <string name="restart">Újraindítás</string>
-  <string name="dialog_confirm_restart">Biztosan újraindítod a Syncthinget?</string>
-  <!--FolderActivity-->
-  <!--Setting title-->
-  <string name="folder_id">Mappa azonosító</string>
-  <!--Setting title-->
-  <string name="folder_label">Mappa címke</string>
-  <!--Setting title-->
-  <string name="directory">Mappa</string>
-  <!--Setting title and description-->
-  <string name="folder_fileWatcher">Figyeli a változásokat</string>
-  <string name="folder_fileWatcherDescription">Megkéri az operációs rendszert, hogy értesítsen a fájlok módosításairól. Kikapcsolt állapotban, visszatér az időszakos óránkénti ellenőrzésekhez.</string>
-  <!--Setting title-->
-  <string name="folder_pause">Mappa szüneteltetés</string>
-  <!--Setting title-->
-  <string name="devices">Eszközök</string>
-  <!--Setting title-->
-  <string name="keep_versions">Verziók megtartása</string>
-  <!--Setting title-->
-  <string name="delete_folder">Mappa törlése</string>
-  <!--Title for FolderSettingsFragment in create mode-->
-  <string name="create_folder">Mappa hozzáadása</string>
-  <!--Title for FolderSettingsFragment in edit mode-->
-  <string name="edit_folder">Mappa szerkesztése</string>
-  <!--Menu item to confirm folder creation-->
-  <string name="create">Létrehozás</string>
-  <!--Dialog shown when attempting to remove a folder-->
-  <string name="remove_folder_confirm">Biztosan el szeretnéd távolítani ezt a mappát a Syncthingből?</string>
-  <!--Toast shown when trying to create a folder with an empty ID-->
-  <string name="folder_id_required">A mappaazonosító nem lehet üres</string>
-  <!--Toast shown when trying to create a folder with an empty path-->
-  <string name="folder_path_required">A mappaútvonal nem lehet üres</string>
-  <string name="dialog_discard_changes">Elveted a módosításaidat?</string>
-  <!--Summary shown if we only have readonly access to the folder path-->
-  <!--Summary shown if we only have readwrite access to the folder path-->
-  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
-  <string name="ignore_patterns">Kihagyási minták</string>
-  <string name="create_ignore_file_error">Nem sikerült létrehozni a kihagyási fájlt. Írható a könyvtár?</string>
-  <string name="edit_ignore_file_error">Nem található szövegszerkesztő</string>
-  <!--DeviceActivity-->
-  <!--Setting title-->
-  <string name="device_id">Eszközazonosító</string>
-  <!--Setting title-->
-  <string name="name">Név</string>
-  <!--Setting title-->
-  <string name="addresses">Címek</string>
-  <!--Setting title-->
-  <string name="current_address">Jelenlegi cím</string>
-  <!--Setting title-->
-  <string name="compression">Tömörítés</string>
-  <!--Strings representing compression options-->
-  <string-array name="compress_entries">
-    <item>Semmit</item>
-    <item>Csak metaadatot</item>
-    <item>Mindet</item>
-  </string-array>
-  <!--Setting title-->
-  <string name="introducer">Bevezető</string>
-  <!--Setting title-->
-  <string name="pause_device">Eszköz szüneteltetés</string>
-  <!--ActionBar item-->
-  <string name="delete_device">Eszköz törlése</string>
-  <string name="add_device">Eszköz hozzáadása</string>
-  <!--Menu item to confirm adding a device-->
-  <string name="add">Hozzáadás</string>
-  <!--Title for DeviceSettingsFragment in edit mode-->
-  <string name="edit_device">Eszköz szerkesztése</string>
-  <!--Dialog shown when attempting to remove a device-->
-  <string name="remove_device_confirm">Biztosan eltávolítod ezt az eszközt?</string>
-  <!--Toast shown when trying to create a device with an empty ID-->
-  <string name="device_id_required">Az eszközazonosító nem lehet üres</string>
-  <!--Content description for device ID qr code icon-->
-  <string name="scan_qr_code_description">QR kód olvasása</string>
-  <!--Toast show if we could not get root permissions-->
-  <string name="toast_root_denied">Nem lett megadva root jogosultság</string>
-  <!--WebGuiActivity-->
-  <!--Title of the web gui activity-->
-  <string name="web_gui_title">Webes felület</string>
-  <!--Text for WebGuiActivity loading view-->
-  <string name="web_gui_loading">Várakozás a grafikus felületre</string>
-  <!--SettingsFragment-->
-  <string name="settings_title">Beállítások</string>
-  <string name="category_run_conditions">Futás feltételei</string>
-  <string name="category_behaviour">Viselkedés</string>
-  <string name="category_syncthing_options">Syncthing opciók</string>
-  <string name="category_backup">Biztonsági mentés</string>
-  <string name="category_debug">Hibakeresés</string>
-  <string name="category_experimental">Kísérleti</string>
-  <!--Preference screen - Run conditions-->
-  <string name="run_conditions_title">Futás feltételei</string>
-  <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
-  <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
-  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
-  <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
-  <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
-  <!--Preferences - Behaviour-->
-  <string name="advanced_folder_picker">Advanced mappaválasztó használata</string>
-  <string name="advanced_folder_picker_summary">Bármely mappa kiválasztható szinkronizáláshoz</string>
-  <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
-  <string name="use_root_summary">Ez egy kísérleti funkció, amely problémákat okozhat mind a Syncthing, mind az eszközöd számára. Ha ilyenbe ütközöl, előfordulhat, hogy újra kell telepítened az alkalmazást.</string>
-  <string name="notification_type_title">Értesítés</string>
-  <string name="notification_type_summary">Értesítés típusának kiválasztása</string>
-  <string-array name="notification_type_entries">
-    <item>Normál</item>
-    <item>Alacsony prioritású</item>
-    <item>Semmilyen</item>
-  </string-array>
-  <string name="preference_language_title">Nyelv</string>
-  <string name="preference_language_summary">Alkalmazás nyelvének megváltoztatása</string>
-  <string name="start_into_web_gui_title">A webes felület legyen a kezdőképernyő</string>
-  <string name="start_into_web_gui_summary">Az app indításakor a főképernyő helyett a webes felület jelenjen meg</string>
-  <string name="pref_language_default">Alapértelmezett nyelv</string>
-  <string-array name="versioning_types">
-    <item>Kikapcsolva</item>
-    <item>Lomtár</item>
-    <item>Egyszerű</item>
-    <item>Lépcsőzetes</item>
-    <item>Külső</item>
-  </string-array>
-  <string name="device_name">Eszköz neve</string>
-  <string name="listen_address">IP cím a szinkronizáláshoz</string>
-  <string name="max_recv_kbps">Max letöltési sebesség (KiB/s)</string>
-  <string name="max_send_kbps">Max feltöltési sebesség (KiB/s)</string>
-  <string name="global_announce_enabled">Globális felfedezés</string>
-  <string name="local_announce_enabled">Helyi felfedezés</string>
-  <string name="enable_nat_traversal">NAT bejárás engedélyezése</string>
-  <string name="global_announce_server">Globális felfedező kiszolgálók</string>
-  <string name="enable_relaying">Relaying engedélyezése</string>
-  <string name="usage_reporting">Anonim használati statisztikák küldése</string>
-  <string name="gui_address">Webes felület IP címe</string>
-  <!--Titles for the preference to undo ignored devices and folders-->
-  <string name="export_config">Beállítások mentése</string>
-  <!--Toast after entering invalid integer value-->
-  <!--Experimental options-->
-  <string name="use_proxy">Kapcsolódás porxyn keresztül</string>
-  <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
-  <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
-  <string name="use_tor_title">Tor használata</string>
-  <string name="use_tor_summary">A megnövelt biztonság érdekében minden forgalom a TOR-on keresztül. Orbot szükséges. Letiltja a proxy beállításokat.</string>
-  <string name="socks_proxy_address_title">SOCKS5 proxy</string>
-  <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
-  <!--Toast after entering invalid socks proxy address-->
-  <string name="toast_invalid_socks_proxy_address">A bemenet sérti a proxy szintaxist \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-  <string name="http_proxy_address_title">HTTP(S) proxy</string>
-  <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
-  <!--Toast after entering invalid http proxy address-->
-  <string name="toast_invalid_http_proxy_address">A bemenet sérti a proxy szintaxist \'http://[IP/HOSTNAME]:[PORT]\'</string>
-  <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
-  <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>
-  <string name="restart_on_wakeup_title">Újraindítás felébresztéskor</string>
-  <string name="restart_on_wakeup_summary">Alapértelmezés: bekapcsolva. A funckió bekapcsolása a mappák szkennelésének és az eszközök újracsatlakozásának késleltetését okozza az akkumulátor kímélése érdekében.</string>
-  <!--Dialog shown before config export-->
-  <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva.
+    <string name="dialog_disable_battery_optimizations_not_supported">Az eszközöd nem támogatja az akkumulátor optimalizálás letiltását</string>
+
+    <!-- StateDialogActivity -->
+
+
+    <!-- Text for FoldersFragment and DevicesFragment loading view -->
+    <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
+    <string name="web_gui_creating_key">Biztonsági kulcsok generálása. Ez eltarthat pár percig.</string>
+    <!-- FoldersFragment -->
+
+
+    <string name="folders_fragment_title">Mappák</string>
+
+    <!-- Shown if no folders exist -->
+    <string name="folder_list_empty">Nem található mappa</string>
+
+    <!-- Format string for folder file count -->
+    <plurals name="files">
+        <item quantity="one">%1$d / %2$d fájl</item>
+        <item quantity="other">%1$d / %2$d fájl</item>
+    </plurals>
+
+    <string name="open_file_manager">Fájlkezelő megnyitása</string>
+
+    <string name="toast_no_file_manager">Nem található kompatibilis fájlkezelő</string>
+
+    <!-- DevicesFragment -->
+
+
+    <string name="devices_fragment_title">Eszközök</string>
+
+    <!-- Shown if no devices exist -->
+    <string name="devices_list_empty">Nem található eszköz</string>
+
+    <!-- Indicates that a folder is fully synced to the local device -->
+    <string name="device_up_to_date">Friss</string>
+
+    <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
+    <string name="device_syncing">Szinkronizálás (%1$d%%)</string>
+
+    <!-- Indicates that there is no connection to the device -->
+    <string name="device_disconnected">Kapcsolat bontva</string>
+
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">Szünteteltetve</string>
+
+    <!-- Indicates that the device connection is unknown -->
+    <string name="device_state_unknown">Ismeretlen</string>
+
+    <!-- Title for current download rate -->
+    <string name="download_title">Letöltés</string>
+
+    <!-- Title for current upload rate -->
+    <string name="upload_title">Feltöltés</string>
+
+    <!-- DrawerFragment -->
+
+
+    <!-- Same as download_title with a colon and space appended -->
+    <string name="download_title_colon">Letöltve:\u0020</string>
+
+    <!-- Same as upload_title with a colon and space appended -->
+    <string name="upload_title_colon">Feltöltve:\u0020</string>
+
+    <!-- Title for current CPU usage -->
+    <string name="cpu_usage">CPU használat</string>
+
+    <!-- Title for current RAM usage -->
+    <string name="ram_usage">Memória használat</string>
+
+    <!-- Title for announce server status -->
+    <string name="announce_server">Announce kiszolgáló</string>
+
+    <string name="restart">Újraindítás</string>
+
+    <string name="dialog_confirm_restart">Biztosan újraindítod a Syncthinget?</string>
+
+    <!-- FolderActivity -->
+
+
+    <!-- Setting title -->
+    <string name="folder_id">Mappa azonosító</string>
+
+    <!-- Setting title -->
+    <string name="folder_label">Mappa címke</string>
+
+    <!-- Setting title -->
+    <string name="directory">Mappa</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Figyeli a változásokat</string>
+    <string name="folder_fileWatcherDescription">Megkéri az operációs rendszert, hogy értesítsen a fájlok módosításairól. Kikapcsolt állapotban, visszatér az időszakos óránkénti ellenőrzésekhez.</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Mappa szüneteltetés</string>
+
+    <!-- Setting title -->
+    <string name="devices">Eszközök</string>
+
+    <!-- Setting title -->
+    <string name="keep_versions">Verziók megtartása</string>
+
+    <!-- Setting title -->
+    <string name="delete_folder">Mappa törlése</string>
+
+    <!-- Title for FolderSettingsFragment in create mode -->
+    <string name="create_folder">Mappa hozzáadása</string>
+
+    <!-- Title for FolderSettingsFragment in edit mode -->
+    <string name="edit_folder">Mappa szerkesztése</string>
+
+    <!-- Menu item to confirm folder creation -->
+    <string name="create">Létrehozás</string>
+
+    <!-- Dialog shown when attempting to remove a folder -->
+    <string name="remove_folder_confirm">Biztosan el szeretnéd távolítani ezt a mappát a Syncthingből?</string>
+
+    <!-- Toast shown when trying to create a folder with an empty ID -->
+    <string name="folder_id_required">A mappaazonosító nem lehet üres</string>
+
+    <!-- Toast shown when trying to create a folder with an empty path -->
+    <string name="folder_path_required">A mappaútvonal nem lehet üres</string>
+
+    <string name="dialog_discard_changes">Elveted a módosításaidat?</string>
+
+    <string name="ignore_patterns">Kihagyási minták</string>
+
+    <string name="create_ignore_file_error">Nem sikerült létrehozni a kihagyási fájlt. Írható a könyvtár?</string>
+
+    <string name="edit_ignore_file_error">Nem található szövegszerkesztő</string>
+
+    <!-- DeviceActivity -->
+
+
+    <!-- Setting title -->
+    <string name="device_id">Eszközazonosító</string>
+
+    <!-- Setting title -->
+    <string name="name">Név</string>
+
+    <!-- Setting title -->
+    <string name="addresses">Címek</string>
+
+    <!-- Setting title -->
+    <string name="current_address">Jelenlegi cím</string>
+
+    <!-- Setting title -->
+    <string name="compression">Tömörítés</string>
+
+    <!-- Strings representing compression options -->
+    <string-array name="compress_entries">
+        <item>Semmit</item>
+        <item>Csak metaadatot</item>
+        <item>Mindet</item>
+    </string-array>
+
+    <!-- Setting title -->
+    <string name="introducer">Bevezető</string>
+
+    <!-- Setting title -->
+    <string name="pause_device">Eszköz szüneteltetés</string>
+
+    <!-- ActionBar item -->
+    <string name="delete_device">Eszköz törlése</string>
+
+    <string name="add_device">Eszköz hozzáadása</string>
+
+    <!-- Menu item to confirm adding a device -->
+    <string name="add">Hozzáadás</string>
+
+    <!-- Title for DeviceSettingsFragment in edit mode -->
+    <string name="edit_device">Eszköz szerkesztése</string>
+
+    <!-- Dialog shown when attempting to remove a device -->
+    <string name="remove_device_confirm">Biztosan eltávolítod ezt az eszközt?</string>
+
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_required">Az eszközazonosító nem lehet üres</string>
+
+    <!-- Content description for device ID qr code icon -->
+    <string name="scan_qr_code_description">QR kód olvasása</string>
+
+    <!-- Toast show if we could not get root permissions -->
+    <string name="toast_root_denied">Nem lett megadva root jogosultság</string>
+
+    <!-- WebGuiActivity -->
+
+
+    <!-- Title of the web gui activity -->
+    <string name="web_gui_title">Webes felület</string>
+
+    <!-- Text for WebGuiActivity loading view -->
+    <string name="web_gui_loading">Várakozás a grafikus felületre</string>
+
+    <!-- SettingsFragment -->
+
+
+    <string name="settings_title">Beállítások</string>
+
+    <string name="category_run_conditions">Futás feltételei</string>
+    <string name="category_behaviour">Viselkedés</string>
+    <string name="category_syncthing_options">Syncthing opciók</string>
+    <string name="category_backup">Biztonsági mentés</string>
+    <string name="category_debug">Hibakeresés</string>
+    <string name="category_experimental">Kísérleti</string>
+
+    <!-- Preference screen - Run conditions -->
+    <string name="run_conditions_title">Futás feltételei</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
+
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
+
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
+
+    <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
+    <!-- Preferences - Behaviour -->
+    <string name="advanced_folder_picker">Advanced mappaválasztó használata</string>
+
+    <string name="advanced_folder_picker_summary">Bármely mappa kiválasztható szinkronizáláshoz</string>
+
+    <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
+
+    <string name="use_root_summary">Ez egy kísérleti funkció, amely problémákat okozhat mind a Syncthing, mind az eszközöd számára. Ha ilyenbe ütközöl, előfordulhat, hogy újra kell telepítened az alkalmazást.</string>
+
+    <string name="notification_type_title">Értesítés</string>
+
+    <string name="notification_type_summary">Értesítés típusának kiválasztása</string>
+
+    <string-array name="notification_type_entries">
+        <item>Normál</item>
+        <item>Alacsony prioritású</item>
+        <item>Semmilyen</item>
+    </string-array>
+
+    <string name="preference_language_title">Nyelv</string>
+
+    <string name="preference_language_summary">Alkalmazás nyelvének megváltoztatása</string>
+
+    <string name="start_into_web_gui_title">A webes felület legyen a kezdőképernyő</string>
+
+    <string name="start_into_web_gui_summary">Az app indításakor a főképernyő helyett a webes felület jelenjen meg</string>
+
+    <string name="pref_language_default">Alapértelmezett nyelv</string>
+
+    <string-array name="versioning_types">
+        <item>Kikapcsolva</item>
+        <item>Lomtár</item>
+        <item>Egyszerű</item>
+        <item>Lépcsőzetes</item>
+        <item>Külső</item>
+    </string-array>
+
+    <string name="device_name">Eszköz neve</string>
+
+    <string name="listen_address">IP cím a szinkronizáláshoz</string>
+
+    <string name="max_recv_kbps">Max letöltési sebesség (KiB/s)</string>
+
+    <string name="max_send_kbps">Max feltöltési sebesség (KiB/s)</string>
+
+    <string name="global_announce_enabled">Globális felfedezés</string>
+
+    <string name="local_announce_enabled">Helyi felfedezés</string>
+
+    <string name="enable_nat_traversal">NAT bejárás engedélyezése</string>
+
+    <string name="global_announce_server">Globális felfedező kiszolgálók</string>
+
+    <string name="enable_relaying">Relaying engedélyezése</string>
+
+    <string name="usage_reporting">Anonim használati statisztikák küldése</string>
+
+    <string name="gui_address">Webes felület IP címe</string>
+
+    <string name="export_config">Beállítások mentése</string>
+
+    <!-- Experimental options -->
+    <string name="use_proxy">Kapcsolódás porxyn keresztül</string>
+    <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
+
+    <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
+
+    <string name="use_tor_title">Tor használata</string>
+
+    <string name="use_tor_summary">A megnövelt biztonság érdekében minden forgalom a TOR-on keresztül. Orbot szükséges. Letiltja a proxy beállításokat.</string>
+
+    <string name="socks_proxy_address_title">SOCKS5 proxy</string>
+    <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
+
+    <!-- Toast after entering invalid socks proxy address -->
+    <string name="toast_invalid_socks_proxy_address">A bemenet sérti a proxy szintaxist \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="http_proxy_address_title">HTTP(S) proxy</string>
+    <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
+
+    <!-- Toast after entering invalid http proxy address -->
+    <string name="toast_invalid_http_proxy_address">A bemenet sérti a proxy szintaxist \'http://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
+
+    <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>
+
+    <string name="restart_on_wakeup_title">Újraindítás felébresztéskor</string>
+
+    <string name="restart_on_wakeup_summary">Alapértelmezés: bekapcsolva. A funckió bekapcsolása a mappák szkennelésének és az eszközök újracsatlakozásának késleltetését okozza az akkumulátor kímélése érdekében.</string>
+
+    <!-- Dialog shown before config export -->
+    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva.
 
 VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják  szinkronizált fájljaidat.</string>
-  <!--Dialog shown before config import-->
-  <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
-  <!--Toast shown after config was successfully exported-->
-  <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
-  <string name="import_config">Konfiguráció importálása</string>
-  <!--Toast shown after config was successfully imported-->
-  <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
-  <!--Toast shown after config was successfully imported-->
-  <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
-  <!--Title for the preference to set STTRACE parameters-->
-  <string name="sttrace_title">STTRACE beállítások</string>
-  <string name="environment_variables">Környezeti változók</string>
-  <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_environment_variables">Az érték nem egy érvényes környezeti változó string</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <string name="st_reset_database_title">Adatbázis törlése</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_database_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
+
+    <!-- Dialog shown before config import -->
+    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
+
+    <!-- Toast shown after config was successfully exported -->
+    <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
+
+    <string name="import_config">Konfiguráció importálása</string>
+
+    <!-- Toast shown after config was successfully imported -->
+    <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
+
+    <!-- Toast shown after config was successfully imported -->
+    <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
+
+    <!-- Title for the preference to set STTRACE parameters -->
+    <string name="sttrace_title">STTRACE beállítások</string>
+
+    <string name="environment_variables">Környezeti változók</string>
+
+    <!-- Toast after entering invalid STTRACE params -->
+    <string name="toast_invalid_environment_variables">Az érték nem egy érvényes környezeti változó string</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_database_title">Adatbázis törlése</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_database_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
  \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát?</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_database_done">A Syncthing adatbázisának törlése megtörtént</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <string name="st_reset_deltas_title">Különbségi indexek visszaállítása</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_deltas_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_database_done">A Syncthing adatbázisának törlése megtörtént</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_deltas_title">Különbségi indexek visszaállítása</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
  \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit?</string>
-  <!--Syncthing was reset-->
-  <string name="st_reset_deltas_done">A Syncthing különbségi indexei sikeresen visszaállítva</string>
-  <string name="category_about">Névjegy</string>
-  <!--Settings item that opens the log activity-->
-  <string name="open_log">Napló megnyitása</string>
-  <!--Summary for the log activity-->
-  <string name="open_log_summary">A Syncthing és az Android naplók megnyitása</string>
-  <!--Settings item that opens issue tracker-->
-  <string name="report_issue_title">Hibabejelentés</string>
-  <!--Summary for the issue tracker settings item-->
-  <string name="report_issue_summary">A Syncthing-Android hibajegyek megnyitása</string>
-  <!--URL of the issue tracker-->
-  <!--Menu item to donate-->
-  <!--Title of the preference showing upstream version name-->
-  <string name="syncthing_version_title">Syncthing verzió</string>
-  <!--Title of the preference showing this app's version name-->
-  <string name="app_version_title">Syncthing-Android verzió</string>
-  <!--FolderPickerAcitivity-->
-  <!--Activity title-->
-  <string name="folder_picker_title">Mappaválasztó</string>
-  <!--Toast shown on devices with kitkat or higher-->
-  <string name="kitkat_external_storage_warning">Figyelem: Az általad használt Android verzió nem támogatja a külső eszközre (pl. memóriakártyára) történő szinkronizálást</string>
-  <!--ListView empty text-->
-  <string name="directory_empty">A mappa üres</string>
-  <!--Menu item to create folder on the file system-->
-  <string name="create_fs_folder">Új mappa</string>
-  <!--Menu item to select the current folder-->
-  <string name="select_folder">Mappa kiválasztása</string>
-  <string name="create_folder_failed">Nem sikerült létrehozni a mappát</string>
-  <!--LogActivity-->
-  <string name="syncthing_log_title">Syncthing napló</string>
-  <string name="android_log_title">Android napló</string>
-  <!--Title of the "log android" menu button-->
-  <string name="view_android_log">Android napló megtekintése</string>
-  <!--Title of the "log Syncthing" menu button-->
-  <string name="view_syncthing_log">Syncthing napló megtekintése</string>
-  <string name="retrieving_logs">Naplók betöltése...</string>
-  <!--Title of the "share log" menu button-->
-  <string name="share_title">Megosztás</string>
-  <!--ShareActivity-->
-  <!--Title of the "share" activity-->
-  <string name="share_activity_title">Mentés a Syncthing-be</string>
-  <!--Title of the "save" button-->
-  <string name="save_title">Mentés</string>
-  <!--Title of the "cancel" button-->
-  <string name="cancel_title">Mégsem</string>
-  <!--Title of the "save" button-->
-  <string name="folder_title">Mappa</string>
-  <!--New file name template-->
-  <string name="file_name_template">Új fájl %1$s</string>
-  <!--Nothing to share toast-->
-  <string name="nothing_share">Nincs mit megosztani</string>
-  <!--Copy success toast partially-->
-  <plurals name="copy_success_partially">
-    <item quantity="one">%1$d db fájl másolása sikerült ide: \"%2$s\", %3$d db fájl már létezett</item>
-    <item quantity="other">%1$d db fájl másolása sikerült ide: \"%2$s\", %3$d db fájl már létezett</item>
-  </plurals>
-  <!--Copy success toast-->
-  <plurals name="copy_success">
-    <item quantity="one">%1$d db fájl másolása sikerült ide: \"%2$s\"</item>
-    <item quantity="other">%1$d db fájl másolása sikerült ide: \"%2$s\"</item>
-  </plurals>
-  <!--Copy exception toast-->
-  <string name="copy_exception">A megosztás során hiba történt. Részletek az alkalmazásnaplóban</string>
-  <!--Copy progress dialog text-->
-  <string name="copy_progress">Fájlok megosztása...</string>
-  <plurals name="file_name_title">
-    <item quantity="one">Fájlok listája</item>
-    <item quantity="other">Fájlok listája</item>
-  </plurals>
-  <!--Sub Folder title-->
-  <string name="sub_folder">Almappa</string>
-  <!--SyncthingService-->
-  <!--Title of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_title">A Syncthing le van tiltva</string>
-  <!--Message of the "syncthing disabled" dialog-->
-  <!--Button text on the "syncthing disabled" dialog-->
-  <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
-  <string name="exit">Kilépés</string>
-  <!--Title of the notification shown while syncthing is running and enabled-->
-  <string name="syncthing_active">A Syncthing fut</string>
-  <string name="syncthing_disabled">A Syncthing le van tiltva</string>
-  <!--Toast shown if syncthing failed to create a config-->
-  <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
-  <!--Toast shown if a config file crucial to operation is missing-->
-  <!--Label of the default folder created of first start (camera folder).-->
-  <string name="default_folder_label">Kamera</string>
-  <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
-  <string name="default_folder_id">%1$s-kepek</string>
-  <string name="notification_crash_title">A Syncthing összeomlott %1$s</string>
-  <string name="notification_crash_text">Koppints a naplók megtekintéséhez</string>
-  <string name="notifications_persistent_channel">Syncthing aktív</string>
-  <string name="notification_persistent_waiting_channel">Futási feltételek monitorozása</string>
-  <string name="notifications_other_channel">További értesítések</string>
-  <!--RestApi-->
-  <!--Title of the notification shown when a restart is needed-->
-  <string name="restart_title">Újraindítás szükséges</string>
-  <!--Text for positive button in restart dialog-->
-  <!--Text for the dismiss button of the restart Activity-->
-  <!--Text of the notification shown when a restart is needed-->
-  <string name="restart_notification_text">Koppints a Syncthing újraindításához</string>
-  <!--Shown when a device ID is copied to the clipboard-->
-  <string name="device_id_copied_to_clipboard">Az eszközazonosító a vágólapra másolva</string>
-  <!--Strings representing units for file sizes, from smallest to largest-->
-  <string-array name="file_size_units">
-    <item>B</item>
-    <item>KiB</item>
-    <item>MiB</item>
-    <item>GiB</item>
-    <item>TiB</item>
-  </string-array>
-  <!--Strings representing units for transfer rates, from smallest to largest-->
-  <string-array name="transfer_rate_units">
-    <item>B/s</item>
-    <item>KiB/s</item>
-    <item>MiB/s</item>
-    <item>GiB/s</item>
-    <item>TiB/s</item>
-  </string-array>
-  <!--Possible folder states-->
-  <string name="state_idle">Tétlen</string>
-  <string name="state_scanning">Vizsgálat</string>
-  <string name="state_syncing">Szinkronizálás (%1$d%%)</string>
-  <string name="state_error">Hiba</string>
-  <string name="state_unknown">Ismeretlen</string>
-  <string name="state_paused">Szünteteltetve</string>
-  <string name="status_outofsync">Nincs szinkronban</string>
-  <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
-  <string name="folder_size_format">%1$s / %2$s</string>
-  <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
-  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
-  <!--Displays the current folder type in the folder activity-->
-  <string name="folder_type_sendonly">Csak küldés</string>
-  <!--Folder type dialog descriptions for folder types-->
-  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
-  <!--Displays the current pull order type in the Folder activity-->
-  <!--Pull order dialog descriptions for pull order types-->
-  <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
-  <string name="maximum_age">Maximális kor</string>
-  <string name="clean_out_after">Takarítás ennyi idő után</string>
-  <string name="file_versioning">Fájl verziózás</string>
-  <string name="none">Semmi</string>
-  <string name="versions_path">Verziók útvonala</string>
-  <string name="command">Parancs</string>
-  <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
-  <string name="keep_versions_description">Fájlonként megtartandó korábbi verziók száma</string>
-  <string name="simple_file_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok a .stversions könyvtárba kerülnek.</string>
-  <string name="trashcan_versioning_description">Fájlok cseréje vagy törlése esetén a fájlok az .stversions könyvtárba kerülnek.</string>
-  <string name="staggered_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok az .stversions könyvtárba kerülnek. A verziók automatikusan törlődnek, amikor koruk eléri a megadott értéket, vagy a verziók száma meghaladja az intervallumon belül meghatározott maximális darabszámot.\n\nA következő intervallumok használatosak: az első órában 30 másodpercenként készül új verzió, az első nap óránként egy, az első 30 napban pedig napi egy verzió lesz megtartva. A maximális kort elérő fájlok hetente tárolódnak.</string>
-  <string name="maximum_age_description">Egy verzió megtartásának maximális ideje (napokban, 0 esetén a verziók korlátlan ideig megmaradnak)</string>
-  <string name="versions_path_description">Régebbi verziók tárolásának útvonala (üresen hagyott érték esetén a megosztott mappán belüli alapértelmezett .stversions lesz felhasználva)</string>
-  <string name="cleanout_after_description">Fájlok megőrzésének ideje a lomtárban. Nulla esetén nincs törlés.</string>
-  <string name="external_versioning_description">Az első parancssori paraméter a mappa elérési útvonala, a második pedig a relatív hivatkozás a mappához képest.</string>
-  <string name="no_versioning_description">Válassz egy verzionálási rendszert a verziók kezelésének engedélyezéséhez!</string>
-  <!--Displays the current file versioning type in the Folder activity-->
-  <string name="type_simple">Típus: Egyszerű</string>
-  <string name="type_trashcan">Típus: Kuka</string>
-  <string name="type_staggered">Típus: Lépcsőzetes</string>
-  <string name="type_external">Típus: Külső</string>
-  <!--Information displayed about the current file versioning configuration in the folder activity-->
-  <string name="trashcan_versioning_info">Takarítás ennyi idő után: %1$s</string>
-  <string name="staggered_versioning_info">Maximális kor: %1$d\nVerziók útvonala: %2$s</string>
-  <string name="external_versioning_info">Parancs: %1$s</string>
-  <string name="simple_versioning_info">Verziók megtartása: %1$s</string>
-  <string name="show_device_id">Eszközazonosító megjelenítése</string>
-  <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-  <string name="could_not_access_deviceid">Nem sikerült hozzáférni az eszközazonosítóhoz</string>
-  <string name="browse">Tallóz</string>
-  <string name="no_sub_folder_is_selected">Nincs kiválasztott almappa</string>
-  <string name="share_device_id_chooser">Eszközazonosító megosztása ezzel</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_done">A Syncthing különbségi indexei sikeresen visszaállítva</string>
+
+    <string name="category_about">Névjegy</string>
+
+    <!-- Settings item that opens the log activity -->
+    <string name="open_log">Napló megnyitása</string>
+
+    <!-- Summary for the log activity -->
+    <string name="open_log_summary">A Syncthing és az Android naplók megnyitása</string>
+    <!-- Settings item that opens issue tracker -->
+    <string name="report_issue_title">Hibabejelentés</string>
+
+    <!-- Summary for the issue tracker settings item -->
+    <string name="report_issue_summary">A Syncthing-Android hibajegyek megnyitása</string>
+
+    <!-- Menu item to donate -->
+    <!-- Title of the preference showing upstream version name -->
+    <string name="syncthing_version_title">Syncthing verzió</string>
+
+    <!-- Title of the preference showing this app's version name -->
+    <string name="app_version_title">Syncthing-Android verzió</string>
+
+    <!-- FolderPickerAcitivity -->
+
+
+    <!-- Activity title -->
+    <string name="folder_picker_title">Mappaválasztó</string>
+
+    <!-- Toast shown on devices with kitkat or higher -->
+    <string name="kitkat_external_storage_warning">Figyelem: Az általad használt Android verzió nem támogatja a külső eszközre (pl. memóriakártyára) történő szinkronizálást</string>
+
+    <!-- ListView empty text -->
+    <string name="directory_empty">A mappa üres</string>
+
+    <!-- Menu item to create folder on the file system -->
+    <string name="create_fs_folder">Új mappa</string>
+
+    <!-- Menu item to select the current folder -->
+    <string name="select_folder">Mappa kiválasztása</string>
+
+    <string name="create_folder_failed">Nem sikerült létrehozni a mappát</string>
+
+    <!-- LogActivity -->
+
+
+    <string name="syncthing_log_title">Syncthing napló</string>
+    <string name="android_log_title">Android napló</string>
+
+    <!-- Title of the "log android" menu button -->
+    <string name="view_android_log">Android napló megtekintése</string>
+
+    <!-- Title of the "log Syncthing" menu button -->
+    <string name="view_syncthing_log">Syncthing napló megtekintése</string>
+
+    <string name="retrieving_logs">Naplók betöltése...</string>
+
+    <!-- Title of the "share log" menu button -->
+    <string name="share_title">Megosztás</string>
+
+    <!-- ShareActivity -->
+
+
+    <!-- Title of the "share" activity -->
+    <string name="share_activity_title">Mentés a Syncthing-be</string>
+
+    <!-- Title of the "save" button -->
+    <string name="save_title">Mentés</string>
+
+    <!-- Title of the "cancel" button -->
+    <string name="cancel_title">Mégsem</string>
+
+    <!-- Title of the "save" button -->
+    <string name="folder_title">Mappa</string>
+
+    <!-- New file name template -->
+    <string name="file_name_template">Új fájl %1$s</string>
+
+    <!-- Nothing to share toast -->
+    <string name="nothing_share">Nincs mit megosztani</string>
+
+    <!-- Copy success toast partially -->
+    <plurals name="copy_success_partially">
+        <item quantity="one">%1$d db fájl másolása sikerült ide: \"%2$s\", %3$d db fájl már létezett</item>
+        <item quantity="other">%1$d db fájl másolása sikerült ide: \"%2$s\", %3$d db fájl már létezett</item>
+    </plurals>
+
+    <!-- Copy success toast -->
+    <plurals name="copy_success">
+        <item quantity="one">%1$d db fájl másolása sikerült ide: \"%2$s\"</item>
+        <item quantity="other">%1$d db fájl másolása sikerült ide: \"%2$s\"</item>
+    </plurals>
+
+    <!-- Copy exception toast -->
+    <string name="copy_exception">A megosztás során hiba történt. Részletek az alkalmazásnaplóban</string>
+
+    <!-- Copy progress dialog text -->
+    <string name="copy_progress">Fájlok megosztása...</string>
+
+    <plurals name="file_name_title">
+        <item quantity="one">Fájlok listája</item>
+        <item quantity="other">Fájlok listája</item>
+    </plurals>
+
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Almappa</string>
+
+    <!-- SyncthingService -->
+
+
+    <!-- Title of the "syncthing disabled" dialog -->
+    <string name="syncthing_disabled_title">A Syncthing le van tiltva</string>
+    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <string name="exit">Kilépés</string>
+
+    <!-- Title of the notification shown while syncthing is running and enabled -->
+    <string name="syncthing_active">A Syncthing fut</string>
+
+    <string name="syncthing_disabled">A Syncthing le van tiltva</string>
+
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_folder_label">Kamera</string>
+
+    <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
+    <string name="default_folder_id">%1$s-kepek</string>
+
+    <string name="notification_crash_title">A Syncthing összeomlott %1$s</string>
+
+    <string name="notification_crash_text">Koppints a naplók megtekintéséhez</string>
+
+    <string name="notifications_persistent_channel">Syncthing aktív</string>
+    <string name="notification_persistent_waiting_channel">Futási feltételek monitorozása</string>
+    <string name="notifications_other_channel">További értesítések</string>
+
+    <!-- RestApi -->
+
+
+    <!-- Title of the notification shown when a restart is needed -->
+    <string name="restart_title">Újraindítás szükséges</string>
+
+    <!-- Text for positive button in restart dialog -->
+    <!-- Text for the dismiss button of the restart Activity -->
+    <!-- Text of the notification shown when a restart is needed -->
+    <string name="restart_notification_text">Koppints a Syncthing újraindításához</string>
+
+    <!-- Shown when a device ID is copied to the clipboard -->
+    <string name="device_id_copied_to_clipboard">Az eszközazonosító a vágólapra másolva</string>
+
+    <!-- Strings representing units for file sizes, from smallest to largest -->
+    <string-array name="file_size_units">
+        <item>B</item>
+        <item>KiB</item>
+        <item>MiB</item>
+        <item>GiB</item>
+        <item>TiB</item>
+    </string-array>
+
+    <!-- Strings representing units for transfer rates, from smallest to largest -->
+    <string-array name="transfer_rate_units">
+        <item>B/s</item>
+        <item>KiB/s</item>
+        <item>MiB/s</item>
+        <item>GiB/s</item>
+        <item>TiB/s</item>
+    </string-array>
+
+    <!-- Possible folder states -->
+    <string name="state_idle">Tétlen</string>
+    <string name="state_scanning">Vizsgálat</string>
+    <string name="state_syncing">Szinkronizálás (%1$d%%)</string>
+    <string name="state_error">Hiba</string>
+    <string name="state_unknown">Ismeretlen</string>
+    <string name="state_paused">Szünteteltetve</string>
+    <string name="status_outofsync">Nincs szinkronban</string>
+
+    <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
+    <string name="folder_size_format">%1$s / %2$s</string>
+
+    <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
+
+    <string name="folder_type_sendonly">Csak küldés</string>
+    <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
+    <string name="maximum_age">Maximális kor</string>
+    <string name="clean_out_after">Takarítás ennyi idő után</string>
+    <string name="file_versioning">Fájl verziózás</string>
+    <string name="none">Semmi</string>
+    <string name="versions_path">Verziók útvonala</string>
+    <string name="command">Parancs</string>
+
+    <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
+    <string name="keep_versions_description">Fájlonként megtartandó korábbi verziók száma</string>
+    <string name="simple_file_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok a .stversions könyvtárba kerülnek.</string>
+    <string name="trashcan_versioning_description">Fájlok cseréje vagy törlése esetén a fájlok az .stversions könyvtárba kerülnek.</string>
+    <string name="staggered_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok az .stversions könyvtárba kerülnek. A verziók automatikusan törlődnek, amikor koruk eléri a megadott értéket, vagy a verziók száma meghaladja az intervallumon belül meghatározott maximális darabszámot.\n\nA következő intervallumok használatosak: az első órában 30 másodpercenként készül új verzió, az első nap óránként egy, az első 30 napban pedig napi egy verzió lesz megtartva. A maximális kort elérő fájlok hetente tárolódnak.</string>
+    <string name="maximum_age_description">Egy verzió megtartásának maximális ideje (napokban, 0 esetén a verziók korlátlan ideig megmaradnak)</string>
+    <string name="versions_path_description">Régebbi verziók tárolásának útvonala (üresen hagyott érték esetén a megosztott mappán belüli alapértelmezett .stversions lesz felhasználva)</string>
+    <string name="cleanout_after_description">Fájlok megőrzésének ideje a lomtárban. Nulla esetén nincs törlés.</string>
+    <string name="external_versioning_description">Az első parancssori paraméter a mappa elérési útvonala, a második pedig a relatív hivatkozás a mappához képest.</string>
+    <string name="no_versioning_description">Válassz egy verzionálási rendszert a verziók kezelésének engedélyezéséhez!</string>
+
+    <!-- Displays the current file versioning type in the Folder activity -->
+    <string name="type_simple">Típus: Egyszerű</string>
+    <string name="type_trashcan">Típus: Kuka</string>
+    <string name="type_staggered">Típus: Lépcsőzetes</string>
+    <string name="type_external">Típus: Külső</string>
+
+    <!-- Information displayed about the current file versioning configuration in the folder activity -->
+    <string name="trashcan_versioning_info">Takarítás ennyi idő után: %1$s</string>
+    <string name="staggered_versioning_info">Maximális kor: %1$d\nVerziók útvonala: %2$s</string>
+    <string name="external_versioning_info">Parancs: %1$s</string>
+    <string name="simple_versioning_info">Verziók megtartása: %1$s</string>
+    <string name="show_device_id">Eszközazonosító megjelenítése</string>
+
+    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Nem sikerült hozzáférni az eszközazonosítóhoz</string>
+    <string name="browse">Tallóz</string>
+    <string name="no_sub_folder_is_selected">Nincs kiválasztott almappa</string>
+    <string name="share_device_id_chooser">Eszközazonosító megosztása ezzel</string>
+
 </resources>

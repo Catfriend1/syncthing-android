@@ -1,289 +1,363 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!--FirstStartActivity-->
-  <!--Title for dialog displayed on first start-->
-  <string name="welcome_title">Вітаємо в Syncthing для Android</string>
-  <!--Welcome wizard-->
-  <!--Slide 1-->
-  <!--Slide 2-->
-  <!--Slide 3-->
-  <!--Generic texts used everywhere-->
-  <string name="cont">Продовжити</string>
-  <string name="finish">Завершити</string>
-  <string name="generic_error">Помилка</string>
-  <!--MainActivity-->
-  <!--Title of the "add folder" menu action-->
-  <string name="add_folder">Додати каталог</string>
-  <!--Title of the "share device id" menu action-->
-  <!--Shown in the chooser dialog when sharing a Device ID-->
-  <string name="usage_reporting_dialog_title">Дозволити відправку анонімної статистики використання?</string>
-  <string name="yes">Так</string>
-  <string name="no">Ні</string>
-  <string name="open_website">Відкрити сайт</string>
-  <string name="toast_write_storage_permission_required">Додаток потребує прав на запис на носій(картку)</string>
-  <!--StateDialogActivity-->
-  <!--Text for FoldersFragment and DevicesFragment loading view-->
-  <!--Shown instead of web_gui_loading if the key does not exist and has to be created-->
-  <string name="web_gui_creating_key">Генеруються ключі безпеки. Процедура може зайняти декілька хвилин.</string>
-  <!--FoldersFragment-->
-  <string name="folders_fragment_title">Каталоги</string>
-  <!--Shown if no folders exist-->
-  <string name="folder_list_empty">Жодного каталогу не знайдено</string>
-  <!--Format string for folder file count-->
-  <!--DevicesFragment-->
-  <string name="devices_fragment_title">Пристрої</string>
-  <!--Shown if no devices exist-->
-  <!--Indicates that a folder is fully synced to the local device-->
-  <!--Indicates that the device is currently syncing. Parameter is sync percentage-->
-  <string name="device_syncing">Синхронізуються (%1$d%%)</string>
-  <!--Indicates that there is no connection to the device-->
-  <string name="device_disconnected">Від\'єднано</string>
-  <!--Indicates that the device is paused and does not sync-->
-  <string name="device_state_unknown">Невідомо</string>
-  <!--Title for current download rate-->
-  <string name="download_title">Завантаження</string>
-  <!--Title for current upload rate-->
-  <string name="upload_title">Відправка</string>
-  <!--DrawerFragment-->
-  <!--Same as download_title with a colon and space appended-->
-  <string name="download_title_colon">Завантаження:\u0020</string>
-  <!--Same as upload_title with a colon and space appended-->
-  <string name="upload_title_colon">Відправка:\u0020</string>
-  <!--Title for current CPU usage-->
-  <string name="cpu_usage">Використання ЦП</string>
-  <!--Title for current RAM usage-->
-  <string name="ram_usage">Використання RAM</string>
-  <!--Title for announce server status-->
-  <string name="restart">Перезапуск</string>
-  <string name="dialog_confirm_restart">Бажаєте перезапустити Syncthing?</string>
-  <!--FolderActivity-->
-  <!--Setting title-->
-  <string name="folder_id">ID каталогу</string>
-  <!--Setting title-->
-  <string name="folder_label">Мітка каталогу</string>
-  <!--Setting title-->
-  <string name="directory">Каталог</string>
-  <!--Setting title and description-->
-  <!--Setting title-->
-  <!--Setting title-->
-  <string name="devices">Пристрої</string>
-  <!--Setting title-->
-  <!--Setting title-->
-  <string name="delete_folder">Видалити каталог</string>
-  <!--Title for FolderSettingsFragment in create mode-->
-  <string name="create_folder">Створити каталог</string>
-  <!--Title for FolderSettingsFragment in edit mode-->
-  <string name="edit_folder">Редагувати каталог</string>
-  <!--Menu item to confirm folder creation-->
-  <string name="create">Створити</string>
-  <!--Dialog shown when attempting to remove a folder-->
-  <string name="remove_folder_confirm">Ви дійсно бажаєте видалити цей каталог з Syncthing?</string>
-  <!--Toast shown when trying to create a folder with an empty ID-->
-  <string name="folder_id_required">ID каталогу не може бути пустим</string>
-  <!--Toast shown when trying to create a folder with an empty path-->
-  <string name="folder_path_required">Шлях до каталогу не може бути пустим</string>
-  <string name="dialog_discard_changes">Скасувати зміни?</string>
-  <!--Summary shown if we only have readonly access to the folder path-->
-  <!--Summary shown if we only have readwrite access to the folder path-->
-  <!--Toast shown if the user selected an invalid location for a new syncthing folder-->
-  <string name="ignore_patterns">Ігнорувати паттерни</string>
-  <string name="edit_ignore_file_error">Текстові редактори не знайдено</string>
-  <!--DeviceActivity-->
-  <!--Setting title-->
-  <string name="device_id">ID пристрою</string>
-  <!--Setting title-->
-  <string name="name">Ім\'я</string>
-  <!--Setting title-->
-  <string name="addresses">Адреси</string>
-  <!--Setting title-->
-  <string name="current_address">Поточна адреса</string>
-  <!--Setting title-->
-  <string name="compression">Стиснення</string>
-  <!--Strings representing compression options-->
-  <!--Setting title-->
-  <!--Setting title-->
-  <!--ActionBar item-->
-  <string name="delete_device">Видалити пристрій</string>
-  <string name="add_device">Додати пристрій</string>
-  <!--Menu item to confirm adding a device-->
-  <string name="add">Додати</string>
-  <!--Title for DeviceSettingsFragment in edit mode-->
-  <string name="edit_device">Редагувати пристрій</string>
-  <!--Dialog shown when attempting to remove a device-->
-  <string name="remove_device_confirm">Дійсно бажаєте видалити цей пристрій?</string>
-  <!--Toast shown when trying to create a device with an empty ID-->
-  <string name="device_id_required">ID пристрою не може бути пустим</string>
-  <!--Content description for device ID qr code icon-->
-  <string name="scan_qr_code_description">Сканувати QR код</string>
-  <!--Toast show if we could not get root permissions-->
-  <string name="toast_root_denied">Права root не отримано</string>
-  <!--WebGuiActivity-->
-  <!--Title of the web gui activity-->
-  <string name="web_gui_title">Веб-інтерфейс</string>
-  <!--Text for WebGuiActivity loading view-->
-  <string name="web_gui_loading">Очікую на веб-інтерфейс</string>
-  <!--SettingsFragment-->
-  <string name="settings_title">Налаштування</string>
-  <string name="category_run_conditions">Умови запуску</string>
-  <string name="category_syncthing_options">Опції Syncthing</string>
-  <string name="category_debug">Відладка</string>
-  <string name="category_experimental">Експериментальне</string>
-  <!--Preference screen - Run conditions-->
-  <string name="run_conditions_title">Умови запуску</string>
-  <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь-ласка, увімкніть Wi-Fi, щоби вибрати мережі</string>
-  <string name="respect_battery_saving_title">Відповідно до налаштувань енергозбереження пристрою в системі</string>
-  <!--Preferences - Behaviour-->
-  <string name="notification_type_title">Сповіщення</string>
-  <string name="notification_type_summary">Вибрати тип сповіщення</string>
-  <string-array name="notification_type_entries">
-    <item>Нормальне</item>
-    <item>Низький пріоритет</item>
-    <item>Немає</item>
-  </string-array>
-  <string name="preference_language_title">Мова</string>
-  <string name="preference_language_summary">Змінити мову пристрою</string>
-  <string name="start_into_web_gui_title">Перехід одразу до веб-інтерфейсу</string>
-  <string name="start_into_web_gui_summary">При запуску додатка, відкривати веб-інтерфейс замість головного меню</string>
-  <string name="pref_language_default">Мова по замовчанню</string>
-  <string name="device_name">Назва пристрою</string>
-  <string name="max_recv_kbps">Обмеження вхідної смуги пропускання (KiB/s)</string>
-  <string name="max_send_kbps">Обмеження вихідної смуги пропускання (KiB/s)</string>
-  <string name="global_announce_enabled">Взаємний пошук через публічні сервери</string>
-  <string name="local_announce_enabled">Взаємний пошук в локальній мережі</string>
-  <string name="enable_nat_traversal">Дозволити NAT Traversal</string>
-  <string name="global_announce_server">Публічні сервери координації NAT</string>
-  <string name="enable_relaying">Дозволити ретрансляцію (Relaying)</string>
-  <string name="usage_reporting">Статистика анонімного використання</string>
-  <!--Titles for the preference to undo ignored devices and folders-->
-  <string name="export_config">Експорт налаштувань</string>
-  <!--Toast after entering invalid integer value-->
-  <!--Experimental options-->
-  <string name="keep_wakelock_while_binary_running">Перешкоджати режиму сну під час роботи Syncthing </string>
-  <string name="use_tor_title">Використовувати Tor</string>
-  <!--Toast after entering invalid socks proxy address-->
-  <!--Toast after entering invalid http proxy address-->
-  <string name="use_legacy_hashing_title">Старий спосіб хешування</string>
-  <!--Dialog shown before config export-->
-  <!--Dialog shown before config import-->
-  <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію? Існуючі файли будуть перезаписані</string>
-  <!--Toast shown after config was successfully exported-->
-  <string name="config_export_successful">Налаштування експортовано в %1$s</string>
-  <string name="import_config">Імпортувати налаштування</string>
-  <!--Toast shown after config was successfully imported-->
-  <string name="config_imported_successful">Налаштування імпортовано</string>
-  <!--Toast shown after config was successfully imported-->
-  <!--Title for the preference to set STTRACE parameters-->
-  <string name="environment_variables">Змінні оточення</string>
-  <!--Toast after entering invalid STTRACE params-->
-  <string name="toast_invalid_environment_variables">Значення не відповідає формату рядка змінних оточення</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <string name="st_reset_database_title">Очистити базу даних</string>
-  <!--Syncthing was reset-->
-  <!--Syncthing was reset-->
-  <string name="st_reset_database_done">База даних  Syncthing успішно очищена</string>
-  <!--Title for the preference to reset Syncthing indexes-->
-  <!--Syncthing was reset-->
-  <!--Syncthing was reset-->
-  <string name="category_about">Про додаток</string>
-  <!--Settings item that opens the log activity-->
-  <string name="open_log">Відкрити журнал</string>
-  <!--Summary for the log activity-->
-  <!--Settings item that opens issue tracker-->
-  <string name="report_issue_title">Повідомити про проблему</string>
-  <!--Summary for the issue tracker settings item-->
-  <!--URL of the issue tracker-->
-  <!--Menu item to donate-->
-  <!--Title of the preference showing upstream version name-->
-  <!--Title of the preference showing this app's version name-->
-  <!--FolderPickerAcitivity-->
-  <!--Activity title-->
-  <!--Toast shown on devices with kitkat or higher-->
-  <!--ListView empty text-->
-  <!--Menu item to create folder on the file system-->
-  <string name="create_fs_folder">Створити новий каталог</string>
-  <!--Menu item to select the current folder-->
-  <string name="select_folder">Вибрати каталог</string>
-  <string name="create_folder_failed">Не вдалося створити каталог</string>
-  <!--LogActivity-->
-  <string name="syncthing_log_title">Журнал Syncthing</string>
-  <string name="android_log_title">Журнал Android</string>
-  <!--Title of the "log android" menu button-->
-  <string name="view_android_log">Переглянути журнал Android</string>
-  <!--Title of the "log Syncthing" menu button-->
-  <string name="view_syncthing_log">Переглянути журнал Syncthing</string>
-  <string name="retrieving_logs">Відкриваю журнал...</string>
-  <!--Title of the "share log" menu button-->
-  <string name="share_title">Поділитися</string>
-  <!--ShareActivity-->
-  <!--Title of the "share" activity-->
-  <string name="share_activity_title">Зберегти в Syncthing</string>
-  <!--Title of the "save" button-->
-  <string name="save_title">Зберегти</string>
-  <!--Title of the "cancel" button-->
-  <!--Title of the "save" button-->
-  <string name="folder_title">Каталог</string>
-  <!--New file name template-->
-  <!--Nothing to share toast-->
-  <!--Copy success toast partially-->
-  <!--Copy success toast-->
-  <!--Copy exception toast-->
-  <!--Copy progress dialog text-->
-  <!--Sub Folder title-->
-  <string name="sub_folder">Підпапка</string>
-  <!--SyncthingService-->
-  <!--Title of the "syncthing disabled" dialog-->
-  <string name="syncthing_disabled_title">Syncthing заборонено</string>
-  <!--Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true-->
-  <string name="exit">Вихід</string>
-  <!--Title of the notification shown while syncthing is running and enabled-->
-  <string name="syncthing_active">Syncthing працює</string>
-  <string name="syncthing_disabled">Syncthing заборонено</string>
-  <!--Toast shown if syncthing failed to create a config-->
-  <!--Toast shown if a config file crucial to operation is missing-->
-  <!--Label of the default folder created of first start (camera folder).-->
-  <string name="default_folder_label">Камера</string>
-  <!--ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
-  <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
-  <!--RestApi-->
-  <!--Title of the notification shown when a restart is needed-->
-  <string name="restart_title">Необхідний перезапуск</string>
-  <!--Text for positive button in restart dialog-->
-  <!--Text for the dismiss button of the restart Activity-->
-  <!--Text of the notification shown when a restart is needed-->
-  <string name="restart_notification_text">Тисни сюди для негайного перезапуску syncthing </string>
-  <!--Shown when a device ID is copied to the clipboard-->
-  <string name="device_id_copied_to_clipboard">ID пристрою скопійовано в буфер обміну</string>
-  <!--Strings representing units for file sizes, from smallest to largest-->
-  <!--Strings representing units for transfer rates, from smallest to largest-->
-  <!--Possible folder states-->
-  <string name="state_idle">Очікування</string>
-  <string name="state_scanning">Сканування</string>
-  <string name="state_syncing">Синхронізуються (%1$d%%)</string>
-  <string name="state_error">Помилка</string>
-  <string name="state_unknown">Невідомо</string>
-  <string name="status_outofsync">Не синхронізовано</string>
-  <!--Format string for folder size, eg "500 MiB / 1 GiB"-->
-  <!--Titles used in the folder type dialog and folder type button in the folder activity-->
-  <!--Displays the current folder type in the folder activity-->
-  <string name="folder_type_sendonly">Лише відправка</string>
-  <!--Folder type dialog descriptions for folder types-->
-  <!--Titles used in the pull order dialog and pull order button in the folder activity-->
-  <!--Displays the current pull order type in the Folder activity-->
-  <!--Pull order dialog descriptions for pull order types-->
-  <!--Titles used in the file versioning dialog and file versioning button in the folder activity-->
-  <string name="maximum_age">Максимальний вік</string>
-  <string name="clean_out_after">Очистити пізніше</string>
-  <string name="file_versioning">Версіонування файлів</string>
-  <string name="none">Немає</string>
-  <string name="versions_path">Шлях до версій</string>
-  <string name="command">Команда</string>
-  <!--File versioning dialog descriptions for file versioning types and file versioning configuration options.-->
-  <string name="keep_versions_description">Кількість попередніх версій до збереження, на кожен файл</string>
-  <!--Displays the current file versioning type in the Folder activity-->
-  <!--Information displayed about the current file versioning configuration in the folder activity-->
-  <string name="show_device_id">Показати ID пристрою</string>
-  <!--error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-  <string name="could_not_access_deviceid">Немає доступу до ID пристрою</string>
-  <string name="browse">Огляд</string>
-  <string name="no_sub_folder_is_selected">Підкаталог не вибрано</string>
-</resources>
+
+    <!-- FirstStartActivity -->
+
+
+    <!-- Title for dialog displayed on first start -->
+    <string name="welcome_title">Вітаємо в Syncthing для Android</string>
+
+    <string name="cont">Продовжити</string>
+    <string name="finish">Завершити</string>
+    <string name="generic_error">Помилка</string>
+    <!-- MainActivity -->
+
+
+
+    <!-- Title of the "add folder" menu action -->
+    <string name="add_folder">Додати каталог</string>
+
+    <string name="usage_reporting_dialog_title">Дозволити відправку анонімної статистики використання?</string>
+
+    <string name="yes">Так</string>
+
+    <string name="no">Ні</string>
+
+    <string name="open_website">Відкрити сайт</string>
+
+    <string name="toast_write_storage_permission_required">Додаток потребує прав на запис на носій(картку)</string>
+
+    <!-- StateDialogActivity -->
+
+
+    <!-- Text for FoldersFragment and DevicesFragment loading view -->
+    <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
+    <string name="web_gui_creating_key">Генеруються ключі безпеки. Процедура може зайняти декілька хвилин.</string>
+    <!-- FoldersFragment -->
+
+
+    <string name="folders_fragment_title">Каталоги</string>
+
+    <!-- Shown if no folders exist -->
+    <string name="folder_list_empty">Жодного каталогу не знайдено</string>
+
+    <!-- DevicesFragment -->
+
+
+    <string name="devices_fragment_title">Пристрої</string>
+
+    <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
+    <string name="device_syncing">Синхронізуються (%1$d%%)</string>
+
+    <!-- Indicates that there is no connection to the device -->
+    <string name="device_disconnected">Від\'єднано</string>
+
+    <!-- Indicates that the device connection is unknown -->
+    <string name="device_state_unknown">Невідомо</string>
+
+    <!-- Title for current download rate -->
+    <string name="download_title">Завантаження</string>
+
+    <!-- Title for current upload rate -->
+    <string name="upload_title">Відправка</string>
+
+    <!-- DrawerFragment -->
+
+
+    <!-- Same as download_title with a colon and space appended -->
+    <string name="download_title_colon">Завантаження:\u0020</string>
+
+    <!-- Same as upload_title with a colon and space appended -->
+    <string name="upload_title_colon">Відправка:\u0020</string>
+
+    <!-- Title for current CPU usage -->
+    <string name="cpu_usage">Використання ЦП</string>
+
+    <!-- Title for current RAM usage -->
+    <string name="ram_usage">Використання RAM</string>
+
+    <string name="restart">Перезапуск</string>
+
+    <string name="dialog_confirm_restart">Бажаєте перезапустити Syncthing?</string>
+
+    <!-- FolderActivity -->
+
+
+    <!-- Setting title -->
+    <string name="folder_id">ID каталогу</string>
+
+    <!-- Setting title -->
+    <string name="folder_label">Мітка каталогу</string>
+
+    <!-- Setting title -->
+    <string name="directory">Каталог</string>
+
+    <!-- Setting title -->
+    <string name="devices">Пристрої</string>
+
+    <!-- Setting title -->
+    <string name="delete_folder">Видалити каталог</string>
+
+    <!-- Title for FolderSettingsFragment in create mode -->
+    <string name="create_folder">Створити каталог</string>
+
+    <!-- Title for FolderSettingsFragment in edit mode -->
+    <string name="edit_folder">Редагувати каталог</string>
+
+    <!-- Menu item to confirm folder creation -->
+    <string name="create">Створити</string>
+
+    <!-- Dialog shown when attempting to remove a folder -->
+    <string name="remove_folder_confirm">Ви дійсно бажаєте видалити цей каталог з Syncthing?</string>
+
+    <!-- Toast shown when trying to create a folder with an empty ID -->
+    <string name="folder_id_required">ID каталогу не може бути пустим</string>
+
+    <!-- Toast shown when trying to create a folder with an empty path -->
+    <string name="folder_path_required">Шлях до каталогу не може бути пустим</string>
+
+    <string name="dialog_discard_changes">Скасувати зміни?</string>
+
+    <string name="ignore_patterns">Ігнорувати паттерни</string>
+
+    <string name="edit_ignore_file_error">Текстові редактори не знайдено</string>
+
+    <!-- DeviceActivity -->
+
+
+    <!-- Setting title -->
+    <string name="device_id">ID пристрою</string>
+
+    <!-- Setting title -->
+    <string name="name">Ім\'я</string>
+
+    <!-- Setting title -->
+    <string name="addresses">Адреси</string>
+
+    <!-- Setting title -->
+    <string name="current_address">Поточна адреса</string>
+
+    <!-- Setting title -->
+    <string name="compression">Стиснення</string>
+
+    <!-- ActionBar item -->
+    <string name="delete_device">Видалити пристрій</string>
+
+    <string name="add_device">Додати пристрій</string>
+
+    <!-- Menu item to confirm adding a device -->
+    <string name="add">Додати</string>
+
+    <!-- Title for DeviceSettingsFragment in edit mode -->
+    <string name="edit_device">Редагувати пристрій</string>
+
+    <!-- Dialog shown when attempting to remove a device -->
+    <string name="remove_device_confirm">Дійсно бажаєте видалити цей пристрій?</string>
+
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_required">ID пристрою не може бути пустим</string>
+
+    <!-- Content description for device ID qr code icon -->
+    <string name="scan_qr_code_description">Сканувати QR код</string>
+
+    <!-- Toast show if we could not get root permissions -->
+    <string name="toast_root_denied">Права root не отримано</string>
+
+    <!-- WebGuiActivity -->
+
+
+    <!-- Title of the web gui activity -->
+    <string name="web_gui_title">Веб-інтерфейс</string>
+
+    <!-- Text for WebGuiActivity loading view -->
+    <string name="web_gui_loading">Очікую на веб-інтерфейс</string>
+
+    <!-- SettingsFragment -->
+
+
+    <string name="settings_title">Налаштування</string>
+
+    <string name="category_run_conditions">Умови запуску</string>
+    <string name="category_syncthing_options">Опції Syncthing</string>
+    <string name="category_debug">Відладка</string>
+    <string name="category_experimental">Експериментальне</string>
+
+    <!-- Preference screen - Run conditions -->
+    <string name="run_conditions_title">Умови запуску</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь-ласка, увімкніть Wi-Fi, щоби вибрати мережі</string>
+
+    <string name="respect_battery_saving_title">Відповідно до налаштувань енергозбереження пристрою в системі</string>
+    <string name="notification_type_title">Сповіщення</string>
+
+    <string name="notification_type_summary">Вибрати тип сповіщення</string>
+
+    <string-array name="notification_type_entries">
+        <item>Нормальне</item>
+        <item>Низький пріоритет</item>
+        <item>Немає</item>
+    </string-array>
+
+    <string name="preference_language_title">Мова</string>
+
+    <string name="preference_language_summary">Змінити мову пристрою</string>
+
+    <string name="start_into_web_gui_title">Перехід одразу до веб-інтерфейсу</string>
+
+    <string name="start_into_web_gui_summary">При запуску додатка, відкривати веб-інтерфейс замість головного меню</string>
+
+    <string name="pref_language_default">Мова по замовчанню</string>
+
+    <string name="device_name">Назва пристрою</string>
+
+    <string name="max_recv_kbps">Обмеження вхідної смуги пропускання (KiB/s)</string>
+
+    <string name="max_send_kbps">Обмеження вихідної смуги пропускання (KiB/s)</string>
+
+    <string name="global_announce_enabled">Взаємний пошук через публічні сервери</string>
+
+    <string name="local_announce_enabled">Взаємний пошук в локальній мережі</string>
+
+    <string name="enable_nat_traversal">Дозволити NAT Traversal</string>
+
+    <string name="global_announce_server">Публічні сервери координації NAT</string>
+
+    <string name="enable_relaying">Дозволити ретрансляцію (Relaying)</string>
+
+    <string name="usage_reporting">Статистика анонімного використання</string>
+
+    <string name="export_config">Експорт налаштувань</string>
+
+    <string name="keep_wakelock_while_binary_running">Перешкоджати режиму сну під час роботи Syncthing </string>
+
+    <string name="use_tor_title">Використовувати Tor</string>
+
+    <string name="use_legacy_hashing_title">Старий спосіб хешування</string>
+
+    <!-- Dialog shown before config import -->
+    <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію? Існуючі файли будуть перезаписані</string>
+
+    <!-- Toast shown after config was successfully exported -->
+    <string name="config_export_successful">Налаштування експортовано в %1$s</string>
+
+    <string name="import_config">Імпортувати налаштування</string>
+
+    <!-- Toast shown after config was successfully imported -->
+    <string name="config_imported_successful">Налаштування імпортовано</string>
+
+    <string name="environment_variables">Змінні оточення</string>
+
+    <!-- Toast after entering invalid STTRACE params -->
+    <string name="toast_invalid_environment_variables">Значення не відповідає формату рядка змінних оточення</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_database_title">Очистити базу даних</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_database_done">База даних  Syncthing успішно очищена</string>
+
+    <string name="category_about">Про додаток</string>
+
+    <!-- Settings item that opens the log activity -->
+    <string name="open_log">Відкрити журнал</string>
+
+    <!-- Settings item that opens issue tracker -->
+    <string name="report_issue_title">Повідомити про проблему</string>
+
+    <!-- Menu item to create folder on the file system -->
+    <string name="create_fs_folder">Створити новий каталог</string>
+
+    <!-- Menu item to select the current folder -->
+    <string name="select_folder">Вибрати каталог</string>
+
+    <string name="create_folder_failed">Не вдалося створити каталог</string>
+
+    <!-- LogActivity -->
+
+
+    <string name="syncthing_log_title">Журнал Syncthing</string>
+    <string name="android_log_title">Журнал Android</string>
+
+    <!-- Title of the "log android" menu button -->
+    <string name="view_android_log">Переглянути журнал Android</string>
+
+    <!-- Title of the "log Syncthing" menu button -->
+    <string name="view_syncthing_log">Переглянути журнал Syncthing</string>
+
+    <string name="retrieving_logs">Відкриваю журнал...</string>
+
+    <!-- Title of the "share log" menu button -->
+    <string name="share_title">Поділитися</string>
+
+    <!-- ShareActivity -->
+
+
+    <!-- Title of the "share" activity -->
+    <string name="share_activity_title">Зберегти в Syncthing</string>
+
+    <!-- Title of the "save" button -->
+    <string name="save_title">Зберегти</string>
+
+    <!-- Title of the "save" button -->
+    <string name="folder_title">Каталог</string>
+
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Підпапка</string>
+
+    <!-- SyncthingService -->
+
+
+    <!-- Title of the "syncthing disabled" dialog -->
+    <string name="syncthing_disabled_title">Syncthing заборонено</string>
+    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <string name="exit">Вихід</string>
+
+    <!-- Title of the notification shown while syncthing is running and enabled -->
+    <string name="syncthing_active">Syncthing працює</string>
+
+    <string name="syncthing_disabled">Syncthing заборонено</string>
+
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_folder_label">Камера</string>
+
+    <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
+
+    <!-- RestApi -->
+
+
+    <!-- Title of the notification shown when a restart is needed -->
+    <string name="restart_title">Необхідний перезапуск</string>
+
+    <!-- Text for positive button in restart dialog -->
+    <!-- Text for the dismiss button of the restart Activity -->
+    <!-- Text of the notification shown when a restart is needed -->
+    <string name="restart_notification_text">Тисни сюди для негайного перезапуску syncthing </string>
+
+    <!-- Shown when a device ID is copied to the clipboard -->
+    <string name="device_id_copied_to_clipboard">ID пристрою скопійовано в буфер обміну</string>
+
+    <!-- Possible folder states -->
+    <string name="state_idle">Очікування</string>
+    <string name="state_scanning">Сканування</string>
+    <string name="state_syncing">Синхронізуються (%1$d%%)</string>
+    <string name="state_error">Помилка</string>
+    <string name="state_unknown">Невідомо</string>
+    <string name="status_outofsync">Не синхронізовано</string>
+
+    <string name="folder_type_sendonly">Лише відправка</string>
+    <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
+    <string name="maximum_age">Максимальний вік</string>
+    <string name="clean_out_after">Очистити пізніше</string>
+    <string name="file_versioning">Версіонування файлів</string>
+    <string name="none">Немає</string>
+    <string name="versions_path">Шлях до версій</string>
+    <string name="command">Команда</string>
+
+    <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
+    <string name="keep_versions_description">Кількість попередніх версій до збереження, на кожен файл</string>
+    <string name="show_device_id">Показати ID пристрою</string>
+
+    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Немає доступу до ID пристрою</string>
+    <string name="browse">Огляд</string>
+    <string name="no_sub_folder_is_selected">Підкаталог не вибрано</string>
+    </resources>
