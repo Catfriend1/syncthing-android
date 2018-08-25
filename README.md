@@ -5,7 +5,10 @@ Important: Please don't file bugs at the upstream repository "syncthing-android"
 # Major enhancements in this fork are:
 - UI explains why syncthing is running or not running according to the run conditions set in preferences.
 - A welcome wizard guiding you through initial setup on first launch or if mandatory prerequisites are missing like for example the storage permission.
-- Many bug fixes, enhancements and more frequent releases.
+- Run condition bugs are fixed.
+- "Battery eater" problem is fixed.
+- Android 8+ support is on it's way.
+- Many bug fixes, enhancements and more frequent releases, see https://github.com/Catfriend1/syncthing-android/releases.
 
 # syncthing-android
 
