@@ -158,6 +158,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Title for announce server status -->
     <string name="announce_server">Indexserver</string>
 
+    <!-- Title for uptime status -->
+    <string name="uptime">Betriebszeit</string>
+
     <string name="restart">Neustart</string>
 
     <string name="dialog_confirm_restart">Möchtest du Syncthing neu starten?</string>
