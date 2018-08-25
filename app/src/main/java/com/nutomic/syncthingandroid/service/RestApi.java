@@ -31,7 +31,7 @@ import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.model.Options;
-import com.nutomic.syncthingandroid.model.SystemInfo;
+import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
 
@@ -112,11 +112,11 @@ public class RestApi {
      */
     private Boolean asyncQueryConfigComplete = false;
     private Boolean asyncQueryVersionComplete = false;
-    private Boolean asyncQuerySystemInfoComplete = false;
+    private Boolean asyncQuerySystemStatusComplete = false;
 
     /**
      * Object that must be locked upon accessing the following variables:
-     * asyncQueryConfigComplete, asyncQueryVersionComplete, asyncQuerySystemInfoComplete
+     * asyncQueryConfigComplete, asyncQueryVersionComplete, asyncQuerySystemStatusComplete
      */
     private final Object mAsyncQueryCompleteLock = new Object();
 
@@ -163,7 +163,7 @@ public class RestApi {
         synchronized (mAsyncQueryCompleteLock) {
             asyncQueryVersionComplete = false;
             asyncQueryConfigComplete = false;
-            asyncQuerySystemInfoComplete = false;
+            asyncQuerySystemStatusComplete = false;
         }
         new GetRequest(mContext, mUrl, GetRequest.URI_VERSION, mApiKey, null, result -> {
             JsonObject json = new JsonParser().parse(result).getAsJsonObject();
@@ -182,18 +182,18 @@ public class RestApi {
                 checkReadConfigFromRestApiCompleted();
             }
         });
-        getSystemInfo(info -> {
+        getSystemStatus(info -> {
             mLocalDeviceId = info.myID;
             mUrVersionMax = info.urVersionMax;
             synchronized (mAsyncQueryCompleteLock) {
-                asyncQuerySystemInfoComplete = true;
+                asyncQuerySystemStatusComplete = true;
                 checkReadConfigFromRestApiCompleted();
             }
         });
     }
 
     private void checkReadConfigFromRestApiCompleted() {
-        if (asyncQueryVersionComplete && asyncQueryConfigComplete && asyncQuerySystemInfoComplete) {
+        if (asyncQueryVersionComplete && asyncQueryConfigComplete && asyncQuerySystemStatusComplete) {
             Log.v(TAG, "Reading config from REST completed.");
             mOnApiAvailableListener.onApiAvailable();
         }
@@ -502,9 +502,9 @@ public class RestApi {
     /**
      * Requests and parses information about current system status and resource usage.
      */
-    public void getSystemInfo(OnResultListener1<SystemInfo> listener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM, mApiKey, null, result ->
-                listener.onResult(new Gson().fromJson(result, SystemInfo.class)));
+    public void getSystemStatus(OnResultListener1<SystemStatus> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_STATUS, mApiKey, null, result ->
+                listener.onResult(new Gson().fromJson(result, SystemStatus.class)));
     }
 
     public boolean isConfigLoaded() {
@@ -558,7 +558,7 @@ public class RestApi {
      * Returns status information about the folder with the given id.
      */
     public void getFolderStatus(final String folderId, final OnResultListener2<String, FolderStatus> listener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_STATUS, mApiKey,
+        new GetRequest(mContext, mUrl, GetRequest.URI_DB_STATUS, mApiKey,
                     ImmutableMap.of("folder", folderId), result -> {
             FolderStatus m = new Gson().fromJson(result, FolderStatus.class);
             mCachedFolderStatuses.put(folderId, m);

@@ -36,7 +36,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
     private static final String TAG = "DrawerFragment";
 
-    private TextView mVersion;
+    private TextView mVersion = null;
     private TextView mDrawerActionShowQrCode;
     private TextView mDrawerActionWebGui;
     private TextView mDrawerActionRestart;
@@ -44,7 +44,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private TextView mExitButton;
 
     private MainActivity mActivity;
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences = null;
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
@@ -55,6 +55,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     @Override
     public void onResume() {
         super.onResume();
+        updateLabels();
         updateButtons();
     }
 
@@ -83,9 +84,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionSettings   = view.findViewById(R.id.drawerActionSettings);
         mExitButton             = view.findViewById(R.id.drawerActionExit);
 
-        // Show static content.
-        mVersion.setText(sharedPreferences.getString(Constants.PREF_LAST_BINARY_VERSION, ""));
-
         // Add listeners to buttons.
         mDrawerActionShowQrCode.setOnClickListener(this);
         mDrawerActionWebGui.setOnClickListener(this);
@@ -93,12 +91,22 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionSettings.setOnClickListener(this);
         mExitButton.setOnClickListener(this);
 
+        updateLabels();
         updateButtons();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    /**
+     * Update static info labels.
+     */
+    private void updateLabels() {
+        if (sharedPreferences != null && mVersion != null) {
+            mVersion.setText(sharedPreferences.getString(Constants.PREF_LAST_BINARY_VERSION, ""));
+        }
     }
 
     /**

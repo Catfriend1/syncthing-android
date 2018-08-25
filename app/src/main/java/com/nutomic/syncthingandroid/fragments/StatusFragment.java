@@ -21,13 +21,14 @@ import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SettingsActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Connections;
-import com.nutomic.syncthingandroid.model.SystemInfo;
+import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Util;
 
+import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
@@ -67,6 +68,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     private String mDownload = "";
     private String mUpload = "";
     private String mAnnounceServer = "";
+    private String mUptime = "";
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser)
@@ -173,11 +175,14 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         // Add status holders refreshed by callbacks to the list.
         if (mServiceState == SyncthingService.State.ACTIVE) {
             synchronized (mStatusHolderLock) {
-                if (!TextUtils.isEmpty(mCpuUsage)) {
-                    statusItems.add(getString(R.string.cpu_usage) + ": " + mCpuUsage);
+                if (!TextUtils.isEmpty(mUptime)) {
+                    statusItems.add(getString(R.string.uptime) + ": " + mUptime);
                 }
                 if (!TextUtils.isEmpty(mRamUsage)) {
                     statusItems.add(getString(R.string.ram_usage) + ": " + mRamUsage);
+                }
+                if (!TextUtils.isEmpty(mCpuUsage)) {
+                    statusItems.add(getString(R.string.cpu_usage) + ": " + mCpuUsage);
                 }
                 if (!TextUtils.isEmpty(mDownload)) {
                     statusItems.add(getString(R.string.download_title) + ": " + mDownload);
@@ -218,26 +223,42 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
             return;
         }
         Log.v(TAG, "Invoking REST status queries");
-        restApi.getSystemInfo(this::onReceiveSystemInfo);
+        restApi.getSystemStatus(this::onReceiveSystemStatus);
         restApi.getConnections(this::onReceiveConnections);
     }
 
     /**
-     * Populates status holders with status received via {@link RestApi#getSystemInfo}.
+     * Populates status holders with status received via {@link RestApi#getSystemStatus}.
      */
-    private void onReceiveSystemInfo(SystemInfo info) {
+    private void onReceiveSystemStatus(SystemStatus systemStatus) {
         if (getActivity() == null) {
             return;
         }
         NumberFormat percentFormat = NumberFormat.getPercentInstance();
         percentFormat.setMaximumFractionDigits(2);
-        int announceTotal = info.discoveryMethods;
+        int announceTotal = systemStatus.discoveryMethods;
         int announceConnected =
-                announceTotal - Optional.fromNullable(info.discoveryErrors).transform(Map::size).or(0);
+                announceTotal - Optional.fromNullable(systemStatus.discoveryErrors).transform(Map::size).or(0);
         synchronized (mStatusHolderLock) {
-            mCpuUsage = percentFormat.format(info.cpuPercent / 100);
-            mRamUsage = Util.readableFileSize(mActivity, info.sys);
-            mAnnounceServer = String.format(Locale.getDefault(), "%1$d/%2$d", announceConnected, announceTotal);
+            mCpuUsage = (systemStatus.cpuPercent / 100 < 1) ? "" : percentFormat.format(systemStatus.cpuPercent / 100);
+            mRamUsage = Util.readableFileSize(mActivity, systemStatus.sys);
+            mAnnounceServer = (announceTotal == 0) ?
+                    "" :
+                    String.format(Locale.getDefault(), "%1$d/%2$d", announceConnected, announceTotal);
+
+            /**
+             * Calculate readable uptime.
+             */
+            long uptimeDays = TimeUnit.SECONDS.toDays(systemStatus.uptime);
+            long uptimeHours = TimeUnit.SECONDS.toHours(systemStatus.uptime) - TimeUnit.DAYS.toHours(uptimeDays);
+            long uptimeMinutes = TimeUnit.SECONDS.toMinutes(systemStatus.uptime) - TimeUnit.HOURS.toMinutes(uptimeHours) - TimeUnit.DAYS.toMinutes(uptimeDays);
+            if (uptimeDays > 0) {
+                mUptime = String.format(Locale.getDefault(), "%dd %02dh %02dm", uptimeDays, uptimeHours, uptimeMinutes);
+            } else if (uptimeHours > 0) {
+                mUptime = String.format(Locale.getDefault(), "%dh %02dm", uptimeHours, uptimeMinutes);
+            } else {
+                mUptime = String.format(Locale.getDefault(), "%dm", uptimeMinutes);
+            }
         }
         updateStatus();
     }
@@ -251,8 +272,12 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         }
         Connections.Connection c = connections.total;
         synchronized (mStatusHolderLock) {
-            mDownload = Util.readableTransferRate(mActivity, c.inBits);
-            mUpload = Util.readableTransferRate(mActivity, c.outBits);
+            /**
+             * Hide the rates on the UI if they are lower than 1 KByte/sec. We don't like to
+             * bother the user looking at discovery or index exchange traffic.
+             */
+            mDownload = (c.inBits / 8 < 1024) ? "" : Util.readableTransferRate(mActivity, c.inBits);
+            mUpload = (c.outBits / 8 < 1024) ? "" : Util.readableTransferRate(mActivity, c.outBits);
         }
         updateStatus();
     }

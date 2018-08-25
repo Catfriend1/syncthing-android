@@ -340,8 +340,8 @@ public class SettingsActivity extends SyncthingActivity {
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
             mAddress.setText(mGui.address);
             mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
-            mApi.getSystemInfo(systemInfo ->
-                    mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemInfo.urVersionMax)));
+            mApi.getSystemStatus(systemStatus ->
+                    mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemStatus.urVersionMax)));
         }
 
         @Override
@@ -439,9 +439,9 @@ public class SettingsActivity extends SyncthingActivity {
                     mOptions.restartOnWakeup = (boolean) o;
                     break;
                 case "urAccepted":
-                    mApi.getSystemInfo(systemInfo -> {
+                    mApi.getSystemStatus(systemStatus -> {
                         mOptions.urAccepted = ((boolean) o)
-                                ? systemInfo.urVersionMax
+                                ? systemStatus.urVersionMax
                                 : Options.USAGE_REPORTING_DENIED;
                     });
                     break;
