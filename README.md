@@ -8,7 +8,7 @@ Important: Please don't file bugs at the upstream repository "syncthing-android"
 - Many bug fixes, enhancements and more frequent releases.
 
 # syncthing-android
-android)
+
 [![License: MPLv2](https://img.shields.io/badge/License-MPLv2-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android.
