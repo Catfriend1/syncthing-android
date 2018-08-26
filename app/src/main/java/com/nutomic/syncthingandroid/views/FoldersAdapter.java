@@ -99,7 +99,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
         long neededItems = folderStatus.needFiles + folderStatus.needDirectories + folderStatus.needSymlinks + folderStatus.needDeletes;
         boolean outOfSync = folderStatus.state.equals("idle") && neededItems > 0;
-        boolean overrideButtonVisible = (folder.type == Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
+        boolean overrideButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
         binding.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
         if (outOfSync) {
             binding.state.setText(mContext.getString(R.string.status_outofsync));
