@@ -5,7 +5,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -32,6 +31,7 @@ import com.google.gson.Gson;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -81,7 +81,7 @@ public class FolderActivity extends SyncthingActivity
     private static final int CHOOSE_FOLDER_REQUEST = 3459;
 
     private static final String FOLDER_MARKER_NAME = ".stfolder";
-    private static final String IGNORE_FILE_NAME = ".stignore";
+    // private static final String IGNORE_FILE_NAME = ".stignore";
 
     private Folder mFolder;
     // Contains SAF readwrite access URI on API level >= Build.VERSION_CODES.LOLLIPOP (21)
@@ -102,7 +102,8 @@ public class FolderActivity extends SyncthingActivity
     private TextView mPullOrderDescriptionView;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
-    private TextView mEditIgnores;
+    private TextView mEditIgnoreListTitle;
+    private TextView mEditIgnoreListContent;
 
     private boolean mIsCreateMode;
     private boolean mFolderNeedsToUpdate = false;
@@ -118,6 +119,7 @@ public class FolderActivity extends SyncthingActivity
             mFolder.label        = mLabelView.getText().toString();
             mFolder.id           = mIdView.getText().toString();;
             // mPathView must not be handled here as it's handled by {@link onActivityResult}
+            // mEditIgnoreListContent must not be handled here as it's written back when the dialog ends.
             mFolderNeedsToUpdate = true;
         }
     };
@@ -170,14 +172,14 @@ public class FolderActivity extends SyncthingActivity
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mDevicesContainer = findViewById(R.id.devicesContainer);
-        mEditIgnores = findViewById(R.id.edit_ignores);
+        mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
+        mEditIgnoreListContent = findViewById(R.id.edit_ignore_list_content);
 
         mPathView.setOnClickListener(view -> onPathViewClick());
 
         findViewById(R.id.folderTypeContainer).setOnClickListener(v -> showFolderTypeDialog());
         findViewById(R.id.pullOrderContainer).setOnClickListener(v -> showPullOrderDialog());
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
-        mEditIgnores.setOnClickListener(v -> editIgnores());
 
         if (mIsCreateMode) {
             if (savedInstanceState != null) {
@@ -191,7 +193,8 @@ public class FolderActivity extends SyncthingActivity
             }
             // Open keyboard on label view in edit mode.
             mLabelView.requestFocus();
-            mEditIgnores.setEnabled(false);
+            mEditIgnoreListTitle.setEnabled(false);
+            mEditIgnoreListContent.setEnabled(false);
         }
         else {
             // Prepare edit mode.
@@ -236,27 +239,6 @@ public class FolderActivity extends SyncthingActivity
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
         startActivityForResult(intent, CHOOSE_FOLDER_REQUEST);
-    }
-
-    private void editIgnores() {
-        try {
-            File ignoreFile = new File(mFolder.path, IGNORE_FILE_NAME);
-            if (!ignoreFile.exists() && !ignoreFile.createNewFile()) {
-                Toast.makeText(this, R.string.create_ignore_file_error, Toast.LENGTH_SHORT).show();
-                return;
-            }
-            Intent intent = new Intent(Intent.ACTION_EDIT);
-            Uri uri = Uri.fromFile(ignoreFile);
-            intent.setDataAndType(uri, "text/plain");
-            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-
-            startActivity(intent);
-        } catch (IOException e) {
-            Log.w(TAG, e);
-        } catch (ActivityNotFoundException e) {
-            Log.w(TAG, e);
-            Toast.makeText(this, R.string.edit_ignore_file_error, Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void showFolderTypeDialog() {
@@ -318,15 +300,23 @@ public class FolderActivity extends SyncthingActivity
         }
         mLabelView.removeTextChangedListener(mTextWatcher);
         mIdView.removeTextChangedListener(mTextWatcher);
+        mEditIgnoreListContent.removeTextChangedListener(mTextWatcher);
     }
 
     @Override
     public void onPause() {
+        try {
+            // This should trigger {@link #mTextWatcher} if the element still has the focus.
+            mEditIgnoreListContent.clearFocus();
+        } catch (Exception e) {
+            Log.e(TAG, "onPause: mEditIgnoreListContent", e);
+        }
         super.onPause();
 
         // We don't want to update every time a TextView's character changes,
         // so we hold off until the view stops being visible to the user.
         if (mFolderNeedsToUpdate) {
+            Log.v(TAG, "onPause: mFolderNeedsToUpdate == true");
             updateFolder();
         }
     }
@@ -362,7 +352,8 @@ public class FolderActivity extends SyncthingActivity
         }
 
         if (!mIsCreateMode) {
-            List<Folder> folders = getApi().getFolders();
+            RestApi restApi = getApi();     // restApi != null because of State.ACTIVE
+            List<Folder> folders = restApi.getFolders();
             String passedId = getIntent().getStringExtra(EXTRA_FOLDER_ID);
             mFolder = null;
             for (Folder currentFolder : folders) {
@@ -376,6 +367,7 @@ public class FolderActivity extends SyncthingActivity
                 finish();
                 return;
             }
+            restApi.getFolderIgnoreList(mFolder.id, this::onReceiveFolderIgnoreList);
             checkWriteAndUpdateUI();
         }
         if (getIntent().hasExtra(EXTRA_DEVICE_ID)) {
@@ -386,6 +378,18 @@ public class FolderActivity extends SyncthingActivity
         attemptToApplyVersioningConfig();
 
         updateViewsAndSetListeners();
+    }
+
+    private void onReceiveFolderIgnoreList(FolderIgnoreList folderIgnoreList) {
+        if (folderIgnoreList.ignore == null) {
+            Log.w(TAG, "onReceiveFolderIgnoreList: folderIgnoreList == null.");
+            return;
+        }
+        String ignoreList = TextUtils.join("\n", folderIgnoreList.ignore);
+        mEditIgnoreListContent.setMaxLines(Integer.MAX_VALUE);
+        mEditIgnoreListContent.removeTextChangedListener(mTextWatcher);
+        mEditIgnoreListContent.setText(ignoreList);
+        mEditIgnoreListContent.addTextChangedListener(mTextWatcher);
     }
 
     // If the FolderActivity gets recreated after the VersioningDialogActivity is closed, then the result from the VersioningDialogActivity will be received before
@@ -568,7 +572,6 @@ public class FolderActivity extends SyncthingActivity
         if (mCanWriteToPath) {
             mAccessExplanationView.setText(R.string.folder_path_readwrite);
             mFolderTypeView.setEnabled(true);
-            mEditIgnores.setEnabled(true);
             if (mIsCreateMode) {
                 /**
                  * Suggest folder type FOLDER_TYPE_SEND_RECEIVE for folders to be created
@@ -577,12 +580,16 @@ public class FolderActivity extends SyncthingActivity
                  * or enabled root mode thus having write access.
                  */
                 mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;
+            } else {
+                mEditIgnoreListTitle.setEnabled(true);
+                mEditIgnoreListContent.setEnabled(true);
             }
         } else {
             // Force "sendonly" folder.
             mAccessExplanationView.setText(R.string.folder_path_readonly);
             mFolderTypeView.setEnabled(false);
-            mEditIgnores.setEnabled(false);
+            mEditIgnoreListTitle.setEnabled(false);
+            mEditIgnoreListContent.setEnabled(false);
             mFolder.type = Constants.FOLDER_TYPE_SEND_ONLY;
         }
     }
@@ -644,11 +651,23 @@ public class FolderActivity extends SyncthingActivity
 
     private void updateFolder() {
         if (!mIsCreateMode) {
+            RestApi restApi = getApi();
             /**
              * RestApi is guaranteed not to be null as {@link onServiceStateChange}
              * immediately finishes this activity if SyncthingService shuts down.
              */
-            getApi().updateFolder(mFolder);
+            /*
+            if (restApi == null) {
+                Log.e(TAG, "updateFolder: restApi == null");
+                return;
+            }
+            */
+            // Update ignore list.
+            String[] ignore = mEditIgnoreListContent.getText().toString().split("\n");
+            restApi.postFolderIgnoreList(mFolder.id, ignore);
+
+            // Update model and send the config to REST endpoint.
+            restApi.updateFolder(mFolder);
         }
     }
 

@@ -160,11 +160,6 @@
     <string name="dialog_discard_changes">変更を破棄しますか?</string>
 
     <string name="ignore_patterns">無視するパターン</string>
-
-    <string name="create_ignore_file_error">無視ファイルの作成に失敗しました。ディレクトリは書き込み可能ですか?</string>
-
-    <string name="edit_ignore_file_error">テキストエディタが見つかりません</string>
-
     <!-- DeviceActivity -->
 
 

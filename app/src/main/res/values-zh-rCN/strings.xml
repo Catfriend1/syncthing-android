@@ -162,11 +162,6 @@
     <string name="dialog_discard_changes">放弃所做的更改？</string>
 
     <string name="ignore_patterns">忽略列表</string>
-
-    <string name="create_ignore_file_error">创建忽略文件失败。文件夹可写吗？</string>
-
-    <string name="edit_ignore_file_error">未找到文本编辑器</string>
-
     <!-- DeviceActivity -->
 
 

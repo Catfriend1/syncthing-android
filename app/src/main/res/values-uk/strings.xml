@@ -119,9 +119,6 @@
     <string name="dialog_discard_changes">Скасувати зміни?</string>
 
     <string name="ignore_patterns">Ігнорувати паттерни</string>
-
-    <string name="edit_ignore_file_error">Текстові редактори не знайдено</string>
-
     <!-- DeviceActivity -->
 
 

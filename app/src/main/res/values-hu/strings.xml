@@ -178,11 +178,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
     <string name="dialog_discard_changes">Elveted a módosításaidat?</string>
 
     <string name="ignore_patterns">Kihagyási minták</string>
-
-    <string name="create_ignore_file_error">Nem sikerült létrehozni a kihagyási fájlt. Írható a könyvtár?</string>
-
-    <string name="edit_ignore_file_error">Nem található szövegszerkesztő</string>
-
     <!-- DeviceActivity -->
 
 

@@ -158,11 +158,6 @@
     <string name="dialog_discard_changes">放棄變更？</string>
 
     <string name="ignore_patterns">忽略樣式</string>
-
-    <string name="create_ignore_file_error">無法建立忽略檔案。資料夾是可寫入的？</string>
-
-    <string name="edit_ignore_file_error">找不到文字編輯器</string>
-
     <!-- DeviceActivity -->
 
 

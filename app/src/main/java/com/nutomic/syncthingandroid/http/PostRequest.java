@@ -13,14 +13,17 @@ import java.util.Map;
 
 public class PostRequest extends ApiRequest {
 
-    public static final String URI_DB_OVERRIDE = "/rest/db/override";
+    public static final String URI_DB_IGNORES       = "/rest/db/ignores";
+    public static final String URI_DB_OVERRIDE      = "/rest/db/override";
+    public static final String URI_SYSTEM_CONFIG    = "/rest/system/config";
 
     public PostRequest(Context context, URL url, String path, String apiKey,
-        	           @Nullable Map<String, String> params, OnSuccessListener listener) {
+        	           @Nullable Map<String, String> params, @Nullable String postBody,
+                       OnSuccessListener listener) {
         super(context, url, path, apiKey);
         Map<String, String> safeParams = Optional.fromNullable(params).or(Collections.emptyMap());
         Uri uri = buildUri(safeParams);
-        connect(Request.Method.POST, uri, null, listener, null);
+        connect(Request.Method.POST, uri, postBody, listener, null);
     }
 
 }

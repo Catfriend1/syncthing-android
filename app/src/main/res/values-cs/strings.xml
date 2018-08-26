@@ -163,11 +163,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <string name="dialog_discard_changes">Zrušit změny?</string>
 
     <string name="ignore_patterns">Ignorované vzory</string>
-
-    <string name="create_ignore_file_error">Vytvoření souboru s ignorovanými vzory selhalo. Umožňuje složka zápis?</string>
-
-    <string name="edit_ignore_file_error">Nenalezen žádný textový editor</string>
-
     <!-- DeviceActivity -->
 
 

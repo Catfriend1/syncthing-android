@@ -21,6 +21,7 @@ public class GetRequest extends ApiRequest {
     public static final String URI_VERSION          = "/rest/system/version";
     public static final String URI_SYSTEM_STATUS    = "/rest/system/status";
     public static final String URI_CONNECTIONS      = "/rest/system/connections";
+    public static final String URI_DB_IGNORES       = "/rest/db/ignores";
     public static final String URI_DB_STATUS        = "/rest/db/status";
     public static final String URI_DEVICEID         = "/rest/svc/deviceid";
     public static final String URI_REPORT           = "/rest/svc/report";

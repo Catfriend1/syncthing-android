@@ -153,11 +153,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <string name="dialog_discard_changes">Abaikan perubahan anda?</string>
 
     <string name="ignore_patterns">Pola pengabaian</string>
-
-    <string name="create_ignore_file_error">Gagal membuat berkas ignore. Apakah direktori bisa ditulisi?</string>
-
-    <string name="edit_ignore_file_error">Tidak ada editor teks yang ditemukan</string>
-
     <!-- DeviceActivity -->
 
 

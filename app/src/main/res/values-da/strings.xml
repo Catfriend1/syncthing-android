@@ -159,11 +159,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <string name="dialog_discard_changes">Slet dine ændringer?</string>
 
     <string name="ignore_patterns">Ignorer-mønstre</string>
-
-    <string name="create_ignore_file_error">Kunne ikke danne ignorer-filen. Er mappen skrivebeskyttet?</string>
-
-    <string name="edit_ignore_file_error">Intet tekstbehandlingsprogram blev fundet</string>
-
     <!-- DeviceActivity -->
 
 

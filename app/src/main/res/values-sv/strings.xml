@@ -191,11 +191,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="toast_invalid_folder_selected">Tyvärr. Den valda mappen kan inte användas. Välj en mapp som finns på intern eller extern lagring.</string>
 
     <string name="ignore_patterns">Ignorera mönster</string>
-
-    <string name="create_ignore_file_error">Misslyckades med att skapa ignorera-fil. Är katalogen skrivbar?</string>
-
-    <string name="edit_ignore_file_error">Ingen textredigerare hittades</string>
-
     <!-- DeviceActivity -->
 
 

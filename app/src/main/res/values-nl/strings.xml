@@ -174,11 +174,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="dialog_discard_changes">Wijzigingen verwerpen?</string>
 
     <string name="ignore_patterns">Patronen negeren</string>
-
-    <string name="create_ignore_file_error">Aanmaken van ignore-bestand mislukt. Is de map schrijfbaar?</string>
-
-    <string name="edit_ignore_file_error">Geen tekstverwerker gevonden</string>
-
     <!-- DeviceActivity -->
 
 

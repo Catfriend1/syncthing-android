@@ -21,7 +21,6 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.ShareActivity;
 import com.nutomic.syncthingandroid.http.GetRequest;
 import com.nutomic.syncthingandroid.http.PostRequest;
-import com.nutomic.syncthingandroid.http.PostConfigRequest;
 import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Completion;
 import com.nutomic.syncthingandroid.model.CompletionInfo;
@@ -29,6 +28,7 @@ import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.SystemStatus;
@@ -299,7 +299,7 @@ public class RestApi {
     public void overrideChanges(String folderId) {
         Log.d(TAG, "overrideChanges '" + folderId + "'");
         new PostRequest(mContext, mUrl, PostRequest.URI_DB_OVERRIDE, mApiKey,
-            ImmutableMap.of("folder", folderId), null);
+            ImmutableMap.of("folder", folderId), null, null);
     }
 
     /**
@@ -312,7 +312,8 @@ public class RestApi {
         synchronized (mConfigLock) {
             jsonConfig = new Gson().toJson(mConfig);
         }
-        new PostConfigRequest(mContext, mUrl, mApiKey, jsonConfig, null);
+        new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_CONFIG, mApiKey,
+            null, jsonConfig, null);
         mOnConfigChangedListener.onConfigChanged();
     }
 
@@ -324,7 +325,8 @@ public class RestApi {
         synchronized (mConfigLock) {
             jsonConfig = new Gson().toJson(mConfig);
         }
-        new PostConfigRequest(mContext, mUrl, mApiKey, jsonConfig, result -> {
+        new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_CONFIG, mApiKey,
+                null, jsonConfig, result -> {
             Intent intent = new Intent(mContext, SyncthingService.class)
                     .setAction(SyncthingService.ACTION_RESTART);
             mContext.startService(intent);
@@ -511,6 +513,27 @@ public class RestApi {
         synchronized(mConfigLock) {
             return mConfig != null;
         }
+    }
+
+    /**
+     * Requests ignore list for given folder.
+     */
+    public void getFolderIgnoreList(String folderId, OnResultListener1<FolderIgnoreList> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_DB_IGNORES, mApiKey,
+                ImmutableMap.of("folder", folderId), result -> {
+            FolderIgnoreList folderIgnoreList = new Gson().fromJson(result, FolderIgnoreList.class);
+            listener.onResult(folderIgnoreList);
+        });
+    }
+
+    /**
+     * Posts ignore list for given folder.
+     */
+    public void postFolderIgnoreList(String folderId, String[] ignore) {
+        FolderIgnoreList folderIgnoreList = new FolderIgnoreList();
+        folderIgnoreList.ignore = ignore;
+        new PostRequest(mContext, mUrl, PostRequest.URI_DB_IGNORES, mApiKey,
+            ImmutableMap.of("folder", folderId), new Gson().toJson(folderIgnoreList), null);
     }
 
     /**

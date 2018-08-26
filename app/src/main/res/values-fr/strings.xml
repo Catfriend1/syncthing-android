@@ -174,11 +174,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="dialog_discard_changes">Annuler vos modifications ?</string>
 
     <string name="ignore_patterns">Ignorer les exclusions</string>
-
-    <string name="create_ignore_file_error">Création de fichier échoué, fichier ignoré. Le répertoire est-il accessible en écriture ?</string>
-
-    <string name="edit_ignore_file_error">Editeur de texte non trouvé</string>
-
     <!-- DeviceActivity -->
 
 

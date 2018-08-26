@@ -159,11 +159,6 @@
     <string name="dialog_discard_changes">Να απορριφθούν οι αλλαγές που κάνατε;</string>
 
     <string name="ignore_patterns">Πρότυπα για αγνόηση</string>
-
-    <string name="create_ignore_file_error">Αδυναμία δημιουργίας αρχείου προτύπων αγνόησης. Υπάρχει δικαίωμα εγγραφής στον κατάλογο;</string>
-
-    <string name="edit_ignore_file_error">Δεν βρέθηκε επεξεργαστής κειμένου</string>
-
     <!-- DeviceActivity -->
 
 

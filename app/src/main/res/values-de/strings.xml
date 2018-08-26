@@ -223,11 +223,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="toast_invalid_folder_selected">Entschuldigung. Der ausgewählte Ordner kann nicht verwendet werden. Bitte wähle einen Ordner auf dem internen oder externen Speicher aus.</string>
 
     <string name="ignore_patterns">Ausschluss Muster</string>
-
-    <string name="create_ignore_file_error">Erstellen der ignore Datei fehlgeschlagen. Kann ins Verzeichnis geschrieben werden?</string>
-
-    <string name="edit_ignore_file_error">Texteditor nicht gefunden</string>
-
     <!-- DeviceActivity -->
 
 

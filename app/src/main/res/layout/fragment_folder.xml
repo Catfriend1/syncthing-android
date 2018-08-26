@@ -222,7 +222,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
                 <TextView
-                    android:id="@+id/edit_ignores"
+                    android:id="@+id/edit_ignore_list_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -231,6 +231,21 @@
                     android:drawableLeft="@drawable/ic_visibility_off_black_24dp"
                     android:drawableStart="@drawable/ic_visibility_off_black_24dp"
                     android:text="@string/ignore_patterns"/>
+
+                <EditText
+                    android:id="@+id/edit_ignore_list_content"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:inputType="textMultiLine"
+                    android:gravity="top|start"
+                    android:hint="@string/ignore_patterns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="-20dp"
+                    android:minLines="5"
+                    android:maxLines="100"
+                    android:scrollbars="none"/>
 
             </LinearLayout>
         </LinearLayout>

@@ -172,11 +172,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="dialog_discard_changes">Voleu descartar els canvis?</string>
 
     <string name="ignore_patterns">Patrons a ignorar</string>
-
-    <string name="create_ignore_file_error">No s\'ha pogut crear el fitxer d\'ignorats. Es pot escriure al directori?</string>
-
-    <string name="edit_ignore_file_error">No hi ha cap editor de text</string>
-
     <!-- DeviceActivity -->
 
 

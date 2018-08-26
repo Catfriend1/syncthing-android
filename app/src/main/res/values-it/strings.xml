@@ -174,11 +174,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
     <string name="dialog_discard_changes">Annullare le modifiche?</string>
 
     <string name="ignore_patterns">Schemi Esclusione File</string>
-
-    <string name="create_ignore_file_error">Impossibile creare il file delle esclusioni. La directory è scrivibile?</string>
-
-    <string name="edit_ignore_file_error">Nessun editor di testo trovato</string>
-
     <!-- DeviceActivity -->
 
 

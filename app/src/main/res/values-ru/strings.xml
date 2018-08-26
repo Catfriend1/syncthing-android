@@ -176,11 +176,6 @@
     <string name="dialog_discard_changes">Отменить внесённые изменения?</string>
 
     <string name="ignore_patterns">Шаблоны игнорирования</string>
-
-    <string name="create_ignore_file_error">Ошибка при попытке создания файла с шаблонами игнорирования. У папки есть право на запись?</string>
-
-    <string name="edit_ignore_file_error">Текстовый редактор не найден</string>
-
     <!-- DeviceActivity -->
 
 

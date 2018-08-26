@@ -174,11 +174,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="dialog_discard_changes">Descartar as alterações?</string>
 
     <string name="ignore_patterns">Filtros</string>
-
-    <string name="create_ignore_file_error">Não foi possível criar o arquivo de filtros. Este diretório tem permissões de escrita?</string>
-
-    <string name="edit_ignore_file_error">Nenhum editor de texto foi encontrado</string>
-
     <!-- DeviceActivity -->
 
 

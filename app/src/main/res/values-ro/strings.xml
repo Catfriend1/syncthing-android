@@ -192,11 +192,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="toast_invalid_folder_selected">Ne pare rău. Directorul selectat nu poate fi folosit. Vă rugăm să alegeți un director localizat pe stocarea internă sau externă.</string>
 
     <string name="ignore_patterns">Ignoră șabloane</string>
-
-    <string name="create_ignore_file_error">Nu s-a putut crea fișierul de ignorare. Se poate scrie în director?</string>
-
-    <string name="edit_ignore_file_error">Nu s-a găsit nici un editor de text</string>
-
     <!-- DeviceActivity -->
 
 

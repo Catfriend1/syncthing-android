@@ -158,11 +158,6 @@
     <string name="dialog_discard_changes">설정 변경을 취소합니까?</string>
 
     <string name="ignore_patterns">패턴 무시하기</string>
-
-    <string name="create_ignore_file_error">무시 파일을 만들지 못했습니다. 디렉토리가 쓰기 가능합니까?</string>
-
-    <string name="edit_ignore_file_error">텍스트 편집기를 찾을 수 없습니다</string>
-
     <!-- DeviceActivity -->
 
 

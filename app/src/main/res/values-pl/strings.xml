@@ -163,11 +163,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="dialog_discard_changes">Porzucić zmiany?</string>
 
     <string name="ignore_patterns">Wzorce ignorowania</string>
-
-    <string name="create_ignore_file_error">Nie powiodło się tworzenie pliku ze wzorcami ignorowania. Czy do folderu można zapisywać?</string>
-
-    <string name="edit_ignore_file_error">Nie znaleziono edytora tekstu</string>
-
     <!-- DeviceActivity -->
 
 
