@@ -103,7 +103,7 @@ public class FolderActivity extends SyncthingActivity
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private TextView mEditIgnoreListTitle;
-    private TextView mEditIgnoreListContent;
+    private EditText mEditIgnoreListContent;
 
     private boolean mIsCreateMode;
     private boolean mFolderNeedsToUpdate = false;
