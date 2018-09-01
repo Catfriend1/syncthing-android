@@ -1,7 +1,3 @@
-This a fork. There are no builds of it on GPlay nor F-Droid. Head to the "releases" section for builds. Please open an issue under this fork if you need help.
-
-Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
-
 # Major enhancements in this fork are:
 - UI explains why syncthing is running or not running according to the run conditions set in preferences.
 - A welcome wizard guiding you through initial setup on first launch or if mandatory prerequisites are missing like for example the storage permission.
@@ -16,7 +12,7 @@ Important: Please don't file bugs at the upstream repository "syncthing-android"
 <a href="https://github.com/Catfriend1/syncthing-android/releases" alt="GitHub release"><img src="https://img.shields.io/github/release/Catfriend1/syncthing-android/all.svg" /></a>
 <a href="https://f-droid.org/de/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/f-droid/v/com.github.catfriend1.syncthingandroid.svg" /></a>
 
-A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android.
+A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
 <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_1.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_2.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_3.png" alt="screenshot 3" width="200" />
 
