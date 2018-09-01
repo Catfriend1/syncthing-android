@@ -1,0 +1,50 @@
+Categories:
+  - Internet
+License: MPL-2.0
+WebSite: https://github.com/Catfriend1/syncthing-android
+SourceCode: https://github.com/Catfriend1/syncthing-android
+IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
+Changelog: https://github.com/Catfriend1/syncthing-android/releases
+
+AutoName: Syncthing-Fork (Catfriend1)
+Summary: File synchronization
+Description: |-
+    This is a fork of [[com.nutomic.syncthingandroid]] that brings major
+    enhancements like:
+    * UI explains why syncthing is running or not running according to the run
+    conditions set in preferences.
+    * A welcome wizard guiding you through initial setup on first launch or if
+    mandatory prerequisites are missing like for example the storage permission.
+    * Run condition bugs are fixed.
+    * "Battery eater" problem is fixed.
+    * Android 8+ support is on it's way.
+    Syncthing replaces proprietary sync and cloud services with something open,
+    trustworthy and decentralized. Your data is your data alone and you deserve to
+    choose where it is stored, if it is shared with some third party and how it's
+    transmitted over the Internet.
+
+RepoType: git
+Repo: https://github.com/Catfriend1/syncthing-android.git
+
+Builds:
+  - versionName: 0.14.50.rc2.5
+    versionCode: 4153
+    commit: v0.14.50.rc2.5
+    submodules: true
+    sudo: |-
+        apt-get install -y golang-1.9-go/testing
+        ln -s /usr/lib/go-1.9/bin/go /usr/bin/go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r15c
+    preassemble:
+      - buildNative
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[a-z0-9.]*$
+CurrentVersion: 0.14.50.rc2.5
+CurrentVersionCode: 4153

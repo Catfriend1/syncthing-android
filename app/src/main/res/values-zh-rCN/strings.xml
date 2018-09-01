@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Syncthing</string>
+    <string name="app_name">Syncthing-Fork</string>
 
     <string name="app_description">开放、分布式且值得信赖的文件同步应用。</string>
 

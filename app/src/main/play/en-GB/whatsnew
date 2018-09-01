@@ -1,6 +1,19 @@
-* Add Welcome wizard
-* Improve run conditions and their UI
-* Update syncthing to v0.14.50-rc.1
-* Add support for receive only folder type
-* Increase max_user_watches kernel setting on startup on rooted devices
-* Fixed a race condition that could lead to crashes
+Enhancements
+* UI explains why syncthing is running or not running according to the run conditions set in preferences.
+* Improved run conditions and their UI
+* Better default prefs, crash detection and fixes
+* Stop polling when the user doesn't look at a tab
+* Support in-app editing of folder's ignore list items
+* Welcome wizard slide added for key and config generation on first app launch
+* Added welcome wizard
+* Added support for receive only folder type
+* Added "Uptime" to status tab
+
+Fixes
+* Added detection for wireless charging
+* Fixed phone plugged to charger detection
+* Fixed override changes button not showing
+* Fixed the "battery eater"
+
+Maintenance
+* Updated syncthing to v0.14.50-rc.2

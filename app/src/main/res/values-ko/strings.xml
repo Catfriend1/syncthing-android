@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Syncthing</string>
+    <string name="app_name">Syncthing-Fork</string>
 
     <string name="app_description">공개되어 믿을 수 있는, 분산 파일 동기화 응용 프로그램.</string>
 
