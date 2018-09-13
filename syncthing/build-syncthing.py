@@ -47,8 +47,65 @@ def get_min_sdk(project_dir):
 
 def get_ndk_home():
     if not os.environ.get('ANDROID_NDK_HOME', ''):
-        fail('ANDROID_NDK_HOME environment variable not defined')
+        fail('Error: ANDROID_NDK_HOME environment variable not defined')
     return os.environ['ANDROID_NDK_HOME']
+
+def which(program):
+    import os
+    def is_exe(fpath):
+        return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
+
+    fpath, fname = os.path.split(program)
+    if fpath:
+        if is_exe(program):
+            return program
+    else:
+        for path in os.environ["PATH"].split(os.pathsep):
+            exe_file = os.path.join(path, program)
+            if is_exe(exe_file):
+                return exe_file
+
+    return None
+
+def install_go():
+    import os
+    import tarfile
+    import urllib
+    import hashlib
+
+    # Consts.
+    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    url = 'https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz'
+    expected_shasum = '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee'
+
+    # Download prebuilt-go.
+    url_base_name = os.path.basename(url)
+    tar_gz_fullfn = pwd_path + os.path.sep + 'go.tgz';
+    if not os.path.isfile(tar_gz_fullfn):
+        print('Downloading prebuilt-go tar to:', tar_gz_fullfn)
+        tar_gz_fullfn = urllib.urlretrieve(url, tar_gz_fullfn)[0]
+    print('Downloaded prebuilt-go tar to:', tar_gz_fullfn)
+
+    # Verfiy SHA-1 checksum of downloaded files.
+    with open(tar_gz_fullfn, 'rb') as f:
+        contents = f.read()
+        found_shasum = hashlib.sha256(contents).hexdigest()
+        print("SHA-256:", tar_gz_fullfn, "%s" % found_shasum)
+    if found_shasum != expected_shasum:
+        fail('Error: SHA-256 checksum', found_shasum, 'of downloaded file does not match expected checksum', expected_shasum)
+    print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
+
+    # Proceed with extraction of the prebuilt go.
+    # This will go to a subfolder "go" in the current path.
+    print("Extracting prebuilt-go ...")
+    file_name, file_extension = os.path.splitext(url_base_name)
+    tar = tarfile.open(tar_gz_fullfn)
+    tar.extractall(pwd_path)
+
+    # Add (...).tar/go/bin" to the PATH.
+    go_bin_path = pwd_path + os.path.sep + 'go' + os.path.sep + 'bin'
+    print('Adding to PATH:', go_bin_path)
+    os.environ["PATH"] += os.pathsep + go_bin_path
 
 
 if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
@@ -62,6 +119,18 @@ build_dir = os.path.join(module_dir, 'gobuild')
 go_build_dir = os.path.join(build_dir, 'go-packages')
 syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'syncthing')
 min_sdk = get_min_sdk(project_dir)
+
+# Check if go is available.
+go_bin = which("go");
+if not go_bin:
+    print('Warning: go is not available on the PATH.')
+    install_go();
+
+# Retry: Check if go is available.
+go_bin = which("go");
+if not go_bin:
+    fail('Error: go is not available on the PATH.')
+print ('go_bin [', go_bin, ']')
 
 # Make sure all tags are available for git describe
 # https://github.com/syncthing/syncthing-android/issues/872
@@ -79,16 +148,12 @@ for target in BUILD_TARGETS:
 
     if os.environ.get('SYNCTHING_ANDROID_PREBUILT', ''):
         # The environment variable indicates the SDK and stdlib was prebuilt, set a custom paths.
-        standalone_ndk_dir = '%s/standalone-ndk/android-%s-%s' % (
-            get_ndk_home(), target_min_sdk, target['goarch']
-        )
+        standalone_ndk_dir = get_ndk_home() + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
         pkg_argument = []
     else:
         # Build standalone NDK toolchain if it doesn't exist.
         # https://developer.android.com/ndk/guides/standalone_toolchain.html
-        standalone_ndk_dir = '%s/standalone-ndk/android-%s-%s' % (
-            build_dir, target_min_sdk, target['goarch']
-        )
+        standalone_ndk_dir = build_dir + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
         pkg_argument = ['-pkgdir', os.path.join(go_build_dir, target['goarch'])]
 
     if not os.path.isdir(standalone_ndk_dir):
@@ -122,7 +187,7 @@ for target in BUILD_TARGETS:
     syncthingVersion = syncthingVersion.replace("rc", "preview");
     print('Building syncthing version', syncthingVersion);
     subprocess.check_call([
-                              'go', 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
+                              go_bin, 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
                               '-version', syncthingVersion
                           ] + pkg_argument + ['-no-upgrade', 'build'], env=environ, cwd=syncthing_dir)
 

@@ -29,5 +29,9 @@ project.properties
 gradle/wrapper/gradle/
 gradle/wrapper/gradlew*
 
+# Prebuilt-go
+syncthing/go
+syncthing/go.tgz
+
 # External build artifacts
 ext/

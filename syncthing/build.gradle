@@ -11,4 +11,5 @@ task buildNative(type: Exec) {
 task cleanNative(type: Delete) {
     delete "$projectDir/../app/src/main/jniLibs/"
     delete "gobuild"
+    delete "go"
 }
