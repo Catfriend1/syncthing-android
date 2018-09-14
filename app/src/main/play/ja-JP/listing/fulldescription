@@ -1,3 +1,5 @@
+This is a fork of the syncthing-android wrapper for syncthing.
+
 Syncthing は、プロプライエタリな同期・クラウドサービスを、オープンで、信頼できる、分散型のもので置き換えます。あなたのデータはあなただけのものであり、どこに保存するかをご自身で決められます。第三者とデータを共有する場合は、どのようにインターネット上で送信するかも決められます。
 
 Webサイト: https://syncthing.net/

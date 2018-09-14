@@ -1,9 +1,9 @@
+This is a fork of the syncthing-android wrapper for syncthing.
+
 Syncthing 用開放、可靠及去中心化的服務，來取代專有的同步雲端服務。你的資料僅會由你掌握。如果你的資料分享給第三方及如何在網路中傳輸，你也能決定資料儲存的位置。
 
 網站：https://syncthing.net/
 
 原始碼：https://github.com/Catfriend1/syncthing-android
-
-論壇：https://forum.syncthing.net/
 
 問題回報：https://github.com/Catfriend1/syncthing-android/issues

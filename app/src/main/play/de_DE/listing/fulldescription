@@ -1,7 +1,9 @@
-Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Dies ist ein Fork des Syncthing-Android Wrappers für Syncthing.
 
-Website: https://syncthing.net/
+Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas offenem, vertrauenswürdigen und dezentralem. Deine Daten sind deine Daten und du allein entscheidest, wo sie gespeichert werden, ob sie mit Dritten geteilt  und wie sie über das Internet übertragen werden.
 
-Source code: https://github.com/Catfriend1/syncthing-android
+Webseite: https://syncthing.net/
 
-Issues: https://github.com/Catfriend1/syncthing-android/issues
+Quellcode: https://github.com/Catfriend1/syncthing-android
+
+Vorgänge: https://github.com/Catfriend1/syncthing-android/issues

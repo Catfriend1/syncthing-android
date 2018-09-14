@@ -1,3 +1,9 @@
+Fixes
+* Added detection for wireless charging
+* Fixed phone plugged to charger detection
+* Fixed override changes button not showing
+* Fixed the "battery eater"
+
 Enhancements
 * UI explains why syncthing is running or not running according to the run conditions set in preferences.
 * Improved run conditions and their UI
@@ -9,11 +15,5 @@ Enhancements
 * Added support for receive only folder type
 * Added "Uptime" to status tab
 
-Fixes
-* Added detection for wireless charging
-* Fixed phone plugged to charger detection
-* Fixed override changes button not showing
-* Fixed the "battery eater"
-
 Maintenance
-* Updated syncthing to v0.14.50-rc.2
+* Updated syncthing to v0.14.51-rc.3

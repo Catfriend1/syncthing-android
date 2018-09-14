@@ -1,4 +1,6 @@
-Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas offenem,  vertrauenswürdigen und dezentralem. Deine Daten sind deine Daten und du allein entscheidest, wo sie gespeichert werden, ob sie mit Dritten geteilt  und wie sie über das Internet übertragen werden.
+Dies ist ein Fork des Syncthing-Android Wrappers für Syncthing.
+
+Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas offenem, vertrauenswürdigen und dezentralem. Deine Daten sind deine Daten und du allein entscheidest, wo sie gespeichert werden, ob sie mit Dritten geteilt  und wie sie über das Internet übertragen werden.
 
 Webseite: https://syncthing.net/
 
