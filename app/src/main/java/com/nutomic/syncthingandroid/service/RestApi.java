@@ -505,8 +505,15 @@ public class RestApi {
      * Requests and parses information about current system status and resource usage.
      */
     public void getSystemStatus(OnResultListener1<SystemStatus> listener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_STATUS, mApiKey, null, result ->
-                listener.onResult(new Gson().fromJson(result, SystemStatus.class)));
+        new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_STATUS, mApiKey, null, result -> {
+            SystemStatus systemStatus;
+            try {
+                systemStatus = new Gson().fromJson(result, SystemStatus.class);
+                listener.onResult(systemStatus);
+            } catch (Exception e) {
+                Log.e(TAG, "getSystemStatus: Parsing REST API result failed. result=" + result);
+            }
+        });
     }
 
     public boolean isConfigLoaded() {

@@ -9,7 +9,7 @@ import java.util.Map;
 public class SystemStatus {
     public long alloc;
     public double cpuPercent;
-    public Map<String, Map<String, List<String>>> connectionServiceStatus;
+    public Map<String, SystemStatusConnectionServiceStatusElement> connectionServiceStatus;
     public boolean discoveryEnabled;
     public Map<String, String> discoveryErrors;
     public int discoveryMethods;
