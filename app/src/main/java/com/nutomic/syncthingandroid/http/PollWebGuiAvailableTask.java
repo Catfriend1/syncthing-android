@@ -29,6 +29,8 @@ public class PollWebGuiAvailableTask extends ApiRequest {
 
     private OnSuccessListener mListener;
 
+    private Integer logIncidence = 0;
+
     /**
      * Object that must be locked upon accessing mListener
      */
@@ -74,7 +76,11 @@ public class PollWebGuiAvailableTask extends ApiRequest {
         mHandler.postDelayed(this::performRequest, WEB_GUI_POLL_INTERVAL);
         Throwable cause = error.getCause();
         if (cause == null || cause.getClass().equals(ConnectException.class)) {
-            Log.v(TAG, "Polling web gui");
+            // Reduce lag caused by massively logging the same line while waiting.
+            logIncidence++;
+            if (logIncidence == 1 || logIncidence % 10 == 0) {
+                Log.v(TAG, "Polling web gui ... (" + logIncidence + ")");
+            }
         } else {
             Log.w(TAG, "Unexpected error while polling web gui", error);
         }
