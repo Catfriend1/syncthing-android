@@ -1,19 +1,16 @@
 Fixes
-* Added detection for wireless charging
-* Fixed phone plugged to charger detection
 * Fixed override changes button not showing
 * Fixed the "battery eater"
-
+* Added detection for wireless charging
+* Fixed phone plugged to charger detection
+* Lots of bug fixes and better Android 8+ support (#52, #54, #56, #59)
 Enhancements
-* UI explains why syncthing is running or not running according to the run conditions set in preferences.
+* UI explains why syncthing is running (or not)
 * Improved run conditions and their UI
-* Better default prefs, crash detection and fixes
-* Stop polling when the user doesn't look at a tab
 * Support in-app editing of folder's ignore list items
-* Welcome wizard slide added for key and config generation on first app launch
-* Added welcome wizard
-* Added support for receive only folder type
-* Added "Uptime" to status tab
-
+* Added support for "receive only" folders
+* Stop polling when the user doesn't look at a tab
+* Speed up syncthing startup and reduce log spam (#60)
+* Better default prefs and crash detection
 Maintenance
 * Updated syncthing to v0.14.51-rc.3
