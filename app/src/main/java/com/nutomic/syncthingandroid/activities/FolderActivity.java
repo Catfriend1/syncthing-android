@@ -580,6 +580,7 @@ public class FolderActivity extends SyncthingActivity
                  * or enabled root mode thus having write access.
                  */
                 mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;
+                updateFolderTypeDescription();
             } else {
                 mEditIgnoreListTitle.setEnabled(true);
                 mEditIgnoreListContent.setEnabled(true);
@@ -591,6 +592,7 @@ public class FolderActivity extends SyncthingActivity
             mEditIgnoreListTitle.setEnabled(false);
             mEditIgnoreListContent.setEnabled(false);
             mFolder.type = Constants.FOLDER_TYPE_SEND_ONLY;
+            updateFolderTypeDescription();
         }
     }
 
