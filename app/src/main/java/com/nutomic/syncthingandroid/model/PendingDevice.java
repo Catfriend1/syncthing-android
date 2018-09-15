@@ -2,18 +2,11 @@ package com.nutomic.syncthingandroid.model;
 
 import android.text.TextUtils;
 
-import java.util.List;
-
-public class Device {
-    public String deviceID;
+public class PendingDevice {
+    public String time = "";
+    public String deviceID = "";
     public String name = "";
-    public List<String> addresses;
-    public String compression;
-    public String certName;
-    public boolean introducer;
-    public boolean paused;
-    public List<PendingFolder> pendingFolders;
-    public List<IgnoredFolder> ignoredFolders;
+    public String address = "";
 
     /**
      * Returns the device name, or the first characters of the ID if the name is empty.

@@ -275,6 +275,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         // Prepare "ignore" action.
         Intent intentIgnore = new Intent(mContext, SyncthingService.class)
                 .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId)
                 .putExtra(SyncthingService.EXTRA_FOLDER_ID, folderId);
         intentIgnore.setAction(SyncthingService.ACTION_IGNORE_FOLDER);
         PendingIntent piIgnore = PendingIntent.getService(mContext, 0,

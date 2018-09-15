@@ -259,7 +259,7 @@ public class SyncthingService extends Service {
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_IGNORE_FOLDER.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             // mApi is not null due to State.ACTIVE
-            mApi.ignoreFolder(intent.getStringExtra(EXTRA_FOLDER_ID));
+            mApi.ignoreFolder(intent.getStringExtra(EXTRA_DEVICE_ID), intent.getStringExtra(EXTRA_FOLDER_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_OVERRIDE_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             mApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));

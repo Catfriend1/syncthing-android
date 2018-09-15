@@ -30,7 +30,11 @@ import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.model.FolderStatus;
+import com.nutomic.syncthingandroid.model.IgnoredFolder;
 import com.nutomic.syncthingandroid.model.Options;
+import com.nutomic.syncthingandroid.model.PendingDevice;
+import com.nutomic.syncthingandroid.model.PendingFolder;
+import com.nutomic.syncthingandroid.model.RemoteIgnoredDevice;
 import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -213,6 +217,10 @@ public class RestApi {
             throw new RuntimeException("config is null: " + result);
         }
         Log.v(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
+        if (BuildConfig.DEBUG) {
+            Log.v(TAG, "mConfig.pendingDevices = " + new Gson().toJson(mConfig.pendingDevices));
+            Log.v(TAG, "mConfig.remoteIgnoredDevices = " + new Gson().toJson(mConfig.remoteIgnoredDevices));
+        }
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
@@ -258,11 +266,36 @@ public class RestApi {
      */
     public void ignoreDevice(String deviceId) {
         synchronized (mConfigLock) {
-            if (!mConfig.ignoredDevices.contains(deviceId)) {
-                mConfig.ignoredDevices.add(deviceId);
-                sendConfig();
-                Log.d(TAG, "Ignored device [" + deviceId + "]");
+            // Check if the device has already been ignored.
+            for (RemoteIgnoredDevice remoteIgnoredDevice : mConfig.remoteIgnoredDevices) {
+                if (deviceId.equals(remoteIgnoredDevice.deviceID)) {
+                    // Device already ignored.
+                    Log.d(TAG, "Device already ignored [" + deviceId + "]");
+                    return;
+                }
             }
+
+            /**
+             * Ignore device by moving its corresponding "pendingDevice" entry to
+             * a newly created "remotePendingDevice" entry.
+             */
+            RemoteIgnoredDevice remoteIgnoredDevice = new RemoteIgnoredDevice();
+            remoteIgnoredDevice.deviceID = deviceId;
+            Iterator<PendingDevice> it = mConfig.pendingDevices.iterator();
+            while (it.hasNext()) {
+                PendingDevice pendingDevice = it.next();
+                if (deviceId.equals(pendingDevice.deviceID)) {
+                    // Move over information stored in the "pendingDevice" entry.
+                    remoteIgnoredDevice.address = pendingDevice.address;
+                    remoteIgnoredDevice.name = pendingDevice.name;
+                    remoteIgnoredDevice.time = pendingDevice.time;
+                    it.remove();
+                    break;
+                }
+            }
+            mConfig.remoteIgnoredDevices.add(remoteIgnoredDevice);
+            sendConfig();
+            Log.d(TAG, "Ignored device [" + deviceId + "]");
         }
     }
 
@@ -271,12 +304,49 @@ public class RestApi {
      * Ignored folders will not trigger the "FolderRejected" event
      * in {@link EventProcessor#onEvent}.
      */
-    public void ignoreFolder(String folderId) {
+    public void ignoreFolder(String deviceId, String folderId) {
         synchronized (mConfigLock) {
-            if (!mConfig.ignoredFolders.contains(folderId)) {
-                mConfig.ignoredFolders.add(folderId);
-                sendConfig();
-                Log.d(TAG, "Ignored folder [" + folderId + "]");
+            for (Device device : mConfig.devices) {
+                if (deviceId.equals(device.deviceID)) {
+                    /**
+                     * Check if the folder has already been ignored.
+                     */
+                    for (IgnoredFolder ignoredFolder : device.ignoredFolders) {
+                        if (folderId.equals(ignoredFolder.id)) {
+                            // Folder already ignored.
+                            Log.d(TAG, "Folder [" + folderId + "] already ignored on device [" + deviceId + "]");
+                            return;
+                        }
+                    }
+
+                    /**
+                     * Ignore folder by moving its corresponding "pendingFolder" entry to
+                     * a newly created "ignoredFolder" entry.
+                     */
+                    IgnoredFolder ignoredFolder = new IgnoredFolder();
+                    ignoredFolder.id = folderId;
+                    Iterator<PendingFolder> it = device.pendingFolders.iterator();
+                    while (it.hasNext()) {
+                        PendingFolder pendingFolder = it.next();
+                        if (folderId.equals(pendingFolder.id)) {
+                            // Move over information stored in the "pendingFolder" entry.
+                            ignoredFolder.label = pendingFolder.label;
+                            ignoredFolder.time = pendingFolder.time;
+                            it.remove();
+                            break;
+                        }
+                    }
+                    device.ignoredFolders.add(ignoredFolder);
+                    if (BuildConfig.DEBUG) {
+                        Log.v(TAG, "device.pendingFolders = " + new Gson().toJson(device.pendingFolders));
+                        Log.v(TAG, "device.ignoredFolders = " + new Gson().toJson(device.ignoredFolders));
+                    }
+                    sendConfig();
+                    Log.d(TAG, "Ignored folder [" + folderId + "] announced by device [" + deviceId + "]");
+
+                    // Given deviceId handled.
+                    break;
+                }
             }
         }
     }
@@ -287,8 +357,10 @@ public class RestApi {
     public void undoIgnoredDevicesAndFolders() {
         Log.d(TAG, "Undo ignoring devices and folders ...");
         synchronized (mConfigLock) {
-            mConfig.ignoredDevices.clear();
-            mConfig.ignoredFolders.clear();
+            mConfig.remoteIgnoredDevices.clear();
+            for (Device device : mConfig.devices) {
+                device.ignoredFolders.clear();
+            }
         }
     }
 
@@ -414,8 +486,10 @@ public class RestApi {
         while (it.hasNext()) {
             Device device = it.next();
             boolean isLocalDevice = Objects.equal(mLocalDeviceId, device.deviceID);
-            if (!includeLocal && isLocalDevice)
+            if (!includeLocal && isLocalDevice) {
                 it.remove();
+                break;
+            }
         }
         return devices;
     }
