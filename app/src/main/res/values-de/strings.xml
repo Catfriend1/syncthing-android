@@ -641,7 +641,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="syncthing_terminated">Syncthing wurde beendet</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
-    <string name="config_create_failed">Erstellen der Konfigurationsdatei fehlgeschalgen</string>
+    <string name="config_create_failed">Erstellen der Konfiguration fehlgeschlagen. Pruefe die logcat-Ausgabe!</string>
     <string name="config_read_failed">Fehler beim Lesen der Konfiguration. Sichere gegebenenfalls Daten aus deinen Sync-Ordnern zu sichern, lösche über die Android-Einstellungen die App-Daten und starte von vorn.</string>
 
     <!-- Toast shown if a config file crucial to operation is missing -->

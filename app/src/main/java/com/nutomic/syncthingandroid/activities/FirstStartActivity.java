@@ -462,7 +462,7 @@ public class FirstStartActivity extends Activity {
     /**
      * Sets up the initial configuration and generates secure keys.
      */
-    private static class KeyGenerationTask extends AsyncTask<Void, Void, Void> {
+    private static class KeyGenerationTask extends AsyncTask<Void, String, Void> {
         private WeakReference<FirstStartActivity> refFirstStartActivity;
         ConfigXml configXml;
 
@@ -480,11 +480,23 @@ public class FirstStartActivity extends Activity {
             try {
                 configXml = new ConfigXml(firstStartActivity);
             } catch (ConfigXml.OpenConfigException e) {
-                TextView keygenStatus = firstStartActivity.findViewById(R.id.key_generation_status);
-                keygenStatus.setText(firstStartActivity.getString(R.string.config_create_failed));
+                publishProgress(firstStartActivity.getString(R.string.config_create_failed));
                 cancel(true);
             }
             return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+            if (values != null && values.length > 0) {
+                FirstStartActivity firstStartActivity = refFirstStartActivity.get();
+                if (firstStartActivity == null) {
+                    return;
+                }
+                TextView keygenStatus = firstStartActivity.findViewById(R.id.key_generation_status);
+                keygenStatus.setText(values[0]);
+            }
         }
 
         @Override
