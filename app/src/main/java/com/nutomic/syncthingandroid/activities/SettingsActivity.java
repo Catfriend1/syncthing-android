@@ -122,8 +122,6 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
 
-        private Preference mCategoryBackup;
-
         /* Experimental options */
         private CheckBoxPreference mUseRoot;
         private CheckBoxPreference mUseWakelock;
@@ -213,7 +211,6 @@ public class SettingsActivity extends SyncthingActivity {
             mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
 
-            mCategoryBackup         = findPreference("category_backup");
             Preference exportConfig = findPreference("export_config");
             Preference importConfig = findPreference("import_config");
 
@@ -319,7 +316,6 @@ public class SettingsActivity extends SyncthingActivity {
                         mApi.isConfigLoaded() &&
                         (currentState == SyncthingService.State.ACTIVE);
             mCategorySyncthingOptions.setEnabled(isSyncthingRunning);
-            mCategoryBackup.setEnabled(isSyncthingRunning);
 
             if (!isSyncthingRunning)
                 return;
@@ -539,10 +535,15 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_confirm_export)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                        mSyncthingService.exportConfig();
-                                        Toast.makeText(getActivity(),
-                                                getString(R.string.config_export_successful,
-                                                Constants.EXPORT_PATH), Toast.LENGTH_LONG).show();
+                                        if (mSyncthingService.exportConfig()) {
+                                            Toast.makeText(getActivity(),
+                                                    getString(R.string.config_export_successful,
+                                                    Constants.EXPORT_PATH), Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(getActivity(),
+                                                    getString(R.string.config_export_failed),
+                                                    Toast.LENGTH_LONG).show();
+                                        }
                                     })
                             .setNegativeButton(android.R.string.no, null)
                             .show();
@@ -551,17 +552,21 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_confirm_import)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                        if (mSyncthingService.importConfig()) {
-                                            Toast.makeText(getActivity(),
-                                                    getString(R.string.config_imported_successful),
-                                                    Toast.LENGTH_SHORT).show();
-                                            // No need to restart, as we shutdown to import the config, and
-                                            // then have to start Syncthing again.
-                                        } else {
+                                        // Shutdown syncthing, import config, if run conditions applied restart syncthing.
+                                        if (!mSyncthingService.importConfig()) {
                                             Toast.makeText(getActivity(),
                                                     getString(R.string.config_import_failed,
                                                     Constants.EXPORT_PATH), Toast.LENGTH_LONG).show();
+                                            return;
                                         }
+                                        Toast.makeText(getActivity(),
+                                                getString(R.string.config_imported_successful),
+                                                Toast.LENGTH_SHORT).show();
+                                        // We don't have to send the config via REST on leaving activity.
+                                        mPendingConfig = false;
+                                        // We have to evaluate run conditions, they may have changed by the imported prefs.
+                                        mPendingRunConditions = true;
+                                        getActivity().finish();
                                     })
                             .setNegativeButton(android.R.string.no, null)
                             .show();

@@ -294,7 +294,7 @@ Please report any problems you encounter via Github.</string>
     <string name="category_run_conditions">Run Conditions</string>
     <string name="category_behaviour">Behaviour</string>
     <string name="category_syncthing_options">Syncthing Options</string>
-    <string name="category_backup">Backup</string>
+    <string name="category_backup">Import and Export</string>
     <string name="category_debug">Debug</string>
     <string name="category_experimental">Experimental</string>
 
@@ -466,15 +466,14 @@ Please report any problems you encounter via Github.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Do you really want to import a new configuration? Existing files will be overwritten.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Config was exported to %1$s</string>
+    <string name="config_export_failed">Config export failed, check logcat output.</string>
 
     <string name="import_config">Import Configuration</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->

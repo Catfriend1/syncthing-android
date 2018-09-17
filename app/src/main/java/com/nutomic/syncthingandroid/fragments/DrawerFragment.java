@@ -39,6 +39,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private TextView mVersion = null;
     private TextView mDrawerActionShowQrCode;
     private TextView mDrawerActionWebGui;
+    private TextView mDrawerActionImportExport;
     private TextView mDrawerActionRestart;
     private TextView mDrawerActionSettings;
     private TextView mExitButton;
@@ -77,16 +78,18 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mActivity = (MainActivity) getActivity();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
 
-        mVersion                = view.findViewById(R.id.version);
-        mDrawerActionShowQrCode = view.findViewById(R.id.drawerActionShowQrCode);
-        mDrawerActionWebGui     = view.findViewById(R.id.drawerActionWebGui);
-        mDrawerActionRestart    = view.findViewById(R.id.drawerActionRestart);
-        mDrawerActionSettings   = view.findViewById(R.id.drawerActionSettings);
-        mExitButton             = view.findViewById(R.id.drawerActionExit);
+        mVersion                    = view.findViewById(R.id.version);
+        mDrawerActionShowQrCode     = view.findViewById(R.id.drawerActionShowQrCode);
+        mDrawerActionWebGui         = view.findViewById(R.id.drawerActionWebGui);
+        mDrawerActionImportExport   = view.findViewById(R.id.drawerActionImportExport);
+        mDrawerActionRestart        = view.findViewById(R.id.drawerActionRestart);
+        mDrawerActionSettings       = view.findViewById(R.id.drawerActionSettings);
+        mExitButton                 = view.findViewById(R.id.drawerActionExit);
 
         // Add listeners to buttons.
         mDrawerActionShowQrCode.setOnClickListener(this);
         mDrawerActionWebGui.setOnClickListener(this);
+        mDrawerActionImportExport.setOnClickListener(this);
         mDrawerActionRestart.setOnClickListener(this);
         mDrawerActionSettings.setOnClickListener(this);
         mExitButton.setOnClickListener(this);
@@ -155,6 +158,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.drawerActionWebGui:
                 startActivity(new Intent(mActivity, WebGuiActivity.class));
@@ -162,6 +166,12 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                 break;
             case R.id.drawerActionSettings:
                 startActivity(new Intent(mActivity, SettingsActivity.class));
+                mActivity.closeDrawer();
+                break;
+            case R.id.drawerActionImportExport:
+                intent = new Intent(mActivity, SettingsActivity.class);
+                intent.putExtra(SettingsActivity.EXTRA_OPEN_SUB_PREF_SCREEN, "category_import_export");
+                startActivity(intent);
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionRestart:

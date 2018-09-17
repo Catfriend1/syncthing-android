@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 public class Constants {
 
     public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
-    public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
 
     // Preferences - Run conditions
     public static final String PREF_ALWAYS_RUN_IN_BACKGROUND    = "always_run_in_background";
@@ -32,6 +31,16 @@ public class Constants {
     public static final String PREF_USE_TOR                     = "use_tor";
     public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";
     public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
+
+    /**
+     * Cached information which is not available on SettingsActivity.
+     */
+    public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
+
+    /**
+     * {@link EventProcessor}
+     */
+    public static final String PREF_EVENT_PROCESSOR_LAST_SYNC_ID = "last_sync_id";
 
     /**
      * Available options cache for preference {@link app_settings#debug_facilities_enabled}
@@ -105,6 +114,11 @@ public class Constants {
     public static File getHttpsCertFile(Context context) {
         return new File(context.getFilesDir(), "https-cert.pem");
     }
+
+    /**
+     * Name of the export file holding the SharedPreferences backup.
+     */
+    static final String SHARED_PREFS_EXPORT_FILE = "sharedpreferences.dat";
 
     static File getSyncthingBinary(Context context) {
         return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);

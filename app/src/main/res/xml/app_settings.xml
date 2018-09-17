@@ -193,7 +193,7 @@
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:key="category_backup"
+        android:key="category_import_export"
         android:title="@string/category_backup">
 
         <Preference

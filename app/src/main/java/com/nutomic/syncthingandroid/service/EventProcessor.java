@@ -36,7 +36,6 @@ import javax.inject.Inject;
 public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener {
 
     private static final String TAG = "EventProcessor";
-    private static final String PREF_LAST_SYNC_ID = "last_sync_id";
 
     /**
      * Minimum interval in seconds at which the events are polled from syncthing and processed.
@@ -68,7 +67,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     public void run() {
         // Restore the last event id if the event processor may have been restarted.
         if (mLastEventId == 0) {
-            mLastEventId = mPreferences.getLong(PREF_LAST_SYNC_ID, 0);
+            mLastEventId = mPreferences.getLong(Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID, 0);
         }
 
         // First check if the event number ran backwards.
@@ -178,7 +177,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             mLastEventId = id;
 
             // Store the last EventId in case we get killed
-            mPreferences.edit().putLong(PREF_LAST_SYNC_ID, mLastEventId).apply();
+            mPreferences.edit().putLong(Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID, mLastEventId).apply();
         }
 
         synchronized (mMainThreadHandler) {
