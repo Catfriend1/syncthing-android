@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.fragments;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private TextView mDrawerActionImportExport;
     private TextView mDrawerActionRestart;
     private TextView mDrawerActionSettings;
-    private TextView mExitButton;
+    private TextView mDrawerActionExit;
 
     private MainActivity mActivity;
     private SharedPreferences sharedPreferences = null;
@@ -84,7 +85,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionImportExport   = view.findViewById(R.id.drawerActionImportExport);
         mDrawerActionRestart        = view.findViewById(R.id.drawerActionRestart);
         mDrawerActionSettings       = view.findViewById(R.id.drawerActionSettings);
-        mExitButton                 = view.findViewById(R.id.drawerActionExit);
+        mDrawerActionExit           = view.findViewById(R.id.drawerActionExit);
 
         // Add listeners to buttons.
         mDrawerActionShowQrCode.setOnClickListener(this);
@@ -92,7 +93,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionImportExport.setOnClickListener(this);
         mDrawerActionRestart.setOnClickListener(this);
         mDrawerActionSettings.setOnClickListener(this);
-        mExitButton.setOnClickListener(this);
+        mDrawerActionExit.setOnClickListener(this);
 
         updateLabels();
         updateButtons();
@@ -123,13 +124,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionShowQrCode.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionWebGui.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionRestart.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
-
-        // Do not show the exit button if our app runs as a background service.
-        mExitButton.setVisibility(
-            sharedPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false) ?
-                View.GONE :
-                View.VISIBLE
-        );
+        mDrawerActionExit.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -179,14 +174,37 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionExit:
-                Log.i(TAG, "Exiting app on user request");
-                mActivity.stopService(new Intent(mActivity, SyncthingService.class));
-                mActivity.finish();
+                if (sharedPreferences != null && sharedPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false)) {
+                    /**
+                     * App is running as a service. Show an explanation why exiting syncthing is an
+                     * extraordinary request, then ask the user to confirm.
+                     */
+                    AlertDialog mExitConfirmationDialog = new AlertDialog.Builder(mActivity)
+                            .setTitle(R.string.dialog_exit_while_running_as_service_title)
+                            .setMessage(R.string.dialog_exit_while_running_as_service_message)
+                            .setPositiveButton(R.string.yes, (d, i) -> {
+                                doExit();
+                            })
+                            .setNegativeButton(R.string.no, (d, i) -> {})
+                            .show();
+                } else {
+                    // App is not running as a service.
+                    doExit();
+                }
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionShowQrCode:
                 showQrCode();
                 break;
         }
+    }
+
+    private void doExit() {
+        if (mActivity == null || mActivity.isFinishing()) {
+            return;
+        }
+        Log.i(TAG, "Exiting app on user request");
+        mActivity.stopService(new Intent(mActivity, SyncthingService.class));
+        mActivity.finish();
     }
 }

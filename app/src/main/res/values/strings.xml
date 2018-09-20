@@ -48,6 +48,10 @@ Please report any problems you encounter via Github.</string>
 
 
 
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Confirm to stop service</string>
+    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured Syncthing to run as a service. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only stop the service manually if you ran into severe problems. Otherwise, uncheck running as a service in the settings. Would you like to stop the service now until the next device reboot?</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Add Folder</string>
 
