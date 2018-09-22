@@ -120,18 +120,27 @@ public class SyncthingService extends Service {
      * Indicates the current state of SyncthingService and of Syncthing itself.
      */
     public enum State {
-        /** Service is initializing, Syncthing was not started yet. */
+        /**
+         * Service is initializing, Syncthing was not started yet.
+         */
         INIT,
-        /** Syncthing binary is starting. */
+        /**
+         * Syncthing binary is starting.
+         */
         STARTING,
-        /** Syncthing binary is running,
+        /**
+         * Syncthing binary is running,
          * Rest API is available,
          * RestApi class read the config and is fully initialized.
          */
         ACTIVE,
-        /** Syncthing binary is shutting down. */
+        /**
+         * Syncthing binary is shutting down.
+         */
         DISABLED,
-        /** There is some problem that prevents Syncthing from running. */
+        /**
+         * There is some problem that prevents Syncthing from running.
+         */
         ERROR,
     }
 
@@ -141,13 +150,7 @@ public class SyncthingService extends Service {
      * {@link onStartCommand}.
      */
     private State mCurrentState = State.DISABLED;
-
     private ConfigXml mConfig;
-    private @Nullable PollWebGuiAvailableTask mPollWebGuiAvailableTask = null;
-    private @Nullable RestApi mApi = null;
-    private @Nullable EventProcessor mEventProcessor = null;
-    private @Nullable RunConditionMonitor mRunConditionMonitor = null;
-    private @Nullable SyncthingRunnable mSyncthingRunnable = null;
     private StartupTask mStartupTask = null;
     private Thread mSyncthingRunnableThread = null;
     private Handler mHandler;
@@ -155,8 +158,26 @@ public class SyncthingService extends Service {
     private final HashSet<OnServiceStateChangeListener> mOnServiceStateChangeListeners = new HashSet<>();
     private final SyncthingServiceBinder mBinder = new SyncthingServiceBinder(this);
 
-    @Inject NotificationHandler mNotificationHandler;
-    @Inject SharedPreferences mPreferences;
+    private @Nullable
+    PollWebGuiAvailableTask mPollWebGuiAvailableTask = null;
+
+    private @Nullable
+    RestApi mApi = null;
+
+    private @Nullable
+    EventProcessor mEventProcessor = null;
+
+    private @Nullable
+    RunConditionMonitor mRunConditionMonitor = null;
+
+    private @Nullable
+    SyncthingRunnable mSyncthingRunnable = null;
+
+    @Inject
+    NotificationHandler mNotificationHandler;
+
+    @Inject
+    SharedPreferences mPreferences;
 
     /**
      * Object that must be locked upon accessing mCurrentState
@@ -196,8 +217,8 @@ public class SyncthingService extends Service {
          * We need to recheck if we still have the storage permission.
          */
         mStoragePermissionGranted = (ContextCompat.checkSelfPermission(this,
-                                            Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                                        PackageManager.PERMISSION_GRANTED);
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED);
     }
 
     /**
@@ -223,7 +244,7 @@ public class SyncthingService extends Service {
          * See {@link mLastDeterminedShouldRun} defaulting to "false".
          */
         if (mCurrentState == State.DISABLED) {
-            synchronized(mStateLock) {
+            synchronized (mStateLock) {
                 onServiceStateChange(mCurrentState);
             }
         }
@@ -245,7 +266,8 @@ public class SyncthingService extends Service {
         if (ACTION_RESTART.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             shutdown(State.INIT, () -> launchStartupTask(SyncthingRunnable.Command.main));
         } else if (ACTION_STOP.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            shutdown(State.DISABLED, () -> {});
+            shutdown(State.DISABLED, () -> {
+            });
         } else if (ACTION_RESET_DATABASE.equals(intent.getAction())) {
             Log.i(TAG, "Invoking reset of database");
             shutdown(State.INIT, () -> {
@@ -305,7 +327,8 @@ public class SyncthingService extends Service {
                     return;
                 }
                 Log.v(TAG, "Stopping syncthing");
-                shutdown(State.DISABLED, () -> {});
+                shutdown(State.DISABLED, () -> {
+                });
             }
         }
     }
@@ -313,9 +336,9 @@ public class SyncthingService extends Service {
     /**
      * Prepares to launch the syncthing binary.
      */
-    private void launchStartupTask (SyncthingRunnable.Command srCommand) {
+    private void launchStartupTask(SyncthingRunnable.Command srCommand) {
         Log.v(TAG, "Starting syncthing");
-        synchronized(mStateLock) {
+        synchronized (mStateLock) {
             if (mCurrentState != State.DISABLED && mCurrentState != State.INIT) {
                 Log.e(TAG, "launchStartupTask: Wrong state " + mCurrentState + " detected. Cancelling.");
                 return;
@@ -336,90 +359,96 @@ public class SyncthingService extends Service {
      * Sets up the initial configuration, and updates the config when coming from an old
      * version.
      */
-     private static class StartupTask extends AsyncTask<Void, Void, Void> {
-         private WeakReference<SyncthingService> refSyncthingService;
-         private SyncthingRunnable.Command srCommand;
+    private static class StartupTask extends AsyncTask<Void, Void, Void> {
+        private WeakReference<SyncthingService> refSyncthingService;
+        private SyncthingRunnable.Command srCommand;
 
-         StartupTask(SyncthingService context, SyncthingRunnable.Command srCommand) {
-             refSyncthingService = new WeakReference<>(context);
-             this.srCommand = srCommand;
-         }
+        StartupTask(SyncthingService context, SyncthingRunnable.Command srCommand) {
+            refSyncthingService = new WeakReference<>(context);
+            this.srCommand = srCommand;
+        }
 
-         @Override
-         protected Void doInBackground(Void... voids) {
-             SyncthingService syncthingService = refSyncthingService.get();
-             if (syncthingService == null) {
-                 cancel(true);
-                 return null;
-             }
-             try {
-                 syncthingService.mConfig = new ConfigXml(syncthingService);
-                 syncthingService.mConfig.updateIfNeeded();
-             } catch (ConfigXml.OpenConfigException e) {
-                 syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "ConfigXml.OpenConfigException");
-                 synchronized (syncthingService.mStateLock) {
-                     syncthingService.onServiceStateChange(State.ERROR);
-                 }
-                 cancel(true);
-             }
-             return null;
-         }
-
-         @Override
-         protected void onPostExecute(Void aVoid) {
-             // Get a reference to the service if it is still there.
-             SyncthingService syncthingService = refSyncthingService.get();
-             if (syncthingService != null) {
-                 syncthingService.onStartupTaskCompleteListener(srCommand);
-             }
-         }
-     }
-
-     /**
-      * Callback on {@link StartupTask#onPostExecute}.
-      */
-     private void onStartupTaskCompleteListener(SyncthingRunnable.Command srCommand) {
-         if (mApi == null) {
-             mApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
-                                 this::onApiAvailable, () -> onServiceStateChange(mCurrentState));
-             Log.i(TAG, "Web GUI will be available at " + mConfig.getWebGuiUrl());
-         }
-
-         // Check mSyncthingRunnable lifecycle and create singleton.
-         if (mSyncthingRunnable != null || mSyncthingRunnableThread != null) {
-             Log.e(TAG, "onStartupTaskCompleteListener: Syncthing binary lifecycle violated");
-             return;
-         }
-         mSyncthingRunnable = new SyncthingRunnable(this, srCommand);
-
-         /**
-          * Check if an old syncthing instance is still running.
-          * This happens after an in-place app upgrade. If so, end it.
-          */
-         mSyncthingRunnable.killSyncthing();
-
-         // Start the syncthing binary in a separate thread.
-         mSyncthingRunnableThread = new Thread(mSyncthingRunnable);
-         mSyncthingRunnableThread.start();
-
-         /**
-          * Wait for the web-gui of the native syncthing binary to come online.
-          *
-          * In case the binary is to be stopped, also be aware that another thread could request
-          * to stop the binary in the time while waiting for the GUI to become active. See the comment
-          * for {@link SyncthingService#onDestroy} for details.
-          */
-         if (mPollWebGuiAvailableTask == null) {
-             mPollWebGuiAvailableTask = new PollWebGuiAvailableTask(
-                this, getWebGuiUrl(), mConfig.getApiKey(), result -> {
-                    Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
-                    if (mApi != null) {
-                        mApi.readConfigFromRestApi();
-                    }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            SyncthingService syncthingService = refSyncthingService.get();
+            if (syncthingService == null) {
+                cancel(true);
+                return null;
+            }
+            try {
+                syncthingService.mConfig = new ConfigXml(syncthingService);
+                syncthingService.mConfig.updateIfNeeded();
+            } catch (SyncthingRunnable.ExecutableNotFoundException e) {
+                syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "SycnthingRunnable.ExecutableNotFoundException");
+                synchronized (syncthingService.mStateLock) {
+                    syncthingService.onServiceStateChange(State.ERROR);
                 }
-             );
-         }
-     }
+                cancel(true);
+            } catch (ConfigXml.OpenConfigException e) {
+                syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "ConfigXml.OpenConfigException");
+                synchronized (syncthingService.mStateLock) {
+                    syncthingService.onServiceStateChange(State.ERROR);
+                }
+                cancel(true);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            // Get a reference to the service if it is still there.
+            SyncthingService syncthingService = refSyncthingService.get();
+            if (syncthingService != null) {
+                syncthingService.onStartupTaskCompleteListener(srCommand);
+            }
+        }
+    }
+
+    /**
+     * Callback on {@link StartupTask#onPostExecute}.
+     */
+    private void onStartupTaskCompleteListener(SyncthingRunnable.Command srCommand) {
+        if (mApi == null) {
+            mApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
+                    this::onApiAvailable, () -> onServiceStateChange(mCurrentState));
+            Log.i(TAG, "Web GUI will be available at " + mConfig.getWebGuiUrl());
+        }
+
+        // Check mSyncthingRunnable lifecycle and create singleton.
+        if (mSyncthingRunnable != null || mSyncthingRunnableThread != null) {
+            Log.e(TAG, "onStartupTaskCompleteListener: Syncthing binary lifecycle violated");
+            return;
+        }
+        mSyncthingRunnable = new SyncthingRunnable(this, srCommand);
+
+        /**
+         * Check if an old syncthing instance is still running.
+         * This happens after an in-place app upgrade. If so, end it.
+         */
+        mSyncthingRunnable.killSyncthing();
+
+        // Start the syncthing binary in a separate thread.
+        mSyncthingRunnableThread = new Thread(mSyncthingRunnable);
+        mSyncthingRunnableThread.start();
+
+        /**
+         * Wait for the web-gui of the native syncthing binary to come online.
+         *
+         * In case the binary is to be stopped, also be aware that another thread could request
+         * to stop the binary in the time while waiting for the GUI to become active. See the comment
+         * for {@link SyncthingService#onDestroy} for details.
+         */
+        if (mPollWebGuiAvailableTask == null) {
+            mPollWebGuiAvailableTask = new PollWebGuiAvailableTask(
+                    this, getWebGuiUrl(), mConfig.getApiKey(), result -> {
+                Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
+                if (mApi != null) {
+                    mApi.readConfigFromRestApi();
+                }
+            }
+            );
+        }
+    }
 
     /**
      * Called when {@link RestApi#checkReadConfigFromRestApiCompleted} detects
@@ -483,21 +512,22 @@ public class SyncthingService extends Service {
                     mDestroyScheduled = true;
                 } else {
                     Log.i(TAG, "Shutting down syncthing binary immediately");
-                    shutdown(State.DISABLED, () -> {});
+                    shutdown(State.DISABLED, () -> {
+                    });
                 }
             }
         } else {
             // If the storage permission got revoked, we did not start the binary and
             // are in State.INIT requiring an immediate shutdown of this service class.
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
-            shutdown(State.DISABLED, () -> {});
+            shutdown(State.DISABLED, () -> {
+            });
         }
         super.onDestroy();
     }
 
     /**
      * Stop Syncthing and all helpers like event processor and api handler.
-     *
      * Sets {@link #mCurrentState} to newState, and calls onKilledListener once Syncthing is killed.
      */
     private void shutdown(State newState, OnSyncthingKilled onKilledListener) {
@@ -510,7 +540,7 @@ public class SyncthingService extends Service {
         }
 
         Log.i(TAG, "Shutting down");
-        synchronized(mStateLock) {
+        synchronized (mStateLock) {
             onServiceStateChange(newState);
         }
 
@@ -550,7 +580,8 @@ public class SyncthingService extends Service {
         onKilledListener.onKilled();
     }
 
-    public @Nullable RestApi getApi() {
+    public @Nullable
+    RestApi getApi() {
         return mApi;
     }
 
@@ -568,7 +599,6 @@ public class SyncthingService extends Service {
 
     /**
      * Register a listener for the syncthing API state changing.
-     *
      * The listener is called immediately with the current state, and again whenever the state
      * changes. The call is always from the GUI thread.
      *
@@ -658,12 +688,12 @@ public class SyncthingService extends Service {
             file = new File(Constants.EXPORT_PATH, Constants.SHARED_PREFS_EXPORT_FILE);
             fileOutputStream = new FileOutputStream(file);
             if (!file.exists()) {
-				file.createNewFile();
-			}
+                file.createNewFile();
+            }
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(mPreferences.getAll());
             objectOutputStream.flush();
-			fileOutputStream.flush();
+            fileOutputStream.flush();
         } catch (IOException e) {
             Log.e(TAG, "exportConfig: Failed to export SharedPreferences #1", e);
             failSuccess = false;
@@ -672,12 +702,12 @@ public class SyncthingService extends Service {
                 if (objectOutputStream != null) {
                     objectOutputStream.close();
                 }
-				if (fileOutputStream != null) {
-					fileOutputStream.close();
-				}
-			} catch (IOException e) {
-				Log.e(TAG, "exportConfig: Failed to export SharedPreferences #2", e);
-			}
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "exportConfig: Failed to export SharedPreferences #2", e);
+            }
         }
         return failSuccess;
     }
@@ -692,7 +722,8 @@ public class SyncthingService extends Service {
         Log.v(TAG, "importConfig BEGIN");
 
         // Shutdown synchronously.
-        shutdown(State.DISABLED, () -> {});
+        shutdown(State.DISABLED, () -> {
+        });
 
         // Import config, privateKey and/or publicKey.
         try {
@@ -736,11 +767,13 @@ public class SyncthingService extends Service {
                         // Preferences that are no longer used and left-overs from previous versions of the app.
                         case "first_start":
                         case "notify_crashes":
+                            Log.v(TAG, "importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
+                            break;
                         // Cached information which is not available on SettingsActivity.
                         case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
                         case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
                         case Constants.PREF_LAST_BINARY_VERSION:
-                            Log.v(TAG, "importConfig: Ignoring pref \"" + prefKey + "\".");
+                            Log.v(TAG, "importConfig: Ignoring cache pref \"" + prefKey + "\".");
                             break;
                         default:
                             Log.v(TAG, "importConfig: Adding pref \"" + prefKey + "\" to commit ...");

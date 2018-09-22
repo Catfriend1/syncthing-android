@@ -652,6 +652,7 @@ Please report any problems you encounter via Github.</string>
     <string name="syncthing_terminated">Syncthing was terminated</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="executable_not_found">Core executable \"%s\" is missing. Check build and logcat output.</string>
     <string name="config_create_failed">Failed to create configuration. Check logcat output.</string>
     <string name="config_read_failed">Failed to read configuration. Consider backing up data from your sync folders, then clear this app\'s data from Android settings and launch it again.</string>
 

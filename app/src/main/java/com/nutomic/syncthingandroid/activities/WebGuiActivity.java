@@ -83,7 +83,7 @@ public class WebGuiActivity extends SyncthingActivity
                 SslCertificate sslCert = error.getCertificate();
                 Field f = sslCert.getClass().getDeclaredField("mX509Certificate");
                 f.setAccessible(true);
-                X509Certificate cert = (X509Certificate)f.get(sslCert);
+                X509Certificate cert = (X509Certificate) f.get(sslCert);
                 if (cert == null) {
                     Log.w(TAG, "X509Certificate reference invalid");
                     handler.cancel();
@@ -91,8 +91,8 @@ public class WebGuiActivity extends SyncthingActivity
                 }
                 cert.verify(mCaCert.getPublicKey());
                 handler.proceed();
-            } catch (NoSuchFieldException|IllegalAccessException|CertificateException|
-                    NoSuchAlgorithmException|InvalidKeyException|NoSuchProviderException|
+            } catch (NoSuchFieldException | IllegalAccessException | CertificateException |
+                    NoSuchAlgorithmException | InvalidKeyException | NoSuchProviderException |
                     SignatureException e) {
                 Log.w(TAG, e);
                 handler.cancel();
@@ -106,7 +106,7 @@ public class WebGuiActivity extends SyncthingActivity
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             Uri uri = Uri.parse(url);
-            if(uri.getHost().equals(getService().getWebGuiUrl().getHost())) {
+            if (uri.getHost().equals(getService().getWebGuiUrl().getHost())) {
                 return false;
             } else {
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
@@ -123,7 +123,6 @@ public class WebGuiActivity extends SyncthingActivity
 
     /**
      * Initialize WebView.
-     *
      * Ignore lint javascript warning as js is loaded only from our known, local service.
      */
     @Override
@@ -134,7 +133,11 @@ public class WebGuiActivity extends SyncthingActivity
         setContentView(R.layout.activity_web_gui);
 
         mLoadingView = findViewById(R.id.loading);
-        mConfig = new ConfigXml(this);
+        try {
+            mConfig = new ConfigXml(this);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
         loadCaCert();
 
         mWebView = findViewById(R.id.webview);
@@ -222,7 +225,7 @@ public class WebGuiActivity extends SyncthingActivity
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             mCaCert = (X509Certificate)
                     cf.generateCertificate(inStream);
-        } catch (FileNotFoundException|CertificateException e) {
+        } catch (FileNotFoundException | CertificateException e) {
             throw new IllegalArgumentException("Untrusted Certificate", e);
         } finally {
             try {

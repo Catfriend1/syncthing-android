@@ -56,9 +56,13 @@ public class SyncthingRunnable implements Runnable {
     private final File mSyncthingBinary;
     private String[] mCommand;
     private final File mLogFile;
-    @Inject SharedPreferences mPreferences;
     private final boolean mUseRoot;
-    @Inject NotificationHandler mNotificationHandler;
+
+    @Inject
+    SharedPreferences mPreferences;
+
+    @Inject
+    NotificationHandler mNotificationHandler;
 
     public enum Command {
         deviceid,           // Output the device ID to the command line.
@@ -83,19 +87,19 @@ public class SyncthingRunnable implements Runnable {
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case deviceid:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "--device-id" };
+                mCommand = new String[]{mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "--device-id"};
                 break;
             case generate:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-generate", mContext.getFilesDir().toString(), "-logflags=0" };
+                mCommand = new String[]{mSyncthingBinary.getPath(), "-generate", mContext.getFilesDir().toString(), "-logflags=0"};
                 break;
             case main:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-no-browser", "-logflags=0" };
+                mCommand = new String[]{mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-no-browser", "-logflags=0"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-database", "-logflags=0" };
+                mCommand = new String[]{mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-database", "-logflags=0"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{ mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-deltas", "-logflags=0" };
+                mCommand = new String[]{mSyncthingBinary.getPath(), "-home", mContext.getFilesDir().toString(), "-reset-deltas", "-logflags=0"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -104,11 +108,15 @@ public class SyncthingRunnable implements Runnable {
 
     @Override
     public void run() {
-        run(false);
+        try {
+            run(false);
+        } catch (ExecutableNotFoundException e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     @SuppressLint("WakelockTimeout")
-    public String run(boolean returnStdOut) {
+    public String run(boolean returnStdOut) throws ExecutableNotFoundException {
         Boolean sendStopToService = false;
         Boolean restartSyncthingNative = false;
         int exitCode;
@@ -122,7 +130,7 @@ public class SyncthingRunnable implements Runnable {
             ProcessBuilder pb = new ProcessBuilder("chmod", "500", mSyncthingBinary.getPath());
             Process p = pb.start();
             p.waitFor();
-        } catch (IOException|InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             Log.w(TAG, "Failed to chmod Syncthing", e);
         }
         // Loop Syncthing
@@ -315,7 +323,11 @@ public class SyncthingRunnable implements Runnable {
      * Manually run "sysctl fs.inotify" in a root shell terminal to check current limit.
      */
     private void increaseInotifyWatches() {
-        if (!mUseRoot || !Shell.SU.available()) {
+        if (!mUseRoot) {
+            // Settings prohibit using root privileges. Cannot increase inotify limit.
+            return;
+        }
+        if (!Shell.SU.available()) {
             Log.i(TAG, "increaseInotifyWatches: Root is not available. Cannot increase inotify limit.");
             return;
         }
@@ -327,7 +339,11 @@ public class SyncthingRunnable implements Runnable {
      * Look for a running libsyncthing.so process and nice its IO.
      */
     private void niceSyncthing() {
-        if (!mUseRoot || !Shell.SU.available()) {
+        if (!mUseRoot) {
+            // Settings prohibit using root privileges. Cannot nice syncthing.
+            return;
+        }
+        if (!Shell.SU.available()) {
             Log.i(TAG_NICE, "Root is not available. Cannot nice syncthing.");
             return;
         }
@@ -343,7 +359,7 @@ public class SyncthingRunnable implements Runnable {
             // Set best-effort, low priority using ionice.
             int exitCode = Util.runShellCommand("/system/bin/ionice " + syncthingPID + " be 7\n", true);
             Log.i(TAG_NICE, "ionice returned " + Integer.toString(exitCode) +
-                " on " + Constants.FILENAME_SYNCTHING_BINARY);
+                    " on " + Constants.FILENAME_SYNCTHING_BINARY);
         }
     }
 
@@ -363,7 +379,7 @@ public class SyncthingRunnable implements Runnable {
                 Log.d(TAG, "Sent kill SIGINT to process " + syncthingPID);
             } else {
                 Log.w(TAG, "Failed to send kill SIGINT to process " + syncthingPID +
-                    " exit code " + Integer.toString(exitCode));
+                        " exit code " + Integer.toString(exitCode));
             }
         }
 
@@ -380,9 +396,9 @@ public class SyncthingRunnable implements Runnable {
     /**
      * Logs the outputs of a stream to logcat and mNativeLog.
      *
-     * @param is The stream to log.
+     * @param is       The stream to log.
      * @param priority The priority level.
-     * @param saveLog True if the log should be stored to {@link #mLogFile}.
+     * @param saveLog  True if the log should be stored to {@link #mLogFile}.
      */
     private Thread log(final InputStream is, final int priority, final boolean saveLog) {
         Thread t = new Thread(() -> {
@@ -452,7 +468,7 @@ public class SyncthingRunnable implements Runnable {
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
         targetEnv.put("STTRACE", TextUtils.join(" ",
-                        mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
+                mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         File externalFilesDir = mContext.getExternalFilesDir(null);
         if (externalFilesDir != null)
             targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
@@ -482,7 +498,16 @@ public class SyncthingRunnable implements Runnable {
         return targetEnv;
     }
 
-    private Process setupAndLaunch(HashMap<String, String> env) throws IOException {
+    private Process setupAndLaunch(HashMap<String, String> env) throws IOException, ExecutableNotFoundException {
+        // Check if "libSyncthing.so" exists.
+        if (mCommand.length > 0) {
+            File libSyncthing = new File(mCommand[0]);
+            if (!libSyncthing.exists()) {
+                Log.e(TAG, "CRITICAL - Syncthing core binary is missing in APK package location " + mCommand[0]);
+                throw new ExecutableNotFoundException(mCommand[0]);
+            }
+        }
+
         if (mUseRoot) {
             ProcessBuilder pb = new ProcessBuilder("su");
             Process process = pb.start();
@@ -507,5 +532,17 @@ public class SyncthingRunnable implements Runnable {
             pb.environment().putAll(env);
             return pb.start();
         }
+    }
+
+    public class ExecutableNotFoundException extends Exception {
+
+        public ExecutableNotFoundException(String message) {
+            super(message);
+        }
+
+        public ExecutableNotFoundException(String message, Throwable throwable) {
+            super(message, throwable);
+        }
+
     }
 }

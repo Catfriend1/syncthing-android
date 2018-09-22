@@ -44,17 +44,13 @@ def get_min_sdk(project_dir):
 
     fail('Failed to find minSdkVersion')
 
-
-def get_ndk_home():
-    if not os.environ.get('ANDROID_NDK_HOME', ''):
-        fail('Error: ANDROID_NDK_HOME environment variable not defined')
-    return os.environ['ANDROID_NDK_HOME']
-
 def which(program):
     import os
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
+    if (sys.platform == 'win32'):
+        program += ".exe"
     fpath, fname = os.path.split(program)
     if fpath:
         if is_exe(program):
@@ -67,26 +63,40 @@ def which(program):
 
     return None
 
+def change_permissions_recursive(path, mode):
+    import os
+    for root, dirs, files in os.walk(path, topdown=False):
+        for dir in [os.path.join(root,d) for d in dirs]:
+            os.chmod(dir, mode)
+        for file in [os.path.join(root, f) for f in files]:
+            os.chmod(file, mode)
+
 def install_go():
     import os
     import tarfile
+    import zipfile
     import urllib
     import hashlib
 
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
-    url = 'https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz'
-    expected_shasum = '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee'
+    if sys.platform == 'win32':
+        url =               'https://dl.google.com/go/go1.9.7.windows-amd64.zip'
+        expected_shasum =   '8db4b21916a3bc79f48d0611202ee5814c82f671b36d5d2efcb446879456cd28'
+        tar_gz_fullfn = pwd_path + os.path.sep + 'go.zip';
+    else:
+        url =               'https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz'
+        expected_shasum =   '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee'
+        tar_gz_fullfn = pwd_path + os.path.sep + 'go.tgz';
 
     # Download prebuilt-go.
     url_base_name = os.path.basename(url)
-    tar_gz_fullfn = pwd_path + os.path.sep + 'go.tgz';
     if not os.path.isfile(tar_gz_fullfn):
-        print('Downloading prebuilt-go tar to:', tar_gz_fullfn)
+        print('Downloading prebuilt-go to:', tar_gz_fullfn)
         tar_gz_fullfn = urllib.urlretrieve(url, tar_gz_fullfn)[0]
-    print('Downloaded prebuilt-go tar to:', tar_gz_fullfn)
+    print('Downloaded prebuilt-go to:', tar_gz_fullfn)
 
-    # Verfiy SHA-1 checksum of downloaded files.
+    # Verfiy SHA-256 checksum of downloaded files.
     with open(tar_gz_fullfn, 'rb') as f:
         contents = f.read()
         found_shasum = hashlib.sha256(contents).hexdigest()
@@ -96,11 +106,18 @@ def install_go():
     print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
 
     # Proceed with extraction of the prebuilt go.
-    # This will go to a subfolder "go" in the current path.
-    print("Extracting prebuilt-go ...")
-    file_name, file_extension = os.path.splitext(url_base_name)
-    tar = tarfile.open(tar_gz_fullfn)
-    tar.extractall(pwd_path)
+    if not os.path.isfile(pwd_path + os.path.sep + 'go' + os.path.sep + 'LICENSE'):
+        print("Extracting prebuilt-go ...")
+        # This will go to a subfolder "go" in the current path.
+        file_name, file_extension = os.path.splitext(url_base_name)
+        if sys.platform == 'win32':
+            zip = zipfile.ZipFile(tar_gz_fullfn, 'r')
+            zip.extractall(pwd_path)
+            zip.close()
+        else:
+            tar = tarfile.open(tar_gz_fullfn)
+            tar.extractall(pwd_path)
+            tar.close()
 
     # Add (...).tar/go/bin" to the PATH.
     go_bin_path = pwd_path + os.path.sep + 'go' + os.path.sep + 'bin'
@@ -108,6 +125,65 @@ def install_go():
     os.environ["PATH"] += os.pathsep + go_bin_path
 
 
+
+
+def install_ndk():
+    import os
+    import zipfile
+    import urllib
+    import hashlib
+
+    # Consts.
+    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    if sys.platform == 'win32':
+        url =               'https://dl.google.com/android/repository/android-ndk-r16b-windows-x86_64.zip'
+        expected_shasum =   'f3f1909ed1052e98dda2c79d11c22f3da28daf25'
+
+    else:
+        url =               'https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip'
+        expected_shasum =   '42aa43aae89a50d1c66c3f9fdecd676936da6128'
+
+    zip_fullfn = pwd_path + os.path.sep + 'ndk.zip';
+    # Download NDK.
+    url_base_name = os.path.basename(url)
+    if not os.path.isfile(zip_fullfn):
+        print('Downloading NDK to:', zip_fullfn)
+        zip_fullfn = urllib.urlretrieve(url, zip_fullfn)[0]
+    print('Downloaded NDK to:', zip_fullfn)
+
+    # Verfiy SHA-1 checksum of downloaded files.
+    with open(zip_fullfn, 'rb') as f:
+        contents = f.read()
+        found_shasum = hashlib.sha1(contents).hexdigest()
+        print("SHA-1:", zip_fullfn, "%s" % found_shasum)
+    if found_shasum != expected_shasum:
+        fail('Error: SHA-1 checksum', found_shasum, 'of downloaded file does not match expected checksum', expected_shasum)
+    print("[ok] Checksum of", zip_fullfn, "matches expected value.")
+
+    # Proceed with extraction of the NDK if necessary.
+    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-r16b'
+    if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
+        print("Extracting NDK ...")
+        # This will go to a subfolder "android-ndk-r16b" in the current path.
+        file_name, file_extension = os.path.splitext(url_base_name)
+        zip = zipfile.ZipFile(zip_fullfn, 'r')
+        zip.extractall(pwd_path)
+        zip.close()
+
+    # Linux only - Set executable permission on files.
+    if platform.system() == 'Linux':
+        print("Setting permissions on NDK executables ...")
+        change_permissions_recursive(ndk_home_path, 0o755);
+
+    # Add "ANDROID_NDK_HOME" environment variable.
+    print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
+    os.environ["ANDROID_NDK_HOME"] = ndk_home_path
+
+
+
+#
+# BUILD SCRIPT MAIN.
+#
 if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
     fail('Unsupported python platform %s. Supported platforms: %s', platform.system(),
          ', '.join(SUPPORTED_PYTHON_PLATFORMS))
@@ -125,12 +201,20 @@ go_bin = which("go");
 if not go_bin:
     print('Warning: go is not available on the PATH.')
     install_go();
+    # Retry: Check if go is available.
+    go_bin = which("go");
+    if not go_bin:
+        fail('Error: go is not available on the PATH.')
+print ('go_bin=\'' + go_bin + '\'')
 
-# Retry: Check if go is available.
-go_bin = which("go");
-if not go_bin:
-    fail('Error: go is not available on the PATH.')
-print ('go_bin [', go_bin, ']')
+# Check if ANDROID_NDK_HOME variable is set.
+if not os.environ.get('ANDROID_NDK_HOME', ''):
+    print('Warning: ANDROID_NDK_HOME environment variable not defined.')
+    install_ndk();
+    # Retry: Check if ANDROID_NDK_HOME variable is set.
+    if not os.environ.get('ANDROID_NDK_HOME', ''):
+        fail('Error: ANDROID_NDK_HOME environment variable not defined')
+print ('ANDROID_NDK_HOME=\'' + os.environ.get('ANDROID_NDK_HOME', '') + '\'')
 
 # Make sure all tags are available for git describe
 # https://github.com/syncthing/syncthing-android/issues/872
@@ -148,7 +232,7 @@ for target in BUILD_TARGETS:
 
     if os.environ.get('SYNCTHING_ANDROID_PREBUILT', ''):
         # The environment variable indicates the SDK and stdlib was prebuilt, set a custom paths.
-        standalone_ndk_dir = get_ndk_home() + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
+        standalone_ndk_dir = os.environ['ANDROID_NDK_HOME'] + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
         pkg_argument = []
     else:
         # Build standalone NDK toolchain if it doesn't exist.
@@ -160,7 +244,7 @@ for target in BUILD_TARGETS:
         print('Building standalone NDK for', target['arch'], 'API level', target_min_sdk, 'to', standalone_ndk_dir)
         subprocess.check_call([
             sys.executable,
-            os.path.join(get_ndk_home(), 'build', 'tools', 'make_standalone_toolchain.py'),
+            os.path.join(os.environ['ANDROID_NDK_HOME'], 'build', 'tools', 'make_standalone_toolchain.py'),
             '--arch',
             target['arch'],
             '--api',

@@ -41,7 +41,6 @@ import javax.xml.transform.stream.StreamResult;
 
 /**
  * Provides direct access to the config.xml file in the file system.
- *
  * This class should only be used if the syncthing API is not available (usually during startup).
  */
 public class ConfigXml {
@@ -53,19 +52,21 @@ public class ConfigXml {
     private static final int FOLDER_ID_APPENDIX_LENGTH = 4;
 
     private final Context mContext;
-    @Inject SharedPreferences mPreferences;
+
+    @Inject
+    SharedPreferences mPreferences;
 
     private final File mConfigFile;
 
     private Document mConfig;
 
-    public ConfigXml(Context context) throws OpenConfigException {
+    public ConfigXml(Context context) throws OpenConfigException, SyncthingRunnable.ExecutableNotFoundException {
         mContext = context;
         mConfigFile = Constants.getConfigFile(mContext);
         boolean isFirstStart = !mConfigFile.exists();
         if (isFirstStart) {
             Log.i(TAG, "App started for the first time. Generating keys and config.");
-            new SyncthingRunnable(context, SyncthingRunnable.Command.generate).run();
+            new SyncthingRunnable(context, SyncthingRunnable.Command.generate).run(true);
         }
 
         readConfig();
@@ -122,7 +123,6 @@ public class ConfigXml {
 
     /**
      * Updates the config file.
-     *
      * Sets ignorePerms flag to true on every folder, force enables TLS, sets the
      * username/password, and disables weak hash checking.
      */
@@ -210,12 +210,11 @@ public class ConfigXml {
 
     /**
      * Updates syncthing options to a version specific target setting in the config file.
-     *
      * Used for one-time config migration from a lower syncthing version to the current version.
      * Enables filesystem watcher.
      * Returns if changes to the config have been made.
      */
-    private boolean migrateSyncthingOptions () {
+    private boolean migrateSyncthingOptions() {
         /* Read existing config version */
         int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
         int iOldConfigVersion = iConfigVersion;
@@ -238,10 +237,10 @@ public class ConfigXml {
             }
 
             /**
-            * Set config version to 28 after manual config migration
-            * This prevents "unackedNotificationID" getting populated
-            * with the fsWatcher GUI notification.
-            */
+             * Set config version to 28 after manual config migration
+             * This prevents "unackedNotificationID" getting populated
+             * with the fsWatcher GUI notification.
+             */
             iConfigVersion = 28;
         }
 
@@ -273,7 +272,6 @@ public class ConfigXml {
 
     /**
      * Set device model name as device name for Syncthing.
-     *
      * We need to iterate through XML nodes manually, as mConfig.getDocumentElement() will also
      * return nested elements inside folder element. We have to check that we only rename the
      * device corresponding to the local device ID.
