@@ -136,12 +136,12 @@ def install_ndk():
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/android/repository/android-ndk-r16b-windows-x86_64.zip'
-        expected_shasum =   'f3f1909ed1052e98dda2c79d11c22f3da28daf25'
+        url =               'https://dl.google.com/android/repository/android-ndk-r18-windows-x86_64.zip'
+        expected_shasum =   '7fc0e0f94d86ea389bd18761abdc1bae2c005587'
 
     else:
-        url =               'https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip'
-        expected_shasum =   '42aa43aae89a50d1c66c3f9fdecd676936da6128'
+        url =               'https://dl.google.com/android/repository/android-ndk-r18-linux-x86_64.zip'
+        expected_shasum =   '2ac2e8e1ef73ed551cac3a1479bb28bd49369212'
 
     zip_fullfn = pwd_path + os.path.sep + 'ndk.zip';
     # Download NDK.
@@ -161,10 +161,10 @@ def install_ndk():
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the NDK if necessary.
-    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-r16b'
+    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-r18'
     if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
-        # This will go to a subfolder "android-ndk-r16b" in the current path.
+        # This will go to a subfolder "android-ndk-r18" in the current path.
         file_name, file_extension = os.path.splitext(url_base_name)
         zip = zipfile.ZipFile(zip_fullfn, 'r')
         zip.extractall(pwd_path)

@@ -33,7 +33,7 @@ gradle/wrapper/gradlew*
 syncthing/go
 syncthing/go.tgz
 syncthing/go.zip
-syncthing/android-ndk-r16b
+syncthing/android-ndk-r*
 syncthing/ndk.zip
 
 # External build artifacts
