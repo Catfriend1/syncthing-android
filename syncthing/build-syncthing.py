@@ -4,6 +4,11 @@ import os.path
 import sys
 import subprocess
 import platform
+#
+# Script Compatibility:
+# - Python 2.7.15
+# - Python 3.7.0
+#
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
@@ -71,12 +76,66 @@ def change_permissions_recursive(path, mode):
         for file in [os.path.join(root, f) for f in files]:
             os.chmod(file, mode)
 
+def install_git():
+    import os
+    import zipfile
+    import hashlib
+
+    if sys.version_info[0] >= 3:
+        from urllib.request import urlretrieve
+    else:
+        from urllib import urlretrieve
+
+    # Consts.
+    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    if sys.platform == 'win32':
+        url =               'https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/MinGit-2.19.0-64-bit.zip'
+        expected_shasum =   '424d24b5fc185a9c5488d7872262464f2facab4f1d4693ea8008196f14a3c19b'
+        zip_fullfn = pwd_path + os.path.sep + 'mingit.zip';
+    else:
+        print('Portable on-demand git installation is currently not supported on linux.')
+        return None
+
+    # Download MinGit.
+    url_base_name = os.path.basename(url)
+    if not os.path.isfile(zip_fullfn):
+        print('Downloading MinGit to:', zip_fullfn)
+        zip_fullfn = urlretrieve(url, zip_fullfn)[0]
+    print('Downloaded MinGit to:', zip_fullfn)
+
+    # Verfiy SHA-256 checksum of downloaded files.
+    with open(zip_fullfn, 'rb') as f:
+        contents = f.read()
+        found_shasum = hashlib.sha256(contents).hexdigest()
+        print("SHA-256:", zip_fullfn, "%s" % found_shasum)
+    if found_shasum != expected_shasum:
+        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
+    print("[ok] Checksum of", zip_fullfn, "matches expected value.")
+
+    # Proceed with extraction of the MinGit.
+    if not os.path.isfile(pwd_path + os.path.sep + 'mingit' + os.path.sep + 'LICENSE.txt'):
+        print("Extracting MinGit ...")
+        # This will go to a subfolder "mingit" in the current path.
+        zip = zipfile.ZipFile(zip_fullfn, 'r')
+        zip.extractall(pwd_path + os.path.sep + 'mingit')
+        zip.close()
+
+    # Add "mingit/cmd" to the PATH.
+    git_bin_path = pwd_path + os.path.sep + 'mingit' + os.path.sep + 'cmd'
+    print('Adding to PATH:', git_bin_path)
+    os.environ["PATH"] += os.pathsep + git_bin_path
+
+
 def install_go():
     import os
     import tarfile
     import zipfile
-    import urllib
     import hashlib
+
+    if sys.version_info[0] >= 3:
+        from urllib.request import urlretrieve
+    else:
+        from urllib import urlretrieve
 
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
@@ -93,7 +152,7 @@ def install_go():
     url_base_name = os.path.basename(url)
     if not os.path.isfile(tar_gz_fullfn):
         print('Downloading prebuilt-go to:', tar_gz_fullfn)
-        tar_gz_fullfn = urllib.urlretrieve(url, tar_gz_fullfn)[0]
+        tar_gz_fullfn = urlretrieve(url, tar_gz_fullfn)[0]
     print('Downloaded prebuilt-go to:', tar_gz_fullfn)
 
     # Verfiy SHA-256 checksum of downloaded files.
@@ -102,7 +161,7 @@ def install_go():
         found_shasum = hashlib.sha256(contents).hexdigest()
         print("SHA-256:", tar_gz_fullfn, "%s" % found_shasum)
     if found_shasum != expected_shasum:
-        fail('Error: SHA-256 checksum', found_shasum, 'of downloaded file does not match expected checksum', expected_shasum)
+        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
     print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
 
     # Proceed with extraction of the prebuilt go.
@@ -119,7 +178,7 @@ def install_go():
             tar.extractall(pwd_path)
             tar.close()
 
-    # Add (...).tar/go/bin" to the PATH.
+    # Add "go/bin" to the PATH.
     go_bin_path = pwd_path + os.path.sep + 'go' + os.path.sep + 'bin'
     print('Adding to PATH:', go_bin_path)
     os.environ["PATH"] += os.pathsep + go_bin_path
@@ -130,8 +189,12 @@ def install_go():
 def install_ndk():
     import os
     import zipfile
-    import urllib
     import hashlib
+
+    if sys.version_info[0] >= 3:
+        from urllib.request import urlretrieve
+    else:
+        from urllib import urlretrieve
 
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
@@ -148,7 +211,7 @@ def install_ndk():
     url_base_name = os.path.basename(url)
     if not os.path.isfile(zip_fullfn):
         print('Downloading NDK to:', zip_fullfn)
-        zip_fullfn = urllib.urlretrieve(url, zip_fullfn)[0]
+        zip_fullfn = urlretrieve(url, zip_fullfn)[0]
     print('Downloaded NDK to:', zip_fullfn)
 
     # Verfiy SHA-1 checksum of downloaded files.
@@ -157,7 +220,7 @@ def install_ndk():
         found_shasum = hashlib.sha1(contents).hexdigest()
         print("SHA-1:", zip_fullfn, "%s" % found_shasum)
     if found_shasum != expected_shasum:
-        fail('Error: SHA-1 checksum', found_shasum, 'of downloaded file does not match expected checksum', expected_shasum)
+        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the NDK if necessary.
@@ -196,6 +259,17 @@ go_build_dir = os.path.join(build_dir, 'go-packages')
 syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'syncthing')
 min_sdk = get_min_sdk(project_dir)
 
+# Check if git is available.
+git_bin = which("git");
+if not git_bin:
+    print('Warning: git is not available on the PATH.')
+    install_git();
+    # Retry: Check if git is available.
+    git_bin = which("git");
+    if not git_bin:
+        fail('Error: git is not available on the PATH.')
+print('git_bin=\'' + git_bin + '\'')
+
 # Check if go is available.
 go_bin = which("go");
 if not go_bin:
@@ -205,7 +279,7 @@ if not go_bin:
     go_bin = which("go");
     if not go_bin:
         fail('Error: go is not available on the PATH.')
-print ('go_bin=\'' + go_bin + '\'')
+print('go_bin=\'' + go_bin + '\'')
 
 # Check if ANDROID_NDK_HOME variable is set.
 if not os.environ.get('ANDROID_NDK_HOME', ''):
@@ -214,10 +288,10 @@ if not os.environ.get('ANDROID_NDK_HOME', ''):
     # Retry: Check if ANDROID_NDK_HOME variable is set.
     if not os.environ.get('ANDROID_NDK_HOME', ''):
         fail('Error: ANDROID_NDK_HOME environment variable not defined')
-print ('ANDROID_NDK_HOME=\'' + os.environ.get('ANDROID_NDK_HOME', '') + '\'')
+print('ANDROID_NDK_HOME=\'' + os.environ.get('ANDROID_NDK_HOME', '') + '\'')
 
 # Make sure all tags are available for git describe
-# https://github.com/syncthing/syncthing-android/issues/872
+print('Invoking git fetch ...')
 subprocess.check_call([
     'git',
     '-C',
@@ -225,6 +299,16 @@ subprocess.check_call([
     'fetch',
     '--tags'
 ])
+
+print('Invoking git describe ...')
+syncthingVersion = subprocess.check_output([
+    git_bin,
+    '-C',
+    syncthing_dir,
+    'describe',
+    '--always'
+]).strip();
+syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
 
 for target in BUILD_TARGETS:
     target_min_sdk = str(target.get('min_sdk', min_sdk))
@@ -261,14 +345,6 @@ for target in BUILD_TARGETS:
         'CC': os.path.join(standalone_ndk_dir, 'bin', target['cc'])
     })
 
-    syncthingVersion = subprocess.check_output([
-        'git',
-        '-C',
-        syncthing_dir,
-        'describe',
-        '--always'
-    ]).strip();
-    syncthingVersion = syncthingVersion.replace("rc", "preview");
     print('Building syncthing version', syncthingVersion);
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],

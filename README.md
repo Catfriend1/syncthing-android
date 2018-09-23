@@ -31,6 +31,8 @@ The project is translated on [Transifex](https://www.transifex.com/projects/p/sy
 `Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.`
 - Python 2.7
 `Make sure, Python is installed and available on the PATH environment variable.`
+- Git (for Linux) or Git for Windows
+`Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.`
 
 ### Build instructions
 
@@ -41,13 +43,17 @@ Alternatively, run `git submodule init && git submodule update` in the project f
 A Linux VM, for example running Debian, is recommended to build this.
 
 Build Syncthing and the Syncthing-Android wrapper using the following commands:
+
 `./gradlew buildNative`
+
 `./gradlew lint assembleDebug`
 
 You can also use Android Studio to build the apk after you manually ran the `./gradlew buildNative` command in the repository root.
 
 To clean up all files generated during build, use the following commands:
+
 `./gradlew cleanNative`
+
 `./gradlew clean`
 
 # License

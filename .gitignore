@@ -33,8 +33,14 @@ gradle/wrapper/gradlew*
 syncthing/go
 syncthing/go.tgz
 syncthing/go.zip
+
+# Android NDK
 syncthing/android-ndk-r*
 syncthing/ndk.zip
+
+# MinGit
+syncthing/mingit
+syncthing/mingit.zip
 
 # External build artifacts
 ext/
