@@ -2,7 +2,7 @@
 
 [![License: MPLv2](https://img.shields.io/badge/License-MPLv2-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 <a href="https://github.com/Catfriend1/syncthing-android/releases" alt="GitHub release"><img src="https://img.shields.io/github/release/Catfriend1/syncthing-android/all.svg" /></a>
-<a href="https://f-droid.org/de/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/badge/f--droid-4160-brightgreen.svg" /></a>
+<a href="https://f-droid.org/de/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/badge/f--droid-4161-brightgreen.svg" /></a>
 
 # Major enhancements in this fork are:
 - UI explains why syncthing is running or not running according to the run conditions set in preferences.
@@ -12,9 +12,15 @@
 - Android 8+ support is on it's way.
 - Many bug fixes, enhancements and more frequent releases.
 
-A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
+A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
 <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_12.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_11.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_09.png" alt="screenshot 3" width="200" />
+
+# Goal of the forked version
+- Develop and try out enhancements together
+- Release the wrapper more frequently to identify and fix bugs together caused by changes in the syncthing submodule.
+- Make enhancements configurable in the settings UI, e.g. users should be able to turn them on and off
+- Let's get ready for newer Android versions that put limits on background syncing tools. We need your bug reports as detailed as possible.
 
 # Translations
 
