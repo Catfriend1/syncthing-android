@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.SystemClock;
@@ -133,13 +134,20 @@ public class SyncthingRunnable implements Runnable {
         } catch (IOException | InterruptedException e) {
             Log.w(TAG, "Failed to chmod Syncthing", e);
         }
-        // Loop Syncthing
+
+        /**
+         * Potential fix for #498, keep the CPU running while native binary is running.
+         * Only valid on Android 5 or lower.
+         */
+        PowerManager pm;
+        PowerManager.WakeLock wakeLock = null;
+        Boolean useWakeLock = mPreferences.getBoolean(Constants.PREF_USE_WAKE_LOCK, false);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M && useWakeLock) {
+            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        }
+
         Process process = null;
-        // Potential fix for #498, keep the CPU running while native binary is running
-        PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wakeLock = useWakeLock()
-                ? pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG)
-                : null;
         try {
             if (wakeLock != null) {
                 wakeLock.acquire();
@@ -261,13 +269,6 @@ public class SyncthingRunnable implements Runnable {
             String[] e2 = e.split("=");
             environment.put(e2[0], e2[1]);
         }
-    }
-
-    /**
-     * Returns true if the experimental setting for using wake locks has been enabled in settings.
-     */
-    private boolean useWakeLock() {
-        return mPreferences.getBoolean(Constants.PREF_USE_WAKE_LOCK, false);
     }
 
     /**

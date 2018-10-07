@@ -243,12 +243,6 @@
         android:key="category_experimental">
 
         <CheckBoxPreference
-            android:key="wakelock_while_binary_running"
-            android:title="@string/keep_wakelock_while_binary_running"
-            android:summary="@string/keep_wakelock_while_binary_running_summary"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
             android:key="use_tor"
             android:title="@string/use_tor_title"
             android:summary="@string/use_tor_summary" />
@@ -269,6 +263,13 @@
             android:key="use_legacy_hashing"
             android:title="@string/use_legacy_hashing_title"
             android:summary="@string/use_legacy_hashing_summary" />
+
+        <!-- Only valid for Android < 6 -->
+        <CheckBoxPreference
+            android:key="wakelock_while_binary_running"
+            android:title="@string/keep_wakelock_while_binary_running"
+            android:summary="@string/keep_wakelock_while_binary_running_summary"
+            android:defaultValue="false" />
 
     </PreferenceScreen>
 

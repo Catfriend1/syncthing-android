@@ -438,7 +438,7 @@ Please report any problems you encounter via Github.</string>
 
     <string name="keep_wakelock_while_binary_running">Keep the CPU awake while Syncthing is running</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Use this setting if you experience unexpected disconnects while operating on battery. This will result in increased battery consumption.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Only for Android 5 or lower. Use this setting if you experience unexpected disconnects while operating on battery. This will result in increased battery consumption.</string>
 
     <string name="use_tor_title">Use Tor</string>
 

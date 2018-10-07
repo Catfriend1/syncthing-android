@@ -434,7 +434,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="keep_wakelock_while_binary_running">Prozessor wach halten während Syncthing läuft.</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Nutze dieses Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Nur für Android 5 oder niedriger. Nutze diese Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
 
     <string name="use_tor_title">Tor benutzen</string>
 

@@ -231,6 +231,12 @@ public class SettingsActivity extends SyncthingActivity {
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked());
+            /* Experimental options */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                /* Wakelocks are only valid on Android 5 or lower. */
+                mUseWakelock.setEnabled(false);
+                mUseWakelock.setChecked(false);
+            }
 
             mCategorySyncthingOptions = findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
