@@ -4,7 +4,7 @@ apply plugin: 'com.github.triplet.play'
 
 dependencies {
     implementation 'eu.chainfire:libsuperuser:1.0.0.201704021214'
-    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.zxing:android-integration:3.3.0'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'org.mindrot:jbcrypt:0.4'
@@ -15,12 +15,12 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.14.1'
     annotationProcessor "com.google.dagger:dagger-compiler:2.14.1"
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
 }
 
 android {
     // Changes to these values need to be reflected in `.travis.yml`
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion '28.0.2'
 
     buildTypes.debug.applicationIdSuffix ".debug"
