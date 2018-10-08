@@ -171,6 +171,8 @@ public class NotificationHandler {
                 Log.v(TAG, "Updating notification");
                 mNotificationManager.notify(idToShow, builder.build());
             }
+        } else {
+            mNotificationManager.cancel(idToShow);
         }
         mNotificationManager.cancel(idToCancel);
 
