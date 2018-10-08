@@ -148,7 +148,12 @@ public class WebGuiActivity extends SyncthingActivity
 
         // SyncthingService needs to be started from this activity as the user
         // can directly launch this activity from the recent activity switcher.
-        startService(new Intent(this, SyncthingService.class));
+        Intent serviceIntent = new Intent(this, SyncthingService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        } else {
+            startService(serviceIntent);
+        }
     }
 
     @Override

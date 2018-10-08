@@ -219,6 +219,10 @@ public class SyncthingService extends Service {
         mStoragePermissionGranted = (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                 PackageManager.PERMISSION_GRANTED);
+
+        if (mNotificationHandler != null) {
+            mNotificationHandler.setAppShutdownInProgress(false);
+        }
     }
 
     /**
@@ -505,6 +509,9 @@ public class SyncthingService extends Service {
              */
             mRunConditionMonitor.shutdown();
         }
+        if (mNotificationHandler != null) {
+            mNotificationHandler.setAppShutdownInProgress(true);
+        }
         if (mStoragePermissionGranted) {
             synchronized (mStateLock) {
                 if (mCurrentState == State.STARTING) {
@@ -557,10 +564,6 @@ public class SyncthingService extends Service {
         if (mApi != null) {
             mApi.shutdown();
             mApi = null;
-        }
-
-        if (mNotificationHandler != null) {
-            mNotificationHandler.cancelPersistentNotification(this);
         }
 
         if (mSyncthingRunnable != null) {
@@ -621,7 +624,7 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * Called to notifiy listeners of an API change.
+     * Called to notify listeners of an API change.
      */
     private void onServiceStateChange(State newState) {
         Log.v(TAG, "onServiceStateChange: from " + mCurrentState + " to " + newState);
@@ -766,6 +769,7 @@ public class SyncthingService extends Service {
                     switch (prefKey) {
                         // Preferences that are no longer used and left-overs from previous versions of the app.
                         case "first_start":
+                        case "notification_type":
                         case "notify_crashes":
                             Log.v(TAG, "importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
                             break;

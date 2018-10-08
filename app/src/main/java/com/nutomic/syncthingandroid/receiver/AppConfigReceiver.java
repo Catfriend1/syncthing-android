@@ -25,7 +25,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     /**
      * Stop the Syncthing-Service
-     * If alwaysRunInBackground is enabled the service must not be stopped. Instead a
+     * If startServiceOnBoot is enabled the service must not be stopped. Instead a
      * notification is presented to the user.
      */
     private static final String ACTION_STOP  = "com.nutomic.syncthingandroid.action.STOP";
@@ -40,7 +40,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
                 BootReceiver.startServiceCompat(context);
                 break;
             case ACTION_STOP:
-                if (alwaysRunInBackground(context)) {
+                if (startServiceOnBoot(context)) {
                     mNotificationHandler.showStopSyncthingWarningNotification();
                 } else {
                     context.stopService(new Intent(context, SyncthingService.class));
@@ -49,8 +49,8 @@ public class AppConfigReceiver extends BroadcastReceiver {
         }
     }
 
-    private static boolean alwaysRunInBackground(Context context) {
+    private static boolean startServiceOnBoot(Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
+        return sp.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
     }
 }

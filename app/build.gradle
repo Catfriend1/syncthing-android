@@ -58,6 +58,11 @@ android {
             signingConfig = signingConfigs.release.storeFile ? signingConfigs.release : null
         }
         debug {
+            gradle.buildFinished {
+                buildResult -> if (!buildResult.failure) {
+                    pushToDevice.execute()
+                }
+            }
         }
     }
 
@@ -81,4 +86,9 @@ task deleteUnsupportedPlayTranslations(type: Delete) {
     delete 'src/main/play/el-EL'
     delete 'src/main/play/nb'
     delete 'src/main/play/en/'
+}
+
+task pushToDevice(type: Exec) {
+    executable = 'python'
+    args = ['-u', './push-to-device.py']
 }

@@ -80,14 +80,6 @@
             android:defaultValue="false" />
 
         <ListPreference
-            android:key="notification_type"
-            android:title="@string/notification_type_title"
-            android:entryValues="@array/notification_type_entry_values"
-            android:entries="@array/notification_type_entries"
-            android:summary="@string/notification_type_summary"
-            android:defaultValue="low_priority" />
-
-        <ListPreference
             android:key="pref_current_language"
             android:title="@string/preference_language_title"
             android:summary="@string/preference_language_summary" />

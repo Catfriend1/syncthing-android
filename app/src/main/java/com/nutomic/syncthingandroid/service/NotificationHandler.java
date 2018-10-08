@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -42,6 +41,9 @@ public class NotificationHandler {
     private final NotificationChannel mPersistentChannel;
     private final NotificationChannel mPersistentChannelWaiting;
     private final NotificationChannel mInfoChannel;
+
+    private Boolean lastStartForegroundService = false;
+    private Boolean appShutdownInProgress = false;
 
     public NotificationHandler(Context context) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
@@ -88,84 +90,100 @@ public class NotificationHandler {
     }
 
     /**
-     * Shows or hides the persistent notification based on running state and
-     * {@link Constants#PREF_NOTIFICATION_TYPE}.
+     * Shows, updates or hides the notification.
      */
     public void updatePersistentNotification(SyncthingService service) {
-        String type = mPreferences.getString(Constants.PREF_NOTIFICATION_TYPE, "low_priority");
-
-        // Always use startForeground() if app is set to always run. This makes sure the app
-        // is not killed, and we don't miss wifi/charging events.
-        // On Android 8, this behaviour is mandatory to receive broadcasts.
-        // https://stackoverflow.com/a/44505719/1837158
-        boolean foreground = mPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
-
-        // Foreground priority requires a notification so this ensures that we either have a
-        // "default" or "low_priority" notification, but not "none".
-        if ("none".equals(type) && foreground) {
-            type = "low_priority";
-        }
-
+        boolean startServiceOnBoot = mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
         State currentServiceState = service.getCurrentState();
         boolean syncthingRunning = currentServiceState == SyncthingService.State.ACTIVE ||
                     currentServiceState == SyncthingService.State.STARTING;
-        if (foreground || (syncthingRunning && !type.equals("none"))) {
-            int title = R.string.syncthing_terminated;
-            switch (currentServiceState) {
-                case ERROR:
-                case INIT:
-                    break;
-                case DISABLED:
-                    title = R.string.syncthing_disabled;
-                    break;
-                case STARTING:
-                case ACTIVE:
-                    title = R.string.syncthing_active;
-                    break;
-                default:
-                    break;
+        boolean startForegroundService = false;
+        if (!appShutdownInProgress) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                /**
+                 * Android 7 and lower:
+                 * The app may run in background and monitor run conditions even if it is not
+                 * running as a foreground service. For that reason, we can use a normal
+                 * notification if syncthing is DISABLED.
+                 */
+                startForegroundService = startServiceOnBoot || syncthingRunning;
+            } else {
+                /**
+                 * Android 8+:
+                 * Always use startForeground.
+                 * This makes sure the app is not killed, and we don't miss run condition events.
+                 * On Android 8+, this behaviour is mandatory to receive broadcasts.
+                 * https://stackoverflow.com/a/44505719/1837158
+                 * Foreground priority requires a notification so this ensures that we either have a
+                 * "default" or "low_priority" notification, but not "none".
+                 */
+                 startForegroundService = true;
             }
+        }
 
-            /**
-             * We no longer need to launch FirstStartActivity instead of MainActivity as
-             * {@link SyncthingService#onStartCommand} will check for denied permissions.
-             */
-            Intent intent = new Intent(mContext, MainActivity.class);
+        // Check if we have to stopForeground.
+        if (startForegroundService != lastStartForegroundService) {
+            if (!startForegroundService) {
+                Log.v(TAG, "Stopping foreground service");
+                service.stopForeground(false);
+            }
+        }
 
-            // Reason for two separate IDs: if one of the notification channels is hidden then
-            // the startForeground() below won't update the notification but use the old one
-            int idToShow = syncthingRunning ? ID_PERSISTENT : ID_PERSISTENT_WAITING;
-            int idToCancel = syncthingRunning ? ID_PERSISTENT_WAITING : ID_PERSISTENT;
-            NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
-            NotificationCompat.Builder builder = getNotificationBuilder(channel)
-                    .setContentTitle(mContext.getString(title))
-                    .setSmallIcon(R.drawable.ic_stat_notify)
-                    .setOngoing(true)
-                    .setOnlyAlertOnce(true)
-                    .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0));
-            if (type.equals("low_priority"))
-                builder.setPriority(NotificationCompat.PRIORITY_MIN);
+        // Prepare notification builder.
+        int title = R.string.syncthing_terminated;
+        switch (currentServiceState) {
+            case ERROR:
+            case INIT:
+                break;
+            case DISABLED:
+                title = R.string.syncthing_disabled;
+                break;
+            case STARTING:
+                title = R.string.syncthing_starting;
+                break;
+            case ACTIVE:
+                title = R.string.syncthing_active;
+                break;
+            default:
+                break;
+        }
 
-            if (foreground) {
+        /**
+         * Reason for two separate IDs: if one of the notification channels is hidden then
+         * the startForeground() below won't update the notification but use the old one.
+         */
+        int idToShow = syncthingRunning ? ID_PERSISTENT : ID_PERSISTENT_WAITING;
+        int idToCancel = syncthingRunning ? ID_PERSISTENT_WAITING : ID_PERSISTENT;
+        Intent intent = new Intent(mContext, MainActivity.class);
+        NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
+        NotificationCompat.Builder builder = getNotificationBuilder(channel)
+                .setContentTitle(mContext.getString(title))
+                .setSmallIcon(R.drawable.ic_stat_notify)
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+        if (!appShutdownInProgress) {
+            if (startForegroundService) {
+                Log.v(TAG, "Starting foreground service or updating notification");
                 service.startForeground(idToShow, builder.build());
             } else {
-                service.stopForeground(false); // ensure no longer running with foreground priority
+                Log.v(TAG, "Updating notification");
                 mNotificationManager.notify(idToShow, builder.build());
             }
-            mNotificationManager.cancel(idToCancel);
-        } else {
-            // ensure no longer running with foreground priority
-            cancelPersistentNotification(service);
         }
+        mNotificationManager.cancel(idToCancel);
+
+        // Remember last notification visibility.
+        lastStartForegroundService = startForegroundService;
     }
 
-    public void cancelPersistentNotification(SyncthingService service) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && alwaysRunInBackground())
-            return;
-
-        service.stopForeground(false);
-        mNotificationManager.cancel(ID_PERSISTENT);
-        mNotificationManager.cancel(ID_PERSISTENT_WAITING);
+    /**
+     * Called by {@link SyncthingService#onStart} {@link SyncthingService#onDestroy}
+     * to indicate app startup and shutdown.
+     */
+    public void setAppShutdownInProgress(Boolean newValue) {
+        appShutdownInProgress = newValue;
     }
 
     public void showCrashedNotification(@StringRes int title, String extraInfo) {
@@ -277,10 +295,5 @@ public class NotificationHandler {
             nb.setCategory(Notification.CATEGORY_ERROR);
         }
         mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
-    }
-
-    private boolean alwaysRunInBackground() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
     }
 }

@@ -174,7 +174,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionExit:
-                if (sharedPreferences != null && sharedPreferences.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false)) {
+                if (sharedPreferences != null && sharedPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false)) {
                     /**
                      * App is running as a service. Show an explanation why exiting syncthing is an
                      * extraordinary request, then ask the user to confirm.

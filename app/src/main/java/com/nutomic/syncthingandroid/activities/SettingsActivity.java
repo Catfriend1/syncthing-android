@@ -87,7 +87,7 @@ public class SettingsActivity extends SyncthingActivity {
     public static class SettingsFragment extends PreferenceFragment
             implements SyncthingActivity.OnServiceConnectedListener,
             SyncthingService.OnServiceStateChangeListener, Preference.OnPreferenceChangeListener,
-            Preference.OnPreferenceClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
+            Preference.OnPreferenceClickListener {
 
         private static final String TAG = "SettingsFragment";
         private static final String KEY_EXPORT_CONFIG = "export_config";
@@ -100,7 +100,7 @@ public class SettingsActivity extends SyncthingActivity {
         @Inject SharedPreferences mPreferences;
 
         private Preference         mCategoryRunConditions;
-        private CheckBoxPreference mAlwaysRunInBackground;
+        private CheckBoxPreference mStartServiceOnBoot;
         private ListPreference     mPowerSource;
         private CheckBoxPreference mRunOnMobileData;
         private CheckBoxPreference mRunOnWifi;
@@ -150,7 +150,6 @@ public class SettingsActivity extends SyncthingActivity {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
             ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
-            mPreferences.registerOnSharedPreferenceChangeListener(this);
         }
 
         /**
@@ -164,8 +163,8 @@ public class SettingsActivity extends SyncthingActivity {
 
             addPreferencesFromResource(R.xml.app_settings);
             PreferenceScreen screen = getPreferenceScreen();
-            mAlwaysRunInBackground =
-                    (CheckBoxPreference) findPreference(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND);
+            mStartServiceOnBoot =
+                    (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
             mPowerSource =
                     (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
             mRunOnMobileData =
@@ -192,10 +191,6 @@ public class SettingsActivity extends SyncthingActivity {
                     languages.forceChangeLanguage(getActivity(), (String) o);
                     return false;
                 });
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                categoryBehaviour.removePreference(findPreference(Constants.PREF_NOTIFICATION_TYPE));
             }
 
             mDeviceName             = (EditTextPreference) findPreference("deviceName");
@@ -348,7 +343,6 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onDestroy() {
-            mPreferences.unregisterOnSharedPreferenceChangeListener(this);
             if (mSyncthingService != null) {
                 mSyncthingService.unregisterOnServiceStateChangeListener(this);
             }
@@ -457,15 +451,16 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onStop() {
-            if (mPendingConfig) {
-                if (mSyncthingService != null && mApi != null &&
-                        mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                    mApi.saveConfigAndRestart();
-                    mPendingConfig = false;
+            if (mSyncthingService != null) {
+                mNotificationHandler.updatePersistentNotification(mSyncthingService);
+                if (mPendingConfig) {
+                    if (mApi != null &&
+                            mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
+                        mApi.saveConfigAndRestart();
+                        mPendingConfig = false;
+                    }
                 }
-            }
-            if (mPendingRunConditions) {
-                if (mSyncthingService != null) {
+                if (mPendingRunConditions) {
                     mSyncthingService.evaluateRunConditions();
                 }
             }
@@ -628,21 +623,6 @@ public class SettingsActivity extends SyncthingActivity {
                     return true;
                 default:
                     return false;
-            }
-        }
-
-        /**
-         * Update notification after that preference changes. We can't use onPreferenceChange() as
-         * the preference value isn't persisted there, and the NotificationHandler accesses the
-         * preference directly.
-         *
-         * This function is called when the activity is opened, so we need to make sure the service
-         * is connected.
-         */
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(Constants.PREF_NOTIFICATION_TYPE) && mSyncthingService != null) {
-                mNotificationHandler.updatePersistentNotification(mSyncthingService);
             }
         }
 

@@ -15,10 +15,4 @@
         <item>battery_power</item>
     </string-array>
 
-    <string-array name="notification_type_entry_values">
-        <item>normal</item>
-        <item>low_priority</item>
-        <item>none</item>
-    </string-array>
-
 </resources>

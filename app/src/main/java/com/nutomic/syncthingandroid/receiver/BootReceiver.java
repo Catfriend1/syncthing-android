@@ -18,14 +18,14 @@ public class BootReceiver extends BroadcastReceiver {
                 !intent.getAction().equals(Intent.ACTION_MY_PACKAGE_REPLACED))
             return;
 
-        if (!alwaysRunInBackground(context))
+        if (!startServiceOnBoot(context))
             return;
 
         startServiceCompat(context);
     }
 
     /**
-     * Workaround for starting service from background on Android 8.
+     * Workaround for starting service from background on Android 8+.
      *
      * https://stackoverflow.com/a/44505719/1837158
      */
@@ -39,8 +39,8 @@ public class BootReceiver extends BroadcastReceiver {
         }
     }
 
-    private static boolean alwaysRunInBackground(Context context) {
+    private static boolean startServiceOnBoot(Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getBoolean(Constants.PREF_ALWAYS_RUN_IN_BACKGROUND, false);
+        return sp.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
     }
 }
