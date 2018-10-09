@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.Manifest;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +32,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.ref.WeakReference;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -664,20 +668,28 @@ public class SyncthingService extends Service {
 
     /**
      * Exports the local config and keys to {@link Constants#EXPORT_PATH}.
+     *
+     * Test with Android Virtual Device using emulator.
+     * cls & adb shell su 0 "ls -a -l -R /data/data/com.github.catfriend1.syncthingandroid.debug/files; echo === SDCARD ===; ls -a -l -R /storage/emulated/0/backups/syncthing"
+     *
      */
     public boolean exportConfig() {
         Boolean failSuccess = true;
         Log.v(TAG, "exportConfig BEGIN");
 
+        // Shutdown synchronously.
+        shutdown(State.DISABLED, () -> {
+        });
+
         // Copy config, privateKey and/or publicKey to export path.
-        Constants.EXPORT_PATH.mkdirs();
+        Constants.EXPORT_PATH_OBJ.mkdirs();
         try {
             Files.copy(Constants.getConfigFile(this),
-                    new File(Constants.EXPORT_PATH, Constants.CONFIG_FILE));
+                    new File(Constants.EXPORT_PATH_OBJ, Constants.CONFIG_FILE));
             Files.copy(Constants.getPrivateKeyFile(this),
-                    new File(Constants.EXPORT_PATH, Constants.PRIVATE_KEY_FILE));
+                    new File(Constants.EXPORT_PATH_OBJ, Constants.PRIVATE_KEY_FILE));
             Files.copy(Constants.getPublicKeyFile(this),
-                    new File(Constants.EXPORT_PATH, Constants.PUBLIC_KEY_FILE));
+                    new File(Constants.EXPORT_PATH_OBJ, Constants.PUBLIC_KEY_FILE));
         } catch (IOException e) {
             Log.w(TAG, "Failed to export config", e);
             failSuccess = false;
@@ -688,7 +700,7 @@ public class SyncthingService extends Service {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            file = new File(Constants.EXPORT_PATH, Constants.SHARED_PREFS_EXPORT_FILE);
+            file = new File(Constants.EXPORT_PATH_OBJ, Constants.SHARED_PREFS_EXPORT_FILE);
             fileOutputStream = new FileOutputStream(file);
             if (!file.exists()) {
                 file.createNewFile();
@@ -712,11 +724,48 @@ public class SyncthingService extends Service {
                 Log.e(TAG, "exportConfig: Failed to export SharedPreferences #2", e);
             }
         }
+
+        /**
+         * java.nio.file library is available since API level 26, see
+         * https://developer.android.com/reference/java/nio/file/package-summary
+         */
+        if (Build.VERSION.SDK_INT >= 26) {
+            Log.v(TAG, "exportConfig: Exporting index database");
+            Path databaseSourcePath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
+            Path databaseExportPath = Paths.get(Constants.EXPORT_PATH + "/" + Constants.INDEX_DB_FOLDER);
+            if (java.nio.file.Files.exists(databaseExportPath)) {
+                try {
+                    FileUtils.deleteDirectoryRecursively(databaseExportPath);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to delete directory '" + databaseExportPath + "'" + e);
+                }
+            }
+            try {
+                java.nio.file.Files.walk(databaseSourcePath).forEach(source -> {
+                    try {
+                        java.nio.file.Files.copy(source, databaseExportPath.resolve(databaseSourcePath.relativize(source)));
+                    } catch (IOException e) {
+                        Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseExportPath + "'");
+                    }
+                 });
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to copy directory '" + databaseSourcePath + "' to '" + databaseExportPath + "'");
+            }
+        }
+        Log.v(TAG, "exportConfig END");
+
+        // Start syncthing after export if run conditions apply.
+        if (mLastDeterminedShouldRun) {
+            launchStartupTask(SyncthingRunnable.Command.main);
+        }
         return failSuccess;
     }
 
     /**
      * Imports config and keys from {@link Constants#EXPORT_PATH}.
+     *
+     * Test with Android Virtual Device using emulator.
+     * cls & adb shell su 0 "ls -a -l -R /data/data/com.github.catfriend1.syncthingandroid.debug/files; echo === SDCARD ===; ls -a -l -R /storage/emulated/0/backups/syncthing"
      *
      * @return True if the import was successful, false otherwise (eg if files aren't found).
      */
@@ -730,9 +779,9 @@ public class SyncthingService extends Service {
 
         // Import config, privateKey and/or publicKey.
         try {
-            File config = new File(Constants.EXPORT_PATH, Constants.CONFIG_FILE);
-            File privateKey = new File(Constants.EXPORT_PATH, Constants.PRIVATE_KEY_FILE);
-            File publicKey = new File(Constants.EXPORT_PATH, Constants.PUBLIC_KEY_FILE);
+            File config = new File(Constants.EXPORT_PATH_OBJ, Constants.CONFIG_FILE);
+            File privateKey = new File(Constants.EXPORT_PATH_OBJ, Constants.PRIVATE_KEY_FILE);
+            File publicKey = new File(Constants.EXPORT_PATH_OBJ, Constants.PUBLIC_KEY_FILE);
 
             // Check if necessary files for import are available.
             if (config.exists() && privateKey.exists() && publicKey.exists()) {
@@ -754,7 +803,7 @@ public class SyncthingService extends Service {
         ObjectInputStream objectInputStream = null;
         Map<String, Object> sharedPrefsMap = null;
         try {
-            file = new File(Constants.EXPORT_PATH, Constants.SHARED_PREFS_EXPORT_FILE);
+            file = new File(Constants.EXPORT_PATH_OBJ, Constants.SHARED_PREFS_EXPORT_FILE);
             if (file.exists()) {
                 // Read, deserialize shared preferences.
                 fileInputStream = new FileInputStream(file);
@@ -831,7 +880,36 @@ public class SyncthingService extends Service {
             }
         }
 
-        // Start syncthing after successful import if run conditions apply.
+        /**
+         * java.nio.file library is available since API level 26, see
+         * https://developer.android.com/reference/java/nio/file/package-summary
+         */
+        if (Build.VERSION.SDK_INT >= 26) {
+            Path databaseImportPath = Paths.get(Constants.EXPORT_PATH + "/" + Constants.INDEX_DB_FOLDER);
+            if (java.nio.file.Files.exists(databaseImportPath)) {
+                Log.v(TAG, "importConfig: Importing index database");
+                Path databaseTargetPath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
+                try {
+                    FileUtils.deleteDirectoryRecursively(databaseTargetPath);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to delete directory '" + databaseTargetPath + "'" + e);
+                }
+                try {
+                    java.nio.file.Files.walk(databaseImportPath).forEach(source -> {
+                        try {
+                            java.nio.file.Files.copy(source, databaseTargetPath.resolve(databaseImportPath.relativize(source)));
+                        } catch (IOException e) {
+                            Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseTargetPath + "'");
+                        }
+                     });
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to copy directory '" + databaseImportPath + "' to '" + databaseTargetPath + "'");
+                }
+            }
+        }
+        Log.v(TAG, "importConfig END");
+
+        // Start syncthing after import if run conditions apply.
         if (mLastDeterminedShouldRun) {
             launchStartupTask(SyncthingRunnable.Command.main);
         }

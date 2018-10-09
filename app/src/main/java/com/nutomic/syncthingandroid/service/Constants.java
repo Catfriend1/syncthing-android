@@ -68,8 +68,9 @@ public class Constants {
     /**
      * Directory where config is exported to and imported from.
      */
-    public static final File EXPORT_PATH =
-            new File(Environment.getExternalStorageDirectory(), "backups/syncthing");
+    public static final String EXPORT_PATH = Environment.getExternalStorageDirectory() + "/backups/syncthing";
+
+    public static final File EXPORT_PATH_OBJ = new File(EXPORT_PATH);
 
     /**
      * File in the config folder that contains configuration.
@@ -106,6 +107,11 @@ public class Constants {
     static File getPrivateKeyFile(Context context) {
         return new File(context.getFilesDir(), PRIVATE_KEY_FILE);
     }
+
+    /**
+     * Name of the folder containing the index database.
+     */
+    static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
 
     /**
      * Name of the public HTTPS CA file in the data directory.

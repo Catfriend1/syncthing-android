@@ -536,16 +536,9 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_confirm_export)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                        if (mSyncthingService.exportConfig()) {
-                                            Toast.makeText(getActivity(),
-                                                    getString(R.string.config_export_successful,
-                                                    Constants.EXPORT_PATH), Toast.LENGTH_LONG).show();
-                                        } else {
-                                            Toast.makeText(getActivity(),
-                                                    getString(R.string.config_export_failed),
-                                                    Toast.LENGTH_LONG).show();
-                                        }
-                                    })
+                                new ExportConfigTask((SettingsActivity) getActivity(), mSyncthingService)
+                                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                            })
                             .setNegativeButton(android.R.string.no, null)
                             .show();
                     return true;
@@ -553,22 +546,9 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_confirm_import)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                        // Shutdown syncthing, import config, if run conditions applied restart syncthing.
-                                        if (!mSyncthingService.importConfig()) {
-                                            Toast.makeText(getActivity(),
-                                                    getString(R.string.config_import_failed,
-                                                    Constants.EXPORT_PATH), Toast.LENGTH_LONG).show();
-                                            return;
-                                        }
-                                        Toast.makeText(getActivity(),
-                                                getString(R.string.config_imported_successful),
-                                                Toast.LENGTH_SHORT).show();
-                                        // We don't have to send the config via REST on leaving activity.
-                                        mPendingConfig = false;
-                                        // We have to evaluate run conditions, they may have changed by the imported prefs.
-                                        mPendingRunConditions = true;
-                                        getActivity().finish();
-                                    })
+                                new ImportConfigTask(this, mSyncthingService)
+                                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                            })
                             .setNegativeButton(android.R.string.no, null)
                             .show();
                     return true;
@@ -656,6 +636,107 @@ public class SettingsActivity extends SyncthingActivity {
                             .show();
                 }
             }
+        }
+
+        /**
+         * Performs export of settings, config and database in the background.
+         */
+        private static class ExportConfigTask extends AsyncTask<Void, String, Void> {
+            private WeakReference<SettingsActivity> refSettingsActivity;
+            private WeakReference<SyncthingService> refSyncthingService;
+            Boolean actionSucceeded = false;
+
+            ExportConfigTask(SettingsActivity context, SyncthingService service) {
+                refSettingsActivity = new WeakReference<>(context);
+                refSyncthingService = new WeakReference<>(service);
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                SyncthingService syncthingService = refSyncthingService.get();
+                if (syncthingService == null) {
+                    cancel(true);
+                    return null;
+                }
+                actionSucceeded = syncthingService.exportConfig();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                // Get a reference to the activity if it is still there.
+                SettingsActivity settingsActivity = refSettingsActivity.get();
+                if (settingsActivity == null) {
+                    return;
+                }
+                if (!actionSucceeded) {
+                    Toast.makeText(settingsActivity,
+                            settingsActivity.getString(R.string.config_export_failed),
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Toast.makeText(settingsActivity,
+                        settingsActivity.getString(R.string.config_export_successful,
+                        Constants.EXPORT_PATH_OBJ), Toast.LENGTH_LONG).show();
+                settingsActivity.finish();
+            }
+        }
+
+        /**
+         * Performs import of settings, config and database in the background.
+         */
+        private static class ImportConfigTask extends AsyncTask<Void, String, Void> {
+            private WeakReference<SettingsFragment> refSettingsFragment;
+            private WeakReference<SyncthingService> refSyncthingService;
+            Boolean actionSucceeded = false;
+
+            ImportConfigTask(SettingsFragment context, SyncthingService service) {
+                refSettingsFragment = new WeakReference<>(context);
+                refSyncthingService = new WeakReference<>(service);
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                SyncthingService syncthingService = refSyncthingService.get();
+                if (syncthingService == null) {
+                    cancel(true);
+                    return null;
+                }
+                actionSucceeded = syncthingService.importConfig();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                // Get a reference to the activity if it is still there.
+                SettingsFragment settingsFragment = refSettingsFragment.get();
+                if (settingsFragment == null) {
+                    return;
+                }
+                settingsFragment.afterConfigImport(actionSucceeded);
+            }
+        }
+
+        /**
+         * Calley by {@link #ImportConfigTask} after config import.
+         */
+        private void afterConfigImport(Boolean actionSucceeded) {
+            if (!actionSucceeded) {
+                Toast.makeText(getActivity(),
+                    getString(R.string.config_import_failed,
+                    Constants.EXPORT_PATH_OBJ), Toast.LENGTH_LONG).show();
+                    return;
+            }
+            Toast.makeText(getActivity(),
+                getString(R.string.config_imported_successful,
+                Constants.EXPORT_PATH_OBJ), Toast.LENGTH_LONG).show();
+
+            // We don't have to send the config via REST on leaving activity.
+            mPendingConfig = false;
+
+            // We have to evaluate run conditions, they may have changed by the imported prefs.
+            mPendingRunConditions = true;
+            getActivity().finish();
         }
 
         /**

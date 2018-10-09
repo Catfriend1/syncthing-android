@@ -12,10 +12,12 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Utils for dealing with Storage Access Framework URIs.
@@ -203,5 +205,18 @@ public class FileUtils {
             return path.substring(0, path.length() - 1);
         }
         return path;
+    }
+
+    /**
+     * Deletes a directory recursively.
+     * java.nio.file library is available since API level 26, see
+     * https://developer.android.com/reference/java/nio/file/package-summary
+     */
+    @TargetApi(26)
+    public static void deleteDirectoryRecursively(java.nio.file.Path pathToDelete) throws IOException {
+        java.nio.file.Files.walk(pathToDelete)
+            .sorted(Comparator.reverseOrder())
+            .map(java.nio.file.Path::toFile)
+            .forEach(File::delete);
     }
 }
