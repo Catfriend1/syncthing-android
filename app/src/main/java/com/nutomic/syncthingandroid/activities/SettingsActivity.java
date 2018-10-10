@@ -728,8 +728,7 @@ public class SettingsActivity extends SyncthingActivity {
                     return;
             }
             Toast.makeText(getActivity(),
-                getString(R.string.config_imported_successful,
-                Constants.EXPORT_PATH_OBJ), Toast.LENGTH_LONG).show();
+                getString(R.string.config_imported_successful), Toast.LENGTH_LONG).show();
 
             // We don't have to send the config via REST on leaving activity.
             mPendingConfig = false;
