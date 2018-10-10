@@ -227,30 +227,34 @@ public class RunConditionMonitor {
         // Run on wifi.
         if (prefRunOnWifi) {
             if (isWifiOrEthernetConnection()) {
-                mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_wifi);
-                if (prefRunOnMeteredWifi) {
-                    mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_metered_nonmetered_wifi);
-                    // We are on non-metered or metered wifi. Check if wifi whitelist run condition is met.
-                    if (wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
-                        Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && prefRunOnMeteredWifi && wifiWhitelistConditionMet");
-                        mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_whitelisted_wifi);
-                        return true;
-                    }
-                    mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_on_whitelisted_wifi);
-                } else {
-                    // Check if we are on a non-metered wifi.
-                    if (!isMeteredNetworkConnection()) {
-                        mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_nonmetered_wifi);
-                        // Check if wifi whitelist run condition is met.
+                try {
+                    mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_wifi);
+                    if (prefRunOnMeteredWifi) {
+                        mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_metered_nonmetered_wifi);
+                        // We are on non-metered or metered wifi. Check if wifi whitelist run condition is met.
                         if (wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
-                            Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && !prefRunOnMeteredWifi && !isMeteredNetworkConnection && wifiWhitelistConditionMet");
+                            Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && prefRunOnMeteredWifi && wifiWhitelistConditionMet");
                             mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_whitelisted_wifi);
                             return true;
                         }
                         mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_on_whitelisted_wifi);
                     } else {
-                        mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_nonmetered_wifi);
+                        // Check if we are on a non-metered wifi.
+                        if (!isMeteredNetworkConnection()) {
+                            mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_nonmetered_wifi);
+                            // Check if wifi whitelist run condition is met.
+                            if (wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
+                                Log.v(TAG, "decideShouldRun: prefRunOnWifi && isWifiOrEthernetConnection && !prefRunOnMeteredWifi && !isMeteredNetworkConnection && wifiWhitelistConditionMet");
+                                mRunDecisionExplanation += "\n" + res.getString(R.string.reason_on_whitelisted_wifi);
+                                return true;
+                            }
+                            mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_on_whitelisted_wifi);
+                        } else {
+                            mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_nonmetered_wifi);
+                        }
                     }
+                } catch (LocationUnavailableException e) {
+                    mRunDecisionExplanation += "\n" + res.getString(R.string.reason_location_unavailable);
                 }
             } else {
                 mRunDecisionExplanation += "\n" + res.getString(R.string.reason_not_on_wifi);
@@ -283,8 +287,8 @@ public class RunConditionMonitor {
      * Return whether the wifi whitelist run condition is met.
      * Precondition: An active wifi connection has been detected.
      */
-    private boolean wifiWhitelistConditionMet(boolean prefWifiWhitelistEnabled,
-            Set<String> whitelistedWifiSsids) {
+    private boolean wifiWhitelistConditionMet (boolean prefWifiWhitelistEnabled,
+            Set<String> whitelistedWifiSsids) throws LocationUnavailableException {
         if (!prefWifiWhitelistEnabled) {
             Log.v(TAG, "handleWifiWhitelist: !prefWifiWhitelistEnabled");
             return true;
@@ -403,7 +407,8 @@ public class RunConditionMonitor {
         }
     }
 
-    private boolean isWifiConnectionWhitelisted(Set<String> whitelistedSsids) {
+    private boolean isWifiConnectionWhitelisted(Set<String> whitelistedSsids)
+            throws LocationUnavailableException{
         WifiManager wifiManager = (WifiManager) mContext.getApplicationContext()
                 .getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -413,11 +418,22 @@ public class RunConditionMonitor {
             return false;
         }
         String wifiSsid = wifiInfo.getSSID();
-        if (wifiSsid == null) {
-            Log.w(TAG, "isWifiConnectionWhitelisted: Got null SSID. Try to enable android location service.");
-            return false;
+        if (wifiSsid == null || wifiSsid.equals("<unknown ssid>")) {
+            throw new LocationUnavailableException("isWifiConnectionWhitelisted: Got null SSID. Try to enable android location service.");
         }
         return whitelistedSsids.contains(wifiSsid);
+    }
+
+    public class LocationUnavailableException extends Exception {
+
+        public LocationUnavailableException(String message) {
+            super(message);
+        }
+
+        public LocationUnavailableException(String message, Throwable throwable) {
+            super(message, throwable);
+        }
+
     }
 
 }

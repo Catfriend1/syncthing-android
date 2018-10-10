@@ -226,14 +226,15 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
      * while the user is looking at the current tab.
      */
     private void onTimerEvent() {
-        if (mServiceState != SyncthingService.State.ACTIVE) {
-            return;
-        }
         MainActivity mainActivity = (MainActivity) getActivity();
         if (mainActivity == null) {
             return;
         }
         if (mainActivity.isFinishing()) {
+            return;
+        }
+        if (mServiceState != SyncthingService.State.ACTIVE) {
+            updateStatus();
             return;
         }
         RestApi restApi = mainActivity.getApi();
@@ -243,6 +244,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         Log.v(TAG, "Invoking REST status queries");
         restApi.getSystemStatus(this::onReceiveSystemStatus);
         restApi.getConnections(this::onReceiveConnections);
+        // onReceiveSystemStatus, onReceiveConnections will call {@link #updateStatus}.
     }
 
     /**

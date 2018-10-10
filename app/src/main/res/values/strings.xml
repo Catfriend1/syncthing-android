@@ -634,6 +634,7 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing is not running as the current WiFi network\'s name is not whitelisted.</string>
     <string name="reason_on_nonmetered_wifi">Syncthing is allowed to run on non-metered WiFi connections. The active WiFi connection is non-metered.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
+    <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
 
     <!-- SyncthingService -->
