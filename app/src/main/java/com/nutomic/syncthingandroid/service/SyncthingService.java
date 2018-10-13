@@ -818,6 +818,7 @@ public class SyncthingService extends Service {
                     switch (prefKey) {
                         // Preferences that are no longer used and left-overs from previous versions of the app.
                         case "first_start":
+                        case "advanced_folder_picker":
                         case "notification_type":
                         case "notify_crashes":
                             Log.v(TAG, "importConfig: Ignoring deprecated pref \"" + prefKey + "\".");

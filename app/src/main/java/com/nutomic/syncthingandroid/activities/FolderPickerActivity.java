@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -136,12 +135,9 @@ public class FolderPickerActivity extends SyncthingActivity
                 roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS));
             }
 
-            // Add paths that might not be accessible to Syncthing.
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-            if (sp.getBoolean("advanced_folder_picker", false)) {
-                Collections.addAll(roots, new File("/storage/").listFiles());
-                roots.add(new File("/"));
-            }
+            // Add paths where we might have read-only access.
+            Collections.addAll(roots, new File("/storage/").listFiles());
+            roots.add(new File("/"));
         }
         // Remove any invalid directories.
         Iterator<File> it = roots.iterator();
