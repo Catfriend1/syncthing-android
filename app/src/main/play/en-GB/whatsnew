@@ -1,4 +1,5 @@
 Fixes
+* Fixed xml encoding when parsing, saving the config (#89)
 * Fixed override changes button not showing
 * Fixed the "battery eater"
 * Added detection for wireless charging
@@ -6,11 +7,8 @@ Fixes
 * Lots of bug fixes and better Android 8+ support (#52, #54, #56, #59)
 Enhancements
 * UI explains why syncthing is running (or not)
-* Improved run conditions and their UI
 * Support in-app editing of folder's ignore list items
-* Added support for "receive only" folders
-* Stop polling when the user doesn't look at a tab
-* Speed up syncthing startup and reduce log spam (#60)
 * Better default prefs and crash detection
 Maintenance
-* Updated syncthing to v0.14.51-rc.3
+* Updated syncthing to v0.14.51
+* Added support for "receive only" folders
