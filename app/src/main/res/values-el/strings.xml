@@ -18,10 +18,6 @@
     <string name="cont">Συνέχεια</string>
     <string name="finish">Τέλος</string>
     <string name="generic_error">Σφάλμα</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Προσθήκη φακέλου</string>
 
@@ -227,7 +223,6 @@
     <string name="category_run_conditions">Συνθήκες εκτέλεσης</string>
     <string name="category_behaviour">Συμπεριφορά</string>
     <string name="category_syncthing_options">Επιλογές Syncthing</string>
-    <string name="category_backup">Αντίγραφο ασφαλείας</string>
     <string name="category_debug">Αποσφαλμάτωση</string>
     <string name="category_experimental">Πειραματικά</string>
 
@@ -237,23 +232,9 @@
 
     <string name="respect_battery_saving_title">Υπακοή στη ρύθμιση εξοικονόμησης ενέργειας του Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Χρήση προχωρημένου επιλογέα φακέλων</string>
-
-    <string name="advanced_folder_picker_summary">Επιλογή οποιουδήποτε φακέλου στη συσκευή για συγχρονισμό</string>
-
     <string name="use_root_title">Εκτέλεση του Syncthing ως υπερχρήστης</string>
 
     <string name="use_root_summary">Πρόκειται για μια πειραματική λειτουργία η οποία ενδέχεται να προκαλέσει προβλήματα στο Syncthing και τη συσκευή σας. Σε αυτή την περίπτωση, ίσως χρειαστεί να επανεγκαταστήσετε το Syncthing.</string>
-
-    <string name="notification_type_title">Ειδοποίηση</string>
-
-    <string name="notification_type_summary">Επιλέξτε τον τύπο ειδοποίησης</string>
-
-    <string-array name="notification_type_entries">
-        <item>Κανονική</item>
-        <item>Χαμηλής προτεραιότητας</item>
-        <item>Καμία</item>
-    </string-array>
 
     <string name="preference_language_title">Γλώσσα</string>
 
@@ -299,8 +280,6 @@
 
     <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Χρησιμοποιήστε αυτή την επιλογή αν παρατηρείτε απρόσμενες αποσυνδέσεις κατά τη λειτουργία με μπαταρία. Θα έχει ως συνέπεια την υψηλότερη κατανάλωση ενέργειας.</string>
-
     <string name="use_tor_title">Χρήση του Tor</string>
 
     <string name="use_legacy_hashing_title">Χρήση κατακερματισμού παλαιού τύπου</string>
@@ -313,15 +292,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Σίγουρα επιθυμείτε να εισάγετε τις νέες ρυθμίσεις; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Οι ρυθμίσεις εξήχθησαν στο %1$s</string>
-
     <string name="import_config">Εισαγωγή ρυθμίσεων</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Οι ρυθμίσεις εισήχθησαν</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Η εισαγωγή ρυθμίσεων απέτυχε, σιγουρευτείτε ότι τα αρχεία βρίσκονται στο %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -455,7 +431,6 @@
 
     <string name="syncthing_disabled">Το Syncthing είναι απενεργοποιημένο</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Φωτογραφική μηχανή</string>
@@ -552,5 +527,4 @@
     <string name="browse">Περιήγηση</string>
     <string name="no_sub_folder_is_selected">Δεν έχει επιλεγεί υποφάκελος</string>
     <string name="share_device_id_chooser">Διαμοιρασμός ID συσκευής με</string>
-
-</resources>
+    </resources>

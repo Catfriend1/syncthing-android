@@ -18,10 +18,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <string name="cont">Continuar</string>
     <string name="generic_example">Exemplo</string>
     <string name="generic_error">Erro</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adicionar pasta</string>
 
@@ -221,7 +217,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <string name="category_run_conditions">Condições de execução</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="category_syncthing_options">Opções do Syncthing</string>
-    <string name="category_backup">Cópia de segurança</string>
     <string name="category_debug">Depuração</string>
     <string name="category_experimental">Experimental</string>
 
@@ -230,23 +225,9 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para seleccionar redes.</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Usar selector de pasta avançado</string>
-
-    <string name="advanced_folder_picker_summary">Seleccione qualquer pasta no dispositivo para sincronizar</string>
-
     <string name="use_root_title">Correr o Syncthing como superutilizador</string>
 
     <string name="use_root_summary">Esta é uma funcionalidade instável que pode causar problemas com o Syncthing e com o seu dispositivo. Se encontrar problemas, pode ter de reinstalar o Syncthing.</string>
-
-    <string name="notification_type_title">Notificação</string>
-
-    <string name="notification_type_summary">Escolha o tipo de notificação</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Baixa prioridade</item>
-        <item>Nenhuma</item>
-    </string-array>
 
     <string name="device_name">Nome do dispositivo</string>
 
@@ -274,8 +255,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
 
     <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Use esta definição se experimentar desconectações inesperadas enquanto estiver a trabalhar com a bateria. Isto irá resultar num aumento do consumo da carga da bateria.</string>
-
     <string name="use_tor_title">Utilizar o Tor</string>
 
     <string name="use_legacy_hashing_title">Usar verificação antiga</string>
@@ -288,15 +267,12 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Quer mesmo importar a sua configuração? Os ficheiros existentes vão ser sobrepostos.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A configuração foi exportada para %1$s</string>
-
     <string name="import_config">Importar configuração</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A configuração foi importada</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">A importação da configuração falhou, assegure-se que os ficheiros estão em %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

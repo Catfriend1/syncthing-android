@@ -31,6 +31,34 @@ public class Constants {
     public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";
     public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
 
+    // Preferences - per Folder and Device Sync Conditions
+    public static final String PREF_OBJECT_PREFIX_FOLDER        = "sc_folder_";
+    public static final String PREF_OBJECT_PREFIX_DEVICE        = "sc_device_";
+
+    public static String DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + "custom_sync_conditions";
+    }
+
+    public static String DYN_PREF_OBJECT_SYNC_ON_WIFI(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_RUN_ON_WIFI;
+    }
+
+    public static String DYN_PREF_OBJECT_SYNC_ON_WHITELISTED_WIFI(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + "use_wifi_whitelist";
+    }
+
+    public static String DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_WIFI_SSID_WHITELIST;
+    }
+
+    public static String DYN_PREF_OBJECT_SYNC_ON_METERED_WIFI(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_RUN_ON_METERED_WIFI;
+    }
+
+    public static String DYN_PREF_OBJECT_SYNC_ON_MOBILE_DATA(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_RUN_ON_MOBILE_DATA;
+    }
+
     /**
      * Cached information which is not available on SettingsActivity.
      */

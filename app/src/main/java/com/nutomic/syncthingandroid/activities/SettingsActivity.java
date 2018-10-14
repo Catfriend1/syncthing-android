@@ -132,7 +132,7 @@ public class SettingsActivity extends SyncthingActivity {
         private Preference mSyncthingVersion;
 
         private SyncthingService mSyncthingService;
-        private RestApi mApi;
+        private RestApi mRestApi;
 
         private Options mOptions;
         private Config.Gui mGui;
@@ -312,21 +312,21 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Override
         public void onServiceStateChange(SyncthingService.State currentState) {
-            mApi = mSyncthingService.getApi();
-            boolean isSyncthingRunning = (mApi != null) &&
-                        mApi.isConfigLoaded() &&
+            mRestApi = mSyncthingService.getApi();
+            boolean isSyncthingRunning = (mRestApi != null) &&
+                        mRestApi.isConfigLoaded() &&
                         (currentState == SyncthingService.State.ACTIVE);
             mCategorySyncthingOptions.setEnabled(isSyncthingRunning);
 
             if (!isSyncthingRunning)
                 return;
 
-            mSyncthingVersion.setSummary(mApi.getVersion());
-            mOptions = mApi.getOptions();
-            mGui = mApi.getGui();
+            mSyncthingVersion.setSummary(mRestApi.getVersion());
+            mOptions = mRestApi.getOptions();
+            mGui = mRestApi.getGui();
 
             Joiner joiner = Joiner.on(", ");
-            mDeviceName.setText(mApi.getLocalDevice().name);
+            mDeviceName.setText(mRestApi.getLocalDevice().name);
             mListenAddresses.setText(joiner.join(mOptions.listenAddresses));
             mMaxRecvKbps.setText(Integer.toString(mOptions.maxRecvKbps));
             mMaxSendKbps.setText(Integer.toString(mOptions.maxSendKbps));
@@ -337,7 +337,7 @@ public class SettingsActivity extends SyncthingActivity {
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
             mAddress.setText(mGui.address);
             mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
-            mApi.getSystemStatus(systemStatus ->
+            mRestApi.getSystemStatus(systemStatus ->
                     mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemStatus.urVersionMax)));
         }
 
@@ -384,9 +384,9 @@ public class SettingsActivity extends SyncthingActivity {
             Splitter splitter = Splitter.on(",").trimResults().omitEmptyStrings();
             switch (preference.getKey()) {
                 case "deviceName":
-                    Device localDevice = mApi.getLocalDevice();
+                    Device localDevice = mRestApi.getLocalDevice();
                     localDevice.name = (String) o;
-                    mApi.editDevice(localDevice);
+                    mRestApi.editDevice(localDevice);
                     break;
                 case "listenAddresses":
                     mOptions.listenAddresses = Iterables.toArray(splitter.split((String) o), String.class);
@@ -435,7 +435,7 @@ public class SettingsActivity extends SyncthingActivity {
                     mOptions.restartOnWakeup = (boolean) o;
                     break;
                 case "urAccepted":
-                    mApi.getSystemStatus(systemStatus -> {
+                    mRestApi.getSystemStatus(systemStatus -> {
                         mOptions.urAccepted = ((boolean) o)
                                 ? systemStatus.urVersionMax
                                 : Options.USAGE_REPORTING_DENIED;
@@ -444,7 +444,7 @@ public class SettingsActivity extends SyncthingActivity {
                 default: throw new InvalidParameterException();
             }
 
-            mApi.editSettings(mGui, mOptions);
+            mRestApi.editSettings(mGui, mOptions);
             mPendingConfig = true;
             return true;
         }
@@ -454,9 +454,9 @@ public class SettingsActivity extends SyncthingActivity {
             if (mSyncthingService != null) {
                 mNotificationHandler.updatePersistentNotification(mSyncthingService);
                 if (mPendingConfig) {
-                    if (mApi != null &&
+                    if (mRestApi != null &&
                             mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                        mApi.saveConfigAndRestart();
+                        mRestApi.saveConfigAndRestart();
                         mPendingConfig = false;
                     }
                 }
@@ -556,13 +556,13 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.undo_ignored_devices_folders_question)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                if (mApi == null) {
+                                if (mRestApi == null) {
                                     Toast.makeText(getActivity(),
                                             getString(R.string.generic_error) + getString(R.string.syncthing_disabled_title),
                                             Toast.LENGTH_SHORT).show();
                                     return;
                                 }
-                                mApi.undoIgnoredDevicesAndFolders();
+                                mRestApi.undoIgnoredDevicesAndFolders();
                                 mPendingConfig = true;
                                 Toast.makeText(getActivity(),
                                         getString(R.string.undo_ignored_devices_folders_done),

@@ -12,10 +12,6 @@
     <string name="welcome_title">Víta Vás Syncthing pre Android</string>
 
     <string name="generic_error">Chyba</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Pridať Adresár</string>
 
@@ -189,21 +185,7 @@
 
     <string name="category_syncthing_options">Nastavenia Syncthing</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Použiť rozšírený dialóg pre volbu adresára</string>
-
-    <string name="advanced_folder_picker_summary">Vyberte ľubovolný adresár pre synchronizáciu</string>
-
     <string name="use_root_title">Spúšťať Syncthing s root oprávneniami</string>
-
-    <string name="notification_type_title">Notifikácie</string>
-
-    <string name="notification_type_summary">Zvolte si druh notifikácií</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normálne</item>
-        <item>S nízkou prioritou</item>
-        <item>Žiadne</item>
-    </string-array>
 
     <string name="device_name">Názov Zariadenia</string>
 
@@ -226,15 +208,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu? Existujúce súbory budú prepísané.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfigurácia bola exportovaná do %1$s</string>
-
     <string name="import_config">Importovať Konfiguráciu</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurácia bola importovaná</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Import konfigurácie zlyhal. Prosím, overte, že sú súbory dostupné v %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

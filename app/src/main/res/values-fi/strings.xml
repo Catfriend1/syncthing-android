@@ -19,10 +19,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <string name="finish">Valmis</string>
     <string name="generic_example">Esimerkki</string>
     <string name="generic_error">Virhe</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lisää kansio</string>
 
@@ -232,7 +228,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <string name="category_run_conditions">Käyntiehdot</string>
     <string name="category_behaviour">Käyttäytyminen</string>
     <string name="category_syncthing_options">Syncthing asetukset</string>
-    <string name="category_backup">Varmuuskopio</string>
     <string name="category_debug">Vianhaku</string>
     <string name="category_experimental">Kokeellinen</string>
 
@@ -242,17 +237,9 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
 
     <string name="respect_battery_saving_title">Noudata Androidin virransäästöasetusta</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Käytä edistynyttä Kansionvalitsinta</string>
-
-    <string name="advanced_folder_picker_summary">Valitse mikä tahansa laitteen kansio synkronointiin.</string>
-
     <string name="use_root_title">Käynnistä Syncthing pääkäyttäjän oikeuksin.</string>
 
     <string name="use_root_summary">Tämä on epävakaa ominaisuus joka voi aiheuttaa ongelmia Synthingin ja laitteesi kanssa. Jos sinulle tulee vastaan ongelmia, voit joutua asentamaan Syncthingin uudelleen.</string>
-
-    <string name="notification_type_title">Ilmoitus</string>
-
-    <string name="notification_type_summary">Valitse ilmoituksen tyyppi</string>
 
     <string name="preference_language_title">Kieli</string>
 
@@ -286,8 +273,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
 
     <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Käytä tätä asetusta, jos yhteydet katkeilevat odottamattomasti laitteen käydessä akkuvirralla. Tämä lisää virran kulutusta.</string>
-
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
 
     <string name="use_legacy_hashing_title">Käytä vanhaa tarkistussumman laskentaa</string>
@@ -300,15 +285,12 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset? Vanhat tiedostot ylikirjoitetaan.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Asetukset vietiin kansioon %1$s</string>
-
     <string name="import_config">Tuo asetukset</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Asetukset tuotiin</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Asetusten tuonti epäonnistui. Varmista, että tiedostot ovat kansiossa %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

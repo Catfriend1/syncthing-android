@@ -21,10 +21,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="generic_error">Erreur</string>
     <string name="ignore">Ignorer</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Ajouter un partage</string>
 
@@ -245,7 +241,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="category_run_conditions">Conditions d\'exécution</string>
     <string name="category_behaviour">Comportement</string>
     <string name="category_syncthing_options">Options Syncthing</string>
-    <string name="category_backup">Sauvegarde</string>
     <string name="category_debug">Debug</string>
     <string name="category_experimental">Expérimental</string>
 
@@ -260,23 +255,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <string name="respect_battery_saving_title">Sauvegarde batterie selon les réglages Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Choix étendu des répertoires</string>
-
-    <string name="advanced_folder_picker_summary">Permettre la sélection de n\'importe quel répertoire de cet appareil pour créer les partages</string>
-
     <string name="use_root_title">Faire fonctionner syncthing en super-utilisateur</string>
 
     <string name="use_root_summary">Ceci est une fonction instable qui peut causer des problèmes entre Syncthing et votre appareil. Si vous rencontrez des problèmes, vous devrez réinstaller Syncthing.</string>
-
-    <string name="notification_type_title">Notification</string>
-
-    <string name="notification_type_summary">Choisissez le mode de notification</string>
-
-    <string-array name="notification_type_entries">
-        <item>Permanente</item>
-        <item>Discrète</item>
-        <item>Aucune</item>
-    </string-array>
 
     <string name="preference_language_title">Langue</string>
 
@@ -329,8 +310,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Utilisez ce paramètre si vous rencontrez des déconnexions inattendues en fonctionnant sur batterie. Il en résultera une augmentation de la consommation de la batterie.</string>
-
     <string name="use_tor_title">Utiliser Tor</string>
 
     <string name="use_tor_summary">Forcer tout le trafic à travers Tor mieux préserver sa vie privée. Nécessite Orbot. Désactive les options de proxy.</string>
@@ -361,15 +340,12 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
-
     <string name="import_config">Importer la configuration</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">La configuration a été importée</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Echec de l\'import de la configuration, assurez-vous que les fichiers sont dans %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -521,7 +497,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Echec de création du fichier de configuration</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Caméra</string>
@@ -621,5 +596,4 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="browse">Parcourir</string>
     <string name="no_sub_folder_is_selected">Aucun sous-répertoire sélectionné</string>
     <string name="share_device_id_chooser">Partager ID de l\'appareil avec</string>
-
-</resources>
+    </resources>

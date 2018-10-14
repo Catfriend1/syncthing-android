@@ -16,10 +16,6 @@
     <string name="cont">Continuar</string>
     <string name="finish">Finalizar</string>
     <string name="generic_error">Error</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Añadir carpeta</string>
 
@@ -216,7 +212,6 @@
     <string name="category_run_conditions">Condiciones de ejecución</string>
     <string name="category_behaviour">Comportamiento</string>
     <string name="category_syncthing_options">Opciones de Syncthing</string>
-    <string name="category_backup">Copia de seguridad</string>
     <string name="category_debug">Depuración</string>
     <string name="category_experimental">Experimental</string>
 
@@ -226,23 +221,9 @@
 
     <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Usar selección avanzada de carpeta</string>
-
-    <string name="advanced_folder_picker_summary">Escoja alguna carpeta del dispositivo para sincronizar</string>
-
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
     <string name="use_root_summary">Esta es una característica inestable que podría causar problemas con Syncthing y con tu dispositivo. Si aparecieran problemas podrías tener que reinstalar Syncthing.</string>
-
-    <string name="notification_type_title">Notificación</string>
-
-    <string name="notification_type_summary">Elige el tipo de notificación</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Baja prioridad</item>
-        <item>Ninguna</item>
-    </string-array>
 
     <string name="preference_language_title">Idioma</string>
 
@@ -276,8 +257,6 @@
 
     <string name="keep_wakelock_while_binary_running">Mantener la CPU activa mientras se ejecuta Syncthing</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Usa este ajuste si experimentas desconexiones inesperadas mientras funcionas con la batería. Esto resultará en un incremento del consumo de batería.</string>
-
     <string name="use_tor_title">Usar Tor</string>
 
     <string name="use_legacy_hashing_title">Utilizar método antiguo para generar los hash</string>
@@ -290,15 +269,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración? Se sobrescribirán los archivos existentes.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">La configuración fue exportada a %1$s</string>
-
     <string name="import_config">Importar configuración</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuración importada</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Importación de la configuración fallida, comprueba que los ficheros están en %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

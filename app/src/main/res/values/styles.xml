@@ -32,6 +32,11 @@
         <item name="android:paddingBottom">8dp</item>
     </style>
 
+    <style name="Widget.Syncthing.TextView.Label.Details.WifiSsidList">
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
     <style name="Widget.Syncthing.TextView.Label.Details.DeviceList">
         <item name="android:paddingLeft">4dp</item>
         <item name="android:minHeight">48dp</item>

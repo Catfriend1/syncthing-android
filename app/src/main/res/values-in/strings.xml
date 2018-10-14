@@ -16,10 +16,6 @@ Untuk berbagi data dengan perangkat lain, anda perlu menambah ID masing-masing p
 Jika ada masalah silakan laporkan lewat Github.</string>
 
     <string name="cont">Lanjutkan</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Tambah Folder</string>
 
@@ -221,7 +217,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <string name="category_run_conditions">Syarat Operasi</string>
     <string name="category_behaviour">Perilaku</string>
     <string name="category_syncthing_options">Opsi Syncthing</string>
-    <string name="category_backup">Backup</string>
     <string name="category_debug">Debug</string>
     <string name="category_experimental">Ujicoba</string>
 
@@ -231,23 +226,9 @@ Jika ada masalah silakan laporkan lewat Github.</string>
 
     <string name="respect_battery_saving_title">Ikuti pengaturan penghematan baterai Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Gunakan Pemilihan Folder tahap lanjut</string>
-
-    <string name="advanced_folder_picker_summary">Pilih sembarang folder dalam perangkat untuk penyelarasan</string>
-
     <string name="use_root_title">Jalankan Syncthing sebagai Superuser</string>
 
     <string name="use_root_summary">Ini merupakan fitur belum stabik yang mungkin menyebabkan masalah pada Syncthing dan perangkat anda. Jika menemui masalah, anda mungkin harus memasang ulang Syncthing.</string>
-
-    <string name="notification_type_title">Notifikasi</string>
-
-    <string name="notification_type_summary">Pilih jenis notifikasi</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Prioritas Rendah</item>
-        <item>Tidak Ada</item>
-    </string-array>
 
     <string name="preference_language_title">Bahasa</string>
 
@@ -285,8 +266,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
 
     <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Gunakan pengaturan ini jika anda mengalami pemutusan sambungan saat beroperasi dengan baterai. Ini akan menghasilkan peningkatan konsumsi baterai.</string>
-
     <string name="use_tor_title">Gunakan Tor</string>
 
     <string name="use_legacy_hashing_title">Gunakan hashing lawas</string>
@@ -299,15 +278,12 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Anda yakin ingin mengimpor konfigurasi baru? Berkas yang ada akan ditimpa.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfig sudah diekspor ke %1$s</string>
-
     <string name="import_config">Impor Konfigurasi</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfig sudah diimpor</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Impor konfig gagal, pastikan berkasnya dalam %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->

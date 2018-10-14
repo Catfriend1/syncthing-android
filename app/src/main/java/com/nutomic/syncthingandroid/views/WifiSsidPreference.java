@@ -115,10 +115,11 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             // See #620: there may be null-SSIDs
             String ssid = configs[i].SSID != null ? configs[i].SSID : "";
             // WiFi SSIDs can either be UTF-8 (encapsulated in '"') or hex-strings
-            if (stripQuotes)
+            if (stripQuotes) {
                 result[i] = ssid.replaceFirst("^\"", "").replaceFirst("\"$", "");
-            else
+            } else {
                 result[i] = ssid;
+            }
         }
         return result;
     }

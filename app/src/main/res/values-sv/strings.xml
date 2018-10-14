@@ -23,10 +23,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="ignore">Ignorera</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lägg till mapp</string>
 
@@ -262,7 +258,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="category_run_conditions">Körvillkor</string>
     <string name="category_behaviour">Beteende</string>
     <string name="category_syncthing_options">Syncthing alternativ</string>
-    <string name="category_backup">Säkerhetskopiera</string>
     <string name="category_debug">Felsök</string>
     <string name="category_experimental">Experimentell</string>
 
@@ -277,23 +272,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Använd avancerad mappväljare</string>
-
-    <string name="advanced_folder_picker_summary">Välj någon mapp på enheten för synkronisering</string>
-
     <string name="use_root_title">Kör som superanvändare</string>
 
     <string name="use_root_summary">Detta är en instabil funktion som kan orsaka problem med Syncthing och med din enhet enhet. Om du stöter på problem, kan du behöva installera om Syncthing.</string>
-
-    <string name="notification_type_title">Avisering</string>
-
-    <string name="notification_type_summary">Välj aviseringstypen</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Låg prioritet</item>
-        <item>Ingen</item>
-    </string-array>
 
     <string name="preference_language_title">Språk</string>
 
@@ -358,8 +339,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Använd den här inställningen om du får oväntade frånkopplingar under batteridrift. Detta kommer att resultera i ökad batteriförbrukning.</string>
-
     <string name="use_tor_title">Använd Tor</string>
 
     <string name="use_tor_summary">Tvinga all trafik genom Tor för ökad integritet. Kräver Orbot. Inaktiverar proxyalternativ.</string>
@@ -390,15 +369,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfiguration exporterades till %1$s</string>
-
     <string name="import_config">Importera konfiguration</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen importerades</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -550,7 +526,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="syncthing_terminated">Syncthing avslutades</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
@@ -661,5 +636,4 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="browse">Bläddra</string>
     <string name="no_sub_folder_is_selected">Ingen undermapp är vald</string>
     <string name="share_device_id_chooser">Dela enhetens ID med</string>
-
-</resources>
+    </resources>

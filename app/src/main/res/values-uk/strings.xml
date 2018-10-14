@@ -10,10 +10,6 @@
     <string name="cont">Продовжити</string>
     <string name="finish">Завершити</string>
     <string name="generic_error">Помилка</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Додати каталог</string>
 
@@ -184,16 +180,6 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь-ласка, увімкніть Wi-Fi, щоби вибрати мережі</string>
 
     <string name="respect_battery_saving_title">Відповідно до налаштувань енергозбереження пристрою в системі</string>
-    <string name="notification_type_title">Сповіщення</string>
-
-    <string name="notification_type_summary">Вибрати тип сповіщення</string>
-
-    <string-array name="notification_type_entries">
-        <item>Нормальне</item>
-        <item>Низький пріоритет</item>
-        <item>Немає</item>
-    </string-array>
-
     <string name="preference_language_title">Мова</string>
 
     <string name="preference_language_summary">Змінити мову пристрою</string>
@@ -233,14 +219,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію? Існуючі файли будуть перезаписані</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Налаштування експортовано в %1$s</string>
-
     <string name="import_config">Імпортувати налаштування</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Налаштування імпортовано</string>
-
     <string name="environment_variables">Змінні оточення</string>
 
     <!-- Toast after entering invalid STTRACE params -->

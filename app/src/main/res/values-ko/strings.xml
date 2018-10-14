@@ -18,10 +18,6 @@
     <string name="cont">계속</string>
     <string name="finish">완료</string>
     <string name="generic_error">오류</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">폴더 추가</string>
 
@@ -226,7 +222,6 @@
     <string name="category_run_conditions">작동 상태</string>
     <string name="category_behaviour">동작</string>
     <string name="category_syncthing_options">Syncthing 옵션 </string>
-    <string name="category_backup">백업</string>
     <string name="category_debug">디버그</string>
     <string name="category_experimental">실험적인 기능</string>
 
@@ -236,23 +231,9 @@
 
     <string name="respect_battery_saving_title">안드로이드 배터리 절약 설정 우선</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">고급 폴더 선택기 사용</string>
-
-    <string name="advanced_folder_picker_summary">기기에서 동기화에 사용할 폴더를 골라 주세요</string>
-
     <string name="use_root_title">Syncthing을 Superuser로 실행</string>
 
     <string name="use_root_summary">이 기능은 불안정하며 Syncthing과 기기에 문제를 일으킬 수 있습니다. 문제가 발생한 경우 Syncthing을 재설치 해야 할 수도 있습니다.</string>
-
-    <string name="notification_type_title">알림</string>
-
-    <string name="notification_type_summary">알림 종류를 선택하세요</string>
-
-    <string-array name="notification_type_entries">
-        <item>일반</item>
-        <item>우선 순위 낮음</item>
-        <item>사용 안 함</item>
-    </string-array>
 
     <string name="preference_language_title">언어</string>
 
@@ -298,8 +279,6 @@
 
     <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">만약 배터리로 사용중 예상하지 못한 접속 끊김이 발생 했다면 이 설정을 사용합니다. 이 기능은 배터리 소비를 늘립니다.</string>
-
     <string name="use_tor_title">Tor 사용</string>
 
     <string name="use_legacy_hashing_title">레가시 해싱 쓰기</string>
@@ -312,15 +291,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">새로운 설정을 불러오시겠습니까? 현재 존재하는 파일이 덮어쓰기됩니다.`</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">설정을 %1$s 로 내보내기했습니다</string>
-
     <string name="import_config">설정 불러오기</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">설정을 불러왔습니다</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">설정을 불러오지 못했습니다, 파일이 %1$s에 있는지 확인해 주세요</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -451,7 +427,6 @@
 
     <string name="syncthing_disabled">Syncthing이 비활성화되었습니다</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">구성 파일을 만드는데 실패 했습니다.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">카메라</string>
@@ -548,5 +523,4 @@
     <string name="browse">탐색</string>
     <string name="no_sub_folder_is_selected">하위 폴더가 선택되지 않았습니다</string>
     <string name="share_device_id_chooser">기기 ID 공유</string>
-
-</resources>
+    </resources>

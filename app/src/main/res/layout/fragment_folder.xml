@@ -54,20 +54,19 @@
                 android:focusable="true"
                 android:hint="@string/directory"/>
 
+            <TextView
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
+                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                android:text="@string/devices" />
+
             <LinearLayout
                 android:id="@+id/devicesContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    style="@style/Widget.Syncthing.TextView.Label.Details"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
-                    android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
-                    android:text="@string/devices" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -143,9 +142,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_folder_black_24dp"
-                android:drawableStart="@drawable/ic_folder_black_24dp"
+                android:drawableLeft="@drawable/ic_pause_circle_outline_black_24dp"
+                android:drawableStart="@drawable/ic_pause_circle_outline_black_24dp"
                 android:text="@string/folder_pause" />
+
+            <!-- Custom sync conditions -->
+            <LinearLayout
+                android:id="@+id/customSyncConditionsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/customSyncConditionsSwitch"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_autorenew_black_24dp"
+                    android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                    android:text="@string/custom_sync_conditions_title" />
+
+                <TextView
+                    android:id="@+id/customSyncConditionsDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/custom_sync_conditions_description"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:id="@+id/customSyncConditionsDialog"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:text="@string/custom_sync_conditions_dialog"/>
+
+                <TextView
+                    android:id="@+id/customSyncConditionsCurrent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@null"
+                    android:focusable="false"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/pullOrderContainer"
@@ -221,6 +273,16 @@
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/editIgnoresContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
                 <TextView
                     android:id="@+id/edit_ignore_list_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -235,7 +297,7 @@
                 <EditText
                     android:id="@+id/edit_ignore_list_content"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
-                    android:inputType="textMultiLine"
+                    android:inputType="textMultiLine|textNoSuggestions"
                     android:gravity="top|start"
                     android:hint="@string/ignore_patterns"
                     android:layout_width="match_parent"

@@ -19,10 +19,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="finish">Finalitza</string>
     <string name="generic_example">Exemple</string>
     <string name="generic_error">Error</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Afegeix una carpeta</string>
 
@@ -243,7 +239,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="category_run_conditions">Condicions d\'execució</string>
     <string name="category_behaviour">Comportament</string>
     <string name="category_syncthing_options">Opcions del Syncthing</string>
-    <string name="category_backup">Còpia de seguretat</string>
     <string name="category_debug">Depuració</string>
     <string name="category_experimental">Experimental</string>
 
@@ -258,23 +253,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Utilitza el selector de carpetes avançat</string>
-
-    <string name="advanced_folder_picker_summary">Seleccioneu qualsevol carpeta del dispositiu per sincronitzar-la</string>
-
     <string name="use_root_title">Executa el Syncthing com a Superusuari</string>
 
     <string name="use_root_summary">Aquesta característica és inestable i podria causar problemes amb el Syncthing i amb el vostre dispositiu. Si us trobeu amb problemes, potser haureu de reinstal·lar el Syncthing.</string>
-
-    <string name="notification_type_title">Notificació</string>
-
-    <string name="notification_type_summary">Seleccioneu el tipus de notificació</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Baixa Prioritat</item>
-        <item>Cap</item>
-    </string-array>
 
     <string name="preference_language_title">Idioma</string>
 
@@ -327,8 +308,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Activeu-ho si experimenteu desconnexions inesperades quan treballeu amb bateria. S\'incrementarà el consum de la bateria.</string>
-
     <string name="use_tor_title">Utilitza Tor</string>
 
     <string name="use_tor_summary">Força la connexió a través de Tor per millorar la privacitat. Requereix Orbot. Desactiva les opcions del proxy.</string>
@@ -359,15 +338,12 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Realment voleu importar una nova configuració? Es sobreescriuran els fitxers existents.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">S\'ha exportat la configuració a %1$s</string>
-
     <string name="import_config">Importa la configuració</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">S\'ha importat la configuració</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Ha fallat la importació de la configuració, verifiqueu que els fitxers siguin a  %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -519,7 +495,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Càmera</string>
@@ -619,5 +594,4 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="browse">Navega</string>
     <string name="no_sub_folder_is_selected">No s\'ha triat cap subcarpeta</string>
     <string name="share_device_id_chooser">Comparteix la ID del dispositiu amb</string>
-
-</resources>
+    </resources>

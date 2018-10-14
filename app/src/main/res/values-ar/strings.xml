@@ -5,10 +5,6 @@
 
     <string name="cont">استمرار</string>
     <string name="generic_error">خطأ</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">إضافة مجلد</string>
 

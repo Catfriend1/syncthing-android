@@ -21,10 +21,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="generic_error">Erro</string>
     <string name="ignore">Ignorar</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adicionar pasta</string>
 
@@ -245,7 +241,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="category_run_conditions">Condições de execução</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="category_syncthing_options">Opções do Syncthing</string>
-    <string name="category_backup">Backup</string>
     <string name="category_debug">Depuração</string>
     <string name="category_experimental">Configurações experimentais</string>
 
@@ -260,23 +255,9 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
 
     <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Usar seletor de pasta avançado</string>
-
-    <string name="advanced_folder_picker_summary">Selecione qualquer pasta do dispositivo para sincronização</string>
-
     <string name="use_root_title">Executar como Superusuário</string>
 
     <string name="use_root_summary">Este é um recurso instável que pode causar problemas com o Syncthing e seu dispositivo. Caso você encontre problemas, pode ser necessária a reinstalação do Syncthing.</string>
-
-    <string name="notification_type_title">Notificação</string>
-
-    <string name="notification_type_summary">Escolha o tipo da notificação</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Baixa prioridade</item>
-        <item>Nenhuma</item>
-    </string-array>
 
     <string name="preference_language_title">Idioma</string>
 
@@ -324,8 +305,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="use_proxy">Conecte por um proxy</string>
     <string name="keep_wakelock_while_binary_running">Manter a CPU acordada</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Marque esta opção se você observar desconexões inesperadas enquanto a bateria do dispositivo não está sendo carregada. Isto resultará em maior uso da bateria.</string>
-
     <string name="use_tor_title">Usar Tor</string>
 
     <string name="use_tor_summary">Force todo o tráfego através do Tor para aumentar privacidade. Orbot é necessário. Desabilita opções de proxy.</string>
@@ -356,15 +335,12 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração? Arquivos existentes serão sobrescritos.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A configuração foi salva em %1$s</string>
-
     <string name="import_config">Importar configuração</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A configuração foi importada</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">A importação falhou. Verifique se os arquivos estão em %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -501,7 +477,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
 
     <string name="syncthing_disabled">O Syncthing está desabilitado</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Câmera</string>
@@ -600,5 +575,4 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="browse">Navegar</string>
     <string name="no_sub_folder_is_selected">Nenhuma subpasta selecionada</string>
     <string name="share_device_id_chooser">Compartilhe ID do dispositivo com</string>
-
-</resources>
+    </resources>

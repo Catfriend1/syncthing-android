@@ -18,10 +18,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <string name="cont">Fortsæt</string>
     <string name="finish">Færdiggør</string>
     <string name="generic_error">Fejl</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Tilføj mappe</string>
 
@@ -227,7 +223,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <string name="category_run_conditions">Kør betingelser</string>
     <string name="category_behaviour">Adfærd</string>
     <string name="category_syncthing_options">Syncthing Muligheder</string>
-    <string name="category_backup">Backup</string>
     <string name="category_debug">Debug</string>
     <string name="category_experimental">Eksperimentalt</string>
 
@@ -237,23 +232,9 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
 
     <string name="respect_battery_saving_title">Respekter Android battery saving indstillinger</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Brug avanceret Mappe Vælger</string>
-
-    <string name="advanced_folder_picker_summary">Vælg en valgfri mappe på enheden for synkronisering</string>
-
     <string name="use_root_title">Kør Syncthing som Superuser</string>
 
     <string name="use_root_summary">Dette er en ustabil feature som kan forudsage problemer med Syncthing og din enhed. Hvis du støder på problemer, kan det være du er nødt til at geninstallere Syncthing.</string>
-
-    <string name="notification_type_title">Notifikation</string>
-
-    <string name="notification_type_summary">Vælg notifikationstype</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Lav prioritet</item>
-        <item>Ingen</item>
-    </string-array>
 
     <string name="preference_language_title">Sprog</string>
 
@@ -299,8 +280,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
 
     <string name="keep_wakelock_while_binary_running">Lad CPU\'en køre imens Syncthing kører</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Brug denne indstilling hvis du oplever uventede forbindelsesbrud imens batteriet bruges. Dette vil resultere i forøget batteriforbrug.</string>
-
     <string name="use_tor_title">Brug Tor</string>
 
     <string name="use_legacy_hashing_title">Brug legacy hashing</string>
@@ -313,15 +292,12 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration? Eksisterende filer vil gå tabt.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfigurationen blev eksporteret til %1$s</string>
-
     <string name="import_config">Importer Konfiguration</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen blev importeret</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Import af konfigurationen slog fjel, vær sikker på at filer er i %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->

@@ -3,6 +3,7 @@ package com.nutomic.syncthingandroid.service;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -771,6 +772,40 @@ public class RestApi {
         options.urAccepted = acceptUsageReporting ? mUrVersionMax : Options.USAGE_REPORTING_DENIED;
         synchronized (mConfigLock) {
             mConfig.options = options;
+        }
+    }
+
+    /**
+     * Event triggered by {@link RunConditionMonitor} routed here through {@link SyncthingService}.
+     */
+    public void onSyncPreconditionChanged(RunConditionMonitor runConditionMonitor) {
+        Log.v(TAG, "onSyncPreconditionChanged: Event fired.");
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        synchronized (mConfigLock) {
+            if (mConfig == null || mConfig.folders == null) {
+                Log.d(TAG, "onSyncPreconditionChanged: mConfig.folders is not ready yet.");
+                return;
+            }
+            Boolean configChanged = false;
+            for (Folder folder : mConfig.folders) {
+                Boolean folderCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
+                    Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id), false
+                );
+                if (folderCustomSyncConditionsEnabled) {
+                    Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
+                        Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id
+                    );
+                    Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
+                    if (folder.paused != !syncConditionsMet) {
+                        folder.paused = !syncConditionsMet;
+                        configChanged = true;
+                    }
+                }
+            }
+            if (configChanged) {
+                Log.v(TAG, "onSyncPreconditionChanged: Sending changed config ...");
+                sendConfig();
+            }
         }
     }
 }

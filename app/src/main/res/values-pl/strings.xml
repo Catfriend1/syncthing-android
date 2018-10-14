@@ -20,10 +20,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="generic_error">Błąd</string>
     <string name="ignore">Ignoru</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Dodaj katalog</string>
 
@@ -231,7 +227,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="category_run_conditions">Warunki działania</string>
     <string name="category_behaviour">Zachowanie</string>
     <string name="category_syncthing_options">Ustawienia Syncthing</string>
-    <string name="category_backup">Kopia zapasowa</string>
     <string name="category_debug">Diagnozowanie błędów</string>
     <string name="category_experimental">Eksperymentalne</string>
 
@@ -241,17 +236,9 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
 
     <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Zaawansowane wybieranie katalogów</string>
-
-    <string name="advanced_folder_picker_summary">Wskazuje dowolny katalog na urządzeniu do zsynchronizowania</string>
-
     <string name="use_root_title">Synchronizuje zawartość z uprawnieniami użytkownika Superuser</string>
 
     <string name="use_root_summary">To jest niestabilna funkcja, która może sprawiać problemy z Syncthing i urządzeniami. W przypadku napotkania błędów możliwe, że niezbędne będzie przeinstalowanie programu. </string>
-
-    <string name="notification_type_title">Powiadomienie</string>
-
-    <string name="notification_type_summary">Wybiera rodzaj powiadomienia</string>
 
     <string name="preference_language_title">Język</string>
 
@@ -297,8 +284,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
 
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Używaj, jeśli doświadczasz nieoczekiwanych rozłączeń w trakcie działania na baterii. Spowoduje to zwiększone jej zużycie.</string>
-
     <string name="use_tor_title">Korzystanie z Tor</string>
 
     <string name="use_legacy_hashing_title">Użyj starego mechanizmu haszowania</string>
@@ -311,15 +296,12 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Zaimportować nowe ustawienia? Istniejące pliki zostaną zastąpione.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Wyeksportowano ustawienia do %1$s</string>
-
     <string name="import_config">Importuj ustawienia</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Zaimportowano ustawienia</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Nie udało się zaimportować ustawień. Proszę upewnić się, że pliki znajdują się w położeniu %1$s.</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -459,7 +441,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
 
     <string name="syncthing_disabled">Syncthing jest wyłączony</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Kamera</string>
@@ -556,5 +537,4 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="browse">Przeglądaj</string>
     <string name="no_sub_folder_is_selected">Żaden podfolder nie został wybrany</string>
     <string name="share_device_id_chooser">Udostępnij ID urządzenia</string>
-
-</resources>
+    </resources>

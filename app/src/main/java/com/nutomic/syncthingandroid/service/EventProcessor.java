@@ -53,14 +53,14 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     private volatile boolean mShutdown = true;
 
     private final Context mContext;
-    private final RestApi mApi;
+    private final RestApi mRestApi;
     @Inject SharedPreferences mPreferences;
     @Inject NotificationHandler mNotificationHandler;
 
-    public EventProcessor(Context context, RestApi api) {
+    public EventProcessor(Context context, RestApi restApi) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         mContext = context;
-        mApi = api;
+        mRestApi = restApi;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
         // First check if the event number ran backwards.
         // If that's the case we've to start at zero because syncthing was restarted.
-        mApi.getEvents(0, 1, new RestApi.OnReceiveEventListener() {
+        mRestApi.getEvents(0, 1, new RestApi.OnReceiveEventListener() {
             @Override
             public void onEvent(Event event) {
             }
@@ -83,7 +83,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
                 Log.d(TAG, "Reading events starting with id " + mLastEventId);
 
-                mApi.getEvents(mLastEventId, 0, EventProcessor.this);
+                mRestApi.getEvents(mLastEventId, 0, EventProcessor.this);
             }
         });
     }
@@ -95,9 +95,9 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     public void onEvent(Event event) {
         switch (event.type) {
             case "ConfigSaved":
-                if (mApi != null) {
+                if (mRestApi != null) {
                     Log.v(TAG, "Forwarding ConfigSaved event to RestApi to get the updated config.");
-                    mApi.reloadConfig();
+                    mRestApi.reloadConfig();
                 }
                 break;
             case "DeviceRejected":
@@ -109,7 +109,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "FolderCompletion":
                 CompletionInfo completionInfo = new CompletionInfo();
                 completionInfo.completion = (Double) event.data.get("completion");
-                mApi.setCompletionInfo(
+                mRestApi.setCompletionInfo(
                     (String) event.data.get("device"),          // deviceId
                     (String) event.data.get("folder"),          // folderId
                     completionInfo
@@ -125,7 +125,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "ItemFinished":
                 String folder = (String) event.data.get("folder");
                 String folderPath = null;
-                for (Folder f : mApi.getFolders()) {
+                for (Folder f : mRestApi.getFolders()) {
                     if (f.id.equals(folder)) {
                         folderPath = f.path;
                     }
@@ -249,7 +249,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
         // Find the deviceName corresponding to the deviceId
         String deviceName = null;
-        for (Device d : mApi.getDevices(false)) {
+        for (Device d : mRestApi.getDevices(false)) {
             if (d.deviceID.equals(deviceId)) {
                 deviceName = d.getDisplayName();
                 break;
@@ -260,7 +260,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         int notificationId = mNotificationHandler.getNotificationIdFromText(title);
 
         // Prepare "accept" action.
-        boolean isNewFolder = Stream.of(mApi.getFolders())
+        boolean isNewFolder = Stream.of(mRestApi.getFolders())
                 .noneMatch(f -> f.id.equals(folderId));
         Intent intentAccept = new Intent(mContext, FolderActivity.class)
                 .putExtra(FolderActivity.EXTRA_NOTIFICATION_ID, notificationId)

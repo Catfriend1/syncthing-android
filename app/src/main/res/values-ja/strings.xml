@@ -20,10 +20,6 @@
     <string name="generic_error">エラー</string>
     <string name="ignore">無視</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">フォルダーを追加</string>
 
@@ -228,7 +224,6 @@
     <string name="category_run_conditions">実行条件</string>
     <string name="category_behaviour">動作</string>
     <string name="category_syncthing_options">同期オプション</string>
-    <string name="category_backup">バックアップ</string>
     <string name="category_debug">デバッグ</string>
     <string name="category_experimental">実験的</string>
 
@@ -238,23 +233,9 @@
 
     <string name="respect_battery_saving_title">Android の節電設定に従う</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">高度なフォルダー選択を使用</string>
-
-    <string name="advanced_folder_picker_summary">デバイス上の任意のフォルダーを選択できます</string>
-
     <string name="use_root_title">スーパーユーザーとして実行</string>
 
     <string name="use_root_summary">これは Syncthing とお使いのデバイスに問題が生じる可能性のある、安定していない機能です。問題が発生した場合は、Syncthing の再インストールが必要な場合があります。</string>
-
-    <string name="notification_type_title">通知</string>
-
-    <string name="notification_type_summary">通知のタイプを選択します</string>
-
-    <string-array name="notification_type_entries">
-        <item>通常</item>
-        <item>優先度低</item>
-        <item>なし</item>
-    </string-array>
 
     <string name="preference_language_title">言語</string>
 
@@ -300,8 +281,6 @@
 
     <string name="keep_wakelock_while_binary_running">実行中は CPU をオンのままにする</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">バッテリーでの動作中に予期しない切断が発生する場合オンにしてください。バッテリー消費量が増える場合があります。</string>
-
     <string name="use_tor_title">Tor を使用する</string>
 
     <string name="use_legacy_hashing_title">レガシーハッシュを使用する</string>
@@ -314,15 +293,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか? 既存のファイルは上書きされます。</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">設定を %1$s にエクスポートしました</string>
-
     <string name="import_config">設定のインポート</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">設定をインポートしました</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">設定のインポートに失敗しました。%1$s にファイルがあるか確認してください</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -453,7 +429,6 @@
 
     <string name="syncthing_disabled">Syncthing は無効になりました</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">設定ファイルの作成に失敗しました</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">カメラ</string>
@@ -550,5 +525,4 @@
     <string name="browse">閲覧</string>
     <string name="no_sub_folder_is_selected">サブフォルダーが選択されていません</string>
     <string name="share_device_id_chooser">次とデバイス ID を共有</string>
-
-</resources>
+    </resources>

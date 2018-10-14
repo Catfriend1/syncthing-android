@@ -19,10 +19,6 @@
     <string name="generic_error">Грешка</string>
     <string name="ignore">Игнориране</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Добави папка</string>
 
@@ -216,7 +212,6 @@
     <string name="category_run_conditions">Условия на работа</string>
     <string name="category_behaviour">Поведение</string>
     <string name="category_syncthing_options">Настройки на Syncthing</string>
-    <string name="category_backup">Резервно копие</string>
     <string name="category_debug">Дебъг</string>
     <string name="category_experimental">Експериментални</string>
 
@@ -225,23 +220,9 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежа, моля включете WiFi</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Избор на папка, за напреднали</string>
-
-    <string name="advanced_folder_picker_summary">Изберете папка, от устройството, за синхронизиране</string>
-
     <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
 
     <string name="use_root_summary">Може да предизвика разнообразни проблеми със Syncthing и като цяло с устройството. При възникване на проблем може да се наложи преинсталиране на Syncthing.</string>
-
-    <string name="notification_type_title">Известия</string>
-
-    <string name="notification_type_summary">Изберете тип известия</string>
-
-    <string-array name="notification_type_entries">
-        <item>Нормални</item>
-        <item>С нисък приоритет</item>
-        <item>Без известия</item>
-    </string-array>
 
     <string name="device_name">Име на устройството</string>
 
@@ -275,15 +256,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Настройките са изнесени в %1$s</string>
-
     <string name="import_config">Внасяне на настройки</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Настройките са внесени</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Внасянето на настройките се провали. Уверете се, че файловете са в %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

@@ -1,14 +1,13 @@
-Fixes
-* Fixed xml encoding when parsing, saving the config (#89)
-* Fixed override changes button not showing
-* Fixed the "battery eater"
-* Added detection for wireless charging
-* Fixed phone plugged to charger detection
-* Lots of bug fixes and better Android 8+ support (#52, #54, #56, #59)
 Enhancements
+* Specify sync conditions differently for each folder [NEW]
 * UI explains why syncthing is running (or not)
 * Support in-app editing of folder's ignore list items
-* Better default prefs and crash detection
+Fixes
+* Fixed the "battery eater"
+* Fixed xml encoding when parsing, saving the config (#89)
+* Fixed override changes button not showing
+* Fixed phone plugged to charger detection
+* Lots of bug fixes and better Android 8+ support (#52, #54, #56, #59)
 Maintenance
 * Updated syncthing to v0.14.51
 * Added support for "receive only" folders

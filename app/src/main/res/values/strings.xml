@@ -49,8 +49,8 @@ Please report any problems you encounter via Github.</string>
 
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
-    <string name="dialog_exit_while_running_as_service_title">Confirm to stop service</string>
-    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured Syncthing to run as a service. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only stop the service manually if you ran into severe problems. Otherwise, uncheck running as a service in the settings. Would you like to stop the service now until the next device reboot?</string>
+    <string name="dialog_exit_while_running_as_service_title">Confirm to quit app</string>
+    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured the app to start automatically on boot. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only quit manually if you run into severe problems. Otherwise, disable \'Start automatically on boot \' in the settings. Would you like to quit now until the device rebooted?</string>
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Add Folder</string>
@@ -349,23 +349,9 @@ Please report any problems you encounter via Github.</string>
     <string name="run_as_background_service">Start service automatically on boot</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Use advanced Folder Picker</string>
-
-    <string name="advanced_folder_picker_summary">Select any folder on the device for syncing</string>
-
     <string name="use_root_title">Run Syncthing as Superuser</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature cautious.</string>
-
-    <string name="notification_type_title">Notification</string>
-
-    <string name="notification_type_summary">Choose the notification type</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Low Priority</item>
-        <item>None</item>
-    </string-array>
 
     <string name="preference_language_title">Language</string>
 
@@ -625,8 +611,10 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing is not allowed to run on mobile data connection.</string>
     <string name="reason_on_mobile_data">Syncthing is running as mobile data is currently connected.</string>
     <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
+    <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi.</string>
     <string name="reason_on_wifi">Syncthing is allowed to run on WiFi and WiFi is currently connected.</string>
     <string name="reason_not_on_wifi">Syncthing is allowed to run on WiFi but WiFi isn\'t connected or the phone is in flight mode.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing is allowed to run on metered and non-metered WiFi connections.</string>
@@ -636,6 +624,10 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
     <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
+
+    <!-- Sync Conditions Dialog -->
+
+    <string name="wifi_ssid_whitelist_empty">No WiFi SSID\'s whitelisted. Please specify some in the settings.</string>
 
     <!-- SyncthingService -->
 
@@ -789,5 +781,9 @@ Please report any problems you encounter via Github.</string>
     <string name="browse">Browse</string>
     <string name="no_sub_folder_is_selected">No sub folder is selected</string>
     <string name="share_device_id_chooser">Share device ID with</string>
+    <string name="run_on_whitelisted_wifi_summary">Turn the whitelist on to restrict sync happening only on specified WiFi networks.</string>
+    <string name="custom_sync_conditions_title">Custom sync conditions</string>
+    <string name="custom_sync_conditions_description">Allows you to specify exceptions to the global run conditions.</string>
+    <string name="custom_sync_conditions_dialog">Specify sync conditions</string>
 
 </resources>

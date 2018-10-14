@@ -14,10 +14,6 @@
     <string name="generic_error">Lỗi</string>
     <string name="ignore">Bỏ qua</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Thêm th.mục</string>
 
@@ -206,21 +202,7 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hãy bật WiFi để lựa chọn mạng.</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">S.dụng trình chọn th.mục nâng cao</string>
-
-    <string name="advanced_folder_picker_summary">Chọn bất kỳ th.mục nào trên th.bị để đồng bộ</string>
-
     <string name="use_root_title">Chạy Syncthing với quyền Superuser</string>
-
-    <string name="notification_type_title">Thông báo</string>
-
-    <string name="notification_type_summary">Chọn dạng thông báo</string>
-
-    <string-array name="notification_type_entries">
-        <item>Thông thường</item>
-        <item>Ưu tiên thấp</item>
-        <item>Không thông báo</item>
-    </string-array>
 
     <string name="device_name">Tên thiết bị</string>
 
@@ -242,23 +224,18 @@
 
     <string name="keep_wakelock_while_binary_running">Giữ CPU thức khi Syncthing đang chạy</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Dùng tuỳ chỉnh này nếu bạn bị mất kết nối bất ngờ khi đang dùng pin. Nó sẽ tiêu thụ nhiều pin hơn.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
 
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới? Các tập tin hiện tại sẽ bị chép đè lên.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Cấu hình đã được xuất vào %1$s</string>
-
     <string name="import_config">Nhập cấu hình</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Cấu hình đã được nhập</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Nhập c.hình th.bại, hãy chắc rằng các t.tin nằm trong %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

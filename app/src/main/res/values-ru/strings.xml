@@ -21,10 +21,6 @@
     <string name="generic_error">Ошибка</string>
     <string name="ignore">Игнорировать</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Добавить папку</string>
 
@@ -247,7 +243,6 @@
     <string name="category_run_conditions">Условия выполнения</string>
     <string name="category_behaviour">Поведение</string>
     <string name="category_syncthing_options">Настройки устройства</string>
-    <string name="category_backup">Резервная копия</string>
     <string name="category_debug">Отладка</string>
     <string name="category_experimental">Экспериментальное</string>
 
@@ -262,23 +257,9 @@
 
     <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Использовать продвинутый выбор папок</string>
-
-    <string name="advanced_folder_picker_summary">Выберите любую папку на устройстве для синхронизации</string>
-
     <string name="use_root_title">Запуск Syncthing с рут-правами</string>
 
     <string name="use_root_summary">Это нестабильная опция, которая может вызвать проблемы как с Syncthing так и с вашим устройством. Если вы столкнетесь с проблемами, переустановите Syncthing.</string>
-
-    <string name="notification_type_title">Уведомление</string>
-
-    <string name="notification_type_summary">Выбор метода уведомления</string>
-
-    <string-array name="notification_type_entries">
-        <item>Нормально</item>
-        <item>Низкий</item>
-        <item>Никогда</item>
-    </string-array>
 
     <string name="preference_language_title">Язык</string>
 
@@ -326,8 +307,6 @@
     <string name="use_proxy">Подсоединиться через прокси</string>
     <string name="keep_wakelock_while_binary_running">Поддерживать CPU включенным, пока Syncthing работает</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Используйте эту опцию, если у вас происходят потери соединения при работе от батареи. Эта опция увеличит расход заряда батареи.</string>
-
     <string name="use_tor_title">Использовать Tor</string>
 
     <string name="use_tor_summary">Для дополнительной приватности перенаправлять весь трафик через Tor. Требует наличия Orbot. Отключает опции прокси.</string>
@@ -358,15 +337,12 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию? Существующие файлы будут перезаписаны.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Настройки экспортированы в %1$s</string>
-
     <string name="import_config">Импорт настроек</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Настройки импортированы</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Неудачное импортирование настроек, убедитесь что файлы находятся в %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -522,7 +498,6 @@
 
     <string name="syncthing_disabled">Syncthing выключен</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Ошибка при создании файла конфигурации</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Камера</string>
@@ -622,5 +597,4 @@
     <string name="browse">Обзор</string>
     <string name="no_sub_folder_is_selected">Подпапка не выбрана</string>
     <string name="share_device_id_chooser">Поделиться ID устройства</string>
-
-</resources>
+    </resources>

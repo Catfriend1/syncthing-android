@@ -118,8 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_settings_black_24dp"
-                android:drawableStart="@drawable/ic_settings_black_24dp"
+                android:drawableLeft="@drawable/ic_pause_circle_outline_black_24dp"
+                android:drawableStart="@drawable/ic_pause_circle_outline_black_24dp"
                 android:text="@string/pause_device" />
 
             <TextView

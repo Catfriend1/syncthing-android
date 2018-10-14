@@ -12,10 +12,6 @@
     <string name="welcome_title">Velkommen til Syncthing for Android</string>
 
     <string name="generic_error">Feil</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Legg til Mappe</string>
 
@@ -209,23 +205,9 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vennligst skru på WiFi for å velge nettverk.</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Bruk avansert mappevelger</string>
-
-    <string name="advanced_folder_picker_summary">Velg en mappe på enheten for synkronisering</string>
-
     <string name="use_root_title">Kjør Syncthing som superbruker</string>
 
     <string name="use_root_summary">Dette er en ustabil funksjon som kan forårsake problemer med Syncthing og med din enhet. Hvis det oppstår problemer kan du bli nødt til å reinstallere Syncthing.</string>
-
-    <string name="notification_type_title">Varsler</string>
-
-    <string name="notification_type_summary">Velg varslingstype</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Lav prioritet</item>
-        <item>Ingen</item>
-    </string-array>
 
     <string name="device_name">Enhetsnavn</string>
 
@@ -251,23 +233,18 @@
 
     <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Bruk denne innstillingen dersom du opplever uventede frakoblinger mens enheten går på batteri. Dette vil medføre økt batteriforbruk.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
 
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger? Eksisterende filer vil bli skrevet over.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Innstillingene ble eksportert til %1$s</string>
-
     <string name="import_config">Importer instillinger</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Instillingene ble importert</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Import av innstillinger mislyktes, sørg for at filene er i %1$s</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->

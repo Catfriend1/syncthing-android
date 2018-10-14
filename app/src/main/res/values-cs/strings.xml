@@ -20,10 +20,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <string name="generic_error">Chyba</string>
     <string name="ignore">Ignorovat</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Přidat adresář</string>
 
@@ -231,7 +227,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <string name="category_run_conditions">Podmínky spuštění</string>
     <string name="category_behaviour">Chování</string>
     <string name="category_syncthing_options">Nastavení Syncthing</string>
-    <string name="category_backup">Záloha</string>
     <string name="category_debug">Ladění</string>
     <string name="category_experimental">Experimentální</string>
 
@@ -241,23 +236,9 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
 
     <string name="respect_battery_saving_title">Dodržovat nastavení úspory baterie z Androidu</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Použít rozšířený výběr adresáře</string>
-
-    <string name="advanced_folder_picker_summary">Vyberte jakýkoliv adresář v přístroji pro synchronizaci</string>
-
     <string name="use_root_title">Spustit syncthing jako superuživatel</string>
 
     <string name="use_root_summary">Toto je nestabilní funkce, které může způsobit problémy se Syncthing a s vaším zařízením. Pokud narazíte na problémy, může být třeba přeinstalovat Syncthing.</string>
-
-    <string name="notification_type_title">Upozornění</string>
-
-    <string name="notification_type_summary">Vybrat typ upozornění</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normální</item>
-        <item>Nízká priorita</item>
-        <item>Źádné</item>
-    </string-array>
 
     <string name="preference_language_title">Jazyk</string>
 
@@ -303,8 +284,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
 
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Použijte toto nastavení pokud zaznamenáváte neočekávaná ukončení spojení při běhu na baterii. Toto bude mít za následek vyšší spotřebu energie.</string>
-
     <string name="use_tor_title">Použít Tor</string>
 
     <string name="use_legacy_hashing_title">Používat standardní kontrolní součet</string>
@@ -317,15 +296,12 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravud chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Nastavení bylo zálohováno do %1$s</string>
-
     <string name="import_config">Nahrát nastavení</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Nastavení bylo nahráno</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Nahrání nastavení selhalo, ujistěte se, že soubory jsou v %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -465,7 +441,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
 
     <string name="syncthing_disabled">Syncthing je vypnutý</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Vytváření konfiguračního souboru selhalo</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Kamera</string>
@@ -562,5 +537,4 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <string name="browse">Procházet</string>
     <string name="no_sub_folder_is_selected">Není vybrána žádná podsložka</string>
     <string name="share_device_id_chooser">Sdílet ID zařízení s</string>
-
-</resources>
+    </resources>

@@ -48,6 +48,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
 
 
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Beenden der App bestätigen</string>
+    <string name="dialog_exit_while_running_as_service_message">Zu Deiner Erinnerung: Du hast Syncthing eingerichtet, automatisch beim Hochfahren zu starten. Deshalb überwacht es die Laufkonditionen und synchronisiert, wenn die Bedingungen zutreffen. Du solltest nur manuell beenden, wenn Du größere Probleme feststellst. Andernfalls schalte \"Automatisch beim Hochfahren starten\" in den Einstellungen aus. Möchtest Du jetzt beenden, bis das Gerät neu gestartet wurde?</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Verzeichnis hinzufügen</string>
 
@@ -294,7 +298,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="category_run_conditions">Laufkonditionen</string>
     <string name="category_behaviour">Verhalten</string>
     <string name="category_syncthing_options">Syncthing-Optionen</string>
-    <string name="category_backup">Datensicherung</string>
+    <string name="category_backup">Import und Export</string>
     <string name="category_debug">Fehleranalyse</string>
     <string name="category_experimental">Experimentell</string>
 
@@ -311,8 +315,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_on_metered_wifi_title">Starte bei getakteter WLAN-Verbindung</string>
     <string name="run_on_metered_wifi_summary">Starte, wenn das Gerät mit einem getakteten WLAN-Netzwerk wie z. B. einem Hotspot- oder Tethering-Netzwerk verbunden ist. Achtung: Dies kann einen großen Anteil des mobilen Datenvolumens verbrauchen, wenn Du viele Dateien synchronisierst.</string>
 
-    <string name="run_on_whitelisted_wifi_title">Starte in festgelegten WLAN-Netzwerken</string>
-    <string name="run_on_whitelisted_wifi_networks">Starte nur in ausgewählten WLAN-Netzwerken: %1$s</string>
+    <string name="run_on_whitelisted_wifi_title">Starte bei ausgewählten WLAN\'s</string>
+    <string name="run_on_whitelisted_wifi_networks">Starte in ausgewählten WLAN\'s: %1$s</string>
     <string name="run_on_all_wifi_networks">Starte in allen WLAN-Netzwerken.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Bitte WLAN aktivieren, um eines zu wählen.</string>
@@ -345,23 +349,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_as_background_service">Starte den Dienst automatisch beim Hochfahren</string>
 
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Erweiterte Verzeichnisauswahl benutzen</string>
-
-    <string name="advanced_folder_picker_summary">Alle Verzeichnisse auf dem Gerät für Synchronisation auswählbar</string>
-
     <string name="use_root_title">Syncthing mit Superuser Rechten ausführen</string>
 
     <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
-
-    <string name="notification_type_title">Permanente Benachrichtigung</string>
-
-    <string name="notification_type_summary">Wähle die Art der Benachrichtigung</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normale Priorität</item>
-        <item>Geringe Priorität</item>
-        <item>Keine Priorität</item>
-    </string-array>
 
     <string name="preference_language_title">Sprache</string>
 
@@ -434,7 +424,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="keep_wakelock_while_binary_running">Prozessor wach halten während Syncthing läuft.</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Nur für Android 5 oder niedriger. Nutze diese Einstellung, wenn du unerwartete Verbindungsabbrüche hast, während du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Nur für Android 5 oder niedriger. Benutze diese Einstellung, wenn Du unerwartete Verbindungsabbrüche hast, während Du im Batteriebetrieb arbeitest. Das wird zu einem erhöhten Energieverbrauch führen.</string>
 
     <string name="use_tor_title">Tor benutzen</string>
 
@@ -466,15 +456,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden? Die vorhandene Konfiguration wird überschrieben.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfiguration exportiert nach %1$s</string>
+    <string name="config_export_failed">Konfigurations-Export fehlgeschlagen, prüfe die Logcat-Ausgabe.</string>
 
     <string name="import_config">Konfiguration importieren</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfiguration importiert</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Import fehlgeschlagen, Dateien werden in %1$s erwartet</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -614,8 +603,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_on_battery_power">Telefon wird nicht batteriebetrieben</string>
     <string name="reason_not_while_power_saving">Syncthing läuft nicht, weil das Telefon im Energiesparmodus ist.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing läuft nicht, weil die Android-Kachel \"Automatische Datensynchronisation\" ausgeschaltet ist.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing wurde verboten, die mobile Datenverbindung zu nutzen.</string>
     <string name="reason_on_mobile_data">Syncthing läuft, weil die mobile Datenverbindung aufgebaut ist.</string>
     <string name="reason_not_on_mobile_data">Syncthing darf bei mobiler Datenverbindung laufen, jedoch sind mobile Daten nicht verbunden.</string>
+    <string name="reason_wifi_disallowed">Syncthing wurde verboten, die WLAN-Verbindung zu nutzen.</string>
     <string name="reason_on_wifi">Syncthing darf bei WLAN-Verbindung laufen und WLAN ist gerade verbunden.</string>
     <string name="reason_not_on_wifi">Syncthing darf bei WLAN-Verbindung laufen, jedoch ist WLAN gerade nicht verbunden oder das Telefon befindet sich im Flugzeugmodus.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing darf bei getakteter und nicht-getakteter WLAN-Verbindung laufen.</string>
@@ -623,7 +614,12 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing läuft nicht, weil der Name des aktuellen WLAN-Netzwerks nicht auf der weißen Liste steht.</string>
     <string name="reason_on_nonmetered_wifi">Syncthing darf bei nicht-getakteter WLAN-Verbindung laufen. Die aktive WLAN-Verbindung ist nicht-getaktet.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing läuft nicht, weil Du verboten hast, dass es bei getakteten WLAN-Verbindungen läuft.</string>
+    <string name="reason_location_unavailable">Du hast \'Starte in ausgewählten WLAN-Netzwerken\' in den Einstellungen aktiviert. Die Android-tandorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Schalte den Standort ein und verbinde WLAN erneut.</string>
     <string name="reason_on_flight_mode">Syncthing läuft, weil Du erlaubt hast, dass es bei eingeschaltetem Flugzeugmodus läuft.</string>
+
+    <!-- Sync Conditions Dialog -->
+
+    <string name="wifi_ssid_whitelist_empty">Es sind keine WLAN-Netzwerknamen auf der Erlaubt-Liste. Bitte lege welche in den Einstellungen fest.</string>
 
     <!-- SyncthingService -->
 
@@ -641,6 +637,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="syncthing_terminated">Syncthing wurde beendet</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="executable_not_found">Ausführbarer Kernbestandteil der App \"%s\" fehlt. Bitte prüfe den Build und die Logcat-Ausgabe.</string>
     <string name="config_create_failed">Erstellen der Konfiguration fehlgeschlagen. Pruefe die logcat-Ausgabe!</string>
     <string name="config_read_failed">Fehler beim Lesen der Konfiguration. Sichere gegebenenfalls Daten aus deinen Sync-Ordnern zu sichern, lösche über die Android-Einstellungen die App-Daten und starte von vorn.</string>
 
@@ -776,5 +773,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="browse">Durchsuchen</string>
     <string name="no_sub_folder_is_selected">Kein Verzeichnis ausgewählt</string>
     <string name="share_device_id_chooser">Teile Geräte ID mit</string>
+    <string name="run_on_whitelisted_wifi_summary">Schalte die Erlaubt-Liste ein, um die Synchronisation auf die ausgewählten WLAN-Netzwerke zu beschränken.</string>
+    <string name="custom_sync_conditions_title">Individuelle Sync-Bedingungen</string>
+    <string name="custom_sync_conditions_description">Du kannst Ausnahmen zu den übergeordneten Laufkonditionen festlegen.</string>
+    <string name="custom_sync_conditions_dialog">Lege Sync-Bedingungen fest</string>
 
 </resources>

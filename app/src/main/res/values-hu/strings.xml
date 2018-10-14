@@ -21,10 +21,6 @@ Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</stri
     <string name="finish">Befejezés</string>
     <string name="generic_example">Példa</string>
     <string name="generic_error">Hiba</string>
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Mappa hozzáadása</string>
 
@@ -249,7 +245,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
     <string name="category_run_conditions">Futás feltételei</string>
     <string name="category_behaviour">Viselkedés</string>
     <string name="category_syncthing_options">Syncthing opciók</string>
-    <string name="category_backup">Biztonsági mentés</string>
     <string name="category_debug">Hibakeresés</string>
     <string name="category_experimental">Kísérleti</string>
 
@@ -264,23 +259,9 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
 
     <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Advanced mappaválasztó használata</string>
-
-    <string name="advanced_folder_picker_summary">Bármely mappa kiválasztható szinkronizáláshoz</string>
-
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
 
     <string name="use_root_summary">Ez egy kísérleti funkció, amely problémákat okozhat mind a Syncthing, mind az eszközöd számára. Ha ilyenbe ütközöl, előfordulhat, hogy újra kell telepítened az alkalmazást.</string>
-
-    <string name="notification_type_title">Értesítés</string>
-
-    <string name="notification_type_summary">Értesítés típusának kiválasztása</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normál</item>
-        <item>Alacsony prioritású</item>
-        <item>Semmilyen</item>
-    </string-array>
 
     <string name="preference_language_title">Nyelv</string>
 
@@ -328,8 +309,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
     <string name="use_proxy">Kapcsolódás porxyn keresztül</string>
     <string name="keep_wakelock_while_binary_running">CPU ébren tartása a Syncthing futása során</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Ezt a beállítást akkor használd, ha váratlan szakadásokat tapasztalsz akkumulátoros üzemben. Ennek hatására megnő az alkalmazás energiafelhasználása.</string>
-
     <string name="use_tor_title">Tor használata</string>
 
     <string name="use_tor_summary">A megnövelt biztonság érdekében minden forgalom a TOR-on keresztül. Orbot szükséges. Letiltja a proxy beállításokat.</string>
@@ -362,15 +341,12 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
-
     <string name="import_config">Konfiguráció importálása</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -518,7 +494,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
 
     <string name="syncthing_disabled">A Syncthing le van tiltva</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Kamera</string>
@@ -618,5 +593,4 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="browse">Tallóz</string>
     <string name="no_sub_folder_is_selected">Nincs kiválasztott almappa</string>
     <string name="share_device_id_chooser">Eszközazonosító megosztása ezzel</string>
-
-</resources>
+    </resources>

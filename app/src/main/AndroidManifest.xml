@@ -90,6 +90,13 @@
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
         </activity>
+        <activity
+            android:name=".activities.SyncConditionsActivity"
+            android:label="@string/custom_sync_conditions_dialog">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
         <activity android:name=".activities.RestartActivity"
             android:theme="@style/Theme.Syncthing.Translucent"
             android:launchMode="singleTop"/>

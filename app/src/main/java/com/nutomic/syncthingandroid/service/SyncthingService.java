@@ -166,7 +166,7 @@ public class SyncthingService extends Service {
     PollWebGuiAvailableTask mPollWebGuiAvailableTask = null;
 
     private @Nullable
-    RestApi mApi = null;
+    RestApi mRestApi = null;
 
     private @Nullable
     EventProcessor mEventProcessor = null;
@@ -189,7 +189,7 @@ public class SyncthingService extends Service {
     private final Object mStateLock = new Object();
 
     /**
-     * Stores the result of the last should run decision received by OnDeviceStateChangedListener.
+     * Stores the result of the last should run decision received by OnShouldRunChangedListener.
      */
     private boolean mLastDeterminedShouldRun = false;
 
@@ -261,9 +261,12 @@ public class SyncthingService extends Service {
              * Instantiate the run condition monitor on first onStartCommand and
              * enable callback on run condition change affecting the final decision to
              * run/terminate syncthing. After initial run conditions are collected
-             * the first decision is sent to {@link onUpdatedShouldRunDecision}.
+             * the first decision is sent to {@link onShouldRunDecisionChanged}.
              */
-            mRunConditionMonitor = new RunConditionMonitor(SyncthingService.this, this::onUpdatedShouldRunDecision);
+            mRunConditionMonitor = new RunConditionMonitor(SyncthingService.this,
+                this::onShouldRunDecisionChanged,
+                this::onSyncPreconditionChanged
+            );
         }
         mNotificationHandler.updatePersistentNotification(this);
 
@@ -290,15 +293,15 @@ public class SyncthingService extends Service {
         } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
             mRunConditionMonitor.updateShouldRunDecision();
         } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            // mApi is not null due to State.ACTIVE
-            mApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
+            // mRestApi is not null due to State.ACTIVE
+            mRestApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_IGNORE_FOLDER.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            // mApi is not null due to State.ACTIVE
-            mApi.ignoreFolder(intent.getStringExtra(EXTRA_DEVICE_ID), intent.getStringExtra(EXTRA_FOLDER_ID));
+            // mRestApi is not null due to State.ACTIVE
+            mRestApi.ignoreFolder(intent.getStringExtra(EXTRA_DEVICE_ID), intent.getStringExtra(EXTRA_FOLDER_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_OVERRIDE_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            mApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
+            mRestApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
         }
         return START_STICKY;
     }
@@ -309,7 +312,7 @@ public class SyncthingService extends Service {
      * function is called to notify this class to run/terminate the syncthing binary.
      * {@link #onServiceStateChange} is called while applying the decision change.
      */
-    private void onUpdatedShouldRunDecision(boolean newShouldRunDecision) {
+    private void onShouldRunDecisionChanged(boolean newShouldRunDecision) {
         if (newShouldRunDecision != mLastDeterminedShouldRun) {
             Log.i(TAG, "shouldRun decision changed to " + newShouldRunDecision + " according to configured run conditions.");
             mLastDeterminedShouldRun = newShouldRunDecision;
@@ -338,6 +341,17 @@ public class SyncthingService extends Service {
                 shutdown(State.DISABLED, () -> {
                 });
             }
+        }
+    }
+
+    /**
+     * After sync preconditions changed, we need to inform {@link RestApi} to pause or
+     * unpause devices and folders as defined in per-object sync preferences.
+     */
+    private void onSyncPreconditionChanged() {
+        if (mRestApi != null) {
+            // Forward event.
+            mRestApi.onSyncPreconditionChanged(mRunConditionMonitor);
         }
     }
 
@@ -416,8 +430,8 @@ public class SyncthingService extends Service {
      * Callback on {@link StartupTask#onPostExecute}.
      */
     private void onStartupTaskCompleteListener(SyncthingRunnable.Command srCommand) {
-        if (mApi == null) {
-            mApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
+        if (mRestApi == null) {
+            mRestApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
                     this::onApiAvailable, () -> onServiceStateChange(mCurrentState));
             Log.i(TAG, "Web GUI will be available at " + mConfig.getWebGuiUrl());
         }
@@ -450,8 +464,8 @@ public class SyncthingService extends Service {
             mPollWebGuiAvailableTask = new PollWebGuiAvailableTask(
                     this, getWebGuiUrl(), mConfig.getApiKey(), result -> {
                 Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
-                if (mApi != null) {
-                    mApi.readConfigFromRestApi();
+                if (mRestApi != null) {
+                    mRestApi.readConfigFromRestApi();
                 }
             }
             );
@@ -461,12 +475,12 @@ public class SyncthingService extends Service {
     /**
      * Called when {@link RestApi#checkReadConfigFromRestApiCompleted} detects
      * the RestApi class has been fully initialized.
-     * UI stressing results in mApi getting null on simultaneous shutdown, so
+     * UI stressing results in mRestApi getting null on simultaneous shutdown, so
      * we check it for safety.
      */
     private void onApiAvailable() {
-        if (mApi == null) {
-            Log.e(TAG, "onApiAvailable: Did we stop the binary during startup? mApi == null");
+        if (mRestApi == null) {
+            Log.e(TAG, "onApiAvailable: Did we stop the binary during startup? mRestApi == null");
             return;
         }
         synchronized (mStateLock) {
@@ -475,6 +489,9 @@ public class SyncthingService extends Service {
                 return;
             }
             onServiceStateChange(State.ACTIVE);
+        }
+        if (mRestApi != null && mRunConditionMonitor != null) {
+            mRestApi.onSyncPreconditionChanged(mRunConditionMonitor);
         }
 
         /**
@@ -489,7 +506,7 @@ public class SyncthingService extends Service {
         }
 
         if (mEventProcessor == null) {
-            mEventProcessor = new EventProcessor(SyncthingService.this, mApi);
+            mEventProcessor = new EventProcessor(SyncthingService.this, mRestApi);
             mEventProcessor.start();
         }
     }
@@ -508,7 +525,7 @@ public class SyncthingService extends Service {
         Log.v(TAG, "onDestroy");
         if (mRunConditionMonitor != null) {
             /**
-             * Shut down the OnDeviceStateChangedListener so we won't get interrupted by run
+             * Shut down the OnShouldRunChangedListener so we won't get interrupted by run
              * condition events that occur during shutdown.
              */
             mRunConditionMonitor.shutdown();
@@ -565,9 +582,9 @@ public class SyncthingService extends Service {
             mEventProcessor = null;
         }
 
-        if (mApi != null) {
-            mApi.shutdown();
-            mApi = null;
+        if (mRestApi != null) {
+            mRestApi.shutdown();
+            mRestApi = null;
         }
 
         if (mSyncthingRunnable != null) {
@@ -589,7 +606,7 @@ public class SyncthingService extends Service {
 
     public @Nullable
     RestApi getApi() {
-        return mApi;
+        return mRestApi;
     }
 
     /**

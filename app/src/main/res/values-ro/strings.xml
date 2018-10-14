@@ -23,10 +23,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="ignore">Ignoră</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adăugare director</string>
 
@@ -263,7 +259,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="category_run_conditions">Condiții de rulare</string>
     <string name="category_behaviour">Comportament</string>
     <string name="category_syncthing_options">Opțiuni Syncthing</string>
-    <string name="category_backup">Copie de rezervă</string>
     <string name="category_debug">Depanare</string>
     <string name="category_experimental">Experimental</string>
 
@@ -278,23 +273,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="respect_battery_saving_title">Se va respecta setarea de economisire a bateriei din Android</string>
     <!-- Preferences - Behaviour -->
-    <string name="advanced_folder_picker">Folosește selectorul avansat de directoare</string>
-
-    <string name="advanced_folder_picker_summary">Alegeți orice director de pe dispozitiv pentru sincronizare</string>
-
     <string name="use_root_title">Rulează ca root</string>
 
     <string name="use_root_summary">Aceasta este o funcție instabilă care ar putea cauza probleme atăt Syncthing cât și dispozitivului dumneavoastră. Dacă vă confruntați cu probleme, v-a trebui să reinstalați Syncthing.</string>
-
-    <string name="notification_type_title">Notificare</string>
-
-    <string name="notification_type_summary">Alegeți tipul de notificare</string>
-
-    <string-array name="notification_type_entries">
-        <item>Normal</item>
-        <item>Prioritate mică</item>
-        <item>Nici una</item>
-    </string-array>
 
     <string name="preference_language_title">Limbă</string>
 
@@ -361,8 +342,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="keep_wakelock_while_binary_running">Ține procesorul activ când rulează</string>
 
-    <string name="keep_wakelock_while_binary_running_summary">Folosiți această setare dacă vă confruntați cu deconectări neașteptate atunci când dispozitivul se alimentează de la baterie. Această opțiune poate duce la o creștere a consumului bateriei.</string>
-
     <string name="use_tor_title">Folosește Tor</string>
 
     <string name="use_tor_summary">Forțează tot traficul prin rețeaua Tor pentru a spori confidențialitatea. Necesită aplicația Orbot. Dezactivează opțiunile proxy.</string>
@@ -393,15 +372,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă? Fișierele existente vor fi suprascrise.</string>
 
-    <!-- Toast shown after config was successfully exported -->
+    <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Configurația a fost exportată în %1$s</string>
-
     <string name="import_config">Importă configurația</string>
 
-    <!-- Toast shown after config was successfully imported -->
+    <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configurația a fost importată</string>
-
-    <!-- Toast shown after config was successfully imported -->
     <string name="config_import_failed">Importarea configurației a eșuat, asigurați-vă că fișierele sunt în %1$s</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -556,7 +532,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="syncthing_terminated">Syncthing a fost închis</string>
 
-    <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Un fișier de configurare esențial pentru această operație lipsește</string>
@@ -679,5 +654,4 @@ atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt ș
     <string name="browse">Navighează</string>
     <string name="no_sub_folder_is_selected">Nu este selectat nici un subdirector</string>
     <string name="share_device_id_chooser">Partajează ID dispozitiv cu</string>
-
-</resources>
+    </resources>
