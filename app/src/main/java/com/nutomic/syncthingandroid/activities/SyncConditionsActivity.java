@@ -116,7 +116,7 @@ public class SyncConditionsActivity extends SyncthingActivity
         /**
          * Load global run conditions.
          */
-        Boolean globalRunOnWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, false);
+        Boolean globalRunOnWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
         Boolean globalWhitelistEnabled = !mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>())
                 .isEmpty();
         Set<String> globalWhitelistedSsid = mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>());
