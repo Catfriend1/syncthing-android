@@ -1,5 +1,5 @@
 Enhancements
-* Specify sync conditions differently for each folder [NEW]
+* Specify sync conditions differently for each folder, device [NEW]
 * UI explains why syncthing is running (or not)
 * Support in-app editing of folder's ignore list items
 Fixes

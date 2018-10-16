@@ -518,7 +518,7 @@ public class RestApi {
         }, errorListener);
     }
 
-    public void editDevice(Device newDevice) {
+    public void updateDevice(Device newDevice) {
         synchronized (mConfigLock) {
             removeDeviceInternal(newDevice.deviceID);
             mConfig.devices.add(newDevice);
@@ -782,26 +782,58 @@ public class RestApi {
         Log.v(TAG, "onSyncPreconditionChanged: Event fired.");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         synchronized (mConfigLock) {
-            if (mConfig == null || mConfig.folders == null) {
+            Boolean configChanged = false;
+
+            // Check if the config has been loaded.
+            if (mConfig == null) {
+                Log.d(TAG, "onSyncPreconditionChanged: mConfig is not ready yet.");
+                return;
+            }
+
+            // Check if the folders are available from config.
+            if (mConfig.folders != null) {
+                for (Folder folder : mConfig.folders) {
+                    Boolean folderCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
+                        Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id), false
+                    );
+                    if (folderCustomSyncConditionsEnabled) {
+                        Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
+                            Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id
+                        );
+                        Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
+                        if (folder.paused != !syncConditionsMet) {
+                            folder.paused = !syncConditionsMet;
+                            configChanged = true;
+                        }
+                    }
+                }
+            } else {
                 Log.d(TAG, "onSyncPreconditionChanged: mConfig.folders is not ready yet.");
                 return;
             }
-            Boolean configChanged = false;
-            for (Folder folder : mConfig.folders) {
-                Boolean folderCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
-                    Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id), false
-                );
-                if (folderCustomSyncConditionsEnabled) {
-                    Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
-                        Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id
+
+            // Check if the devices are available from config.
+            if (mConfig.devices != null) {
+                for (Device device : mConfig.devices) {
+                    Boolean deviceCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
+                        Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID), false
                     );
-                    Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
-                    if (folder.paused != !syncConditionsMet) {
-                        folder.paused = !syncConditionsMet;
-                        configChanged = true;
+                    if (deviceCustomSyncConditionsEnabled) {
+                        Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
+                            Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID
+                        );
+                        Log.v(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? "1" : "0"));
+                        if (device.paused != !syncConditionsMet) {
+                            device.paused = !syncConditionsMet;
+                            configChanged = true;
+                        }
                     }
                 }
+            } else {
+                Log.d(TAG, "onSyncPreconditionChanged: mConfig.devices is not ready yet.");
+                return;
             }
+
             if (configChanged) {
                 Log.v(TAG, "onSyncPreconditionChanged: Sending changed config ...");
                 sendConfig();

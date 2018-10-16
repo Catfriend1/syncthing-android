@@ -263,7 +263,6 @@ public class FolderActivity extends SyncthingActivity
     /**
      * Invoked after user clicked on the {@link mCustomSyncConditionsDialog} label.
      */
-    @SuppressLint("InlinedAPI")
     private void onCustomSyncConditionsDialogClick() {
         startActivityForResult(
             SyncConditionsActivity.createIntent(
@@ -367,7 +366,7 @@ public class FolderActivity extends SyncthingActivity
     }
 
     /**
-     * Save current settings in case we are in create mode and they aren't yet stored in the config.
+     * Register for service state change events.
      */
     @Override
     public void onServiceConnected() {
@@ -701,9 +700,17 @@ public class FolderActivity extends SyncthingActivity
         deviceView.setOnCheckedChangeListener(mCheckedListener);
     }
 
+    /**
+     * Sends the updated folder info if in edit mode.
+     * Preconditions: mFolderNeedsToUpdate == true
+     */
     private void updateFolder() {
         if (mIsCreateMode) {
             // If we are about to create this folder, we cannot update via restApi.
+            return;
+        }
+        if (mFolder == null) {
+            Log.e(TAG, "updateFolder: mFolder == null");
             return;
         }
 
@@ -716,18 +723,13 @@ public class FolderActivity extends SyncthingActivity
         );
         editor.apply();
 
-        // Update folder via restApi.
+        // Update folder via restApi and send the config to REST endpoint.
         RestApi restApi = getApi();
-        /**
-         * RestApi is guaranteed not to be null as {@link onServiceStateChange}
-         * immediately finishes this activity if SyncthingService shuts down.
-         */
-        /*
         if (restApi == null) {
             Log.e(TAG, "updateFolder: restApi == null");
             return;
         }
-        */
+
         // Update ignore list.
         String[] ignore = mEditIgnoreListContent.getText().toString().split("\n");
         restApi.postFolderIgnoreList(mFolder.id, ignore);

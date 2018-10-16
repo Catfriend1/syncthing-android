@@ -228,11 +228,13 @@ public class RunConditionMonitor {
     /**
      * Constants.PREF_WIFI_SSID_WHITELIST
      */
-    private SyncConditionResult checkConditionSyncOnWhitelistedWifi(String prefNameSyncOnWhitelistedWifi) {
-        Set<String> whitelistedWifiSsids = mPreferences.getStringSet(prefNameSyncOnWhitelistedWifi, new HashSet<>());
-        boolean prefWifiWhitelistEnabled = !whitelistedWifiSsids.isEmpty();
+    private SyncConditionResult checkConditionSyncOnWhitelistedWifi(
+            String prefNameUseWifiWhitelist,
+            String prefNameSelectedWhitelistSsid) {
+        boolean wifiWhitelistEnabled = mPreferences.getBoolean(prefNameUseWifiWhitelist, false);
+        Set<String> whitelistedWifiSsids = mPreferences.getStringSet(prefNameSelectedWhitelistSsid, new HashSet<>());
         try {
-            if (wifiWhitelistConditionMet(prefWifiWhitelistEnabled, whitelistedWifiSsids)) {
+            if (wifiWhitelistConditionMet(wifiWhitelistEnabled, whitelistedWifiSsids)) {
                 return new SyncConditionResult(true, "\n" + res.getString(R.string.reason_on_whitelisted_wifi));
             }
             return new SyncConditionResult(false, "\n" + res.getString(R.string.reason_not_on_whitelisted_wifi));
@@ -348,7 +350,7 @@ public class RunConditionMonitor {
                 // Wifi type is allowed.
                 Log.v(TAG, "decideShouldRun: checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi");
 
-                scr = checkConditionSyncOnWhitelistedWifi(Constants.PREF_WIFI_SSID_WHITELIST);
+                scr = checkConditionSyncOnWhitelistedWifi(Constants.PREF_USE_WIFI_SSID_WHITELIST, Constants.PREF_WIFI_SSID_WHITELIST);
                 mRunDecisionExplanation += scr.explanation;
                 if (scr.conditionMet) {
                     // Wifi is whitelisted.
@@ -395,7 +397,10 @@ public class RunConditionMonitor {
                 // Wifi type is allowed.
                 Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi");
 
-                scr = checkConditionSyncOnWhitelistedWifi(Constants.DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(objectPrefixAndId));
+                scr = checkConditionSyncOnWhitelistedWifi(
+                    Constants.DYN_PREF_OBJECT_USE_WIFI_SSID_WHITELIST(objectPrefixAndId),
+                    Constants.DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(objectPrefixAndId)
+                );
                 if (scr.conditionMet) {
                     // Wifi is whitelisted.
                     Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi && checkConditionSyncOnWhitelistedWifi");

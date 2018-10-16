@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid;
 
+import com.nutomic.syncthingandroid.activities.DeviceActivity;
 import com.nutomic.syncthingandroid.activities.FirstStartActivity;
 import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.activities.FolderPickerActivity;
@@ -26,6 +27,7 @@ public interface DaggerComponent {
     void inject(SyncthingApp app);
     void inject(MainActivity activity);
     void inject(FirstStartActivity activity);
+    void inject(DeviceActivity activity);
     void inject(FolderActivity activity);
     void inject(FolderPickerActivity activity);
     void inject(SyncConditionsActivity activity);

@@ -105,6 +105,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mRunOnMobileData;
         private CheckBoxPreference mRunOnWifi;
         private CheckBoxPreference mRunOnMeteredWifi;
+        private CheckBoxPreference mUseWifiWhitelist;
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
 
@@ -173,6 +174,8 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
             mRunOnMeteredWifi =
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_METERED_WIFI);
+            mUseWifiWhitelist =
+                    (CheckBoxPreference) findPreference(Constants.PREF_USE_WIFI_SSID_WHITELIST);
             mWifiSsidWhitelist =
                     (WifiSsidPreference) findPreference(Constants.PREF_WIFI_SSID_WHITELIST);
             mRunInFlightMode =
@@ -225,7 +228,8 @@ public class SettingsActivity extends SyncthingActivity {
             Preference appVersion   = screen.findPreference("app_version");
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
-            mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked());
+            mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
+            mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked() && mUseWifiWhitelist.isChecked());
             /* Experimental options */
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 /* Wakelocks are only valid on Android 5 or lower. */
@@ -262,7 +266,7 @@ public class SettingsActivity extends SyncthingActivity {
             screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
             String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
             screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
-                getString(R.string.run_on_all_wifi_networks) :
+                getString(R.string.wifi_ssid_whitelist_empty) :
                 getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
             );
             handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
@@ -366,12 +370,16 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case Constants.PREF_RUN_ON_WIFI:
                     mRunOnMeteredWifi.setEnabled((Boolean) o);
+                    mUseWifiWhitelist.setEnabled((Boolean) o);
+                    mWifiSsidWhitelist.setEnabled((Boolean) o && mUseWifiWhitelist.isChecked());
+                    break;
+                case Constants.PREF_USE_WIFI_SSID_WHITELIST:
                     mWifiSsidWhitelist.setEnabled((Boolean) o);
                     break;
                 case Constants.PREF_WIFI_SSID_WHITELIST:
                     String wifiSsidSummary = TextUtils.join(", ", (Set<String>) o);
                     preference.setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
-                        getString(R.string.run_on_all_wifi_networks) :
+                        getString(R.string.wifi_ssid_whitelist_empty) :
                         getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
                     );
                     break;
@@ -386,7 +394,7 @@ public class SettingsActivity extends SyncthingActivity {
                 case "deviceName":
                     Device localDevice = mRestApi.getLocalDevice();
                     localDevice.name = (String) o;
-                    mRestApi.editDevice(localDevice);
+                    mRestApi.updateDevice(localDevice);
                     break;
                 case "listenAddresses":
                     mOptions.listenAddresses = Iterables.toArray(splitter.split((String) o), String.class);

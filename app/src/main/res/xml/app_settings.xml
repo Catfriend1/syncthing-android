@@ -12,23 +12,34 @@
             android:title="@string/run_conditions_title"
             android:summary="@string/run_conditions_summary"/>
 
+        <!-- Sync on WiFi -->
         <CheckBoxPreference
             android:key="run_on_wifi"
             android:title="@string/run_on_wifi_title"
             android:summary="@string/run_on_wifi_summary"
             android:defaultValue="true" />
 
+        <!-- Sync on metered WiFi -->
         <CheckBoxPreference
             android:key="run_on_metered_wifi"
             android:title="@string/run_on_metered_wifi_title"
             android:summary="@string/run_on_metered_wifi_summary"
             android:defaultValue="false" />
 
+        <!-- Use WiFi Ssid whitelist -->
+        <CheckBoxPreference
+            android:key="use_wifi_whitelist"
+            android:title="@string/run_on_whitelisted_wifi_title"
+            android:summary="@string/run_on_whitelisted_wifi_summary"
+            android:defaultValue="false" />
+
+        <!-- Select whitelisted WiFi Ssid -->
         <com.nutomic.syncthingandroid.views.WifiSsidPreference
             android:key="wifi_ssid_whitelist"
-            android:title="@string/run_on_whitelisted_wifi_title"
+            android:title="@string/specify_wifi_ssid_whitelist"
             android:summary="@null" />
 
+        <!-- Sync on mobile data -->
         <CheckBoxPreference
             android:key="run_on_mobile_data"
             android:title="@string/run_on_mobile_data_title"

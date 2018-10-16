@@ -60,7 +60,8 @@ public class SyncConditionsActivity extends SyncthingActivity
     private SwitchCompat mSyncOnMobileData;
 
     /**
-     * Shared preferences names for custom per-folder settings.
+     * Shared preferences names for custom object settings.
+     * Object can e.g. be a folder or device.
      */
     private String mObjectPrefixAndId;
     private String mPrefSyncOnWifi;
@@ -108,7 +109,7 @@ public class SyncConditionsActivity extends SyncthingActivity
         mObjectPrefixAndId = intent.getStringExtra(EXTRA_OBJECT_PREFIX_AND_ID);
         Log.v(TAG, "Prefix is \'" + mObjectPrefixAndId + "\' (" + mObjectReadableName + ")");
         mPrefSyncOnWifi = Constants.DYN_PREF_OBJECT_SYNC_ON_WIFI(mObjectPrefixAndId);
-        mPrefSyncOnWhitelistedWifi = Constants.DYN_PREF_OBJECT_SYNC_ON_WHITELISTED_WIFI(mObjectPrefixAndId);
+        mPrefSyncOnWhitelistedWifi = Constants.DYN_PREF_OBJECT_USE_WIFI_SSID_WHITELIST(mObjectPrefixAndId);
         mPrefSelectedWhitelistSsid = Constants.DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(mObjectPrefixAndId);
         mPrefSyncOnMeteredWifi = Constants.DYN_PREF_OBJECT_SYNC_ON_METERED_WIFI(mObjectPrefixAndId);
         mPrefSyncOnMobileData = Constants.DYN_PREF_OBJECT_SYNC_ON_MOBILE_DATA(mObjectPrefixAndId);
@@ -117,14 +118,13 @@ public class SyncConditionsActivity extends SyncthingActivity
          * Load global run conditions.
          */
         Boolean globalRunOnWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
-        Boolean globalWhitelistEnabled = !mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>())
-                .isEmpty();
         Set<String> globalWhitelistedSsid = mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>());
+        Boolean globalWhitelistEnabled = mPreferences.getBoolean(Constants.PREF_USE_WIFI_SSID_WHITELIST, false);
         Boolean globalRunOnMeteredWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_METERED_WIFI, false);
         Boolean globalRunOnMobileDataEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, false);
 
         /**
-         * Load custom folder preferences. If unset, use global setting as default.
+         * Load custom object preferences. If unset, use global setting as default.
          */
         mSyncOnWifi.setChecked(globalRunOnWifiEnabled && mPreferences.getBoolean(mPrefSyncOnWifi, globalRunOnWifiEnabled));
         mSyncOnWifi.setEnabled(globalRunOnWifiEnabled);
@@ -143,7 +143,7 @@ public class SyncConditionsActivity extends SyncthingActivity
         mSyncOnMobileData.setOnCheckedChangeListener(mCheckedListener);
 
         // Read selected WiFi Ssid whitelist items.
-        Set<String> selectedWhitelistedSsid = mPreferences.getStringSet(mPrefSelectedWhitelistSsid, new HashSet<>());
+        Set<String> selectedWhitelistedSsid = mPreferences.getStringSet(mPrefSelectedWhitelistSsid, globalWhitelistedSsid);
         // Removes any network that is no longer part of the global WiFi Ssid whitelist.
         selectedWhitelistedSsid.retainAll(globalWhitelistedSsid);
 
@@ -162,7 +162,7 @@ public class SyncConditionsActivity extends SyncthingActivity
             setMarginEnd(params, contentInset);
             TextView emptyView = new TextView(mWifiSsidContainer.getContext());
             emptyView.setGravity(CENTER_VERTICAL);
-            emptyView.setText(R.string.wifi_ssid_whitelist_empty);
+            emptyView.setText(R.string.custom_wifi_ssid_whitelist_empty);
             mWifiSsidContainer.addView(emptyView, params);
             mWifiSsidContainer.setEnabled(false);
         } else {
@@ -224,7 +224,7 @@ public class SyncConditionsActivity extends SyncthingActivity
         if (mUnsavedChanges) {
             Log.v(TAG, "onPause: mUnsavedChanges == true. Saving prefs ...");
             /**
-             * Save custom folder preferences.
+             * Save custom object preferences.
              */
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putBoolean(mPrefSyncOnWifi, mSyncOnWifi.isChecked());

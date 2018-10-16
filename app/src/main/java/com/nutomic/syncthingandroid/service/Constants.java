@@ -15,6 +15,7 @@ public class Constants {
     public static final String PREF_RUN_ON_MOBILE_DATA          = "run_on_mobile_data";
     public static final String PREF_RUN_ON_WIFI                 = "run_on_wifi";
     public static final String PREF_RUN_ON_METERED_WIFI         = "run_on_metered_wifi";
+    public static final String PREF_USE_WIFI_SSID_WHITELIST     = "use_wifi_whitelist";
     public static final String PREF_WIFI_SSID_WHITELIST         = "wifi_ssid_whitelist";
     public static final String PREF_POWER_SOURCE                = "power_source";
     public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
@@ -43,8 +44,8 @@ public class Constants {
         return objectPrefixAndId + "_" + PREF_RUN_ON_WIFI;
     }
 
-    public static String DYN_PREF_OBJECT_SYNC_ON_WHITELISTED_WIFI(String objectPrefixAndId) {
-        return objectPrefixAndId + "_" + "use_wifi_whitelist";
+    public static String DYN_PREF_OBJECT_USE_WIFI_SSID_WHITELIST(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_USE_WIFI_SSID_WHITELIST;
     }
 
     public static String DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(String objectPrefixAndId) {

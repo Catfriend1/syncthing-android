@@ -122,6 +122,59 @@
                 android:drawableStart="@drawable/ic_pause_circle_outline_black_24dp"
                 android:text="@string/pause_device" />
 
+            <!-- Custom sync conditions -->
+            <LinearLayout
+                android:id="@+id/customSyncConditionsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/customSyncConditionsSwitch"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_autorenew_black_24dp"
+                    android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                    android:text="@string/custom_sync_conditions_title" />
+
+                <TextView
+                    android:id="@+id/customSyncConditionsDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/custom_sync_conditions_description"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:id="@+id/customSyncConditionsDialog"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:text="@string/custom_sync_conditions_dialog"/>
+
+                <TextView
+                    android:id="@+id/customSyncConditionsCurrent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@null"
+                    android:focusable="false"/>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/currentAddress"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
