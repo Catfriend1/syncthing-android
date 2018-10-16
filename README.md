@@ -5,11 +5,10 @@
 <a href="https://f-droid.org/de/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/badge/f--droid-4161-brightgreen.svg" /></a>
 
 # Major enhancements in this fork are:
+- Individual sync conditions can be applied per device and per folder (for expert users).
 - UI explains why syncthing is running or not running according to the run conditions set in preferences.
-- A welcome wizard guiding you through initial setup on first launch or if mandatory prerequisites are missing like for example the storage permission.
-- Run condition bugs are fixed.
 - "Battery eater" problem is fixed.
-- Android 8+ support is on it's way.
+- Android 8 and 9 support.
 - Many bug fixes, enhancements and more frequent releases.
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
