@@ -62,8 +62,6 @@
         <item quantity="other">%1$d / %2$d 파일</item>
     </plurals>
 
-    <string name="toast_no_file_manager">호환되는 파일 매니저를 찾을 수 없습니다</string>
-
     <!-- DevicesFragment -->
 
 

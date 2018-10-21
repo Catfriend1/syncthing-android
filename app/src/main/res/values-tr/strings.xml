@@ -55,8 +55,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Klasör bulunamadı</string>
 
-    <string name="toast_no_file_manager">Uyumlu dosya yöneticisi bulunamadı</string>
-
     <!-- DevicesFragment -->
 
 

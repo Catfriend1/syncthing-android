@@ -67,8 +67,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
         <item quantity="other">%1$d / %2$d souborů</item>
     </plurals>
 
-    <string name="toast_no_file_manager">Nenalezen žádný kompatibilní manažer souborů</string>
-
     <!-- DevicesFragment -->
 
 

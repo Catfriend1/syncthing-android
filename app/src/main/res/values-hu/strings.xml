@@ -72,8 +72,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
 
     <string name="open_file_manager">Fájlkezelő megnyitása</string>
 
-    <string name="toast_no_file_manager">Nem található kompatibilis fájlkezelő</string>
-
     <!-- DevicesFragment -->
 
 

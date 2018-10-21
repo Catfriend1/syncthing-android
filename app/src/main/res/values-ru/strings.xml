@@ -70,8 +70,6 @@
 
     <string name="open_file_manager">Открыть файловый менеджер</string>
 
-    <string name="toast_no_file_manager">Не найдено совместимого файлового менеджера</string>
-
     <!-- DevicesFragment -->
 
 

@@ -64,8 +64,6 @@
         <item quantity="other">%1$d / %2$d ファイル</item>
     </plurals>
 
-    <string name="toast_no_file_manager">互換性のあるファイルマネージャーが見つかりません</string>
-
     <!-- DevicesFragment -->
 
 

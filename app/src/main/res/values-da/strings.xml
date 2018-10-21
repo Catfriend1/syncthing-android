@@ -63,8 +63,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
         <item quantity="other">%1$d/%2$d Filer</item>
     </plurals>
 
-    <string name="toast_no_file_manager">Ingen kompatibel file manager fundet</string>
-
     <!-- DevicesFragment -->
 
 

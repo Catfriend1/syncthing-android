@@ -66,8 +66,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
 
     <string name="open_file_manager">Avaa tiedostonhallinta</string>
 
-    <string name="toast_no_file_manager">Yhteensopivaa tiedostonhallintaa ei löydy</string>
-
     <!-- DevicesFragment -->
 
 

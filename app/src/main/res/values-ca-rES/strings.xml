@@ -66,8 +66,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="open_file_manager">Obre l\'administrador d\'arxius</string>
 
-    <string name="toast_no_file_manager">No s\'ha trobat cap gestor de fitxers compatible</string>
-
     <!-- DevicesFragment -->
 
 

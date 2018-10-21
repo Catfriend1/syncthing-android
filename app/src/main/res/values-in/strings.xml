@@ -60,8 +60,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
         <item quantity="other">%1$d / %2$d Berkas</item>
     </plurals>
 
-    <string name="toast_no_file_manager">Tidak ada file manager yang kompatibel yang ditemukan</string>
-
     <!-- DevicesFragment -->
 
 

@@ -1,7 +1,9 @@
 package com.nutomic.syncthingandroid.views;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -63,26 +65,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             intent.setAction(SyncthingService.ACTION_OVERRIDE_CHANGES);
             mContext.startService(intent);
         });
-        binding.openFolder.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(Uri.fromFile(new File(folder.path)), "resource/folder");
-            intent.putExtra("org.openintents.extra.ABSOLUTE_PATH", folder.path);
-            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (intent.resolveActivity(mContext.getPackageManager()) != null) {
-                mContext.startActivity(intent);
-            } else {
-                // Try a second way to find a compatible file explorer app.
-                Log.v(TAG, "openFolder: Fallback to application chooser to open folder.");
-                intent.setDataAndType(Uri.parse(folder.path), "application/*");
-                Intent chooserIntent = Intent.createChooser(intent, mContext.getString(R.string.open_file_manager));
-                if (chooserIntent != null) {
-                    mContext.startActivity(chooserIntent);
-                } else {
-                    Toast.makeText(mContext, R.string.toast_no_file_manager, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
+        binding.openFolder.setOnClickListener(view -> { onOpenFolderClick(view, folder); } );
         updateFolderStatusView(binding, folder);
         return binding.getRoot();
     }
@@ -163,9 +146,17 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
     /**
      * Requests updated folder status from the api for all visible items.
      */
-    public void updateFolderStatus(RestApi api) {
+    public void updateFolderStatus(RestApi restApi) {
+        if (restApi == null) {
+            Log.e(TAG, "updateFolderStatus: restApi == null");
+            return;
+        }
+
         for (int i = 0; i < getCount(); i++) {
-            api.getFolderStatus(getItem(i).id, this::onReceiveFolderStatus);
+            Folder folder = getItem(i);
+            if (folder != null) {
+                restApi.getFolderStatus(folder.id, this::onReceiveFolderStatus);
+            }
         }
     }
 
@@ -183,4 +174,68 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         }
     }
 
+    private void onOpenFolderClick(View view, Folder folder) {
+        PackageManager pm = mContext.getPackageManager();
+
+        // Try to find a compatible file manager app supporting the "resource/folder" Uri type.
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(new File(folder.path)), "resource/folder");
+        intent.putExtra("org.openintents.extra.ABSOLUTE_PATH", folder.path);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (intent.resolveActivity(pm) != null) {
+            // Launch file manager.
+            mContext.startActivity(intent);
+            return;
+        }
+        Log.w(TAG, "No compatible file manager app not found (stage #1)");
+
+        // Try to open the folder with "Root Explorer" if it is installed.
+        intent = pm.getLaunchIntentForPackage("com.speedsoftware.rootexplorer");
+        if (intent != null) {
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(folder.path));
+            try {
+                mContext.startActivity(intent);
+                return;
+            } catch (android.content.ActivityNotFoundException anfe) {
+                Log.w(TAG, "Failed to launch Root Explorer (stage #2)");
+            }
+        }
+        Log.w(TAG, "Root Explorer file manager app not found (stage #2)");
+
+        // No compatible file manager app found.
+        suggestFileManagerApp();
+
+        /**
+         * Fallback: Let the user choose from all Uri handling apps.
+         * This allows the use of third-party file manager apps which
+         * provide non-standardized Uri handlers.
+         */
+        /*
+        Log.v(TAG, "Fallback to application chooser to open folder.");
+        intent.setDataAndType(Uri.parse(folder.path), "application/*");
+        Intent chooserIntent = Intent.createChooser(intent, mContext.getString(R.string.open_file_manager));
+        if (chooserIntent != null) {
+            // Launch potential file manager app.
+            mContext.startActivity(chooserIntent);
+            return;
+        }
+        */
+    }
+
+    private void suggestFileManagerApp() {
+        AlertDialog mSuggestFileManagerAppDialog = new AlertDialog.Builder(mContext)
+                .setTitle(R.string.suggest_file_manager_app_dialog_title)
+                .setMessage(R.string.suggest_file_manager_app_dialog_text)
+                .setPositiveButton(R.string.yes, (d, i) -> {
+                    final String appPackageName = "com.simplemobiletools.filemanager";
+                    try {
+                        mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    }
+                })
+                .setNegativeButton(R.string.no, (d, i) -> {})
+                .show();
+    }
 }

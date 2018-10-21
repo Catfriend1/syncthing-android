@@ -106,7 +106,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="open_file_manager">Open file manager</string>
 
-    <string name="toast_no_file_manager">No compatible file manager found</string>
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">No compatible file manager app found</string>
+    <string name="suggest_file_manager_app_dialog_text">We recommend you to install the open-source file manager app \'Simple File Manager\' from F-Droid. Would you like to open its app store page?</string>
 
     <!-- DevicesFragment -->
 

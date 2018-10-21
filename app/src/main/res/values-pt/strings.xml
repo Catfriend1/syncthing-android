@@ -55,8 +55,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Não foram encontradas quaisquer pastas</string>
 
-    <string name="toast_no_file_manager">Não foi encontrado um gestor de ficheiros compatível</string>
-
     <!-- DevicesFragment -->
 
 

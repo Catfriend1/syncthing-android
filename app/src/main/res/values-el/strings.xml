@@ -63,8 +63,6 @@
         <item quantity="other">%1$d / %2$d αρχεία</item>
     </plurals>
 
-    <string name="toast_no_file_manager">Δεν βρέθηκε συμβατός διαχειριστής αρχείων</string>
-
     <!-- DevicesFragment -->
 
 

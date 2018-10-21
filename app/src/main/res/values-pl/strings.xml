@@ -67,8 +67,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
         <item quantity="other">%1$d / %2$d</item>
     </plurals>
 
-    <string name="toast_no_file_manager">Nie znaleziono kompatybilnego menadżera plików</string>
-
     <!-- DevicesFragment -->
 
 

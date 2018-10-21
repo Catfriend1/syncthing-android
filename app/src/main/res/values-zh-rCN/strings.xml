@@ -66,8 +66,6 @@
         <item quantity="other">%1$d / %2$d 个文件</item>
     </plurals>
 
-    <string name="toast_no_file_manager">未找到兼容的文件管理器</string>
-
     <!-- DevicesFragment -->
 
 
