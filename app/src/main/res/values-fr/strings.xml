@@ -224,7 +224,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interface WEB</string>
 

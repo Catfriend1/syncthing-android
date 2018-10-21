@@ -200,7 +200,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interface Web</string>
 

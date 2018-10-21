@@ -197,7 +197,6 @@
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Уеб интерфейс</string>
 

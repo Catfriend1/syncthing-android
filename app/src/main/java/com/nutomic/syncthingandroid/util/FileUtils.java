@@ -152,7 +152,7 @@ public class FileUtils {
         try {
             /**
              * Determine the app's private data folder on external storage if present.
-             * e.g. "/storage/abcd-efgh/Android/com.nutomic.syncthinandroid/files"
+             * e.g. "/storage/abcd-efgh/Android/[PACKAGE_NAME]/files"
              */
             ArrayList<File> externalFilesDir = new ArrayList<>();
             externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));

@@ -18,6 +18,7 @@ import com.google.common.collect.ImmutableMap;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SettingsActivity;
+import com.nutomic.syncthingandroid.activities.TipsAndTricksActivity;
 import com.nutomic.syncthingandroid.activities.WebGuiActivity;
 import com.nutomic.syncthingandroid.http.ImageGetRequest;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -37,11 +38,20 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
     private static final String TAG = "DrawerFragment";
 
+    /**
+     * These buttons might be accessible if the screen is big enough
+     * or the user can scroll the drawer to access them.
+     */
     private TextView mVersion = null;
     private TextView mDrawerActionShowQrCode;
     private TextView mDrawerActionWebGui;
     private TextView mDrawerActionImportExport;
     private TextView mDrawerActionRestart;
+    private TextView mDrawerTipsAndTricks;
+
+    /**
+     * These buttons are always visible.
+     */
     private TextView mDrawerActionSettings;
     private TextView mDrawerActionExit;
 
@@ -84,6 +94,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionWebGui         = view.findViewById(R.id.drawerActionWebGui);
         mDrawerActionImportExport   = view.findViewById(R.id.drawerActionImportExport);
         mDrawerActionRestart        = view.findViewById(R.id.drawerActionRestart);
+        mDrawerTipsAndTricks        = view.findViewById(R.id.drawerActionTipsAndTricks);
         mDrawerActionSettings       = view.findViewById(R.id.drawerActionSettings);
         mDrawerActionExit           = view.findViewById(R.id.drawerActionExit);
 
@@ -92,6 +103,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionWebGui.setOnClickListener(this);
         mDrawerActionImportExport.setOnClickListener(this);
         mDrawerActionRestart.setOnClickListener(this);
+        mDrawerTipsAndTricks.setOnClickListener(this);
         mDrawerActionSettings.setOnClickListener(this);
         mDrawerActionExit.setOnClickListener(this);
 
@@ -124,6 +136,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionShowQrCode.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionWebGui.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionRestart.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
         mDrawerActionExit.setVisibility(View.VISIBLE);
     }
 
@@ -155,12 +168,11 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
+            case R.id.drawerActionShowQrCode:
+                showQrCode();
+                break;
             case R.id.drawerActionWebGui:
                 startActivity(new Intent(mActivity, WebGuiActivity.class));
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionSettings:
-                startActivity(new Intent(mActivity, SettingsActivity.class));
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionImportExport:
@@ -171,6 +183,14 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                 break;
             case R.id.drawerActionRestart:
                 mActivity.showRestartDialog();
+                mActivity.closeDrawer();
+                break;
+            case R.id.drawerActionTipsAndTricks:
+                startActivity(new Intent(mActivity, TipsAndTricksActivity.class));
+                mActivity.closeDrawer();
+                break;
+            case R.id.drawerActionSettings:
+                startActivity(new Intent(mActivity, SettingsActivity.class));
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionExit:
@@ -192,9 +212,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                     doExit();
                 }
                 mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionShowQrCode:
-                showQrCode();
                 break;
         }
     }

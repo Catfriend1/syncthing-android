@@ -36,6 +36,7 @@ Please report any problems you encounter via Github.</string>
     <string name="finish">Finish</string>
     <string name="generic_example">Example</string>
     <string name="generic_error">Error</string>
+    <string name="generic_help">Help</string>
     <string name="grant_permission">Grant permission</string>
     <string name="permission_granted">Permission granted</string>
     <string name="reason">Reason:</string>
@@ -283,8 +284,22 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Did not get root permissions</string>
 
-    <!-- WebGuiActivity -->
+    <!-- TipsAndTricks activity -->
 
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Tips &amp; Tricks</string>
+
+    <string name="tip_write_to_sdcard_title">Write to external sdcard workaround</string>
+    <string name="tip_write_to_sdcard_text">If you see the UI stating that \'Android only grants syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:\n%1$s/YOUR_FOLDER_NAME\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the .../Android folder.</string>
+
+    <string name="tip_sync_on_local_network_title">Sync only using the local WiFi network</string>
+    <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local WiFi network or reachable via WiFi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':\n- Enable NAT traversal\n- Global Discovery\n- Enable Relaying\nOnly leave \'Local discovery\' enabled.</string>
+
+    <string name="tip_custom_sync_conditions_title">Use per folder/device custom sync conditions</string>
+    <string name="tip_custom_sync_conditions_text">This feature will still be improved in future releases. For now, we didn\'t want to break existing configs and app behaviour. That\'s why custom sync conditions for a certain network type can only be set if you enable syncing on the network in the global run conditions first.</string>
+
+    <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Web GUI</string>

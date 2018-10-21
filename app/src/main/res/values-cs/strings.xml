@@ -210,7 +210,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Syncthing GUI</string>
 

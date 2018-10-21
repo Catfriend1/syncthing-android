@@ -205,7 +205,6 @@
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">網頁 GUI</string>
 

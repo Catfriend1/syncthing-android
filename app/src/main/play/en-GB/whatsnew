@@ -1,13 +1,11 @@
 Enhancements
 * Specify sync conditions differently for each folder, device [NEW]
+* Added offline 'tips & tricks' content [NEW]
 * UI explains why syncthing is running (or not)
 * Support in-app editing of folder's ignore list items
 Fixes
 * Fixed the "battery eater"
-* Fixed xml encoding when parsing, saving the config (#89)
-* Fixed override changes button not showing
+* Android 8 and 9 support
 * Fixed phone plugged to charger detection
-* Lots of bug fixes and better Android 8+ support (#52, #54, #56, #59)
 Maintenance
-* Updated syncthing to v0.14.51
-* Added support for "receive only" folders
+* Updated syncthing to v0.14.51 (receiveOnly folders)

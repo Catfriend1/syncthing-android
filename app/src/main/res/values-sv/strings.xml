@@ -241,7 +241,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Webbgränssnitt</string>
 

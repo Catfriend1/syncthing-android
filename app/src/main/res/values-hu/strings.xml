@@ -228,7 +228,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Webes felület</string>
 

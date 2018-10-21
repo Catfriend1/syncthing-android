@@ -36,6 +36,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="finish">Fertig</string>
     <string name="generic_example">Beispiel</string>
     <string name="generic_error">Fehler</string>
+    <string name="generic_help">Hilfe</string>
     <string name="grant_permission">Zugriff gewähren</string>
     <string name="permission_granted">Zugriff gewährt</string>
     <string name="reason">Grund:</string>
@@ -283,8 +284,22 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Konnte keine Root-Rechte erhalten.</string>
 
-    <!-- WebGuiActivity -->
+    <!-- TipsAndTricks activity -->
 
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Tipps &amp; Tricks</string>
+
+    <string name="tip_write_to_sdcard_title">Workaround zum Schreiben auf Speicherkarte</string>
+    <string name="tip_write_to_sdcard_text">Wenn Du die Meldung \"Android erlaubt nur schreibgeschützten Zugriff\" für einen bestimmten Ordner erhältst, erstelle einen neuen Ordner und benutze diesen Pfad, um Schreibzugriff zu erhalten:\n%1$s/DEIN_ORDNER_NAME\nSei vorsichtig: Dieser Ordner wird von Android gelöscht, sobald du die App deinstallierst. Verschiebe die Daten an einen sicheren Ort außerhalb des .../Android Ordners, bevor du die App deinstallierst.</string>
+
+    <string name="tip_sync_on_local_network_title">Nur über lokales WLAN-Netzwerk syncen</string>
+    <string name="tip_sync_on_local_network_text">Wenn Du beabsichtigst, nur mit Geräten zu syncen, die am lokalen WLAN-Netzwerk angeschlossen oder Teil eines Hotspot-WLAN sind, kannst du den Batterieverbrauch reduzieren und versehentliches Syncen über mobile Daten verhindern, indem Du die folgenden Optionen unter \"Einstellungen/Syncthing-Optionen\" abschaltest:\n- NAT-Durchdringung\n- Globale Gerätesuche\n- Weiterleitung aktivieren\nLasse nur die \"Lokale Gerätesuche\" eingeschaltet.</string>
+
+    <string name="tip_custom_sync_conditions_title">Sync-Bedingungen pro Ordner/Gerät festlegen</string>
+    <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Für den Moment wollten wir das App-Verhalten nicht \"umstürzen\", um bestehende Konfigurationen nicht zu \"brechen\". Deshalb können die \"individuellen Sync-Bedingungen\" für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Laufkonditionen aktiviert wurde.</string>
+
+    <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Weboberfläche</string>

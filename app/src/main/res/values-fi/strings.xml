@@ -211,7 +211,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Web käyttöliittymä</string>
 

@@ -210,7 +210,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interfejs internetowy</string>
 

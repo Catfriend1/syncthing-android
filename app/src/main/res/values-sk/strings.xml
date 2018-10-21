@@ -171,7 +171,6 @@
 
     <!-- WebGuiActivity -->
 
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Webové GUI</string>
 
