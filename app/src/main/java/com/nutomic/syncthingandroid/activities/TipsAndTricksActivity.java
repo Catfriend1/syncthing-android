@@ -1,9 +1,13 @@
 package com.nutomic.syncthingandroid.activities;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.view.View;
 
@@ -55,6 +59,16 @@ public class TipsAndTricksActivity extends SyncthingActivity {
         mTipListAdapter.add(getString(R.string.tip_sync_on_local_network_title), getString(R.string.tip_sync_on_local_network_text));
         mTipListAdapter.add(getString(R.string.tip_custom_sync_conditions_title), getString(R.string.tip_custom_sync_conditions_text));
 
+        // Tips referring to Huawei devices.
+        if ("huawei".equalsIgnoreCase(Build.MANUFACTURER)) {
+            String ipAddress = getString(R.string.tip_phone_ip_address_syntax);
+            if (isWifiOrEthernetConnection()) {
+                WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+                ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress());
+            }
+            mTipListAdapter.add(getString(R.string.tip_huawei_device_disconnected_title), getString(R.string.tip_huawei_device_disconnected_text, ipAddress));
+        }
+
         // Set onClick listener and add adapter to recycler view.
         mTipListAdapter.setOnClickListener(
             new ItemClickListener() {
@@ -70,6 +84,27 @@ public class TipsAndTricksActivity extends SyncthingActivity {
             }
         );
         mRecyclerView.setAdapter(mTipListAdapter);
+    }
+
+    private boolean isWifiOrEthernetConnection() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            // In flight mode.
+            return false;
+        }
+        if (!ni.isConnected()) {
+            // No network connection.
+            return false;
+        }
+        switch (ni.getType()) {
+            case ConnectivityManager.TYPE_WIFI:
+            case ConnectivityManager.TYPE_WIMAX:
+            case ConnectivityManager.TYPE_ETHERNET:
+                return true;
+            default:
+                return false;
+        }
     }
 
 }
