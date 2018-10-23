@@ -253,15 +253,9 @@
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Reportar un problema</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Abrir el rastreador de problemas de Syncthing-Android</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versión de Syncthing</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Versión de Syncthing-Android</string>
 
     <!-- FolderPickerAcitivity -->
 

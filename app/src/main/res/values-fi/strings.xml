@@ -306,15 +306,9 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Ilmoita ongelmasta</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Avaa Syncthing-Androidin ongelmienseuranta</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthingin versio</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Syncthing-Androidin versio</string>
 
     <!-- FolderPickerAcitivity -->
 

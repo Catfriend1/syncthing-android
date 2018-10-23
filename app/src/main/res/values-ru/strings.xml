@@ -382,15 +382,9 @@
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Сообщить о проблеме</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Открыть трекер проблем Syncthing-Android </string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Версия ядра</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Версия приложения</string>
 
     <!-- FolderPickerAcitivity -->
 

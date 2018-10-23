@@ -53,6 +53,7 @@ import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Util;
 
+import java.lang.IllegalStateException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -269,7 +270,22 @@ public class MainActivity extends SyncthingActivity
                 }
             }
         };
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        try {
+            mViewPager.setAdapter(mSectionsPagerAdapter);
+        } catch (IllegalStateException e) {
+            /**
+             * IllegalStateException happens due to a bug in FragmentStatePagerAdapter.
+             * For more information see:
+             * - https://github.com/Catfriend1/syncthing-android/issues/108
+             * - https://issuetracker.google.com/issues/36956111
+             */
+            Log.e(TAG, "updateViewPager: IllegalStateException in setAdapter.", e);
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.exception_known_bug_notice, getString(R.string.issue_tracker_url), "108"))
+                    .setCancelable(false)
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {})
+                    .show();
+        }
         TabLayout tabLayout = findViewById(R.id.tabContainer);
         tabLayout.setupWithViewPager(mViewPager);
     }

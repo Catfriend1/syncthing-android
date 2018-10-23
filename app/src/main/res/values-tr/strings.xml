@@ -279,15 +279,9 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Hata Bildir</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Syncthing-Android hata takip sistemini aç</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Sürümü</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Syncthing-Android Sürümü</string>
 
     <!-- FolderPickerAcitivity -->
 

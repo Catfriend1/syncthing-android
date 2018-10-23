@@ -49,6 +49,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
 
 
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">Ein bekannter Fehler, der noch nicht behoben wurde, ist aufgetreten. Mehr Details dazu unter %1$s/%2$s. Bitte hinterlasse uns eine genaue Beschreibung dessen, was vorher passiert ist.</string>
+
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Beenden der App bestätigen</string>
     <string name="dialog_exit_while_running_as_service_message">Zu Deiner Erinnerung: Du hast Syncthing eingerichtet, automatisch beim Hochfahren zu starten. Deshalb überwacht es die Laufkonditionen und synchronisiert, wenn die Bedingungen zutreffen. Du solltest nur manuell beenden, wenn Du größere Probleme feststellst. Andernfalls schalte \"Automatisch beim Hochfahren starten\" in den Einstellungen aus. Möchtest Du jetzt beenden, bis das Gerät neu gestartet wurde?</string>
@@ -525,14 +528,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="report_issue_title">Fehler melden</string>
 
     <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Syncthing-Android Fehlersammlung öffnen</string>
+    <string name="report_issue_summary">Syncthing-Fork Fehlersammlung öffnen</string>
 
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing-Version</string>
 
     <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Syncthing-Android-Version</string>
+    <string name="app_version_title">Syncthing-Fork Wrapper Version</string>
 
     <!-- FolderPickerAcitivity -->
 

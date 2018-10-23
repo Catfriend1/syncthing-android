@@ -385,15 +385,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Probleem rapporteren</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">De Syncthing-Android probleemtracker openen</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Synthing-versie</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Syncthing-Android-versie</string>
 
     <!-- FolderPickerAcitivity -->
 

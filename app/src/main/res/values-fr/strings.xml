@@ -385,15 +385,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Signaler un problème</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Ouvre le suivi des problèmes de Syncthing-Android</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Version de Syncthing</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Version de Syncthing pour Android</string>
 
     <!-- FolderPickerAcitivity -->
 

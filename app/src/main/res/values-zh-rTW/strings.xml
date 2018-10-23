@@ -320,15 +320,9 @@
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">回報問題</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">開啟 Syncthing-Android 問題追蹤器</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing 版本</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Syncthing-Android 版本</string>
 
     <!-- FolderPickerAcitivity -->
 

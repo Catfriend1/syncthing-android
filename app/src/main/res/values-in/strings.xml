@@ -302,15 +302,9 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Laporkan Masalah</string>
 
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Buka penelusuran masalah Syncthing-Android</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versi Syncthing</string>
-
-    <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Versi Syncthing-Android</string>
 
     <!-- FolderPickerAcitivity -->
 
