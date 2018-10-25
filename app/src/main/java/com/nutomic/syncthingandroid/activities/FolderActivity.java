@@ -257,7 +257,13 @@ public class FolderActivity extends SyncthingActivity
         }
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
-        startActivityForResult(intent, CHOOSE_FOLDER_REQUEST);
+        try {
+            startActivityForResult(intent, CHOOSE_FOLDER_REQUEST);
+        } catch (android.content.ActivityNotFoundException e) {
+            Log.e(TAG, "onPathViewClick exception, falling back to built-in FolderPickerActivity.", e);
+            startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null),
+                FolderPickerActivity.DIRECTORY_REQUEST_CODE);
+        }
     }
 
     /**
