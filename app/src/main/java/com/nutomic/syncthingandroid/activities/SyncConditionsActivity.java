@@ -60,6 +60,11 @@ public class SyncConditionsActivity extends SyncthingActivity
     private SwitchCompat mSyncOnMobileData;
 
     /**
+     * Shared preferences contents for global conditions.
+     */
+    private Boolean mGlobalWhitelistEnabled;
+
+    /**
      * Shared preferences names for custom object settings.
      * Object can e.g. be a folder or device.
      */
@@ -119,7 +124,7 @@ public class SyncConditionsActivity extends SyncthingActivity
          */
         Boolean globalRunOnWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
         Set<String> globalWhitelistedSsid = mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>());
-        Boolean globalWhitelistEnabled = mPreferences.getBoolean(Constants.PREF_USE_WIFI_SSID_WHITELIST, false);
+        mGlobalWhitelistEnabled = mPreferences.getBoolean(Constants.PREF_USE_WIFI_SSID_WHITELIST, false);
         Boolean globalRunOnMeteredWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_METERED_WIFI, false);
         Boolean globalRunOnMobileDataEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, false);
 
@@ -130,8 +135,8 @@ public class SyncConditionsActivity extends SyncthingActivity
         mSyncOnWifi.setEnabled(globalRunOnWifiEnabled);
         mSyncOnWifi.setOnCheckedChangeListener(mCheckedListener);
 
-        mSyncOnWhitelistedWifi.setChecked(globalWhitelistEnabled && mPreferences.getBoolean(mPrefSyncOnWhitelistedWifi, globalWhitelistEnabled));
-        mSyncOnWhitelistedWifi.setEnabled(globalWhitelistEnabled && mSyncOnWifi.isChecked());
+        mSyncOnWhitelistedWifi.setChecked(mGlobalWhitelistEnabled && mPreferences.getBoolean(mPrefSyncOnWhitelistedWifi, mGlobalWhitelistEnabled));
+        mSyncOnWhitelistedWifi.setEnabled(mGlobalWhitelistEnabled && mSyncOnWifi.isChecked());
         mSyncOnWhitelistedWifi.setOnCheckedChangeListener(mCheckedListener);
 
         mSyncOnMeteredWifi.setChecked(globalRunOnMeteredWifiEnabled && mPreferences.getBoolean(mPrefSyncOnMeteredWifi, globalRunOnMeteredWifiEnabled));
@@ -152,7 +157,7 @@ public class SyncConditionsActivity extends SyncthingActivity
         // from JavaDoc: Note that you must not modify the set instance returned by this call.
         // therefore required to make a defensive copy of the elements
         globalWhitelistedSsid = new HashSet<>(globalWhitelistedSsid);
-        if (!globalWhitelistEnabled) {
+        if (!mGlobalWhitelistEnabled) {
             // Add empty WiFi Ssid ListView.
             int height = (int) TypedValue.applyDimension(COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(WRAP_CONTENT, height);
@@ -163,6 +168,7 @@ public class SyncConditionsActivity extends SyncthingActivity
             TextView emptyView = new TextView(mWifiSsidContainer.getContext());
             emptyView.setGravity(CENTER_VERTICAL);
             emptyView.setText(R.string.custom_wifi_ssid_whitelist_empty);
+            emptyView.setEnabled(false);
             mWifiSsidContainer.addView(emptyView, params);
             mWifiSsidContainer.setEnabled(false);
         } else {
@@ -173,12 +179,19 @@ public class SyncConditionsActivity extends SyncthingActivity
                 SwitchCompat wifiSsidView = (SwitchCompat) mWifiSsidContainer.getChildAt(mWifiSsidContainer.getChildCount()-1);
                 wifiSsidView.setOnCheckedChangeListener(null);
                 wifiSsidView.setChecked(selectedWhitelistedSsid.contains(wifiSsid));
-                wifiSsidView.setEnabled(mSyncOnWhitelistedWifi.isChecked());
+                wifiSsidView.setEnabled(mSyncOnWifi.isChecked() && mSyncOnWhitelistedWifi.isChecked());
                 wifiSsidView.setText(wifiSsid.replaceFirst("^\"", "").replaceFirst("\"$", ""));
                 wifiSsidView.setTag(wifiSsid);
                 wifiSsidView.setOnCheckedChangeListener(mCheckedListener);
             }
         }
+
+        /**
+         * We should always save until we abandoned the global sync conditions
+         * as changes to the global run conditions resulting in force-disabling
+         * the switches here would else not be saved back to the prefs.
+         */
+        mUnsavedChanges = true;
     }
 
     private final CompoundButton.OnCheckedChangeListener mCheckedListener =
@@ -187,12 +200,12 @@ public class SyncConditionsActivity extends SyncthingActivity
         public void onCheckedChanged(CompoundButton view, boolean isChecked) {
             switch (view.getId()) {
                 case R.id.sync_on_wifi_title:
-                    mSyncOnWhitelistedWifi.setEnabled(isChecked);
+                    mSyncOnWhitelistedWifi.setEnabled(mGlobalWhitelistEnabled && isChecked);
                     // Fall-through to dependent options.
                 case R.id.sync_on_whitelisted_wifi_title:
                     // Enable or disable WiFi Ssid switches according to parent switch.
                     for (int i = 0; i < mWifiSsidContainer.getChildCount(); i++) {
-                        mWifiSsidContainer.getChildAt(i).setEnabled(isChecked);
+                        mWifiSsidContainer.getChildAt(i).setEnabled(mGlobalWhitelistEnabled && isChecked);
                     }
                     break;
                 default:
@@ -252,22 +265,9 @@ public class SyncConditionsActivity extends SyncthingActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sync_conditions_settings, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.done).setVisible(true);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-            case R.id.done:
                 onBackPressed();
                 return true;
             default:

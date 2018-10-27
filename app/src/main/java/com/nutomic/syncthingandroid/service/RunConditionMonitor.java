@@ -382,7 +382,7 @@ public class RunConditionMonitor {
         SyncConditionResult scr = checkConditionSyncOnMobileData(Constants.DYN_PREF_OBJECT_SYNC_ON_MOBILE_DATA(objectPrefixAndId));
         if (scr.conditionMet) {
             // Mobile data is connected.
-            Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnMobileData");
+            Log.v(TAG, "checkObjectSyncConditions(" + objectPrefixAndId + "): checkConditionSyncOnMobileData");
             return true;
         }
 
@@ -390,12 +390,12 @@ public class RunConditionMonitor {
         scr = checkConditionSyncOnWifi(Constants.DYN_PREF_OBJECT_SYNC_ON_WIFI(objectPrefixAndId));
         if (scr.conditionMet) {
             // Wifi is connected.
-            Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnWifi");
+            Log.v(TAG, "checkObjectSyncConditions(" + objectPrefixAndId + "): checkConditionSyncOnWifi");
 
             scr = checkConditionSyncOnMeteredWifi(Constants.DYN_PREF_OBJECT_SYNC_ON_METERED_WIFI(objectPrefixAndId));
             if (scr.conditionMet) {
                 // Wifi type is allowed.
-                Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi");
+                Log.v(TAG, "checkObjectSyncConditions(" + objectPrefixAndId + "): checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi");
 
                 scr = checkConditionSyncOnWhitelistedWifi(
                     Constants.DYN_PREF_OBJECT_USE_WIFI_SSID_WHITELIST(objectPrefixAndId),
@@ -403,7 +403,7 @@ public class RunConditionMonitor {
                 );
                 if (scr.conditionMet) {
                     // Wifi is whitelisted.
-                    Log.v(TAG, "checkObjectSyncConditions: checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi && checkConditionSyncOnWhitelistedWifi");
+                    Log.v(TAG, "checkObjectSyncConditions(" + objectPrefixAndId + "): checkConditionSyncOnWifi && checkConditionSyncOnMeteredWifi && checkConditionSyncOnWhitelistedWifi");
                     return true;
                 }
             }

@@ -116,7 +116,8 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity android:name=".activities.FolderActivity"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
