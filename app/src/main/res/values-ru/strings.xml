@@ -15,10 +15,13 @@
 Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n
 Пожалуйста, сообщайте о возникших проблемах через Github.</string>
 
+    <!-- Generic texts used everywhere -->
+    <string name="back">Назад</string>
     <string name="cont">Продолжить</string>
     <string name="finish">Принять</string>
     <string name="generic_example">Пример</string>
     <string name="generic_error">Ошибка</string>
+    <string name="generic_help">Помощь</string>
     <string name="ignore">Игнорировать</string>
 
     <!-- Title of the "add folder" menu action -->
@@ -240,6 +243,7 @@
     <string name="category_run_conditions">Условия выполнения</string>
     <string name="category_behaviour">Поведение</string>
     <string name="category_syncthing_options">Настройки устройства</string>
+    <string name="category_backup">Импорт и экспорт</string>
     <string name="category_debug">Отладка</string>
     <string name="category_experimental">Экспериментальное</string>
 
