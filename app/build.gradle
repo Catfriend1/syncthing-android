@@ -22,7 +22,7 @@ dependencies {
 android {
     // Changes to these values need to be reflected in `.travis.yml`
     compileSdkVersion 28
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
 
     buildTypes.debug.applicationIdSuffix ".debug"
     dataBinding.enabled = true
