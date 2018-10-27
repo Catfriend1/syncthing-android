@@ -48,6 +48,7 @@
                 android:ems="10"
                 android:hint="@string/folder_label"
                 android:inputType="text|textMultiLine"
+                android:importantForAutofill="no"
                 app:layout_constraintBottom_toTopOf="@+id/folders"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"

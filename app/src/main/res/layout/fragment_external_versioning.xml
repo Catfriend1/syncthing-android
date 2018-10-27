@@ -20,7 +20,7 @@
         android:hint="@string/command"
         android:ems="10"
         android:inputType="textPersonName"
-         />
+        android:importantForAutofill="no" />
 
     <TextView
         android:layout_width="match_parent"

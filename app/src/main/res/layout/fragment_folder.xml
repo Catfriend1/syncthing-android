@@ -31,7 +31,8 @@
                 android:drawableStart="@drawable/ic_label_outline_black_24dp"
                 android:hint="@string/folder_label"
                 android:imeOptions="actionDone"
-                android:inputType="textCapWords|textNoSuggestions" />
+                android:inputType="textCapWords|textNoSuggestions"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/id"
@@ -42,7 +43,8 @@
                 android:drawableStart="@drawable/ic_vpn_key_black_24dp"
                 android:hint="@string/folder_id"
                 android:imeOptions="actionDone"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/directoryTextView"
@@ -307,7 +309,8 @@
                     android:layout_marginTop="-20dp"
                     android:minLines="5"
                     android:maxLines="100"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none"
+                    android:importantForAutofill="no"/>
 
             </LinearLayout>
         </LinearLayout>

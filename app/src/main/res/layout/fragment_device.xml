@@ -62,7 +62,8 @@
                 android:drawableStart="@drawable/ic_tag_text_outline_black_24dp_active"
                 android:hint="@string/name"
                 android:imeOptions="actionNext"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/addresses"
@@ -73,7 +74,8 @@
                 android:drawableStart="@drawable/ic_link_black_24dp_active"
                 android:hint="@string/addresses"
                 android:imeOptions="actionDone"
-                android:inputType="textNoSuggestions"/>
+                android:inputType="textNoSuggestions"
+                android:importantForAutofill="no" />
 
             <LinearLayout
                 android:id="@+id/compressionContainer"

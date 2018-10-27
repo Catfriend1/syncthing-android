@@ -144,7 +144,13 @@ public class SyncthingRunnable implements Runnable {
         Boolean useWakeLock = mPreferences.getBoolean(Constants.PREF_USE_WAKE_LOCK, false);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M && useWakeLock) {
             pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+            /**
+             * Since gradle 4.6, wakelock tags have to obey "app:component" naming convention.
+             */
+            wakeLock = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK,
+                mContext.getString(R.string.app_name) + ":" + TAG
+            );
         }
 
         Process process = null;
@@ -261,7 +267,7 @@ public class SyncthingRunnable implements Runnable {
     }
 
     private void putCustomEnvironmentVariables(Map<String, String> environment, SharedPreferences sp) {
-        String customEnvironment = sp.getString("environment_variables", null);
+        String customEnvironment = sp.getString(Constants.PREF_ENVIRONMENT_VARIABLES, null);
         if (TextUtils.isEmpty(customEnvironment))
             return;
 
