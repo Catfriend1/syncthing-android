@@ -306,6 +306,13 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="tip_huawei_device_disconnected_text">Falls der Computer das Huawei-Gerät permanent als \"getrennt\" meldet, öffne die Syncthing-Oberfläche auf dem Computer. Gehe zu \"Externe Geräte\", klappe den Eintrag des Mobilgeräts aus, klicke \"Bearbeiten\", wechsle zu \"Erweitert\". Trage die IP-Adresse deines Mobilgeräts in \"Adressen\" wie folgt ein:\ntcp4://%1$s, dynamic\nFunktioniert sicher auf: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>
 
+
+    <!-- RecentChangesActivity -->
+    <string name="recent_changes_title">Letzte Änderungen</string>
+    <string name="modified_by_device">Gerät: %1$s</string>
+    <string name="modification_time">Zeit: %1$s</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

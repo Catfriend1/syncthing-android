@@ -47,6 +47,15 @@
             android:launchMode="singleTask">
         </activity>
         <activity
+            android:name=".activities.RecentChangesActivity"
+            android:label="@string/recent_changes_title"
+            android:parentActivityName=".activities.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.TipsAndTricksActivity"
             android:label="@string/tips_and_tricks_title"
             android:parentActivityName=".activities.MainActivity"

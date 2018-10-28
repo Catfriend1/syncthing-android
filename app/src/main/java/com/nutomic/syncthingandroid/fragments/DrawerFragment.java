@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.common.collect.ImmutableMap;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.activities.MainActivity;
+import com.nutomic.syncthingandroid.activities.RecentChangesActivity;
 import com.nutomic.syncthingandroid.activities.SettingsActivity;
 import com.nutomic.syncthingandroid.activities.TipsAndTricksActivity;
 import com.nutomic.syncthingandroid.activities.WebGuiActivity;
@@ -44,6 +45,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
      */
     private TextView mVersion = null;
     private TextView mDrawerActionShowQrCode;
+    private TextView mDrawerRecentChanges;
     private TextView mDrawerActionWebGui;
     private TextView mDrawerActionImportExport;
     private TextView mDrawerActionRestart;
@@ -91,6 +93,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
         mVersion                    = view.findViewById(R.id.version);
         mDrawerActionShowQrCode     = view.findViewById(R.id.drawerActionShowQrCode);
+        mDrawerRecentChanges        = view.findViewById(R.id.drawerActionRecentChanges);
         mDrawerActionWebGui         = view.findViewById(R.id.drawerActionWebGui);
         mDrawerActionImportExport   = view.findViewById(R.id.drawerActionImportExport);
         mDrawerActionRestart        = view.findViewById(R.id.drawerActionRestart);
@@ -100,6 +103,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
         // Add listeners to buttons.
         mDrawerActionShowQrCode.setOnClickListener(this);
+        mDrawerRecentChanges.setOnClickListener(this);
         mDrawerActionWebGui.setOnClickListener(this);
         mDrawerActionImportExport.setOnClickListener(this);
         mDrawerActionRestart.setOnClickListener(this);
@@ -134,6 +138,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         // Show buttons if syncthing is running.
         mVersion.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionShowQrCode.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerRecentChanges.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionWebGui.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionRestart.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
@@ -170,6 +175,10 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         switch (v.getId()) {
             case R.id.drawerActionShowQrCode:
                 showQrCode();
+                break;
+            case R.id.drawerActionRecentChanges:
+                startActivity(new Intent(mActivity, RecentChangesActivity.class));
+                mActivity.closeDrawer();
                 break;
             case R.id.drawerActionWebGui:
                 startActivity(new Intent(mActivity, WebGuiActivity.class));

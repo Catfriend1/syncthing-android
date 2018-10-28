@@ -1,4 +1,5 @@
 Enhancements
+* Added "Recent changes" UI [NEW]
 * Specify sync conditions differently for each folder, device [NEW]
 * Added offline 'tips & tricks' content [NEW]
 * UI explains why syncthing is running (or not)
@@ -6,6 +7,5 @@ Enhancements
 Fixes
 * Fixed the "battery eater"
 * Android 8 and 9 support
-* Fixed phone plugged to charger detection
 Maintenance
 * Updated syncthing to v0.14.51 (receiveOnly folders)

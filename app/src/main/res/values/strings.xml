@@ -306,6 +306,13 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
+
+    <!-- RecentChangesActivity -->
+    <string name="recent_changes_title">Recent changes</string>
+    <string name="modified_by_device">Device: %1$s</string>
+    <string name="modification_time">Time: %1$s</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

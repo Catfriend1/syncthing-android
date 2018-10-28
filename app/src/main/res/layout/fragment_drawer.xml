@@ -104,6 +104,17 @@
                 android:text="@string/show_device_id" />
 
             <TextView
+                android:id="@+id/drawerActionRecentChanges"
+                style="@style/Widget.Syncthing.TextView.Label"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableLeft="@drawable/ic_history_black_24dp_active"
+                android:drawableStart="@drawable/ic_history_black_24dp_active"
+                android:text="@string/recent_changes_title"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
                 android:id="@+id/drawerActionWebGui"
                 style="@style/Widget.Syncthing.TextView.Label"
                 android:layout_width="match_parent"

@@ -27,6 +27,7 @@ import com.nutomic.syncthingandroid.model.Completion;
 import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.DiskEvent;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
@@ -42,6 +43,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 
 import java.lang.reflect.Type;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -669,6 +671,30 @@ public class RestApi {
             mCachedFolderStatuses.put(folderId, m);
             listener.onResult(folderId, m);
         });
+    }
+
+    /**
+     * Requests and parses information about recent changes.
+     */
+    public void getDiskEvents(int limit, OnResultListener1<List<DiskEvent>> listener) {
+        new GetRequest(
+                mContext, mUrl,
+                GetRequest.URI_EVENTS_DISK, mApiKey,
+                ImmutableMap.of("limit", Integer.toString(limit)),
+                result -> {
+                    List<DiskEvent> diskEvents = new ArrayList<>();
+                    try {
+                        JsonArray jsonDiskEvents = new JsonParser().parse(result).getAsJsonArray();
+                        for (int i = jsonDiskEvents.size()-1; i >= 0; i--) {
+                            JsonElement jsonDiskEvent = jsonDiskEvents.get(i);
+                            diskEvents.add(new Gson().fromJson(jsonDiskEvent, DiskEvent.class));
+                        }
+                        listener.onResult(diskEvents);
+                    } catch (Exception e) {
+                        Log.e(TAG, "getDiskEvents: Parsing REST API result failed. result=" + result);
+                    }
+                }
+        );
     }
 
     /**
