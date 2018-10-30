@@ -256,7 +256,6 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование. </string>
 
     <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Запуск Syncthing с рут-правами</string>
 
     <string name="use_root_summary">Это нестабильная опция, которая может вызвать проблемы как с Syncthing так и с вашим устройством. Если вы столкнетесь с проблемами, переустановите Syncthing.</string>

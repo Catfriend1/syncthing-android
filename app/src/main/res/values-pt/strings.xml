@@ -221,7 +221,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
     <string name="run_conditions_title">Condições de execução</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ligue o WiFi para seleccionar redes.</string>
 
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Correr o Syncthing como superutilizador</string>
 
     <string name="use_root_summary">Esta é uma funcionalidade instável que pode causar problemas com o Syncthing e com o seu dispositivo. Se encontrar problemas, pode ter de reinstalar o Syncthing.</string>

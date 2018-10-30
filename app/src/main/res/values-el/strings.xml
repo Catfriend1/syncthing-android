@@ -228,7 +228,6 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Παρακαλώ ενεργοποιήστε το WiFi για να επιλέξετε δίκτυα.</string>
 
     <string name="respect_battery_saving_title">Υπακοή στη ρύθμιση εξοικονόμησης ενέργειας του Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Εκτέλεση του Syncthing ως υπερχρήστης</string>
 
     <string name="use_root_summary">Πρόκειται για μια πειραματική λειτουργία η οποία ενδέχεται να προκαλέσει προβλήματα στο Syncthing και τη συσκευή σας. Σε αυτή την περίπτωση, ίσως χρειαστεί να επανεγκαταστήσετε το Syncthing.</string>

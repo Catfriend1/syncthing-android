@@ -254,7 +254,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
 
     <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
 
     <string name="use_root_summary">Ez egy kísérleti funkció, amely problémákat okozhat mind a Syncthing, mind az eszközöd számára. Ha ilyenbe ütközöl, előfordulhat, hogy újra kell telepítened az alkalmazást.</string>

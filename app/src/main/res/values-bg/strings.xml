@@ -218,7 +218,6 @@
     <string name="run_conditions_title">Условия на работа</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежа, моля включете WiFi</string>
 
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
 
     <string name="use_root_summary">Може да предизвика разнообразни проблеми със Syncthing и като цяло с устройството. При възникване на проблем може да се наложи преинсталиране на Syncthing.</string>

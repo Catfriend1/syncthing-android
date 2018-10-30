@@ -203,7 +203,6 @@
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Skru på WiFi for å velje nettverk.</string>
 
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Køyr Syncthing som superbrukar</string>
 
     <string name="use_root_summary">Dette er ein ustabil funksjon som kan forårsake problem med Syncthing og med din eining. Hvis det oppstår problem kan du bli nøydd til å installere Syncthing på nytt.</string>

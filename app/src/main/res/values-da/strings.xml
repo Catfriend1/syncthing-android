@@ -228,7 +228,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vær venlig at slukke WiFi for at vælge netværk.</string>
 
     <string name="respect_battery_saving_title">Respekter Android battery saving indstillinger</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Kør Syncthing som Superuser</string>
 
     <string name="use_root_summary">Dette er en ustabil feature som kan forudsage problemer med Syncthing og din enhed. Hvis du støder på problemer, kan det være du er nødt til at geninstallere Syncthing.</string>

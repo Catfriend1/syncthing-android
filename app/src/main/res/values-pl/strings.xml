@@ -232,7 +232,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Proszę włącz WiFi dla wybranych sieci</string>
 
     <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Synchronizuje zawartość z uprawnieniami użytkownika Superuser</string>
 
     <string name="use_root_summary">To jest niestabilna funkcja, która może sprawiać problemy z Syncthing i urządzeniami. W przypadku napotkania błędów możliwe, że niezbędne będzie przeinstalowanie programu. </string>

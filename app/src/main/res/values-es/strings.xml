@@ -217,7 +217,6 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor enciende el wifi para seleccionar redes.</string>
 
     <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
     <string name="use_root_summary">Esta es una característica inestable que podría causar problemas con Syncthing y con tu dispositivo. Si aparecieran problemas podrías tener que reinstalar Syncthing.</string>

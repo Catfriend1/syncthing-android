@@ -250,7 +250,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Vanaf Android 8.1 wordt toegang tot de locatie vereist om de naam van het wifinetwerk te kunnen lezen. Deze functie kan enkel gebruikt worden als je deze toestemming geeft.</string>
 
     <string name="respect_battery_saving_title">Eerbiedig de batterijbesparingsinstellingen van Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Syncthing uitvoeren als superuser</string>
 
     <string name="use_root_summary">Dit is een onstabiele functie die problemen kan veroorzaken met Syncthing en je apparaat. Als je problemen zou tegenkomen is het mogelijk dat je Syncthing opnieuw moet installeren.</string>

@@ -250,7 +250,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">À partir d\'Android 8.1, l\'accès à la localisation est nécessaire pour pouvoir lire le nom du WiFi. Vous pouvez utiliser cette fonctionnalité uniquement si vous accordez cette autorisation.</string>
 
     <string name="respect_battery_saving_title">Sauvegarde batterie selon les réglages Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Faire fonctionner syncthing en super-utilisateur</string>
 
     <string name="use_root_summary">Ceci est une fonction instable qui peut causer des problèmes entre Syncthing et votre appareil. Si vous rencontrez des problèmes, vous devrez réinstaller Syncthing.</string>

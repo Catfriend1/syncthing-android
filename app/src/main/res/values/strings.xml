@@ -374,15 +374,13 @@ Please report any problems you encounter via Github.</string>
     <string name="respect_master_sync_title">Respect Android \'Auto-sync data\' setting</string>
     <string name="respect_master_sync_summary">Disable Syncthing when the quick settings tile \'Auto-sync data\' is toggled off.</string>
 
-    <string name="run_in_flight_mode_title">Run when device is in flight mode</string>
-    <string name="run_in_flight_mode_summary">Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
-
-    <string name="service_settings_title">Service setting</string>
-    <string name="service_settings_summary">Run Syncthing as a service. Adds a persistent notification to prevent it from being terminated by Android. Checking this option starts Syncthing on operating system startup.</string>
-
-    <string name="run_as_background_service">Start service automatically on boot</string>
+    <string name="run_in_flight_mode_title">Run without network connection</string>
+    <string name="run_in_flight_mode_summary">Enabling this option will cause Syncthing to run even when you\'re offline. Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
 
     <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Autostart</string>
+    <string name="behaviour_autostart_summary">Start app automatically on operating system startup.</string>
+
     <string name="use_root_title">Run Syncthing as Superuser</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature cautious.</string>

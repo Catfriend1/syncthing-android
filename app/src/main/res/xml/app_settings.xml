@@ -79,6 +79,12 @@
         android:title="@string/category_behaviour">
 
         <CheckBoxPreference
+            android:key="always_run_in_background"
+            android:title="@string/behaviour_autostart_title"
+            android:summary="@string/behaviour_autostart_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="use_root"
             android:title="@string/use_root_title"
             android:summary="@string/use_root_summary"
@@ -94,18 +100,6 @@
             android:title="@string/start_into_web_gui_title"
             android:summary="@string/start_into_web_gui_summary"
             android:defaultValue="false"/>
-
-        <Preference
-            android:key="static_service_settings"
-            android:persistent="false"
-            android:selectable="false"
-            android:title="@string/service_settings_title"
-            android:summary="@string/service_settings_summary"/>
-
-        <CheckBoxPreference
-            android:key="always_run_in_background"
-            android:title="@string/run_as_background_service"
-            android:defaultValue="false" />
 
     </PreferenceScreen>
 

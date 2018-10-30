@@ -374,15 +374,13 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="respect_master_sync_title">Berücksichtige \"Autom. Datensynchronisierung\"</string>
     <string name="respect_master_sync_summary">Stoppt Syncthing sobald die \"Automatische Datensynchronisierung\" in Android ausgeschaltet wird.</string>
 
-    <string name="run_in_flight_mode_title">Starte im Flugzeugmodus</string>
-    <string name="run_in_flight_mode_summary">Aktiviere dies, wenn dein Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
-
-    <string name="service_settings_title">Diensteinstellung</string>
-    <string name="service_settings_summary">Führt Syncthing als Dienst aus. Fügt eine permanente Benachrichtigung hinzu, um das Beenden des Diensts durch Android zu verhindern. Wenn Du diese Option aktivierst, wird Syncthing beim Hochfahren gestartet.</string>
-
-    <string name="run_as_background_service">Starte den Dienst automatisch beim Hochfahren</string>
+    <string name="run_in_flight_mode_title">Starte ohne Netzwerkverbindung</string>
+    <string name="run_in_flight_mode_summary">Durch Aktivieren der Option wird Syncthing auch dann laufen, wenn Du offline bist. Aktiviere dies, wenn dein Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
 
     <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Autostart</string>
+    <string name="behaviour_autostart_summary">Starte die App automatisch beim Hochfahren.</string>
+
     <string name="use_root_title">Syncthing mit Superuser Rechten ausführen</string>
 
     <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
@@ -391,7 +389,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="preference_language_summary">Anwendungssprache ändern</string>
 
-    <string name="start_into_web_gui_title">Beim Start direkt die Weboberfläche öffnen</string>
+    <string name="start_into_web_gui_title">Starte direkt in die Weboberfläche</string>
 
     <string name="start_into_web_gui_summary">Beim Start der App die Weboberfläche anstelle des Hauptfensters öffnen</string>
 

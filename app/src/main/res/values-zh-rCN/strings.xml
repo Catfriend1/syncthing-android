@@ -231,7 +231,6 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Syncthing 运行于超级用户</string>
 
     <string name="use_root_summary">该项功能不稳定，可能导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>

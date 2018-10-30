@@ -200,7 +200,6 @@
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hãy bật WiFi để lựa chọn mạng.</string>
 
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Chạy Syncthing với quyền Superuser</string>
 
     <string name="device_name">Tên thiết bị</string>

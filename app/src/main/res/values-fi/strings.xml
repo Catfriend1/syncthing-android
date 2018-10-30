@@ -232,7 +232,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Laita Wifi päälle valitaksesi verkkoja.</string>
 
     <string name="respect_battery_saving_title">Noudata Androidin virransäästöasetusta</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Käynnistä Syncthing pääkäyttäjän oikeuksin.</string>
 
     <string name="use_root_summary">Tämä on epävakaa ominaisuus joka voi aiheuttaa ongelmia Synthingin ja laitteesi kanssa. Jos sinulle tulee vastaan ongelmia, voit joutua asentamaan Syncthingin uudelleen.</string>

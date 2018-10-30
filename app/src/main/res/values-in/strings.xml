@@ -222,7 +222,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Mohon aktifkan WiFi untuk memilih jaringan.</string>
 
     <string name="respect_battery_saving_title">Ikuti pengaturan penghematan baterai Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Jalankan Syncthing sebagai Superuser</string>
 
     <string name="use_root_summary">Ini merupakan fitur belum stabik yang mungkin menyebabkan masalah pada Syncthing dan perangkat anda. Jika menemui masalah, anda mungkin harus memasang ulang Syncthing.</string>

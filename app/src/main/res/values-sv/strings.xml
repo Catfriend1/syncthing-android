@@ -267,7 +267,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
 
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Kör som superanvändare</string>
 
     <string name="use_root_summary">Detta är en instabil funktion som kan orsaka problem med Syncthing och med din enhet enhet. Om du stöter på problem, kan du behöva installera om Syncthing.</string>

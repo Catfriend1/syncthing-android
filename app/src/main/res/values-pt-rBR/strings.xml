@@ -250,7 +250,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Iniciando com o Android 8.1, acesso a localização é necessário para ler o nome do WIFI. Você pode usar esse recurso se conceder essa permissão.</string>
 
     <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
-    <!-- Preferences - Behaviour -->
     <string name="use_root_title">Executar como Superusuário</string>
 
     <string name="use_root_summary">Este é um recurso instável que pode causar problemas com o Syncthing e seu dispositivo. Caso você encontre problemas, pode ser necessária a reinstalação do Syncthing.</string>
