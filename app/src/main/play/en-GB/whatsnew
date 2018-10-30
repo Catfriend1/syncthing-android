@@ -1,9 +1,8 @@
 Enhancements
-* Added "Recent changes" UI [NEW]
+* Added "Recent changes" UI, click files to open [NEW]
 * Specify sync conditions differently for each folder, device [NEW]
 * Added offline 'tips & tricks' content [NEW]
 * UI explains why syncthing is running (or not)
-* Support in-app editing of folder's ignore list items
 Fixes
 * Fixed the "battery eater"
 * Android 8 and 9 support

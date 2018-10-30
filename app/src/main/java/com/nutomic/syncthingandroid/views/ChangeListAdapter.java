@@ -140,7 +140,7 @@ public class ChangeListAdapter extends RecyclerView.Adapter<ChangeListAdapter.Vi
 
         // Fill text views.
         viewHolder.filename.setText(filename);
-        viewHolder.folderPath.setText(diskEvent.data.label + File.separator + path);
+        viewHolder.folderPath.setText("[" + diskEvent.data.label + "]" + File.separator + path);
         viewHolder.modifiedByDevice.setText(mResources.getString(R.string.modified_by_device, diskEvent.data.modifiedBy));
 
         // Convert dateTime to readable localized string.

@@ -11,5 +11,5 @@ public class DiskEvent {
     // type = {"LocalChangeDetected", "RemoteChangeDetected"}
     public String type = "";
 
-    public DiskEventData data;
+    public DiskEventData data = new DiskEventData();
 }

@@ -56,6 +56,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.inject.Inject;
 
+import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
+
 /**
  * Provides functions to interact with the syncthing REST API.
  */
@@ -427,6 +429,25 @@ public class RestApi {
         }
         Collections.sort(folders, FOLDERS_COMPARATOR);
         return folders;
+    }
+
+    public final Folder getFolderByID(String folderID) {
+        if (ENABLE_TEST_DATA && folderID.equals("abcd-efgh")) {
+            final Folder folder = new Folder();
+            folder.id = "abcd-efgh";
+            folder.label = "label_abcd-efgh";
+            folder.path = "/storage/emulated/0/testdata";
+            folder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;
+            return folder;
+        }
+
+        final List<Folder> folders = getFolders();
+        for (Folder folder : folders) {
+            if (folder.id.equals(folderID)) {
+                return folder;
+            }
+        }
+        return null;
     }
 
     /**

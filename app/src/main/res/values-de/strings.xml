@@ -109,6 +109,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="override_changes">Änderungen überschreiben</string>
 
     <string name="open_file_manager">Dateimanager öffnen</string>
+    <string name="open_file_with">Öffne Datei mit</string>
+    <string name="open_file_no_compatible_app">Keine App zum Öffnen der Datei gefunden.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Kein kompatibler Dateimanager gefunden</string>
