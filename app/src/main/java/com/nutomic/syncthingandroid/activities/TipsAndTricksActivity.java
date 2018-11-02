@@ -69,6 +69,11 @@ public class TipsAndTricksActivity extends SyncthingActivity {
             mTipListAdapter.add(getString(R.string.tip_huawei_device_disconnected_title), getString(R.string.tip_huawei_device_disconnected_text, ipAddress));
         }
 
+        // Tips referring to Xiaomi deviecs.
+        if ("xiaomi".equalsIgnoreCase(Build.MANUFACTURER)) {
+            mTipListAdapter.add(getString(R.string.tip_xiaomi_autostart_title), getString(R.string.tip_xiaomi_autostart_text));
+        }
+
         // Set onClick listener and add adapter to recycler view.
         mTipListAdapter.setOnClickListener(
             new ItemClickListener() {
