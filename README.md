@@ -16,6 +16,9 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_12.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_11.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/en-GB/listing/phoneScreenshots/screenshot_phone_09.png" alt="screenshot 3" width="200" />
 
+# Please participate in quality assurance testing
+See https://github.com/Catfriend1/syncthing-android/issues/122 for more details and QA builds.
+
 # Goal of the forked version
 - Develop and try out enhancements together
 - Release the wrapper more frequently to identify and fix bugs together caused by changes in the syncthing submodule.
