@@ -11,14 +11,21 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Välkommen till Syncthing för Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Introduktion</string>
     <string name="welcome_text">Syncthing är en filsynkroniseringsapplikation med öppen källkod.\n\
 För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\
 Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
+    <!-- Slide "Location Permission"" -->
+    <string name="location_permission_title">Plats tillstånd</string>
     <string name="cont">Fortsätt</string>
     <string name="finish">Färdig</string>
     <string name="generic_example">Exempel</string>
     <string name="generic_error">Fel</string>
+    <string name="grant_permission">Bevilja tillstånd</string>
+    <string name="permission_granted">Beviljat tillstånd</string>
     <string name="accept">Acceptera</string>
 
     <string name="ignore">Ignorera</string>
@@ -75,6 +82,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="override_changes">Åsidosätt ändringar</string>
 
     <string name="open_file_manager">Öppna filhanteraren</string>
+    <string name="open_file_with">Öppna fil med</string>
     <!-- DevicesFragment -->
 
 
@@ -103,6 +111,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- Title for current upload rate -->
     <string name="upload_title">Skickar</string>
+
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Status</string>
+    <string name="syncthing_running">Syncthing körs.</string>
+    <string name="syncthing_not_running">Syncthing körs inte.</string>
+    <string name="syncthing_has_crashed">Syncthing har kraschat.</string>
 
     <!-- DrawerFragment -->
 
@@ -238,6 +252,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Fick inte root behörigheter</string>
 
+    <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
+
+    <string name="modified_by_device">Enhet: %1$s</string>
+    <string name="modification_time">Tid: %1$s</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -259,6 +279,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Körvillkor</string>
+    <string name="run_on_wifi_title">Kör på Wi-Fi</string>
+    <string name="run_on_whitelisted_wifi_title">Kör på angivna Wi-Fi-nätverk</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
 
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
@@ -266,7 +288,13 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
 
+    <string-array name="power_source_entries">
+        <item>Växelström.</item>
+    </string-array>
+
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
+    <string name="respect_battery_saving_summary">Inaktivera Syncthing om batteribesparing är aktiv.</string>
+
     <string name="use_root_title">Kör som superanvändare</string>
 
     <string name="use_root_summary">Detta är en instabil funktion som kan orsaka problem med Syncthing och med din enhet enhet. Om du stöter på problem, kan du behöva installera om Syncthing.</string>
@@ -280,6 +308,11 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="start_into_web_gui_summary">När du startar appen öppnar du webbgränssnittet istället för huvudskärmen</string>
 
     <string name="pref_language_default">Standardspråk</string>
+
+    <string-array name="folder_types">
+        <item>Skicka &amp; ta emot</item>
+        <item>Skicka endast</item>
+    </string-array>
 
     <string-array name="pull_order_types">
         <item>Slumpmässig</item>
@@ -499,6 +532,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- Sub Folder title -->
     <string name="sub_folder">Undermapp</string>
+
+    <!-- RunConditionMonitor -->
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_charging">Telefonen laddas inte.</string>
+    <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
 
     <!-- SyncthingService -->
 
