@@ -289,7 +289,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
 
     <string-array name="power_source_entries">
+        <item>Växelström och batterikraft.</item>
         <item>Växelström.</item>
+        <item>Batterikraft.</item>
     </string-array>
 
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
@@ -312,6 +314,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string-array name="folder_types">
         <item>Skicka &amp; ta emot</item>
         <item>Skicka endast</item>
+        <item>Ta emot endast</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -619,6 +622,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="appconfig_receiver_background_enabled">Det går inte att stoppa Syncthing när körning i bakgrunden är aktiverad.</string>
 
     <string name="folder_type_sendonly">Skicka endast</string>
+    <string name="folder_type_receiveonly">Ta emot endast.</string>
+
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">Slumpmässig</string>
     <string name="pull_order_type_alphabetic">Alfabetisk</string>
