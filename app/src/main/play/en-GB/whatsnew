@@ -7,4 +7,4 @@ Fixes
 * Fixed the "battery eater"
 * Android 8 and 9 support
 Maintenance
-* Updated syncthing to v0.14.51 (receiveOnly folders)
+* Updated syncthing to v0.14.52
