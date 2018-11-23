@@ -18,18 +18,31 @@
 För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\
 Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Lagringsbehörighet</string>
+    <string name="storage_permission_desc">Syncthing behöver komma åt din lagring för att göra filsynkronisering.</string>
+
     <!-- Slide "Location Permission"" -->
     <string name="location_permission_title">Plats tillstånd</string>
+    <string name="key_generation_success">Säkra nycklar för privat datautbyte har genererats.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Tillbaka</string>
     <string name="cont">Fortsätt</string>
     <string name="finish">Färdig</string>
     <string name="generic_example">Exempel</string>
     <string name="generic_error">Fel</string>
+    <string name="generic_help">Hjälp</string>
     <string name="grant_permission">Bevilja tillstånd</string>
     <string name="permission_granted">Beviljat tillstånd</string>
+    <string name="reason">Orsak:</string>
+
     <string name="accept">Acceptera</string>
 
     <string name="ignore">Ignorera</string>
 
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Bekräfta att avsluta appen</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lägg till mapp</string>
 
@@ -57,6 +70,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="ignore_doze_permission_title">Batterioptimering</string>
     <string name="ignore_doze_permission_desc">Android kan stoppa synkronisering efter en viss tid. För att förhindra detta, stäng av batterioptimering.\n\nNågra enheter har ytterligare uppgiftsdödande appar förinstallerade. Ni bör lägga till Syncthing till deras vitlista, också.</string>
+    <string name="toast_ignore_doze_permission_required">Den här appen fungerar bara tillförlitligt om den är undantagen från\" doze\"-energisparläge.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Din enhet har inte stöd för att inaktivera batterioptimeringar</string>
 
     <!-- StateDialogActivity -->
@@ -83,6 +97,12 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="open_file_manager">Öppna filhanteraren</string>
     <string name="open_file_with">Öppna fil med</string>
+    <string name="open_file_no_compatible_app">Ingen app hittades för att öppna filen.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Ingen kompatibel filhanterarapp hittades</string>
+    <string name="suggest_file_manager_app_dialog_text">Vi rekommenderar att du installerar filhanterarappen \"Simple File Manager\" med öppen källkod från F-Droid. Vill du öppna dess appbutiksida?</string>
+
     <!-- DevicesFragment -->
 
 
@@ -135,6 +155,9 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- Title for announce server status -->
     <string name="announce_server">Annonseringsserver</string>
+
+    <!-- Title for uptime status -->
+    <string name="uptime">Drifttid</string>
 
     <string name="restart">Starta om</string>
 
@@ -252,8 +275,20 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Fick inte root behörigheter</string>
 
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Tips &amp; tricks</string>
+
+    <string name="tip_write_to_sdcard_title">Skriv till extert SD-kort-lösning</string>
+    <string name="tip_sync_on_local_network_title">Synkronisera endast med det lokala Wi-Fi-nätverket</string>
+    <string name="tip_huawei_device_disconnected_title">Huawei: \"enheten frånkopplad\"-lösning</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
+    <string name="tip_xiaomi_autostart_title">Xiaomi: appen startar inte vid start</string>
+    <!-- RecentChangesActivity -->
+    <string name="recent_changes_title">Nya förändringar</string>
     <string name="modified_by_device">Enhet: %1$s</string>
     <string name="modification_time">Tid: %1$s</string>
 
@@ -274,19 +309,29 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="category_run_conditions">Körvillkor</string>
     <string name="category_behaviour">Beteende</string>
     <string name="category_syncthing_options">Syncthing alternativ</string>
+    <string name="category_backup">Import och export</string>
     <string name="category_debug">Felsök</string>
     <string name="category_experimental">Experimentell</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Körvillkor</string>
+    <string name="run_conditions_summary">Använd följande alternativ för att bestämma när Syncthing körs.</string>
+
+    <string name="run_on_mobile_data_title">Kör på mobildata</string>
     <string name="run_on_wifi_title">Kör på Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_title">Kör på angivna Wi-Fi-nätverk</string>
+    <string name="specify_wifi_ssid_whitelist">Välj Wi-Fi-nätverk</string>
+    <string name="run_on_whitelisted_wifi_networks">Valda Wi-Fi-nätverk: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">Inga Wi-Fi-nätverk specificerade. Klicka för att ange nätverk.</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
 
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
+
+    <string name="power_source_title">Kör när enheten drivs av</string>
 
     <string-array name="power_source_entries">
         <item>Växelström och batterikraft.</item>
@@ -296,6 +341,11 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
     <string name="respect_battery_saving_summary">Inaktivera Syncthing om batteribesparing är aktiv.</string>
+
+    <string name="run_in_flight_mode_title">Kör utan nätverksanslutning</string>
+    <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Starta automatiskt</string>
+    <string name="behaviour_autostart_summary">Starta appen automatiskt med operativsystemet.</string>
 
     <string name="use_root_title">Kör som superanvändare</string>
 
@@ -359,6 +409,8 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Ångra ignorerande enheter och mappar</string>
     <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta?</string>
+    <string name="undo_ignored_devices_folders_done">Ångrat beslut.</string>
+
     <string name="export_config">Exportera konfiguration</string>
 
     <!-- Toast after entering invalid integer value -->
@@ -540,7 +592,17 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_charging">Telefonen laddas inte.</string>
+    <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing är inte tillåtet att köra på mobildataanslutning.</string>
+    <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
+    <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing körs inte eftersom det aktuella Wi-Fi-nätverkets namn inte är vitlistat.</string>
     <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
+
+    <!-- Sync Conditions Dialog -->
+
+    <string name="custom_wifi_ssid_whitelist_empty">Ingen Wi-Fi-SSID är vitlistad. Ange några i inställningarna.</string>
 
     <!-- SyncthingService -->
 
@@ -621,8 +683,16 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="appconfig_receiver_background_enabled">Det går inte att stoppa Syncthing när körning i bakgrunden är aktiverad.</string>
 
+    <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
+    <string name="folder_type">Mapptyp</string>
+
+    <!-- Displays the current folder type in the folder activity -->
+    <string name="folder_type_sendreceive">Skicka &amp; ta emot</string>
     <string name="folder_type_sendonly">Skicka endast</string>
     <string name="folder_type_receiveonly">Ta emot endast.</string>
+
+    <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
+    <string name="pull_order">Filhämtningsordning</string>
 
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">Slumpmässig</string>
@@ -669,4 +739,5 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="browse">Bläddra</string>
     <string name="no_sub_folder_is_selected">Ingen undermapp är vald</string>
     <string name="share_device_id_chooser">Dela enhetens ID med</string>
+    <string name="run_on_whitelisted_wifi_summary">Slå på vitlistan för att begränsa att synkronisering sker endast på angivna Wi-Fi-nätverk.</string>
     </resources>
