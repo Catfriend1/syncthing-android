@@ -72,12 +72,23 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        abortOnError true
+    }
 }
 
 play {
     jsonFile = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
     uploadImages = false
     track = 'beta'
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'compileDebugSources') {
+        task.dependsOn lint
+        task.mustRunAfter lint
+    }
 }
 
 /**

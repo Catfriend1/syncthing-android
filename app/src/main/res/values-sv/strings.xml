@@ -597,6 +597,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="reason_mobile_data_disallowed">Syncthing är inte tillåtet att köra på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing får köras på det aktuella Wi-Fi-nätverket.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing körs inte eftersom det aktuella Wi-Fi-nätverkets namn inte är vitlistat.</string>
     <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
 
