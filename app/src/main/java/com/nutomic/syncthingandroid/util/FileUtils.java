@@ -921,7 +921,7 @@ public class FileUtils {
                 .setTitle(R.string.suggest_file_manager_app_dialog_title)
                 .setMessage(R.string.suggest_file_manager_app_dialog_text)
                 .setPositiveButton(R.string.yes, (d, i) -> {
-                    final String appPackageName = "com.simplemobiletools.filemanager";
+                    final String appPackageName = "com.simplemobiletools.filemanager.pro";
                     try {
                         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                     } catch (android.content.ActivityNotFoundException anfe) {
