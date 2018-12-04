@@ -1,3 +1,5 @@
+Maintenance
+* Updated syncthing core to v0.14.53
 Enhancements
 * Added "Recent changes" UI, click files to open [NEW]
 * Specify sync conditions differently for each folder, device [NEW]
@@ -6,5 +8,3 @@ Enhancements
 Fixes
 * Fixed the "battery eater"
 * Android 8 and 9 support
-Maintenance
-* Updated syncthing to v0.14.52
