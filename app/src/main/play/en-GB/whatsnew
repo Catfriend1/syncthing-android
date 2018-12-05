@@ -1,5 +1,5 @@
 Maintenance
-* Updated syncthing core to v0.14.53
+* Updated syncthing core to v0.14.54
 Enhancements
 * Added "Recent changes" UI, click files to open [NEW]
 * Specify sync conditions differently for each folder, device [NEW]
