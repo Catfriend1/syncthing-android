@@ -43,4 +43,4 @@ Release published!
 #"
 #ACCESS_TOKEN=""
 #api_json=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "%s","draft": false,"prerelease": false}' $version $version $changelog)
-#curl --data "$api_json" https://api.github.com/repos/syncthing/syncthing-android/releases?access_token=$ACCESS_TOKEN
+#curl --data "$api_json" https://api.github.com/repos/Catfriend1/syncthing-android/releases?access_token=$ACCESS_TOKEN

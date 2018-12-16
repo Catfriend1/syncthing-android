@@ -1,6 +1,7 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
 
 import java.io.File;
@@ -163,5 +164,15 @@ public class Constants {
 
     static File getLogFile(Context context) {
         return new File(context.getExternalFilesDir(null), "syncthing.log");
+    }
+
+    /**
+     * Decide if we should enforce HTTPS when accessing the Web UI and REST API.
+     * Android 4.4 and earlier don't have support for TLS 1.2 requiring us to
+     * fall back to an unencrypted HTTP connection to localhost. This applies
+     * to syncthing core v0.14.53+.
+     */
+    public static final Boolean osSupportsTLS12() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 }

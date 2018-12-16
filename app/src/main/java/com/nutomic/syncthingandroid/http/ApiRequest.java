@@ -157,9 +157,12 @@ public abstract class ApiRequest {
         }
         @Override
         protected HttpURLConnection createConnection(URL url) throws IOException {
-            HttpsURLConnection connection = (HttpsURLConnection) super.createConnection(url);
-            connection.setHostnameVerifier((hostname, session) -> true);
-            return connection;
+            if (mUrl.toString().startsWith("https://")) {
+                HttpsURLConnection connection = (HttpsURLConnection) super.createConnection(url);
+                connection.setHostnameVerifier((hostname, session) -> true);
+                return connection;
+            }
+            return super.createConnection(url);
         }
     }
 

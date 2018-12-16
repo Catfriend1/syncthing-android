@@ -119,8 +119,9 @@ public class ConfigXml {
     }
 
     public URL getWebGuiUrl() {
+        String urlProtocol = Constants.osSupportsTLS12() ? "https" : "http";
         try {
-            return new URL("https://" + getGuiElement().getElementsByTagName("address").item(0).getTextContent());
+            return new URL(urlProtocol + "://" + getGuiElement().getElementsByTagName("address").item(0).getTextContent());
         } catch (MalformedURLException e) {
             throw new RuntimeException("Failed to parse web interface URL", e);
         }
@@ -166,9 +167,15 @@ public class ConfigXml {
         }
 
         /* Section - GUI */
-        // Enforce TLS.
         Element gui = getGuiElement();
-        changed = setConfigElement(gui, "tls", "true") || changed;
+
+        // Platform-specific: Force REST API and Web UI access to use TLS 1.2 or not.
+        Boolean forceHttps = Constants.osSupportsTLS12();
+        if (!gui.hasAttribute("tls") ||
+                Boolean.parseBoolean(gui.getAttribute("tls")) != forceHttps) {
+            gui.setAttribute("tls", forceHttps ? "true" : "false");
+            changed = true;
+        }
 
         // Set user to "syncthing"
         changed = setConfigElement(gui, "user", "syncthing") || changed;
