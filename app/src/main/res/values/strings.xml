@@ -220,6 +220,9 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">The folder ID must not be empty</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">The folder label must not be empty</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">The folder path must not be empty</string>
 
@@ -282,6 +285,12 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">The device ID must not be empty</string>
+
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_invalid">The device ID is not formatted correctly. Please retry and enter the correct ID.</string>
+
+    <!-- Toast shown when trying to create a device with an empty name -->
+    <string name="device_name_required">The device name must not be empty</string>
 
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scan QR Code</string>

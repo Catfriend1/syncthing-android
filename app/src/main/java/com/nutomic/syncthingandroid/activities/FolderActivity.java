@@ -36,6 +36,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
@@ -85,6 +86,7 @@ public class FolderActivity extends SyncthingActivity
     private static final String FOLDER_MARKER_NAME = ".stfolder";
     // private static final String IGNORE_FILE_NAME = ".stignore";
 
+    private ConfigRouter mConfig;
     private Folder mFolder;
     // Contains SAF readwrite access URI on API level >= Build.VERSION_CODES.LOLLIPOP (21)
     private Uri mFolderUri = null;
@@ -154,7 +156,7 @@ public class FolderActivity extends SyncthingActivity
                 case R.id.device_toggle:
                     Device device = (Device) view.getTag();
                     if (isChecked) {
-                        mFolder.addDevice(device.deviceID);
+                        mFolder.addDevice(device);
                     } else {
                         mFolder.removeDevice(device.deviceID);
                     }
@@ -166,6 +168,8 @@ public class FolderActivity extends SyncthingActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        mConfig = new ConfigRouter(FolderActivity.this);
+
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
         setContentView(R.layout.fragment_folder);
@@ -384,14 +388,9 @@ public class FolderActivity extends SyncthingActivity
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
-        if (currentState != ACTIVE) {
-            finish();
-            return;
-        }
-
         if (!mIsCreateMode) {
-            RestApi restApi = getApi();     // restApi != null because of State.ACTIVE
-            List<Folder> folders = restApi.getFolders();
+            RestApi restApi = getApi();
+            List<Folder> folders = mConfig.getFolders(restApi);
             String passedId = getIntent().getStringExtra(EXTRA_FOLDER_ID);
             mFolder = null;
             for (Folder currentFolder : folders) {
@@ -405,11 +404,15 @@ public class FolderActivity extends SyncthingActivity
                 finish();
                 return;
             }
-            restApi.getFolderIgnoreList(mFolder.id, this::onReceiveFolderIgnoreList);
+            mConfig.getFolderIgnoreList(restApi, mFolder, this::onReceiveFolderIgnoreList);
             checkWriteAndUpdateUI();
         }
+
+        // If the extra is set, we should automatically share the current folder with the given device.
         if (getIntent().hasExtra(EXTRA_DEVICE_ID)) {
-            mFolder.addDevice(getIntent().getStringExtra(EXTRA_DEVICE_ID));
+            Device device = new Device();
+            device.deviceID = getIntent().getStringExtra(EXTRA_DEVICE_ID);
+            mFolder.addDevice(device);
             mFolderNeedsToUpdate = true;
         }
 
@@ -471,13 +474,14 @@ public class FolderActivity extends SyncthingActivity
         mCustomSyncConditionsDialog.setEnabled(mCustomSyncConditionsSwitch.isChecked());
 
         // Populate devicesList.
-        List<Device> devicesList = getApi().getDevices(false);
+        RestApi restApi = getApi();
+        List<Device> devicesList = mConfig.getDevices(restApi, false);
         mDevicesContainer.removeAllViews();
         if (devicesList.isEmpty()) {
             addEmptyDeviceListView();
         } else {
-            for (Device n : devicesList) {
-                addDeviceViewAndSetListener(n, getLayoutInflater());
+            for (Device device : devicesList) {
+                addDeviceViewAndSetListener(device, getLayoutInflater());
             }
         }
 
@@ -511,6 +515,11 @@ public class FolderActivity extends SyncthingActivity
                             .show();
                     return true;
                 }
+                if (TextUtils.isEmpty(mFolder.label)) {
+                    Toast.makeText(this, R.string.folder_label_required, Toast.LENGTH_LONG)
+                            .show();
+                    return true;
+                }
                 if (TextUtils.isEmpty(mFolder.path)) {
                     Toast.makeText(this, R.string.folder_path_required, Toast.LENGTH_LONG)
                             .show();
@@ -531,7 +540,7 @@ public class FolderActivity extends SyncthingActivity
                         dfFolder.createDirectory(FOLDER_MARKER_NAME);
                     }
                 }
-                getApi().createFolder(mFolder);
+                mConfig.addFolder(getApi(), mFolder);
                 finish();
                 return true;
             case R.id.remove:
@@ -554,10 +563,7 @@ public class FolderActivity extends SyncthingActivity
         return new AlertDialog.Builder(this)
                 .setMessage(R.string.remove_folder_confirm)
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
-                    RestApi restApi = getApi();
-                    if (restApi != null) {
-                        restApi.removeFolder(mFolder.id);
-                    }
+                    mConfig.removeFolder(getApi(), mFolder.id);
                     mFolderNeedsToUpdate = false;
                     finish();
                 })
@@ -731,17 +737,13 @@ public class FolderActivity extends SyncthingActivity
 
         // Update folder via restApi and send the config to REST endpoint.
         RestApi restApi = getApi();
-        if (restApi == null) {
-            Log.e(TAG, "updateFolder: restApi == null");
-            return;
-        }
 
         // Update ignore list.
         String[] ignore = mEditIgnoreListContent.getText().toString().split("\n");
-        restApi.postFolderIgnoreList(mFolder.id, ignore);
+        mConfig.postFolderIgnoreList(restApi, mFolder, ignore);
 
-        // Update model and send the config to REST endpoint.
-        restApi.updateFolder(mFolder);
+        // Update folder using RestApi or ConfigXml.
+        mConfig.updateFolder(restApi, mFolder);
     }
 
     @Override

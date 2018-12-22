@@ -68,6 +68,7 @@ public class Constants {
      * Cached information which is not available on SettingsActivity.
      */
     public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
+    public static final String PREF_LOCAL_DEVICE_ID             = "localDeviceID";
 
     /**
      * {@link EventProcessor}

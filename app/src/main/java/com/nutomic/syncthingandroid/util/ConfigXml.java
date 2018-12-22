@@ -1,13 +1,15 @@
 package com.nutomic.syncthingandroid.util;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
@@ -23,12 +25,16 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.inject.Inject;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -53,53 +59,117 @@ import org.xml.sax.InputSource;
  */
 public class ConfigXml {
 
+    private static final String TAG = "ConfigXml";
+
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     public class OpenConfigException extends RuntimeException {
     }
 
-    private static final String TAG = "ConfigXml";
+    /**
+     * Compares devices by name, uses the device ID as fallback if the name is empty
+     */
+    private final static Comparator<Device> DEVICES_COMPARATOR = (lhs, rhs) -> {
+        String lhsName = lhs.name != null && !lhs.name.isEmpty() ? lhs.name : lhs.deviceID;
+        String rhsName = rhs.name != null && !rhs.name.isEmpty() ? rhs.name : rhs.deviceID;
+        return lhsName.compareTo(rhsName);
+    };
+
+    /**
+     * Compares folders by labels, uses the folder ID as fallback if the label is empty
+     */
+    private final static Comparator<Folder> FOLDERS_COMPARATOR = (lhs, rhs) -> {
+        String lhsLabel = lhs.label != null && !lhs.label.isEmpty() ? lhs.label : lhs.id;
+        String rhsLabel = rhs.label != null && !rhs.label.isEmpty() ? rhs.label : rhs.id;
+        return lhsLabel.compareTo(rhsLabel);
+    };
+
+    public interface OnResultListener1<T> {
+        void onResult(T t);
+    }
+
     private static final int FOLDER_ID_APPENDIX_LENGTH = 4;
 
     private final Context mContext;
-
-    @Inject
-    SharedPreferences mPreferences;
 
     private final File mConfigFile;
 
     private Document mConfig;
 
-    public ConfigXml(Context context) throws OpenConfigException, SyncthingRunnable.ExecutableNotFoundException {
+    public ConfigXml(Context context) {
         mContext = context;
         mConfigFile = Constants.getConfigFile(mContext);
-        boolean isFirstStart = !mConfigFile.exists();
-        if (isFirstStart) {
-            Log.i(TAG, "App started for the first time. Generating keys and config.");
-            new SyncthingRunnable(context, SyncthingRunnable.Command.generate).run(true);
+    }
+
+    public void loadConfig() throws OpenConfigException {
+        parseConfig();
+        updateIfNeeded();
+    }
+
+    /**
+     * This should run within an AsyncTask as it can cause a full CPU load
+     * for more than 30 seconds on older phone hardware.
+     */
+    public void generateConfig() throws OpenConfigException, SyncthingRunnable.ExecutableNotFoundException {
+        // Create new secret keys and config.
+        Log.i(TAG, "(Re)Generating keys and config.");
+        new SyncthingRunnable(mContext, SyncthingRunnable.Command.generate).run(true);
+        parseConfig();
+        Boolean changed = false;
+
+        // Set local device name.
+        Log.i(TAG, "Starting syncthing to retrieve local device id.");
+        String localDeviceID = getLocalDeviceIDandStoreToPref();
+        if (!TextUtils.isEmpty(localDeviceID)) {
+            changed = changeLocalDeviceName(localDeviceID) || changed;
         }
 
-        readConfig();
+        // Set default folder to the "camera" folder: path and name
+        changed = changeDefaultFolder() || changed;
 
-        if (isFirstStart) {
-            boolean changed = false;
-
-            Log.i(TAG, "Starting syncthing to retrieve local device id.");
-            String logOutput = new SyncthingRunnable(context, SyncthingRunnable.Command.deviceid).run(true);
-            String localDeviceID = logOutput.replace("\n", "");
-            // Verify local device ID is correctly formatted.
-            if (localDeviceID.matches("^([A-Z0-9]{7}-){7}[A-Z0-9]{7}$")) {
-                changed = changeLocalDeviceName(localDeviceID) || changed;
-            }
-            changed = changeDefaultFolder() || changed;
-
-            // Save changes if we made any.
-            if (changed) {
-                saveChanges();
-            }
+        // Save changes if we made any.
+        if (changed) {
+            saveChanges();
         }
     }
 
-    private void readConfig() {
+    private String getLocalDeviceIDfromPref() {
+        String localDeviceID = PreferenceManager.getDefaultSharedPreferences(mContext).getString(Constants.PREF_LOCAL_DEVICE_ID, "");
+        if (TextUtils.isEmpty(localDeviceID)) {
+            Log.d(TAG, "getLocalDeviceIDfromPref: Local device ID unavailable, trying to retrieve it from syncthing ...");
+            try {
+                localDeviceID = getLocalDeviceIDandStoreToPref();
+            } catch (SyncthingRunnable.ExecutableNotFoundException e) {
+                Log.e(TAG, "getLocalDeviceIDfromPref: Failed to execute syncthing core");
+            }
+            if (TextUtils.isEmpty(localDeviceID)) {
+                Log.e(TAG, "getLocalDeviceIDfromPref: Local device ID unavailable");
+            }
+        }
+        return localDeviceID;
+    }
+
+    private String getLocalDeviceIDandStoreToPref() throws SyncthingRunnable.ExecutableNotFoundException {
+        String logOutput = new SyncthingRunnable(mContext, SyncthingRunnable.Command.deviceid).run(true);
+        String localDeviceID = logOutput.replace("\n", "");
+
+        // Verify that local device ID is correctly formatted.
+        if (!isDeviceIdValid(localDeviceID)) {
+            Log.w(TAG, "getLocalDeviceIDandStoreToPref: Syncthing core returned a bad formatted device ID \"" + localDeviceID + "\"");
+            return "";
+        }
+
+        // Store local device ID to pref. This saves us expensive calls to the syncthing binary if we need it later.
+        PreferenceManager.getDefaultSharedPreferences(mContext).edit()
+            .putString(Constants.PREF_LOCAL_DEVICE_ID, localDeviceID)
+            .apply();
+        Log.v(TAG, "getLocalDeviceIDandStoreToPref: Cached local device ID \"" + localDeviceID + "\"");
+        return localDeviceID;
+    }
+
+    private void parseConfig() {
         if (!mConfigFile.canRead() && !Util.fixAppDataPermissions(mContext)) {
+            Log.w(TAG, "Failed to open config file '" + mConfigFile + "'");
             throw new OpenConfigException();
         }
         try {
@@ -107,11 +177,16 @@ public class ConfigXml {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
             InputSource inputSource = new InputSource(inputStreamReader);
             inputSource.setEncoding("UTF-8");
-            DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Log.d(TAG, "Parsing config file '" + mConfigFile + "'");
+            DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbfactory.newDocumentBuilder();
+            if (ENABLE_VERBOSE_LOG) {
+                Log.v(TAG, "Parsing config file '" + mConfigFile + "'");
+            }
             mConfig = db.parse(inputSource);
             inputStream.close();
-            Log.i(TAG, "Successfully parsed config file");
+            if (ENABLE_VERBOSE_LOG) {
+                Log.v(TAG, "Successfully parsed config file");
+            }
         } catch (SAXException | ParserConfigurationException | IOException e) {
             Log.w(TAG, "Failed to parse config file '" + mConfigFile + "'", e);
             throw new OpenConfigException();
@@ -141,7 +216,7 @@ public class ConfigXml {
      * username/password, and disables weak hash checking.
      */
     @SuppressWarnings("SdCardPath")
-    public void updateIfNeeded() {
+    private void updateIfNeeded() {
         boolean changed = false;
 
         /* Perform one-time migration tasks on syncthing's config file when coming from an older config version. */
@@ -173,7 +248,7 @@ public class ConfigXml {
         Boolean forceHttps = Constants.osSupportsTLS12();
         if (!gui.hasAttribute("tls") ||
                 Boolean.parseBoolean(gui.getAttribute("tls")) != forceHttps) {
-            gui.setAttribute("tls", forceHttps ? "true" : "false");
+            gui.setAttribute("tls", Boolean.toString(forceHttps));
             changed = true;
         }
 
@@ -222,6 +297,9 @@ public class ConfigXml {
             }
         }
 
+        // Disable "startBrowser" because it applies to desktop environments and cannot start a mobile browser app.
+        changed = setConfigElement(options, "startBrowser", "false") || changed;
+
         // Save changes if we made any.
         if (changed) {
             saveChanges();
@@ -238,7 +316,9 @@ public class ConfigXml {
         /* Read existing config version */
         int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
         int iOldConfigVersion = iConfigVersion;
-        Log.i(TAG, "Found existing config version " + Integer.toString(iConfigVersion));
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, "Found existing config version " + Integer.toString(iConfigVersion));
+        }
 
         /* Check if we have to do manual migration from version X to Y */
         if (iConfigVersion == 27) {
@@ -271,6 +351,438 @@ public class ConfigXml {
         } else {
             return false;
         }
+    }
+
+    private Boolean getAttributeOrDefault(final Element element, String attribute, Boolean defaultValue) {
+        return element.hasAttribute(attribute) ? Boolean.parseBoolean(element.getAttribute(attribute)) : defaultValue;
+    }
+
+    private Integer getAttributeOrDefault(final Element element, String attribute, Integer defaultValue) {
+        return element.hasAttribute(attribute) ? Integer.parseInt(element.getAttribute(attribute)) : defaultValue;
+    }
+
+    private String getAttributeOrDefault(final Element element, String attribute, String defaultValue) {
+        return element.hasAttribute(attribute) ? element.getAttribute(attribute) : defaultValue;
+    }
+
+    private Boolean getContentOrDefault(final Node node, Boolean defaultValue) {
+         return (node == null) ? defaultValue : Boolean.parseBoolean(node.getTextContent());
+    }
+
+    private Integer getContentOrDefault(final Node node, Integer defaultValue) {
+         return (node == null) ? defaultValue : Integer.parseInt(node.getTextContent());
+    }
+
+    private String getContentOrDefault(final Node node, String defaultValue) {
+         return (node == null) ? defaultValue : node.getTextContent();
+    }
+
+    public List<Folder> getFolders() {
+        String localDeviceID = getLocalDeviceIDfromPref();
+        List<Folder> folders = new ArrayList<>();
+        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
+        for (int i = 0; i < nodeFolders.getLength(); i++) {
+            Element r = (Element) nodeFolders.item(i);
+            Folder folder = new Folder();
+            folder.id = getAttributeOrDefault(r, "id", "");
+            folder.label = getAttributeOrDefault(r, "label", "");
+            folder.path = getAttributeOrDefault(r, "path", "");
+            folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
+            folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", true);
+            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", 10);
+            folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", true);
+            folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", true);
+            folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", 3600);
+
+            folder.copiers = getContentOrDefault(r.getElementsByTagName("copiers").item(0), 0);
+            folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), 0);
+            folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), "random");
+            folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
+
+            // Devices
+            /*
+            <device id="[DEVICE_ID]" introducedBy=""/>
+            */
+            NodeList nodeDevices = r.getElementsByTagName("device");
+            for (int j = 0; j < nodeDevices.getLength(); j++) {
+                Element elementDevice = (Element) nodeDevices.item(j);
+                Device device = new Device();
+                device.deviceID = getAttributeOrDefault(elementDevice, "id", "");
+
+                // Exclude self.
+                if (!TextUtils.isEmpty(device.deviceID) && !device.deviceID.equals(localDeviceID)) {
+                    device.introducedBy = getAttributeOrDefault(elementDevice, "introducedBy", "");
+                    // Log.v(TAG, "getFolders: deviceID=" + device.deviceID + ", introducedBy=" + device.introducedBy);
+                    folder.addDevice(device);
+                }
+            }
+
+            // Versioning
+            /*
+            <versioning></versioning>
+            <versioning type="trashcan">
+                <param key="cleanoutDays" val="90"></param>
+            </versioning>
+            */
+            folder.versioning = new Folder.Versioning();
+            Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
+            folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
+            NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
+            for (int j = 0; j < nodeVersioningParam.getLength(); j++) {
+                Element elementVersioningParam = (Element) nodeVersioningParam.item(j);
+                folder.versioning.params.put(
+                        getAttributeOrDefault(elementVersioningParam, "key", ""),
+                        getAttributeOrDefault(elementVersioningParam, "val", "")
+                );
+                /*
+                Log.v(TAG, "folder.versioning.type=" + folder.versioning.type +
+                        ", key=" + getAttributeOrDefault(elementVersioningParam, "key", "") +
+                        ", val=" + getAttributeOrDefault(elementVersioningParam, "val", "")
+                );
+                */
+            }
+
+            // For testing purposes only.
+            // Log.v(TAG, "folder.label=" + folder.label + "/" +"folder.type=" + folder.type + "/" + "folder.paused=" + folder.paused);
+            folders.add(folder);
+        }
+        Collections.sort(folders, FOLDERS_COMPARATOR);
+        return folders;
+    }
+
+    public void addFolder(final Folder folder) {
+        Log.v(TAG, "addFolder: folder.id=" + folder.id);
+        Node nodeConfig = mConfig.getDocumentElement();
+        Node nodeFolder = mConfig.createElement("folder");
+        nodeConfig.appendChild(nodeFolder);
+        Element elementFolder = (Element) nodeFolder;
+        elementFolder.setAttribute("id", folder.id);
+        updateFolder(folder);
+    }
+
+    public void updateFolder(final Folder folder) {
+        String localDeviceID = getLocalDeviceIDfromPref();
+        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
+        for (int i = 0; i < nodeFolders.getLength(); i++) {
+            Element r = (Element) nodeFolders.item(i);
+            if (folder.id.equals(getAttributeOrDefault(r, "id", ""))) {
+                // Found folder node to update.
+                r.setAttribute("label", folder.label);
+                r.setAttribute("path", folder.path);
+                r.setAttribute("type", folder.type);
+                r.setAttribute("autoNormalize", Boolean.toString(folder.autoNormalize));
+                r.setAttribute("fsWatcherDelayS", Integer.toString(folder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherEnabled", Boolean.toString(folder.fsWatcherEnabled));
+                r.setAttribute("ignorePerms", Boolean.toString(folder.ignorePerms));
+                r.setAttribute("rescanIntervalS", Integer.toString(folder.rescanIntervalS));
+
+                setConfigElement(r, "copiers", Integer.toString(folder.copiers));
+                setConfigElement(r, "hashers", Integer.toString(folder.hashers));
+                setConfigElement(r, "order", folder.order);
+                setConfigElement(r, "paused", Boolean.toString(folder.paused));
+
+                // Update devices that share this folder.
+                // Pass 1: Remove all devices below that folder in XML except the local device.
+                NodeList nodeDevices = r.getElementsByTagName("device");
+                for (int j = nodeDevices.getLength() - 1; j >= 0; j--) {
+                    Element elementDevice = (Element) nodeDevices.item(j);
+                    if (!getAttributeOrDefault(elementDevice, "id", "").equals(localDeviceID)) {
+                        Log.v(TAG, "updateFolder: nodeDevices: Removing deviceID=" + getAttributeOrDefault(elementDevice, "id", ""));
+                        removeChildElementFromTextNode(r, elementDevice);
+                    }
+                }
+
+                // Pass 2: Add devices below that folder from the POJO model.
+                final List<Device> devices = folder.getDevices();
+                for (Device device : devices) {
+                    Log.v(TAG, "updateFolder: nodeDevices: Adding deviceID=" + device.deviceID);
+                    Node nodeDevice = mConfig.createElement("device");
+                    r.appendChild(nodeDevice);
+                    Element elementDevice = (Element) nodeDevice;
+                    elementDevice.setAttribute("id", device.deviceID);
+                    elementDevice.setAttribute("introducedBy", device.introducedBy);
+                }
+
+                // Versioning
+                // Pass 1: Remove all versioning nodes in XML (usually one)
+                /*
+                NodeList nlVersioning = r.getElementsByTagName("versioning");
+                for (int j = nlVersioning.getLength() - 1; j >= 0; j--) {
+                    Log.v(TAG, "updateFolder: nodeVersioning: Removing versioning node");
+                    removeChildElementFromTextNode(r, (Element) nlVersioning.item(j));
+                }
+                */
+                Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
+                if (elementVersioning != null) {
+                    Log.v(TAG, "updateFolder: nodeVersioning: Removing versioning node");
+                    removeChildElementFromTextNode(r, elementVersioning);
+                }
+
+                // Pass 2: Add versioning node from the POJO model.
+                Node nodeVersioning = mConfig.createElement("versioning");
+                r.appendChild(nodeVersioning);
+                elementVersioning = (Element) nodeVersioning;
+                if (!TextUtils.isEmpty(folder.versioning.type)) {
+                    elementVersioning.setAttribute("type", folder.versioning.type);
+                    for (Map.Entry<String, String> param : folder.versioning.params.entrySet()) {
+                        Log.v(TAG, "updateFolder: nodeVersioning: Adding param key=" + param.getKey() + ", val=" + param.getValue());
+                        Node nodeParam = mConfig.createElement("param");
+                        elementVersioning.appendChild(nodeParam);
+                        Element elementParam = (Element) nodeParam;
+                        elementParam.setAttribute("key", param.getKey());
+                        elementParam.setAttribute("val", param.getValue());
+                    }
+                }
+
+                break;
+            }
+        }
+    }
+
+    public void removeFolder(String folderId) {
+        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
+        for (int i = nodeFolders.getLength() - 1; i >= 0; i--) {
+            Element r = (Element) nodeFolders.item(i);
+            if (folderId.equals(getAttributeOrDefault(r, "id", ""))) {
+                // Found folder node to remove.
+                Log.v(TAG, "removeFolder: Removing folder node, folderId=" + folderId);
+                removeChildElementFromTextNode((Element) r.getParentNode(), r);
+                break;
+            }
+        }
+    }
+
+    public void setFolderPause(String folderId, Boolean paused) {
+        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
+        for (int i = 0; i < nodeFolders.getLength(); i++) {
+            Element r = (Element) nodeFolders.item(i);
+            if (getAttributeOrDefault(r, "id", "").equals(folderId))
+            {
+                setConfigElement(r, "paused", Boolean.toString(paused));
+                break;
+            }
+        }
+    }
+
+    /**
+     * Gets ignore list for given folder.
+     */
+    public void getFolderIgnoreList(Folder folder, OnResultListener1<FolderIgnoreList> listener) {
+        FolderIgnoreList folderIgnoreList = new FolderIgnoreList();
+        File file;
+        FileInputStream fileInputStream = null;
+        try {
+            file = new File(folder.path, ".stignore");
+            if (file.exists()) {
+                fileInputStream = new FileInputStream(file);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                byte[] data = new byte[(int) file.length()];
+                fileInputStream.read(data);
+                folderIgnoreList.ignore = new String(data, "UTF-8").split("\n");
+            } else {
+                // File not found.
+                Log.w(TAG, "getFolderIgnoreList: File missing " + file);
+                /**
+                 * Don't fail as the file might be expectedly missing when users didn't
+                 * set ignores in the past storyline of that folder.
+                 */
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/.stignore' #1", e);
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/.stignore' #2", e);
+            }
+        }
+        listener.onResult(folderIgnoreList);
+    }
+
+    /**
+     * Stores ignore list for given folder.
+     */
+    public void postFolderIgnoreList(Folder folder, String[] ignore) {
+        File file;
+        FileOutputStream fileOutputStream = null;
+        try {
+            file = new File(folder.path, ".stignore");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fileOutputStream = new FileOutputStream(file);
+            // Log.v(TAG, "postFolderIgnoreList: Writing .stignore content=" + TextUtils.join("\n", ignore));
+            fileOutputStream.write(TextUtils.join("\n", ignore).getBytes("UTF-8"));
+            fileOutputStream.flush();
+        } catch (IOException e) {
+            /**
+             * This will happen on external storage folders which exist outside the
+             * "/Android/data/[package_name]/files" folder on Android 5+.
+             */
+            Log.w(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/.stignore' #1", e);
+        } finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/.stignore' #2", e);
+            }
+        }
+    }
+
+    public List<Device> getDevices(Boolean includeLocal) {
+        String localDeviceID = getLocalDeviceIDfromPref();
+        List<Device> devices = new ArrayList<>();
+
+        // Prevent enumerating "<device>" tags below "<folder>" nodes by enumerating child nodes manually.
+        NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeName().equals("device")) {
+                Element r = (Element) node;
+                Device device = new Device();
+                device.compression = getAttributeOrDefault(r, "compression", "metadata");
+                device.deviceID = getAttributeOrDefault(r, "id", "");
+                device.introducedBy = getAttributeOrDefault(r, "introducedBy", "");
+                device.introducer =  getAttributeOrDefault(r, "introducer", false);
+                device.name = getAttributeOrDefault(r, "name", "");
+                device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
+
+                // Addresses
+                /*
+                <device ...>
+                    <address>dynamic</address>
+                    <address>tcp4://192.168.1.67:2222</address>
+                </device>
+                */
+                device.addresses = new ArrayList<>();
+                NodeList nodeAddresses = r.getElementsByTagName("address");
+                for (int j = 0; j < nodeAddresses.getLength(); j++) {
+                    String address = getContentOrDefault(nodeAddresses.item(j), "");
+                    device.addresses.add(address);
+                    // Log.v(TAG, "getDevices: address=" + address);
+                }
+
+                // For testing purposes only.
+                // Log.v(TAG, "getDevices: device.name=" + device.name + "/" +"device.id=" + device.deviceID + "/" + "device.paused=" + device.paused);
+
+                // Exclude self if requested.
+                Boolean isLocalDevice = !TextUtils.isEmpty(device.deviceID) && device.deviceID.equals(localDeviceID);
+                if (includeLocal || !isLocalDevice) {
+                    devices.add(device);
+                }
+            }
+        }
+        Collections.sort(devices, DEVICES_COMPARATOR);
+        return devices;
+    }
+
+    public void addDevice(final Device device, OnResultListener1<String> errorListener) {
+        if (!isDeviceIdValid(device.deviceID)) {
+            errorListener.onResult(mContext.getString(R.string.device_id_invalid));
+            return;
+        }
+
+        Log.v(TAG, "addDevice: deviceID=" + device.deviceID);
+        Node nodeConfig = mConfig.getDocumentElement();
+        Node nodeDevice = mConfig.createElement("device");
+        nodeConfig.appendChild(nodeDevice);
+        Element elementDevice = (Element) nodeDevice;
+        elementDevice.setAttribute("id", device.deviceID);
+        updateDevice(device);
+    }
+
+    public void updateDevice(final Device device) {
+        // Prevent enumerating "<device>" tags below "<folder>" nodes by enumerating child nodes manually.
+        NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeName().equals("device")) {
+                Element r = (Element) node;
+                if (device.deviceID.equals(getAttributeOrDefault(r, "id", ""))) {
+                    // Found device to update.
+                    r.setAttribute("compression", device.compression);
+                    r.setAttribute("introducedBy", device.introducedBy);
+                    r.setAttribute("introducer", Boolean.toString(device.introducer));
+                    r.setAttribute("name", device.name);
+
+                    setConfigElement(r, "paused", Boolean.toString(device.paused));
+
+                    // Addresses
+                    // Pass 1: Remove all addresses in XML.
+                    NodeList nodeAddresses = r.getElementsByTagName("address");
+                    for (int j = nodeAddresses.getLength() - 1; j >= 0; j--) {
+                        Element elementAddress = (Element) nodeAddresses.item(j);
+                        Log.v(TAG, "updateDevice: nodeAddresses: Removing address=" + getContentOrDefault(elementAddress, ""));
+                        removeChildElementFromTextNode(r, elementAddress);
+                    }
+
+                    // Pass 2: Add addresses from the POJO model.
+                    if (device.addresses != null) {
+                        for (String address : device.addresses) {
+                            Log.v(TAG, "updateDevice: nodeAddresses: Adding address=" + address);
+                            Node nodeAddress = mConfig.createElement("address");
+                            r.appendChild(nodeAddress);
+                            Element elementAddress = (Element) nodeAddress;
+                            elementAddress.setTextContent(address);
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
+
+    public void removeDevice(String deviceID) {
+        // Prevent enumerating "<device>" tags below "<folder>" nodes by enumerating child nodes manually.
+        NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeName().equals("device")) {
+                Element r = (Element) node;
+                if (deviceID.equals(getAttributeOrDefault(r, "id", ""))) {
+                    // Found device to remove.
+                    Log.v(TAG, "removeDevice: Removing device node, deviceID=" + deviceID);
+                    removeChildElementFromTextNode((Element) r.getParentNode(), r);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void setDevicePause(String deviceId, Boolean paused) {
+        // Prevent enumerating "<device>" tags below "<folder>" nodes by enumerating child nodes manually.
+        NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (node.getNodeName().equals("device")) {
+                Element r = (Element) node;
+                if (getAttributeOrDefault(r, "id", "").equals(deviceId))
+                {
+                    setConfigElement(r, "paused", Boolean.toString(paused));
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * If an indented child element is removed, whitespace and line break will be left by
+     * Element.removeChild().
+     * See https://stackoverflow.com/questions/14255064/removechild-how-to-remove-indent-too
+     */
+    private void removeChildElementFromTextNode(Element parentElement, Element childElement) {
+        Node prev = childElement.getPreviousSibling();
+        if (prev != null &&
+                prev.getNodeType() == Node.TEXT_NODE &&
+                prev.getNodeValue().trim().length() == 0) {
+            parentElement.removeChild(prev);
+        }
+        parentElement.removeChild(childElement);
     }
 
     private boolean setConfigElement(Element parent, String tagName, String textContent) {
@@ -348,15 +860,22 @@ public class ConfigXml {
     }
 
     /**
+     * Returns if a syncthing device ID is correctly formatted.
+     */
+    private Boolean isDeviceIdValid(final String deviceID) {
+        return deviceID.matches("^([A-Z0-9]{7}-){7}[A-Z0-9]{7}$");
+    }
+
+    /**
      * Writes updated mConfig back to file.
      */
-    private void saveChanges() {
+    public void saveChanges() {
         if (!mConfigFile.canWrite() && !Util.fixAppDataPermissions(mContext)) {
             Log.w(TAG, "Failed to save updated config. Cannot change the owner of the config file.");
             return;
         }
 
-        Log.i(TAG, "Writing updated config file");
+        Log.i(TAG, "Saving config file");
         File mConfigTempFile = Constants.getConfigTempFile(mContext);
         try {
             // Write XML header.

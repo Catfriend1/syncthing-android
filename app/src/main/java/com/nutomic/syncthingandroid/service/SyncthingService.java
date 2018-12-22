@@ -8,6 +8,7 @@ import android.Manifest;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -20,6 +21,7 @@ import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
+import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.FileUtils;
@@ -37,6 +39,7 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -112,6 +115,13 @@ public class SyncthingService extends Service {
     public static final String EXTRA_FOLDER_ID =
             "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_FOLDER_ID";
 
+    /**
+     * Extra used together with ACTION_STOP.
+     */
+    public static final String EXTRA_STOP_AFTER_CRASHED_NATIVE =
+            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE";
+
+
     public interface OnSyncthingKilled {
         void onKilled();
     }
@@ -155,7 +165,6 @@ public class SyncthingService extends Service {
      */
     private State mCurrentState = State.DISABLED;
     private ConfigXml mConfig;
-    private StartupTask mStartupTask = null;
     private Thread mSyncthingRunnableThread = null;
     private Handler mHandler;
 
@@ -276,9 +285,23 @@ public class SyncthingService extends Service {
 
         if (ACTION_RESTART.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             shutdown(State.INIT, () -> launchStartupTask(SyncthingRunnable.Command.main));
-        } else if (ACTION_STOP.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            shutdown(State.DISABLED, () -> {
-            });
+        } else if (ACTION_STOP.equals(intent.getAction())) {
+            if (intent.getBooleanExtra(EXTRA_STOP_AFTER_CRASHED_NATIVE, false)) {
+                /**
+                 * We were requested to stop the service because the syncthing native binary crashed.
+                 * Changing mCurrentState prevents the "defer until syncthing is started" routine we normally
+                 * use for clean shutdown to take place. Instead, we will immediately shutdown the crashed
+                 * instance forcefully.
+                 */
+                mCurrentState = State.ERROR;
+                shutdown(State.DISABLED, () -> {});
+            } else {
+                // Graceful shutdown.
+                if (mCurrentState == State.STARTING ||
+                        mCurrentState == State.ACTIVE) {
+                    shutdown(State.DISABLED, () -> {});
+                }
+            }
         } else if (ACTION_RESET_DATABASE.equals(intent.getAction())) {
             Log.i(TAG, "Invoking reset of database");
             shutdown(State.INIT, () -> {
@@ -348,10 +371,84 @@ public class SyncthingService extends Service {
      * After sync preconditions changed, we need to inform {@link RestApi} to pause or
      * unpause devices and folders as defined in per-object sync preferences.
      */
-    private void onSyncPreconditionChanged() {
-        if (mRestApi != null) {
-            // Forward event.
-            mRestApi.onSyncPreconditionChanged(mRunConditionMonitor);
+    private void onSyncPreconditionChanged(RunConditionMonitor runConditionMonitor) {
+        synchronized (mStateLock) {
+            if (mRestApi != null && mCurrentState == State.ACTIVE) {
+                // Forward event because syncthing is running.
+                mRestApi.onSyncPreconditionChanged(runConditionMonitor);
+                return;
+            }
+        }
+
+        Log.v(TAG, "onSyncPreconditionChanged: Event fired while syncthing is not running.");
+        Boolean configChanged = false;
+        ConfigXml configXml;
+
+        // Read and parse the config from disk.
+        configXml = new ConfigXml(this);
+        try {
+            configXml.loadConfig();
+        } catch (ConfigXml.OpenConfigException e) {
+            mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "onSyncPreconditionChanged:ConfigXml.OpenConfigException");
+            synchronized (mStateLock) {
+                onServiceStateChange(State.ERROR);
+            }
+            return;
+        }
+
+        // Check if the folders are available from config.
+        List<Folder> folders = configXml.getFolders();
+        if (folders != null) {
+            for (Folder folder : folders) {
+                // Log.v(TAG, "onSyncPreconditionChanged: Processing config of folder.id=" + folder.id);
+                Boolean folderCustomSyncConditionsEnabled = mPreferences.getBoolean(
+                    Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id), false
+                );
+                if (folderCustomSyncConditionsEnabled) {
+                    Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
+                        Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id
+                    );
+                    Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
+                    if (folder.paused != !syncConditionsMet) {
+                        configXml.setFolderPause(folder.id, !syncConditionsMet);
+                        Log.d(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? ">1" : ">0"));
+                        configChanged = true;
+                    }
+                }
+            }
+        } else {
+            Log.d(TAG, "onSyncPreconditionChanged: folders == null");
+            return;
+        }
+
+        // Check if the devices are available from config.
+        List<Device> devices = configXml.getDevices(false);
+        if (devices != null) {
+            for (Device device : devices) {
+                // Log.v(TAG, "onSyncPreconditionChanged: Processing config of device.id=" + device.deviceID);
+                Boolean deviceCustomSyncConditionsEnabled = mPreferences.getBoolean(
+                    Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID), false
+                );
+                if (deviceCustomSyncConditionsEnabled) {
+                    Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
+                        Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID
+                    );
+                    Log.v(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? "1" : "0"));
+                    if (device.paused != !syncConditionsMet) {
+                        configXml.setDevicePause(device.deviceID, !syncConditionsMet);
+                        Log.d(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? ">1" : ">0"));
+                        configChanged = true;
+                    }
+                }
+            }
+        } else {
+            Log.d(TAG, "onSyncPreconditionChanged: devices == null");
+            return;
+        }
+
+        if (configChanged) {
+            Log.v(TAG, "onSyncPreconditionChanged: Saving changed config to disk ...");
+            configXml.saveChanges();
         }
     }
 
@@ -359,77 +456,25 @@ public class SyncthingService extends Service {
      * Prepares to launch the syncthing binary.
      */
     private void launchStartupTask(SyncthingRunnable.Command srCommand) {
-        Log.v(TAG, "Starting syncthing");
         synchronized (mStateLock) {
             if (mCurrentState != State.DISABLED && mCurrentState != State.INIT) {
                 Log.e(TAG, "launchStartupTask: Wrong state " + mCurrentState + " detected. Cancelling.");
                 return;
             }
         }
-
-        // Safety check: Log warning if a previously launched startup task did not finish properly.
-        if (mStartupTask != null && (mStartupTask.getStatus() == AsyncTask.Status.RUNNING)) {
-            Log.w(TAG, "launchStartupTask: StartupTask is still running. Skipped starting it twice.");
+        Log.v(TAG, "Starting syncthing");
+        onServiceStateChange(State.STARTING);
+        mConfig = new ConfigXml(this);
+        try {
+            mConfig.loadConfig();
+        } catch (ConfigXml.OpenConfigException e) {
+            mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "ConfigXml.OpenConfigException");
+            synchronized (mStateLock) {
+                onServiceStateChange(State.ERROR);
+            }
             return;
         }
-        onServiceStateChange(State.STARTING);
-        mStartupTask = new StartupTask(this, srCommand);
-        mStartupTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-    }
 
-    /**
-     * Sets up the initial configuration, and updates the config when coming from an old
-     * version.
-     */
-    private static class StartupTask extends AsyncTask<Void, Void, Void> {
-        private WeakReference<SyncthingService> refSyncthingService;
-        private SyncthingRunnable.Command srCommand;
-
-        StartupTask(SyncthingService context, SyncthingRunnable.Command srCommand) {
-            refSyncthingService = new WeakReference<>(context);
-            this.srCommand = srCommand;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            SyncthingService syncthingService = refSyncthingService.get();
-            if (syncthingService == null) {
-                cancel(true);
-                return null;
-            }
-            try {
-                syncthingService.mConfig = new ConfigXml(syncthingService);
-                syncthingService.mConfig.updateIfNeeded();
-            } catch (SyncthingRunnable.ExecutableNotFoundException e) {
-                syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "SycnthingRunnable.ExecutableNotFoundException");
-                synchronized (syncthingService.mStateLock) {
-                    syncthingService.onServiceStateChange(State.ERROR);
-                }
-                cancel(true);
-            } catch (ConfigXml.OpenConfigException e) {
-                syncthingService.mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "ConfigXml.OpenConfigException");
-                synchronized (syncthingService.mStateLock) {
-                    syncthingService.onServiceStateChange(State.ERROR);
-                }
-                cancel(true);
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            // Get a reference to the service if it is still there.
-            SyncthingService syncthingService = refSyncthingService.get();
-            if (syncthingService != null) {
-                syncthingService.onStartupTaskCompleteListener(srCommand);
-            }
-        }
-    }
-
-    /**
-     * Callback on {@link StartupTask#onPostExecute}.
-     */
-    private void onStartupTaskCompleteListener(SyncthingRunnable.Command srCommand) {
         if (mRestApi == null) {
             mRestApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),
                     this::onApiAvailable, () -> onServiceStateChange(mCurrentState));
@@ -652,13 +697,13 @@ public class SyncthingService extends Service {
         mCurrentState = newState;
         mHandler.post(() -> {
             mNotificationHandler.updatePersistentNotification(this);
-            for (Iterator<OnServiceStateChangeListener> i = mOnServiceStateChangeListeners.iterator();
-                 i.hasNext(); ) {
-                OnServiceStateChangeListener listener = i.next();
+            Iterator<OnServiceStateChangeListener> it = mOnServiceStateChangeListeners.iterator();
+            while (it.hasNext()) {
+                OnServiceStateChangeListener listener = it.next();
                 if (listener != null) {
                     listener.onServiceStateChange(mCurrentState);
                 } else {
-                    i.remove();
+                    it.remove();
                 }
             }
         });
@@ -773,7 +818,14 @@ public class SyncthingService extends Service {
 
         // Start syncthing after export if run conditions apply.
         if (mLastDeterminedShouldRun) {
-            launchStartupTask(SyncthingRunnable.Command.main);
+            Handler mainLooper = new Handler(Looper.getMainLooper());
+            Runnable launchStartupTaskRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    launchStartupTask(SyncthingRunnable.Command.main);
+                }
+            };
+            mainLooper.post(launchStartupTaskRunnable);
         }
         return failSuccess;
     }
@@ -844,6 +896,7 @@ public class SyncthingService extends Service {
                         case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
                         case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
                         case Constants.PREF_LAST_BINARY_VERSION:
+                        case Constants.PREF_LOCAL_DEVICE_ID:
                             Log.v(TAG, "importConfig: Ignoring cache pref \"" + prefKey + "\".");
                             break;
                         default:
@@ -929,7 +982,14 @@ public class SyncthingService extends Service {
 
         // Start syncthing after import if run conditions apply.
         if (mLastDeterminedShouldRun) {
-            launchStartupTask(SyncthingRunnable.Command.main);
+            Handler mainLooper = new Handler(Looper.getMainLooper());
+            Runnable launchStartupTaskRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    launchStartupTask(SyncthingRunnable.Command.main);
+                }
+            };
+            mainLooper.post(launchStartupTaskRunnable);
         }
         return failSuccess;
     }

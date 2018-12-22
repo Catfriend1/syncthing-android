@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,15 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.util.Util;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 /**
  * Generates item views for device items.
  */
 public class DevicesAdapter extends ArrayAdapter<Device> {
+
+    private static final String TAG = "DevicesAdapter";
 
     private Connections mConnections;
 
@@ -36,6 +42,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             convertView = inflater.inflate(R.layout.item_device_list, parent, false);
         }
 
+        View rateInOutView = convertView.findViewById(R.id.rateInOutContainer);
         TextView name = convertView.findViewById(R.id.name);
         TextView status = convertView.findViewById(R.id.status);
         TextView download = convertView.findViewById(R.id.download);
@@ -52,16 +59,17 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         }
 
         if (conn == null) {
-            download.setText(Util.readableTransferRate(getContext(), 0));
-            upload.setText(Util.readableTransferRate(getContext(), 0));
+            // Syncthing is not running.
+            rateInOutView.setVisibility(GONE);
+            status.setVisibility(GONE);
             status.setText(r.getString(R.string.device_state_unknown));
             status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
             return convertView;
         }
 
         if (conn.paused) {
-            download.setText(Util.readableTransferRate(getContext(), 0));
-            upload.setText(Util.readableTransferRate(getContext(), 0));
+            rateInOutView.setVisibility(GONE);
+            status.setVisibility(VISIBLE);
             status.setText(r.getString(R.string.device_paused));
             status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_black));
             return convertView;
@@ -70,6 +78,8 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         if (conn.connected) {
             download.setText(Util.readableTransferRate(getContext(), conn.inBits));
             upload.setText(Util.readableTransferRate(getContext(), conn.outBits));
+            rateInOutView.setVisibility(VISIBLE);
+            status.setVisibility(VISIBLE);
             if (conn.completion == 100) {
                 status.setText(r.getString(R.string.device_up_to_date));
                 status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
@@ -81,8 +91,8 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         }
 
         // !conn.connected
-        download.setText(Util.readableTransferRate(getContext(), 0));
-        upload.setText(Util.readableTransferRate(getContext(), 0));
+        rateInOutView.setVisibility(GONE);
+        status.setVisibility(VISIBLE);
         status.setText(r.getString(R.string.device_disconnected));
         status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
         return convertView;
@@ -91,14 +101,20 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
     /**
      * Requests new connection info for all devices visible in listView.
      */
-    public void updateConnections(RestApi api) {
+    public void updateDeviceStatus(RestApi restApi) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running. Clear last state.
+            mConnections = null;
+            return;
+        }
         for (int i = 0; i < getCount(); i++) {
-            api.getConnections(this::onReceiveConnections);
+            restApi.getConnections(this::onReceiveConnections);
         }
     }
 
     private void onReceiveConnections(Connections connections) {
         mConnections = connections;
+        // This will invoke "getView" for all elements.
         notifyDataSetChanged();
     }
 }

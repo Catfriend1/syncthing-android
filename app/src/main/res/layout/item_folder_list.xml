@@ -32,7 +32,6 @@
                 android:id="@+id/state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/id"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:textAppearance="?textAppearanceListItemSmall" />
@@ -41,7 +40,7 @@
                 android:id="@+id/directory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/state"
+                android:layout_below="@id/label"
                 android:ellipsize="end"
                 android:textAppearance="?textAppearanceListItemSecondary" />
 

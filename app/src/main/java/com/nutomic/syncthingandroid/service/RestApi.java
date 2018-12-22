@@ -71,7 +71,6 @@ public class RestApi {
     private final static Comparator<Folder> FOLDERS_COMPARATOR = (lhs, rhs) -> {
         String lhsLabel = lhs.label != null && !lhs.label.isEmpty() ? lhs.label : lhs.id;
         String rhsLabel = rhs.label != null && !rhs.label.isEmpty() ? rhs.label : rhs.id;
-
         return lhsLabel.compareTo(rhsLabel);
     };
 
@@ -453,7 +452,7 @@ public class RestApi {
     /**
      * This is only used for new folder creation, see {@link FolderActivity}.
      */
-    public void createFolder(Folder folder) {
+    public void addFolder(Folder folder) {
         synchronized (mConfigLock) {
             // Add the new folder to the model.
             mConfig.folders.add(folder);
@@ -500,7 +499,7 @@ public class RestApi {
      *
      * @param includeLocal True if the local device should be included in the result.
      */
-    public List<Device> getDevices(boolean includeLocal) {
+    public List<Device> getDevices(Boolean includeLocal) {
         List<Device> devices;
         synchronized (mConfigLock) {
             devices = deepCopy(mConfig.devices, new TypeToken<List<Device>>(){}.getType());
@@ -850,6 +849,7 @@ public class RestApi {
                         Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
                         if (folder.paused != !syncConditionsMet) {
                             folder.paused = !syncConditionsMet;
+                            Log.d(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? ">1" : ">0"));
                             configChanged = true;
                         }
                     }
@@ -872,6 +872,7 @@ public class RestApi {
                         Log.v(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? "1" : "0"));
                         if (device.paused != !syncConditionsMet) {
                             device.paused = !syncConditionsMet;
+                            Log.d(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? ">1" : ">0"));
                             configChanged = true;
                         }
                     }

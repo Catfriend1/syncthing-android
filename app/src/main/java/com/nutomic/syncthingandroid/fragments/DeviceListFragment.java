@@ -20,6 +20,7 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.views.DevicesAdapter;
 
 import java.util.Collections;
@@ -34,7 +35,14 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
 
     private final static String TAG = "DeviceListFragment";
 
-    private final static Comparator<Device> DEVICES_COMPARATOR = (lhs, rhs) -> lhs.name.compareTo(rhs.name);
+    /**
+     * Compares devices by name, uses the device ID as fallback if the name is empty
+     */
+    private final static Comparator<Device> DEVICES_COMPARATOR = (lhs, rhs) -> {
+        String lhsName = lhs.name != null && !lhs.name.isEmpty() ? lhs.name : lhs.deviceID;
+        String rhsName = rhs.name != null && !rhs.name.isEmpty() ? rhs.name : rhs.deviceID;
+        return lhsName.compareTo(rhsName);
+    };
 
     private Runnable mUpdateListRunnable = new Runnable() {
         @Override
@@ -107,18 +115,11 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
      *  while the user is looking at the current tab.
      */
     private void onTimerEvent() {
-        if (mServiceState != SyncthingService.State.ACTIVE) {
-            return;
-        }
         MainActivity mainActivity = (MainActivity) getActivity();
         if (mainActivity == null) {
             return;
         }
         if (mainActivity.isFinishing()) {
-            return;
-        }
-        RestApi restApi = mainActivity.getApi();
-        if (restApi == null) {
             return;
         }
         Log.v(TAG, "Invoking updateList on UI thread");
@@ -135,11 +136,19 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         if (activity == null || getView() == null || activity.isFinishing()) {
             return;
         }
+        List<Device> devices;
         RestApi restApi = activity.getApi();
-        if (restApi == null || !restApi.isConfigLoaded()) {
-            return;
+        if (restApi == null ||
+                !restApi.isConfigLoaded() ||
+                mServiceState != SyncthingService.State.ACTIVE) {
+            // Syncthing is not running or REST API is not available yet.
+            ConfigXml configXml = new ConfigXml(activity);
+            configXml.loadConfig();
+            devices = configXml.getDevices(false);
+        } else {
+            // Syncthing is running and REST API is available.
+            devices = restApi.getDevices(false);
         }
-        List<Device> devices = restApi.getDevices(false);
         if (devices == null) {
             return;
         }
@@ -153,7 +162,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         mAdapter.clear();
         Collections.sort(devices, DEVICES_COMPARATOR);
         mAdapter.addAll(devices);
-        mAdapter.updateConnections(restApi);
+        mAdapter.updateDeviceStatus(restApi);
         mAdapter.notifyDataSetChanged();
         setListShown(true);
     }

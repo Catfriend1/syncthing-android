@@ -58,7 +58,7 @@ public class RunConditionMonitor {
     }
 
     public interface OnSyncPreconditionChangedListener {
-        void onSyncPreconditionChanged();
+        void onSyncPreconditionChanged(RunConditionMonitor runConditionMonitor);
     }
 
     private class SyncConditionResult {
@@ -189,7 +189,7 @@ public class RunConditionMonitor {
 
         // Notify about changed preconditions.
         if (mOnSyncPreconditionChangedListener != null) {
-            mOnSyncPreconditionChangedListener.onSyncPreconditionChanged();
+            mOnSyncPreconditionChangedListener.onSyncPreconditionChanged(this);
         }
     }
 

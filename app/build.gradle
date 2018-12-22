@@ -37,8 +37,8 @@ android {
         applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 4181
-        versionName "0.14.54.2"
+        versionCode 4182
+        versionName "0.14.54.3"
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         playAccountConfig = playAccountConfigs.defaultAccountConfig

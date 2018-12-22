@@ -19,6 +19,7 @@ import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.views.FoldersAdapter;
 
 import java.util.List;
@@ -102,18 +103,11 @@ public class FolderListFragment extends ListFragment implements SyncthingService
      *  while the user is looking at the current tab.
      */
     private void onTimerEvent() {
-        if (mServiceState != SyncthingService.State.ACTIVE) {
-            return;
-        }
         MainActivity mainActivity = (MainActivity) getActivity();
         if (mainActivity == null) {
             return;
         }
         if (mainActivity.isFinishing()) {
-            return;
-        }
-        RestApi restApi = mainActivity.getApi();
-        if (restApi == null) {
             return;
         }
         Log.v(TAG, "Invoking updateList on UI thread");
@@ -130,11 +124,19 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         if (activity == null || getView() == null || activity.isFinishing()) {
             return;
         }
+        List<Folder> folders;
         RestApi restApi = activity.getApi();
-        if (restApi == null || !restApi.isConfigLoaded()) {
-            return;
+        if (restApi == null ||
+                !restApi.isConfigLoaded() ||
+                mServiceState != SyncthingService.State.ACTIVE) {
+            // Syncthing is not running or REST API is not available yet.
+            ConfigXml configXml = new ConfigXml(activity);
+            configXml.loadConfig();
+            folders = configXml.getFolders();
+        } else {
+            // Syncthing is running and REST API is available.
+            folders = restApi.getFolders();
         }
-        List<Folder> folders = restApi.getFolders();
         if (folders == null) {
             return;
         }

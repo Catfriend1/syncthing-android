@@ -40,6 +40,8 @@ import javax.inject.Inject;
 
 import eu.chainfire.libsuperuser.Shell;
 
+import static com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE;
+
 /**
  * Runs the syncthing binary from command line, and prints its output to logcat.
  *
@@ -258,8 +260,10 @@ public class SyncthingRunnable implements Runnable {
 
         // Notify {@link SyncthingService} that service state State.ACTIVE is no longer valid.
         if (!returnStdOut && sendStopToService) {
-            mContext.startService(new Intent(mContext, SyncthingService.class)
-                    .setAction(SyncthingService.ACTION_STOP));
+            Intent intent = new Intent(mContext, SyncthingService.class);
+            intent.setAction(SyncthingService.ACTION_STOP);
+            intent.putExtra(EXTRA_STOP_AFTER_CRASHED_NATIVE, true);
+            mContext.startService(intent);
         }
 
         // Return captured command line output.

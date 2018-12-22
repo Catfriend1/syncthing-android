@@ -38,6 +38,8 @@ public abstract class ApiRequest {
 
     private static final String TAG = "ApiRequest";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     /**
      * The name of the HTTP header used for the syncthing API key.
      */
@@ -92,7 +94,9 @@ public abstract class ApiRequest {
      */
     void connect(int requestMethod, Uri uri, @Nullable String requestBody,
                  @Nullable OnSuccessListener listener, @Nullable OnErrorListener errorListener) {
-        Log.v(TAG, "Performing request to " + uri.toString());
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, "Performing request to " + uri.toString());
+        }
         StringRequest request = new StringRequest(requestMethod, uri.toString(), reply -> {
             if (listener != null) {
                 listener.onSuccess(reply);

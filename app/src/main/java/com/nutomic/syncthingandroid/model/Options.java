@@ -34,6 +34,7 @@ public class Options {
     public String[] alwaysLocalNets;
     public boolean overwriteRemoteDeviceNamesOnConnect;
     public int tempIndexMinBlocks;
+    public String defaultFolderPath;
 
     public static final int USAGE_REPORTING_UNDECIDED = 0;
     public static final int USAGE_REPORTING_DENIED    = -1;

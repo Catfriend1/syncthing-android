@@ -62,6 +62,20 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             mContext.startService(intent);
         });
         binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
+
+        // Update folder icon.
+        int drawableId = R.drawable.ic_folder_black_24dp_active;
+        switch (folder.type) {
+            case Constants.FOLDER_TYPE_RECEIVE_ONLY:
+                drawableId = R.drawable.ic_folder_receive_only;
+                break;
+            case Constants.FOLDER_TYPE_SEND_ONLY:
+                drawableId = R.drawable.ic_folder_send_only;
+                break;
+            default:
+        }
+        binding.openFolder.setImageResource(drawableId);
+
         updateFolderStatusView(binding, folder);
         return binding.getRoot();
     }
@@ -72,6 +86,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             binding.items.setVisibility(GONE);
             binding.override.setVisibility(GONE);
             binding.size.setVisibility(GONE);
+            binding.state.setVisibility(GONE);
             setTextOrHide(binding.invalid, folder.invalid);
             return;
         }
@@ -80,6 +95,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         boolean outOfSync = folderStatus.state.equals("idle") && neededItems > 0;
         boolean overrideButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
         binding.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
+        binding.state.setVisibility(VISIBLE);
         if (outOfSync) {
             binding.state.setText(mContext.getString(R.string.status_outofsync));
             binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
@@ -143,8 +159,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
      * Requests updated folder status from the api for all visible items.
      */
     public void updateFolderStatus(RestApi restApi) {
-        if (restApi == null) {
-            Log.e(TAG, "updateFolderStatus: restApi == null");
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running. Clear last state.
+            mLocalFolderStatuses.clear();
             return;
         }
 
@@ -158,6 +175,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
     private void onReceiveFolderStatus(String folderId, FolderStatus folderStatus) {
         mLocalFolderStatuses.put(folderId, folderStatus);
+        // This will invoke "getView" for all elements.
         notifyDataSetChanged();
     }
 

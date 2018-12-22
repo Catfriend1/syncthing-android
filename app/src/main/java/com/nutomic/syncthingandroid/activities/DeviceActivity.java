@@ -34,6 +34,7 @@ import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.Compression;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
@@ -68,12 +69,14 @@ public class DeviceActivity extends SyncthingActivity
     public static final String EXTRA_IS_CREATE =
             "com.nutomic.syncthingandroid.activities.DeviceActivity.IS_CREATE";
 
-    private static final String TAG = "DeviceSettingsFragment";
+    private static final String TAG = "DeviceActivity";
     private static final String IS_SHOWING_DISCARD_DIALOG = "DISCARD_FOLDER_DIALOG_STATE";
     private static final String IS_SHOWING_COMPRESSION_DIALOG = "COMPRESSION_FOLDER_DIALOG_STATE";
     private static final String IS_SHOWING_DELETE_DIALOG = "DELETE_FOLDER_DIALOG_STATE";
 
     private static final List<String> DYNAMIC_ADDRESS = Collections.singletonList("dynamic");
+
+    private ConfigRouter mConfig;
 
     private Device mDevice;
 
@@ -186,6 +189,8 @@ public class DeviceActivity extends SyncthingActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        mConfig = new ConfigRouter(DeviceActivity.this);
+
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
         setContentView(R.layout.fragment_device);
@@ -338,14 +343,9 @@ public class DeviceActivity extends SyncthingActivity
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
-        if (currentState != ACTIVE) {
-            finish();
-            return;
-        }
-
         if (!mIsCreateMode) {
-            RestApi restApi = getApi();     // restApi != null because of State.ACTIVE
-            List<Device> devices = restApi.getDevices(false);
+            RestApi restApi = getApi();
+            List<Device> devices = mConfig.getDevices(restApi, false);
             String passedId = getIntent().getStringExtra(EXTRA_DEVICE_ID);
             mDevice = null;
             for (Device currentDevice : devices) {
@@ -427,8 +427,16 @@ public class DeviceActivity extends SyncthingActivity
                             .show();
                     return true;
                 }
-                getApi().addDevice(mDevice, error ->
-                        Toast.makeText(this, error, Toast.LENGTH_LONG).show());
+                if (isEmpty(mDevice.name)) {
+                    Toast.makeText(this, R.string.device_name_required, Toast.LENGTH_LONG)
+                            .show();
+                    return true;
+                }
+                mConfig.addDevice(
+                    getApi(),
+                    mDevice,
+                    error -> Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+                );
                 finish();
                 return true;
             case R.id.share_device_id:
@@ -455,7 +463,8 @@ public class DeviceActivity extends SyncthingActivity
         return new android.app.AlertDialog.Builder(this)
                 .setMessage(R.string.remove_device_confirm)
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
-                    getApi().removeDevice(mDevice.deviceID);
+                    mConfig.removeDevice(getApi(), mDevice.deviceID);
+                    mDeviceNeedsToUpdate = false;
                     finish();
                 })
                 .setNegativeButton(android.R.string.no, null)
@@ -474,6 +483,9 @@ public class DeviceActivity extends SyncthingActivity
         }
     }
 
+    /**
+     * Used in mIsCreateMode.
+     */
     private void initDevice() {
         mDevice = new Device();
         mDevice.name = getIntent().getStringExtra(EXTRA_DEVICE_NAME);
@@ -482,6 +494,7 @@ public class DeviceActivity extends SyncthingActivity
         mDevice.compression = METADATA.getValue(this);
         mDevice.introducer = false;
         mDevice.paused = false;
+        mDevice.introducedBy = "";
     }
 
     private void prepareEditMode() {
@@ -501,13 +514,14 @@ public class DeviceActivity extends SyncthingActivity
      */
     private void updateDevice() {
         if (mIsCreateMode) {
-            // If we are about to create this folder, we cannot update via restApi.
+            // If we are about to create this device, we cannot update via restApi.
             return;
         }
         if (mDevice == null) {
             Log.e(TAG, "updateDevice: mDevice == null");
             return;
         }
+        // Log.v(TAG, "deviceID=" + mDevice.deviceID + ", introducedBy=" + mDevice.introducedBy);
 
         // Save device specific preferences.
         Log.v(TAG, "updateDevice: mDevice.deviceID = \'" + mDevice.deviceID + "\'");
@@ -518,26 +532,42 @@ public class DeviceActivity extends SyncthingActivity
         );
         editor.apply();
 
-        // Update device via restApi and send the config to REST endpoint.
-        RestApi restApi = getApi();
-        if (restApi == null) {
-            Log.e(TAG, "updateDevice: restApi == null");
-            return;
-        }
-        restApi.updateDevice(mDevice);
+        // Update device using RestApi or ConfigXml.
+        mConfig.updateDevice(getApi(), mDevice);
     }
 
     private List<String> persistableAddresses(CharSequence userInput) {
-        return isEmpty(userInput)
-                ? DYNAMIC_ADDRESS
-                : Arrays.asList(userInput.toString().split(" "));
+        if (isEmpty(userInput)) {
+            return DYNAMIC_ADDRESS;
+        }
+
+        /**
+         * Be fault-tolerant here.
+         * The user can write like this:
+         * tcp4://192.168.1.67:2222, dynamic
+         * tcp4://192.168.1.67:2222; dynamic
+         * tcp4://192.168.1.67:2222,dynamic
+         * tcp4://192.168.1.67:2222;dynamic
+         * tcp4://192.168.1.67:2222 dynamic
+         */
+        String input = userInput.toString();
+        input = input.replace(",", " ");
+        input = input.replace(";", " ");
+        input = input.replaceAll("\\s+", ", ");
+        // Log.v(TAG, "persistableAddresses: Cleaned user input=" + input);
+
+        // Split and return the addresses as String[].
+        return Arrays.asList(input.split(", "));
     }
 
     private String displayableAddresses() {
+        if (mDevice.addresses == null) {
+            return "";
+        }
         List<String> list = DYNAMIC_ADDRESS.equals(mDevice.addresses)
                 ? DYNAMIC_ADDRESS
                 : mDevice.addresses;
-        return TextUtils.join(" ", list);
+        return TextUtils.join(", ", list);
     }
 
     @Override

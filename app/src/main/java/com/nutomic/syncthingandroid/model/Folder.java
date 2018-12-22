@@ -21,15 +21,15 @@ public class Folder {
     public boolean fsWatcherEnabled = true;
     public int fsWatcherDelayS = 10;
     private List<Device> devices = new ArrayList<>();
-    public int rescanIntervalS;
-    public final boolean ignorePerms = true;
+    public int rescanIntervalS = 3600;
+    public boolean ignorePerms = true;
     public boolean autoNormalize = true;
     public MinDiskFree minDiskFree;
     public Versioning versioning;
-    public int copiers;
+    public int copiers = 0;
     public int pullerMaxPendingKiB;
-    public int hashers;
-    public String order;
+    public int hashers = 0;
+    public String order = "random";
     public boolean ignoreDelete;
     public int scanProgressIntervalS;
     public int pullerPauseS;
@@ -52,10 +52,15 @@ public class Folder {
         public String unit;
     }
 
-    public void addDevice(String deviceId) {
+    public void addDevice(final Device device) {
         Device d = new Device();
-        d.deviceID = deviceId;
+        d.deviceID = device.deviceID;
+        d.introducedBy = device.introducedBy;
         devices.add(d);
+    }
+
+    public List<Device> getDevices() {
+        return devices;
     }
 
     public Device getDevice(String deviceId) {
@@ -78,6 +83,8 @@ public class Folder {
 
     @Override
     public String toString() {
-        return !TextUtils.isEmpty(label) ? label : id;
+        return (TextUtils.isEmpty(label))
+                ? (TextUtils.isEmpty(id) ? "" : id)
+                : label;
     }
 }

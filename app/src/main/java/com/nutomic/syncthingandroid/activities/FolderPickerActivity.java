@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -31,8 +30,6 @@ import com.google.common.collect.Sets;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
-import com.nutomic.syncthingandroid.service.SyncthingService;
-import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
@@ -45,7 +42,7 @@ import java.util.Iterator;
  * Activity that allows selecting a directory in the local file system.
  */
 public class FolderPickerActivity extends SyncthingActivity
-        implements AdapterView.OnItemClickListener, SyncthingService.OnServiceStateChangeListener {
+        implements AdapterView.OnItemClickListener {
 
     private static final String EXTRA_INITIAL_DIRECTORY =
             "com.nutomic.syncthingandroid.activities.FolderPickerActivity.INITIAL_DIRECTORY";
@@ -149,22 +146,6 @@ public class FolderPickerActivity extends SyncthingActivity
         }
 
         mRootsAdapter.addAll(Sets.newTreeSet(roots));
-    }
-
-    @Override
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        super.onServiceConnected(componentName, iBinder);
-        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
-        syncthingServiceBinder.getService().registerOnServiceStateChangeListener(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        SyncthingService syncthingService = getService();
-        if (syncthingService != null) {
-            syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
-        }
     }
 
     @Override
@@ -319,14 +300,6 @@ public class FolderPickerActivity extends SyncthingActivity
         } else if (mRootsAdapter.contains(mLocation) && mRootsAdapter.getCount() > 1) {
             displayRoot();
         } else {
-            setResult(Activity.RESULT_CANCELED);
-            finish();
-        }
-    }
-
-    @Override
-    public void onServiceStateChange(SyncthingService.State currentState) {
-        if (!isFinishing() && currentState != SyncthingService.State.ACTIVE) {
             setResult(Activity.RESULT_CANCELED);
             finish();
         }

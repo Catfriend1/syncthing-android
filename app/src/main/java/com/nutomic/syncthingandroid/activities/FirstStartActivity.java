@@ -94,13 +94,28 @@ public class FirstStartActivity extends Activity {
         ((SyncthingApp) getApplication()).component().inject(this);
 
         /**
+         * Check if a valid config exists that can be read and parsed.
+         */
+        Boolean configParseable = false;
+        Boolean configExists = Constants.getConfigFile(this).exists();
+        if (configExists) {
+            ConfigXml configParseTest = new ConfigXml(this);
+            try {
+                configParseTest.loadConfig();
+                configParseable = true;
+            } catch (ConfigXml.OpenConfigException e) {
+                Log.d(TAG, "Failed to parse existing config. Will show key generation slide ...");
+            }
+        }
+
+        /**
          * Check if prerequisites to run the app are still in place.
          * If anything mandatory is missing, the according welcome slide(s) will be shown.
          */
         Boolean showSlideStoragePermission = !haveStoragePermission();
         Boolean showSlideIgnoreDozePermission = !haveIgnoreDozePermission();
         Boolean showSlideLocationPermission = !haveLocationPermission();
-        Boolean showSlideKeyGeneration = !Constants.getConfigFile(this).exists();
+        Boolean showSlideKeyGeneration = !configExists || !configParseable;
 
         /**
          * If we don't have to show slides for mandatory prerequisites,
@@ -480,8 +495,10 @@ public class FirstStartActivity extends Activity {
                 cancel(true);
                 return null;
             }
+            configXml = new ConfigXml(firstStartActivity);
             try {
-                configXml = new ConfigXml(firstStartActivity);
+                // Create new secure keys and config.
+                configXml.generateConfig();
             } catch (ExecutableNotFoundException e) {
                 publishProgress(firstStartActivity.getString(R.string.executable_not_found, e.getMessage()));
                 cancel(true);

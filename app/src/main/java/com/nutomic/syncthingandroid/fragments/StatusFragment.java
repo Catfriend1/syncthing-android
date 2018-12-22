@@ -260,7 +260,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         int announceConnected =
                 announceTotal - Optional.fromNullable(systemStatus.discoveryErrors).transform(Map::size).or(0);
         synchronized (mStatusHolderLock) {
-            mCpuUsage = (systemStatus.cpuPercent / 100 < 1) ? "" : percentFormat.format(systemStatus.cpuPercent / 100);
+            mCpuUsage = (systemStatus.cpuPercent < 5) ? "" : percentFormat.format(systemStatus.cpuPercent / 100);
             mRamUsage = Util.readableFileSize(mActivity, systemStatus.sys);
             mAnnounceServer = (announceTotal == 0) ?
                     "" :
