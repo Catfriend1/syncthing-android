@@ -15,6 +15,8 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -49,7 +51,17 @@ public class RunConditionMonitor {
     private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
         @Override
         public void onStatusChanged(int which) {
-            updateShouldRunDecision();
+            /**
+             * We need a Looper here, see issue https://github.com/Catfriend1/syncthing-android/issues/149
+             */
+            Handler mainLooper = new Handler(Looper.getMainLooper());
+            Runnable updateShouldRunDecisionRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    updateShouldRunDecision();
+                }
+            };
+            mainLooper.post(updateShouldRunDecisionRunnable);
         }
     };
 
