@@ -11,14 +11,36 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Welkom bij Syncthing voor Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Introductie</string>
     <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing.\n\
-Om gegevens met andere apparaten te delen moet je hun unieke apparaats-ID toevoegen aan de lijst met apparaten. Nadien kan je kiezen welke mappen je met welke apparaten wil delen.\n\
+Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.\n\
 Als je problemen tegenkomt, meld ze dan via GitHub.</string>
 
-    <string name="cont">Verder</string>
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Opslagmachtiging</string>
+    <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
+
+    <!-- Slide "Location Permission"" -->
+    <string name="location_permission_title">Locatiemachtiging</string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Sleutelgeneratie</string>
+    <string name="key_generation_success">Veilige sleutels voor uitwisselen van privégegevens zijn gegenereerd.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Terug</string>
+    <string name="cont">Doorgaan</string>
     <string name="finish">Voltooien</string>
     <string name="generic_example">Voorbeeld</string>
     <string name="generic_error">Fout</string>
+    <string name="generic_help">Hulp</string>
+    <string name="grant_permission">Machtiging verlene</string>
+    <string name="permission_granted">Machtiging verleend</string>
+    <string name="reason">Reden:</string>
+
+    <string name="accept">Accepteren</string>
+
     <string name="ignore">Negeren</string>
 
     <!-- Title of the "add folder" menu action -->

@@ -193,6 +193,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="folder_fileWatcher">Auf Änderungen achten</string>
     <string name="folder_fileWatcherDescription">Fordert das Betriebssystem auf, über Änderungen an Dateien zu informieren. Falls deaktiviert erfolgt stattdessen stündliches Scannen.</string>
 
+    <!-- Setting title and description -->
+    <string name="folder_variable_size_blocks_caption">Variable Blockgröße</string>
+    <string name="folder_variable_size_blocks_description">Blöcke variabler Größe (auch \"große Blöcke\") sind effizienter für größere Dateien. Wenn Du dies für einen Ordner aktivierst, musst du es für diesen Ordner auf allen Geräten aktivieren.</string>
+
     <!-- Setting title -->
     <string name="folder_pause">Ordner pausieren</string>
 

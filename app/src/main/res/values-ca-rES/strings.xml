@@ -11,14 +11,51 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Benvinguts al Syncthing per Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Introducció</string>
     <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert.\n\
 Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.\n\
 Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Permís d\'emmagatzematge</string>
+    <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>
+
+    <!-- Slide "Location Permission"" -->
+    <string name="location_permission_title">Permís d\'ubicació</string>
+    <string name="location_permission_desc">Podeu configurar el Syncthing perquè funcioni amb les xarxes Wi-Fi que seleccioneu. L\'Android requereix que les aplicacions tinguin permís d\'ubicació per poder cercar el nom de les xarxes Wi-Fi actives, ja que es podria deduir la localització de l\'usuari a partir del nom de la xarxa a la qual es troba connectat. Si voleu utilitzar aquesta característica, premeu el botó de la part superior per donar els permisos necessaris al Syncthing. Altrament podeu ometre aquest pas.</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Generació de Claus</string>
+    <string name="key_generation_success">S\'han generat amb èxit les claus segures per a l\'intercanvi privat de dades</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Torna</string>
     <string name="cont">Continua</string>
     <string name="finish">Finalitza</string>
     <string name="generic_example">Exemple</string>
     <string name="generic_error">Error</string>
+    <string name="generic_help">Ajuda</string>
+    <string name="grant_permission">Concedeix permís</string>
+    <string name="permission_granted">Permís concedit</string>
+    <string name="reason">Raó:</string>
+
+    <string name="accept">Accepta</string>
+
+    <string name="ignore">Ignora</string>
+
+    <!-- MainActivity -->
+
+
+
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">S\'ha trobat un error conegut que encara no està resolt. Vegeu %1$s/%2$s per més informació. Siusplau doneu una descripció precisa del que ha passat amb antelació.</string>
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Confirmeu sortir de l\'aplicació</string>
+    <string name="dialog_exit_while_running_as_service_message">Per la vostra consideració: Heu configurat l\'aplicació perquè s\'iniciï automàticament durant l\'arrencada. Per tant es comproven les condicions d\'execució i es sincronitza en qualsevol moment que les condicions s\'acompleixen. Només hauríeu de tancar manualment si us trobeu amb problemes greus. Altrament, desactiveu \"Inicia automàticament durant l\'arrencada\" a la configuració. Voleu tancar ara fins que el dispositiu es reiniciï?</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Afegeix una carpeta</string>
 
@@ -40,8 +77,13 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="toast_write_storage_permission_required">Aquesta aplicació requereix el permís d\'escriptura a l\'emmagatzematge</string>
 
+    <string name="device_rejected">El dispositiu \"%1$s\" es vol connectar</string>
+
+    <string name="folder_rejected">El dispositiu \"%1$s\" vol compartir la carpeta \"%2$s\"</string>
+
     <string name="ignore_doze_permission_title">Optimització de bateria</string>
     <string name="ignore_doze_permission_desc">Passat algun temps, l\'Android podria aturar la sincronització. Per evitar-ho, apagueu l\'optimitzador de bateria.\n\nAlguns dispositius porten pre-instal·lades aplicacions que finalitzen les tasques automàticament, en aquest cas hauríeu d\'afegir el Syncthing a la seva llista d\'aplicacions autoritzades.</string>
+    <string name="toast_ignore_doze_permission_required">Aquesta aplicació només pot funcionar de maner fiable si està eximida del mode d\'estalvi d\'energia \"doze\"</string>
     <string name="dialog_disable_battery_optimizations_not_supported">El teu dispositiu no permet desactivar les optimitzacions de bateria</string>
 
     <!-- StateDialogActivity -->
@@ -64,7 +106,16 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item quantity="other">%1$d / %2$d Fitxers</item>
     </plurals>
 
+    <string name="override_changes">Anul·la els canvis</string>
+
     <string name="open_file_manager">Obre l\'administrador d\'arxius</string>
+    <string name="open_file_with">Obre el fitxer amb</string>
+    <string name="open_file_no_compatible_app">No s\'ha trobat cap aplicació per obrir el fitxer</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">No s\'ha trobat cap gestor de fitxers compatible</string>
+    <string name="suggest_file_manager_app_dialog_text">Us recomanem instal·lar el gestor de fitxers de codi obert \"Simple File Manager\" de F-Droid. Voleu obrir la pàgina de la botiga d\'aplicacions?</string>
+
     <!-- DevicesFragment -->
 
 
@@ -94,6 +145,13 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Title for current upload rate -->
     <string name="upload_title">Pujada</string>
 
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Estat</string>
+    <string name="syncthing_starting">El Syncthing s\'està iniciant.</string>
+    <string name="syncthing_running">El Syncthing està en funcionament.</string>
+    <string name="syncthing_not_running">El Syncthing no està en funcionament.</string>
+    <string name="syncthing_has_crashed">El Syncthinc s\'ha tancat inesperadament.</string>
+
     <!-- DrawerFragment -->
 
 
@@ -111,6 +169,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- Title for announce server status -->
     <string name="announce_server">Servidor d\'Anunci</string>
+
+    <!-- Title for uptime status -->
+    <string name="uptime">Temps actiu</string>
 
     <string name="restart">Reinicia</string>
 
@@ -163,6 +224,15 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="folder_path_required">El camí de la carpeta no pot ser buit</string>
 
     <string name="dialog_discard_changes">Voleu descartar els canvis?</string>
+
+    <!-- Summary shown if we only have readonly access to the folder path -->
+    <string name="folder_path_readonly">La vostra versió d\'Android només permet accés de lectura al Syncthing per la carpeta seleccionada</string>
+
+    <!-- Summary shown if we only have readwrite access to the folder path -->
+    <string name="folder_path_readwrite">La vostra versió d\'Android permet accés de lectura i escriptura al Syncthing per la carpeta seleccionada</string>
+
+    <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
+    <string name="toast_invalid_folder_selected">Ho sentim. La capeta seleccionada no es pot utilitzar. Trieu una carpeta de l\'emmagatzematge intern o extern.</string>
 
     <string name="ignore_patterns">Patrons a ignorar</string>
     <!-- DeviceActivity -->
@@ -219,6 +289,25 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">No s\'han obtingut permisos de superusuari</string>
 
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Consells i trucs</string>
+
+    <string name="tip_write_to_sdcard_title">Solució alternativa per escriure a la targeta SD externa</string>
+    <string name="tip_sync_on_local_network_title">Sincronitza només utilitzant la xarxa WiFi local</string>
+    <string name="tip_custom_sync_conditions_title">Utilitza condicions de sincronització per carpeta/dispositiu</string>
+    <string name="tip_huawei_device_disconnected_title">Solució alternativa per \'dispositiu desconnectat\' amb Huawei</string>
+    <string name="tip_phone_ip_address_syntax">ADREÇA_IP_TELÈFON</string>
+
+    <string name="tip_xiaomi_autostart_title">Xiaomi: l\'aplicació no s\'inicia durant l\'arrencada</string>
+    <!-- RecentChangesActivity -->
+    <string name="recent_changes_title">Canvis recents</string>
+    <string name="modified_by_device">Dispositiu: %1$s</string>
+    <string name="modification_time">Temps: %1$s</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -235,11 +324,28 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="category_run_conditions">Condicions d\'execució</string>
     <string name="category_behaviour">Comportament</string>
     <string name="category_syncthing_options">Opcions del Syncthing</string>
+    <string name="category_backup">Importa i Exporta</string>
     <string name="category_debug">Depuració</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condicions d\'execució</string>
+    <string name="run_conditions_summary">Utilitzeu les següents opcions per decidir quan s\'executarà el Syncthing.</string>
+
+    <string name="run_on_mobile_data_title">Executa amb dades mòbils</string>
+    <string name="run_on_mobile_data_summary">Executa quan el dispositiu es connecti a través de la xarxa de dades mòbils. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
+
+    <string name="run_on_wifi_title">Executa amb Wi-Fi</string>
+    <string name="run_on_wifi_summary">Executa quan el dispositiu es connecti a una xarxa Wi-Fi.</string>
+
+    <string name="run_on_metered_wifi_title">Executa amb Wi-Fi mesurada</string>
+    <string name="run_on_metered_wifi_summary">Executa quan el dispositiu estigui connectat a una xarxa Wi-Fi mesurada, com ara una zona amb cobertura o un ancoratge. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
+
+    <string name="run_on_whitelisted_wifi_title">Executa amb les xarxes Wi-Fi especificades</string>
+    <string name="specify_wifi_ssid_whitelist">Selecciona les xarxes Wi-Fi</string>
+    <string name="run_on_whitelisted_wifi_networks">Xarxes Wi-Fi seleccionades: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">No s\'ha triat cap xarxa Wi-Fi. Feu clic per triar les xarxes.</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Enceneu el WiFi per seleccionar xarxes.</string>
 
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Heu de proporcionar el permís d\'UBICACIÓ per poder fer això.</string>
@@ -247,7 +353,25 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de l\'Android 8.1, cal tenir accés a la ubicació per poder llegir el nom de la WiFi. Només ho podreu fer si concediu aquest permís.</string>
 
+    <string name="power_source_title">Executa quan el dispositiu estigui encès</string>
+
+    <string-array name="power_source_entries">
+        <item>Connectat a la corrent i amb bateria</item>
+        <item>Connectat a la corrent</item>
+        <item>Amb bateria</item>
+    </string-array>
+
     <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
+    <string name="respect_battery_saving_summary">Desactiva el Syncthing durant el mode d\'estalvi de bateria.</string>
+
+    <string name="respect_master_sync_title">Respecta l\'ajustament de l\'Android d\'\'Auto-sincronitzar dades\'</string>
+    <string name="respect_master_sync_summary">Desactiva el Syncthing quan l\'ajustament ràpid d\'\'Auto-sincronitzar dades\' estigui apagat.</string>
+
+    <string name="run_in_flight_mode_title">Executa sense connexió a la xarxa</string>
+    <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Inici automàtic</string>
+    <string name="behaviour_autostart_summary">Inicia l\'aplicació automàticament durant l\'arrencada del sistema operatiu</string>
+
     <string name="use_root_title">Executa el Syncthing com a Superusuari</string>
 
     <string name="use_root_summary">Aquesta característica és inestable i podria causar problemes amb el Syncthing i amb el vostre dispositiu. Si us trobeu amb problemes, potser haureu de reinstal·lar el Syncthing.</string>
@@ -261,6 +385,21 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="start_into_web_gui_summary">Quan s\'inicia la aplicació, obre la interfície web enlloc de la pantalla principal</string>
 
     <string name="pref_language_default">Idioma per defecte</string>
+
+    <string-array name="folder_types">
+        <item>Envia i rep</item>
+        <item>Només envia</item>
+        <item>Només rep</item>
+    </string-array>
+
+    <string-array name="pull_order_types">
+        <item>Aleatori</item>
+        <item>Alfabètic</item>
+        <item>Primer el més petit</item>
+        <item>Primer el més gran</item>
+        <item>Primer el més antic</item>
+        <item>Primer el més nou</item>
+    </string-array>
 
     <string-array name="versioning_types">
         <item>Cap</item>
@@ -291,6 +430,11 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="usage_reporting">Informes d\'ús anònims</string>
 
     <string name="gui_address">Adreça d\'escolta de la interfície gràfica</string>
+
+    <!-- Titles for the preference to undo ignored devices and folders -->
+    <string name="undo_ignored_devices_folders_title">Desfés ignorant els dispositius i carpetes</string>
+    <string name="undo_ignored_devices_folders_question">Això desfarà les decisions anteriors d\'ignorar els dispositius i carpetes. Voleu continuar?</string>
+    <string name="undo_ignored_devices_folders_done">S\'han desfet les decisions correctament</string>
 
     <string name="export_config">Exporta la configuració</string>
 
@@ -335,6 +479,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">S\'ha exportat la configuració a %1$s</string>
+    <string name="config_export_failed">Ha fallat la exportació de la configuració, comproveu el fitxer de registre.</string>
+
     <string name="import_config">Importa la configuració</string>
 
     <!-- Toast shown after config was imported -->
@@ -381,9 +527,15 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Informeu d\'un problema</string>
 
+    <!-- Summary for the issue tracker settings item -->
+    <string name="report_issue_summary">Obre el rastrejador de problemes del Syncthing-Fork</string>
+
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versió del Syncthing</string>
+
+    <!-- Title of the preference showing this app's version name -->
+    <string name="app_version_title">Versió de l\'embolcall del Syncthing-Fork</string>
 
     <!-- FolderPickerAcitivity -->
 
@@ -469,6 +621,17 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Sub Folder title -->
     <string name="sub_folder">Subcarpeta</string>
 
+    <!-- RunConditionMonitor -->
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_charging">El telèfon no s\'està carregant.</string>
+    <string name="reason_not_on_battery_power">El telèfon no està connectat a la corrent.</string>
+    <string name="reason_not_while_power_saving">El Syncthing no està funcionant perquè el telèfon està en mode d\'estalvi d\'energia.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">El Syncthing no està funcionant perquè l\'Android té la funció \'Sincronització automàtica de dades\' desactivada.</string>
+    <string name="reason_mobile_data_disallowed">El Syncthing no té permís per funcionar amb connexions de dades mòbils.</string>
+    <string name="reason_on_mobile_data">El Syncthing està funcionant perquè les dades mòbils estan actives.</string>
+    <string name="reason_not_on_mobile_data">El Syncthing pot funcionar amb connexions de dades mòbils però les dades mòbils no estan connectades.</string>
+    <string name="reason_wifi_disallowed">El Syncthing no té permís per funcionar amb WiFi.</string>
     <!-- SyncthingService -->
 
 
@@ -484,7 +647,12 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
 
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="executable_not_found">Falta l\'executable essencial \"%s\". Comproveu el fitxer de registre.</string>
     <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
+    <!-- Toast shown if a config file crucial to operation is missing -->
+    <string name="config_file_missing">Falta un fitxer de configuració esencial per al funcionament</string>
+
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Càmera</string>
 
@@ -545,7 +713,28 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="appconfig_receiver_background_enabled">No es permet aturar el Syncthing mentre s\'està executant en segon pla.</string>
 
+    <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
+    <string name="folder_type">Tipus de carpeta</string>
+
+    <!-- Displays the current folder type in the folder activity -->
+    <string name="folder_type_sendreceive">Envia i rep</string>
     <string name="folder_type_sendonly">Només envia</string>
+    <string name="folder_type_receiveonly">Només rep</string>
+
+    <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
+    <string name="pull_order">Ordre en què s\'estiren els fitxers</string>
+
+    <!-- Displays the current pull order type in the Folder activity -->
+    <string name="pull_order_type_random">Aleatori</string>
+    <string name="pull_order_type_alphabetic">Alfabètic</string>
+    <string name="pull_order_type_smallestFirst">Primer els més petits</string>
+    <string name="pull_order_type_largestFirst">Primer els més grans</string>
+    <string name="pull_order_type_oldestFirst">Primer els més antics</string>
+    <string name="pull_order_type_newestFirst">Primer els més nous</string>
+
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">Estira els fitxers en ordre aleatori.</string>
+    <string name="pull_order_type_alphabetic_description">Estira els fitxers ordenats alfabèticament pel nom.</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Antiguitat Màxima</string>
     <string name="clean_out_after">Neteja després de</string>
@@ -583,4 +772,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="browse">Navega</string>
     <string name="no_sub_folder_is_selected">No s\'ha triat cap subcarpeta</string>
     <string name="share_device_id_chooser">Comparteix la ID del dispositiu amb</string>
-    </resources>
+    <string name="custom_sync_conditions_title">Condicions d\'execució personalitzades</string>
+    <string name="custom_sync_conditions_dialog">Especifica les condicions de sincronització</string>
+
+</resources>
