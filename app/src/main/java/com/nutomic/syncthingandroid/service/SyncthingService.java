@@ -121,11 +121,6 @@ public class SyncthingService extends Service {
     public static final String EXTRA_STOP_AFTER_CRASHED_NATIVE =
             "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE";
 
-
-    public interface OnSyncthingKilled {
-        void onKilled();
-    }
-
     public interface OnServiceStateChangeListener {
         void onServiceStateChange(State currentState);
     }
@@ -284,7 +279,8 @@ public class SyncthingService extends Service {
         }
 
         if (ACTION_RESTART.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            shutdown(State.INIT, () -> launchStartupTask(SyncthingRunnable.Command.main));
+            shutdown(State.INIT);
+            launchStartupTask(SyncthingRunnable.Command.main);
         } else if (ACTION_STOP.equals(intent.getAction())) {
             if (intent.getBooleanExtra(EXTRA_STOP_AFTER_CRASHED_NATIVE, false)) {
                 /**
@@ -294,25 +290,49 @@ public class SyncthingService extends Service {
                  * instance forcefully.
                  */
                 mCurrentState = State.ERROR;
-                shutdown(State.DISABLED, () -> {});
+                shutdown(State.DISABLED);
             } else {
                 // Graceful shutdown.
                 if (mCurrentState == State.STARTING ||
                         mCurrentState == State.ACTIVE) {
-                    shutdown(State.DISABLED, () -> {});
+                    shutdown(State.DISABLED);
                 }
             }
         } else if (ACTION_RESET_DATABASE.equals(intent.getAction())) {
+            /**
+             * 1. Stop syncthing native if it's running.
+             * 2. Reset the database, syncthing native will exit after performing the reset.
+             * 3. Relaunch syncthing native if it was previously running.
+             */
             Log.i(TAG, "Invoking reset of database");
-            shutdown(State.INIT, () -> {
-                new SyncthingRunnable(this, SyncthingRunnable.Command.resetdatabase).run();
+            if (mCurrentState != State.DISABLED) {
+                // Shutdown synchronously.
+                shutdown(State.DISABLED);
+            }
+            new SyncthingRunnable(this, SyncthingRunnable.Command.resetdatabase).run();
+            if (mLastDeterminedShouldRun) {
                 launchStartupTask(SyncthingRunnable.Command.main);
-            });
+            }
         } else if (ACTION_RESET_DELTAS.equals(intent.getAction())) {
+            /**
+             * 1. Stop syncthing native if it's running.
+             * 2. Reset delta index, syncthing native will NOT exit after performing the reset.
+             * 3. If syncthing was previously NOT running:
+             * 3.1  Schedule a shutdown of the native binary after it left State.STARTING (to State.ACTIVE).
+             *      This is the moment, when the reset delta index work was completed and Web UI came up.
+             * 3.2  The shutdown gets deferred until State.ACTIVE was reached and then syncthing native will
+             *      be shutdown synchronously.
+             */             
             Log.i(TAG, "Invoking reset of delta indexes");
-            shutdown(State.INIT, () -> {
-                launchStartupTask(SyncthingRunnable.Command.resetdeltas);
-            });
+            if (mCurrentState != State.DISABLED) {
+                // Shutdown synchronously.
+                shutdown(State.DISABLED);
+            }
+            launchStartupTask(SyncthingRunnable.Command.resetdeltas);
+            if (!mLastDeterminedShouldRun) {
+                // Shutdown if syncthing was not running before the UI action was raised.
+                shutdown(State.DISABLED);
+            }
         } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
             mRunConditionMonitor.updateShouldRunDecision();
         } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
@@ -361,8 +381,7 @@ public class SyncthingService extends Service {
                     return;
                 }
                 Log.v(TAG, "Stopping syncthing");
-                shutdown(State.DISABLED, () -> {
-                });
+                shutdown(State.DISABLED);
             }
         }
     }
@@ -585,29 +604,28 @@ public class SyncthingService extends Service {
                     mDestroyScheduled = true;
                 } else {
                     Log.i(TAG, "Shutting down syncthing binary immediately");
-                    shutdown(State.DISABLED, () -> {
-                    });
+                    shutdown(State.DISABLED);
                 }
             }
         } else {
             // If the storage permission got revoked, we did not start the binary and
             // are in State.INIT requiring an immediate shutdown of this service class.
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
-            shutdown(State.DISABLED, () -> {
-            });
+            shutdown(State.DISABLED);
         }
         super.onDestroy();
     }
 
     /**
-     * Stop Syncthing and all helpers like event processor and api handler.
-     * Sets {@link #mCurrentState} to newState, and calls onKilledListener once Syncthing is killed.
+     * Stop SyncthingNative and all helpers like event processor and api handler.
+     * Sets {@link #mCurrentState} to newState.
+     * Performs a synchronous shutdown of the native binary.
      */
-    private void shutdown(State newState, OnSyncthingKilled onKilledListener) {
+    private void shutdown(State newState) {
         if (mCurrentState == State.STARTING) {
             Log.w(TAG, "Deferring shutdown until State.STARTING was left");
             mHandler.postDelayed(() -> {
-                shutdown(newState, onKilledListener);
+                shutdown(newState);
             }, 1000);
             return;
         }
@@ -646,7 +664,6 @@ public class SyncthingService extends Service {
             }
             mSyncthingRunnable = null;
         }
-        onKilledListener.onKilled();
     }
 
     public @Nullable
@@ -740,8 +757,7 @@ public class SyncthingService extends Service {
         Log.v(TAG, "exportConfig BEGIN");
 
         // Shutdown synchronously.
-        shutdown(State.DISABLED, () -> {
-        });
+        shutdown(State.DISABLED);
 
         // Copy config, privateKey and/or publicKey to export path.
         Constants.EXPORT_PATH_OBJ.mkdirs();
@@ -843,8 +859,7 @@ public class SyncthingService extends Service {
         Log.v(TAG, "importConfig BEGIN");
 
         // Shutdown synchronously.
-        shutdown(State.DISABLED, () -> {
-        });
+        shutdown(State.DISABLED);
 
         // Import config, privateKey and/or publicKey.
         try {

@@ -37,6 +37,8 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
     private static final String TAG = "EventProcessor";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     /**
      * Minimum interval in seconds at which the events are polled from syncthing and processed.
      * This intervall will not wake up the device to save battery power.
@@ -96,7 +98,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         switch (event.type) {
             case "ConfigSaved":
                 if (mRestApi != null) {
-                    Log.v(TAG, "Forwarding ConfigSaved event to RestApi to get the updated config.");
+                    Log.d(TAG, "Forwarding ConfigSaved event to RestApi to get the updated config.");
                     mRestApi.reloadConfig();
                 }
                 break;
@@ -162,12 +164,12 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "Starting":
             case "StartupComplete":
             case "StateChanged":
-                if (BuildConfig.DEBUG) {
+                if (ENABLE_VERBOSE_LOG) {
                     Log.v(TAG, "Ignored event " + event.type + ", data " + event.data);
                 }
                 break;
             default:
-                Log.v(TAG, "Unhandled event " + event.type);
+                Log.d(TAG, "Unhandled event " + event.type);
         }
     }
 

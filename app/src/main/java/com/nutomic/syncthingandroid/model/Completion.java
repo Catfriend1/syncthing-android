@@ -17,6 +17,8 @@ public class Completion {
 
     private static final String TAG = "Completion";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     HashMap<String, HashMap<String, CompletionInfo>> deviceFolderMap =
         new HashMap<String, HashMap<String, CompletionInfo>>();
 
@@ -55,14 +57,18 @@ public class Completion {
             }
         }
         for (String deviceId : removedDevices) {
-            Log.v(TAG, "updateFromConfig: Remove device '" + deviceId + "' from cache model");
+            if (ENABLE_VERBOSE_LOG) {
+                Log.v(TAG, "updateFromConfig: Remove device '" + deviceId + "' from cache model");
+            }
             deviceFolderMap.remove(deviceId);
         }
 
         // Handle devices that were added to the config.
         for (Device device : newDevices) {
             if (!deviceFolderMap.containsKey(device.deviceID)) {
-                Log.v(TAG, "updateFromConfig: Add device '" + device.deviceID + "' to cache model");
+                if (ENABLE_VERBOSE_LOG) {
+                    Log.v(TAG, "updateFromConfig: Add device '" + device.deviceID + "' to cache model");
+                }
                 deviceFolderMap.put(device.deviceID, new HashMap<String, CompletionInfo>());
             }
         }
@@ -85,7 +91,9 @@ public class Completion {
             }
         }
         for (String folderId : removedFolders) {
-            Log.v(TAG, "updateFromConfig: Remove folder '" + folderId + "' from cache model");
+            if (ENABLE_VERBOSE_LOG) {
+                Log.v(TAG, "updateFromConfig: Remove folder '" + folderId + "' from cache model");
+            }
             removeFolder(folderId);
         }
 
@@ -96,8 +104,10 @@ public class Completion {
                     // folder is shared with device.
                     folderMap = deviceFolderMap.get(device.deviceID);
                     if (!folderMap.containsKey(folder.id)) {
-                        Log.v(TAG, "updateFromConfig: Add folder '" + folder.id +
-                                    "' shared with device '" + device.deviceID + "' to cache model.");
+                        if (ENABLE_VERBOSE_LOG) {
+                            Log.v(TAG, "updateFromConfig: Add folder '" + folder.id +
+                                        "' shared with device '" + device.deviceID + "' to cache model.");
+                        }
                         folderMap.put(folder.id, new CompletionInfo());
                     }
                 }
