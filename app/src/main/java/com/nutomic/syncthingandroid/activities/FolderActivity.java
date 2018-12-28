@@ -109,6 +109,7 @@ public class FolderActivity extends SyncthingActivity
     private TextView mPullOrderDescriptionView;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
+    private SwitchCompat mVariableSizeBlocks;
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
 
@@ -162,6 +163,10 @@ public class FolderActivity extends SyncthingActivity
                     }
                     mFolderNeedsToUpdate = true;
                     break;
+                case R.id.variableSizeBlocks:
+                    mFolder.useLargeBlocks = isChecked;
+                    mFolderNeedsToUpdate = true;
+                    break;
             }
         }
     };
@@ -193,6 +198,7 @@ public class FolderActivity extends SyncthingActivity
         mPullOrderDescriptionView = findViewById(R.id.pullOrderDescription);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
+        mVariableSizeBlocks = findViewById(R.id.variableSizeBlocks);
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
         mEditIgnoreListContent = findViewById(R.id.edit_ignore_list_content);
@@ -449,6 +455,7 @@ public class FolderActivity extends SyncthingActivity
         mFolderFileWatcher.setOnCheckedChangeListener(null);
         mFolderPaused.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
+        mVariableSizeBlocks.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
@@ -458,6 +465,7 @@ public class FolderActivity extends SyncthingActivity
         updateVersioningDescription();
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         mFolderPaused.setChecked(mFolder.paused);
+        mVariableSizeBlocks.setChecked(mFolder.useLargeBlocks);
         findViewById(R.id.editIgnoresContainer).setVisibility(mIsCreateMode ? View.GONE : View.VISIBLE);
 
         // Update views - custom sync conditions.
@@ -491,6 +499,7 @@ public class FolderActivity extends SyncthingActivity
         mFolderFileWatcher.setOnCheckedChangeListener(mCheckedListener);
         mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);
+        mVariableSizeBlocks.setOnCheckedChangeListener(mCheckedListener);
     }
 
     @Override

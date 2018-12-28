@@ -398,6 +398,7 @@ public class ConfigXml {
             folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), 0);
             folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), "random");
             folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
+            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), false);
 
             // Devices
             /*
@@ -480,6 +481,7 @@ public class ConfigXml {
                 setConfigElement(r, "hashers", Integer.toString(folder.hashers));
                 setConfigElement(r, "order", folder.order);
                 setConfigElement(r, "paused", Boolean.toString(folder.paused));
+                setConfigElement(r, "useLargeBlocks", Boolean.toString(folder.useLargeBlocks));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.

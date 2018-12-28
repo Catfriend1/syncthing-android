@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class Folder {
 
+    // Folder Configuration
     public String id;
     public String label;
     public String filesystemType = "basic";
@@ -30,16 +31,18 @@ public class Folder {
     public int pullerMaxPendingKiB;
     public int hashers = 0;
     public String order = "random";
-    public boolean ignoreDelete;
-    public int scanProgressIntervalS;
-    public int pullerPauseS;
+    public boolean ignoreDelete = false;
+    public int scanProgressIntervalS = 0;
+    public int pullerPauseS = 0;
     public int maxConflicts = 10;
-    public boolean disableSparseFiles;
-    public boolean disableTempIndexes;
-    public boolean paused;
-    public boolean useLargeBlocks;
+    public boolean disableSparseFiles = false;
+    public boolean disableTempIndexes = false;
+    public boolean paused = false;
+    public boolean useLargeBlocks = false;
     public int weakHashThresholdPct = 25;
     public String markerName = ".stfolder";
+
+    // Folder Status
     public String invalid;
 
     public static class Versioning implements Serializable {
