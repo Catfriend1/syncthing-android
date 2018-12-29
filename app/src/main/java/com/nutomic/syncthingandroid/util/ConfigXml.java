@@ -154,7 +154,9 @@ public class ConfigXml {
         String localDeviceID = logOutput.replace("\n", "");
 
         // Verify that local device ID is correctly formatted.
-        if (!isDeviceIdValid(localDeviceID)) {
+        Device localDevice = new Device();
+        localDevice.deviceID = localDeviceID;
+        if (!localDevice.checkDeviceID()) {
             Log.w(TAG, "getLocalDeviceIDandStoreToPref: Syncthing core returned a bad formatted device ID \"" + localDeviceID + "\"");
             return "";
         }
@@ -682,12 +684,7 @@ public class ConfigXml {
         return devices;
     }
 
-    public void addDevice(final Device device, OnResultListener1<String> errorListener) {
-        if (!isDeviceIdValid(device.deviceID)) {
-            errorListener.onResult(mContext.getString(R.string.device_id_invalid));
-            return;
-        }
-
+    public void addDevice(final Device device) {
         Log.v(TAG, "addDevice: deviceID=" + device.deviceID);
         Node nodeConfig = mConfig.getDocumentElement();
         Node nodeDevice = mConfig.createElement("device");
@@ -859,13 +856,6 @@ public class ConfigXml {
             sb.append(chars[random.nextInt(chars.length)]);
         }
         return sb.toString();
-    }
-
-    /**
-     * Returns if a syncthing device ID is correctly formatted.
-     */
-    private Boolean isDeviceIdValid(final String deviceID) {
-        return deviceID.matches("^([A-Z0-9]{7}-){7}[A-Z0-9]{7}$");
     }
 
     /**

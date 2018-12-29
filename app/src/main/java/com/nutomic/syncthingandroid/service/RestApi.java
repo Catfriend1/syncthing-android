@@ -531,13 +531,11 @@ public class RestApi {
         throw new RuntimeException("RestApi.getLocalDevice: Failed to get the local device crucial to continuing execution.");
     }
 
-    public void addDevice(Device device, OnResultListener1<String> errorListener) {
-        normalizeDeviceId(device.deviceID, normalizedId -> {
-            synchronized (mConfigLock) {
-                mConfig.devices.add(device);
-                sendConfig();
-            }
-        }, errorListener);
+    public void addDevice(Device device) {
+        synchronized (mConfigLock) {
+            mConfig.devices.add(device);
+            sendConfig();
+        }
     }
 
     public void updateDevice(Device newDevice) {
@@ -759,24 +757,6 @@ public class RestApi {
             listener.onDone(lastId);
         });
     }
-
-    /**
-     * Normalizes a given device ID.
-     */
-    private void normalizeDeviceId(String id, OnResultListener1<String> listener,
-                                   OnResultListener1<String> errorListener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_DEVICEID, mApiKey,
-                ImmutableMap.of("id", id), result -> {
-            JsonObject json = new JsonParser().parse(result).getAsJsonObject();
-            JsonElement normalizedId = json.get("id");
-            JsonElement error = json.get("error");
-            if (normalizedId != null)
-                listener.onResult(normalizedId.getAsString());
-            if (error != null)
-                errorListener.onResult(error.getAsString());
-        });
-    }
-
 
     /**
      * Updates cached folder and device completion info according to event data.
