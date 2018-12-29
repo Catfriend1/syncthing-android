@@ -1,12 +1,12 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Individual sync conditions can be applied per device and per folder
+Versió alternativa de l'embolcall Syncthing-Android per al Syncthing que incorpora grans millores com:
+* Es poden establir condicions de sincronització individuals per dispositiu i carpeta
 * Recent changes UI, click to open files.
-* "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+* Arreglat el problema amb el consum de bateria.
+* Suport per Android 8 i 9.
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
-Goals of the fork:
+Objectius de la versió alternativa:
 * Develop and try out enhancements together with the community.
 * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
 * Make enhancements configurable in the UI, users should be able to turn them on and off

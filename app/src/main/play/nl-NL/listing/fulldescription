@@ -1,22 +1,22 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+Dit is een fork van de Synthing-Android-wrapper voor Syncthing die vele verbeteringen brengt, waaronder:
+* Individuele synchrinisatie-omstandigheden kunnen worden toegepast per appparaat en map
+* Pagina met recente wijzigingen, druk om bestanden te openen
+* Hoog accuverbruik is opgelost
+* Ondersteuning voor Android 8 en 9
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Doel van de fork:
+* Verbeteringen ontwikkelen en uitproberen, in samenwerking met de gemeenschap
+* Wrapper vaker uitbrengen om bugs i.c.m. de syncthing-submodule op te sporen en op te lossen
+* Verbeteringen configureerbaar maken, zoadat gebruikers ze makkelijk in en uit kunnen schakelen
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Vergelijking tussen upstream en de fork op het moment van schrijven:
+* Beiden bevatten het uitvoerbare syncthing-bestand, gebouwd met de officiële broncode op GitHub:syncthing/syncthing
+* Synchronisatiefunctionaliteit en -betrouwbaarheid is afhankelijk van de versie van de syncthing-submodule
+* De fork wordt geaccepteerd door upstream en soms worden mijn verbeteringen doorgevoerd
+* Strategie en moment van uitbrengen zijn verschillend
+* Alleen de wrapper met de Android-app wordt aangepakt door de fork
 
 Website: https://syncthing.net/
 

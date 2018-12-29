@@ -11,9 +11,24 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Добро пожаловать в Syncthing для Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Вступление</string>
     <string name="welcome_text">Syncthing - это приложение с открытым исходным кодом для синхронизации файлов.\n
 Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n
 Пожалуйста, сообщайте о возникших проблемах через Github.</string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Доступ к файлам</string>
+    <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
+
+    <!-- Slide "Location Permission"" -->
+    <string name="location_permission_title">Доступ к местоположению</string>
+    <string name="location_permission_desc">Syncthing может быть настроен работать только на выбранных Wi-Fi сетях. Android требует, чтобы приложения имели доступ к местоположению, чтобы узнать имя активной Wi-Fi сети, так как вы иногда можете узнать местоположение пользователя по имени сети, к которой он подключён. Если вы хотите использовать эту функцию, нажмите кнопку вверху, чтобы предоставить Syncthing необходимые разрешения. В противном случае вы можете пропустить этот шаг.</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Генерация ключей</string>
+    <string name="key_generation_success">Криптографические ключи для приватного обмена данными были успешно сгенерированы.</string>
 
     <!-- Generic texts used everywhere -->
     <string name="back">Назад</string>
@@ -22,8 +37,23 @@
     <string name="generic_example">Пример</string>
     <string name="generic_error">Ошибка</string>
     <string name="generic_help">Помощь</string>
+    <string name="grant_permission">Дать доступ</string>
+    <string name="permission_granted">Доступ предоставлен</string>
+    <string name="reason">Причина:</string>
+
+    <string name="accept">Принять</string>
+
     <string name="ignore">Игнорировать</string>
 
+    <!-- MainActivity -->
+
+
+
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">Была встречена найденная ошибка, которая ещё не была решена. Больше информации в %1$s/%2$s. Пожалуйста, оставьте нам точное описание произошедшего перед этим.</string>
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Подтвердить выход из приложения</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Добавить папку</string>
 
@@ -44,6 +74,10 @@
     <string name="open_website">Открыть сайт</string>
 
     <string name="toast_write_storage_permission_required">Приложению требуется право на запись</string>
+
+    <string name="device_rejected">Устройство \"%1$s\" хочет подключиться</string>
+
+    <string name="folder_rejected">Устройство \"%1$s\" хочет поделиться папкой \"%2$s\"</string>
 
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
     <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
@@ -71,7 +105,14 @@
         <item quantity="other">%1$d / %2$d Файла</item>
     </plurals>
 
+    <string name="override_changes">Переопределить изменения</string>
+
     <string name="open_file_manager">Открыть файловый менеджер</string>
+    <string name="open_file_with">Открыть файл с помощью</string>
+    <string name="open_file_no_compatible_app">Не найдено приложение, чтобы открыть файл.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Не найдено совместимого файлового менеджера</string>
     <!-- DevicesFragment -->
 
 
@@ -101,6 +142,13 @@
     <!-- Title for current upload rate -->
     <string name="upload_title">Отдача</string>
 
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Статус</string>
+    <string name="syncthing_starting">Syncthing запускается.</string>
+    <string name="syncthing_running">Syncthing запущен.</string>
+    <string name="syncthing_not_running">Syncthing не запущен.</string>
+    <string name="syncthing_has_crashed">Syncthing завершился из-за сбоя.</string>
+
     <!-- DrawerFragment -->
 
 
@@ -118,6 +166,9 @@
 
     <!-- Title for announce server status -->
     <string name="announce_server">Сервера анонсов</string>
+
+    <!-- Title for uptime status -->
+    <string name="uptime">Время работы</string>
 
     <string name="restart">Перезапустить</string>
 
@@ -225,6 +276,12 @@
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Рут права не доступны</string>
+
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Советы</string>
 
     <!-- WebGuiActivity -->
 
