@@ -60,6 +60,7 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import static java.lang.Math.min;
+import static com.nutomic.syncthingandroid.service.Constants.PREF_BROADCAST_SERVICE_CONTROL;
 
 /**
  * Shows {@link FolderListFragment} and
@@ -196,13 +197,19 @@ public class MainActivity extends SyncthingActivity
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         setOptimalDrawerWidth(findViewById(R.id.drawer));
 
-        // SyncthingService needs to be started from this activity as the user
-        // can directly launch this activity from the recent activity switcher.
-        Intent serviceIntent = new Intent(this, SyncthingService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent);
-        } else {
-            startService(serviceIntent);
+        Boolean prefBroadcastServiceControl = mPreferences.getBoolean(PREF_BROADCAST_SERVICE_CONTROL, false);
+        if (!prefBroadcastServiceControl) {
+            /**
+             * SyncthingService needs to be started from this activity as the user
+             * can directly launch this activity from the recent activity switcher.
+             * Applies if PREF_BROADCAST_SERVICE_CONTROL is DISABLED (default).
+             */
+            Intent serviceIntent = new Intent(this, SyncthingService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(serviceIntent);
+            } else {
+                startService(serviceIntent);
+            }
         }
 
         onNewIntent(getIntent());

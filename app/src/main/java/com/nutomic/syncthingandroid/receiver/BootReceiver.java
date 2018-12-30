@@ -29,7 +29,7 @@ public class BootReceiver extends BroadcastReceiver {
      *
      * https://stackoverflow.com/a/44505719/1837158
      */
-    static void startServiceCompat(Context context) {
+    public static void startServiceCompat(Context context) {
         Intent intent = new Intent(context, SyncthingService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent);

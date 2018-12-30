@@ -57,7 +57,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="dialog_exit_while_running_as_service_message">Zu Deiner Erinnerung: Du hast Syncthing eingerichtet, automatisch beim Hochfahren zu starten. Deshalb überwacht es die Laufkonditionen und synchronisiert, wenn die Bedingungen zutreffen. Du solltest nur manuell beenden, wenn Du größere Probleme feststellst. Andernfalls schalte \"Automatisch beim Hochfahren starten\" in den Einstellungen aus. Möchtest Du jetzt beenden, bis das Gerät neu gestartet wurde?</string>
 
     <!-- Title of the "add folder" menu action -->
-    <string name="add_folder">Verzeichnis hinzufügen</string>
+    <string name="add_folder">Ordner hinzufügen</string>
 
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Geräte-ID teilen</string>
@@ -95,7 +95,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- FoldersFragment -->
 
 
-    <string name="folders_fragment_title">Verzeichnisse</string>
+    <string name="folders_fragment_title">Ordner</string>
 
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Keine Verzeichnisse gefunden</string>
@@ -207,13 +207,13 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="keep_versions">Versionen behalten</string>
 
     <!-- Setting title -->
-    <string name="delete_folder">Verzeichnis löschen</string>
+    <string name="delete_folder">Ordner löschen</string>
 
     <!-- Title for FolderSettingsFragment in create mode -->
-    <string name="create_folder">Verzeichnis erstellen</string>
+    <string name="create_folder">Ordner erstellen</string>
 
     <!-- Title for FolderSettingsFragment in edit mode -->
-    <string name="edit_folder">Verzeichnis bearbeiten</string>
+    <string name="edit_folder">Ordner bearbeiten</string>
 
     <!-- Menu item to confirm folder creation -->
     <string name="create">Erstellen</string>
@@ -493,6 +493,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="use_legacy_hashing_summary">Für Abwärtskompatibilität soll Syncthing die alten Hashfunktionen verwenden</string>
 
+    <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
+
+    <string name="broadcast_service_control_summary">Standard: Deaktiviert. Aktiviere diese Option, um den Dienst durch Broadcasts z. B. mit Drittanbieter Automatisierungsapps zu starten und zu stoppen. Hinweis: Nach dem Ändern dieser Option musst du die App manuell neu starten.</string>
+
     <string name="restart_on_wakeup_title">Neustart nach Aufwachen</string>
 
     <string name="restart_on_wakeup_summary">Standard: Aktiviert. Das Deaktivieren dieser Funktion kann verzögertes Ordner-Scannen und Wiederverbinden von Geräten zur Folge haben. Dafür spart es Akku.</string>
@@ -561,7 +565,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Title of the preference showing the REST API key -->
     <string name="syncthing_api_key">Syncthing API Key (Klicke zum Kopieren)</string>
-    
+
     <!-- Shown when the API key is copied to the clipboard -->
     <string name="api_key_copied_to_clipboard">Syncthing API Key in die Zwischenablage kopiert</string>
 
@@ -666,6 +670,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing läuft nicht, weil Du verboten hast, dass es bei getakteten WLAN-Verbindungen läuft.</string>
     <string name="reason_location_unavailable">Du hast \'Starte in ausgewählten WLAN-Netzwerken\' in den Einstellungen aktiviert. Die Android-tandorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Schalte den Standort ein und verbinde WLAN erneut.</string>
     <string name="reason_on_flight_mode">Syncthing läuft, weil Du erlaubt hast, dass es bei eingeschaltetem Flugzeugmodus läuft.</string>
+    <string name="reason_broadcast_controlled">Syncthing hört auf Broadcasts, die von einer Drittanbieter-App oder über ADB gesendet werden. Du kannst zu den eingebauten Laufkonditionen zurück wechseln, indem Du unter \'Einstellungen\' > \'Experimentell\' > \'Dienstkontrolle über Broadcast\' deaktivierst.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">Laufkonditionen-Überwachung ist nicht instantiiert. Bitte starte die App neu und erstelle einen Fehlerbericht, wenn das Problem nach dem Neustart nicht verschwindet.</string>
 
     <!-- Sync Conditions Dialog -->
 

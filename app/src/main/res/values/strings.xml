@@ -493,6 +493,10 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_legacy_hashing_summary">Force Syncthing to use legacy hashing package for compatibility purposes</string>
 
+    <string name="broadcast_service_control_title">Service Control by Broadcast</string>
+
+    <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
+
     <string name="restart_on_wakeup_title">Restart on Wakeup</string>
 
     <string name="restart_on_wakeup_summary">Default: Enabled. Disabling this feature may result in folder scans and device reconnects being delayed to save battery.</string>
@@ -569,7 +573,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Title of the preference showing the REST API key -->
     <string name="syncthing_api_key">Syncthing API Key (click to copy)</string>
-    
+
     <!-- Shown when the API key is copied to the clipboard -->
     <string name="api_key_copied_to_clipboard">Syncthing API key copied to clipboard</string>
 
@@ -674,6 +678,8 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
     <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
+    <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' > \'Experimental\' > \'Service Control by Broadcast\'.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>
 
     <!-- Sync Conditions Dialog -->
 

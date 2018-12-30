@@ -63,13 +63,13 @@ public class DeviceActivity extends SyncthingActivity
             SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_NOTIFICATION_ID =
-            "com.nutomic.syncthingandroid.activities.DeviceActivity.NOTIFICATION_ID";
+            "com.github.catfriend1.syncthingandroid.activities.DeviceActivity.NOTIFICATION_ID";
     public static final String EXTRA_DEVICE_ID =
-            "com.nutomic.syncthingandroid.activities.DeviceActivity.DEVICE_ID";
+            "com.github.catfriend1.syncthingandroid.activities.DeviceActivity.DEVICE_ID";
     public static final String EXTRA_DEVICE_NAME =
-            "com.nutomic.syncthingandroid.activities.DeviceActivity.DEVICE_NAME";
+            "com.github.catfriend1.syncthingandroid.activities.DeviceActivity.DEVICE_NAME";
     public static final String EXTRA_IS_CREATE =
-            "com.nutomic.syncthingandroid.activities.DeviceActivity.IS_CREATE";
+            "com.github.catfriend1.syncthingandroid.activities.DeviceActivity.IS_CREATE";
 
     private static final String TAG = "DeviceActivity";
     private static final String IS_SHOWING_DISCARD_DIALOG = "DISCARD_FOLDER_DIALOG_STATE";

@@ -255,6 +255,11 @@
             android:title="@string/use_legacy_hashing_title"
             android:summary="@string/use_legacy_hashing_summary" />
 
+        <CheckBoxPreference
+            android:key="broadcast_service_control"
+            android:title="@string/broadcast_service_control_title"
+            android:summary="@string/broadcast_service_control_summary" />
+
         <!-- Only valid for Android < 6 -->
         <CheckBoxPreference
             android:key="wakelock_while_binary_running"

@@ -66,15 +66,15 @@ public class FolderActivity extends SyncthingActivity
         implements SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_NOTIFICATION_ID =
-            "com.nutomic.syncthingandroid.activities.FolderActivity.NOTIFICATION_ID";
+            "com.github.catfriend1.syncthingandroid.activities.FolderActivity.NOTIFICATION_ID";
     public static final String EXTRA_IS_CREATE =
-            "com.nutomic.syncthingandroid.activities.FolderActivity.IS_CREATE";
+            "com.github.catfriend1.syncthingandroid.activities.FolderActivity.IS_CREATE";
     public static final String EXTRA_FOLDER_ID =
-            "com.nutomic.syncthingandroid.activities.FolderActivity.FOLDER_ID";
+            "com.github.catfriend1.syncthingandroid.activities.FolderActivity.FOLDER_ID";
     public static final String EXTRA_FOLDER_LABEL =
-            "com.nutomic.syncthingandroid.activities.FolderActivity.FOLDER_LABEL";
+            "com.github.catfriend1.syncthingandroid.activities.FolderActivity.FOLDER_LABEL";
     public static final String EXTRA_DEVICE_ID =
-            "com.nutomic.syncthingandroid.activities.FolderActivity.DEVICE_ID";
+            "com.github.catfriend1.syncthingandroid.activities.FolderActivity.DEVICE_ID";
 
     private static final String TAG = "FolderActivity";
 

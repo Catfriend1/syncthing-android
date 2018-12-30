@@ -147,8 +147,8 @@
         <receiver android:name=".receiver.AppConfigReceiver"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.nutomic.syncthingandroid.action.START" />
-                <action android:name="com.nutomic.syncthingandroid.action.STOP" />
+                <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
+                <action android:name="com.github.catfriend1.syncthingandroid.action.STOP" />
             </intent-filter>
         </receiver>
         <activity android:name=".activities.FolderTypeDialogActivity"

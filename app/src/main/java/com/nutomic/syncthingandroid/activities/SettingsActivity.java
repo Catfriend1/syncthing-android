@@ -60,7 +60,7 @@ public class SettingsActivity extends SyncthingActivity {
     private SettingsFragment mSettingsFragment;
 
     public static final String EXTRA_OPEN_SUB_PREF_SCREEN =
-            "com.nutomic.syncthingandroid.activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
+            "com.github.catfriend1.syncthingandroid.activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

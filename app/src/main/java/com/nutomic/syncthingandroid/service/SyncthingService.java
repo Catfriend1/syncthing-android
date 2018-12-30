@@ -3,6 +3,7 @@ package com.nutomic.syncthingandroid.service;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.Manifest;
 import android.os.AsyncTask;
@@ -56,70 +57,70 @@ public class SyncthingService extends Service {
      * Intent action to perform a Syncthing restart.
      */
     public static final String ACTION_RESTART =
-            "com.nutomic.syncthingandroid.service.SyncthingService.RESTART";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.RESTART";
 
     /**
      * Intent action to perform a Syncthing stop.
      */
     public static final String ACTION_STOP =
-            "com.nutomic.syncthingandroid.service.SyncthingService.STOP";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.STOP";
 
     /**
      * Intent action to reset Syncthing's database.
      */
     public static final String ACTION_RESET_DATABASE =
-            "com.nutomic.syncthingandroid.service.SyncthingService.RESET_DATABASE";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.RESET_DATABASE";
 
     /**
      * Intent action to reset Syncthing's delta indexes.
      */
     public static final String ACTION_RESET_DELTAS =
-            "com.nutomic.syncthingandroid.service.SyncthingService.RESET_DELTAS";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.RESET_DELTAS";
 
     public static final String ACTION_REFRESH_NETWORK_INFO =
-            "com.nutomic.syncthingandroid.service.SyncthingService.REFRESH_NETWORK_INFO";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.REFRESH_NETWORK_INFO";
 
     /**
      * Intent action to permanently ignore a device connection request.
      */
     public static final String ACTION_IGNORE_DEVICE =
-            "com.nutomic.syncthingandroid.service.SyncthingService.IGNORE_DEVICE";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.IGNORE_DEVICE";
 
     /**
      * Intent action to permanently ignore a folder share request.
      */
     public static final String ACTION_IGNORE_FOLDER =
-            "com.nutomic.syncthingandroid.service.SyncthingService.IGNORE_FOLDER";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.IGNORE_FOLDER";
 
     /**
      * Intent action to override folder changes.
      */
     public static final String ACTION_OVERRIDE_CHANGES =
-            "com.nutomic.syncthingandroid.service.SyncthingService.OVERRIDE_CHANGES";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.OVERRIDE_CHANGES";
 
     /**
      * Extra used together with ACTION_IGNORE_DEVICE, ACTION_IGNORE_FOLDER.
      */
     public static final String EXTRA_NOTIFICATION_ID =
-            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_NOTIFICATION_ID";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.EXTRA_NOTIFICATION_ID";
 
     /**
      * Extra used together with ACTION_IGNORE_DEVICE
      */
     public static final String EXTRA_DEVICE_ID =
-            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_DEVICE_ID";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.EXTRA_DEVICE_ID";
 
     /**
      * Extra used together with ACTION_IGNORE_FOLDER
      */
     public static final String EXTRA_FOLDER_ID =
-            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_FOLDER_ID";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.EXTRA_FOLDER_ID";
 
     /**
      * Extra used together with ACTION_STOP.
      */
     public static final String EXTRA_STOP_AFTER_CRASHED_NATIVE =
-            "com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE";
+            "com.github.catfriend1.syncthingandroid.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE";
 
     public interface OnServiceStateChangeListener {
         void onServiceStateChange(State currentState);
@@ -209,6 +210,14 @@ public class SyncthingService extends Service {
     private boolean mStoragePermissionGranted = false;
 
     /**
+     * True if experimental option PREF_BROADCAST_SERVICE_CONTROL is set.
+     * Disables run condition monitor completely because the user chose to
+     * control the service by sending broadcasts, e.g. from third-party
+     * automation apps.
+     */
+    private boolean mPrefBroadcastServiceControl = false;
+
+    /**
      * Starts the native binary.
      */
     @Override
@@ -231,6 +240,9 @@ public class SyncthingService extends Service {
         if (mNotificationHandler != null) {
             mNotificationHandler.setAppShutdownInProgress(false);
         }
+
+        // Read pref.
+        mPrefBroadcastServiceControl = mPreferences.getBoolean(Constants.PREF_BROADCAST_SERVICE_CONTROL, false);
     }
 
     /**
@@ -260,17 +272,28 @@ public class SyncthingService extends Service {
                 onServiceStateChange(mCurrentState);
             }
         }
-        if (mRunConditionMonitor == null) {
+
+        if (mPrefBroadcastServiceControl) {
+            Log.i(TAG, "onStartCommand: mPrefBroadcastServiceControl == true, RunConditionMonitor is disabled.");
             /**
-             * Instantiate the run condition monitor on first onStartCommand and
-             * enable callback on run condition change affecting the final decision to
-             * run/terminate syncthing. After initial run conditions are collected
-             * the first decision is sent to {@link onShouldRunDecisionChanged}.
+             * Directly use the callback which normally is invoked by RunConditionMonitor to start the
+             * syncthing native unconditionally.
              */
-            mRunConditionMonitor = new RunConditionMonitor(SyncthingService.this,
-                this::onShouldRunDecisionChanged,
-                this::onSyncPreconditionChanged
-            );
+            onShouldRunDecisionChanged(true);
+        } else {
+            // Run condition monitor is enabled.
+            if (mRunConditionMonitor == null) {
+                /**
+                 * Instantiate the run condition monitor on first onStartCommand and
+                 * enable callback on run condition change affecting the final decision to
+                 * run/terminate syncthing. After initial run conditions are collected
+                 * the first decision is sent to {@link onShouldRunDecisionChanged}.
+                 */
+                mRunConditionMonitor = new RunConditionMonitor(SyncthingService.this,
+                    this::onShouldRunDecisionChanged,
+                    this::onSyncPreconditionChanged
+                );
+            }
         }
         mNotificationHandler.updatePersistentNotification(this);
 
@@ -334,7 +357,9 @@ public class SyncthingService extends Service {
                 shutdown(State.DISABLED);
             }
         } else if (ACTION_REFRESH_NETWORK_INFO.equals(intent.getAction())) {
-            mRunConditionMonitor.updateShouldRunDecision();
+            if (mRunConditionMonitor != null) {
+                mRunConditionMonitor.updateShouldRunDecision();
+            }
         } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             // mRestApi is not null due to State.ACTIVE
             mRestApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
@@ -739,10 +764,17 @@ public class SyncthingService extends Service {
     }
 
     public String getRunDecisionExplanation() {
-        if (mRunConditionMonitor == null) {
-            return "This should not happen: mRunConditionMonitor is not instantiated.";
+        if (mRunConditionMonitor != null) {
+            return mRunConditionMonitor.getRunDecisionExplanation();
         }
-        return mRunConditionMonitor.getRunDecisionExplanation();
+
+        Resources res = getResources();
+        if (mPrefBroadcastServiceControl) {
+            return res.getString(R.string.reason_broadcast_controlled);
+        }
+
+        // mRunConditionMonitor == null
+        return res.getString(R.string.reason_run_condition_monitor_not_instantiated);
     }
 
     /**
