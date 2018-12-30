@@ -271,9 +271,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Mappeveljar</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Åtvaring: Din versjon av Android tillèt ikkje synkronisering av eksterne lagringseiningar. </string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Mappa er tom</string>
 

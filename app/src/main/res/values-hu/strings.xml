@@ -392,9 +392,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <!-- Activity title -->
     <string name="folder_picker_title">Mappaválasztó</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Figyelem: Az általad használt Android verzió nem támogatja a külső eszközre (pl. memóriakártyára) történő szinkronizálást</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">A mappa üres</string>
 

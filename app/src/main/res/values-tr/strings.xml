@@ -288,9 +288,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
     <!-- Activity title -->
     <string name="folder_picker_title">Klasör Seçici</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Uyarı: Android sürümünüz, harici depolama aygıtlarına eşzamanlama yapılmasına izin vermiyor.</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Dizin Boş</string>
 

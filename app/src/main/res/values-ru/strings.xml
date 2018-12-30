@@ -451,9 +451,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Выбор Папки</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Внимание: Ваша версия Android не позволяет синхронизацию на внешние хранилища</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Папка пуста</string>
 

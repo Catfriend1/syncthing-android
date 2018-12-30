@@ -334,9 +334,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Výběr adresáře</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Varování: Tato verze Androidu nepovoluje synchronizaci na externí úložiště</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Adresář je prázdný</string>
 

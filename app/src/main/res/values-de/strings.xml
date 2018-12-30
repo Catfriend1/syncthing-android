@@ -565,9 +565,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Verzeichnisauswahl</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Warnung: Deine Andoid-Version erlaubt kein Synchronisieren auf externe Datenträger</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Verzeichnis ist leer</string>
 

@@ -331,9 +331,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">フォルダーを選択</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">警告: お使いの Android のバージョンは外部ストレージに同期することができません</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">ディレクトリーは空です</string>
 

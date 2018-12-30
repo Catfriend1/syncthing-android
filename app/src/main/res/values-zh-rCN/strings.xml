@@ -333,9 +333,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">文件夹选择器</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">警告：您的系统版本不允许同步文件至外部存储器</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">目录为空</string>
 

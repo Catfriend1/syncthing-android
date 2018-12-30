@@ -262,9 +262,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Seleccionador de Carpetas</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Advertencia: Su versión de Android no permite sincronizar con dispositivos de almacenamiento externo</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">El directorio está vacío</string>
 

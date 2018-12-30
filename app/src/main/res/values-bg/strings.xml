@@ -288,9 +288,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Избор на папка</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Внимание: Версията на Android не позволява синхронизиране с външни устройства за съхранение на данни</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Директорията е празна</string>
 

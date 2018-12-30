@@ -329,9 +329,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">資料夾選擇器</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">警告：你的 Android 版本不允許同步外部儲存裝置</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">資料夾為空</string>
 

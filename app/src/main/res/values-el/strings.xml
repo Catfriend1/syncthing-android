@@ -330,9 +330,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Επιλογέας φακέλων</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Προσοχή: η έκδοση του Android σας δεν επιτρέπει τον συγχρονισμό προς εξωτερικές συσκευές αποθήκευσης</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Ο φάκελος είναι κενός</string>
 

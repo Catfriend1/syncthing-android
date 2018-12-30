@@ -425,9 +425,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Activity title -->
     <string name="folder_picker_title">Selector de director</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Atenție: Versiunea dumneavoastră de Android nu permite sincronizarea la locațiile de stocare externe</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Directorul este gol</string>
 

@@ -2,12 +2,14 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -34,6 +36,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Languages;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
@@ -49,18 +52,22 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsActivity extends SyncthingActivity {
 
+    private static final String TAG = "SettingsActivity";
+
+    private SettingsFragment mSettingsFragment;
+
     public static final String EXTRA_OPEN_SUB_PREF_SCREEN =
             "com.nutomic.syncthingandroid.activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SettingsFragment settingsFragment = new SettingsFragment();
+        mSettingsFragment = new SettingsFragment();
         Bundle bundle = new Bundle();
         bundle.putString(EXTRA_OPEN_SUB_PREF_SCREEN, getIntent().getStringExtra(EXTRA_OPEN_SUB_PREF_SCREEN));
-        settingsFragment.setArguments(bundle);
+        mSettingsFragment.setArguments(bundle);
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, settingsFragment)
+                .replace(android.R.id.content, mSettingsFragment)
                 .commit();
     }
 
@@ -84,10 +91,19 @@ public class SettingsActivity extends SyncthingActivity {
         }
     }
 
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        super.onServiceConnected(componentName, iBinder);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
+        mSettingsFragment.setService(syncthingService);
+        syncthingService.registerOnServiceStateChangeListener(mSettingsFragment);
+    }
+
     public static class SettingsFragment extends PreferenceFragment
-            implements SyncthingActivity.OnServiceConnectedListener,
-            SyncthingService.OnServiceStateChangeListener, Preference.OnPreferenceChangeListener,
-            Preference.OnPreferenceClickListener {
+            implements SyncthingService.OnServiceStateChangeListener,
+                Preference.OnPreferenceChangeListener,
+                Preference.OnPreferenceClickListener {
 
         private static final String TAG = "SettingsFragment";
         private static final String KEY_EXPORT_CONFIG = "export_config";
@@ -150,7 +166,6 @@ public class SettingsActivity extends SyncthingActivity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
-            ((SyncthingActivity) getActivity()).registerOnServiceConnectedListener(this);
         }
 
         /**
@@ -304,14 +319,8 @@ public class SettingsActivity extends SyncthingActivity {
             }
         }
 
-        @Override
-        public void onServiceConnected() {
-            Log.v(TAG, "onServiceConnected");
-            if (getActivity() == null)
-                return;
-
-            mSyncthingService = ((SyncthingActivity) getActivity()).getService();
-            mSyncthingService.registerOnServiceStateChangeListener(this);
+        public void setService(SyncthingService syncthingService) {
+            mSyncthingService = syncthingService;
         }
 
         @Override

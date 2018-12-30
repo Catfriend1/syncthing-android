@@ -271,9 +271,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Mappe-velger</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Advarsel: Din versjon av Android tillater ikke synkronisering til eksterne lagringsenheter. </string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Katalogen er tom</string>
 

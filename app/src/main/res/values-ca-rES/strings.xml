@@ -543,9 +543,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Selector de carpetes</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Avís: la vostra versió de l\'Android no us permet sincronitzar a dispositius d\'emmagatzematge externs</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">El directori és buit</string>
 

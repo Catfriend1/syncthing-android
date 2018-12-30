@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.provider.DocumentFile;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
@@ -35,6 +37,7 @@ import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.FileUtils;
@@ -60,7 +63,7 @@ import static com.nutomic.syncthingandroid.service.SyncthingService.State.ACTIVE
  * Shows folder details and allows changing them.
  */
 public class FolderActivity extends SyncthingActivity
-        implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnServiceStateChangeListener {
+        implements SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_NOTIFICATION_ID =
             "com.nutomic.syncthingandroid.activities.FolderActivity.NOTIFICATION_ID";
@@ -181,7 +184,6 @@ public class FolderActivity extends SyncthingActivity
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.create_folder : R.string.edit_folder);
-        registerOnServiceConnectedListener(this);
 
         mLabelView = findViewById(R.id.label);
         mIdView = findViewById(R.id.id);
@@ -339,16 +341,13 @@ public class FolderActivity extends SyncthingActivity
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        SyncthingService syncthingService = getService();
-        if (syncthingService != null) {
-            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
-            syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
+    public void onBackPressed() {
+        if (mIsCreateMode) {
+            showDiscardDialog();
         }
-        mLabelView.removeTextChangedListener(mTextWatcher);
-        mIdView.removeTextChangedListener(mTextWatcher);
-        mEditIgnoreListContent.removeTextChangedListener(mTextWatcher);
+        else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -370,6 +369,19 @@ public class FolderActivity extends SyncthingActivity
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SyncthingService syncthingService = getService();
+        if (syncthingService != null) {
+            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+            syncthingService.unregisterOnServiceStateChangeListener(FolderActivity.this);
+        }
+        mLabelView.removeTextChangedListener(mTextWatcher);
+        mIdView.removeTextChangedListener(mTextWatcher);
+        mEditIgnoreListContent.removeTextChangedListener(mTextWatcher);
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(IS_SHOWING_DELETE_DIALOG, mDeleteDialog != null && mDeleteDialog.isShowing());
@@ -385,11 +397,12 @@ public class FolderActivity extends SyncthingActivity
      * Register for service state change events.
      */
     @Override
-    public void onServiceConnected() {
-        Log.v(TAG, "onServiceConnected");
-        SyncthingService syncthingService = (SyncthingService) getService();
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        super.onServiceConnected(componentName, iBinder);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
         syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
-        syncthingService.registerOnServiceStateChangeListener(this);
+        syncthingService.registerOnServiceStateChangeListener(FolderActivity.this);
     }
 
     @Override
@@ -753,16 +766,6 @@ public class FolderActivity extends SyncthingActivity
 
         // Update folder using RestApi or ConfigXml.
         mConfig.updateFolder(restApi, mFolder);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mIsCreateMode) {
-            showDiscardDialog();
-        }
-        else {
-            super.onBackPressed();
-        }
     }
 
     private void showDiscardDialog(){

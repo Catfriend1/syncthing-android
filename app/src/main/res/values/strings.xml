@@ -573,9 +573,6 @@ Please report any problems you encounter via Github.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Folder Picker</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Warning: Your Android version does not allow syncing to external storage devices</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Directory is Empty</string>
 

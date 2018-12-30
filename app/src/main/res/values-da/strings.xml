@@ -330,9 +330,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <!-- Activity title -->
     <string name="folder_picker_title">Mappe Vælger</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Advarsel: Din Android version tillader ikke at synkronisere til eksterne lagringsenheder</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Katalog er Tomt</string>
 

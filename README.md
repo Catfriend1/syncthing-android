@@ -66,6 +66,16 @@ To clean up all files generated during build, use the following commands:
 
 `./gradlew clean`
 
+### Development Notes
+
+It is recommended to change the GUI and Listen Address ports for the debug app, e.g. to 8385 and 22001 respectively.
+
+The Syncthing native used for this android application provides a web interface by default. It can be accessed via the Settings menu -> 'Web GUI'. It is quite helpful to access this web interface from your development machine. Read android documentation on how to access the network of your emulator. Or use the following command to connect to the single currently running emulator/AVD.
+
+adb forward tcp:18384 tcp:8384
+
+Start Syncthing app on your emulator and access the web interface from you favorite browser of your development machine via https://127.0.0.1:18384
+
 # License
 
 The project is licensed under the [MPLv2](LICENSE).

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+// import android.util.Log;
 
 import com.annimon.stream.Stream;
 import com.nutomic.syncthingandroid.R;
@@ -22,16 +23,9 @@ import java.util.LinkedList;
  */
 public abstract class SyncthingActivity extends AppCompatActivity implements ServiceConnection {
 
+    private static final String TAG = "SyncthingActivity";
+
     private SyncthingService mSyncthingService;
-
-    private final LinkedList<OnServiceConnectedListener> mServiceConnectedListeners = new LinkedList<>();
-
-    /**
-     * To be used for Fragments.
-     */
-    public interface OnServiceConnectedListener {
-        void onServiceConnected();
-    }
 
     /**
      * Look for a Toolbar in the layout and bind it as the activity's actionbar with reasonable
@@ -69,24 +63,11 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
         mSyncthingService = syncthingServiceBinder.getService();
-        Stream.of(mServiceConnectedListeners).forEach(OnServiceConnectedListener::onServiceConnected);
-        mServiceConnectedListeners.clear();
     }
 
     @Override
     public void onServiceDisconnected(ComponentName componentName) {
         mSyncthingService = null;
-    }
-
-    /**
-     * Used for Fragments to use the Activity's service connection.
-     */
-    void registerOnServiceConnectedListener(OnServiceConnectedListener listener) {
-        if (mSyncthingService != null) {
-            listener.onServiceConnected();
-        } else {
-            mServiceConnectedListeners.addLast(listener);
-        }
     }
 
     /**

@@ -329,9 +329,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">폴더 선택기</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">경고: 사용하는 Android 버전에서는 외부 저장소에의 동기화를 지원하지 않습니다</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">디렉토리가 비어 있습니다</string>
 

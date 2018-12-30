@@ -314,9 +314,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <!-- Activity title -->
     <string name="folder_picker_title">Kansionvalitsin</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Varoitus: Käytössä oleva Android-versio ei salli synkronointia ulkoisille massamuisteille.</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Hakemisto on tyhjä</string>
 

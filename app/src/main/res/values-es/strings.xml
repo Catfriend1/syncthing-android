@@ -299,9 +299,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Seleccionador de carpetas</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Aviso: Tu versión de Android no permite la sincronización con dispositivos de almacenamiento externos</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">El directorio esta vacío</string>
 

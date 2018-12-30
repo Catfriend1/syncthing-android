@@ -240,9 +240,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Výver Adresára</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Varovanie: Verzia Androidu na Vašom zariadení nedovoľuje synchronizáciu externého úložiska</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Adresár je Prázdny</string>
 

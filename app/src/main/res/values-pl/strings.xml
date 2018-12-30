@@ -334,9 +334,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <!-- Activity title -->
     <string name="folder_picker_title">Wybieranie katalogu</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Ostrzeżenie: aktualna wersja systemu Android nie pozwala na synchronizowanie zewnętrznych pamięci masowych</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Katalog jest pusty</string>
 

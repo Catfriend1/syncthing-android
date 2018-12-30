@@ -262,9 +262,6 @@
     <!-- Activity title -->
     <string name="folder_picker_title">Trình chọn th.mục</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Cảnh báo: Ph.bản Android của bạn không cho phép đ.bộ vào các th.bị lưu trữ ngoại vi</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Thư mục rỗng</string>
 

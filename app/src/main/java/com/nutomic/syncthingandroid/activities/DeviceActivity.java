@@ -1,12 +1,14 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
@@ -32,6 +34,7 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.Compression;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
@@ -57,7 +60,6 @@ import static com.nutomic.syncthingandroid.util.Compression.METADATA;
 public class DeviceActivity extends SyncthingActivity
         implements
             View.OnClickListener,
-            SyncthingActivity.OnServiceConnectedListener,
             SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_NOTIFICATION_ID =
@@ -197,7 +199,6 @@ public class DeviceActivity extends SyncthingActivity
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.add_device : R.string.edit_device);
-        registerOnServiceConnectedListener(this);
 
         mIdContainer = findViewById(R.id.idContainer);
         mIdView = findViewById(R.id.id);
@@ -263,82 +264,16 @@ public class DeviceActivity extends SyncthingActivity
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        SyncthingService syncthingService = getService();
-        if (syncthingService != null) {
-            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
-            syncthingService.unregisterOnServiceStateChangeListener(this::onServiceStateChange);
-        }
-        mIdView.removeTextChangedListener(mIdTextWatcher);
-        mNameView.removeTextChangedListener(mNameTextWatcher);
-        mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        // We don't want to update every time a TextView's character changes,
-        // so we hold off until the view stops being visible to the user.
-        if (mDeviceNeedsToUpdate) {
-            updateDevice();
-        }
-    }
-
-    /**
-     * Save current settings in case we are in create mode and they aren't yet stored in the config.
-     */
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("device", new Gson().toJson(mDevice));
-        if (mIsCreateMode){
-            outState.putBoolean(IS_SHOWING_DISCARD_DIALOG, mDiscardDialog != null && mDiscardDialog.isShowing());
-            Util.dismissDialogSafe(mDiscardDialog, this);
-        }
-
-        outState.putBoolean(IS_SHOWING_COMPRESSION_DIALOG, mCompressionDialog != null && mCompressionDialog.isShowing());
-        Util.dismissDialogSafe(mCompressionDialog, this);
-
-        outState.putBoolean(IS_SHOWING_DELETE_DIALOG, mDeleteDialog != null && mDeleteDialog.isShowing());
-        Util.dismissDialogSafe(mDeleteDialog, this);
-    }
-
     /**
      * Register for service state change events.
      */
     @Override
-    public void onServiceConnected() {
-        Log.v(TAG, "onServiceConnected");
-        SyncthingService syncthingService = (SyncthingService) getService();
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        super.onServiceConnected(componentName, iBinder);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
         syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
-        syncthingService.registerOnServiceStateChangeListener(this);
-    }
-
-    /**
-     * Sets version and current address of the device.
-     * NOTE: This is only called once on startup, should be called more often to properly display
-     * version/address changes.
-     */
-    private void onReceiveConnections(Connections connections) {
-        if (connections == null || connections.connections == null) {
-            Log.e(TAG, "onReceiveConnections: connections == null || connections.connections == null");
-            return;
-        }
-        if (mDevice == null) {
-            Log.e(TAG, "onReceiveConnections: mDevice == null");
-            return;
-        }
-
-        boolean viewsExist = mSyncthingVersionView != null && mCurrentAddressView != null;
-        if (viewsExist && connections.connections.containsKey(mDevice.deviceID)) {
-            mCurrentAddressView.setVisibility(VISIBLE);
-            mSyncthingVersionView.setVisibility(VISIBLE);
-            mCurrentAddressView.setText(connections.connections.get(mDevice.deviceID).address);
-            mSyncthingVersionView.setText(connections.connections.get(mDevice.deviceID).clientVersion);
-        }
+        syncthingService.registerOnServiceStateChangeListener(DeviceActivity.this);
     }
 
     @Override
@@ -364,6 +299,83 @@ public class DeviceActivity extends SyncthingActivity
             }
         }
         updateViewsAndSetListeners();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mIsCreateMode) {
+            showDiscardDialog();
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // We don't want to update every time a TextView's character changes,
+        // so we hold off until the view stops being visible to the user.
+        if (mDeviceNeedsToUpdate) {
+            updateDevice();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SyncthingService syncthingService = getService();
+        if (syncthingService != null) {
+            syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+            syncthingService.unregisterOnServiceStateChangeListener(DeviceActivity.this);
+        }
+        mIdView.removeTextChangedListener(mIdTextWatcher);
+        mNameView.removeTextChangedListener(mNameTextWatcher);
+        mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
+    }
+
+    /**
+     * Save current settings in case we are in create mode and they aren't yet stored in the config.
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("device", new Gson().toJson(mDevice));
+        if (mIsCreateMode){
+            outState.putBoolean(IS_SHOWING_DISCARD_DIALOG, mDiscardDialog != null && mDiscardDialog.isShowing());
+            Util.dismissDialogSafe(mDiscardDialog, this);
+        }
+
+        outState.putBoolean(IS_SHOWING_COMPRESSION_DIALOG, mCompressionDialog != null && mCompressionDialog.isShowing());
+        Util.dismissDialogSafe(mCompressionDialog, this);
+
+        outState.putBoolean(IS_SHOWING_DELETE_DIALOG, mDeleteDialog != null && mDeleteDialog.isShowing());
+        Util.dismissDialogSafe(mDeleteDialog, this);
+    }
+
+    /**
+     * Sets version and current address of the device.
+     * NOTE: This is only called once on startup, should be called more often to properly display
+     * version/address changes.
+     */
+    private void onReceiveConnections(Connections connections) {
+        if (connections == null || connections.connections == null) {
+            Log.e(TAG, "onReceiveConnections: connections == null || connections.connections == null");
+            return;
+        }
+        if (mDevice == null) {
+            Log.e(TAG, "onReceiveConnections: mDevice == null");
+            return;
+        }
+
+        boolean viewsExist = mSyncthingVersionView != null && mCurrentAddressView != null;
+        if (viewsExist && connections.connections.containsKey(mDevice.deviceID)) {
+            mCurrentAddressView.setVisibility(VISIBLE);
+            mSyncthingVersionView.setVisibility(VISIBLE);
+            mCurrentAddressView.setText(connections.connections.get(mDevice.deviceID).address);
+            mSyncthingVersionView.setText(connections.connections.get(mDevice.deviceID).clientVersion);
+        }
     }
 
     private void updateViewsAndSetListeners() {
@@ -607,16 +619,6 @@ public class DeviceActivity extends SyncthingActivity
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, id);
         context.startActivity(Intent.createChooser(
                 shareIntent, context.getString(R.string.send_device_id_to)));
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mIsCreateMode) {
-            showDiscardDialog();
-        }
-        else {
-            super.onBackPressed();
-        }
     }
 
     private void showDiscardDialog(){

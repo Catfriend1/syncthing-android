@@ -396,9 +396,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Activity title -->
     <string name="folder_picker_title">Sélection du répertoire</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Attention: votre version Android n\'autorise pas la synchronisation avec des périphériques de stockages externes.</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Le répertoire est vide</string>
 

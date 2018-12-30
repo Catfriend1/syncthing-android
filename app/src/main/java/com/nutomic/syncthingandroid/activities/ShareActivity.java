@@ -1,12 +1,14 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -24,7 +26,10 @@ import android.widget.Toast;
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
@@ -46,23 +51,33 @@ import java.util.Map;
  * ownCloud Android {@see https://github.com/owncloud/android/blob/79664304fdb762b2e04f1ac505f50d0923ddd212/src/com/owncloud/android/utils/UriUtils.java#L193}
  */
 public class ShareActivity extends SyncthingActivity
-        implements SyncthingActivity.OnServiceConnectedListener, SyncthingService.OnServiceStateChangeListener {
+        implements SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "ShareActivity";
     private static final String PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER = "previously_selected_syncthing_folder";
 
     public static final String PREF_FOLDER_SAVED_SUBDIRECTORY = "saved_sub_directory_";
 
-    private TextView mSubDirectoryTextView;
+    private ConfigRouter mConfig;
 
     private Spinner mFoldersSpinner;
 
+    private SyncthingService mSyncthingService = null;
+
+    private TextView mSubDirectoryTextView;
+
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        super.onServiceConnected(componentName, iBinder);
+        SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
+        SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
+        syncthingService.registerOnServiceStateChangeListener(ShareActivity.this);
+        mSyncthingService = syncthingService;
+    }
+
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
-        if (currentState != SyncthingService.State.ACTIVE || getApi() == null)
-            return;
-
-        List<Folder> folders = getApi().getFolders();
+        List<Folder> folders = mConfig.getFolders(getApi());
 
         // Get the index of the previously selected folder.
         int folderIndex = 0;
@@ -85,11 +100,6 @@ public class ShareActivity extends SyncthingActivity
     }
 
     @Override
-    public void onServiceConnected() {
-        getService().registerOnServiceStateChangeListener(this);
-    }
-
-    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
@@ -100,9 +110,8 @@ public class ShareActivity extends SyncthingActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mConfig = new ConfigRouter(ShareActivity.this);
         setContentView(R.layout.activity_share);
-
-        registerOnServiceConnectedListener(this);
 
         Button mShareButton = findViewById(R.id.share_button);
         Button mCancelButton = findViewById(R.id.cancel_button);
@@ -113,7 +122,6 @@ public class ShareActivity extends SyncthingActivity
         mSubDirectoryTextView = findViewById(R.id.sub_directory_Textview);
         mFoldersSpinner = findViewById(R.id.folders);
 
-        // TODO: add support for EXTRA_TEXT (notes, memos sharing)
         ArrayList<Uri> extrasToCopy = new ArrayList<>();
         if (getIntent().getAction().equals(Intent.ACTION_SEND)) {
             Uri uri = getIntent().getParcelableExtra(Intent.EXTRA_STREAM);
@@ -177,6 +185,42 @@ public class ShareActivity extends SyncthingActivity
 
         mCancelButton.setOnClickListener(view -> finish());
         mSubDirectoryTextView.setText(getSavedSubDirectory());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mFoldersSpinner.getSelectedItem() != null) {
+            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                    .putString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, selectedFolder.id)
+                    .apply();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FolderPickerActivity.DIRECTORY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
+            String folderDirectory = Util.formatPath(selectedFolder.path);
+            String subDirectory = data.getStringExtra(FolderPickerActivity.EXTRA_RESULT_DIRECTORY);
+            //Remove the parent directory from the string, so it is only the Sub directory that is displayed to the user.
+            subDirectory = subDirectory.replace(folderDirectory, "");
+            mSubDirectoryTextView.setText(subDirectory);
+
+            PreferenceManager.getDefaultSharedPreferences(this)
+                    .edit().putString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, subDirectory)
+                    .apply();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mSyncthingService != null) {
+            mSyncthingService.unregisterOnServiceStateChangeListener(ShareActivity.this);
+        }
+        super.onDestroy();
     }
 
     /**
@@ -355,34 +399,6 @@ public class ShareActivity extends SyncthingActivity
                         Toast.LENGTH_SHORT).show();
             }
             shareActivity.finish();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mFoldersSpinner.getSelectedItem() != null) {
-            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
-            PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, selectedFolder.id)
-                    .apply();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == FolderPickerActivity.DIRECTORY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
-            String folderDirectory = Util.formatPath(selectedFolder.path);
-            String subDirectory = data.getStringExtra(FolderPickerActivity.EXTRA_RESULT_DIRECTORY);
-            //Remove the parent directory from the string, so it is only the Sub directory that is displayed to the user.
-            subDirectory = subDirectory.replace(folderDirectory, "");
-            mSubDirectoryTextView.setText(subDirectory);
-
-            PreferenceManager.getDefaultSharedPreferences(this)
-                    .edit().putString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, subDirectory)
-                    .apply();
         }
     }
 }

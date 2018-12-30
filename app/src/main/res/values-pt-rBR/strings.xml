@@ -375,9 +375,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
     <!-- Activity title -->
     <string name="folder_picker_title">Seletor de pasta</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Aviso: a versão do seu Android não suporta sincronização de dispositivos externos de armazenamento</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">A pasta está vazia</string>
 

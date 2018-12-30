@@ -322,7 +322,7 @@ public class SyncthingService extends Service {
              *      This is the moment, when the reset delta index work was completed and Web UI came up.
              * 3.2  The shutdown gets deferred until State.ACTIVE was reached and then syncthing native will
              *      be shutdown synchronously.
-             */             
+             */
             Log.i(TAG, "Invoking reset of delta indexes");
             if (mCurrentState != State.DISABLED) {
                 // Shutdown synchronously.
@@ -756,8 +756,10 @@ public class SyncthingService extends Service {
         Boolean failSuccess = true;
         Log.v(TAG, "exportConfig BEGIN");
 
-        // Shutdown synchronously.
-        shutdown(State.DISABLED);
+        if (mCurrentState != State.DISABLED) {
+            // Shutdown synchronously.
+            shutdown(State.DISABLED);
+        }
 
         // Copy config, privateKey and/or publicKey to export path.
         Constants.EXPORT_PATH_OBJ.mkdirs();
@@ -858,8 +860,10 @@ public class SyncthingService extends Service {
         Boolean failSuccess = true;
         Log.v(TAG, "importConfig BEGIN");
 
-        // Shutdown synchronously.
-        shutdown(State.DISABLED);
+        if (mCurrentState != State.DISABLED) {
+            // Shutdown synchronously.
+            shutdown(State.DISABLED);
+        }
 
         // Import config, privateKey and/or publicKey.
         try {

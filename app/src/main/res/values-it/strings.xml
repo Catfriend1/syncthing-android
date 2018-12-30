@@ -393,9 +393,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Selezione Cartella</string>
 
-    <!-- Toast shown on devices with kitkat or higher -->
-    <string name="kitkat_external_storage_warning">Attenzione: La tua versione di Android non permette la sincronizzazione con dispositivi esterni di archiviazione</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Cartella Vuota</string>
 
