@@ -7,10 +7,11 @@
 # Major enhancements in this fork are:
 - Individual sync conditions can be applied per device and per folder (for expert users).
 - Recent changes UI, click to open files.
-- UI explains why syncthing is running or not running according to the run conditions set in preferences.
+- Changes to folder and device config can be made regardless if syncthing is running or not.
+- UI explains why syncthing is running or not.
 - "Battery eater" problem is fixed.
 - Android 8 and 9 support.
-- Many bug fixes, enhancements and more frequent releases.
+- Extended support for third-party automation apps (see wiki)
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
