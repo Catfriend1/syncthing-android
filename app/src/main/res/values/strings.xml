@@ -567,6 +567,12 @@ Please report any problems you encounter via Github.</string>
     <!-- Title of the preference showing this app's version name -->
     <string name="app_version_title">Syncthing-Fork Wrapper Version</string>
 
+    <!-- Title of the preference showing the REST API key -->
+    <string name="syncthing_api_key">Syncthing API Key (click to copy)</string>
+    
+    <!-- Shown when the API key is copied to the clipboard -->
+    <string name="api_key_copied_to_clipboard">Syncthing API key copied to clipboard</string>
+
     <!-- FolderPickerAcitivity -->
 
 

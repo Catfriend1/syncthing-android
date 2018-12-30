@@ -276,12 +276,22 @@
         </Preference>
 
         <Preference
+            android:persistent="false"
+            android:selectable="false"
+            android:key="app_version"
+            android:title="@string/app_version_title" />
+
+        <Preference
+            android:persistent="false"
+            android:selectable="false"
             android:key="syncthing_version"
             android:title="@string/syncthing_version_title" />
 
         <Preference
-            android:key="app_version"
-            android:title="@string/app_version_title" />
+            android:persistent="false"
+            android:selectable="true"
+            android:key="syncthing_api_key"
+            android:title="@string/syncthing_api_key" />
 
     </PreferenceScreen>
 

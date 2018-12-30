@@ -2,7 +2,10 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -106,11 +109,16 @@ public class SettingsActivity extends SyncthingActivity {
                 Preference.OnPreferenceClickListener {
 
         private static final String TAG = "SettingsFragment";
+        // Settings/Syncthing
+        private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
+        // Settings/Import and Export
         private static final String KEY_EXPORT_CONFIG = "export_config";
         private static final String KEY_IMPORT_CONFIG = "import_config";
-        private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
+        // Settings/Debug
         private static final String KEY_ST_RESET_DATABASE = "st_reset_database";
         private static final String KEY_ST_RESET_DELTAS = "st_reset_deltas";
+        // Settings/About
+        private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
 
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
@@ -147,6 +155,7 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mHttpProxyAddress;
 
         private Preference mSyncthingVersion;
+        private Preference mSyncthingApiKey;
 
         private SyncthingService mSyncthingService;
         private RestApi mRestApi;
@@ -239,8 +248,9 @@ public class SettingsActivity extends SyncthingActivity {
             mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);
             mHttpProxyAddress               = (EditTextPreference) findPreference(Constants.PREF_HTTP_PROXY_ADDRESS);
 
+            Preference appVersion   = findPreference("app_version");
             mSyncthingVersion       = findPreference("syncthing_version");
-            Preference appVersion   = screen.findPreference("app_version");
+            mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
@@ -257,10 +267,14 @@ public class SettingsActivity extends SyncthingActivity {
             mCategoryRunConditions = findPreference("category_run_conditions");
             setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
 
+            /* Syncthing options */
+            undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
+
+            /* Import and Export */
             exportConfig.setOnPreferenceClickListener(this);
             importConfig.setOnPreferenceClickListener(this);
 
-            undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
+            /* Debug */
             debugFacilitiesEnabled.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
             stResetDatabase.setOnPreferenceClickListener(this);
@@ -287,12 +301,15 @@ public class SettingsActivity extends SyncthingActivity {
             handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
             handleHttpProxyPreferenceChange(screen.findPreference(Constants.PREF_HTTP_PROXY_ADDRESS), mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, ""));
 
+            /* About */
             try {
-                appVersion.setSummary(getActivity().getPackageManager()
-                        .getPackageInfo(getActivity().getPackageName(), 0).versionName);
+                String versionName = getActivity().getPackageManager()
+                        .getPackageInfo(getActivity().getPackageName(), 0).versionName;
+                appVersion.setSummary("v" + versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.d(TAG, "Failed to get app version name");
             }
+            mSyncthingApiKey.setOnPreferenceClickListener(this);
 
             openSubPrefScreen(screen);
         }
@@ -331,10 +348,12 @@ public class SettingsActivity extends SyncthingActivity {
                         (currentState == SyncthingService.State.ACTIVE);
             mCategorySyncthingOptions.setEnabled(isSyncthingRunning);
 
-            if (!isSyncthingRunning)
+            if (!isSyncthingRunning) {
                 return;
+            }
 
             mSyncthingVersion.setSummary(mRestApi.getVersion());
+            mSyncthingApiKey.setSummary(mRestApi.getApiKey());
             mOptions = mRestApi.getOptions();
             mGui = mRestApi.getGui();
 
@@ -616,6 +635,14 @@ public class SettingsActivity extends SyncthingActivity {
                             })
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                             })
+                            .show();
+                    return true;
+                case KEY_SYNCTHING_API_KEY:
+                    // Copy syncthing's API key to clipboard.
+                    ClipboardManager clipboard = (ClipboardManager) getActivity().getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText(getString(R.string.syncthing_api_key), mSyncthingApiKey.getSummary());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getActivity(), R.string.api_key_copied_to_clipboard, Toast.LENGTH_SHORT)
                             .show();
                     return true;
                 default:

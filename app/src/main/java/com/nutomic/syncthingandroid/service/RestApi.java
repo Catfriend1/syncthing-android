@@ -776,6 +776,10 @@ public class RestApi {
         });
     }
 
+    public String getApiKey() {
+        return mApiKey;
+    }
+
     public URL getUrl() {
         return mUrl;
     }
