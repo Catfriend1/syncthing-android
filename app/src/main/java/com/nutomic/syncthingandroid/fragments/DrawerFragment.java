@@ -63,14 +63,13 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
         mServiceState = currentState;
-        updateButtons();
+        updateUI();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateLabels();
-        updateButtons();
+        updateUI();
     }
 
     @Override
@@ -111,8 +110,8 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mDrawerActionSettings.setOnClickListener(this);
         mDrawerActionExit.setOnClickListener(this);
 
-        updateLabels();
-        updateButtons();
+        // Initially fill UI elements.
+        updateUI();
     }
 
     @Override
@@ -120,23 +119,16 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         super.onActivityCreated(savedInstanceState);
     }
 
-    /**
-     * Update static info labels.
-     */
-    private void updateLabels() {
+    private void updateUI() {
+        Boolean synthingRunning = mServiceState == SyncthingService.State.ACTIVE;
+
+        // Update static info labels.
         if (sharedPreferences != null && mVersion != null) {
             mVersion.setText(sharedPreferences.getString(Constants.PREF_LAST_BINARY_VERSION, ""));
         }
-    }
 
-    /**
-     * Update action button availability.
-     */
-    private void updateButtons() {
-        Boolean synthingRunning = mServiceState == SyncthingService.State.ACTIVE;
-
-        // Show buttons if syncthing is running.
-        mVersion.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
+        // Update action button availability. Show buttons if syncthing is running.
+        mVersion.setVisibility(View.VISIBLE);
         mDrawerActionShowQrCode.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerRecentChanges.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionWebGui.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
