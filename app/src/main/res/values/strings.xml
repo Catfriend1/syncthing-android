@@ -577,6 +577,9 @@ Please report any problems you encounter via Github.</string>
     <!-- Shown when the API key is copied to the clipboard -->
     <string name="api_key_copied_to_clipboard">Syncthing API key copied to clipboard</string>
 
+    <!-- Title of the preference showing database size -->
+    <string name="syncthing_database_size">Syncthing Database Size</string>
+
     <!-- FolderPickerAcitivity -->
 
 

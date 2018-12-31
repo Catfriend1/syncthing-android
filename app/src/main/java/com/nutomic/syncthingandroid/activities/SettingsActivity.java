@@ -119,6 +119,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_ST_RESET_DELTAS = "st_reset_deltas";
         // Settings/About
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
+        private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
 
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
@@ -157,6 +158,7 @@ public class SettingsActivity extends SyncthingActivity {
         private Preference mSyncthingVersion;
         private Preference mSyncthingApiKey;
 
+        private Context mContext;
         private SyncthingService mSyncthingService;
         private RestApi mRestApi;
 
@@ -184,6 +186,7 @@ public class SettingsActivity extends SyncthingActivity {
          */
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
+            mContext = getActivity().getApplicationContext();
             super.onActivityCreated(savedInstanceState);
 
             addPreferencesFromResource(R.xml.app_settings);
@@ -310,6 +313,7 @@ public class SettingsActivity extends SyncthingActivity {
                 Log.d(TAG, "Failed to get app version name");
             }
             mSyncthingApiKey.setOnPreferenceClickListener(this);
+            screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
 
             openSubPrefScreen(screen);
         }
@@ -639,7 +643,7 @@ public class SettingsActivity extends SyncthingActivity {
                     return true;
                 case KEY_SYNCTHING_API_KEY:
                     // Copy syncthing's API key to clipboard.
-                    ClipboardManager clipboard = (ClipboardManager) getActivity().getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText(getString(R.string.syncthing_api_key), mSyncthingApiKey.getSummary());
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(getActivity(), R.string.api_key_copied_to_clipboard, Toast.LENGTH_SHORT)
@@ -818,6 +822,22 @@ public class SettingsActivity extends SyncthingActivity {
                         .show();
                 return false;
             }
+        }
+
+        /**
+         * Calculates the size of the syncthing database on disk.
+         */
+        private String getDatabaseSize() {
+            String dbPath = mContext.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER;
+            String result = Util.runShellCommandGetOutput("/system/bin/du -sh " + dbPath, false);
+            if (TextUtils.isEmpty(result)) {
+                return "N/A";
+            }
+            String resultParts[] = result.split("\\s+");
+            if (resultParts.length == 0) {
+                return "N/A";
+            }
+            return resultParts[0];
         }
     }
 }

@@ -298,6 +298,12 @@
             android:key="syncthing_api_key"
             android:title="@string/syncthing_api_key" />
 
+        <Preference
+            android:persistent="false"
+            android:selectable="false"
+            android:key="syncthing_database_size"
+            android:title="@string/syncthing_database_size" />
+
     </PreferenceScreen>
 
 </PreferenceScreen>

@@ -12,12 +12,16 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.common.base.Charsets;
+
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
@@ -195,13 +199,62 @@ public class Util {
                     shellOut.close();
                 }
             } catch (IOException e) {
-                Log.w(TAG, "Failed to close shell stream", e);
+                Log.w(TAG, "runShellCommand: Failed to close stream", e);
             }
             if (shellProc != null) {
                 shellProc.destroy();
             }
         }
         return exitCode;
+    }
+
+    public static String runShellCommandGetOutput(String cmd, Boolean useRoot) {
+        int exitCode = 255;
+        String capturedStdOut = "";
+        Process shellProc = null;
+        DataOutputStream shellOut = null;
+        try {
+            shellProc = Runtime.getRuntime().exec((useRoot) ? "su" : "sh");
+            shellOut = new DataOutputStream(shellProc.getOutputStream());
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(shellOut));
+            Log.d(TAG, "runShellCommandGetOutput: " + cmd);
+            bufferedWriter.write(cmd);
+            bufferedWriter.flush();
+            shellOut.close();
+            shellOut = null;
+            BufferedReader bufferedReader = null;
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(shellProc.getInputStream(), Charsets.UTF_8));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    // Log.i(TAG, "runShellCommandGetOutput: " + line);
+                    capturedStdOut = capturedStdOut + line + "\n";
+                }
+            } catch (IOException e) {
+                Log.w(TAG, "runShellCommandGetOutput: Failed to read output", e);
+            } finally {
+                if (bufferedReader != null)
+                    bufferedReader.close();
+            }
+            exitCode = shellProc.waitFor();
+            Log.i(TAG, "runShellCommandGetOutput: Exited with code " + exitCode);
+        } catch (IOException | InterruptedException e) {
+            Log.w(TAG, "runShellCommandGetOutput: Exception", e);
+        } finally {
+            try {
+                if (shellOut != null) {
+                    shellOut.close();
+                }
+            } catch (IOException e) {
+                Log.w(TAG, "runShellCommandGetOutput: Failed to close shell stream", e);
+            }
+            if (shellProc != null) {
+                shellProc.destroy();
+            }
+        }
+
+        // Return captured command line output.
+        return capturedStdOut;
     }
 
     /**
