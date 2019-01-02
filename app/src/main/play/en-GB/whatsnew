@@ -1,5 +1,5 @@
 Maintenance
-* Updated syncthing core to v0.14.54
+* Updated syncthing core to v1.0.0
 * Fallback to http if https tls 1.2 is unavailable on Android 4.x
 Enhancements
 * Configure everything regardless if syncthing is running or not [NEW]
