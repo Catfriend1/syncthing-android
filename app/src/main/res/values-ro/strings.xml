@@ -319,8 +319,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="usage_reporting">Raport utilizare anonim</string>
 
-    <string name="gui_address">Adresa de ascultare a interfeței</string>
-
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
     <string name="undo_ignored_devices_folders_question">Această acțiune va reface decizia precedentă de ignorare a dispozitivelor și directoarelor. Continuați?</string>

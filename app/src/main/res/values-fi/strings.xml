@@ -262,8 +262,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
 
     <string name="usage_reporting">Anonyymi käytönseuranta</string>
 
-    <string name="gui_address">Käyttöliittymän kuunteluosoite</string>
-
     <string name="export_config">Vie asetukset</string>
 
     <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>

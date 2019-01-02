@@ -20,5 +20,21 @@ public class Config {
         public String apiKey;
         public boolean insecureAdminAccess;
         public String theme;
+
+        public String getBindAddress() {
+            if (address == null) {
+                return "";
+            }
+            String[] split = address.split(":");
+            return split.length < 1 ? "" : split[0];
+        }
+
+        public String getBindPort() {
+            if (address == null) {
+                return "";
+            }
+            String[] split = address.split(":");
+            return split.length < 2 ? "" : split[1];
+        }
     }
 }

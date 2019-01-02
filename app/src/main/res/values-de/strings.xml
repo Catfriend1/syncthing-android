@@ -453,7 +453,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="usage_reporting">Anonymer Nutzungsbericht</string>
 
-    <string name="gui_address">Adressen für Weboberfläche</string>
+    <string name="webui_tcp_port_title">Web UI TCP Port</string>
+
+    <string name="webui_remote_access_title">Web UI Fernzugriff</string>
+
+    <string name="webui_remote_access_summary">Erlaubt es, von einem anderen Gerät aus auf die Weboberfläche zuzugreifen. Wenn aktiviert, kannst Du dich mit dem Benutzer \'syncthing\' und dem API Key als Passwort anmelden. Standard: Deaktiviert (am sichersten)</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Mache Ignorieren von Geräten und Ordnern rückgängig</string>
@@ -461,6 +465,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="undo_ignored_devices_folders_done">Entscheidungen erfolgreich rückgängig gemacht.</string>
 
     <string name="export_config">Konfiguration exportieren</string>
+
+    <!-- Toast after entering an invalid tcp port -->
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Die eingegebene Portnummer ist ungültig. Bitte gib einen Port zwischen %1$d und %2$d ein.</string>
 
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Der eingegebene Wert ist ungültig. Bitte gib eine Zahl zwischen %1$d und %2$d ein.</string>

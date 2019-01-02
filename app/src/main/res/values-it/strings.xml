@@ -292,8 +292,6 @@ Si prega di segnalare eventuali problemi che si incontrano via Github.</string>
 
     <string name="usage_reporting">Statistiche Anonime Utilizzo</string>
 
-    <string name="gui_address">Indirizzi Interfaccia Grafica</string>
-
     <string name="export_config">Esporta Configurazione</string>
 
     <!-- Toast after entering invalid integer value -->

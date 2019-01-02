@@ -292,8 +292,6 @@ Por favor, nos avise sobre quaisquer problemas que você encontrar via Github.</
 
     <string name="usage_reporting">Relatório anônimo de uso</string>
 
-    <string name="gui_address">Endereços de escuta da interface</string>
-
     <string name="export_config">Exportar configuração</string>
 
     <!-- Experimental options -->

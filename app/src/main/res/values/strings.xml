@@ -453,7 +453,11 @@ Please report any problems you encounter via Github.</string>
 
     <string name="usage_reporting">Anonymous Usage Reporting</string>
 
-    <string name="gui_address">GUI Listen Addresses</string>
+    <string name="webui_tcp_port_title">Web UI TCP Port</string>
+
+    <string name="webui_remote_access_title">Web UI remote access</string>
+
+    <string name="webui_remote_access_summary">Specify to permit accessing the Web UI from another device. If enabled, you are able to logon with user \'syncthing\' and API key as password. Default: disabled (most secure)</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Undo ignoring devices and folders</string>
@@ -461,6 +465,9 @@ Please report any problems you encounter via Github.</string>
     <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
     <string name="export_config">Export Configuration</string>
+
+    <!-- Toast after entering an invalid tcp port -->
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Port number not valid. Please enter a port between %1$d and %2$d.</string>
 
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Input value not valid. Please enter value between %1$d and %2$d.</string>

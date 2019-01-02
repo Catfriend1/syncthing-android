@@ -273,8 +273,6 @@
 
     <string name="usage_reporting">匿名使用报告</string>
 
-    <string name="gui_address">管理页监听地址</string>
-
     <string name="export_config">导出设置</string>
 
     <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>

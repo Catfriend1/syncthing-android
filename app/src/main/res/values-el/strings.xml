@@ -270,8 +270,6 @@
 
     <string name="usage_reporting">Ανώνυμη αναφορά δεδομένων χρήσης</string>
 
-    <string name="gui_address">Διευθύνσεις ακρόασης του GUI</string>
-
     <string name="export_config">Εξαγωγή ρυθμίσεων</string>
 
     <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>

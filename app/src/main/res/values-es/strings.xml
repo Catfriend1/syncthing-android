@@ -247,8 +247,6 @@
 
     <string name="usage_reporting">Informe de uso anónimo</string>
 
-    <string name="gui_address">Direcciones de escucha de la interfaz</string>
-
     <string name="export_config">Exportar configuración</string>
 
     <string name="keep_wakelock_while_binary_running">Mantener la CPU activa mientras se ejecuta Syncthing</string>

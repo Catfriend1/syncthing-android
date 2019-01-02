@@ -256,8 +256,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
 
     <string name="usage_reporting">Laporan Penggunaan Anonim</string>
 
-    <string name="gui_address">Alamat Listen GUI</string>
-
     <string name="export_config">Ekspor Konfigurasi</string>
 
     <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>

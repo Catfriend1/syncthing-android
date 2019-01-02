@@ -429,8 +429,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="usage_reporting">Informes d\'ús anònims</string>
 
-    <string name="gui_address">Adreça d\'escolta de la interfície gràfica</string>
-
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Desfés ignorant els dispositius i carpetes</string>
     <string name="undo_ignored_devices_folders_question">Això desfarà les decisions anteriors d\'ignorar els dispositius i carpetes. Voleu continuar?</string>

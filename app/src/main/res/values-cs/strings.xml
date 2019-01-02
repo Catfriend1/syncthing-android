@@ -274,8 +274,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
 
     <string name="usage_reporting">Anonymní hlášení o používání</string>
 
-    <string name="gui_address">Adresy naslouchání GUI</string>
-
     <string name="export_config">Zálohovat nastavení</string>
 
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>

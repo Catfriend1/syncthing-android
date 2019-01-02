@@ -110,6 +110,8 @@ public class SettingsActivity extends SyncthingActivity {
 
         private static final String TAG = "SettingsFragment";
         // Settings/Syncthing
+        private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
+        private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
         // Settings/Import and Export
         private static final String KEY_EXPORT_CONFIG = "export_config";
@@ -120,6 +122,9 @@ public class SettingsActivity extends SyncthingActivity {
         // Settings/About
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
         private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
+
+        private static final String BIND_ALL = "0.0.0.0";
+        private static final String BIND_LOCALHOST = "127.0.0.1";
 
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
@@ -144,7 +149,8 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mGlobalAnnounceEnabled;
         private CheckBoxPreference mRelaysEnabled;
         private EditTextPreference mGlobalAnnounceServers;
-        private EditTextPreference mAddress;
+        private EditTextPreference mWebUITcpPort;
+        private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
 
@@ -188,25 +194,8 @@ public class SettingsActivity extends SyncthingActivity {
         public void onActivityCreated(Bundle savedInstanceState) {
             mContext = getActivity().getApplicationContext();
             super.onActivityCreated(savedInstanceState);
-
             addPreferencesFromResource(R.xml.app_settings);
-            PreferenceScreen screen = getPreferenceScreen();
-            mStartServiceOnBoot =
-                    (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
-            mPowerSource =
-                    (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
-            mRunOnMobileData =
-                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
-            mRunOnWifi =
-                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
-            mRunOnMeteredWifi =
-                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_METERED_WIFI);
-            mUseWifiWhitelist =
-                    (CheckBoxPreference) findPreference(Constants.PREF_USE_WIFI_SSID_WHITELIST);
-            mWifiSsidWhitelist =
-                    (WifiSsidPreference) findPreference(Constants.PREF_WIFI_SSID_WHITELIST);
-            mRunInFlightMode =
-                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
+            mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
             ListPreference languagePref = (ListPreference) findPreference(Languages.PREFERENCE_LANGUAGE);
             PreferenceScreen categoryBehaviour = (PreferenceScreen) findPreference("category_behaviour");
@@ -223,6 +212,44 @@ public class SettingsActivity extends SyncthingActivity {
                 });
             }
 
+            /* Run conditions */
+            PreferenceScreen screen = getPreferenceScreen();
+            mRunOnWifi =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
+            mRunOnMeteredWifi =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_METERED_WIFI);
+            mUseWifiWhitelist =
+                    (CheckBoxPreference) findPreference(Constants.PREF_USE_WIFI_SSID_WHITELIST);
+            mWifiSsidWhitelist =
+                    (WifiSsidPreference) findPreference(Constants.PREF_WIFI_SSID_WHITELIST);
+            mRunOnMobileData =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
+            mPowerSource =
+                    (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
+            mRunInFlightMode =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
+
+            mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
+            mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
+            mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked() && mUseWifiWhitelist.isChecked());
+
+            screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
+            String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
+            screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
+                getString(R.string.wifi_ssid_whitelist_empty) :
+                getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
+            );
+
+            mCategoryRunConditions = findPreference("category_run_conditions");
+            setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
+
+            /* Behaviour */
+            mStartServiceOnBoot =
+                    (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
+            mUseRoot =
+                    (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
+
+            /* Syncthing options */
             mDeviceName             = (EditTextPreference) findPreference("deviceName");
             mListenAddresses        = (EditTextPreference) findPreference("listenAddresses");
             mMaxRecvKbps            = (EditTextPreference) findPreference("maxRecvKbps");
@@ -232,79 +259,61 @@ public class SettingsActivity extends SyncthingActivity {
             mGlobalAnnounceEnabled  = (CheckBoxPreference) findPreference("globalAnnounceEnabled");
             mRelaysEnabled          = (CheckBoxPreference) findPreference("relaysEnabled");
             mGlobalAnnounceServers  = (EditTextPreference) findPreference("globalAnnounceServers");
-            mAddress                = (EditTextPreference) findPreference("address");
+            mWebUITcpPort           = (EditTextPreference) findPreference(KEY_WEBUI_TCP_PORT);
+            mWebUIRemoteAccess      = (CheckBoxPreference) findPreference(KEY_WEBUI_REMOTE_ACCESS);
+            mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
             mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
+            Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
+            mCategorySyncthingOptions = findPreference("category_syncthing_options");
+            setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
+            mSyncthingApiKey.setOnPreferenceClickListener(this);
+            undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
+
+            /* Import and Export */
             Preference exportConfig = findPreference("export_config");
             Preference importConfig = findPreference("import_config");
+            exportConfig.setOnPreferenceClickListener(this);
+            importConfig.setOnPreferenceClickListener(this);
 
-            Preference undoIgnoredDevicesFolders    = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
+            /* Debugging */
             Preference debugFacilitiesEnabled       = findPreference(Constants.PREF_DEBUG_FACILITIES_ENABLED);
             Preference environmentVariables         = findPreference("environment_variables");
             Preference stResetDatabase              = findPreference("st_reset_database");
             Preference stResetDeltas                = findPreference("st_reset_deltas");
 
-            mUseRoot                        = (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            mUseWakelock                    = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
-            mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
-            mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);
-            mHttpProxyAddress               = (EditTextPreference) findPreference(Constants.PREF_HTTP_PROXY_ADDRESS);
-
-            Preference appVersion   = findPreference("app_version");
-            mSyncthingVersion       = findPreference("syncthing_version");
-            mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
-
-            mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
-            mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
-            mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked() && mUseWifiWhitelist.isChecked());
-            /* Experimental options */
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                /* Wakelocks are only valid on Android 5 or lower. */
-                mUseWakelock.setEnabled(false);
-                mUseWakelock.setChecked(false);
-            }
-
-            mCategorySyncthingOptions = findPreference("category_syncthing_options");
-            setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
-            mCategoryRunConditions = findPreference("category_run_conditions");
-            setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
-
-            /* Syncthing options */
-            undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
-
-            /* Import and Export */
-            exportConfig.setOnPreferenceClickListener(this);
-            importConfig.setOnPreferenceClickListener(this);
-
-            /* Debug */
             debugFacilitiesEnabled.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
             stResetDatabase.setOnPreferenceClickListener(this);
             stResetDeltas.setOnPreferenceClickListener(this);
 
             /* Experimental options */
+            mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
+            mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);
+            mHttpProxyAddress               = (EditTextPreference) findPreference(Constants.PREF_HTTP_PROXY_ADDRESS);
+            mUseWakelock                    = (CheckBoxPreference) findPreference(Constants.PREF_USE_WAKE_LOCK);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                /* Wakelocks are only valid on Android 5 or lower. */
+                mUseWakelock.setEnabled(false);
+                mUseWakelock.setChecked(false);
+            }
+
             mUseRoot.setOnPreferenceClickListener(this);
             mUseWakelock.setOnPreferenceChangeListener(this);
             mUseTor.setOnPreferenceChangeListener(this);
 
             mSocksProxyAddress.setEnabled(!(Boolean) mUseTor.isChecked());
             mSocksProxyAddress.setOnPreferenceChangeListener(this);
+            handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
             mHttpProxyAddress.setEnabled(!(Boolean) mUseTor.isChecked());
             mHttpProxyAddress.setOnPreferenceChangeListener(this);
-
-            /* Initialize summaries */
-            mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
-            String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
-            screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
-                getString(R.string.wifi_ssid_whitelist_empty) :
-                getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
-            );
-            handleSocksProxyPreferenceChange(screen.findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS),  mPreferences.getString(Constants.PREF_SOCKS_PROXY_ADDRESS, ""));
             handleHttpProxyPreferenceChange(screen.findPreference(Constants.PREF_HTTP_PROXY_ADDRESS), mPreferences.getString(Constants.PREF_HTTP_PROXY_ADDRESS, ""));
 
             /* About */
+            Preference appVersion   = findPreference("app_version");
+            mSyncthingVersion       = findPreference("syncthing_version");
             try {
                 String versionName = getActivity().getPackageManager()
                         .getPackageInfo(getActivity().getPackageName(), 0).versionName;
@@ -312,7 +321,6 @@ public class SettingsActivity extends SyncthingActivity {
             } catch (PackageManager.NameNotFoundException e) {
                 Log.d(TAG, "Failed to get app version name");
             }
-            mSyncthingApiKey.setOnPreferenceClickListener(this);
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
 
             openSubPrefScreen(screen);
@@ -359,7 +367,6 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingVersion.setSummary(mRestApi.getVersion());
             mSyncthingApiKey.setSummary(mRestApi.getApiKey());
             mOptions = mRestApi.getOptions();
-            mGui = mRestApi.getGui();
 
             Joiner joiner = Joiner.on(", ");
             mDeviceName.setText(mRestApi.getLocalDevice().name);
@@ -371,7 +378,15 @@ public class SettingsActivity extends SyncthingActivity {
             mGlobalAnnounceEnabled.setChecked(mOptions.globalAnnounceEnabled);
             mRelaysEnabled.setChecked(mOptions.relaysEnabled);
             mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
-            mAddress.setText(mGui.address);
+
+            // Web GUI tcp port and bind ip address.
+            mGui = mRestApi.getGui();
+            if (mGui != null) {
+                mWebUITcpPort.setText(mGui.getBindPort());
+                mWebUITcpPort.setSummary(mGui.getBindPort());
+                mWebUIRemoteAccess.setChecked(!BIND_LOCALHOST.equals(mGui.getBindAddress()));
+            }
+
             mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
             mRestApi.getSystemStatus(systemStatus ->
                     mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemStatus.urVersionMax)));
@@ -468,8 +483,22 @@ public class SettingsActivity extends SyncthingActivity {
                 case "globalAnnounceServers":
                     mOptions.globalAnnounceServers = Iterables.toArray(splitter.split((String) o), String.class);
                     break;
-                case "address":
-                    mGui.address = (String) o;
+                case KEY_WEBUI_TCP_PORT:
+                    Integer webUITcpPort = 0;
+                    try {
+                        webUITcpPort = Integer.parseInt((String) o);
+                    } catch (Exception e) {
+                    }
+                    if (webUITcpPort < 1 || webUITcpPort > 65535) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.invalid_port_number, 1, 65535), Toast.LENGTH_LONG)
+                                .show();
+                        return false;
+                    }
+                    mWebUITcpPort.setSummary(Integer.toString(webUITcpPort));
+                    mGui.address = mGui.getBindAddress() + ":" + Integer.toString(webUITcpPort);
+                    break;
+                case KEY_WEBUI_REMOTE_ACCESS:
+                    mGui.address = ((boolean) o ? BIND_ALL : BIND_LOCALHOST) + ":" + mWebUITcpPort.getSummary();
                     break;
                 case "restartOnWakeup":
                     mOptions.restartOnWakeup = (boolean) o;
@@ -592,6 +621,16 @@ public class SettingsActivity extends SyncthingActivity {
                             .setNegativeButton(android.R.string.no, null)
                             .show();
                     return true;
+                case KEY_SYNCTHING_API_KEY:
+                        // Copy syncthing's API key to clipboard.
+                        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText(getString(R.string.syncthing_api_key), mSyncthingApiKey.getSummary());
+                        clipboard.setPrimaryClip(clip);
+                        Toast.makeText(getActivity(), R.string.api_key_copied_to_clipboard, Toast.LENGTH_SHORT)
+                                .show();
+                        return true;
+                    default:
+                        return false;
                 case KEY_UNDO_IGNORED_DEVICES_FOLDERS:
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.undo_ignored_devices_folders_question)
@@ -641,16 +680,6 @@ public class SettingsActivity extends SyncthingActivity {
                             })
                             .show();
                     return true;
-                case KEY_SYNCTHING_API_KEY:
-                    // Copy syncthing's API key to clipboard.
-                    ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText(getString(R.string.syncthing_api_key), mSyncthingApiKey.getSummary());
-                    clipboard.setPrimaryClip(clip);
-                    Toast.makeText(getActivity(), R.string.api_key_copied_to_clipboard, Toast.LENGTH_SHORT)
-                            .show();
-                    return true;
-                default:
-                    return false;
             }
         }
 

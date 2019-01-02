@@ -216,8 +216,6 @@
 
     <string name="usage_reporting">Báo cáo sử dụng ẩn danh</string>
 
-    <string name="gui_address">Các đ.chỉ lắng nghe GUI</string>
-
     <string name="export_config">Xuất cấu hình</string>
 
     <string name="keep_wakelock_while_binary_running">Giữ CPU thức khi Syncthing đang chạy</string>

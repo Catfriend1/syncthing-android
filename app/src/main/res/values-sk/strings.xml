@@ -199,8 +199,6 @@
 
     <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
 
-    <string name="gui_address">Adresa pre GUI</string>
-
     <string name="export_config">Exportovať Konfiguráciu</string>
 
     <!-- Dialog shown before config import -->

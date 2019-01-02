@@ -404,8 +404,6 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
 
     <string name="usage_reporting">Anonym användningsrapportering</string>
 
-    <string name="gui_address">Gränssnittets lyssnaradresser</string>
-
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Ångra ignorerande enheter och mappar</string>
     <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta?</string>

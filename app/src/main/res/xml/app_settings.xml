@@ -160,10 +160,23 @@
             android:inputType="textNoSuggestions" />
 
         <EditTextPreference
-            android:key="address"
-            android:title="@string/gui_address"
+            android:key="webUITcpPort"
+            android:title="@string/webui_tcp_port_title"
+            android:summary=""
             android:persistent="false"
-            android:inputType="textNoSuggestions" />
+            android:inputType="number" />
+
+        <CheckBoxPreference
+            android:key="webUIRemoteAccess"
+            android:title="@string/webui_remote_access_title"
+            android:summary="@string/webui_remote_access_summary"
+            android:persistent="false" />
+
+        <Preference
+            android:persistent="false"
+            android:selectable="true"
+            android:key="syncthing_api_key"
+            android:title="@string/syncthing_api_key" />
 
         <CheckBoxPreference
             android:key="restartOnWakeup"
@@ -291,12 +304,6 @@
             android:selectable="false"
             android:key="syncthing_version"
             android:title="@string/syncthing_version_title" />
-
-        <Preference
-            android:persistent="false"
-            android:selectable="true"
-            android:key="syncthing_api_key"
-            android:title="@string/syncthing_api_key" />
 
         <Preference
             android:persistent="false"

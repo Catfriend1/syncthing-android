@@ -245,8 +245,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
 
     <string name="usage_reporting">Enviar relatórios anónimos de utilização</string>
 
-    <string name="gui_address">Endereço de escuta da interface gráfica</string>
-
     <string name="export_config">Exportar configuração</string>
 
     <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>

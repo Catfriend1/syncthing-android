@@ -296,8 +296,6 @@ Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a
 
     <string name="usage_reporting">Anonim használati statisztikák küldése</string>
 
-    <string name="gui_address">Webes felület IP címe</string>
-
     <string name="export_config">Beállítások mentése</string>
 
     <!-- Experimental options -->

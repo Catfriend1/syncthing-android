@@ -355,8 +355,6 @@
 
     <string name="usage_reporting">Анонимные Отчёты Использования</string>
 
-    <string name="gui_address">Адрес Ожидания GUI</string>
-
     <string name="export_config">Экспорт настроек</string>
 
     <!-- Experimental options -->

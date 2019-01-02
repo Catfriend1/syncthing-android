@@ -314,8 +314,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
 
     <string name="usage_reporting">Anoniem gebruiksrapportage</string>
 
-    <string name="gui_address">GUI-luisteradressen</string>
-
     <string name="export_config">Configuratie exporteren</string>
 
     <!-- Toast after entering invalid integer value -->
