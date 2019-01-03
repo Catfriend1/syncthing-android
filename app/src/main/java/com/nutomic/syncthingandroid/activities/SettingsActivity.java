@@ -388,8 +388,7 @@ public class SettingsActivity extends SyncthingActivity {
             }
 
             mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
-            mRestApi.getSystemStatus(systemStatus ->
-                    mUrAccepted.setChecked(mOptions.isUsageReportingAccepted(systemStatus.urVersionMax)));
+            mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
         }
 
         @Override
@@ -504,11 +503,8 @@ public class SettingsActivity extends SyncthingActivity {
                     mOptions.restartOnWakeup = (boolean) o;
                     break;
                 case "urAccepted":
-                    mRestApi.getSystemStatus(systemStatus -> {
-                        mOptions.urAccepted = ((boolean) o)
-                                ? systemStatus.urVersionMax
-                                : Options.USAGE_REPORTING_DENIED;
-                    });
+                    mRestApi.setUsageReporting((boolean) o);
+                    mOptions = mRestApi.getOptions();
                     break;
                 default: throw new InvalidParameterException();
             }

@@ -784,6 +784,15 @@ public class RestApi {
         return mUrl;
     }
 
+    public Boolean isUsageReportingAccepted() {
+        Options options = getOptions();
+        if (options == null) {
+            Log.e(TAG, "isUsageReportingAccepted called while options == null");
+            return false;
+        }
+        return options.isUsageReportingAccepted(mUrVersionMax);
+    }
+
     public Boolean isUsageReportingDecided() {
         Options options = getOptions();
         if (options == null) {
