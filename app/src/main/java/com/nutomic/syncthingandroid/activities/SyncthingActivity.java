@@ -39,8 +39,9 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
         super.onPostCreate(savedInstanceState);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        if (toolbar == null)
+        if (toolbar == null) {
             return;
+        }
 
         setSupportActionBar(toolbar);
         //noinspection ConstantConditions
