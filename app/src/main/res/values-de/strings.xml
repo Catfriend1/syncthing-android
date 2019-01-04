@@ -168,7 +168,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="ram_usage">RAM-Auslastung</string>
 
     <!-- Title for announce server status -->
-    <string name="announce_server">Indexserver</string>
+    <string name="announce_server">Gerätesuche</string>
 
     <!-- Title for uptime status -->
     <string name="uptime">Betriebszeit</string>
