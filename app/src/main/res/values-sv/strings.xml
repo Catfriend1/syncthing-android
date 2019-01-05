@@ -22,7 +22,7 @@ Vänligen rapportera eventuella problem du stöter på via Github.</string>
     <string name="storage_permission_title">Lagringsbehörighet</string>
     <string name="storage_permission_desc">Syncthing behöver komma åt din lagring för att göra filsynkronisering.</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Plats tillstånd</string>
     <string name="key_generation_success">Säkra nycklar för privat datautbyte har genererats.</string>
 

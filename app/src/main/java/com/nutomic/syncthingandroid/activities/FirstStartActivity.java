@@ -41,6 +41,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
 import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.lang.ref.WeakReference;
 
@@ -239,7 +240,18 @@ public class FirstStartActivity extends Activity {
             // Move to next slide.
             mViewPager.setCurrentItem(current);
             mBackButton.setVisibility(View.VISIBLE);
-            if (current == mSlidePosKeyGeneration) {
+            if (current == mSlidePosIgnoreDozePermission) {
+                if ("NVIDIA".equalsIgnoreCase(Build.MANUFACTURER)) {
+                    if (Util.containsIgnoreCase(Build.MODEL, "Android TV")) {
+                        /**
+                         * Display workaround notice: Without workaround SyncthingNative can't run on this OS reliably.
+                         * See issue https://github.com/Catfriend1/syncthing-android/issues/192
+                         */
+                        ((TextView) findViewById(R.id.tvIgnoreDozePermissionOsNotice)).setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+            else if (current == mSlidePosKeyGeneration) {
                 onKeyGenerationSlideShown();
             }
         } else {

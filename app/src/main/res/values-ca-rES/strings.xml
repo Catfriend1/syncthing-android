@@ -22,7 +22,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="storage_permission_title">Permís d\'emmagatzematge</string>
     <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permís d\'ubicació</string>
     <string name="location_permission_desc">Podeu configurar el Syncthing perquè funcioni amb les xarxes Wi-Fi que seleccioneu. L\'Android requereix que les aplicacions tinguin permís d\'ubicació per poder cercar el nom de les xarxes Wi-Fi actives, ja que es podria deduir la localització de l\'usuari a partir del nom de la xarxa a la qual es troba connectat. Si voleu utilitzar aquesta característica, premeu el botó de la part superior per donar els permisos necessaris al Syncthing. Altrament podeu ometre aquest pas.</string>
 

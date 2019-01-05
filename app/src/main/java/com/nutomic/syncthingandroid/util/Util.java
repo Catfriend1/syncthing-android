@@ -283,4 +283,17 @@ public class Util {
     public static String formatPath(String path) {
         return new File(path).toURI().normalize().getPath();
     }
+
+    public static boolean containsIgnoreCase(String src, String what) {
+        final int length = what.length();
+        if (length == 0) {
+            return true;
+        }
+        for (int i = src.length() - length; i >= 0; i--) {
+            if (src.regionMatches(true, i, what, 0, length)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

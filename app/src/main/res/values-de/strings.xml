@@ -22,7 +22,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="storage_permission_title">Speicher-Berechtigung</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_os_notice">Das aktuell installierte herstellerspezifische Android OS ist bekannt dafür, Probleme zu haben, diese App zuverlässig im Hintergrund auszuführen. Eine Lösung ist im Wiki unter https://github.com/Catfriend1/syncthing-android/wiki/nVidia-Shield-TV-preparations verfügbar . Starte diese App nach dem Durcharbeiten der Anleitung neu.</string>
+
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Standort-Berechtigung</string>
     <string name="location_permission_desc">Syncthing kann eingestellt werden, nur in bestimmten WLAN-Netzwerken zu laufen. Android erfordert, dass Apps die Standortberechtigung haben müssen, um den Namen des gerade verbundenen WLAN-Netzwerks ermitteln zu können, da diese potentiell den Standort des Nutzers aus dem Namen des Netzwerks ableiten können. Wenn du diese Funktion nutzen möchtest, klicke die Schaltfläche, um Syncthing die dafür benötigte Berechtigung zu erteilen. Andernfalls kannst du diesen Schritt auslassen.</string>
 

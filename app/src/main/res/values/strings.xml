@@ -22,7 +22,10 @@ Please report any problems you encounter via Github.</string>
     <string name="storage_permission_title">Storage Permission</string>
     <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization.</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_os_notice">The currently installed manufacturer-specific Android OS is known to cause problems running this app reliably in the background. A solution is available on the wiki at https://github.com/Catfriend1/syncthing-android/wiki/nVidia-Shield-TV-preparations . After working through the instructions, restart this app.</string>
+
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_desc">Syncthing can be configured to run on selected Wi-Fi networks. Android requires applications to have location permissions to be able look up active Wi-Fi network name, as you can sometimes infer users location from the name of the network they are connected to. If you want to use this feature, press the button above to give the required location permissions to Syncthing. Otherwise you can skip this step.</string>
 

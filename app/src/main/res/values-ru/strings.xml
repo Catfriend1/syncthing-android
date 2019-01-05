@@ -22,7 +22,7 @@
     <string name="storage_permission_title">Доступ к файлам</string>
     <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Доступ к местоположению</string>
     <string name="location_permission_desc">Syncthing может быть настроен работать только на выбранных Wi-Fi сетях. Android требует, чтобы приложения имели доступ к местоположению, чтобы узнать имя активной Wi-Fi сети, так как вы иногда можете узнать местоположение пользователя по имени сети, к которой он подключён. Если вы хотите использовать эту функцию, нажмите кнопку вверху, чтобы предоставить Syncthing необходимые разрешения. В противном случае вы можете пропустить этот шаг.</string>
 

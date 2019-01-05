@@ -22,7 +22,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
 
-    <!-- Slide "Location Permission"" -->
+    <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Locatiemachtiging</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Sleutelgeneratie</string>
