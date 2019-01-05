@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Velkommen til Syncthing til Android</string>
 
-    <string name="welcome_text">Syncthing er en open-source fil-synkroniserings applikation.\n\
-For at dele data med andre enheder, skal du tilføje deres enheds unikke ID til enhedslisten. Efter dette kan du vælge hvilke mapper der skal deles med hvilke enheder.\n\
-Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Batterioptimering</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra.</string>
 
     <string name="cont">Fortsæt</string>
     <string name="finish">Færdiggør</string>
@@ -38,10 +38,6 @@ Vær venlig at rapportere ethvert problem, du støder på, via Github. </string>
     <string name="open_website">Åben Hjemmeside</string>
 
     <string name="toast_write_storage_permission_required">Write storage rettigheder er nødvendige for denne app.</string>
-
-    <string name="ignore_doze_permission_title">Batterioptimering</string>
-    <string name="ignore_doze_permission_desc">Android stopper måske synkroniseringen efter noget tid. For at undgå dette, vælg batterioptimering fra.\n\nNogle enheder har ekstra job-afsluttende apps installeret. Du burde også tilføje Syncthing til deres whitelist. </string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra.</string>
 
     <!-- StateDialogActivity -->
 

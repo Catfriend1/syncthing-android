@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="welcome_title">22sp</dimen>
+    <dimen name="slide_title">30sp</dimen>
+    <dimen name="slide_desc">20sp</dimen>
+</resources>

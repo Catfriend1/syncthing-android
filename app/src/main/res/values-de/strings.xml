@@ -14,8 +14,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Einführung</string>
-    <string name="welcome_text">Syncthing ist eine quelloffene Software zur Datensynchronisierung.\n\
-Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zur Geräteliste hinzufügen.\n\
+    <string name="welcome_text">Syncthing ist eine quelloffene Software zur Dateisynchronisierung. Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zur Geräteliste hinzufügen. Danach können Sie festlegen, welche Ordner mit welchen Geräten geteilt werden.\n\
 Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Slide "Storage Permission" -->
@@ -23,11 +22,15 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
 
     <!-- Slide "Ignore battery optimizations" -->
-    <string name="ignore_doze_permission_os_notice">Das aktuell installierte herstellerspezifische Android OS ist bekannt dafür, Probleme zu haben, diese App zuverlässig im Hintergrund auszuführen. Eine Lösung ist im Wiki unter https://github.com/Catfriend1/syncthing-android/wiki/nVidia-Shield-TV-preparations verfügbar . Starte diese App nach dem Durcharbeiten der Anleitung neu.</string>
+    <string name="ignore_doze_permission_title">Akku-Optimierung</string>
+    <string name="ignore_doze_permission_os_notice">Es ist bekannt, dass Android TV\'s die App gelegentlich beenden, wenn sie im Hintergrund ausgeführt wird. Eine Lösung ist im Wiki unter \'%1$s/%2$s\' verfügbar.</string>
+    <string name="ignore_doze_permission_desc">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern, muss die Akku-Optimierung deaktiviert werden. Einige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auf deren Ausnahmeliste hinzugefügt werden.</string>
+    <string name="toast_ignore_doze_permission_required">Diese App funktioniert nur dann zuverlässig, wenn Sie vom \"Doze\" Energiesparmodus ausgenommen wird.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Dein Gerät unterstützt das deaktivieren der Batterielaufzeit Optimierung nicht</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Standort-Berechtigung</string>
-    <string name="location_permission_desc">Syncthing kann eingestellt werden, nur in bestimmten WLAN-Netzwerken zu laufen. Android erfordert, dass Apps die Standortberechtigung haben müssen, um den Namen des gerade verbundenen WLAN-Netzwerks ermitteln zu können, da diese potentiell den Standort des Nutzers aus dem Namen des Netzwerks ableiten können. Wenn du diese Funktion nutzen möchtest, klicke die Schaltfläche, um Syncthing die dafür benötigte Berechtigung zu erteilen. Andernfalls kannst du diesen Schritt auslassen.</string>
+    <string name="location_permission_desc">Syncthing kann eingestellt werden, in bestimmten WLAN-Netzwerken zu arbeiten. Android erfordert, dass die App über die Standortberechtigung verfügt, um den Namen des aktiven Wi-Fi-Netzwerks auszulesen. Wenn Sie diese Funktion verwenden möchten, betätigen Sie die Schaltfläche oben. Sie können diesen Schritt überspringen. Weitere Informationen finden Sie in unserer Datenschutzerklärung.</string>
 
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Schlüssel-Erstellung</string>
@@ -83,11 +86,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="device_rejected">Gerät \"%1$s\" möchte sich verbinden</string>
 
     <string name="folder_rejected">Gerät \"%1$s\" möchte Verzeichnis \"%2$s\" teilen</string>
-
-    <string name="ignore_doze_permission_title">Batterielaufzeit Optimierung</string>
-    <string name="ignore_doze_permission_desc">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern, muss der Energiesparmodus \"Doze\" deaktiviert werden.\n\nEinige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auch dort in die Ausnahmeliste hinzugefügt werden.</string>
-    <string name="toast_ignore_doze_permission_required">Diese App funktioniert nur dann zuverlässig, wenn Sie vom \"Doze\" Energiesparmodus ausgenommen wird.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Dein Gerät unterstützt das deaktivieren der Batterielaufzeit Optimierung nicht</string>
 
     <!-- StateDialogActivity -->
 

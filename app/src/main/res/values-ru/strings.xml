@@ -14,18 +14,16 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Вступление</string>
-    <string name="welcome_text">Syncthing - это приложение с открытым исходным кодом для синхронизации файлов.\n
-Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n
-Пожалуйста, сообщайте о возникших проблемах через Github.</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Доступ к файлам</string>
     <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
 
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Оптимизация батареи</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
+
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Доступ к местоположению</string>
-    <string name="location_permission_desc">Syncthing может быть настроен работать только на выбранных Wi-Fi сетях. Android требует, чтобы приложения имели доступ к местоположению, чтобы узнать имя активной Wi-Fi сети, так как вы иногда можете узнать местоположение пользователя по имени сети, к которой он подключён. Если вы хотите использовать эту функцию, нажмите кнопку вверху, чтобы предоставить Syncthing необходимые разрешения. В противном случае вы можете пропустить этот шаг.</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Генерация ключей</string>
     <string name="key_generation_success">Криптографические ключи для приватного обмена данными были успешно сгенерированы.</string>
@@ -78,10 +76,6 @@
     <string name="device_rejected">Устройство \"%1$s\" хочет подключиться</string>
 
     <string name="folder_rejected">Устройство \"%1$s\" хочет поделиться папкой \"%2$s\"</string>
-
-    <string name="ignore_doze_permission_title">Оптимизация батареи</string>
-    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
 
     <!-- StateDialogActivity -->
 

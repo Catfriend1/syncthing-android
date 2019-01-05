@@ -11,10 +11,8 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Добре дошли в Syncthing за Android</string>
 
-    <string name="welcome_text">Syncthing е приложение с отворен код, за синхронизиране на файлове.\n\
-За да споделите информация с друго устройство е необходимо да добавите уникалния идентификатор, на даденото устройство, към списъка с устройства. След това можете да определите кои папки с кои устройства да бъдат споделени.\n\
-Ако срещнете проблем моля докладвайте в Github.</string>
-
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Пестене на батерия</string>
     <string name="cont">Напред</string>
     <string name="generic_error">Грешка</string>
     <string name="ignore">Игнориране</string>
@@ -40,7 +38,6 @@
 
     <string name="toast_write_storage_permission_required">Приложението изисква права за записване в хранилището на данни</string>
 
-    <string name="ignore_doze_permission_title">Пестене на батерия</string>
     <!-- StateDialogActivity -->
 
 

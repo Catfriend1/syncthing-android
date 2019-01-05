@@ -3,11 +3,14 @@ package com.nutomic.syncthingandroid.activities;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.Manifest;
 import android.net.Uri;
@@ -85,6 +88,8 @@ public class FirstStartActivity extends Activity {
     @Inject
     SharedPreferences mPreferences;
 
+    private Boolean mRunningOnTV = false;
+
     /**
      * Handles activity behaviour depending on prerequisites.
      */
@@ -93,6 +98,9 @@ public class FirstStartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
+
+        mRunningOnTV = isRunningOnTV();
+        Log.d(TAG, mRunningOnTV ? "Running on a TV Device" : "Running on a non-TV Device");
 
         /**
          * Check if a valid config exists that can be read and parsed.
@@ -231,7 +239,14 @@ public class FirstStartActivity extends Activity {
             if (!haveIgnoreDozePermission()) {
                 Toast.makeText(this, R.string.toast_ignore_doze_permission_required,
                         Toast.LENGTH_LONG).show();
-                return;
+                /**
+                 * a) Phones, tablets: The ignore doze permission is mandatory.
+                 * b) TVs: The ignore doze permission is optional as it can only set by ADB on Android 8+.
+                 */
+                if (!mRunningOnTV) {
+                    // Case a) - Prevent user moving on with the slides.
+                    return;
+                }
             }
         }
 
@@ -241,14 +256,14 @@ public class FirstStartActivity extends Activity {
             mViewPager.setCurrentItem(current);
             mBackButton.setVisibility(View.VISIBLE);
             if (current == mSlidePosIgnoreDozePermission) {
-                if ("NVIDIA".equalsIgnoreCase(Build.MANUFACTURER)) {
-                    if (Util.containsIgnoreCase(Build.MODEL, "Android TV")) {
-                        /**
-                         * Display workaround notice: Without workaround SyncthingNative can't run on this OS reliably.
-                         * See issue https://github.com/Catfriend1/syncthing-android/issues/192
-                         */
-                        ((TextView) findViewById(R.id.tvIgnoreDozePermissionOsNotice)).setVisibility(View.VISIBLE);
-                    }
+                if (mRunningOnTV) {
+                    /**
+                     * Display workaround notice: Without workaround SyncthingNative can't run reliably on TV's running Android 8+.
+                     * See issue https://github.com/Catfriend1/syncthing-android/issues/192
+                     */
+                    TextView ignoreDozeOsNotice = (TextView) findViewById(R.id.tvIgnoreDozePermissionOsNotice);
+                    ignoreDozeOsNotice.setText(getString(R.string.ignore_doze_permission_os_notice, getString(R.string.wiki_url), "Android-TV-preparations"));
+                    ignoreDozeOsNotice.setVisibility(View.VISIBLE);
                 }
             }
             else if (current == mSlidePosKeyGeneration) {
@@ -417,14 +432,29 @@ public class FirstStartActivity extends Activity {
     @SuppressLint("InlinedApi")
     @TargetApi(23)
     private void requestIgnoreDozePermission() {
+        Boolean intentFailed = false;
         Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
         intent.setData(Uri.parse("package:" + getPackageName()));
         try {
-            startActivity(intent);
+            ComponentName componentName = intent.resolveActivity(getPackageManager());
+            if (componentName != null) {
+                String className = componentName.getClassName();
+                if (className != null && !className.equalsIgnoreCase("com.android.tv.settings.EmptyStubActivity")) {
+                    // Launch "Exempt from doze mode?" dialog.
+                    startActivity(intent);
+                    return;
+                }
+                intentFailed = true;
+            } else {
+                Log.w(TAG, "Request ignore battery optimizations not supported");
+                intentFailed = true;
+            }
         } catch (ActivityNotFoundException e) {
-            // Some devices dont seem to support this request (according to Google Play
-            // crash reports).
             Log.w(TAG, "Request ignore battery optimizations not supported", e);
+            intentFailed = true;
+        }
+        if (intentFailed) {
+            // Some devices don't support this request.
             Toast.makeText(this, R.string.dialog_disable_battery_optimizations_not_supported, Toast.LENGTH_LONG).show();
         }
     }
@@ -548,4 +578,8 @@ public class FirstStartActivity extends Activity {
         }
     }
 
+    private Boolean isRunningOnTV() {
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+        return uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION;
+    }
 }

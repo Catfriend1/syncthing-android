@@ -11,11 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Üdvözöl az androidos Syncthing.</string>
 
-    <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás.
-
-Az adatok más eszközökkel való megosztásához hozzá kell adnod egyedi eszközazonosítójukat az eszközlistához. Utána kiválaszthatod, hogy mely mappákat mely eszközökkel osztasz meg.
-
-Kérlek, hogy az esetlegesen felmerülő hibákat jelentsd be a GitHub-on.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Az eszközöd nem támogatja az akkumulátor optimalizálás letiltását</string>
 
     <string name="cont">Folytatás</string>
     <string name="finish">Befejezés</string>
@@ -43,12 +41,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="open_website">Weblap megnyitása</string>
 
     <string name="toast_write_storage_permission_required">Az alkalmazás használatához háttértár-hozzáférési jogra van szükség</string>
-
-    <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>
-    <string name="ignore_doze_permission_desc">Az Android idővel leállíthatja a szinkronizálást. Ennek megakadályozásához kapcsold ki az akkumulátor optimalizálást.
-
-Néhány eszközön extra alkalmazás-leállító alkalmazást telepített fel a gyártó. Ezekben szintén érdemes a Syncthinget fehérlistára tenni.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Az eszközöd nem támogatja az akkumulátor optimalizálás letiltását</string>
 
     <!-- StateDialogActivity -->
 

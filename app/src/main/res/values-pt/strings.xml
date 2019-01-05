@@ -11,10 +11,8 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Bem vindo(a) ao Syncthing para Android</string>
 
-    <string name="welcome_text">O Syncthing é uma aplicação de sincronização de ficheiros de código aberto.\n\
-Para partilhar dados com outros dispositivos, tem que adicionar o seu ID único de dispositivo à lista de dispositivos. Depois pode seleccionar quais as pastas a partilhar com os dispositivos.\n\
-Reporte, através do Github, quaisquer problemas que encontre, por favor.</string>
-
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Optimização da bateria</string>
     <string name="cont">Continuar</string>
     <string name="generic_example">Exemplo</string>
     <string name="generic_error">Erro</string>
@@ -39,8 +37,6 @@ Reporte, através do Github, quaisquer problemas que encontre, por favor.</strin
 
     <string name="toast_write_storage_permission_required">Esta aplicação precisa de permissão de escrita no armazenamento</string>
 
-    <string name="ignore_doze_permission_title">Optimização da bateria</string>
-    <string name="ignore_doze_permission_desc">O Android pode parar a sincronização passado algum tempo. Para prevenir isso, desligue a optimização da bateria.\n\nAlguns dispositivos têm aplicações adicionais pré-instaladas para matar tarefas. Deve adicionar o Syncthing à lista de excepções dessas aplicações.</string>
     <!-- StateDialogActivity -->
 
 

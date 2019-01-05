@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">歡迎來到 Syncthing for Android</string>
 
-    <string name="welcome_text">Syncthing 是一個開放原始碼的檔案同步應用程式。\n\
-在其他裝置間分享資料，你需要加入裝置的唯一識別碼到裝置清單中。之後，你可以選擇資料夾分享給哪些裝置。\n\
-請把你遇到的問題回報到 Github 上。</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">電池最佳化</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>
 
     <string name="cont">繼續</string>
     <string name="finish">完成</string>
@@ -38,10 +38,6 @@
     <string name="open_website">打開網站</string>
 
     <string name="toast_write_storage_permission_required">應用程式需要寫入儲存空間的權限</string>
-
-    <string name="ignore_doze_permission_title">電池最佳化</string>
-    <string name="ignore_doze_permission_desc">Android 也許會在一段時間後停止同步。為了防止這個情形，關閉電池最佳化。\n\n有些裝置會預載額外的工作清除應用程式，你也需把 Syncthing 加入白名單中。</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>
 
     <!-- StateDialogActivity -->
 

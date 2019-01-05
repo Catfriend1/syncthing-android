@@ -5,41 +5,64 @@
     android:background="@color/bg_screen1">
 
     <LinearLayout
-        android:background="@color/bg_screen1"
-        android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:background="@color/bg_screen1"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/welcome_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_title"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:text="@string/welcome_title"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:layout_margin="30dp" />
+            android:textSize="@dimen/welcome_title" />
 
-        <ImageView
-            android:layout_width="@dimen/img_width_height"
-            android:layout_height="@dimen/img_width_height"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_syncthing_logo" />
+        <RelativeLayout
+            android:id="@+id/inner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="59dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_syncthing_logo" />
+
+            <TextView
+                android:id="@+id/slide_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
+                android:layout_toEndOf="@+id/ivIcon"
+                android:layout_toRightOf="@+id/ivIcon"
+                android:text="@string/introduction"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/slide_title"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/introduction"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_title"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="@dimen/dots_height"
+            android:justificationMode="inter_word"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
             android:text="@string/welcome_text"

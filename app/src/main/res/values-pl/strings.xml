@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Witamy w Syncthing dla systemu Android</string>
 
-    <string name="welcome_text">Syncthing jest programem do synchronizacji plików o otwartych źródłach.\n\
-Aby udostępnić dane innemu urządzeniu, należy dodać jego unikalny identyfikator do listy urządzeń. Następnie wymagane jest wskazanie katalogów udostępnianych urządzeniu.\n\
-Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Optymalizacja akumulatora</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Twoje urządzenie nie wspiera wyłączania optymalizacji baterii</string>
 
     <string name="cont">Kontynuuj</string>
     <string name="finish">Koniec</string>
@@ -40,10 +40,6 @@ Proszę zgłaszać napotkane błędy programu za pośrednictwem serwisu Github.<
     <string name="open_website">Otwórz stronę internetową</string>
 
     <string name="toast_write_storage_permission_required">Wymagane zezwolenie na zapisywanie do pamięci zewnętrznej</string>
-
-    <string name="ignore_doze_permission_title">Optymalizacja akumulatora</string>
-    <string name="ignore_doze_permission_desc">Android może wstrzymać synchronizację po pewnym czasie. By temu zapobiedz, wyłącz optymalizację baterii.\n\nNiektóre urządzenia posiadają dodatkowe preinstalowane aplikacje zatrzymujące zadania - dobrze byłoby dopisać Syncthing do listy ich wyjątków.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Twoje urządzenie nie wspiera wyłączania optymalizacji baterii</string>
 
     <!-- StateDialogActivity -->
 

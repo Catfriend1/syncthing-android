@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Tervetuloa Syncthingiin Androidille</string>
 
-    <string name="welcome_text">Syncthing on avoimen lähdekoodin tiedostojensynkronointisovellus.\n\
-Jakaaksesi tietoa toisten laitteiden kanssa, sinun tarvitsee lisätä niiden yksilölliset laitetunnukset laiteluetteloon. Myöhemmin voit valita, mitkä kansiot jaetaan minkä laitteiden kanssa.\n\
-Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Laitteesi ei tue akun käytön optimoinnin poistamista käytöstä</string>
 
     <string name="cont">Jatka</string>
     <string name="finish">Valmis</string>
@@ -39,10 +39,6 @@ Ilmoitathan ystävällisesti kaikista havaitsemistasi ongelmista Githubin kautta
     <string name="open_website">Avaa verkkosivu</string>
 
     <string name="toast_write_storage_permission_required">Tämä sovellus vaatii tallennustilan kirjoitusoikeuden</string>
-
-    <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
-    <string name="ignore_doze_permission_desc">Android saattaa pysäyttää synkronoinnin jonkin ajan kuluttua. Tämän estämiseksi, poista käytöstä akun käytön optimointi.\n\nJoissain laitteissa on lisäksi prosessienhallintasovelluksia valmiiksi asennettuna. Sinun tulisi lisätä Syncthing myös niiden sallittujen sovellusten listalle.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Laitteesi ei tue akun käytön optimoinnin poistamista käytöstä</string>
 
     <!-- StateDialogActivity -->
 

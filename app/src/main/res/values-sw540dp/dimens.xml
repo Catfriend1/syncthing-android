@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_divider_inset">80dp</dimen>
+
+    <dimen name="welcome_title">42sp</dimen>
+    <dimen name="slide_desc">26sp</dimen>
+</resources>

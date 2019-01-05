@@ -14,8 +14,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
-    <string name="welcome_text">Syncthing is an open-source file synchronization application.\n\
-To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.\n\
+    <string name="welcome_text">Syncthing is an open-source file synchronization application. To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.\n\
 Please report any problems you encounter via Github.</string>
 
     <!-- Slide "Storage Permission" -->
@@ -23,11 +22,15 @@ Please report any problems you encounter via Github.</string>
     <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization.</string>
 
     <!-- Slide "Ignore battery optimizations" -->
-    <string name="ignore_doze_permission_os_notice">The currently installed manufacturer-specific Android OS is known to cause problems running this app reliably in the background. A solution is available on the wiki at https://github.com/Catfriend1/syncthing-android/wiki/nVidia-Shield-TV-preparations . After working through the instructions, restart this app.</string>
+    <string name="ignore_doze_permission_title">Battery Optimization</string>
+    <string name="ignore_doze_permission_os_notice">Android TV\'s are known to occasionally end the app when it\'s running in the background. A solution is available on the wiki at \'%1$s/%2$s\'.</string>
+    <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization. Some devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
+    <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Your device does not support disabling battery optimizations</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Location Permission</string>
-    <string name="location_permission_desc">Syncthing can be configured to run on selected Wi-Fi networks. Android requires applications to have location permissions to be able look up active Wi-Fi network name, as you can sometimes infer users location from the name of the network they are connected to. If you want to use this feature, press the button above to give the required location permissions to Syncthing. Otherwise you can skip this step.</string>
+    <string name="location_permission_desc">Syncthing can be configured to work on selected Wi-Fi networks. Android requires the app to have location permission to read the active Wi-Fi network name. If you want to use this feature, press the button above. You may skip this step. See our privacy policy for more details.</string>
 
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Key Generation</string>
@@ -83,11 +86,6 @@ Please report any problems you encounter via Github.</string>
     <string name="device_rejected">Device \"%1$s\" wants to connect</string>
 
     <string name="folder_rejected">Device \"%1$s\" wants to share folder \"%2$s\"</string>
-
-    <string name="ignore_doze_permission_title">Battery Optimization</string>
-    <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization.\n\nSome devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
-    <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Your device does not support disabling battery optimizations</string>
 
     <!-- StateDialogActivity -->
 
@@ -572,6 +570,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- URL of the issue tracker -->
     <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>
+    <string name="wiki_url" translatable="false">https://github.com/Catfriend1/syncthing-android/wiki</string>
 
 
     <!-- Menu item to donate -->

@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Vítejte v Syncthing pro Android</string>
 
-    <string name="welcome_text">Syncthing je synchronizační aplikace s otevřeným zdrojovým kódem.\n\
-Pro sdílení dat s dalšími přístroji je třeba přidat jejich unikátní ID do seznamu. Poté lze určovat, které adresáře jsou sdíleny s kterými přístroji.\n\
-Všechny zaznamenané chyby prosím hlašte přes Github.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Optimalizace využití baterie</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Vaše zařízení nepodporuje vypnutí optimalizací baterie</string>
 
     <string name="cont">Pokračovat</string>
     <string name="finish">Dokončit</string>
@@ -40,10 +40,6 @@ Všechny zaznamenané chyby prosím hlašte přes Github.</string>
     <string name="open_website">Otevřít webovou stránku</string>
 
     <string name="toast_write_storage_permission_required">Tato aplikace vyžaduje oprávnění pro zápis do úložiště</string>
-
-    <string name="ignore_doze_permission_title">Optimalizace využití baterie</string>
-    <string name="ignore_doze_permission_desc">Po nějakém čase může Android zastavit synchronizaci. Aby se tak nestalo, vypněte optimalizaci využití baterie.\n\nNa některých zařízeních mohou být také předinstalovány aplikace ukončující úlohy. Měli byste přidat Syncthing do jejich výjimek.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Vaše zařízení nepodporuje vypnutí optimalizací baterie</string>
 
     <!-- StateDialogActivity -->
 

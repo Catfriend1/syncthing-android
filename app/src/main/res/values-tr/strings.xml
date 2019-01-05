@@ -11,11 +11,8 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Android için Syncthing\'e Hoş Geldiniz</string>
 
-    <string name="welcome_text">Syncthing bir açık kaynaklı dosya eşzamanlama uygulamasıdır.\n\
-Diğer aygıtlarla veri paylaşmak için, onların eşsiz aygıt ID\'lerini aygıt listesine eklemen gerekir.
-Ardından hangi klasörlerin hangi aygıtlar ile paylaşılacağını seçebilirsin.\n\
-Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</string>
-
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Batarya İyileştirme</string>
     <string name="cont">Devam et</string>
     <string name="generic_error">Hata</string>
     <!-- Title of the "add folder" menu action -->
@@ -39,8 +36,6 @@ Eğer herhangi bir sorunla karşılaşırsan Github aracılığıyla bildir.</st
 
     <string name="toast_write_storage_permission_required">Bu uygulama için belleğe yazma yetkisi gerekmektedir.</string>
 
-    <string name="ignore_doze_permission_title">Batarya İyileştirme</string>
-    <string name="ignore_doze_permission_desc">Android, birkaç zaman sonra eşzamanlamayı durdurabilir. Bunu önlemek için batarya iyileştirmesini kapat.\n\nBazı aygıtlar ek olarak görev bitirme uygulamalarıyla yüklü gelir. Syncthing\'i onların beyaz listesine ayrıca eklemelisiniz.</string>
     <!-- StateDialogActivity -->
 
 

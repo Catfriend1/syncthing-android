@@ -14,13 +14,13 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introductie</string>
-    <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing.\n\
-Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.\n\
-Als je problemen tegenkomt, meld ze dan via GitHub.</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
+
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Batterijoptimalisatie</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Je apparaat biedt geen ondersteuning voor het uitschakelen van batterijoptimalisatie</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Locatiemachtiging</string>
@@ -63,10 +63,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="open_website">Website openen</string>
 
     <string name="toast_write_storage_permission_required">Schrijftoegang is vereist voor deze applicatie</string>
-
-    <string name="ignore_doze_permission_title">Batterijoptimalisatie</string>
-    <string name="ignore_doze_permission_desc">Android kan je synchronisatie na een tijdje stoppen. Om dit te voorkomen kan je batterijoptimalisatie uitschakelen\n\nOp sommige apparaten staan extra apps voor beëindigen van taken, voeg Syncthing ook aan hun witte lijsten toe.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Je apparaat biedt geen ondersteuning voor het uitschakelen van batterijoptimalisatie</string>
 
     <!-- StateDialogActivity -->
 

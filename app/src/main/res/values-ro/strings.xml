@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Bine ați venit la Syncthing pentru Android!</string>
 
-    <string name="welcome_text">Syncthing este o aplicație, cu sursă deschisă, de sincronizare a fișierelor.\n\
-Pentru a partaja date cu alte dispozitive, trebuie să le adăugați ID-ul unic de dispozitiv la lista dumneavoastră de dispozitive. După aceea puteți selecta care directoare le veți partaja cu care dispozitive.\n\
-Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Optimizare baterie</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Dispozitivul dumneavoastră nu suportă dezactivarea optimizărilor de baterie</string>
 
     <string name="cont">Continuare</string>
     <string name="finish">Terminat</string>
@@ -47,10 +47,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="device_rejected">Dispozitivul \"%1$s\" dorește să se conecteze</string>
 
     <string name="folder_rejected">Dispozitivul \"%1$s\" dorește să partajeze directorul \"%2$s\"</string>
-
-    <string name="ignore_doze_permission_title">Optimizare baterie</string>
-    <string name="ignore_doze_permission_desc">Android poate oprii sincronizarea după un timp. Pentru a prevenii asta, opriți optimizarea bateriei.\n\nUnele dispozitive au aplicații adiționale preinstalate care pot oprii aplicațiile. Ar trebui să adăugați Syncthing și în listele lor de excepții.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Dispozitivul dumneavoastră nu suportă dezactivarea optimizărilor de baterie</string>
 
     <!-- StateDialogActivity -->
 

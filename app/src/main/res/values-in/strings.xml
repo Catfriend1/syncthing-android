@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Selamat Datang di Syncthing untuk Android</string>
 
-    <string name="welcome_text">Syncthing adalah aplikasi penyelarasan berkas bebas-terbuka.\n\
-Untuk berbagi data dengan perangkat lain, anda perlu menambah ID masing-masing perangkat tersebut pada daftar perangkat. Setelah itu anda bisa memilih folder mana yang akan berbagi dengan perangkat mana.\n\
-Jika ada masalah silakan laporkan lewat Github.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Optimisasi Baterai</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Perangkat anda tidak mendukung untuk mematikan optimisasi baterai</string>
 
     <string name="cont">Lanjutkan</string>
     <!-- Title of the "add folder" menu action -->
@@ -36,10 +36,6 @@ Jika ada masalah silakan laporkan lewat Github.</string>
     <string name="open_website">Buka Situs</string>
 
     <string name="toast_write_storage_permission_required">Aplikasi ini membutuuhkan kewenangan penulisan storage.</string>
-
-    <string name="ignore_doze_permission_title">Optimisasi Baterai</string>
-    <string name="ignore_doze_permission_desc">Android mungkin akan menghentikan penyelarasan setelah beberapa waktu. Untuk mencegah hal ini, matikan optimisasi baterai.\n\nBeberapa perangkat mungkin sudah memiliki aplikasi penghentian tugas. Anda juga perlu memasukkan Syncthing pada whitelist aplikasi tersebut.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Perangkat anda tidak mendukung untuk mematikan optimisasi baterai</string>
 
     <!-- StateDialogActivity -->
 

@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Syncthing for Android にようこそ</string>
 
-    <string name="welcome_text">Syncthing は、オープンソースのファイル同期アプリケーションです。\n\
-他のデバイスとデータを共有するには、デバイスリストにその一意のデバイス ID を追加する必要があります。その後で、そのデバイスと共有するフォルダーを選択することができます。\n\
-発生した問題は何でも Github で報告してください。</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">バッテリー最適化</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
 
     <string name="cont">続行</string>
     <string name="finish">完了</string>
@@ -40,10 +40,6 @@
     <string name="open_website">Web サイトを開く</string>
 
     <string name="toast_write_storage_permission_required">このアプリはストレージの書き込みアクセス許可が必要です</string>
-
-    <string name="ignore_doze_permission_title">バッテリー最適化</string>
-    <string name="ignore_doze_permission_desc">Android はしばらくすると同期を停止することがあります。 これを防ぐには、バッテリーの最適化をオフにしてください。\n\n一部のデバイスには、タスク終了アプリが別途プリインストールされています。 これらのホワイトリストにも Syncthing を追加する必要があります。</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
 
     <!-- StateDialogActivity -->
 

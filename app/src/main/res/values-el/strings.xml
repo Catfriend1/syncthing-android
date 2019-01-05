@@ -11,9 +11,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Καλώς ορίσατε στο Syncthing για Android</string>
 
-    <string name="welcome_text">Το Syncthing είναι μια ανοιχτού κώδικα εφαρμογή συγχρονισμού αρχείων.\n\
-Για να μοιραστείτε δεδομένα με άλλες συσκευές, πρέπει να προσθέσετε τα μοναδικά αναγνωριστικά τους στη λίστα συσκευών. Μετά μπορείτε να επιλέξετε ποίοι φάκελοι θα διαμοιραστούν με ποιες συσκευές.\n\
-Παρακαλώ αναφέρετε τυχόν προβλήματα που αντιμετωπίσετε μέσω του Github.</string>
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Βελτιστοποίηση μπαταρίας</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Η συσκευή σας δεν επιτρέπει την απενεργοποίηση των βελτιστοποιήσεων μπαταρίας</string>
 
     <string name="cont">Συνέχεια</string>
     <string name="finish">Τέλος</string>
@@ -38,10 +38,6 @@
     <string name="open_website">Άνοιγμα ιστοσελίδας</string>
 
     <string name="toast_write_storage_permission_required">Απαιτείται η άδεια αποθήκευσης δεδομένων για αυτή την εφαρμογή</string>
-
-    <string name="ignore_doze_permission_title">Βελτιστοποίηση μπαταρίας</string>
-    <string name="ignore_doze_permission_desc">Το Android ενδέχεται να σταματήσει τον συγχρονισμό μετά από κάποιο χρονικό διάστημα. Για να αποφευχθεί αυτό, απενεργοποιήστε τη βελτιστοποίηση μπαταρίας.\n\nΚάποιες συσκευές διαθέτουν επίσης προεγκατεστημένες εφαρμογές τερματισμού διεργασιών. Προσθέστε το Syncthing στο whitelist τους.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Η συσκευή σας δεν επιτρέπει την απενεργοποίηση των βελτιστοποιήσεων μπαταρίας</string>
 
     <!-- StateDialogActivity -->
 
