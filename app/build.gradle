@@ -62,7 +62,7 @@ android {
         debug {
             gradle.buildFinished {
                 buildResult -> if (!buildResult.failure) {
-                    pushToDevice.execute()
+                    postBuildScript.execute()
                 }
             }
         }
@@ -101,7 +101,7 @@ task deleteUnsupportedPlayTranslations(type: Delete) {
     delete 'src/main/play/en/'
 }
 
-task pushToDevice(type: Exec) {
+task postBuildScript(type: Exec) {
     executable = 'python'
-    args = ['-u', './push-to-device.py']
+    args = ['-u', './postbuild.py']
 }
