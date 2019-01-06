@@ -17,18 +17,20 @@ REM
 SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
 REM 
 REM Get "applicationId"
-FOR /F "tokens=2 delims= " %%A IN ('type "app\build.gradle" 2^>^&1 ^| findstr "applicationId"') DO SET APPLICATION_ID=%%A
+FOR /F "tokens=2 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle" 2^>^&1 ^| findstr "applicationId"') DO SET APPLICATION_ID=%%A
 SET APPLICATION_ID=%APPLICATION_ID:"=%
 echo [INFO] applicationId="%APPLICATION_ID%"
 REM 
 REM Get "versionName"
-FOR /F "tokens=2 delims= " %%A IN ('type "app\build.gradle" 2^>^&1 ^| findstr "versionName"') DO SET VERSION_NAME=%%A
+FOR /F "tokens=2 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle" 2^>^&1 ^| findstr "versionName"') DO SET VERSION_NAME=%%A
 SET VERSION_NAME=%VERSION_NAME:"=%
 echo [INFO] versionName="%VERSION_NAME%"
 REM 
 REM Get short hash of last commit.
 IF NOT EXIST %GIT_BIN% echo [ERROR] git.exe not found. & pause & goto :eof
+pushd %SCRIPT_PATH%
 FOR /F "tokens=1" %%A IN ('git rev-parse --short --verify HEAD 2^>NUL:') DO SET COMMIT_SHORT_HASH=%%A
+popd
 echo [INFO] commit="%COMMIT_SHORT_HASH%"
 REM 
 REM Rename APK to be ready for upload to the GitHub release page.
