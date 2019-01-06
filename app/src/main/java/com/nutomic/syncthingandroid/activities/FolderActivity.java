@@ -223,10 +223,8 @@ public class FolderActivity extends SyncthingActivity
 
         if (mIsCreateMode) {
             if (savedInstanceState != null) {
-                mFolder = new Gson().fromJson(savedInstanceState.getString("folder"), Folder.class);
-                if (savedInstanceState.getBoolean(IS_SHOW_DISCARD_DIALOG)){
-                    showDiscardDialog();
-                }
+                mFolder = new Gson().fromJson(savedInstanceState.getString("mFolder"), Folder.class);
+                mFolderUri = savedInstanceState.getParcelable("mFolderUri");
             }
             if (mFolder == null) {
                 initFolder();
@@ -244,15 +242,11 @@ public class FolderActivity extends SyncthingActivity
             mPathView.setEnabled(false);
         }
 
-        if (savedInstanceState != null){
-            if (savedInstanceState.getBoolean(IS_SHOWING_DELETE_DIALOG)){
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getBoolean(IS_SHOWING_DELETE_DIALOG)) {
                 showDeleteDialog();
-            }
-        }
-
-        if (savedInstanceState != null){
-            if (savedInstanceState.getBoolean(IS_SHOWING_DELETE_DIALOG)){
-                showDeleteDialog();
+            } else if (savedInstanceState.getBoolean(IS_SHOW_DISCARD_DIALOG)) {
+                showDiscardDialog();
             }
         }
     }
@@ -387,12 +381,16 @@ public class FolderActivity extends SyncthingActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
         outState.putBoolean(IS_SHOWING_DELETE_DIALOG, mDeleteDialog != null && mDeleteDialog.isShowing());
         Util.dismissDialogSafe(mDeleteDialog, this);
 
-        if (mIsCreateMode){
-            outState.putBoolean(IS_SHOW_DISCARD_DIALOG, mDiscardDialog != null && mDiscardDialog.isShowing());
-            Util.dismissDialogSafe(mDiscardDialog, this);
+        outState.putBoolean(IS_SHOW_DISCARD_DIALOG, mDiscardDialog != null && mDiscardDialog.isShowing());
+        Util.dismissDialogSafe(mDiscardDialog, this);
+
+        if (mIsCreateMode) {
+            outState.putString("mFolder", new Gson().toJson(mFolder));
+            outState.putParcelable("mFolderUri", mFolderUri);
         }
     }
 
@@ -410,7 +408,13 @@ public class FolderActivity extends SyncthingActivity
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
+        if (mFolderNeedsToUpdate) {
+            Log.d(TAG, "onServiceStateChange: Suppressing reload of folder config as changes were made to that folder in the meantime.");
+            return;
+        }
+
         if (!mIsCreateMode) {
+            Log.d(TAG, "onServiceStateChange: (Re)loading folder config ...");
             RestApi restApi = getApi();
             List<Folder> folders = mConfig.getFolders(restApi);
             String passedId = getIntent().getStringExtra(EXTRA_FOLDER_ID);
@@ -427,7 +431,6 @@ public class FolderActivity extends SyncthingActivity
                 return;
             }
             mConfig.getFolderIgnoreList(restApi, mFolder, this::onReceiveFolderIgnoreList);
-            checkWriteAndUpdateUI();
         }
 
         // If the extra is set, we should automatically share the current folder with the given device.
@@ -438,8 +441,8 @@ public class FolderActivity extends SyncthingActivity
             mFolderNeedsToUpdate = true;
         }
 
+        checkWriteAndUpdateUI();
         attemptToApplyVersioningConfig();
-
         updateViewsAndSetListeners();
     }
 
@@ -578,12 +581,7 @@ public class FolderActivity extends SyncthingActivity
     }
 
     private void showDeleteDialog(){
-        mDeleteDialog = createDeleteDialog();
-        mDeleteDialog.show();
-    }
-
-    private Dialog createDeleteDialog(){
-        return new AlertDialog.Builder(this)
+        mDeleteDialog = new AlertDialog.Builder(this)
                 .setMessage(R.string.remove_folder_confirm)
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
                     mConfig.removeFolder(getApi(), mFolder.id);
@@ -592,6 +590,7 @@ public class FolderActivity extends SyncthingActivity
                 })
                 .setNegativeButton(android.R.string.no, null)
                 .create();
+        mDeleteDialog.show();
     }
 
     @Override

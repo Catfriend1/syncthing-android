@@ -596,17 +596,13 @@ public class DeviceActivity extends SyncthingActivity
     }
 
     private void showCompressionDialog(){
-        mCompressionDialog = createCompressionDialog();
-        mCompressionDialog.show();
-    }
-
-    private Dialog createCompressionDialog(){
-        return new AlertDialog.Builder(this)
+        mCompressionDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.compression)
                 .setSingleChoiceItems(R.array.compress_entries,
                         Compression.fromValue(this, mDevice.compression).getIndex(),
                         mCompressionEntrySelectedListener)
                 .create();
+        mCompressionDialog.show();
     }
 
     /**

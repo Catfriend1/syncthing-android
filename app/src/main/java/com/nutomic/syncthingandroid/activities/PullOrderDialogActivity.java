@@ -15,8 +15,8 @@ import java.util.List;
 
 public class PullOrderDialogActivity extends AppCompatActivity {
 
-    public static final String EXTRA_PULL_ORDER = "com.nutomic.syncthinandroid.activities.PullOrderDialogActivity.PULL_ORDER";
-    public static final String EXTRA_RESULT_PULL_ORDER = "com.nutomic.syncthinandroid.activities.PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER";
+    public static final String EXTRA_PULL_ORDER = "com.github.catfriend1.syncthingandroid.activities.PullOrderDialogActivity.PULL_ORDER";
+    public static final String EXTRA_RESULT_PULL_ORDER = "com.github.catfriend1.syncthingandroid.activities.PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER";
 
     private String selectedType;
 
