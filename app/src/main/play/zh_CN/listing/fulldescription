@@ -18,8 +18,10 @@ Comparison between upstream and fork at the time of writing this:
 * Strategy and release frequency is different
 * Only the wrapper containing the Android UI is addressed by the fork.
 
-主页：https://syncthing.net/
+Website: https://github.com/Catfriend1/syncthing-android
 
 源代码：https://github.com/Catfriend1/syncthing-android
 
 问题回报：https://github.com/Catfriend1/syncthing-android/issues
+
+Translation: https://www.transifex.com/projects/p/syncthing-android-1

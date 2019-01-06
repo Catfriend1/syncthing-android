@@ -18,8 +18,10 @@ Syncthing-Fork для Android - это обёртка для Syncthing, пред
 * Стратегия и частота релиза отличается
 * Форк касается только обёртки, содержащей Android UI .
 
-Сайт: https://syncthing.net/
+Website: https://github.com/Catfriend1/syncthing-android
 
 Исходный код: https://github.com/Catfriend1/syncthing-android
 
 Замечания: https://github.com/Catfriend1/syncthing-android/issues
+
+Translation: https://www.transifex.com/projects/p/syncthing-android-1

@@ -18,8 +18,10 @@ Upstream und Fork im Vergleich zum Zeitpunkt des Schreibens:
 * Strategie und Releasehäufigkeit unterscheidet sich
 * Der Fork kümmert sich nur um den Wrapper, welcher die Android Bedienoberfläche enthält.
 
-Webseite: https://syncthing.net/
+Webseite: https://github.com/Catfriend1/syncthing-android
 
 Quellcode: https://github.com/Catfriend1/syncthing-android
 
 Vorgänge: https://github.com/Catfriend1/syncthing-android/issues
+
+Übersetzung: https://www.transifex.com/projects/p/syncthing-android-1
