@@ -90,6 +90,12 @@ public class Constants {
     public static final String FOLDER_TYPE_RECEIVE_ONLY         = "receiveonly";
 
     /**
+     * Default listening ports.
+     */
+    public static final Integer DEFAULT_WEBGUI_TCP_PORT         = 8384;
+    public static final Integer DEFAULT_DATA_TCP_PORT           = 22000;
+
+    /**
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.
      * This is the request code used when requesting the permission.
      */

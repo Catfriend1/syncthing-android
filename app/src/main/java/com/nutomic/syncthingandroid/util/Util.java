@@ -9,6 +9,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -255,6 +256,38 @@ public class Util {
 
         // Return captured command line output.
         return capturedStdOut;
+    }
+
+    /**
+     * Check if a TCP is listening on the local device on a specific port.
+     */
+    public static Boolean isTcpPortListening(Integer port) {
+        // t: tcp, l: listening, n: numeric
+        String output = runShellCommandGetOutput("netstat -t -l -n", false);
+        if (TextUtils.isEmpty(output)) {
+            Log.w(TAG, "isTcpPortListening: Failed to run netstat. Returning false.");
+            return false;
+        }
+        String[] results  = output.split("\n");
+        for (String line : results) {
+            if (TextUtils.isEmpty(output)) {
+                continue;
+            }
+            String[] words = line.split("\\s+");
+            if (words.length > 5) {
+                String protocol = words[0];
+                String localAddress = words[3];
+                String connState = words[5];
+                if (protocol.equals("tcp") || protocol.equals("tcp6")) {
+                    if (localAddress.endsWith(":" + Integer.toString(port)) &&
+                            connState.equalsIgnoreCase("LISTEN")) {
+                        // Port is listening.
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**

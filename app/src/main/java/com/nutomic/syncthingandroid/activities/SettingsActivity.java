@@ -34,6 +34,7 @@ import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.NotificationHandler;
@@ -169,7 +170,7 @@ public class SettingsActivity extends SyncthingActivity {
         private RestApi mRestApi;
 
         private Options mOptions;
-        private Config.Gui mGui;
+        private Gui mGui;
 
         private Boolean mPendingConfig = false;
 
@@ -488,8 +489,8 @@ public class SettingsActivity extends SyncthingActivity {
                         webUITcpPort = Integer.parseInt((String) o);
                     } catch (Exception e) {
                     }
-                    if (webUITcpPort < 1 || webUITcpPort > 65535) {
-                        Toast.makeText(getActivity(), getResources().getString(R.string.invalid_port_number, 1, 65535), Toast.LENGTH_LONG)
+                    if (webUITcpPort < 1024 || webUITcpPort > 65535) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.invalid_port_number, 1024, 65535), Toast.LENGTH_LONG)
                                 .show();
                         return false;
                     }

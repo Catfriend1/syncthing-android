@@ -10,6 +10,7 @@ import android.util.Log;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
+import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
@@ -201,6 +202,17 @@ public class ConfigXml {
             return new URL(urlProtocol + "://" + getGuiElement().getElementsByTagName("address").item(0).getTextContent());
         } catch (MalformedURLException e) {
             throw new RuntimeException("Failed to parse web interface URL", e);
+        }
+    }
+
+    public Integer getWebGuiBindPort() {
+        try {
+            Gui gui = new Gui();
+            gui.address = getGuiElement().getElementsByTagName("address").item(0).getTextContent();
+            return Integer.parseInt(gui.getBindPort());
+        } catch (Exception e) {
+            Log.w(TAG, "getWebGuiBindPort: Failed with exception: ", e);
+            return Constants.DEFAULT_WEBGUI_TCP_PORT;
         }
     }
 

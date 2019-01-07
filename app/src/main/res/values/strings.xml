@@ -720,6 +720,9 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">A config file crucial to operation is missing</string>
 
+    <!-- Toast shown if a listening tcp port is unavailable -->
+    <string name="webui_tcp_port_unavailable">WebUI tcp port %s busy. Second instance?</string>
+
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Camera</string>
 

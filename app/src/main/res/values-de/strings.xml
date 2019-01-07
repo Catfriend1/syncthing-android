@@ -711,6 +711,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Eine für den Betrieb wichtige Konfigurationsdatei fehlt</string>
 
+    <!-- Toast shown if a listening tcp port is unavailable -->
+    <string name="webui_tcp_port_unavailable">WebGUI TCP-Port %s belegt. Zweite Instanz?</string>
+
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Kamera</string>
 

@@ -26,6 +26,7 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.FileUtils;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -506,8 +507,7 @@ public class SyncthingService extends Service {
                 return;
             }
         }
-        Log.v(TAG, "Starting syncthing");
-        onServiceStateChange(State.STARTING);
+
         mConfig = new ConfigXml(this);
         try {
             mConfig.loadConfig();
@@ -518,6 +518,19 @@ public class SyncthingService extends Service {
             }
             return;
         }
+
+        // Check if the SyncthingNative's configured webgui port is allocated by another app or process. (issue #193)
+        Integer webGuiTcpPort = mConfig.getWebGuiBindPort();
+        Boolean isWebUIPortListening = Util.isTcpPortListening(webGuiTcpPort);
+        if (isWebUIPortListening) {
+            // We shouldn't start SyncthingNative as we would wait forever for life signs on the configured port. (ANR)
+            Log.e(TAG, "launchStartupTask: WebUI tcp port " + Integer.toString(webGuiTcpPort) + " unavailable. Second instance?");
+            mNotificationHandler.showCrashedNotification(R.string.webui_tcp_port_unavailable, Integer.toString(webGuiTcpPort));
+            return;
+        }
+
+        Log.v(TAG, "Starting syncthing");
+        onServiceStateChange(State.STARTING);
 
         if (mRestApi == null) {
             mRestApi = new RestApi(this, mConfig.getWebGuiUrl(), mConfig.getApiKey(),

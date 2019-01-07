@@ -32,6 +32,7 @@ import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.model.FolderStatus;
+import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.IgnoredFolder;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.PendingDevice;
@@ -573,13 +574,13 @@ public class RestApi {
         }
     }
 
-    public Config.Gui getGui() {
+    public Gui getGui() {
         synchronized (mConfigLock) {
-            return deepCopy(mConfig.gui, Config.Gui.class);
+            return deepCopy(mConfig.gui, Gui.class);
         }
     }
 
-    public void editSettings(Config.Gui newGui, Options newOptions) {
+    public void editSettings(Gui newGui, Options newOptions) {
         synchronized (mConfigLock) {
             mConfig.gui = newGui;
             mConfig.options = newOptions;
