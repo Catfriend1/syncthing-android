@@ -34,13 +34,16 @@ popd
 echo [INFO] commit="%COMMIT_SHORT_HASH%"
 REM 
 REM Rename APK to be ready for upload to the GitHub release page.
-SET APK_NEW_FILENAME=%APPLICATION_ID%_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
-call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %APK_NEW_FILENAME%
-call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release-unsigned.apk %APK_NEW_FILENAME%
+SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %APK_GITHUB_NEW_FILENAME%
+REM 
+SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %APK_GPLAY_NEW_FILENAME%
 echo [INFO] APK file rename step complete.
 REM 
-REM Copy debug APK to temporary storage location if the storage is available.
-IF EXIST %TEMP_OUTPUT_FOLDER% copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+REM Copy both APK to temporary storage location if the storage is available.
+IF EXIST %TEMP_OUTPUT_FOLDER% copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+IF EXIST %TEMP_OUTPUT_FOLDER% copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
 REM 
 echo [INFO] End of Script.
 timeout 3
