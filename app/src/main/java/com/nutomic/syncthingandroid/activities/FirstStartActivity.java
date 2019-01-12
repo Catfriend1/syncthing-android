@@ -23,14 +23,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -45,6 +42,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.Util;
+import com.nutomic.syncthingandroid.views.CustomViewPager;
 
 import java.lang.ref.WeakReference;
 
@@ -78,7 +76,7 @@ public class FirstStartActivity extends Activity {
     private int mSlidePosIgnoreDozePermission = -1;
     private int mSlidePosKeyGeneration = -1;
 
-    private ViewPager mViewPager;
+    private CustomViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     private LinearLayout mDotsLayout;
     private TextView[] mDots;
@@ -145,19 +143,12 @@ public class FirstStartActivity extends Activity {
 
         // Show first start welcome wizard UI.
         setContentView(R.layout.activity_first_start);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mViewPager = (CustomViewPager) findViewById(R.id.view_pager);
         mDotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         mBackButton = (Button) findViewById(R.id.btn_back);
         mNextButton = (Button) findViewById(R.id.btn_next);
 
-        mViewPager.setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // Consume the event to prevent swiping through the slides.
-                v.performClick();
-                return true;
-            }
-        });
+        mViewPager.setPagingEnabled(false);
 
         // Add welcome slides to be shown.
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
@@ -285,6 +276,10 @@ public class FirstStartActivity extends Activity {
             mDots[i].setText(Html.fromHtml("&#8226;"));
             mDots[i].setTextSize(35);
             mDots[i].setTextColor(mSlides[currentPage].dotColorInActive);
+
+            // Prevent TalkBack from announcing a decorative TextView.
+            mDots[i].setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+            mDots[i].setContentDescription(getString(R.string.page_x_of_y, Integer.toString(i), Integer.toString(mDots.length)));
             mDotsLayout.addView(mDots[i]);
         }
 
@@ -297,7 +292,7 @@ public class FirstStartActivity extends Activity {
     }
 
     //  ViewPager change listener
-    ViewPager.OnPageChangeListener mViewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+    CustomViewPager.OnPageChangeListener mViewPagerPageChangeListener = new CustomViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {

@@ -448,10 +448,11 @@ public class MainActivity extends SyncthingActivity
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent e) {
         if (keyCode == KeyEvent.KEYCODE_MENU) {
-            if (!mDrawerLayout.isDrawerOpen(GravityCompat.START))
+            if (!mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                 mDrawerLayout.openDrawer(GravityCompat.START);
-            else
+            } else {
                 closeDrawer();
+            }
 
             return true;
         }

@@ -42,6 +42,7 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
         if (toolbar == null) {
             return;
         }
+        toolbar.setNavigationContentDescription(R.string.main_menu);
 
         setSupportActionBar(toolbar);
         //noinspection ConstantConditions

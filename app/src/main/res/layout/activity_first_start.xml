@@ -8,7 +8,7 @@
         tools:context="com.nutomic.syncthingandroid.activities.FirstStartActivity"
         tools:showIn="@layout/activity_first_start">
 
-        <android.support.v4.view.ViewPager
+        <com.nutomic.syncthingandroid.views.CustomViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -20,7 +20,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/dots_margin_bottom"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:importantForAccessibility="no"
+                android:descendantFocusability="blocksDescendants">
         </LinearLayout>
 
         <View

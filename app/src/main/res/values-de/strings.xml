@@ -51,6 +51,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="ignore">Ignorieren</string>
 
+    <string name="page_x_of_y">Seite %1$s von %2$s</string>
+
+    <string name="main_menu">Hauptmenü</string>
+
     <!-- MainActivity -->
 
 
