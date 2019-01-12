@@ -1,8 +1,8 @@
 This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+* 每台设备和每个同步文件夹均可设置单独的同步规则
+*最近的更改显示在UI上，单击以打开文件。
+*高功耗是固定的。
+* 支持 Android 8 和 9
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
@@ -18,10 +18,10 @@ Comparison between upstream and fork at the time of writing this:
 * Strategy and release frequency is different
 * Only the wrapper containing the Android UI is addressed by the fork.
 
-Website: https://github.com/Catfriend1/syncthing-android
+网站：https://github.com/Catfriend1/syncthing-android
 
 源代码：https://github.com/Catfriend1/syncthing-android
 
 问题回报：https://github.com/Catfriend1/syncthing-android/issues
 
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+翻译：https://www.transifex.com/projects/p/syncthing-android-1
