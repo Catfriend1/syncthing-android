@@ -40,7 +40,8 @@
                 android:drawableRight="@drawable/ic_share_black_24dp"
                 android:drawableEnd="@drawable/ic_share_black_24dp"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"
+                android:contentDescription="@string/share_title" />
 
         </LinearLayout>
 
