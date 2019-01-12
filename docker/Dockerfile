@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ENV GO_VERSION 1.9.5
+ENV GO_VERSION 1.9.7
 ENV ANDROID_SDK_VERSION 3859397
 
 WORKDIR /opt
@@ -23,7 +23,7 @@ ENV ANDROID_HOME /opt/android-sdk
 RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
 
 # Install other android packages, including NDK
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager tools platform-tools "build-tools;27.0.2" "platforms;android-27" "extras;android;m2repository" ndk-bundle
+RUN ${ANDROID_HOME}/tools/bin/sdkmanager tools platform-tools "build-tools;28.0.3" "platforms;android-28" "extras;android;m2repository" ndk-bundle
 
 # Accept licenses of newly installed packages
 RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
