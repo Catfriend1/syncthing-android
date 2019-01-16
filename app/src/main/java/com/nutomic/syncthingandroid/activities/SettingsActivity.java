@@ -2,6 +2,7 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
@@ -22,8 +23,18 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
@@ -66,12 +77,13 @@ public class SettingsActivity extends SyncthingActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
         mSettingsFragment = new SettingsFragment();
         Bundle bundle = new Bundle();
         bundle.putString(EXTRA_OPEN_SUB_PREF_SCREEN, getIntent().getStringExtra(EXTRA_OPEN_SUB_PREF_SCREEN));
         mSettingsFragment.setArguments(bundle);
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, mSettingsFragment)
+                .replace(R.id.prefFragmentContainer, mSettingsFragment)
                 .commit();
     }
 
@@ -104,6 +116,15 @@ public class SettingsActivity extends SyncthingActivity {
         syncthingService.registerOnServiceStateChangeListener(mSettingsFragment);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent e) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, e);
+    }
+
     public static class SettingsFragment extends PreferenceFragment
             implements SyncthingService.OnServiceStateChangeListener,
                 Preference.OnPreferenceChangeListener,
@@ -129,6 +150,8 @@ public class SettingsActivity extends SyncthingActivity {
 
         @Inject NotificationHandler mNotificationHandler;
         @Inject SharedPreferences mPreferences;
+
+        private Dialog             mCurrentPrefScreenDialog = null;
 
         private Preference         mCategoryRunConditions;
         private CheckBoxPreference mStartServiceOnBoot;
@@ -184,6 +207,26 @@ public class SettingsActivity extends SyncthingActivity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+            setHasOptionsMenu(true);
+        }
+
+        /**
+         * The ActionBar overlaps the preferences view.
+         * Move the preferences view below the ActionBar.
+         */
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = super.onCreateView(inflater, container, savedInstanceState);
+            int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            TypedValue tv = new TypedValue();
+            if (container.getContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+            {
+                // Calculate ActionBar height
+                int actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+                view.setPadding(horizontalMargin, actionBarHeight, horizontalMargin, verticalMargin);
+            }
+            return view;
         }
 
         /**
@@ -195,6 +238,7 @@ public class SettingsActivity extends SyncthingActivity {
         public void onActivityCreated(Bundle savedInstanceState) {
             mContext = getActivity().getApplicationContext();
             super.onActivityCreated(savedInstanceState);
+
             addPreferencesFromResource(R.xml.app_settings);
             mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
@@ -212,9 +256,9 @@ public class SettingsActivity extends SyncthingActivity {
                     return false;
                 });
             }
+            PreferenceScreen screen = getPreferenceScreen();
 
             /* Run conditions */
-            PreferenceScreen screen = getPreferenceScreen();
             mRunOnWifi =
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
             mRunOnMeteredWifi =
@@ -347,6 +391,53 @@ public class SettingsActivity extends SyncthingActivity {
                     }
                 }
             }
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+            super.onPreferenceTreeClick(preferenceScreen, preference);
+            if (preference instanceof PreferenceScreen) {
+                // User has clicked on a sub-preferences screen.
+                try {
+                    mCurrentPrefScreenDialog = ((PreferenceScreen) preference).getDialog();
+                    LinearLayout root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent().getParent();
+                    SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+                    LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
+                    Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
+                    root.addView(toolbar, 0);
+                    toolbar.setTitle(((PreferenceScreen) preference).getTitle());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        toolbar.setTouchscreenBlocksFocus(false);
+                    }
+                    syncthingActivity.setSupportActionBar(toolbar);
+                    syncthingActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                } catch (Exception e) {
+                    /**
+                     * The above code has been verified working but due to known bugs in the
+                     * support library on different Android versions better be safe in case
+                     * it breaks.
+                     */
+                    Log.e(TAG, "onPreferenceTreeClick", e);
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            if (item.getItemId() == android.R.id.home) {
+                if (mCurrentPrefScreenDialog == null) {
+                    // User is on the top preferences screen.
+                    getActivity().onBackPressed();
+                } else {
+                    // User is on a sub-preferences screen.
+                    mCurrentPrefScreenDialog.dismiss();
+                    mCurrentPrefScreenDialog = null;
+                }
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
         }
 
         public void setService(SyncthingService syncthingService) {

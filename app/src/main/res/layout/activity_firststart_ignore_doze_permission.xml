@@ -33,7 +33,7 @@
             android:text="@string/ignore_doze_permission_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_title"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="58dp"
@@ -55,7 +55,8 @@
             android:paddingEnd="@dimen/grant_button_padding"
             android:paddingRight="@dimen/grant_button_padding"
             android:text="@string/grant_permission"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            style="@style/Theme.Syncthing.GreyButton" />
 
         <TextView
             android:id="@+id/tvIgnoreDozePermissionOsNotice"

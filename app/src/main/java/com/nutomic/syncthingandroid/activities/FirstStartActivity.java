@@ -3,14 +3,12 @@ package com.nutomic.syncthingandroid.activities;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.Manifest;
 import android.net.Uri;
@@ -48,7 +46,7 @@ import java.lang.ref.WeakReference;
 
 import javax.inject.Inject;
 
-public class FirstStartActivity extends Activity {
+public class FirstStartActivity extends AppCompatActivity {
 
     private static String TAG = "FirstStartActivity";
     private static final int REQUEST_COARSE_LOCATION = 141;
@@ -97,7 +95,7 @@ public class FirstStartActivity extends Activity {
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
 
-        mRunningOnTV = isRunningOnTV();
+        mRunningOnTV = Util.isRunningOnTV(this);
         Log.d(TAG, mRunningOnTV ? "Running on a TV Device" : "Running on a non-TV Device");
 
         /**
@@ -489,6 +487,7 @@ public class FirstStartActivity extends Activity {
                 } else {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted ACCESS_COARSE_LOCATION permission.");
+                    mNextButton.requestFocus();
                 }
                 break;
             case REQUEST_WRITE_STORAGE:
@@ -498,6 +497,7 @@ public class FirstStartActivity extends Activity {
                 } else {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted WRITE_EXTERNAL_STORAGE permission.");
+                    mNextButton.requestFocus();
                 }
                 break;
             default:
@@ -570,11 +570,7 @@ public class FirstStartActivity extends Activity {
             keygenStatus.setText(firstStartActivity.getString(R.string.key_generation_success));
             Button nextButton = (Button) firstStartActivity.findViewById(R.id.btn_next);
             nextButton.setVisibility(View.VISIBLE);
+            nextButton.requestFocus();
         }
-    }
-
-    private Boolean isRunningOnTV() {
-        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-        return uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION;
     }
 }

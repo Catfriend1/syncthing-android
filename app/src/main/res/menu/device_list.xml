@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/add_device"
-        android:icon="@drawable/ic_add_white_24dp_active"
+        android:icon="@drawable/btn_add_device"
         android:title="@string/add_device"
         app:showAsAction="always|withText" />
 

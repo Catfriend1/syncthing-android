@@ -33,6 +33,11 @@
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
+    <!-- Button themes -->
+    <style name="Theme.Syncthing.GreyButton" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/btn_welcome_slide_color</item>
+    </style>
+
     <!-- Dialog themes -->
     <eat-comment/>
 

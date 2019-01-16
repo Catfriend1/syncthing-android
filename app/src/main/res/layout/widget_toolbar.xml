@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:focusable="false"
             android:visibility="gone"
             app:buttonTint="#76ff03"/>
 
@@ -29,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:focusable="false"
             android:visibility="gone"
             app:buttonTint="#fff103"/>
 
@@ -37,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:focusable="false"
             android:visibility="gone"
             app:buttonTint="#ffae03"/>
 

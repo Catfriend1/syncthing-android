@@ -54,7 +54,8 @@
             android:paddingEnd="@dimen/grant_button_padding"
             android:paddingRight="@dimen/grant_button_padding"
             android:text="@string/grant_permission"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            style="@style/Theme.Syncthing.GreyButton" />
 
         <TextView
             android:layout_width="wrap_content"

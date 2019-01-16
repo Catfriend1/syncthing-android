@@ -2,11 +2,13 @@ package com.nutomic.syncthingandroid.util;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.UiModeManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -328,5 +330,10 @@ public class Util {
             }
         }
         return false;
+    }
+
+    public static Boolean isRunningOnTV(Context context) {
+        UiModeManager uiModeManager = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+        return uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION;
     }
 }

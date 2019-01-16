@@ -39,20 +39,22 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:background="@null"
                 android:text="@string/back"
-                android:textColor="@android:color/white"
-                android:visibility="gone" />
+                android:visibility="gone"
+                style="@style/Theme.Syncthing.GreyButton" />
 
         <Button
                 android:id="@+id/btn_next"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:background="@null"
                 android:text="@string/cont"
-                android:textColor="@android:color/white" />
+                style="@style/Theme.Syncthing.GreyButton" >
+                <requestFocus />
+        </Button>
 
 </RelativeLayout>

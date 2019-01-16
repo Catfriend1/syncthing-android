@@ -68,4 +68,12 @@
     <issue id="RelativeOverlap">
         <ignore path="src/main/res/layout/activity_first_start.xml" />
     </issue>
+    <!-- Ignore unused drawables -->
+    <issue id="UnusedResources" severity="ignore">
+        <ignore path="src/main/res/drawable-ldpi" />
+        <ignore path="src/main/res/drawable-hdpi" />
+        <ignore path="src/main/res/drawable-xhdpi" />
+        <ignore path="src/main/res/drawable-xxhdpi" />
+        <ignore path="src/main/res/drawable-xxxhdpi" />
+    </issue>
 </lint>

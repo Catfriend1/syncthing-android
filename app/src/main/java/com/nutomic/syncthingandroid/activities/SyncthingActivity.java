@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,9 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
             return;
         }
         toolbar.setNavigationContentDescription(R.string.main_menu);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            toolbar.setTouchscreenBlocksFocus(false);
+        }
 
         setSupportActionBar(toolbar);
         //noinspection ConstantConditions
