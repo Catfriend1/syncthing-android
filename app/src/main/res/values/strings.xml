@@ -490,13 +490,13 @@ Please report any problems you encounter via Github.</string>
     <string name="use_tor_summary">Force all traffic through Tor for increased privacy. Requires Orbot. Disables proxy options.</string>
 
     <string name="socks_proxy_address_title">SOCKS5 proxy</string>
-    <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
+    <string name="socks_proxy_address_example" translatable="false">socks5://192.168.0.1:1080</string>
 
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">Input violates proxy syntax \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
 
     <string name="http_proxy_address_title">HTTP(S) proxy</string>
-    <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
+    <string name="http_proxy_address_example" translatable="false">http://192.168.0.1:8080</string>
 
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Input violates proxy syntax \'http://[IP/HOSTNAME]:[PORT]\'</string>

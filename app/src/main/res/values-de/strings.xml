@@ -490,14 +490,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="use_tor_summary">Der gesamte Netzwerkverkehr wird zur Erhöhung der Privatsphäre über Tor geleitet. Benötigt Orbot. Deaktiviert die Proxy-Optionen.</string>
 
     <string name="socks_proxy_address_title">SOCKS5-Proxy</string>
-    <string name="socks_proxy_address_example">socks5://192.168.0.1:1080</string>
-
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">Die Eingabe entspricht nicht der Form \'socks5://[IP/HOSTNAME]:[PORT]\'.</string>
 
     <string name="http_proxy_address_title">HTTP(S)-Proxy</string>
-    <string name="http_proxy_address_example">http://192.168.0.1:8080</string>
-
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Die Eingabe entspricht nicht der Form \'http://[IP/HOSTNAME]:[PORT]\'.</string>
 

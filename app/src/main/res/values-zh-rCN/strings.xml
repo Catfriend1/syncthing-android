@@ -30,6 +30,7 @@
     <string name="back">返回</string>
     <string name="cont">继续</string>
     <string name="finish">完成</string>
+    <string name="generic_example">示例</string>
     <string name="generic_error">错误</string>
     <string name="generic_help">帮助</string>
     <string name="grant_permission">授予權限</string>
@@ -37,6 +38,10 @@
     <string name="accept">同意</string>
 
     <string name="ignore">忽略</string>
+
+    <string name="page_x_of_y">第%1$s页，共%2$s页</string>
+
+    <string name="main_menu">主菜单</string>
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">再次确认以退出程序</string>
@@ -237,6 +242,9 @@
     <!-- Setting title -->
     <string name="introducer">介绍人</string>
 
+    <!-- Setting title -->
+    <string name="pause_device">暂停设备</string>
+
     <!-- ActionBar item -->
     <string name="delete_device">删除设备</string>
 
@@ -253,6 +261,9 @@
 
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">设备标识不得为空</string>
+
+    <!-- Toast shown when trying to create a device with an empty name -->
+    <string name="device_name_required">设备名不可为空</string>
 
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">扫描二维码</string>
@@ -288,12 +299,25 @@
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">运行条件</string>
+    <string name="run_conditions_summary">下方选项将控制 Syncthing 何时启用</string>
+
+    <string name="run_on_metered_wifi_summary">设备在付费 Wi-Fi 网络环境下启用 Syncthing
+警告：可能会产生大量费用</string>
+
+    <string name="specify_wifi_ssid_whitelist">选择 Wi-Fi 网络</string>
+    <string name="run_on_whitelisted_wifi_networks">已选择的 Wi-Fi 网络 : %1$s</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
+    <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing</string>
+
+    <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">自动启动</string>
+    <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing </string>
+
     <string name="use_root_title">Syncthing 运行于超级用户</string>
 
-    <string name="use_root_summary">该项功能不稳定，可能导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>
+    <string name="use_root_summary">该项功能不稳定，可能会导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>
 
     <string name="preference_language_title">语言</string>
 
@@ -304,6 +328,21 @@
     <string name="start_into_web_gui_summary">启动应用时，打开网页图形用户界面而不是打开主屏幕</string>
 
     <string name="pref_language_default">默认语言</string>
+
+    <string-array name="folder_types">
+        <item>发送与接收</item>
+        <item>仅发送</item>
+        <item>仅接收</item>
+    </string-array>
+
+    <string-array name="pull_order_types">
+        <item>随机</item>
+        <item>拼音</item>
+        <item>小文件优先</item>
+        <item>大文件优先</item>
+        <item>旧文件优先</item>
+        <item>新文件优先</item>
+    </string-array>
 
     <string-array name="versioning_types">
         <item>无</item>
@@ -333,15 +372,28 @@
 
     <string name="usage_reporting">匿名使用报告</string>
 
+    <string name="webui_tcp_port_title">WebUI TCP端口</string>
+
+    <string name="webui_remote_access_title">远程控制 WebUI</string>
+
+    <!-- Titles for the preference to undo ignored devices and folders -->
+    <string name="undo_ignored_devices_folders_title">撤销忽略的设备和文件夹</string>
+    <string name="undo_ignored_devices_folders_question">该操作将会撤销现有已忽略的设备和文件夹的设置，是否继续？</string>
     <string name="export_config">导出设置</string>
+
+    <!-- Experimental options -->
+    <string name="use_proxy">使用代理</string>
+    <string name="do_not_use_proxy">代理未配置.</string>
 
     <string name="keep_wakelock_while_binary_running">当 Syncthing 正在运行时保持 CPU 唤醒</string>
 
     <string name="use_tor_title">使用 Tor</string>
 
+    <string name="use_tor_summary">强制所有的流量经由 Tor 代理，需要 Orbot，以及禁用其它代理选项。</string>
+
     <string name="use_legacy_hashing_title">使用传统哈希</string>
 
-    <string name="use_legacy_hashing_summary">强制 syncthing 使用传统哈希包出于兼容目的</string>
+    <string name="use_legacy_hashing_summary">强制 Syncthing 使用传统哈希包以提高兼容性</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">您确定要导出您的配置？若您之前导出过配置，则文件会被当前导出的配置所覆盖。\n\n 警告！其他应用程序可以从您导出的配置文件中获取到您的密钥，并且可以通过它来下载或者修改您的同步文件。</string>
@@ -369,7 +421,21 @@
     <string name="st_reset_database_title">重置数据库</string>
 
     <!-- Syncthing was reset -->
+    <string name="st_reset_database_question">此项操作在执行前，建议您在获得我们团队的建议后再使用该功能。
+请问您确定要清除 Syncthing 的数据库？</string>
+
+    <!-- Syncthing was reset -->
     <string name="st_reset_database_done">重置 Syncthing 数据库完成</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_deltas_title">重置 Delta 索引</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_question">此项操作在执行前，建议您在获得我们团队的建议后再使用该功能。
+请问您确定要清除 Syncthing Delta 索引？</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_done">已成功重置 Syncthing Delta 索引</string>
 
     <string name="category_about">关于</string>
 
@@ -384,6 +450,15 @@
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing 版本</string>
+
+    <!-- Title of the preference showing the REST API key -->
+    <string name="syncthing_api_key">Syncthing API 秘钥 (点按复制)</string>
+
+    <!-- Shown when the API key is copied to the clipboard -->
+    <string name="api_key_copied_to_clipboard">Syncthing API 秘钥已复制到剪贴板</string>
+
+    <!-- Title of the preference showing database size -->
+    <string name="syncthing_database_size">Syncthing 数据库大小</string>
 
     <!-- FolderPickerAcitivity -->
 
