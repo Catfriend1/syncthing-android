@@ -77,7 +77,7 @@ public class Constants {
     public static final String PREF_EVENT_PROCESSOR_LAST_SYNC_ID = "last_sync_id";
 
     /**
-     * Available options cache for preference {@link app_settings#debug_facilities_enabled}
+     * Available options cache for preference {@link com.nutomic.syncthingandroid.R.xml#app_settings#debug_facilities_enabled}
      * Read via REST API call in {@link RestApi#updateDebugFacilitiesCache} after first successful binary startup.
      */
     public static final String PREF_DEBUG_FACILITIES_AVAILABLE  = "debug_facilities_available";
@@ -180,7 +180,7 @@ public class Constants {
      * fall back to an unencrypted HTTP connection to localhost. This applies
      * to syncthing core v0.14.53+.
      */
-    public static final Boolean osSupportsTLS12() {
+    public static Boolean osSupportsTLS12() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 }

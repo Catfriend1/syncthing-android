@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -26,7 +25,6 @@ import com.nutomic.syncthingandroid.views.ChangeListAdapter.ItemClickListener;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;

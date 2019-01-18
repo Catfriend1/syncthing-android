@@ -48,10 +48,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import static android.text.TextUtils.isEmpty;
-import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
-import static com.nutomic.syncthingandroid.service.SyncthingService.State.ACTIVE;
 import static com.nutomic.syncthingandroid.util.Compression.METADATA;
 
 /**
@@ -236,7 +234,7 @@ public class DeviceActivity extends SyncthingActivity
     }
 
     /**
-     * Invoked after user clicked on the {@link mCustomSyncConditionsDialog} label.
+     * Invoked after user clicked on the {@link #mCustomSyncConditionsDialog} label.
      */
     private void onCustomSyncConditionsDialogClick() {
         startActivityForResult(
@@ -245,7 +243,6 @@ public class DeviceActivity extends SyncthingActivity
             ),
             0
         );
-        return;
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {
@@ -516,7 +513,7 @@ public class DeviceActivity extends SyncthingActivity
         Drawable dr = ContextCompat.getDrawable(this, R.drawable.ic_content_copy_black_24dp);
         mIdView.setCompoundDrawablesWithIntrinsicBounds(null, null, dr, null);
         mIdView.setEnabled(false);
-        mQrButton.setVisibility(GONE);
+        mQrButton.setVisibility(View.GONE);
 
         mIdContainer.setOnClickListener(this);
     }

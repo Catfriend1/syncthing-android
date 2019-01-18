@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * This class caches remote folder and device synchronization
- * completion indicators defined in {@link CompletionInfo#CompletionInfo}
+ * completion indicators defined in {@link CompletionInfo}
  * according to syncthing's REST "/completion" JSON result schema.
  * Completion model of syncthing's web UI is completion[deviceId][folderId]
  */
@@ -42,7 +42,7 @@ public class Completion {
         HashMap<String, CompletionInfo> folderMap;
 
         // Handle devices that were removed from the config.
-        List<String> removedDevices = new ArrayList<>();;
+        List<String> removedDevices = new ArrayList<>();
         Boolean deviceFound;
         for (String deviceId : deviceFolderMap.keySet()) {
             deviceFound = false;
@@ -74,7 +74,7 @@ public class Completion {
         }
 
         // Handle folders that were removed from the config.
-        List<String> removedFolders = new ArrayList<>();;
+        List<String> removedFolders = new ArrayList<>();
         Boolean folderFound;
         for (Map.Entry<String, HashMap<String, CompletionInfo>> device : deviceFolderMap.entrySet()) {
             for (String folderId : device.getValue().keySet()) {

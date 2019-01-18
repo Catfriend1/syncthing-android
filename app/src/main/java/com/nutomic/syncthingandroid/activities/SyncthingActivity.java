@@ -11,13 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 // import android.util.Log;
 
-import com.annimon.stream.Stream;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
-
-import java.util.LinkedList;
 
 /**
  * Connects to {@link SyncthingService} and provides access to it.

@@ -51,7 +51,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/ic_launcher"/>
+            tools:src="@mipmap/ic_launcher"/>
 
     </LinearLayout>
 

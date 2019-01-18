@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.service;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -53,7 +52,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.inject.Inject;
 
@@ -112,11 +110,11 @@ public class RestApi {
     private long mPreviousConnectionTime = 0;
 
     /**
-     * In the last-finishing {@link readConfigFromRestApi} callback, we have to call
+     * In the last-finishing {@link #readConfigFromRestApi} callback, we have to call
      * {@link SyncthingService#onApiAvailable} to indicate that the RestApi class is fully initialized.
      * We do this to avoid getting stuck with our main thread due to synchronous REST queries.
      * The correct indication of full initialisation is crucial to stability as other listeners of
-     * {@link SettingsActivity#onServiceStateChange} needs cached config and system information available.
+     * {@link ../activities/SettingsActivity#SettingsFragment#onServiceStateChange} needs cached config and system information available.
      * e.g. SettingsFragment need "mLocalDeviceId"
      */
     private Boolean asyncQueryConfigComplete = false;
@@ -451,7 +449,7 @@ public class RestApi {
     }
 
     /**
-     * This is only used for new folder creation, see {@link FolderActivity}.
+     * This is only used for new folder creation, see {@link ../activities/FolderActivity}.
      */
     public void addFolder(Folder folder) {
         synchronized (mConfigLock) {

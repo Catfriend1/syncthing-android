@@ -34,18 +34,21 @@ public class EnhancedEditText extends AppCompatEditText {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (!isEnabled())
+        if (!isEnabled()) {
             return false;
-        if (event.getAction() == MotionEvent.ACTION_UP)
+        }
+        if (event.getAction() == MotionEvent.ACTION_UP) {
             super.performClick();
-        return  super.onTouchEvent(event);
+        }
+        return super.onTouchEvent(event);
     }
 
     @Override
     public boolean performClick() {
-        return (isEnabled())
-            ? super.performClick()
-            : false;
+        if (!isEnabled()) {
+            return false;
+        }
+        return super.performClick();
     }
 
     @Override

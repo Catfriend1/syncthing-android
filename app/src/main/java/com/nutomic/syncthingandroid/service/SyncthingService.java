@@ -6,18 +6,14 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.Manifest;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.PRNGFixes;
-import com.annimon.stream.Stream;
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -34,13 +30,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -158,7 +152,7 @@ public class SyncthingService extends Service {
     /**
      * Initialize the service with State.DISABLED as {@link RunConditionMonitor} will
      * send an update if we should run the binary after it got instantiated in
-     * {@link onStartCommand}.
+     * {@link #onStartCommand}.
      */
     private State mCurrentState = State.DISABLED;
     private ConfigXml mConfig;
@@ -200,8 +194,8 @@ public class SyncthingService extends Service {
     private boolean mLastDeterminedShouldRun = false;
 
     /**
-     * True if a service {@link onDestroy} was requested while syncthing is starting,
-     * in that case, perform stop in {@link onApiAvailable}.
+     * True if a service {@link #onDestroy} was requested while syncthing is starting,
+     * in that case, perform stop in {@link #onApiAvailable}.
      */
     private boolean mDestroyScheduled = false;
 
@@ -711,7 +705,7 @@ public class SyncthingService extends Service {
 
     /**
      * Force re-evaluating run conditions immediately e.g. after
-     * preferences were modified by {@link SettingsActivity}.
+     * preferences were modified by {@link ../activities/SettingsActivity#onStop}.
      */
     public void evaluateRunConditions() {
         if (mRunConditionMonitor == null) {

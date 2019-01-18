@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.model;
 
-import java.util.List;
 import java.util.Map;
 
 /**

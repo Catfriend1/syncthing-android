@@ -27,8 +27,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.KeyEvent;
@@ -43,7 +41,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
@@ -883,7 +880,7 @@ public class SettingsActivity extends SyncthingActivity {
         }
 
         /**
-         * Calley by {@link #ImportConfigTask} after config import.
+         * Calley by {@link SyncthingService#importConfig} after config import.
          */
         private void afterConfigImport(Boolean actionSucceeded) {
             if (!actionSucceeded) {

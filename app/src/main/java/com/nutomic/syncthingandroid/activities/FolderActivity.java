@@ -57,7 +57,6 @@ import static android.support.v4.view.MarginLayoutParamsCompat.setMarginStart;
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static com.nutomic.syncthingandroid.service.SyncthingService.State.ACTIVE;
 
 /**
  * Shows folder details and allows changing them.
@@ -132,7 +131,7 @@ public class FolderActivity extends SyncthingActivity
         @Override
         public void afterTextChanged(Editable s) {
             mFolder.label        = mLabelView.getText().toString();
-            mFolder.id           = mIdView.getText().toString();;
+            mFolder.id           = mIdView.getText().toString();
             // mPathView must not be handled here as it's handled by {@link onActivityResult}
             // mEditIgnoreListContent must not be handled here as it's written back when the dialog ends.
             mFolderNeedsToUpdate = true;
@@ -252,7 +251,7 @@ public class FolderActivity extends SyncthingActivity
     }
 
     /**
-     * Invoked after user clicked on the {@link mPathView} label.
+     * Invoked after user clicked on the {@link #mPathView} label.
      */
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
@@ -282,7 +281,7 @@ public class FolderActivity extends SyncthingActivity
     }
 
     /**
-     * Invoked after user clicked on the {@link mCustomSyncConditionsDialog} label.
+     * Invoked after user clicked on the {@link #mCustomSyncConditionsDialog} label.
      */
     private void onCustomSyncConditionsDialogClick() {
         startActivityForResult(
@@ -291,7 +290,6 @@ public class FolderActivity extends SyncthingActivity
             ),
             0
         );
-        return;
     }
 
     private void showFolderTypeDialog() {

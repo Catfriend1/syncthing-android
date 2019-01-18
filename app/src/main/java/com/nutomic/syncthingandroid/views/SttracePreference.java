@@ -1,12 +1,8 @@
 package com.nutomic.syncthingandroid.views;
 
-import android.Manifest;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.MultiSelectListPreference;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 
