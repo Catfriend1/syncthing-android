@@ -632,7 +632,7 @@ public class SyncthingService extends Service {
         if (mStoragePermissionGranted) {
             synchronized (mStateLock) {
                 if (mCurrentState == State.STARTING) {
-                    Log.i(TAG, "Delay shutting down synchting binary until initialisation finished");
+                    Log.i(TAG, "Delay shutting down syncthing binary until initialisation finished");
                     mDestroyScheduled = true;
                 } else {
                     Log.i(TAG, "Shutting down syncthing binary immediately");

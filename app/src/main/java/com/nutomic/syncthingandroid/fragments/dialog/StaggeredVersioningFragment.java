@@ -56,7 +56,7 @@ public class StaggeredVersioningFragment extends Fragment {
     private void updateNumberPicker() {
         NumberPickerFragment numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_staggered_versioning");
         numberPicker.updateNumberPicker(100, 0, getMaxAgeInDays());
-        numberPicker.setOnValueChangedLisenter((picker, oldVal, newVal) -> updatePreference("maxAge", (String.valueOf(TimeUnit.DAYS.toSeconds(newVal)))));
+        numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> updatePreference("maxAge", (String.valueOf(TimeUnit.DAYS.toSeconds(newVal)))));
     }
 
     private void initiateVersionsPathTextView() {

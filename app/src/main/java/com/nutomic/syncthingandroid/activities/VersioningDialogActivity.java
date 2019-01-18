@@ -89,7 +89,7 @@ public class VersioningDialogActivity extends AppCompatActivity {
         mCurrentFragment = getFragment(selection);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        //This Activtiy (VersioningDialogActivity) contains all the file versioning parameters that have been passed from the FolderActivity in the intent extras, so we simply
+        // This Activity (VersioningDialogActivity) contains all the file versioning parameters that have been passed from the FolderActivity in the intent extras, so we simply
         // pass that to the currentfragment.
         mCurrentFragment.setArguments(mArguments);
         transaction.replace(R.id.versioningFragmentContainer, mCurrentFragment);

@@ -42,7 +42,7 @@ public class SimpleVersioningFragment extends Fragment {
     private void updateNumberPicker() {
         NumberPickerFragment numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_simple_versioning");
         numberPicker.updateNumberPicker(100000, 1, getKeepVersions());
-        numberPicker.setOnValueChangedLisenter((picker, oldVal, newVal) -> updateKeepVersions((String.valueOf(newVal))));
+        numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> updateKeepVersions((String.valueOf(newVal))));
     }
 
     private void updateKeepVersions(String newValue) {

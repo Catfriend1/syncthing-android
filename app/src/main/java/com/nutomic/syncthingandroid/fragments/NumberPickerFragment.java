@@ -27,7 +27,7 @@ public class NumberPickerFragment extends Fragment {
         return mNumberPicker;
     }
 
-    public void setOnValueChangedLisenter(NumberPicker.OnValueChangeListener onValueChangeListener){
+    public void setOnValueChangedListener(NumberPicker.OnValueChangeListener onValueChangeListener){
         mNumberPicker.setOnValueChangedListener(onValueChangeListener);
     }
 

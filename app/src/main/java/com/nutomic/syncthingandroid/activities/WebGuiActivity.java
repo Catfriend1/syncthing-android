@@ -264,8 +264,8 @@ public class WebGuiActivity extends SyncthingActivity
         properties.setProperty("https.nonProxyHosts", exclusionList);
 
         try {
-            Class applictionCls = Class.forName("android.app.Application");
-            Field loadedApkField = applictionCls.getDeclaredField("mLoadedApk");
+            Class applicationCls = Class.forName("android.app.Application");
+            Field loadedApkField = applicationCls.getDeclaredField("mLoadedApk");
             loadedApkField.setAccessible(true);
             Object loadedApk = loadedApkField.get(appContext);
             Class loadedApkCls = Class.forName("android.app.LoadedApk");

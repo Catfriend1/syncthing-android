@@ -85,7 +85,7 @@ public class Util {
      * Normally an application's data directory is only accessible by the corresponding application.
      * Therefore, every file and directory is owned by an application's user and group. When running Syncthing as root,
      * it writes to the application's data directory. This leaves files and directories behind which are owned by root having 0600.
-     * Moreover, those acitons performed as root changes a file's type in terms of SELinux.
+     * Moreover, those actions performed as root changes a file's type in terms of SELinux.
      * A subsequent start of Syncthing will fail due to insufficient permissions.
      * Hence, this method fixes the owner, group and the files' type of the data directory.
      *
@@ -95,7 +95,7 @@ public class Util {
         // We can safely assume that root magic is somehow available, because readConfig and saveChanges check for
         // read and write access before calling us.
         // Be paranoid :) and check if root is available.
-        // Ignore the 'use_root' preference, because we might want to fix ther permission
+        // Ignore the 'use_root' preference, because we might want to fix the permission
         // just after the root option has been disabled.
         if (!Shell.SU.available()) {
             Log.e(TAG, "Root is not available. Cannot fix permissions.");

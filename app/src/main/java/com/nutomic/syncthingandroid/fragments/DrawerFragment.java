@@ -119,7 +119,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     }
 
     private void updateUI() {
-        Boolean synthingRunning = mServiceState == SyncthingService.State.ACTIVE;
+        Boolean syncthingRunning = mServiceState == SyncthingService.State.ACTIVE;
 
         // Update static info labels.
         if (sharedPreferences != null && mVersion != null) {
@@ -128,10 +128,10 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
         // Update action button availability. Show buttons if syncthing is running.
         mVersion.setVisibility(View.VISIBLE);
-        mDrawerActionShowQrCode.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerRecentChanges.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerActionWebGui.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerActionRestart.setVisibility(synthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerActionShowQrCode.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerRecentChanges.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerActionWebGui.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerActionRestart.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
         mDrawerActionExit.setVisibility(View.VISIBLE);
     }
@@ -149,7 +149,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
             String apiKey = restApi.getGui().apiKey;
             String deviceId = restApi.getLocalDevice().deviceID;
             URL url = restApi.getUrl();
-            //The QRCode request takes one paramteer called "text", which is the text to be converted to a QRCode.
+            // The QRCode request takes one parameter called "text", which is the text to be converted to a QRCode.
             new ImageGetRequest(mActivity, url, ImageGetRequest.QR_CODE_GENERATOR, apiKey,
                     ImmutableMap.of("text", deviceId),qrCodeBitmap -> {
                 mActivity.showQrCodeDialog(deviceId, qrCodeBitmap);

@@ -42,7 +42,7 @@ public class TrashCanVersioningFragment extends Fragment {
     private void updateNumberPicker() {
         NumberPickerFragment numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_trashcan_versioning");
         numberPicker.updateNumberPicker(100, 0, getCleanoutDays());
-        numberPicker.setOnValueChangedLisenter((picker, oldVal, newVal) -> updateCleanoutDays((String.valueOf(newVal))));
+        numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> updateCleanoutDays((String.valueOf(newVal))));
     }
 
     private int getCleanoutDays() {
