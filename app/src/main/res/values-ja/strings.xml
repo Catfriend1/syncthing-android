@@ -209,6 +209,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">GUI を待機中</string>
 
+
     <!-- SettingsFragment -->
 
 

@@ -228,6 +228,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">En attente de l\'interface WEB</string>
 
+
     <!-- SettingsFragment -->
 
 

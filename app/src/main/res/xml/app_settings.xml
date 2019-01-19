@@ -214,6 +214,14 @@
         android:title="@string/category_debug">
 
         <Preference
+            android:key="open_issue_tracker"
+            android:persistent="false"
+            android:title="@string/report_issue_title">
+            <intent
+                android:action=".activities.WebViewActivity" />
+        </Preference>
+
+        <Preference
             android:title="@string/open_log"
             android:summary="@string/open_log_summary">
             <intent
@@ -284,14 +292,6 @@
 
     <PreferenceScreen
         android:title="@string/category_about">
-
-        <Preference
-            android:title="@string/report_issue_title"
-            android:summary="@string/report_issue_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/issue_tracker_url" />
-        </Preference>
 
         <Preference
             android:persistent="false"

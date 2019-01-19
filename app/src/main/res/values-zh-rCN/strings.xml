@@ -285,6 +285,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">正在等待管理页面</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -301,13 +302,21 @@
     <string name="run_conditions_title">运行条件</string>
     <string name="run_conditions_summary">下方选项将控制 Syncthing 何时启用</string>
 
+    <string name="run_on_wifi_title">让它在Wi-Fi上运行</string>
+    <string name="run_on_wifi_summary">设备连接到Wi-Fi网络时运行。</string>
+
+    <string name="run_on_metered_wifi_title">让它在计量Wi-Fi上运行</string>
     <string name="run_on_metered_wifi_summary">设备在付费 Wi-Fi 网络环境下启用 Syncthing
 警告：可能会产生大量费用</string>
 
+    <string name="run_on_whitelisted_wifi_title">在指定的Wi-Fi网络上运行</string>
     <string name="specify_wifi_ssid_whitelist">选择 Wi-Fi 网络</string>
     <string name="run_on_whitelisted_wifi_networks">已选择的 Wi-Fi 网络 : %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">未指定Wi-Fi网络。 单击以指定网络。</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
     <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing</string>
 
@@ -391,6 +400,8 @@
 
     <string name="use_tor_summary">强制所有的流量经由 Tor 代理，需要 Orbot，以及禁用其它代理选项。</string>
 
+    <string name="socks_proxy_address_title">SOCKS5 代理</string>
+    <string name="http_proxy_address_title">HTTP(S) 代理</string>
     <string name="use_legacy_hashing_title">使用传统哈希</string>
 
     <string name="use_legacy_hashing_summary">强制 Syncthing 使用传统哈希包以提高兼容性</string>

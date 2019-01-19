@@ -330,6 +330,8 @@ public class SettingsActivity extends SyncthingActivity {
             stResetDatabase.setOnPreferenceClickListener(this);
             stResetDeltas.setOnPreferenceClickListener(this);
 
+            screen.findPreference("open_issue_tracker").setSummary(getString(R.string.open_issue_tracker_summary, getString(R.string.issue_tracker_url)));
+
             /* Experimental options */
             mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
             mSocksProxyAddress              = (EditTextPreference) findPreference(Constants.PREF_SOCKS_PROXY_ADDRESS);

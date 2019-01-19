@@ -310,6 +310,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Esperant interfície gràfica</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -514,9 +515,6 @@
     <string name="open_log_summary">Obre la finestra de registre del Syncthing i de l\'Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Informeu d\'un problema</string>
-
-    <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Obre el rastrejador de problemes del Syncthing-Fork</string>
 
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->

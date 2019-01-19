@@ -199,6 +199,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Esperando a la interfaz gráfica</string>
 
+
     <!-- SettingsFragment -->
 
 

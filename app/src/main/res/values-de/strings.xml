@@ -343,6 +343,21 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Warte auf Weboberfläche</string>
 
+
+    <!-- WebViewActivity -->
+
+    <!-- Dialog title displayed when an invalid ssl certificate was found -->
+    <string name="security_notice">Sicherheitshinweis</string>
+
+    <!-- Dialog message if an invalid ssl certificate was detected -->
+    <string name="ssl_cert_invalid_text">Die Webseite \"%1$s\" scheint ein ungültiges SSL-Zertifikat zur Verschlüsselung aufzuweisen. Fortfahren?</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">Lade Webseite:\n%1$s...</string>
+
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">In Browser öffnen</string>
+
     <!-- SettingsFragment -->
 
 
@@ -562,7 +577,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="report_issue_title">Fehler melden</string>
 
     <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Syncthing-Fork Fehlersammlung öffnen</string>
+    <string name="open_issue_tracker_summary">Öffne die Syncthing-Fork Fehlersammlung bei %1$s</string>
 
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->

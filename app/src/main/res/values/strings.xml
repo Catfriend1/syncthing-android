@@ -343,6 +343,21 @@ Please report any problems you encounter via Github.</string>
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Waiting for GUI</string>
 
+
+    <!-- WebViewActivity -->
+
+    <!-- Dialog title displayed when an invalid ssl certificate was found -->
+    <string name="security_notice">Security Notice</string>
+
+    <!-- Dialog message if an invalid ssl certificate was detected -->
+    <string name="ssl_cert_invalid_text">Website at %1$s appears to have an invalid certificate for SSL encryption. Proceed?</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">Loading webpage:\n%1$s ...</string>
+
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">Open in browser</string>
+
     <!-- SettingsFragment -->
 
 
@@ -570,7 +585,7 @@ Please report any problems you encounter via Github.</string>
     <string name="report_issue_title">Report Issue</string>
 
     <!-- Summary for the issue tracker settings item -->
-    <string name="report_issue_summary">Open the Syncthing-Fork issue tracker</string>
+    <string name="open_issue_tracker_summary">Open the Syncthing-Fork issue tracker at %1$s</string>
 
     <!-- URL of the issue tracker -->
     <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>

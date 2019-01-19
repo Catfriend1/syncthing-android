@@ -243,6 +243,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Se așteaptă interfața</string>
 
+
     <!-- SettingsFragment -->
 
 

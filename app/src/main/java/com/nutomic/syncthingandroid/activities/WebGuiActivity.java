@@ -26,6 +26,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -108,7 +109,9 @@ public class WebGuiActivity extends SyncthingActivity
             if (uri.getHost().equals(getService().getWebGuiUrl().getHost())) {
                 return false;
             } else {
-                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                if (!Util.isRunningOnTV(WebGuiActivity.this)) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
                 return true;
             }
         }
