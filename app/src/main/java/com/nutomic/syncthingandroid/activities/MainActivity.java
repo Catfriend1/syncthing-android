@@ -25,11 +25,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -364,6 +366,17 @@ public class MainActivity extends SyncthingActivity
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationIcon(R.drawable.btn_menu);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mDrawerLayout.openDrawer(Gravity.START);
+                    }
+            });
+        }
+
         mDrawerToggle.syncState();
 
         ActionBar actionBar = getSupportActionBar();
@@ -426,7 +439,8 @@ public class MainActivity extends SyncthingActivity
      */
     private class Toggle extends ActionBarDrawerToggle {
         public Toggle(Activity activity, DrawerLayout drawerLayout) {
-            super(activity, drawerLayout, R.string.app_name, R.string.app_name);
+            super(activity, drawerLayout, R.string.open_main_menu, R.string.close_main_menu);
+            setDrawerIndicatorEnabled(false);
         }
 
         @Override

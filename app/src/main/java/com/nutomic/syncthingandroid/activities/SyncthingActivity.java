@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 // import android.util.Log;
@@ -41,13 +42,16 @@ public abstract class SyncthingActivity extends AppCompatActivity implements Ser
             return;
         }
         toolbar.setNavigationContentDescription(R.string.main_menu);
+        toolbar.setNavigationIcon(R.drawable.btn_arrow_back);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setTouchscreenBlocksFocus(false);
         }
-
         setSupportActionBar(toolbar);
-        //noinspection ConstantConditions
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.btn_arrow_back);
+        }
     }
 
     @Override

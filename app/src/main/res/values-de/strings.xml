@@ -59,6 +59,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
 
 
+    <!-- Main menu button -->
+    <string name="open_main_menu">Öffne Hauptmenü</string>
+    <string name="close_main_menu">Schließe Hauptmenü</string>
+
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">Ein bekannter Fehler, der noch nicht behoben wurde, ist aufgetreten. Mehr Details dazu unter %1$s/%2$s. Bitte hinterlasse uns eine genaue Beschreibung dessen, was vorher passiert ist.</string>
 

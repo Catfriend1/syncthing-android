@@ -33,6 +33,7 @@
 
             <TextView
                 android:id="@+id/actionShareId"
+                style="@style/Widget.Syncthing.TextView.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

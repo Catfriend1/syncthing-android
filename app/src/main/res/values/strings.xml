@@ -59,6 +59,10 @@ Please report any problems you encounter via Github.</string>
 
 
 
+    <!-- Main menu button -->
+    <string name="open_main_menu">Open Main Menu</string>
+    <string name="close_main_menu">Close Main Menu</string>
+
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">A known bug that has not been solved yet has been encountered. See %1$s/%2$s for more information. Please leave us a precise description of what happened beforehand.</string>
 

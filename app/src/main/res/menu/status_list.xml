@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/open_preferences"
-        android:icon="@drawable/ic_settings_white_24dp"
+        android:icon="@drawable/btn_settings"
         android:title="@string/settings_title"
         app:showAsAction="always|withText" />
 
