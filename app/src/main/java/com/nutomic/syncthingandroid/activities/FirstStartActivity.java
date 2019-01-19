@@ -508,6 +508,7 @@ public class FirstStartActivity extends AppCompatActivity {
      * Perform secure key generation in an AsyncTask.
      */
     private void onKeyGenerationSlideShown() {
+        mBackButton.setVisibility(View.GONE);
         mNextButton.setVisibility(View.GONE);
         KeyGenerationTask keyGenerationTask = new KeyGenerationTask(this);
         keyGenerationTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
