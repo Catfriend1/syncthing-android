@@ -21,15 +21,16 @@
             android:paddingTop="8dp"
             android:showDividers="middle">
 
+            <!-- Option 1: Input or edit device ID -->
             <LinearLayout
-                android:id="@+id/idContainer"
+                android:id="@+id/editDeviceIdContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:orientation="horizontal">
 
                 <com.nutomic.syncthingandroid.views.EnhancedEditText
-                    android:id="@+id/id"
+                    android:id="@+id/editDeviceId"
                     style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -39,7 +40,8 @@
                     android:hint="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine"
-                    android:nextFocusForward="@+id/name" />
+                    android:focusable="true"
+                    android:nextFocusDown="@+id/name" />
 
                 <ImageView
                     android:id="@+id/qrButton"
@@ -51,8 +53,46 @@
                     android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
                     android:src="@drawable/ic_qrcode_black_24dp_active" />
+
             </LinearLayout>
 
+            <!-- Option 2: Show or copy device ID -->
+            <LinearLayout
+                android:id="@+id/showDeviceIdContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:nextFocusDown="@+id/name" >
+
+                <com.nutomic.syncthingandroid.views.EnhancedEditText
+                    android:id="@+id/showDeviceId"
+                    style="@style/Widget.Syncthing.TextView.Label.Details.Field"
+                    android:enabled="false"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_cellphone_black_24dp"
+                    android:drawableStart="@drawable/ic_cellphone_black_24dp"
+                    android:hint="@string/device_id"
+                    android:imeOptions="actionNext"
+                    android:inputType="textNoSuggestions|textMultiLine" />
+
+                <ImageView
+                    android:id="@+id/copyDeviceIdIcon"
+                    style="?actionButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
+                    android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
+                    android:contentDescription="@string/scan_qr_code_description"
+                    android:src="@drawable/ic_content_copy_black_24dp" />
+
+            </LinearLayout>
+
+            <!-- Device Name -->
             <EditText
                 android:id="@+id/name"
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
@@ -65,6 +105,7 @@
                 android:inputType="textCapWords"
                 android:importantForAutofill="no" />
 
+            <!-- Device Addresses-->
             <EditText
                 android:id="@+id/addresses"
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
@@ -82,7 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:focusable="true">
 
                 <TextView
                     style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -161,7 +203,6 @@
                     android:layout_marginStart="56dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
                     android:text="@string/custom_sync_conditions_dialog"/>
 
                 <TextView

@@ -6,10 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
@@ -57,7 +55,6 @@ import static com.nutomic.syncthingandroid.util.Compression.METADATA;
  */
 public class DeviceActivity extends SyncthingActivity
         implements
-            View.OnClickListener,
             SyncthingService.OnServiceStateChangeListener {
 
     public static final String EXTRA_NOTIFICATION_ID =
@@ -79,34 +76,21 @@ public class DeviceActivity extends SyncthingActivity
     private ConfigRouter mConfig;
 
     private Device mDevice;
-
-    private View mIdContainer;
-
-    private EditText mIdView;
-
+    private EditText mEditDeviceId;
+    private View mShowDeviceIdContainer;
+    private EditText mShowDeviceId;
     private View mQrButton;
-
     private EditText mNameView;
-
     private EditText mAddressesView;
-
     private TextView mCurrentAddressView;
-
-    private TextView mCompressionValueView;
-
-    private SwitchCompat mIntroducerView;
-
-    private SwitchCompat mDevicePaused;
-
-    private SwitchCompat mCustomSyncConditionsSwitch;
-
-    private TextView mCustomSyncConditionsDescription;
-
-    private TextView mCustomSyncConditionsDialog;
-
-    private TextView mSyncthingVersionView;
-
     private View mCompressionContainer;
+    private TextView mCompressionValueView;
+    private SwitchCompat mIntroducerView;
+    private SwitchCompat mDevicePaused;
+    private SwitchCompat mCustomSyncConditionsSwitch;
+    private TextView mCustomSyncConditionsDescription;
+    private TextView mCustomSyncConditionsDialog;
+    private TextView mSyncthingVersionView;
 
     @Inject
     SharedPreferences mPreferences;
@@ -179,6 +163,7 @@ public class DeviceActivity extends SyncthingActivity
                     break;
                 case R.id.customSyncConditionsSwitch:
                     mCustomSyncConditionsDescription.setEnabled(isChecked);
+                    mCustomSyncConditionsDialog.setFocusable(isChecked);
                     mCustomSyncConditionsDialog.setEnabled(isChecked);
                     // This is needed to display the "discard changes dialog".
                     mDeviceNeedsToUpdate = true;
@@ -198,8 +183,9 @@ public class DeviceActivity extends SyncthingActivity
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.add_device : R.string.edit_device);
 
-        mIdContainer = findViewById(R.id.idContainer);
-        mIdView = findViewById(R.id.id);
+        mEditDeviceId = findViewById(R.id.editDeviceId);
+        mShowDeviceIdContainer = findViewById(R.id.showDeviceIdContainer);
+        mShowDeviceId = findViewById(R.id.showDeviceId);
         mQrButton = findViewById(R.id.qrButton);
         mNameView = findViewById(R.id.name);
         mAddressesView = findViewById(R.id.addresses);
@@ -213,9 +199,13 @@ public class DeviceActivity extends SyncthingActivity
         mCustomSyncConditionsDialog = findViewById(R.id.customSyncConditionsDialog);
         mSyncthingVersionView = findViewById(R.id.syncthingVersion);
 
-        mQrButton.setOnClickListener(this);
+        if (Util.isRunningOnTV(this)) {
+            mQrButton.setVisibility(View.GONE);
+        }
+        mQrButton.setOnClickListener(view -> onQrButtonClick());
+        mShowDeviceIdContainer.setOnClickListener(view -> onCopyDeviceIdClick());
+        mCompressionContainer.setOnClickListener(view -> onCompressionContainerClick());
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
-        mCompressionContainer.setOnClickListener(this);
 
         if (savedInstanceState != null){
             if (mDevice == null) {
@@ -223,26 +213,18 @@ public class DeviceActivity extends SyncthingActivity
             }
             restoreDialogStates(savedInstanceState);
         }
+
+        findViewById(R.id.editDeviceIdContainer).setVisibility(mIsCreateMode ? View.VISIBLE : View.GONE);
+        mShowDeviceIdContainer.setVisibility(!mIsCreateMode ? View.VISIBLE : View.GONE);
         if (mIsCreateMode) {
-           if (mDevice == null) {
+            if (mDevice == null) {
                 initDevice();
             }
+            mEditDeviceId.requestFocus();
+        } else {
+            getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            mNameView.requestFocus();
         }
-        else {
-            prepareEditMode();
-        }
-    }
-
-    /**
-     * Invoked after user clicked on the {@link #mCustomSyncConditionsDialog} label.
-     */
-    private void onCustomSyncConditionsDialogClick() {
-        startActivityForResult(
-            SyncConditionsActivity.createIntent(
-                this, Constants.PREF_OBJECT_PREFIX_DEVICE + mDevice.deviceID, mDevice.name
-            ),
-            0
-        );
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {
@@ -327,7 +309,7 @@ public class DeviceActivity extends SyncthingActivity
             syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
             syncthingService.unregisterOnServiceStateChangeListener(DeviceActivity.this);
         }
-        mIdView.removeTextChangedListener(mIdTextWatcher);
+        mEditDeviceId.removeTextChangedListener(mIdTextWatcher);
         mNameView.removeTextChangedListener(mNameTextWatcher);
         mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
     }
@@ -376,7 +358,7 @@ public class DeviceActivity extends SyncthingActivity
     }
 
     private void updateViewsAndSetListeners() {
-        mIdView.removeTextChangedListener(mIdTextWatcher);
+        mEditDeviceId.removeTextChangedListener(mIdTextWatcher);
         mNameView.removeTextChangedListener(mNameTextWatcher);
         mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(null);
@@ -384,7 +366,8 @@ public class DeviceActivity extends SyncthingActivity
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
 
         // Update views
-        mIdView.setText(mDevice.deviceID);
+        mEditDeviceId.setText(mDevice.deviceID);
+        mShowDeviceId.setText(mDevice.deviceID);
         mNameView.setText(mDevice.name);
         mAddressesView.setText(displayableAddresses());
         mCompressionValueView.setText(Compression.fromValue(this, mDevice.compression).getTitle(this));
@@ -402,10 +385,11 @@ public class DeviceActivity extends SyncthingActivity
         }
         mCustomSyncConditionsSwitch.setEnabled(!mIsCreateMode);
         mCustomSyncConditionsDescription.setEnabled(mCustomSyncConditionsSwitch.isChecked());
+        mCustomSyncConditionsDialog.setFocusable(mCustomSyncConditionsSwitch.isChecked());
         mCustomSyncConditionsDialog.setEnabled(mCustomSyncConditionsSwitch.isChecked());
 
         // Keep state updated
-        mIdView.addTextChangedListener(mIdTextWatcher);
+        mEditDeviceId.addTextChangedListener(mIdTextWatcher);
         mNameView.addTextChangedListener(mNameTextWatcher);
         mAddressesView.addTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(mCheckedListener);
@@ -489,7 +473,7 @@ public class DeviceActivity extends SyncthingActivity
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null) {
             mDevice.deviceID = scanResult.getContents();
-            mIdView.setText(mDevice.deviceID);
+            mEditDeviceId.setText(mDevice.deviceID);
         }
     }
 
@@ -505,17 +489,6 @@ public class DeviceActivity extends SyncthingActivity
         mDevice.introducer = false;
         mDevice.paused = false;
         mDevice.introducedBy = "";
-    }
-
-    private void prepareEditMode() {
-        getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        Drawable dr = ContextCompat.getDrawable(this, R.drawable.ic_content_copy_black_24dp);
-        mIdView.setCompoundDrawablesWithIntrinsicBounds(null, null, dr, null);
-        mIdView.setEnabled(false);
-        mQrButton.setVisibility(View.GONE);
-
-        mIdContainer.setOnClickListener(this);
     }
 
     /**
@@ -580,16 +553,29 @@ public class DeviceActivity extends SyncthingActivity
         return TextUtils.join(", ", list);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.equals(mCompressionContainer)) {
-            showCompressionDialog();
-        } else if (v.equals(mQrButton)){
-            IntentIntegrator integrator = new IntentIntegrator(DeviceActivity.this);
-            integrator.initiateScan();
-        } else if (v.equals(mIdContainer)) {
-            Util.copyDeviceId(this, mDevice.deviceID);
-        }
+    private void onCompressionContainerClick() {
+        showCompressionDialog();
+    }
+
+    /**
+     * Invoked after user clicked on the {@link #mCustomSyncConditionsDialog} label.
+     */
+    private void onCustomSyncConditionsDialogClick() {
+        startActivityForResult(
+            SyncConditionsActivity.createIntent(
+                this, Constants.PREF_OBJECT_PREFIX_DEVICE + mDevice.deviceID, mDevice.name
+            ),
+            0
+        );
+    }
+
+    private void onCopyDeviceIdClick() {
+        Util.copyDeviceId(this, mDevice.deviceID);
+    }
+
+    private void onQrButtonClick() {
+        IntentIntegrator integrator = new IntentIntegrator(DeviceActivity.this);
+        integrator.initiateScan();
     }
 
     private void showCompressionDialog(){
@@ -615,15 +601,11 @@ public class DeviceActivity extends SyncthingActivity
     }
 
     private void showDiscardDialog(){
-        mDiscardDialog = createDiscardDialog();
-        mDiscardDialog.show();
-    }
-
-    private Dialog createDiscardDialog() {
-        return new android.app.AlertDialog.Builder(this)
+        mDiscardDialog = new android.app.AlertDialog.Builder(this)
                 .setMessage(R.string.dialog_discard_changes)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> finish())
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
+        mDiscardDialog.show();
     }
 }

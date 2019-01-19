@@ -19,8 +19,7 @@
             android:orientation="vertical"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
-            android:showDividers="middle"
-            android:focusableInTouchMode="true">
+            android:showDividers="middle">
 
             <EditText
                 android:id="@+id/label"
@@ -62,13 +61,15 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
                 android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                android:focusable="false"
                 android:text="@string/devices" />
 
             <LinearLayout
                 android:id="@+id/devicesContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:focusable="false">
             </LinearLayout>
 
             <LinearLayout
@@ -77,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:focusable="true">
 
                 <TextView
                     style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -185,7 +187,6 @@
                     android:layout_marginStart="56dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
                     android:text="@string/custom_sync_conditions_dialog"/>
 
                 <TextView
@@ -207,7 +208,8 @@
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:focusable="true">
 
                 <TextView
                     style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -245,7 +247,8 @@
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:focusable="true">
 
                 <TextView
                     style="@style/Widget.Syncthing.TextView.Label.Details"
@@ -278,26 +281,37 @@
             </LinearLayout>
 
             <!-- variableSizeBlocks -->
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/variableSizeBlocks"
-                style="@style/Widget.Syncthing.TextView.Label.Details"
+            <LinearLayout
+                android:id="@+id/variableSizeBlocksContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:drawableLeft="@drawable/ic_developer_board_black_24dp"
-                android:drawableStart="@drawable/ic_developer_board_black_24dp"
-                android:text="@string/folder_variable_size_blocks_caption" />
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:focusable="true">
 
-            <TextView
-                android:id="@+id/variableSizeBlocksDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="-20dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:text="@string/folder_variable_size_blocks_description"
-                android:focusable="false"/>
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/variableSizeBlocks"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_developer_board_black_24dp"
+                    android:drawableStart="@drawable/ic_developer_board_black_24dp"
+                    android:text="@string/folder_variable_size_blocks_caption" />
+
+                <TextView
+                    android:id="@+id/variableSizeBlocksDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/folder_variable_size_blocks_description"
+                    android:focusable="false"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/editIgnoresContainer"

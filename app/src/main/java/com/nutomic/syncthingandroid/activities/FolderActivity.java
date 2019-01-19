@@ -161,6 +161,7 @@ public class FolderActivity extends SyncthingActivity
                     break;
                 case R.id.customSyncConditionsSwitch:
                     mCustomSyncConditionsDescription.setEnabled(isChecked);
+                    mCustomSyncConditionsDialog.setFocusable(isChecked);
                     mCustomSyncConditionsDialog.setEnabled(isChecked);
                     // This is needed to display the "discard changes dialog".
                     mFolderNeedsToUpdate = true;
@@ -228,18 +229,19 @@ public class FolderActivity extends SyncthingActivity
             if (mFolder == null) {
                 initFolder();
             }
-            // Open keyboard on label view in edit mode.
-            mLabelView.requestFocus();
             mEditIgnoreListTitle.setEnabled(false);
             mEditIgnoreListContent.setEnabled(false);
         }
         else {
             // Prepare edit mode.
-            mIdView.clearFocus();
             mIdView.setFocusable(false);
             mIdView.setEnabled(false);
+            mPathView.setFocusable(false);
             mPathView.setEnabled(false);
         }
+
+        // Open keyboard on label view in edit mode.
+        mLabelView.requestFocus();
 
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean(IS_SHOWING_DELETE_DIALOG)) {
@@ -494,6 +496,7 @@ public class FolderActivity extends SyncthingActivity
         }
         mCustomSyncConditionsSwitch.setEnabled(!mIsCreateMode);
         mCustomSyncConditionsDescription.setEnabled(mCustomSyncConditionsSwitch.isChecked());
+        mCustomSyncConditionsDialog.setFocusable(mCustomSyncConditionsSwitch.isChecked());
         mCustomSyncConditionsDialog.setEnabled(mCustomSyncConditionsSwitch.isChecked());
 
         // Populate devicesList.

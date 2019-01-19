@@ -17,8 +17,7 @@
             android:orientation="vertical"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
-            android:showDividers="middle"
-            android:focusableInTouchMode="true">
+            android:showDividers="middle">
 
             <!-- Static Sync Condition Title -->
             <LinearLayout
