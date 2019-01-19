@@ -1,12 +1,12 @@
-Maintenance
-* Updated syncthing core to v1.0.0
-* Fallback to http if https tls 1.2 is unavailable on Android 4.x
 Enhancements
-* Configure everything regardless if syncthing is running or not [NEW]
-* Added "Recent changes" UI, click files to open [NEW]
-* Specify sync conditions differently for each folder, device [NEW]
-* Added offline 'tips & tricks' content [NEW]
+* Specify sync conditions differently for each folder, device
+* Added "Recent changes" UI, click files to open
+* Configure everything regardless if syncthing is running or not
+* Android TV support
+* Add status light to indicate if syncthing is running
 Fixes
 * Fixed the "battery eater"
 * Android 8 and 9 support
-* Third-party automation app support
+Notes
+* Syncthing v1.0.0
+* Refer to GitHub for detailed change log.
