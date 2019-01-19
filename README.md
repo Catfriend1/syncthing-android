@@ -3,7 +3,8 @@
 [![License: MPLv2](https://img.shields.io/badge/License-MPLv2-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 <a href="https://github.com/Catfriend1/syncthing-android/releases" alt="GitHub release"><img src="https://img.shields.io/github/release/Catfriend1/syncthing-android/all.svg" /></a>
 <a href="https://f-droid.org/de/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/f-droid/v/com.github.catfriend1.syncthingandroid.svg" /></a>
-<a href="https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid" alt="G-Play release"><img src="https://img.shields.io/badge/g--play-1.0.0.1-blue.svg" /></a>
+<a href="https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid" alt="G-Play release"><img src="https://img.shields.io/badge/g--play-1.0.0.13-blue.svg" /></a>
+<a href="https://liberapay.com/~1534877" alt="LiberaPay"><img src="https://img.shields.io/liberapay/patrons/Syncthing-Fork.svg?style=social" /></a>
 
 # Major enhancements in this fork are:
 - Individual sync conditions can be applied per device and per folder (for expert users).
