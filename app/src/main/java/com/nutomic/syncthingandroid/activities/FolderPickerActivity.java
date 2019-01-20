@@ -108,6 +108,7 @@ public class FolderPickerActivity extends SyncthingActivity
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
             roots.remove(getExternalFilesDir(null));
+            roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
         }
 
         String rootDir = getIntent().getStringExtra(EXTRA_ROOT_DIRECTORY);

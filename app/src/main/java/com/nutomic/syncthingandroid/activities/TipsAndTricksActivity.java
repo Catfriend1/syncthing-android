@@ -48,6 +48,7 @@ public class TipsAndTricksActivity extends SyncthingActivity {
             ArrayList<File> externalFilesDir = new ArrayList<>();
             externalFilesDir.addAll(Arrays.asList(getExternalFilesDirs(null)));
             externalFilesDir.remove(getExternalFilesDir(null));
+            externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             if (externalFilesDir.size() > 0) {
                 String absExternalStorageAppFilesPath = externalFilesDir.get(0).getAbsolutePath();
                 mTipListAdapter.add(getString(R.string.tip_write_to_sdcard_title),

@@ -167,6 +167,7 @@ public class FileUtils {
             ArrayList<File> externalFilesDir = new ArrayList<>();
             externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));
             externalFilesDir.remove(context.getExternalFilesDir(null));
+            externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             if (externalFilesDir.size() == 0) {
                 Log.w(TAG, "Could not determine app's private files directory on external storage.");
                 return null;
