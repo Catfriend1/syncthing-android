@@ -794,6 +794,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Possible folder states -->
     <string name="state_idle">Idle</string>
     <string name="state_scanning">Scanning</string>
+    <string name="state_syncing_general">Syncing</string>
     <string name="state_syncing">Syncing (%1$d%%)</string>
     <string name="state_error">Error</string>
     <string name="state_unknown">Unknown</string>

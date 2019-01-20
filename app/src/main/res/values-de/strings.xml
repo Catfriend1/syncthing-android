@@ -778,6 +778,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Possible folder states -->
     <string name="state_idle">Untätig</string>
     <string name="state_scanning">Scannen</string>
+    <string name="state_syncing_general">Synchronisiere</string>
     <string name="state_syncing">Synchronisiere (%1$d%%)</string>
     <string name="state_error">Fehler</string>
     <string name="state_unknown">Unbekannt</string>

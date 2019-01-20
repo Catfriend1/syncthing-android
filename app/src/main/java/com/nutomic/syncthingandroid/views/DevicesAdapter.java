@@ -26,6 +26,12 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
     private static final String TAG = "DevicesAdapter";
 
+    /**
+     * If (incoming_bits_per_second + outgoing_bits_per_second) top the threshold,
+     * we'll assume syncing state for the device reporting that data throughput.
+     */
+    private static final long ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD = 50 * 1024 * 8;
+
     private Connections mConnections;
 
     public DevicesAdapter(Context context) {
@@ -80,8 +86,20 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             rateInOutView.setVisibility(VISIBLE);
             status.setVisibility(VISIBLE);
             if (conn.completion == 100) {
-                status.setText(r.getString(R.string.device_up_to_date));
-                status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                /**
+                 * UI polish - We distinguish the following cases:
+                 * a) conn.completion == 100 because of the model init assignment, data transmission ongoing.
+                 * b) conn.completion == 100 because of a finished sync, no data transmission.
+                 */
+                if ((conn.inBits + conn.outBits) >= ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD) {
+                    // case a) device_syncing
+                    status.setText(r.getString(R.string.state_syncing_general));
+                    status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                } else {
+                    // case b) device_up_to_date
+                    status.setText(r.getString(R.string.device_up_to_date));
+                    status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                }
             } else {
                 status.setText(r.getString(R.string.device_syncing, conn.completion));
                 status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
