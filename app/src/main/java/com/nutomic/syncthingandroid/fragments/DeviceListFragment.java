@@ -35,6 +35,8 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
 
     private final static String TAG = "DeviceListFragment";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     /**
      * Compares devices by name, uses the device ID as fallback if the name is empty
      */
@@ -86,13 +88,13 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     }
 
     private void startUpdateListHandler() {
-        Log.v(TAG, "startUpdateListHandler");
+        LogV("startUpdateListHandler");
         mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
         mUpdateListHandler.post(mUpdateListRunnable);
     }
 
     private void stopUpdateListHandler() {
-        Log.v(TAG, "stopUpdateListHandler");
+        LogV("stopUpdateListHandler");
         mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
     }
 
@@ -122,7 +124,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         if (mainActivity.isFinishing()) {
             return;
         }
-        Log.v(TAG, "Invoking updateList on UI thread");
+        LogV("Invoking updateList on UI thread");
         mainActivity.runOnUiThread(DeviceListFragment.this::updateList);
     }
 
@@ -193,4 +195,9 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         }
     }
 
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
+    }
 }

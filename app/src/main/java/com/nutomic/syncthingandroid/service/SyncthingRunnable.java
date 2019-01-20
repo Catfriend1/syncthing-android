@@ -52,6 +52,8 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG = "SyncthingRunnable";
     private static final String TAG_NATIVE = "SyncthingNativeCode";
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
+
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
     private static final int LOG_FILE_MAX_LINES = 10;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
@@ -178,7 +180,7 @@ public class SyncthingRunnable implements Runnable {
                     br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charsets.UTF_8));
                     String line;
                     while ((line = br.readLine()) != null) {
-                        Log.println(Log.INFO, TAG_NATIVE, line);
+                        Log.i(TAG_NATIVE, line);
                         capturedStdOut = capturedStdOut + line + "\n";
                     }
                 } catch (IOException e) {
@@ -195,7 +197,7 @@ public class SyncthingRunnable implements Runnable {
             niceSyncthing();
 
             exitCode = process.waitFor();
-            Log.i(TAG, "Syncthing exited with code " + exitCode);
+            LogV("Syncthing exited with code " + exitCode);
             mSyncthing.set(null);
             if (lInfo != null) {
                 lInfo.join();
@@ -381,13 +383,13 @@ public class SyncthingRunnable implements Runnable {
         int exitCode;
         List<String> syncthingPIDs = getSyncthingPIDs(true);
         if (syncthingPIDs.isEmpty()) {
-            Log.d(TAG, "killSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
+            LogV("killSyncthing: Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
             return;
         }
         for (String syncthingPID : syncthingPIDs) {
             exitCode = Util.runShellCommand("kill -SIGINT " + syncthingPID + "\n", mUseRoot);
             if (exitCode == 0) {
-                Log.d(TAG, "Sent kill SIGINT to process " + syncthingPID);
+                LogV("Sent kill SIGINT to process " + syncthingPID);
             } else {
                 Log.w(TAG, "Failed to send kill SIGINT to process " + syncthingPID +
                         " exit code " + Integer.toString(exitCode));
@@ -397,11 +399,11 @@ public class SyncthingRunnable implements Runnable {
         /**
          * Wait for the syncthing instance to end.
          */
-        Log.v(TAG, "Waiting for all syncthing instances to end ...");
+        LogV("Waiting for all syncthing instances to end ...");
         while (!getSyncthingPIDs(false).isEmpty()) {
             SystemClock.sleep(50);
         }
-        Log.v(TAG, "killSyncthing: Complete.");
+        Log.d(TAG, "killSyncthing: Complete.");
     }
 
     /**
@@ -555,5 +557,11 @@ public class SyncthingRunnable implements Runnable {
             super(message, throwable);
         }
 
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
     }
 }

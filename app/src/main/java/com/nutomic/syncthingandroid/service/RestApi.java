@@ -64,6 +64,8 @@ public class RestApi {
 
     private static final String TAG = "RestApi";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
      */
@@ -166,7 +168,7 @@ public class RestApi {
      * Gets local device ID, syncthing version and config, then calls all OnApiAvailableListeners.
      */
     public void readConfigFromRestApi() {
-        Log.v(TAG, "Reading config from REST ...");
+        LogV("Querying config from REST ...");
         synchronized (mAsyncQueryCompleteLock) {
             asyncQueryVersionComplete = false;
             asyncQueryConfigComplete = false;
@@ -175,7 +177,6 @@ public class RestApi {
         new GetRequest(mContext, mUrl, GetRequest.URI_VERSION, mApiKey, null, result -> {
             JsonObject json = new JsonParser().parse(result).getAsJsonObject();
             mVersion = json.get("version").getAsString();
-            Log.i(TAG, "Syncthing version is " + mVersion);
             updateDebugFacilitiesCache();
             synchronized (mAsyncQueryCompleteLock) {
                 asyncQueryVersionComplete = true;
@@ -201,7 +202,8 @@ public class RestApi {
 
     private void checkReadConfigFromRestApiCompleted() {
         if (asyncQueryVersionComplete && asyncQueryConfigComplete && asyncQuerySystemStatusComplete) {
-            Log.v(TAG, "Reading config from REST completed.");
+            LogV("Reading config from REST completed. Syncthing version is " + mVersion);
+            // Tell SyncthingService it can transition to State.ACTIVE.
             mOnApiAvailableListener.onApiAvailable();
         }
     }
@@ -219,11 +221,9 @@ public class RestApi {
         if (!configParseSuccess) {
             throw new RuntimeException("config is null: " + result);
         }
-        Log.v(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
-        if (BuildConfig.DEBUG) {
-            Log.v(TAG, "mConfig.pendingDevices = " + new Gson().toJson(mConfig.pendingDevices));
-            Log.v(TAG, "mConfig.remoteIgnoredDevices = " + new Gson().toJson(mConfig.remoteIgnoredDevices));
-        }
+        Log.d(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
+        LogV("mConfig.pendingDevices = " + new Gson().toJson(mConfig.pendingDevices));
+        LogV("mConfig.remoteIgnoredDevices = " + new Gson().toJson(mConfig.remoteIgnoredDevices));
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
@@ -340,10 +340,8 @@ public class RestApi {
                         }
                     }
                     device.ignoredFolders.add(ignoredFolder);
-                    if (BuildConfig.DEBUG) {
-                        Log.v(TAG, "device.pendingFolders = " + new Gson().toJson(device.pendingFolders));
-                        Log.v(TAG, "device.ignoredFolders = " + new Gson().toJson(device.ignoredFolders));
-                    }
+                    LogV("device.pendingFolders = " + new Gson().toJson(device.pendingFolders));
+                    LogV("device.ignoredFolders = " + new Gson().toJson(device.ignoredFolders));
                     sendConfig();
                     Log.d(TAG, "Ignored folder [" + folderId + "] announced by device [" + deviceId + "]");
 
@@ -521,7 +519,7 @@ public class RestApi {
         if (devices.isEmpty()) {
             throw new RuntimeException("RestApi.getLocalDevice: devices is empty.");
         }
-        Log.v(TAG, "getLocalDevice: Looking for local device ID " + mLocalDeviceId);
+        LogV("getLocalDevice: Looking for local device ID " + mLocalDeviceId);
         for (Device d : devices) {
             if (d.deviceID.equals(mLocalDeviceId)) {
                 return deepCopy(d, Device.class);
@@ -816,21 +814,21 @@ public class RestApi {
     /**
      * Event triggered by {@link RunConditionMonitor} routed here through {@link SyncthingService}.
      */
-    public void onSyncPreconditionChanged(RunConditionMonitor runConditionMonitor) {
-        Log.v(TAG, "onSyncPreconditionChanged: Event fired.");
+    public void applyCustomRunConditions(RunConditionMonitor runConditionMonitor) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         synchronized (mConfigLock) {
             Boolean configChanged = false;
 
             // Check if the config has been loaded.
             if (mConfig == null) {
-                Log.d(TAG, "onSyncPreconditionChanged: mConfig is not ready yet.");
+                Log.w(TAG, "applyCustomRunConditions: mConfig is not ready yet.");
                 return;
             }
 
             // Check if the folders are available from config.
             if (mConfig.folders != null) {
                 for (Folder folder : mConfig.folders) {
+                    // LogV("applyCustomRunConditions: Processing config of folder(" + folder.label + ")");
                     Boolean folderCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
                         Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id), false
                     );
@@ -838,22 +836,23 @@ public class RestApi {
                         Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
                             Constants.PREF_OBJECT_PREFIX_FOLDER + folder.id
                         );
-                        Log.v(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? "1" : "0"));
+                        LogV("applyCustomRunConditions: f(" + folder.label + ")=" + (syncConditionsMet ? "1" : "0"));
                         if (folder.paused != !syncConditionsMet) {
                             folder.paused = !syncConditionsMet;
-                            Log.d(TAG, "onSyncPreconditionChanged: syncFolder(" + folder.id + ")=" + (syncConditionsMet ? ">1" : ">0"));
+                            Log.d(TAG, "applyCustomRunConditions: f(" + folder.label + ")=" + (syncConditionsMet ? ">1" : ">0"));
                             configChanged = true;
                         }
                     }
                 }
             } else {
-                Log.d(TAG, "onSyncPreconditionChanged: mConfig.folders is not ready yet.");
+                Log.d(TAG, "applyCustomRunConditions: mConfig.folders is not ready yet.");
                 return;
             }
 
             // Check if the devices are available from config.
             if (mConfig.devices != null) {
                 for (Device device : mConfig.devices) {
+                    // LogV("applyCustomRunConditions: Processing config of device(" + device.name + ")");
                     Boolean deviceCustomSyncConditionsEnabled = sharedPreferences.getBoolean(
                         Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID), false
                     );
@@ -861,23 +860,31 @@ public class RestApi {
                         Boolean syncConditionsMet = runConditionMonitor.checkObjectSyncConditions(
                             Constants.PREF_OBJECT_PREFIX_DEVICE + device.deviceID
                         );
-                        Log.v(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? "1" : "0"));
+                        LogV("applyCustomRunConditions: d(" + device.name + ")=" + (syncConditionsMet ? "1" : "0"));
                         if (device.paused != !syncConditionsMet) {
                             device.paused = !syncConditionsMet;
-                            Log.d(TAG, "onSyncPreconditionChanged: syncDevice(" + device.deviceID + ")=" + (syncConditionsMet ? ">1" : ">0"));
+                            Log.d(TAG, "applyCustomRunConditions: d(" + device.name + ")=" + (syncConditionsMet ? ">1" : ">0"));
                             configChanged = true;
                         }
                     }
                 }
             } else {
-                Log.d(TAG, "onSyncPreconditionChanged: mConfig.devices is not ready yet.");
+                Log.d(TAG, "applyCustomRunConditions: mConfig.devices is not ready yet.");
                 return;
             }
 
             if (configChanged) {
-                Log.v(TAG, "onSyncPreconditionChanged: Sending changed config ...");
+                LogV("applyCustomRunConditions: Sending changed config ...");
                 sendConfig();
+            } else {
+                LogV("applyCustomRunConditions: No action was necessary.");
             }
+        }
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
         }
     }
 }

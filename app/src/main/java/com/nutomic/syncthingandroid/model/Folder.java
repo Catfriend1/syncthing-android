@@ -15,7 +15,7 @@ public class Folder {
 
     // Folder Configuration
     public String id;
-    public String label;
+    public String label = "";
     public String filesystemType = "basic";
     public String path;
     public String type = Constants.FOLDER_TYPE_SEND_RECEIVE;

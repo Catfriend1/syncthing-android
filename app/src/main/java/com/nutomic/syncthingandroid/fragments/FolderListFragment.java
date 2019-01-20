@@ -30,7 +30,9 @@ import java.util.List;
 public class FolderListFragment extends ListFragment implements SyncthingService.OnServiceStateChangeListener,
         AdapterView.OnItemClickListener {
 
-    private final static String TAG = "FolderListFragment";
+    private static final String TAG = "FolderListFragment";
+
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
 
     private Runnable mUpdateListRunnable = new Runnable() {
         @Override
@@ -74,13 +76,13 @@ public class FolderListFragment extends ListFragment implements SyncthingService
     }
 
     private void startUpdateListHandler() {
-        Log.v(TAG, "startUpdateListHandler");
+        LogV("startUpdateListHandler");
         mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
         mUpdateListHandler.post(mUpdateListRunnable);
     }
 
     private void stopUpdateListHandler() {
-        Log.v(TAG, "stopUpdateListHandler");
+        LogV("stopUpdateListHandler");
         mUpdateListHandler.removeCallbacks(mUpdateListRunnable);
     }
 
@@ -110,7 +112,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         if (mainActivity.isFinishing()) {
             return;
         }
-        Log.v(TAG, "Invoking updateList on UI thread");
+        LogV("Invoking updateList on UI thread");
         mainActivity.runOnUiThread(FolderListFragment.this::updateList);
     }
 
@@ -180,4 +182,9 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         }
     }
 
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
+    }
 }

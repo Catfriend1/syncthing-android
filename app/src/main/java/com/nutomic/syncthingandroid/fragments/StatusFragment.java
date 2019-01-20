@@ -39,6 +39,8 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
 
     private static final String TAG = "StatusFragment";
 
+    private static final Boolean ENABLE_VERBOSE_LOG = false;
+
     private Runnable mRestApiQueryRunnable = new Runnable() {
         @Override
         public void run() {
@@ -97,13 +99,13 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     }
 
     private void startRestApiQueryHandler() {
-        Log.v(TAG, "startUpdateListHandler");
+        LogV("startUpdateListHandler");
         mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
         mRestApiQueryHandler.post(mRestApiQueryRunnable);
     }
 
     private void stopRestApiQueryHandler() {
-        Log.v(TAG, "stopUpdateListHandler");
+        LogV("stopUpdateListHandler");
         mRestApiQueryHandler.removeCallbacks(mRestApiQueryRunnable);
     }
 
@@ -239,7 +241,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         if (restApi == null) {
             return;
         }
-        Log.v(TAG, "Invoking REST status queries");
+        LogV("Invoking REST status queries");
         restApi.getSystemStatus(this::onReceiveSystemStatus);
         restApi.getConnections(this::onReceiveConnections);
         // onReceiveSystemStatus, onReceiveConnections will call {@link #updateStatus}.
@@ -300,4 +302,9 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         updateStatus();
     }
 
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
+    }
 }

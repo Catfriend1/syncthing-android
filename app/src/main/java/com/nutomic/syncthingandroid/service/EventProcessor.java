@@ -84,7 +84,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             public void onDone(long lastId) {
                 if (lastId < mLastEventId) mLastEventId = 0;
 
-                Log.d(TAG, "Reading events starting with id " + mLastEventId);
+                LogV("Reading events starting with id " + mLastEventId);
 
                 mRestApi.getEvents(mLastEventId, 0, EventProcessor.this);
             }
@@ -99,7 +99,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         switch (event.type) {
             case "ConfigSaved":
                 if (mRestApi != null) {
-                    Log.d(TAG, "Forwarding ConfigSaved event to RestApi to get the updated config.");
+                    LogV("Forwarding ConfigSaved event to RestApi to get the updated config.");
                     mRestApi.reloadConfig();
                 }
                 break;
@@ -157,6 +157,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "DeviceDiscovered":
             case "DownloadProgress":
             case "FolderPaused":
+            case "FolderResumed":
             case "FolderScanProgress":
             case "FolderSummary":
             case "FolderWatchStateChanged":
@@ -169,7 +170,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "StartupComplete":
             case "StateChanged":
                 if (ENABLE_VERBOSE_LOG) {
-                    Log.v(TAG, "Ignored event " + event.type + ", data " + event.data);
+                    LogV("Ignored event " + event.type + ", data " + event.data);
                 }
                 break;
             default:
@@ -337,6 +338,12 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             if (result == 1 && cookie != null) {
                 // ToDo Log.v(TAG, "onItemFinished: onDeleteComplete: [ok] file=" + cookie.toString() + ", token=" + Integer.toString(token));
             }
+        }
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
         }
     }
 }
