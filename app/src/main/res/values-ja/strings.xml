@@ -234,10 +234,6 @@
 
     <string name="preference_language_summary">アプリの言語を変更します</string>
 
-    <string name="start_into_web_gui_title">Web GUI に直接起動する</string>
-
-    <string name="start_into_web_gui_summary">アプリを起動するとき、メイン画面ではなく Web GUI を開きます</string>
-
     <string name="pref_language_default">デフォルトの言語</string>
 
     <string-array name="versioning_types">

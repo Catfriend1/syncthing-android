@@ -183,10 +183,6 @@
 
     <string name="preference_language_summary">Змінити мову пристрою</string>
 
-    <string name="start_into_web_gui_title">Перехід одразу до веб-інтерфейсу</string>
-
-    <string name="start_into_web_gui_summary">При запуску додатка, відкривати веб-інтерфейс замість головного меню</string>
-
     <string name="pref_language_default">Мова по замовчанню</string>
 
     <string name="device_name">Назва пристрою</string>

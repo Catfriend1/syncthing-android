@@ -948,6 +948,7 @@ public class SyncthingService extends Service {
                         case "advanced_folder_picker":
                         case "notification_type":
                         case "notify_crashes":
+                        case "start_into_web_gui":
                             Log.v(TAG, "importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
                             break;
                         // Cached information which is not available on SettingsActivity.

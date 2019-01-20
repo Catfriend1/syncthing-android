@@ -232,10 +232,6 @@
 
     <string name="preference_language_summary">選擇應用程式語言</string>
 
-    <string name="start_into_web_gui_title">直接開啟網頁介面</string>
-
-    <string name="start_into_web_gui_summary">當開啟應用程式時，打開網頁介面，而不是主螢幕</string>
-
     <string name="pref_language_default">預設語言</string>
 
     <string-array name="versioning_types">

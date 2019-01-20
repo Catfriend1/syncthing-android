@@ -232,10 +232,6 @@
 
     <string name="preference_language_summary">Αλλαγή γλώσσας της εφαρμογής</string>
 
-    <string name="start_into_web_gui_title">Άνοιγμα απευθείας στο web GUI</string>
-
-    <string name="start_into_web_gui_summary">Κατά την εκκίνηση της εφαρμογής, να ανοίγει το web GUI αντί της κεντρικής οθόνης</string>
-
     <string name="pref_language_default">Προεπιλεγμένη γλώσσα</string>
 
     <string-array name="versioning_types">

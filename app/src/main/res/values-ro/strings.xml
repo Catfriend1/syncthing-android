@@ -273,10 +273,6 @@
 
     <string name="preference_language_summary">Alegeți limba de afișat în aplicație</string>
 
-    <string name="start_into_web_gui_title">Pornire direct în interfața web</string>
-
-    <string name="start_into_web_gui_summary">Când aplicația pornește se deschide direct interfața web în loc de ecranul principal</string>
-
     <string name="pref_language_default">Limba implicită</string>
 
     <string-array name="pull_order_types">

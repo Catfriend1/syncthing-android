@@ -226,10 +226,6 @@
 
     <string name="preference_language_summary">Ganti bahasa dalam aplikasi</string>
 
-    <string name="start_into_web_gui_title">Mulai dengan web GUI</string>
-
-    <string name="start_into_web_gui_summary">Saat memulai aplikasi, buka web GUI saja, bukannya layar utama</string>
-
     <string name="pref_language_default">Bahasa Standar</string>
 
     <string name="device_name">Nama Perangkat</string>

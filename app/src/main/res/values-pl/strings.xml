@@ -236,10 +236,6 @@
 
     <string name="preference_language_summary">Zmień język aplikacji</string>
 
-    <string name="start_into_web_gui_title">Startuj bezpośrednio do trybu web GUI</string>
-
-    <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz web GUI zamiast głównego ekranu</string>
-
     <string name="pref_language_default">Domyślny język</string>
 
     <string-array name="versioning_types">

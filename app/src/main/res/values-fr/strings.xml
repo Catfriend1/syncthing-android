@@ -258,10 +258,6 @@
 
     <string name="preference_language_summary">Changer la langue de l\'application</string>
 
-    <string name="start_into_web_gui_title">Démarrer directement dans l\'interface WEB</string>
-
-    <string name="start_into_web_gui_summary">Au lancement de l\'application, ouvre l\'interface WEB au lieu de l\'écran d\'accueil.</string>
-
     <string name="pref_language_default">Langue par défaut</string>
 
     <string-array name="versioning_types">

@@ -352,10 +352,6 @@
 
     <string name="preference_language_summary">Ändra appens språk</string>
 
-    <string name="start_into_web_gui_title">Starta direkt i webbgränssnittet</string>
-
-    <string name="start_into_web_gui_summary">När du startar appen öppnar du webbgränssnittet istället för huvudskärmen</string>
-
     <string name="pref_language_default">Standardspråk</string>
 
     <string-array name="folder_types">
