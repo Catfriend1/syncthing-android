@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -192,6 +193,7 @@ public class SettingsActivity extends SyncthingActivity {
         private Options mOptions;
         private Gui mGui;
 
+        private Handler mHandler;
         private Boolean mPendingConfig = false;
 
         /**
@@ -367,27 +369,33 @@ public class SettingsActivity extends SyncthingActivity {
             }
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
 
-            openSubPrefScreen(screen);
+            // Check if we should directly show a sub preference screen.
+            Bundle bundle = getArguments();
+            if (bundle != null) {
+                // Fix issue #247: "Calling sub pref screen directly won't show toolbar on top"
+                mHandler =  new Handler();
+                mHandler.post(() -> {
+                    // Open sub preferences screen if EXTRA_OPEN_SUB_PREF_SCREEN was passed in bundle.
+                    openSubPrefScreen(screen, bundle.getString(EXTRA_OPEN_SUB_PREF_SCREEN, ""));
+                });
+            }
         }
 
-        private void openSubPrefScreen(PreferenceScreen prefScreen) {
-            Bundle bundle = getArguments();
-            if (bundle == null) {
+        private void openSubPrefScreen(PreferenceScreen parentPrefScreen, String subPrefScreenId) {
+            if (parentPrefScreen == null ||
+                    subPrefScreenId == null ||
+                    TextUtils.isEmpty(subPrefScreenId)) {
                 return;
             }
-            String openSubPrefScreen = bundle.getString(EXTRA_OPEN_SUB_PREF_SCREEN, "");
-            // Open sub preferences screen if EXTRA_OPEN_SUB_PREF_SCREEN was passed in bundle.
-            if (openSubPrefScreen != null && !TextUtils.isEmpty(openSubPrefScreen)) {
-                Log.v(TAG, "Transitioning to pref screen " + openSubPrefScreen);
-                PreferenceScreen categoryRunConditions = (PreferenceScreen) findPreference(openSubPrefScreen);
-                final ListAdapter listAdapter = prefScreen.getRootAdapter();
-                final int itemsCount = listAdapter.getCount();
-                for (int itemNumber = 0; itemNumber < itemsCount; ++itemNumber) {
-                    if (listAdapter.getItem(itemNumber).equals(categoryRunConditions)) {
-                        // Simulates click on the sub-preference
-                        prefScreen.onItemClick(null, null, itemNumber, 0);
-                        break;
-                    }
+            Log.v(TAG, "Transitioning to pref screen " + subPrefScreenId);
+            PreferenceScreen desiredSubPrefScreen = (PreferenceScreen) findPreference(subPrefScreenId);
+            final ListAdapter listAdapter = parentPrefScreen.getRootAdapter();
+            final int itemsCount = listAdapter.getCount();
+            for (int itemNumber = 0; itemNumber < itemsCount; ++itemNumber) {
+                if (listAdapter.getItem(itemNumber).equals(desiredSubPrefScreen)) {
+                    // Simulates click on the sub-preference. This will invoke {@link #onPreferenceTreeClick} subsequently.
+                    parentPrefScreen.onItemClick(null, null, itemNumber, 0);
+                    break;
                 }
             }
         }
@@ -406,11 +414,7 @@ public class SettingsActivity extends SyncthingActivity {
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
                     root.addView(toolbar, 0);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        toolbar.setTouchscreenBlocksFocus(false);
-                    }
-                    syncthingActivity.setSupportActionBar(toolbar);
-                    syncthingActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    registerActionBar(toolbar);
                 } catch (Exception e) {
                     /**
                      * The above code has been verified working but due to known bugs in the
@@ -433,10 +437,29 @@ public class SettingsActivity extends SyncthingActivity {
                     // User is on a sub-preferences screen.
                     mCurrentPrefScreenDialog.dismiss();
                     mCurrentPrefScreenDialog = null;
+
+                    // We need to re-register the action bar, see issue #247.
+                    registerActionBar(null);
                 }
                 return true;
             }
             return super.onOptionsItemSelected(item);
+        }
+
+        private void registerActionBar(Toolbar toolbar) {
+            SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+            if (toolbar == null) {
+                toolbar = (Toolbar) syncthingActivity.findViewById(R.id.toolbar);
+            }
+            if (toolbar == null) {
+                Log.w(TAG, "registerActionBar: toolbar == null");
+                return;
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                toolbar.setTouchscreenBlocksFocus(false);
+            }
+            syncthingActivity.setSupportActionBar(toolbar);
+            syncthingActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         public void setService(SyncthingService syncthingService) {
