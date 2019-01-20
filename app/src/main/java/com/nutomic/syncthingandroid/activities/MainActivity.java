@@ -31,7 +31,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -372,7 +371,7 @@ public class MainActivity extends SyncthingActivity
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mDrawerLayout.openDrawer(Gravity.START);
+                        mDrawerLayout.openDrawer(GravityCompat.START);
                     }
             });
         }
