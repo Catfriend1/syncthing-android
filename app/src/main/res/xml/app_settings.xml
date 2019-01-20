@@ -196,10 +196,12 @@
 
         <Preference
             android:key="export_config"
+            android:persistent="false"
             android:title="@string/export_config" />
 
         <Preference
             android:key="import_config"
+            android:persistent="false"
             android:title="@string/import_config" />
 
     </PreferenceScreen>
@@ -211,8 +213,6 @@
             android:key="open_issue_tracker"
             android:persistent="false"
             android:title="@string/report_issue_title">
-            <intent
-                android:action=".activities.WebViewActivity" />
         </Preference>
 
         <Preference

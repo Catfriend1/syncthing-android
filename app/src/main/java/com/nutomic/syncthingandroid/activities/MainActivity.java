@@ -43,6 +43,7 @@ import android.widget.TextView;
 import com.annimon.stream.function.Consumer;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.activities.WebViewActivity;
 import com.nutomic.syncthingandroid.fragments.DeviceListFragment;
 import com.nutomic.syncthingandroid.fragments.DrawerFragment;
 import com.nutomic.syncthingandroid.fragments.FolderListFragment;
@@ -84,6 +85,7 @@ public class MainActivity extends SyncthingActivity
      * See {@link #showUsageReportingDialog}
      */
     private static final long USAGE_REPORTING_DIALOG_DELAY = TimeUnit.DAYS.toMillis(3);
+    private static final Boolean DEBUG_FORCE_USAGE_REPORTING_DIALOG = false;
 
     private AlertDialog mQrCodeDialog;
     private AlertDialog mUsageReportingDialog;
@@ -131,7 +133,14 @@ public class MainActivity extends SyncthingActivity
                 // Check if the usage reporting minimum delay passed by.
                 Boolean usageReportingDelayPassed = (new Date().getTime() > getFirstStartTime() + USAGE_REPORTING_DIALOG_DELAY);
                 RestApi restApi = getApi();
-                if (usageReportingDelayPassed && restApi != null && restApi.isConfigLoaded() && !restApi.isUsageReportingDecided()) {
+                if (        (
+                                DEBUG_FORCE_USAGE_REPORTING_DIALOG
+                            ) || (
+                                usageReportingDelayPassed &&
+                                restApi != null &&
+                                restApi.isConfigLoaded() &&
+                                !restApi.isUsageReportingDecided()
+                            )) {
                     showUsageReportingDialog(restApi);
                 }
                 break;
@@ -525,8 +534,9 @@ public class MainActivity extends SyncthingActivity
                         restApi.saveConfigAndRestart();
                         break;
                     case DialogInterface.BUTTON_NEUTRAL:
-                        Uri uri = Uri.parse("https://data.syncthing.net");
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                        final Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                        intent.putExtra(WebViewActivity.EXTRA_WEB_URL, getString(R.string.syncthing_usage_stats_url));
+                        startActivity(intent);
                         break;
                 }
             } catch (Exception e) {

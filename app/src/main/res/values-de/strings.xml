@@ -371,7 +371,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="category_behaviour">Verhalten</string>
     <string name="category_syncthing_options">Syncthing-Optionen</string>
     <string name="category_backup">Import und Export</string>
-    <string name="category_debug">Fehleranalyse</string>
+    <string name="category_debug">Fehlerbehebung</string>
     <string name="category_experimental">Experimentell</string>
 
     <!-- Preference screen - Run conditions -->

@@ -89,6 +89,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="open_website">Open Website</string>
 
+    <!-- URL to open when user chose to open website in usage reporting dialog -->
+    <string name="syncthing_usage_stats_url" translatable="false">https://data.syncthing.net</string>
+
     <string name="toast_write_storage_permission_required">Write storage permission is required for this app</string>
 
     <string name="device_rejected">Device \"%1$s\" wants to connect</string>
@@ -371,7 +374,7 @@ Please report any problems you encounter via Github.</string>
     <string name="category_behaviour">Behaviour</string>
     <string name="category_syncthing_options">Syncthing Options</string>
     <string name="category_backup">Import and Export</string>
-    <string name="category_debug">Debug</string>
+    <string name="category_debug">Troubleshooting</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->

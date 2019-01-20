@@ -26,6 +26,9 @@ import com.nutomic.syncthingandroid.util.Util;
  */
 public class WebViewActivity extends SyncthingActivity {
 
+    public static final String EXTRA_WEB_URL =
+            "com.github.catfriend1.syncthingandroid.activities.WebViewActivity.WEB_URL";
+
     private static final String TAG = "WebViewActivity";
 
     private AlertDialog mSecurityNoticeDialog;
@@ -91,7 +94,13 @@ public class WebViewActivity extends SyncthingActivity {
         super.onCreate(savedInstanceState);
         isRunningOnTV = Util.isRunningOnTV(WebViewActivity.this);
         setContentView(R.layout.activity_web_gui);
-        webPageUrl = getString(R.string.issue_tracker_url);
+
+        if (!getIntent().hasExtra(EXTRA_WEB_URL)) {
+            Log.e(TAG, "EXTRA_WEB_URL not set.");
+            finish();
+        }
+        webPageUrl = getIntent().getStringExtra(EXTRA_WEB_URL);
+
         mLoadingView = findViewById(R.id.loading);
         ((TextView) findViewById(R.id.loading_text)).setText(getString(R.string.web_page_loading, webPageUrl));
         mWebView = findViewById(R.id.webview);
@@ -129,6 +138,9 @@ public class WebViewActivity extends SyncthingActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.openBrowser:
                 // This can only be triggered on a non-TV device.
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webPageUrl)));

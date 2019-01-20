@@ -42,6 +42,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.activities.WebViewActivity;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
@@ -137,6 +138,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_EXPORT_CONFIG = "export_config";
         private static final String KEY_IMPORT_CONFIG = "import_config";
         // Settings/Debug
+        private static final String KEY_OPEN_ISSUE_TRACKER = "open_issue_tracker";
         private static final String KEY_ST_RESET_DATABASE = "st_reset_database";
         private static final String KEY_ST_RESET_DELTAS = "st_reset_deltas";
         // Settings/About
@@ -322,17 +324,19 @@ public class SettingsActivity extends SyncthingActivity {
             importConfig.setOnPreferenceClickListener(this);
 
             /* Debugging */
+            Preference openIssueTracker             = findPreference(KEY_OPEN_ISSUE_TRACKER);
             Preference debugFacilitiesEnabled       = findPreference(Constants.PREF_DEBUG_FACILITIES_ENABLED);
             Preference environmentVariables         = findPreference("environment_variables");
             Preference stResetDatabase              = findPreference("st_reset_database");
             Preference stResetDeltas                = findPreference("st_reset_deltas");
 
+            openIssueTracker.setOnPreferenceClickListener(this);
             debugFacilitiesEnabled.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
             stResetDatabase.setOnPreferenceClickListener(this);
             stResetDeltas.setOnPreferenceClickListener(this);
 
-            screen.findPreference("open_issue_tracker").setSummary(getString(R.string.open_issue_tracker_summary, getString(R.string.issue_tracker_url)));
+            screen.findPreference(KEY_OPEN_ISSUE_TRACKER).setSummary(getString(R.string.open_issue_tracker_summary, getString(R.string.issue_tracker_url)));
 
             /* Experimental options */
             mUseTor                         = (CheckBoxPreference) findPreference(Constants.PREF_USE_TOR);
@@ -710,6 +714,11 @@ public class SettingsActivity extends SyncthingActivity {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
                         mPendingConfig = true;
                     }
+                    return true;
+                case KEY_OPEN_ISSUE_TRACKER:
+                    intent = new Intent(getActivity(), WebViewActivity.class);
+                    intent.putExtra(WebViewActivity.EXTRA_WEB_URL, getString(R.string.issue_tracker_url));
+                    startActivity(intent);
                     return true;
                 case KEY_EXPORT_CONFIG:
                     new AlertDialog.Builder(getActivity())
