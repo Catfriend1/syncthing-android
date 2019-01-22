@@ -180,6 +180,16 @@ public class Constants {
      * to syncthing core v0.14.53+.
      */
     public static Boolean osSupportsTLS12() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            return false;
+        }
+
+        if ("huawei".equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (com.nutomic.syncthingandroid.util.Util.containsIgnoreCase(Build.MODEL, "CAN")) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
