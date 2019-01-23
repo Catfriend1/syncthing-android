@@ -180,6 +180,20 @@ public class Constants {
      * to syncthing core v0.14.53+.
      */
     public static Boolean osSupportsTLS12() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            // Pre-Lollipop devices don't support TLS 1.2
+            return false;
+        }
+
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
+            /**
+             * SSLProtocolException: SSL handshake failed on Android N/7.0,
+             * missing support for elliptic curves.
+             * See https://issuetracker.google.com/issues/37122132
+             */
+            return false;
+        }
+
+        return true;
     }
 }
