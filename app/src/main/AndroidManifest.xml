@@ -78,10 +78,6 @@
             android:name=".activities.WebViewActivity"
             android:label="@string/report_issue_title"
             android:configChanges="keyboardHidden|orientation|screenSize">
-            <intent-filter>
-                <action android:name=".activities.WebViewActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.ShareActivity"
