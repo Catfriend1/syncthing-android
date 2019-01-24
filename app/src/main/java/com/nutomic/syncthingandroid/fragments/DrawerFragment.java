@@ -24,6 +24,7 @@ import com.nutomic.syncthingandroid.http.ImageGetRequest;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.net.URL;
 
@@ -59,6 +60,8 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private MainActivity mActivity;
     private SharedPreferences sharedPreferences = null;
 
+    private Boolean mRunningOnTV = false;
+
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
         mServiceState = currentState;
@@ -88,6 +91,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mActivity = (MainActivity) getActivity();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
+        mRunningOnTV = Util.isRunningOnTV(mActivity);
 
         mVersion                    = view.findViewById(R.id.version);
         mDrawerActionShowQrCode     = view.findViewById(R.id.drawerActionShowQrCode);
@@ -130,7 +134,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         mVersion.setVisibility(View.VISIBLE);
         mDrawerActionShowQrCode.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerRecentChanges.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerActionWebGui.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
+        mDrawerActionWebGui.setVisibility((syncthingRunning && !mRunningOnTV) ? View.VISIBLE : View.GONE);
         mDrawerActionRestart.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
         mDrawerActionExit.setVisibility(View.VISIBLE);
