@@ -162,6 +162,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "FolderSummary":
             case "FolderWatchStateChanged":
             case "ItemStarted":
+            case "ListenAddressesChanged":
             case "LocalIndexUpdated":
             case "LoginAttempt":
             case "RemoteDownloadProgress":

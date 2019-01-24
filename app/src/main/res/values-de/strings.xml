@@ -305,6 +305,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">Der Gerätename darf nicht leer sein</string>
 
+    <!-- Toast shown when trying to create a device with invalid addresses -->
+    <string name="device_addresses_invalid">Die Geräteadressen sind nicht im richtigen Format. Bitte versuche es erneut. Sieh Dir die Syncthing Doku für weitere Hilfe an.</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR Code scannen</string>
 

@@ -24,6 +24,8 @@ public class Device {
     public List<PendingFolder> pendingFolders;
     public List<IgnoredFolder> ignoredFolders;
 
+    // private static final String TAG = "Device";
+
     /**
      * Relevant fields for Folder.List<Device> "shared-with-device" model,
      * handled by {@link ConfigRouter#updateFolder and ConfigXml#updateFolder}
@@ -111,5 +113,94 @@ public class Device {
                 // Log.w(TAG, "checkDeviceID: Incorrect length (" + deviceID + ")");
                 return false;
         }
+    }
+
+    /**
+     * Returns if device.addresses elements are correctly formatted.
+     * See https://docs.syncthing.net/users/config.html#device-element for what is correct.
+     * It can be improved in the future because it doesn't catch all mistakes a user can do.
+     * It catches the most common mistakes.
+     */
+    public Boolean checkDeviceAddresses() {
+        if (this.addresses == null) {
+            return false;
+        }
+        for (String address : this.addresses) {
+            // Log.v(TAG, "address=(" + address + ")");
+            if (address.equals("dynamic")) {
+                continue;
+            }
+
+            /**
+             * RegEx documentation:
+             *
+             * - Matching
+             *      tcp://127.0.0.1:4000
+             *      tcp4://127.0.0.1:4000
+             *      tcp6://127.0.0.1:4000
+             *      tcp4://127.0.0.1
+             *      tcp://[2001:db8::23:42]
+             *      tcp://[2001:db8::23:42]:12345
+             *      tcp://myserver
+             *      tcp://myserver:12345
+             *
+             * - Not-Matching
+             *      tcp8://127.0.0.1
+             *      udp4://127.0.0.1
+             */
+            if (!address.matches("^tcp([46])?://.*$")) {
+                // Log.v(TAG, "Invalid protocol.");
+                return false;
+            }
+
+            // Separate protocol from address and port.
+            String[] addressSplit = address.split("://");
+            if (addressSplit.length == 1) {
+                // There's only the protocol given, nothing more.
+                // Log.v(TAG, "There's only the protocol given, nothing more.");
+                return false;
+            }
+            else if (addressSplit.length == 2) {
+                // Check if the address ends with ":" or "]:"
+                if (addressSplit[addressSplit.length-1].endsWith(":") ||
+                        addressSplit[addressSplit.length-1].endsWith("]:")) {
+                    // The address ends with ":". Will match "tcp://myserver:"
+                    // Log.v(TAG, "address ends with \":\" or \"]:\". Will match \"tcp://myserver:\".");
+                    return false;
+                }
+
+                // Check if there's a "hostname:port" number given in the part after "://".
+                String[] hostnamePortSplit = addressSplit[addressSplit.length-1].split(":");
+                if (hostnamePortSplit.length > 1) {
+                    // Check if the hostname or IP address given before the port is empty.
+                    if (TextUtils.isEmpty(hostnamePortSplit[0])) {
+                        // Empty hostname or IP address before the port. Will match "tcp://:4000"
+                        // Log.v(TAG, "Empty hostname or IP address before the port.");
+                        return false;
+                    }
+
+                    // Check if there's a port number given in the last part.
+                    String potentialPort = hostnamePortSplit[hostnamePortSplit.length-1];
+                    if (!potentialPort.endsWith("]")) {
+                        // It's not the end of an IPv6 address and likely a port number.
+                        // Log.v(TAG, "... potentialPort=(" + potentialPort + ")");
+                        Integer port = 0;
+                        try {
+                            port = Integer.parseInt(potentialPort);
+                        } catch (Exception e) {
+                        }
+                        if (port < 1 || port > 65535) {
+                            // Invalid port number.
+                            // Log.v(TAG, "Invalid port number.");
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                // Protocol is given more than one time. Will match "tcp://tcp://"
+                return false;
+            }
+        }
+        return true;
     }
 }
