@@ -223,8 +223,8 @@ public class DeviceActivity extends SyncthingActivity {
                 // Edit mode.
                 String passedId = getIntent().getStringExtra(EXTRA_DEVICE_ID);
                 Log.d(TAG, "Initializing edit mode: deviceID=" + passedId);
-                RestApi restApi = getApi();
-                List<Device> devices = mConfig.getDevices(restApi, false);
+                // getApi() is unavailable (onCreate > onPostCreate > onServiceConnected)
+                List<Device> devices = mConfig.getDevices(null, false);
                 mDevice = null;
                 for (Device currentDevice : devices) {
                     if (currentDevice.deviceID.equals(passedId)) {
@@ -236,9 +236,6 @@ public class DeviceActivity extends SyncthingActivity {
                     Log.w(TAG, "Device not found in API update, maybe it was deleted?");
                     finish();
                     return;
-                }
-                if (restApi != null) {
-                    restApi.getConnections(this::onReceiveConnections);
                 }
                 mDeviceNeedsToUpdate = false;
             }
@@ -276,6 +273,10 @@ public class DeviceActivity extends SyncthingActivity {
         SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
         SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
         syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
+        RestApi restApi = syncthingService.getApi();
+        if (restApi != null) {
+            restApi.getConnections(this::onReceiveConnections);
+        }
     }
 
     @Override

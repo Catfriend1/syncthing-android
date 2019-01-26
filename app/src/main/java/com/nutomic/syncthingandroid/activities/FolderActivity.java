@@ -235,8 +235,8 @@ public class FolderActivity extends SyncthingActivity {
                 // Edit mode.
                 String passedId = getIntent().getStringExtra(EXTRA_FOLDER_ID);
                 Log.d(TAG, "Initializing edit mode: folder.id=" + passedId);
-                RestApi restApi = getApi();
-                List<Folder> folders = mConfig.getFolders(restApi);
+                // getApi() is unavailable (onCreate > onPostCreate > onServiceConnected)
+                List<Folder> folders = mConfig.getFolders(null);
                 mFolder = null;
                 for (Folder currentFolder : folders) {
                     if (currentFolder.id.equals(passedId)) {
@@ -249,7 +249,7 @@ public class FolderActivity extends SyncthingActivity {
                     finish();
                     return;
                 }
-                mConfig.getFolderIgnoreList(restApi, mFolder, this::onReceiveFolderIgnoreList);
+                mConfig.getFolderIgnoreList(null, mFolder, this::onReceiveFolderIgnoreList);
                 mFolderNeedsToUpdate = false;
             }
 
