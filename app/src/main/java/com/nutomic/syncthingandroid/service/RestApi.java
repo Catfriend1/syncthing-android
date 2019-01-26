@@ -144,6 +144,8 @@ public class RestApi {
      */
     private Completion mCompletion = new Completion();
 
+    private Gson mGson;
+
     @Inject NotificationHandler mNotificationHandler;
 
     public RestApi(Context context, URL url, String apiKey, OnApiAvailableListener apiListener,
@@ -154,6 +156,7 @@ public class RestApi {
         mApiKey = apiKey;
         mOnApiAvailableListener = apiListener;
         mOnConfigChangedListener = configListener;
+        mGson = getGson();
     }
 
     public interface OnApiAvailableListener {
@@ -215,15 +218,15 @@ public class RestApi {
     private void onReloadConfigComplete(String result) {
         Boolean configParseSuccess;
         synchronized(mConfigLock) {
-            mConfig = new Gson().fromJson(result, Config.class);
+            mConfig = mGson.fromJson(result, Config.class);
             configParseSuccess = mConfig != null;
         }
         if (!configParseSuccess) {
             throw new RuntimeException("config is null: " + result);
         }
         Log.d(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
-        LogV("mConfig.pendingDevices = " + new Gson().toJson(mConfig.pendingDevices));
-        LogV("mConfig.remoteIgnoredDevices = " + new Gson().toJson(mConfig.remoteIgnoredDevices));
+        LogV("mConfig.pendingDevices = " + mGson.toJson(mConfig.pendingDevices));
+        LogV("mConfig.remoteIgnoredDevices = " + mGson.toJson(mConfig.remoteIgnoredDevices));
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
@@ -340,8 +343,8 @@ public class RestApi {
                         }
                     }
                     device.ignoredFolders.add(ignoredFolder);
-                    LogV("device.pendingFolders = " + new Gson().toJson(device.pendingFolders));
-                    LogV("device.ignoredFolders = " + new Gson().toJson(device.ignoredFolders));
+                    LogV("device.pendingFolders = " + mGson.toJson(device.pendingFolders));
+                    LogV("device.ignoredFolders = " + mGson.toJson(device.ignoredFolders));
                     sendConfig();
                     Log.d(TAG, "Ignored folder [" + folderId + "] announced by device [" + deviceId + "]");
 
@@ -383,8 +386,9 @@ public class RestApi {
     private void sendConfig() {
         String jsonConfig;
         synchronized (mConfigLock) {
-            jsonConfig = new Gson().toJson(mConfig);
+            jsonConfig = mGson.toJson(mConfig);
         }
+        // Log.v(TAG, "sendConfig: config=" + jsonConfig);
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_CONFIG, mApiKey,
             null, jsonConfig, null);
         mOnConfigChangedListener.onConfigChanged();
@@ -396,7 +400,7 @@ public class RestApi {
     public void saveConfigAndRestart() {
         String jsonConfig;
         synchronized (mConfigLock) {
-            jsonConfig = new Gson().toJson(mConfig);
+            jsonConfig = mGson.toJson(mConfig);
         }
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_CONFIG, mApiKey,
                 null, jsonConfig, result -> {
@@ -600,7 +604,7 @@ public class RestApi {
         new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_STATUS, mApiKey, null, result -> {
             SystemStatus systemStatus;
             try {
-                systemStatus = new Gson().fromJson(result, SystemStatus.class);
+                systemStatus = mGson.fromJson(result, SystemStatus.class);
                 listener.onResult(systemStatus);
             } catch (Exception e) {
                 Log.e(TAG, "getSystemStatus: Parsing REST API result failed. result=" + result);
@@ -620,7 +624,7 @@ public class RestApi {
     public void getFolderIgnoreList(String folderId, OnResultListener1<FolderIgnoreList> listener) {
         new GetRequest(mContext, mUrl, GetRequest.URI_DB_IGNORES, mApiKey,
                 ImmutableMap.of("folder", folderId), result -> {
-            FolderIgnoreList folderIgnoreList = new Gson().fromJson(result, FolderIgnoreList.class);
+            FolderIgnoreList folderIgnoreList = mGson.fromJson(result, FolderIgnoreList.class);
             listener.onResult(folderIgnoreList);
         });
     }
@@ -632,7 +636,7 @@ public class RestApi {
         FolderIgnoreList folderIgnoreList = new FolderIgnoreList();
         folderIgnoreList.ignore = ignore;
         new PostRequest(mContext, mUrl, PostRequest.URI_DB_IGNORES, mApiKey,
-            ImmutableMap.of("folder", folderId), new Gson().toJson(folderIgnoreList), null);
+            ImmutableMap.of("folder", folderId), mGson.toJson(folderIgnoreList), null);
     }
 
     /**
@@ -640,7 +644,7 @@ public class RestApi {
      */
     public void getSystemVersion(OnResultListener1<SystemVersion> listener) {
         new GetRequest(mContext, mUrl, GetRequest.URI_VERSION, mApiKey, null, result -> {
-            SystemVersion systemVersion = new Gson().fromJson(result, SystemVersion.class);
+            SystemVersion systemVersion = mGson.fromJson(result, SystemVersion.class);
             listener.onResult(systemVersion);
         });
     }
@@ -658,7 +662,7 @@ public class RestApi {
             }
 
             mPreviousConnectionTime = now;
-            Connections connections = new Gson().fromJson(result, Connections.class);
+            Connections connections = mGson.fromJson(result, Connections.class);
             for (Map.Entry<String, Connections.Connection> e : connections.connections.entrySet()) {
                 e.getValue().completion = mCompletion.getDeviceCompletion(e.getKey());
 
@@ -682,7 +686,7 @@ public class RestApi {
     public void getFolderStatus(final String folderId, final OnResultListener2<String, FolderStatus> listener) {
         new GetRequest(mContext, mUrl, GetRequest.URI_DB_STATUS, mApiKey,
                     ImmutableMap.of("folder", folderId), result -> {
-            FolderStatus m = new Gson().fromJson(result, FolderStatus.class);
+            FolderStatus m = mGson.fromJson(result, FolderStatus.class);
             mCachedFolderStatuses.put(folderId, m);
             listener.onResult(folderId, m);
         });
@@ -702,7 +706,7 @@ public class RestApi {
                         JsonArray jsonDiskEvents = new JsonParser().parse(result).getAsJsonArray();
                         for (int i = jsonDiskEvents.size()-1; i >= 0; i--) {
                             JsonElement jsonDiskEvent = jsonDiskEvents.get(i);
-                            diskEvents.add(new Gson().fromJson(jsonDiskEvent, DiskEvent.class));
+                            diskEvents.add(mGson.fromJson(jsonDiskEvent, DiskEvent.class));
                         }
                         listener.onResult(diskEvents);
                     } catch (Exception e) {
@@ -743,7 +747,7 @@ public class RestApi {
 
             for (int i = 0; i < jsonEvents.size(); i++) {
                 JsonElement json = jsonEvents.get(i);
-                Event event = new Gson().fromJson(json, Event.class);
+                Event event = mGson.fromJson(json, Event.class);
 
                 if (lastId < event.id)
                     lastId = event.id;
@@ -880,6 +884,12 @@ public class RestApi {
                 LogV("applyCustomRunConditions: No action was necessary.");
             }
         }
+    }
+
+    private Gson getGson() {
+        Gson gson = new GsonBuilder()
+                .create();
+        return gson;
     }
 
     private void LogV(String logMessage) {
