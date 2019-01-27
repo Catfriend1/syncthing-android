@@ -370,7 +370,11 @@ public class ConfigXml {
     }
 
     private Integer getAttributeOrDefault(final Element element, String attribute, Integer defaultValue) {
-        return element.hasAttribute(attribute) ? Integer.parseInt(element.getAttribute(attribute)) : defaultValue;
+        try {
+            return element.hasAttribute(attribute) ? Integer.parseInt(element.getAttribute(attribute)) : defaultValue;
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
     }
 
     private String getAttributeOrDefault(final Element element, String attribute, String defaultValue) {
@@ -378,11 +382,23 @@ public class ConfigXml {
     }
 
     private Boolean getContentOrDefault(final Node node, Boolean defaultValue) {
-         return (node == null) ? defaultValue : Boolean.parseBoolean(node.getTextContent());
+        return (node == null) ? defaultValue : Boolean.parseBoolean(node.getTextContent());
     }
 
     private Integer getContentOrDefault(final Node node, Integer defaultValue) {
-         return (node == null) ? defaultValue : Integer.parseInt(node.getTextContent());
+        try {
+            return (node == null) ? defaultValue : Integer.parseInt(node.getTextContent());
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    private Float getContentOrDefault(final Node node, Float defaultValue) {
+        try {
+            return (node == null) ? defaultValue : Float.parseFloat(node.getTextContent());
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
     }
 
     private String getContentOrDefault(final Node node, String defaultValue) {
