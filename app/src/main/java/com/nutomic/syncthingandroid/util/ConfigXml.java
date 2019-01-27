@@ -446,6 +446,16 @@ public class ConfigXml {
                 }
             }
 
+            // MinDiskFree
+            /*
+            <minDiskFree unit="MB">5</minDiskFree>
+            */
+            folder.minDiskFree = new Folder.MinDiskFree();
+            Element elementMinDiskFree = (Element) r.getElementsByTagName("minDiskFree").item(0);
+            folder.minDiskFree.unit = getAttributeOrDefault(elementMinDiskFree, "unit", "%");
+            folder.minDiskFree.value = getContentOrDefault(elementMinDiskFree, 1f);
+            // Log.v(TAG, "folder.minDiskFree.unit=" + folder.minDiskFree.unit + ", folder.minDiskFree.value=" + folder.minDiskFree.value);
+
             // Versioning
             /*
             <versioning></versioning>
@@ -533,8 +543,25 @@ public class ConfigXml {
                     elementDevice.setAttribute("introducedBy", device.introducedBy);
                 }
 
+                // minDiskFree
+                if (folder.minDiskFree != null) {
+                    // Pass 1: Remove all minDiskFree nodes from XML (usually one)
+                    Element elementMinDiskFree = (Element) r.getElementsByTagName("minDiskFree").item(0);
+                    if (elementMinDiskFree != null) {
+                        Log.v(TAG, "updateFolder: nodeMinDiskFree: Removing minDiskFree node");
+                        removeChildElementFromTextNode(r, elementMinDiskFree);
+                    }
+
+                    // Pass 2: Add minDiskFree node from the POJO model to XML.
+                    Node nodeMinDiskFree = mConfig.createElement("minDiskFree");
+                    r.appendChild(nodeMinDiskFree);
+                    elementMinDiskFree = (Element) nodeMinDiskFree;
+                    elementMinDiskFree.setAttribute("unit", folder.minDiskFree.unit);
+                    setConfigElement(r, "minDiskFree", Float.toString(folder.minDiskFree.value));
+                }
+
                 // Versioning
-                // Pass 1: Remove all versioning nodes in XML (usually one)
+                // Pass 1: Remove all versioning nodes from XML (usually one)
                 /*
                 NodeList nlVersioning = r.getElementsByTagName("versioning");
                 for (int j = nlVersioning.getLength() - 1; j >= 0; j--) {
@@ -548,7 +575,7 @@ public class ConfigXml {
                     removeChildElementFromTextNode(r, elementVersioning);
                 }
 
-                // Pass 2: Add versioning node from the POJO model.
+                // Pass 2: Add versioning node from the POJO model to XML.
                 Node nodeVersioning = mConfig.createElement("versioning");
                 r.appendChild(nodeVersioning);
                 elementVersioning = (Element) nodeVersioning;

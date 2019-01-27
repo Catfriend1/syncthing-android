@@ -655,6 +655,7 @@ public class FolderActivity extends SyncthingActivity {
         mFolder.rescanIntervalS = 3600;
         mFolder.paused = false;
         mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;      // Default for {@link #checkWriteAndUpdateUI}.
+        mFolder.minDiskFree = new Folder.MinDiskFree();
         mFolder.versioning = new Folder.Versioning();
     }
 

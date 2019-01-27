@@ -29,15 +29,22 @@ public class Options {
     public int progressUpdateIntervalS;
     public boolean symlinksEnabled;
     public boolean limitBandwidthInLan;
-    public int minHomeDiskFreePct;
     public String releasesURL;
     public String[] alwaysLocalNets;
     public boolean overwriteRemoteDeviceNamesOnConnect;
     public int tempIndexMinBlocks;
     public String defaultFolderPath;
 
+    // Since v0.14.28, Issue #3307, PR #4087
+    public MinHomeDiskFree minHomeDiskFree;
+
     // Since v1.0.0, see https://github.com/syncthing/syncthing/pull/4888
     public int maxConcurrentScans;
+
+    public static class MinHomeDiskFree {
+        public float value = 1;
+        public String unit = "%";
+    }
 
     public static final int USAGE_REPORTING_UNDECIDED = 0;
     public static final int USAGE_REPORTING_DENIED    = -1;

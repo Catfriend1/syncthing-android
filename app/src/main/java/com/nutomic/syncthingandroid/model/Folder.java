@@ -51,8 +51,8 @@ public class Folder {
     }
 
     public static class MinDiskFree {
-        public float value;
-        public String unit;
+        public float value = 1;
+        public String unit = "%";
     }
 
     public void addDevice(final Device device) {
