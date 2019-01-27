@@ -10,10 +10,13 @@
         <com.nutomic.syncthingandroid.views.CustomViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:nextFocusLeft="@+id/btn_back"
+                android:nextFocusRight="@+id/btn_next" />
 
         <LinearLayout
                 android:id="@+id/layoutDots"
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dots_height"
                 android:layout_alignParentBottom="true"
@@ -25,6 +28,7 @@
         </LinearLayout>
 
         <View
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:alpha=".5"
@@ -33,6 +37,7 @@
 
         <Button
                 android:id="@+id/btn_back"
+                android:focusable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -45,7 +50,6 @@
         <Button
                 android:id="@+id/btn_next"
                 android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -53,7 +57,6 @@
                 android:layout_alignParentEnd="true"
                 android:text="@string/cont"
                 style="@style/Theme.Syncthing.GreyButton" >
-                <requestFocus />
         </Button>
 
 </RelativeLayout>

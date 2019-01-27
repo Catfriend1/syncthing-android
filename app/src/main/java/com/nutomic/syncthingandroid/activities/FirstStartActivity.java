@@ -198,6 +198,30 @@ public class FirstStartActivity extends AppCompatActivity {
                 onBtnNextClick();
             }
         });
+
+        if (mRunningOnTV) {
+            mNextButton.setFocusableInTouchMode(true);
+        }
+        if (savedInstanceState != null) {
+            mBackButton.setVisibility(savedInstanceState.getBoolean("mBackButton") ? View.VISIBLE : View.GONE);
+            mNextButton.setVisibility(savedInstanceState.getBoolean("mNextButton") ? View.VISIBLE : View.GONE);
+        }
+        if (mNextButton.getVisibility() == View.VISIBLE) {
+            mNextButton.requestFocus();
+        } else if (mBackButton.getVisibility() == View.VISIBLE) {
+            mBackButton.requestFocus();
+        }
+    }
+
+    /**
+     * Saves current tab index and fragment states.
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("mBackButton", mBackButton.getVisibility() == View.VISIBLE);
+        outState.putBoolean("mNextButton", mNextButton.getVisibility() == View.VISIBLE);
     }
 
     public void onBtnBackClick() {
@@ -207,6 +231,7 @@ public class FirstStartActivity extends AppCompatActivity {
             mViewPager.setCurrentItem(current);
             if (current == 0) {
                 mBackButton.setVisibility(View.GONE);
+                mNextButton.requestFocus();
             }
         }
     }
