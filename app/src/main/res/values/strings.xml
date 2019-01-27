@@ -388,7 +388,7 @@ Please report any problems you encounter via Github.</string>
     <string name="run_on_mobile_data_summary">Run when device is connected via the mobile data network. Warning: This can consume a lot of data from your mobile operator data plan if you sync large amounts of data.</string>
 
     <string name="run_on_wifi_title">Run on Wi-Fi</string>
-    <string name="run_on_wifi_summary">Run when device is connected to a Wi-Fi network.</string>
+    <string name="run_on_wifi_summary">Run when device is connected to a Wi-Fi or ethernet network.</string>
 
     <string name="run_on_metered_wifi_title">Run on metered Wi-Fi</string>
     <string name="run_on_metered_wifi_summary">Run when device is connected to a metered Wi-Fi network e.g. a hotspot or tethered network. Attention: This can consume large portion of your data plan if you sync a lot of data.</string>
@@ -705,7 +705,7 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_mobile_data_disallowed">Syncthing is not allowed to run on mobile data connection.</string>
     <string name="reason_on_mobile_data">Syncthing is running as mobile data is currently connected.</string>
     <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
-    <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi.</string>
+    <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi or ethernet.</string>
     <string name="reason_on_wifi">Syncthing is allowed to run on WiFi and WiFi is currently connected.</string>
     <string name="reason_not_on_wifi">Syncthing is allowed to run on WiFi but WiFi isn\'t connected or the phone is in flight mode.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing is allowed to run on metered and non-metered WiFi connections.</string>

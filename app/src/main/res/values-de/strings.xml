@@ -385,7 +385,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_on_mobile_data_summary">Starte, wenn das Gerät über das mobile Datennetzwerk verbunden ist. Warnung: Wenn Du große Datenmengen synchronisierst, kann dies einen hohen Verbrauch deines mobilen Datentarifs verursachen.</string>
 
     <string name="run_on_wifi_title">Starte bei WLAN-Verbindung</string>
-    <string name="run_on_wifi_summary">Starte, wenn das Gerät mit einem WLAN-Netzwerk verbunden ist.</string>
+    <string name="run_on_wifi_summary">Starte, wenn das Gerät mit einem WLAN- oder Kabel-Netzwerk verbunden ist.</string>
 
     <string name="run_on_metered_wifi_title">Starte bei getakteter WLAN-Verbindung</string>
     <string name="run_on_metered_wifi_summary">Starte, wenn das Gerät mit einem getakteten WLAN-Netzwerk wie z. B. einem Hotspot- oder Tethering-Netzwerk verbunden ist. Achtung: Dies kann einen großen Anteil des mobilen Datenvolumens verbrauchen, wenn Du viele Dateien synchronisierst.</string>
@@ -689,7 +689,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_mobile_data_disallowed">Syncthing wurde verboten, die mobile Datenverbindung zu nutzen.</string>
     <string name="reason_on_mobile_data">Syncthing läuft, weil die mobile Datenverbindung aufgebaut ist.</string>
     <string name="reason_not_on_mobile_data">Syncthing darf bei mobiler Datenverbindung laufen, jedoch sind mobile Daten nicht verbunden.</string>
-    <string name="reason_wifi_disallowed">Syncthing wurde verboten, die WLAN-Verbindung zu nutzen.</string>
+    <string name="reason_wifi_disallowed">Syncthing wurde verboten, die WLAN- oder Kabel-Verbindung zu nutzen.</string>
     <string name="reason_on_wifi">Syncthing darf bei WLAN-Verbindung laufen und WLAN ist gerade verbunden.</string>
     <string name="reason_not_on_wifi">Syncthing darf bei WLAN-Verbindung laufen, jedoch ist WLAN gerade nicht verbunden oder das Telefon befindet sich im Flugzeugmodus.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing darf bei getakteter und nicht-getakteter WLAN-Verbindung laufen.</string>

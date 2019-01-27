@@ -499,6 +499,14 @@ public class RunConditionMonitor {
             // No network connection.
             return false;
         }
+        if (ni.getType() == ConnectivityManager.TYPE_ETHERNET) {
+            /**
+             * We treat Wi-Fi and ETHERNET as "Wi-Fi" connection.
+             * Assume ETHERNET connection is un-metered to allow syncing on
+             * Android TV or VirtualBox ETHERNET connection.
+             */
+             return false;
+        }
         return cm.isActiveNetworkMetered();
     }
 
