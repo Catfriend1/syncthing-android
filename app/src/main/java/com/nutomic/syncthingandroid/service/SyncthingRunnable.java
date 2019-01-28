@@ -289,42 +289,26 @@ public class SyncthingRunnable implements Runnable {
      */
     private List<String> getSyncthingPIDs(Boolean enableLog) {
         List<String> syncthingPIDs = new ArrayList<String>();
-        Process ps = null;
-        DataOutputStream psOut = null;
-        BufferedReader br = null;
-        try {
-            ps = Runtime.getRuntime().exec((mUseRoot) ? "su" : "sh");
-            psOut = new DataOutputStream(ps.getOutputStream());
-            psOut.writeBytes("ps\n");
-            psOut.writeBytes("exit\n");
-            psOut.flush();
-            ps.waitFor();
-            br = new BufferedReader(new InputStreamReader(ps.getInputStream(), "UTF-8"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.contains(Constants.FILENAME_SYNCTHING_BINARY)) {
-                    String syncthingPID = line.trim().split("\\s+")[1];
-                    if (enableLog) {
-                        Log.v(TAG, "getSyncthingPIDs: Found process PID [" + syncthingPID + "]");
-                    }
-                    syncthingPIDs.add(syncthingPID);
+        String output = Util.runShellCommandGetOutput("ps\n", mUseRoot);
+        if (TextUtils.isEmpty(output)) {
+            Log.w(TAG, "Failed to list SyncthingNative processes. ps command returned empty.");
+            return syncthingPIDs;
+        }
+
+        String lines[] = output.split("\n");
+        if (lines.length == 0) {
+            Log.w(TAG, "Failed to list SyncthingNative processes. ps command returned no rows.");
+            return syncthingPIDs;
+        }
+
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
+            if (line.contains(Constants.FILENAME_SYNCTHING_BINARY)) {
+                String syncthingPID = line.trim().split("\\s+")[1];
+                if (enableLog) {
+                    Log.v(TAG, "getSyncthingPIDs: Found process PID [" + syncthingPID + "]");
                 }
-            }
-        } catch (IOException | InterruptedException e) {
-            Log.w(TAG, "Failed to list Syncthing processes", e);
-        } finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-                if (psOut != null) {
-                    psOut.close();
-                }
-            } catch (IOException e) {
-                Log.w(TAG, "Failed to close psOut stream", e);
-            }
-            if (ps != null) {
-                ps.destroy();
+                syncthingPIDs.add(syncthingPID);
             }
         }
         return syncthingPIDs;
