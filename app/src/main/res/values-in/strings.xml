@@ -202,6 +202,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Memuat GUI</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -210,7 +211,6 @@
     <string name="category_run_conditions">Syarat Operasi</string>
     <string name="category_behaviour">Perilaku</string>
     <string name="category_syncthing_options">Opsi Syncthing</string>
-    <string name="category_debug">Debug</string>
     <string name="category_experimental">Ujicoba</string>
 
     <!-- Preference screen - Run conditions -->

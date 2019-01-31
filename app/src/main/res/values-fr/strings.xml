@@ -237,7 +237,6 @@
     <string name="category_run_conditions">Conditions d\'exécution</string>
     <string name="category_behaviour">Comportement</string>
     <string name="category_syncthing_options">Options Syncthing</string>
-    <string name="category_debug">Debug</string>
     <string name="category_experimental">Expérimental</string>
 
     <!-- Preference screen - Run conditions -->
@@ -481,8 +480,6 @@
     <string name="default_folder_id">%1$s-photos</string>
 
     <string name="notification_crash_title">Syncthing s\'est planté %1$s</string>
-
-    <string name="notification_crash_text">Cliquer pour voir les journaux</string>
 
     <string name="notifications_persistent_channel">Syncthing en marche</string>
     <string name="notification_persistent_waiting_channel">Surveillance des conditions de fonctionnement</string>

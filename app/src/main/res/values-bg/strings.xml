@@ -200,6 +200,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Изчакване на потребителския интерфейс</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -208,7 +209,6 @@
     <string name="category_run_conditions">Условия на работа</string>
     <string name="category_behaviour">Поведение</string>
     <string name="category_syncthing_options">Настройки на Syncthing</string>
-    <string name="category_debug">Дебъг</string>
     <string name="category_experimental">Експериментални</string>
 
     <!-- Preference screen - Run conditions -->

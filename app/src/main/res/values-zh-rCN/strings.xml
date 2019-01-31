@@ -582,7 +582,7 @@
 
     <string name="notification_crash_title">Syncthing 已崩溃 %1$s</string>
 
-    <string name="notification_crash_text">点击查看日志</string>
+    <string name="notification_crash_text">点击查看日志 (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing 運行。</string>
     <string name="notification_persistent_waiting_channel">监控正在运行的规则中</string>

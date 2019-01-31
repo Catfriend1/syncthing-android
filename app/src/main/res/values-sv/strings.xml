@@ -615,7 +615,7 @@
 
     <string name="notification_crash_title">Syncthing har kraschat %1$s</string>
 
-    <string name="notification_crash_text">Klicka för att visa loggar</string>
+    <string name="notification_crash_text">Klicka för att visa loggar (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing är aktiv</string>
     <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>

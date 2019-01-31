@@ -193,6 +193,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Venter på grafisk grensesnitt</string>
 
+
     <!-- SettingsFragment -->
 
 

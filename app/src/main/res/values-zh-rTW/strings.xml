@@ -414,7 +414,7 @@
 
     <string name="notification_crash_title">Syncthing 已經當機 %1$s</string>
 
-    <string name="notification_crash_text">觸碰檢視日誌</string>
+    <string name="notification_crash_text">觸碰檢視日誌 (%1$s)</string>
 
     <string name="notifications_other_channel">其他通知</string>
 

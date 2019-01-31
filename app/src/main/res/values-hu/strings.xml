@@ -225,6 +225,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Várakozás a grafikus felületre</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -233,7 +234,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="category_run_conditions">Futás feltételei</string>
     <string name="category_behaviour">Viselkedés</string>
     <string name="category_syncthing_options">Syncthing opciók</string>
-    <string name="category_debug">Hibakeresés</string>
     <string name="category_experimental">Kísérleti</string>
 
     <!-- Preference screen - Run conditions -->
@@ -470,8 +470,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="default_folder_id">%1$s-kepek</string>
 
     <string name="notification_crash_title">A Syncthing összeomlott %1$s</string>
-
-    <string name="notification_crash_text">Koppints a naplók megtekintéséhez</string>
 
     <string name="notifications_persistent_channel">Syncthing aktív</string>
     <string name="notification_persistent_waiting_channel">Futási feltételek monitorozása</string>

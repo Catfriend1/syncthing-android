@@ -44,10 +44,6 @@
 
     <string name="ignore">Ignora</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">S\'ha trobat un error conegut que encara no està resolt. Vegeu %1$s/%2$s per més informació. Siusplau doneu una descripció precisa del que ha passat amb antelació.</string>
 
@@ -320,7 +316,6 @@
     <string name="category_behaviour">Comportament</string>
     <string name="category_syncthing_options">Opcions del Syncthing</string>
     <string name="category_backup">Importa i Exporta</string>
-    <string name="category_debug">Depuració</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->
@@ -331,8 +326,6 @@
     <string name="run_on_mobile_data_summary">Executa quan el dispositiu es connecti a través de la xarxa de dades mòbils. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
 
     <string name="run_on_wifi_title">Executa amb Wi-Fi</string>
-    <string name="run_on_wifi_summary">Executa quan el dispositiu es connecti a una xarxa Wi-Fi.</string>
-
     <string name="run_on_metered_wifi_title">Executa amb Wi-Fi mesurada</string>
     <string name="run_on_metered_wifi_summary">Executa quan el dispositiu estigui connectat a una xarxa Wi-Fi mesurada, com ara una zona amb cobertura o un ancoratge. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
 
@@ -610,7 +603,6 @@
     <string name="reason_mobile_data_disallowed">El Syncthing no té permís per funcionar amb connexions de dades mòbils.</string>
     <string name="reason_on_mobile_data">El Syncthing està funcionant perquè les dades mòbils estan actives.</string>
     <string name="reason_not_on_mobile_data">El Syncthing pot funcionar amb connexions de dades mòbils però les dades mòbils no estan connectades.</string>
-    <string name="reason_wifi_disallowed">El Syncthing no té permís per funcionar amb WiFi.</string>
     <!-- SyncthingService -->
 
 
@@ -639,8 +631,6 @@
     <string name="default_folder_id">%1$s-fotos</string>
 
     <string name="notification_crash_title">El Syncthing s\'ha bloquejat %1$s</string>
-
-    <string name="notification_crash_text">Feu clic per veure els registres</string>
 
     <string name="notifications_persistent_channel">El Syncthing està actiu</string>
     <string name="notification_persistent_waiting_channel">Vigilant les condicions d\'execució</string>

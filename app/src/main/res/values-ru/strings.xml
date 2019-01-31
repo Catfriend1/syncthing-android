@@ -43,10 +43,6 @@
 
     <string name="ignore">Игнорировать</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">Была встречена найденная ошибка, которая ещё не была решена. Больше информации в %1$s/%2$s. Пожалуйста, оставьте нам точное описание произошедшего перед этим.</string>
 
@@ -539,7 +535,7 @@
 
     <string name="notification_crash_title">Syncthing завершился из-за сбоя %1$s</string>
 
-    <string name="notification_crash_text">Нажмите для просмотра логов</string>
+    <string name="notification_crash_text">Нажмите для просмотра логов (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing работает</string>
     <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>

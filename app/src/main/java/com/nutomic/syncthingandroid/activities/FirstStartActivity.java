@@ -98,28 +98,13 @@ public class FirstStartActivity extends AppCompatActivity {
         Log.d(TAG, mRunningOnTV ? "Running on a TV Device" : "Running on a non-TV Device");
 
         /**
-         * Check if a valid config exists that can be read and parsed.
-         */
-        Boolean configParseable = false;
-        Boolean configExists = Constants.getConfigFile(this).exists();
-        if (configExists) {
-            ConfigXml configParseTest = new ConfigXml(this);
-            try {
-                configParseTest.loadConfig();
-                configParseable = true;
-            } catch (ConfigXml.OpenConfigException e) {
-                Log.d(TAG, "Failed to parse existing config. Will show key generation slide ...");
-            }
-        }
-
-        /**
          * Check if prerequisites to run the app are still in place.
          * If anything mandatory is missing, the according welcome slide(s) will be shown.
          */
         Boolean showSlideStoragePermission = !haveStoragePermission();
         Boolean showSlideIgnoreDozePermission = !haveIgnoreDozePermission();
         Boolean showSlideLocationPermission = !haveLocationPermission();
-        Boolean showSlideKeyGeneration = !configExists || !configParseable;
+        Boolean showSlideKeyGeneration = !checkForParseableConfig();
 
         /**
          * If we don't have to show slides for mandatory prerequisites,
@@ -583,10 +568,33 @@ public class FirstStartActivity extends AppCompatActivity {
                 return;
             }
             TextView keygenStatus = (TextView) firstStartActivity.findViewById(R.id.key_generation_status);
+            if (!firstStartActivity.checkForParseableConfig()) {
+                keygenStatus.setText(firstStartActivity.getString(R.string.config_read_failed));
+                return;
+            }
             keygenStatus.setText(firstStartActivity.getString(R.string.key_generation_success));
             Button nextButton = (Button) firstStartActivity.findViewById(R.id.btn_next);
             nextButton.setVisibility(View.VISIBLE);
             nextButton.requestFocus();
         }
+    }
+
+    private Boolean checkForParseableConfig() {
+        /**
+         * Check if a valid config exists that can be read and parsed.
+         */
+        Boolean configExists = Constants.getConfigFile(this).exists();
+        if (!configExists) {
+            return false;
+        }
+        Boolean configParseable = false;
+        ConfigXml configParseTest = new ConfigXml(this);
+        try {
+            configParseTest.loadConfig();
+            configParseable = true;
+        } catch (ConfigXml.OpenConfigException e) {
+            Log.d(TAG, "Failed to parse existing config. Will show key generation slide ...");
+        }
+        return configParseable;
     }
 }

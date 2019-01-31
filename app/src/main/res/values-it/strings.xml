@@ -234,7 +234,6 @@
     <string name="category_run_conditions">Condizioni di funzionamento</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="category_syncthing_options">Opzioni di Syncthing</string>
-    <string name="category_debug">Debug</string>
     <string name="category_experimental">Sperimentale</string>
 
     <!-- Preference screen - Run conditions -->
@@ -478,8 +477,6 @@
     <string name="default_folder_id">%1$s-photos</string>
 
     <string name="notification_crash_title">Syncthing è andato in crash %1$s</string>
-
-    <string name="notification_crash_text">Clicca per visualizzare i log</string>
 
     <string name="notifications_persistent_channel">Syncthing attivo</string>
     <string name="notification_persistent_waiting_channel">Monitoraggio delle condizioni di esecuzione</string>

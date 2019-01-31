@@ -208,7 +208,6 @@
     <string name="category_run_conditions">Condiciones de ejecución</string>
     <string name="category_behaviour">Comportamiento</string>
     <string name="category_syncthing_options">Opciones de Syncthing</string>
-    <string name="category_debug">Depuración</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->
@@ -382,8 +381,6 @@
     <string name="default_folder_id">%1$s-photos</string>
 
     <string name="notification_crash_title">Syncthing se ha estrellado %1$s</string>
-
-    <string name="notification_crash_text">Haga clic para ver los registros</string>
 
     <!-- RestApi -->
 

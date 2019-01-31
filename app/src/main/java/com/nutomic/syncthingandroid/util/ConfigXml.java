@@ -255,6 +255,9 @@ public class ConfigXml {
 
         /* Section - GUI */
         Element gui = getGuiElement();
+        if (gui == null) {
+            throw new OpenConfigException();
+        }
 
         // Platform-specific: Force REST API and Web UI access to use TLS 1.2 or not.
         Boolean forceHttps = Constants.osSupportsTLS12();
@@ -293,6 +296,9 @@ public class ConfigXml {
         // https://github.com/syncthing/syncthing/issues/4348
         Element options = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("options").item(0);
+        if (options == null) {
+            throw new OpenConfigException();
+        }
         changed = setConfigElement(options, "weakHashSelectionMethod", "never") || changed;
 
         /* Dismiss "fsWatcherNotification" according to https://github.com/syncthing/syncthing-android/pull/1051 */

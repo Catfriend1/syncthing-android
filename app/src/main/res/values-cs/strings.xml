@@ -212,6 +212,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Čeká se na Syncthing GUI</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -220,7 +221,6 @@
     <string name="category_run_conditions">Podmínky spuštění</string>
     <string name="category_behaviour">Chování</string>
     <string name="category_syncthing_options">Nastavení Syncthing</string>
-    <string name="category_debug">Ladění</string>
     <string name="category_experimental">Experimentální</string>
 
     <!-- Preference screen - Run conditions -->
@@ -426,8 +426,6 @@
     <string name="default_folder_id">%1$s-foto</string>
 
     <string name="notification_crash_title">Syncthing spadl %1$s</string>
-
-    <string name="notification_crash_text">Pro prohlížení logů klikněte</string>
 
     <string name="notifications_other_channel">Ostatní upozornění</string>
 

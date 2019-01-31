@@ -192,7 +192,7 @@ public class NotificationHandler {
         Intent intent = new Intent(mContext, LogActivity.class);
         Notification n = getNotificationBuilder(mInfoChannel)
                 .setContentTitle(mContext.getString(title, extraInfo))
-                .setContentText(mContext.getString(R.string.notification_crash_text))
+                .setContentText(mContext.getString(R.string.notification_crash_text, extraInfo))
                 .setSmallIcon(R.drawable.ic_stat_notify)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0))
                 .setAutoCancel(true)

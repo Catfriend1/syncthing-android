@@ -208,6 +208,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Venter på GUI</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -216,7 +217,6 @@
     <string name="category_run_conditions">Kør betingelser</string>
     <string name="category_behaviour">Adfærd</string>
     <string name="category_syncthing_options">Syncthing Muligheder</string>
-    <string name="category_debug">Debug</string>
     <string name="category_experimental">Eksperimentalt</string>
 
     <!-- Preference screen - Run conditions -->
@@ -406,8 +406,6 @@
     <string name="default_folder_id">%1$s-fotos</string>
 
     <string name="notification_crash_title">Syncthing crashede %1$s</string>
-
-    <string name="notification_crash_text">Klik for at se logs</string>
 
     <!-- RestApi -->
 

@@ -756,7 +756,7 @@ Please report any problems you encounter via Github.</string>
 
     <string name="notification_crash_title">Syncthing has crashed (exit code %1$s)</string>
 
-    <string name="notification_crash_text">Click to view logs</string>
+    <string name="notification_crash_text">Click for logs (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing active</string>
     <string name="notification_persistent_waiting_channel">Monitoring run conditions</string>

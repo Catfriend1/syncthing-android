@@ -256,7 +256,6 @@
     <string name="category_run_conditions">Uitvoervoorwaarden</string>
     <string name="category_behaviour">Gedrag</string>
     <string name="category_syncthing_options">Syncthing-opties</string>
-    <string name="category_debug">Debug</string>
     <string name="category_experimental">Experimenteel</string>
 
     <!-- Preference screen - Run conditions -->
@@ -500,8 +499,6 @@
     <string name="default_folder_id">%1$s-foto\'s</string>
 
     <string name="notification_crash_title">Syncthing is gecrasht %1$s</string>
-
-    <string name="notification_crash_text">Tik om logboeken te bekijken</string>
 
     <string name="notifications_persistent_channel">Syncthing is actief</string>
     <string name="notification_persistent_waiting_channel">Uitvoervoorwaarden controleren</string>

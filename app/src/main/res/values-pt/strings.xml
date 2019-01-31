@@ -202,6 +202,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Aguardando a interface web</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -210,7 +211,6 @@
     <string name="category_run_conditions">Condições de execução</string>
     <string name="category_behaviour">Comportamento</string>
     <string name="category_syncthing_options">Opções do Syncthing</string>
-    <string name="category_debug">Depuração</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->

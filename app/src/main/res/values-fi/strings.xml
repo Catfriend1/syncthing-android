@@ -212,6 +212,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Käyttöliittymä käynnistyy</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -220,7 +221,6 @@
     <string name="category_run_conditions">Käyntiehdot</string>
     <string name="category_behaviour">Käyttäytyminen</string>
     <string name="category_syncthing_options">Syncthing asetukset</string>
-    <string name="category_debug">Vianhaku</string>
     <string name="category_experimental">Kokeellinen</string>
 
     <!-- Preference screen - Run conditions -->

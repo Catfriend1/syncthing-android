@@ -212,6 +212,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Oczekiwanie na interfejs użytkownika</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -220,7 +221,6 @@
     <string name="category_run_conditions">Warunki działania</string>
     <string name="category_behaviour">Zachowanie</string>
     <string name="category_syncthing_options">Ustawienia Syncthing</string>
-    <string name="category_debug">Diagnozowanie błędów</string>
     <string name="category_experimental">Eksperymentalne</string>
 
     <!-- Preference screen - Run conditions -->
@@ -426,8 +426,6 @@
     <string name="default_folder_id">%1$s-zdjęcia</string>
 
     <string name="notification_crash_title">Syncthing spadło z rowerka %1$s</string>
-
-    <string name="notification_crash_text">Dotknij, by zobaczyć logi</string>
 
     <string name="notifications_other_channel">Inne powiadomienia</string>
 

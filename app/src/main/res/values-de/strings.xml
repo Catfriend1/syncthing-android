@@ -740,7 +740,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="notification_crash_title">Syncthing ist abgestürzt (Exit-Code %1$s)</string>
 
-    <string name="notification_crash_text">Klicken um Logs anzuzeigen</string>
+    <string name="notification_crash_text">Klicke für Logs (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing läuft</string>
     <string name="notification_persistent_waiting_channel">Laufkonditionen werden überwacht</string>

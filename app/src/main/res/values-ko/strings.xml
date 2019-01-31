@@ -207,6 +207,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">GUI를 기다리는 중</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -215,7 +216,6 @@
     <string name="category_run_conditions">작동 상태</string>
     <string name="category_behaviour">동작</string>
     <string name="category_syncthing_options">Syncthing 옵션 </string>
-    <string name="category_debug">디버그</string>
     <string name="category_experimental">실험적인 기능</string>
 
     <!-- Preference screen - Run conditions -->
@@ -412,8 +412,6 @@
     <string name="default_folder_id">%1$s-사진</string>
 
     <string name="notification_crash_title">Syncthing이 충돌하였습니다. %1$s</string>
-
-    <string name="notification_crash_text">클릭해서 로그 보기</string>
 
     <string name="notifications_other_channel">기타 알림</string>
 

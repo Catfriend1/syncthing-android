@@ -208,6 +208,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Αναμονή για το GUI</string>
 
+
     <!-- SettingsFragment -->
 
 
@@ -216,7 +217,6 @@
     <string name="category_run_conditions">Συνθήκες εκτέλεσης</string>
     <string name="category_behaviour">Συμπεριφορά</string>
     <string name="category_syncthing_options">Επιλογές Syncthing</string>
-    <string name="category_debug">Αποσφαλμάτωση</string>
     <string name="category_experimental">Πειραματικά</string>
 
     <!-- Preference screen - Run conditions -->
@@ -416,8 +416,6 @@
     <string name="default_folder_id">%1$s-photos</string>
 
     <string name="notification_crash_title">Το Syncthing κατέρρευσε %1$s</string>
-
-    <string name="notification_crash_text">Πατήστε για να δείτε την καταγραφή συμβάντων</string>
 
     <string name="notifications_other_channel">Άλλες ειδοποιήσεις</string>
 

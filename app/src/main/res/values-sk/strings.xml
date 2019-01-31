@@ -177,6 +177,7 @@
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Čakám na GUI</string>
 
+
     <!-- SettingsFragment -->
 
 
