@@ -196,12 +196,6 @@ public class SyncthingService extends Service {
     private boolean mLastDeterminedShouldRun = false;
 
     /**
-     * True if a service {@link #onDestroy} was requested while syncthing is starting,
-     * in that case, perform stop in {@link #onApiAvailable}.
-     */
-    private boolean mDestroyScheduled = false;
-
-    /**
      * True if the user granted the storage permission.
      */
     private boolean mStoragePermissionGranted = false;
@@ -594,17 +588,6 @@ public class SyncthingService extends Service {
             mRestApi.applyCustomRunConditions(mRunConditionMonitor);
         }
 
-        /**
-         * If the service instance got an onDestroy() event while being in
-         * State.STARTING we'll trigger the service onDestroy() now. this
-         * allows the syncthing binary to get gracefully stopped.
-         */
-        if (mDestroyScheduled) {
-            mDestroyScheduled = false;
-            stopSelf();
-            return;
-        }
-
         if (mEventProcessor == null) {
             mEventProcessor = new EventProcessor(SyncthingService.this, mRestApi);
             mEventProcessor.start();
@@ -633,22 +616,12 @@ public class SyncthingService extends Service {
         if (mNotificationHandler != null) {
             mNotificationHandler.setAppShutdownInProgress(true);
         }
-        if (mStoragePermissionGranted) {
-            synchronized (mStateLock) {
-                if (mCurrentState == State.STARTING) {
-                    Log.i(TAG, "Delay shutting down syncthing binary until initialisation finished");
-                    mDestroyScheduled = true;
-                } else {
-                    Log.i(TAG, "Shutting down syncthing binary immediately");
-                    shutdown(State.DISABLED);
-                }
-            }
-        } else {
+        if (!mStoragePermissionGranted) {
             // If the storage permission got revoked, we did not start the binary and
             // are in State.INIT requiring an immediate shutdown of this service class.
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
-            shutdown(State.DISABLED);
         }
+        shutdown(State.DISABLED);
         super.onDestroy();
     }
 
