@@ -257,12 +257,14 @@
             android:key="socks_proxy_address"
             android:title="@string/socks_proxy_address_title"
             android:summary=""
+            android:hint="@string/socks_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
 
         <EditTextPreference
             android:key="http_proxy_address"
             android:title="@string/http_proxy_address_title"
             android:summary=""
+            android:hint="@string/http_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
 
         <CheckBoxPreference
