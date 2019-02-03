@@ -56,10 +56,6 @@ public class TipsAndTricksActivity extends SyncthingActivity {
             }
         }
 
-        // Fill tip title and text content.
-        mTipListAdapter.add(getString(R.string.tip_sync_on_local_network_title), getString(R.string.tip_sync_on_local_network_text));
-        mTipListAdapter.add(getString(R.string.tip_custom_sync_conditions_title), getString(R.string.tip_custom_sync_conditions_text));
-
         // Tips referring to Huawei devices.
         if ("huawei".equalsIgnoreCase(Build.MANUFACTURER)) {
             String ipAddress = getString(R.string.tip_phone_ip_address_syntax);
@@ -74,6 +70,11 @@ public class TipsAndTricksActivity extends SyncthingActivity {
         if ("xiaomi".equalsIgnoreCase(Build.MANUFACTURER)) {
             mTipListAdapter.add(getString(R.string.tip_xiaomi_autostart_title), getString(R.string.tip_xiaomi_autostart_text));
         }
+
+        // Fill tip title and text content.
+        mTipListAdapter.add(getString(R.string.tip_sync_on_local_network_title), getString(R.string.tip_sync_on_local_network_text));
+        mTipListAdapter.add(getString(R.string.tip_custom_sync_conditions_title), getString(R.string.tip_custom_sync_conditions_text));
+        mTipListAdapter.add(getString(R.string.tip_ignore_delete_title), getString(R.string.tip_ignore_delete_text));
 
         // Set onClick listener and add adapter to recycler view.
         mTipListAdapter.setOnClickListener(

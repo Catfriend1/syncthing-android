@@ -332,6 +332,9 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_custom_sync_conditions_title">Use per folder/device custom sync conditions</string>
     <string name="tip_custom_sync_conditions_text">This feature will still be improved in future releases. For now, we didn\'t want to break existing configs and app behaviour. That\'s why custom sync conditions for a certain network type can only be set if you enable syncing on the network in the global run conditions first.</string>
 
+    <string name="tip_ignore_delete_title">Backup pictures from phone to computer?</string>
+    <string name="tip_ignore_delete_text">If you\'d like to have all pictures made on your phone backed up to a computer, share the \'Camera\' folder with the computer. Open Syncthing on the computer, add the folder and go to \'Actions\' > \'Advanced\' > \'Camera\' folder. Enable \'Ignore Delete\' and click \'Save\'. You can now delete pictures from your camera folder on the phone and they will stay backed up on the computer.</string>
+
     <string name="tip_huawei_device_disconnected_title">Huawei: \'device disconnected\' workaround</string>
     <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
