@@ -10,7 +10,7 @@ LiberapayID: '1534877'
 AutoName: Syncthing-Fork
 Summary: File synchronization
 Description: |-
-    This is a fork of <a href="https://f-droid.org/packages/com.nutomic.syncthingandroid">Syncthing</a> that brings major
+    This is a fork of [[com.nutomic.syncthingandroid]] that brings major
     enhancements like:
     * Individual sync conditions can be applied per device and per folder
     * Recent changes UI, click to open files.
@@ -432,7 +432,115 @@ Builds:
       - PATH="$PWD/go/bin:$PATH" gradle buildNative
     ndk: r15c
 
+  - versionName: 0.14.54.4
+    versionCode: 4183
+    commit: v0.14.54.4
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz
+      - echo '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
+  - versionName: 0.14.54.7
+    versionCode: 145407
+    commit: v0.14.54.7
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz
+      - echo '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
+  - versionName: 0.14.54.9
+    versionCode: 145409
+    commit: v0.14.54.9
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz
+      - echo '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
+  - versionName: 1.0.0.1
+    versionCode: 1000001
+    commit: v1.0.0.1
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz
+      - echo '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
+  - versionName: 1.0.0.2
+    versionCode: 1000002
+    commit: v1.0.0.2
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz
+      - echo '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
+  - versionName: 1.0.0.5
+    versionCode: 1000005
+    commit: v1.0.0.5
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
+      - echo 'fb26c30e6a04ad937bbc657a1b5bba92f80096af1e8ee6da6430c045a8db3a5b  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r15c
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 0.14.54.3
-CurrentVersionCode: 4182
+CurrentVersion: 1.0.0.5
+CurrentVersionCode: 1000005

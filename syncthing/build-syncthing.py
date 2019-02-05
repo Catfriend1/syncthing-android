@@ -12,6 +12,10 @@ import platform
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
+GO_VERSION = '1.11.4'
+GO_EXPECTED_SHASUM_LINUX = 'fb26c30e6a04ad937bbc657a1b5bba92f80096af1e8ee6da6430c045a8db3a5b'
+GO_EXPECTED_SHASUM_WINDOWS = 'eeb20e21702f2b9469d9381df5de85e2f731b64a1f54effe196d0f7d0227fe14'
+
 BUILD_TARGETS = [
     {
         'arch': 'arm',
@@ -140,12 +144,12 @@ def install_go():
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/go/go1.9.7.windows-amd64.zip'
-        expected_shasum =   '8db4b21916a3bc79f48d0611202ee5814c82f671b36d5d2efcb446879456cd28'
+        url =               'https://dl.google.com/go/go' + GO_VERSION + '.windows-amd64.zip'
+        expected_shasum =   GO_EXPECTED_SHASUM_WINDOWS
         tar_gz_fullfn = pwd_path + os.path.sep + 'go.zip';
     else:
-        url =               'https://dl.google.com/go/go1.9.7.linux-amd64.tar.gz'
-        expected_shasum =   '88573008f4f6233b81f81d8ccf92234b4f67238df0f0ab173d75a302a1f3d6ee'
+        url =               'https://dl.google.com/go/go' + GO_VERSION + '.linux-amd64.tar.gz'
+        expected_shasum =   GO_EXPECTED_SHASUM_LINUX
         tar_gz_fullfn = pwd_path + os.path.sep + 'go.tgz';
 
     # Download prebuilt-go.
@@ -342,12 +346,12 @@ for target in BUILD_TARGETS:
     environ.update({
         'GOPATH': module_dir,
         'CGO_ENABLED': '1',
-        'CC': os.path.join(standalone_ndk_dir, 'bin', target['cc'])
     })
 
     print('Building syncthing version', syncthingVersion);
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
+                              '-cc', os.path.join(standalone_ndk_dir, 'bin', target['cc']),
                               '-version', syncthingVersion
                           ] + pkg_argument + ['-no-upgrade', 'build'], env=environ, cwd=syncthing_dir)
 
