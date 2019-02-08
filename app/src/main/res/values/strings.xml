@@ -260,6 +260,12 @@ Please report any problems you encounter via Github.</string>
     <!-- Setting title -->
     <string name="device_id">Device ID</string>
 
+    <!-- Status title -->
+    <string name="discovered_devices_title">Discovered devices - Tap to select</string>
+
+    <!-- Status text -->
+    <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network.</string>
+
     <!-- Setting title -->
     <string name="name">Name</string>
 

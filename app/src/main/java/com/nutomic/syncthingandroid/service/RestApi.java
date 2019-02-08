@@ -26,6 +26,7 @@ import com.nutomic.syncthingandroid.model.Completion;
 import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.DiscoveredDevice;
 import com.nutomic.syncthingandroid.model.DiskEvent;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
@@ -616,6 +617,23 @@ public class RestApi {
         synchronized(mConfigLock) {
             return mConfig != null;
         }
+    }
+
+    /**
+     * Requests locally discovered devices.
+     */
+    public void getDiscoveredDevices(OnResultListener1<Map<String, DiscoveredDevice>> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_DISCOVERY, mApiKey,
+                null, result -> {
+            Map<String, DiscoveredDevice> discoveredDevices = mGson.fromJson(result, new TypeToken<Map<String, DiscoveredDevice>>(){}.getType());
+            if (ENABLE_TEST_DATA) {
+                DiscoveredDevice fakeDiscoveredDevice = new DiscoveredDevice();
+                fakeDiscoveredDevice.addresses = new String[]{"tcp4://192.168.178.10:40004"};
+                discoveredDevices.put("ZOK75WR-W3XWWUZ-NNLXV7V-DUYKVWA-SSPD7OH-3QYOZBY-SBH3N2Y-IAVJ4QH", fakeDiscoveredDevice);
+                discoveredDevices.put("ZPUZOWC-SUCJILE-ITNLBLL-MHBWJG5-46QM47Y-CDTQT3M-IA4RSJV-7BYA7QA", fakeDiscoveredDevice);
+            }
+            listener.onResult(discoveredDevices);
+        });
     }
 
     /**

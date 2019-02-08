@@ -56,6 +56,26 @@
 
             </LinearLayout>
 
+            <TextView
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:id="@+id/discoveredDevicesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
+                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                android:focusable="false"
+                android:text="@string/discovered_devices_title"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/discoveredDevicesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:focusable="false"
+                android:visibility="gone">
+            </LinearLayout>
+
             <!-- Option 2: Show or copy device ID -->
             <LinearLayout
                 android:id="@+id/showDeviceIdContainer"

@@ -257,6 +257,12 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Setting title -->
     <string name="device_id">Geräte-ID</string>
 
+    <!-- Status title -->
+    <string name="discovered_devices_title">Gefundene Geräte - Tippe zur Auswahl</string>
+
+    <!-- Status text -->
+    <string name="discovered_device_list_empty">Die lokale Geräteerkennung hat im lokalen Netzwerk keine Geräte gefunden.</string>
+
     <!-- Setting title -->
     <string name="name">Name</string>
 
