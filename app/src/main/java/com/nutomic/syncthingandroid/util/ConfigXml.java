@@ -11,6 +11,7 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.model.Gui;
+import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
@@ -810,6 +811,53 @@ public class ConfigXml {
                 }
             }
         }
+    }
+
+    public Options getOptions() {
+        Options defaultOptions = new Options();
+        Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
+        if (elementOptions == null) {
+            Log.e(TAG, "getOptions: elementOptions == null. Returning defaults.");
+            return defaultOptions;
+        }
+        Options options = new Options();
+        // options.listenAddresses
+        // options.globalAnnounceServers
+        options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), defaultOptions.globalAnnounceEnabled);
+        options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), defaultOptions.localAnnounceEnabled);
+        options.localAnnouncePort = getContentOrDefault(elementOptions.getElementsByTagName("localAnnouncePort").item(0), defaultOptions.localAnnouncePort);
+        options.localAnnounceMCAddr = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceMCAddr").item(0), "");
+        options.maxSendKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxSendKbps").item(0), defaultOptions.maxSendKbps);
+        options.maxRecvKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxRecvKbps").item(0), defaultOptions.maxRecvKbps);
+        options.reconnectionIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("reconnectionIntervalS").item(0), defaultOptions.reconnectionIntervalS);
+        options.relaysEnabled = getContentOrDefault(elementOptions.getElementsByTagName("relaysEnabled").item(0), defaultOptions.relaysEnabled);
+        options.relayReconnectIntervalM = getContentOrDefault(elementOptions.getElementsByTagName("relayReconnectIntervalM").item(0), defaultOptions.relayReconnectIntervalM);
+        options.startBrowser = getContentOrDefault(elementOptions.getElementsByTagName("startBrowser").item(0), defaultOptions.startBrowser);
+        options.natEnabled = getContentOrDefault(elementOptions.getElementsByTagName("natEnabled").item(0), defaultOptions.natEnabled);
+        options.natLeaseMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natLeaseMinutes").item(0), defaultOptions.natLeaseMinutes);
+        options.natRenewalMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natRenewalMinutes").item(0), defaultOptions.natRenewalMinutes);
+        options.natTimeoutSeconds = getContentOrDefault(elementOptions.getElementsByTagName("natTimeoutSeconds").item(0), defaultOptions.natTimeoutSeconds);
+        options.urAccepted = getContentOrDefault(elementOptions.getElementsByTagName("urAccepted").item(0), defaultOptions.urAccepted);
+        options.urUniqueId = getContentOrDefault(elementOptions.getElementsByTagName("urUniqueId").item(0), "");
+        options.urURL = getContentOrDefault(elementOptions.getElementsByTagName("urURL").item(0), defaultOptions.urURL);
+        options.urPostInsecurely = getContentOrDefault(elementOptions.getElementsByTagName("urPostInsecurely").item(0), defaultOptions.urPostInsecurely);
+        options.urInitialDelayS = getContentOrDefault(elementOptions.getElementsByTagName("urInitialDelayS").item(0), defaultOptions.urInitialDelayS);
+        options.restartOnWakeup = getContentOrDefault(elementOptions.getElementsByTagName("restartOnWakeup").item(0), defaultOptions.restartOnWakeup);
+        options.autoUpgradeIntervalH = getContentOrDefault(elementOptions.getElementsByTagName("autoUpgradeIntervalH").item(0), defaultOptions.autoUpgradeIntervalH);
+        options.upgradeToPreReleases = getContentOrDefault(elementOptions.getElementsByTagName("upgradeToPreReleases").item(0), defaultOptions.upgradeToPreReleases);
+        options.keepTemporariesH = getContentOrDefault(elementOptions.getElementsByTagName("keepTemporariesH").item(0), defaultOptions.keepTemporariesH);
+        options.cacheIgnoredFiles = getContentOrDefault(elementOptions.getElementsByTagName("cacheIgnoredFiles").item(0), defaultOptions.cacheIgnoredFiles);
+        options.progressUpdateIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("progressUpdateIntervalS").item(0), defaultOptions.progressUpdateIntervalS);
+        options.limitBandwidthInLan = getContentOrDefault(elementOptions.getElementsByTagName("limitBandwidthInLan").item(0), defaultOptions.limitBandwidthInLan);
+        options.releasesURL = getContentOrDefault(elementOptions.getElementsByTagName("releasesURL").item(0), defaultOptions.releasesURL);
+        // alwaysLocalNets
+        options.overwriteRemoteDeviceNamesOnConnect = getContentOrDefault(elementOptions.getElementsByTagName("overwriteRemoteDeviceNamesOnConnect").item(0), defaultOptions.overwriteRemoteDeviceNamesOnConnect);
+        options.tempIndexMinBlocks = getContentOrDefault(elementOptions.getElementsByTagName("tempIndexMinBlocks").item(0), defaultOptions.tempIndexMinBlocks);
+        options.defaultFolderPath = getContentOrDefault(elementOptions.getElementsByTagName("defaultFolderPath").item(0), "");
+        options.setLowPriority = getContentOrDefault(elementOptions.getElementsByTagName("setLowPriority").item(0), defaultOptions.setLowPriority);
+        // minHomeDiskFree
+        options.maxConcurrentScans = getContentOrDefault(elementOptions.getElementsByTagName("maxConcurrentScans").item(0), defaultOptions.maxConcurrentScans);
+        return options;
     }
 
     public void setDevicePause(String deviceId, Boolean paused) {
