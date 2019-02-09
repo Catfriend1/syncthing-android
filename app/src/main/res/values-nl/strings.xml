@@ -478,16 +478,11 @@
 
     <!-- SyncthingService -->
 
-
-    <!-- Title of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_title">Syncthing is uitgeschakeld</string>
-    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <!-- Text for the exit button on the drawer -->
     <string name="exit">Afsluiten</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing draait</string>
-
-    <string name="syncthing_disabled">Syncthing is uitgeschakeld</string>
 
     <string name="syncthing_terminated">Syncthing is beëindigd</string>
 

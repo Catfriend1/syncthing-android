@@ -605,16 +605,11 @@
     <string name="reason_not_on_mobile_data">El Syncthing pot funcionar amb connexions de dades mòbils però les dades mòbils no estan connectades.</string>
     <!-- SyncthingService -->
 
-
-    <!-- Title of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_title">El Syncthing està desactivat</string>
-    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <!-- Text for the exit button on the drawer -->
     <string name="exit">Surt</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">El Syncthing s\'està executant</string>
-
-    <string name="syncthing_disabled">El Syncthing està desactivat</string>
 
     <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
 

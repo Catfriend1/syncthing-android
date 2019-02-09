@@ -756,7 +756,7 @@ public class SettingsActivity extends SyncthingActivity {
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                                 if (mRestApi == null) {
                                     Toast.makeText(getActivity(),
-                                            getString(R.string.generic_error) + getString(R.string.syncthing_disabled_title),
+                                            getString(R.string.generic_error) + getString(R.string.syncthing_disabled),
                                             Toast.LENGTH_SHORT).show();
                                     return;
                                 }

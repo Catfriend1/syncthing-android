@@ -315,16 +315,11 @@
 
     <!-- SyncthingService -->
 
-
-    <!-- Title of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_title">O Syncthing está desactivado</string>
-    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <!-- Text for the exit button on the drawer -->
     <string name="exit">Sair</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">O Syncthing está a correr</string>
-
-    <string name="syncthing_disabled">O Syncthing está desactivado</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_folder_label">Câmera</string>

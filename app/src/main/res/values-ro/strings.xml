@@ -491,16 +491,11 @@
 
     <!-- SyncthingService -->
 
-
-    <!-- Title of the "syncthing disabled" dialog -->
-    <string name="syncthing_disabled_title">Syncthing este dezactivat</string>
-    <!-- Button text on the "syncthing disabled" dialog, used as menu item to stop syncthing service if "always_run_in_background" is true -->
+    <!-- Text for the exit button on the drawer -->
     <string name="exit">Ieșire</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing rulează</string>
-
-    <string name="syncthing_disabled">Syncthing este dezactivat</string>
 
     <string name="syncthing_terminated">Syncthing a fost închis</string>
 
