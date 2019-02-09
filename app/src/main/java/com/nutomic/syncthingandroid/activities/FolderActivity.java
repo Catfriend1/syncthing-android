@@ -186,7 +186,7 @@ public class FolderActivity extends SyncthingActivity {
 
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
-        setContentView(R.layout.fragment_folder);
+        setContentView(R.layout.activity_folder);
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.create_folder : R.string.edit_folder);
