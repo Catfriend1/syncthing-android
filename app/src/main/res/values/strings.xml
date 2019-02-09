@@ -264,7 +264,10 @@ Please report any problems you encounter via Github.</string>
     <string name="discovered_devices_title">Discovered devices - Tap to select</string>
 
     <!-- Status text -->
-    <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network.</string>
+    <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network. Run this app on a second phone. Installation files for computers are available at: %1$s</string>
+
+    <!-- Status text -->
+    <string name="local_discovery_disabled">You have disabled local discovery in \'Settings\' > \'Syncthing Options\' > \'Local Discovery\'. Enable it to search for devices on the local network.</string>
 
     <!-- Setting title -->
     <string name="name">Name</string>
@@ -604,7 +607,12 @@ Please report any problems you encounter via Github.</string>
 
     <!-- URL of the issue tracker -->
     <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>
+
+    <!-- URL of the GitHub wiki -->
     <string name="wiki_url" translatable="false">https://github.com/Catfriend1/syncthing-android/wiki</string>
+
+    <!-- URL of the Syncthing project homepage -->
+    <string name="url_syncthing_homepage" translatable="false">https://syncthing.net</string>
 
 
     <!-- Menu item to donate -->

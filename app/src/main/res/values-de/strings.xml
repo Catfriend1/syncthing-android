@@ -261,7 +261,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="discovered_devices_title">Gefundene Geräte - Tippe zur Auswahl</string>
 
     <!-- Status text -->
-    <string name="discovered_device_list_empty">Die lokale Geräteerkennung hat im lokalen Netzwerk keine Geräte gefunden.</string>
+    <string name="discovered_device_list_empty">Die lokale Geräteerkennung hat im lokalen Netzwerk keine Geräte gefunden. Starte dieses App auf einem zweiten Telefon. Installationsdateien für Computer stehen unter %1$s zur Verfügung.</string>
+
+    <!-- Status text -->
+    <string name="local_discovery_disabled">Du hast die lokale Geräteerkennung unter \'Einstellungen\' > \'Syncthing-Optionen\' > \'Lokale Gerätesuche\' deaktiviert. Aktiviere sie, um im lokalen Netzwerk nach Geräten zu suchen.</string>
 
     <!-- Setting title -->
     <string name="name">Name</string>

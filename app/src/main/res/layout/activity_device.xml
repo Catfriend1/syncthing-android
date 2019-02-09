@@ -61,9 +61,14 @@
                 android:id="@+id/discoveredDevicesTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
+                android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
+                android:clickable="true"
                 android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
                 android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
-                android:focusable="false"
+                android:drawableEnd="@drawable/ic_refresh_black_24"
+                android:drawableRight="@drawable/ic_refresh_black_24"
+                android:focusable="true"
                 android:text="@string/discovered_devices_title"
                 android:visibility="gone" />
 
