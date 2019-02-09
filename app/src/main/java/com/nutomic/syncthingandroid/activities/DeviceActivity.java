@@ -190,7 +190,7 @@ public class DeviceActivity extends SyncthingActivity {
 
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
-        setContentView(R.layout.fragment_device);
+        setContentView(R.layout.activity_device);
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.add_device : R.string.edit_device);
