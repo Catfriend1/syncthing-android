@@ -412,7 +412,12 @@ public class SettingsActivity extends SyncthingActivity {
                 // User has clicked on a sub-preferences screen.
                 try {
                     mCurrentPrefScreenDialog = ((PreferenceScreen) preference).getDialog();
-                    LinearLayout root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent().getParent();
+                    LinearLayout root;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent().getParent();
+                    } else {
+                        root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
+                    }
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
