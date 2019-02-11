@@ -154,7 +154,6 @@ public class SettingsActivity extends SyncthingActivity {
         private Dialog             mCurrentPrefScreenDialog = null;
 
         private Preference         mCategoryRunConditions;
-        private CheckBoxPreference mStartServiceOnBoot;
         private ListPreference     mPowerSource;
         private CheckBoxPreference mRunOnMobileData;
         private CheckBoxPreference mRunOnWifi;
@@ -163,6 +162,13 @@ public class SettingsActivity extends SyncthingActivity {
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
 
+        /* Behaviour */
+        private CheckBoxPreference mStartServiceOnBoot;
+        private CheckBoxPreference mUseRoot;
+        private ListPreference     mSuggestNewFolderRoot;
+        private Languages          mLanguages;
+
+        /* Syncthing Options */
         private Preference         mCategorySyncthingOptions;
         private EditTextPreference mDeviceName;
         private EditTextPreference mListenAddresses;
@@ -179,7 +185,6 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mUrAccepted;
 
         /* Experimental options */
-        private CheckBoxPreference mUseRoot;
         private CheckBoxPreference mUseWakelock;
         private CheckBoxPreference mUseTor;
         private EditTextPreference mSocksProxyAddress;
@@ -248,14 +253,10 @@ public class SettingsActivity extends SyncthingActivity {
             if (Build.VERSION.SDK_INT >= 24) {
                 categoryBehaviour.removePreference(languagePref);
             } else {
-                Languages languages = new Languages(getActivity());
-                languagePref.setDefaultValue(Languages.USE_SYSTEM_DEFAULT);
-                languagePref.setEntries(languages.getAllNames());
-                languagePref.setEntryValues(languages.getSupportedLocales());
-                languagePref.setOnPreferenceChangeListener((p, o) -> {
-                    languages.forceChangeLanguage(getActivity(), (String) o);
-                    return false;
-                });
+                mLanguages = new Languages(getActivity());
+                languagePref.setDefaultValue(mLanguages.USE_SYSTEM_DEFAULT);
+                languagePref.setEntries(mLanguages.getAllNames());
+                languagePref.setEntryValues(mLanguages.getSupportedLocales());
             }
             PreferenceScreen screen = getPreferenceScreen();
 
@@ -294,6 +295,14 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
             mUseRoot =
                     (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
+            mSuggestNewFolderRoot =
+                    (ListPreference) findPreference(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT);
+            screen.findPreference(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT).setSummary(mSuggestNewFolderRoot.getEntry());
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                // Remove preference as FileUtils#getExternalFilesDirUri is only supported on API 21+ (LOLLIPOP+).
+                categoryBehaviour.removePreference(mSuggestNewFolderRoot);
+            }
+            setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
             /* Syncthing options */
             mDeviceName             = (EditTextPreference) findPreference("deviceName");
@@ -350,7 +359,6 @@ public class SettingsActivity extends SyncthingActivity {
                 mUseWakelock.setChecked(false);
             }
 
-            mUseRoot.setOnPreferenceClickListener(this);
             mUseWakelock.setOnPreferenceChangeListener(this);
             mUseTor.setOnPreferenceChangeListener(this);
 
@@ -557,6 +565,27 @@ public class SettingsActivity extends SyncthingActivity {
             return true;
         }
 
+        public boolean onBehaviourPreferenceChange(Preference preference, Object o) {
+            switch (preference.getKey()) {
+                case Constants.PREF_USE_ROOT:
+                    if ((Boolean) o) {
+                        new TestRootTask(this).execute();
+                    } else {
+                        new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
+                        mPendingConfig = true;
+                    }
+                    break;
+                case Constants.PREF_SUGGEST_NEW_FOLDER_ROOT:
+                    mSuggestNewFolderRoot.setValue(o.toString());
+                    preference.setSummary(mSuggestNewFolderRoot.getEntry());
+                    break;
+                case Languages.PREFERENCE_LANGUAGE:
+                    mLanguages.forceChangeLanguage(getActivity(), (String) o);
+                    return false;
+            }
+            return true;
+        }
+
         public boolean onSyncthingPreferenceChange(Preference preference, Object o) {
             Splitter splitter = Splitter.on(",").trimResults().omitEmptyStrings();
             switch (preference.getKey()) {
@@ -710,16 +739,6 @@ public class SettingsActivity extends SyncthingActivity {
         public boolean onPreferenceClick(Preference preference) {
             final Intent intent;
             switch (preference.getKey()) {
-                case Constants.PREF_USE_ROOT:
-                    if (mUseRoot.isChecked()) {
-                        // Only check preference after root was granted.
-                        mUseRoot.setChecked(false);
-                        new TestRootTask(this).execute();
-                    } else {
-                        new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
-                        mPendingConfig = true;
-                    }
-                    return true;
                 case KEY_OPEN_ISSUE_TRACKER:
                     intent = new Intent(getActivity(), WebViewActivity.class);
                     intent.putExtra(WebViewActivity.EXTRA_WEB_URL, getString(R.string.issue_tracker_url));
@@ -829,13 +848,15 @@ public class SettingsActivity extends SyncthingActivity {
                 if (settingsFragment == null) {
                     return;
                 }
+                settingsFragment.mUseRoot.setOnPreferenceChangeListener(null);
+                settingsFragment.mUseRoot.setChecked(haveRoot);
                 if (haveRoot) {
                     settingsFragment.mPendingConfig = true;
-                    settingsFragment.mUseRoot.setChecked(true);
                 } else {
                     Toast.makeText(settingsFragment.getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)
                             .show();
                 }
+                settingsFragment.mUseRoot.setOnPreferenceChangeListener(settingsFragment::onBehaviourPreferenceChange);
             }
         }
 

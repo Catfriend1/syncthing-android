@@ -442,6 +442,13 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature cautious.</string>
 
+    <string name="suggest_new_folder_root_title">Select new folder root</string>
+
+    <string-array name="suggest_new_folder_root_entries">
+        <item>[external_storage]/Android/data</item>
+        <item>[external_storage]/Android/media</item>
+    </string-array>
+
     <string name="preference_language_title">Language</string>
 
     <string name="preference_language_summary">Change the app language</string>

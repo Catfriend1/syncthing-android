@@ -15,4 +15,10 @@
         <item>battery_power</item>
     </string-array>
 
+    <!-- Preference screen -->
+    <string-array name="suggest_new_folder_root_values">
+        <item>external_android_data</item>
+        <item>external_android_media</item>
+    </string-array>
+
 </resources>

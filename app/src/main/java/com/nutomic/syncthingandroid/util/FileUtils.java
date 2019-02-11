@@ -47,6 +47,11 @@ public class FileUtils {
     private static final String PRIMARY_VOLUME_NAME = "primary";
     private static final String HOME_VOLUME_NAME = "home";
 
+    public enum ExternalStorageDirType {
+        DATA,
+        MEDIA
+    }
+
     @Nullable
     @TargetApi(21)
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
@@ -155,24 +160,37 @@ public class FileUtils {
      * has been blocked since Android 7+, we need to build the Uri
      * manually after discovering the first external storage.
      * This is crucial to assist the user finding a writeable folder
-     * to use syncthing's two way sync feature.
+     * to use Syncthing's two way sync feature.
+     * API for getExternalFilesDirs(): 19+ (KITKAT+)
+     * API for getExternalMediaDirs(): 21+ (LOLLIPOP+)
      */
-    @TargetApi(19)
-    public static android.net.Uri getExternalFilesDirUri(Context context) {
+    @TargetApi(21)
+    public static android.net.Uri getExternalFilesDirUri(Context context, ExternalStorageDirType extDirType) {
         try {
             /**
              * Determine the app's private data folder on external storage if present.
              * e.g. "/storage/abcd-efgh/Android/[PACKAGE_NAME]/files"
              */
             ArrayList<File> externalFilesDir = new ArrayList<>();
-            externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));
-            externalFilesDir.remove(context.getExternalFilesDir(null));
+            switch(extDirType ){
+                case DATA:
+                    externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));
+                    externalFilesDir.remove(context.getExternalFilesDir(null));
+                    break;
+                case MEDIA:
+                    externalFilesDir.addAll(Arrays.asList(context.getExternalMediaDirs()));
+                    if (externalFilesDir.size() > 0) {
+                        externalFilesDir.remove(externalFilesDir.get(0));
+                    }
+                    break;
+            }
             externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             if (externalFilesDir.size() == 0) {
                 Log.w(TAG, "Could not determine app's private files directory on external storage.");
                 return null;
             }
             String absPath = externalFilesDir.get(0).getAbsolutePath();
+            // Log.v(TAG, "getExternalFilesDirUri: absPath=" + absPath);
             String[] segments = absPath.split("/");
             if (segments.length < 2) {
                 Log.w(TAG, "Could not extract volumeId from app's private files path '" + absPath + "'");
@@ -180,11 +198,20 @@ public class FileUtils {
             }
             // Extract the volumeId, e.g. "abcd-efgh"
             String volumeId = segments[2];
-            // Build the content Uri for our private "files" folder.
-            return android.net.Uri.parse(
-                "content://com.android.externalstorage.documents/document/" +
-                volumeId + "%3AAndroid%2Fdata%2F" +
-                context.getPackageName() + "%2Ffiles");
+            switch(extDirType ){
+                case DATA:
+                    // Build the content Uri for our private ".../data/[PKG_NAME]/files" folder.
+                    return android.net.Uri.parse(
+                        "content://com.android.externalstorage.documents/document/" +
+                        volumeId + "%3AAndroid%2Fdata%2F" +
+                        context.getPackageName() + "%2Ffiles");
+                case MEDIA:
+                    // Build the content Uri for our private ".../media/[PKG_NAME]" folder.
+                    return android.net.Uri.parse(
+                        "content://com.android.externalstorage.documents/document/" +
+                        volumeId + "%3AAndroid%2Fmedia%2F" +
+                        context.getPackageName());
+            }
         } catch (Exception e) {
             Log.w(TAG, "getExternalFilesDirUri exception", e);
         }

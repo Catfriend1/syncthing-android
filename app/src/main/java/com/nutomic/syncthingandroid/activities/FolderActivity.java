@@ -41,6 +41,7 @@ import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.FileUtils;
+import com.nutomic.syncthingandroid.util.FileUtils.ExternalStorageDirType;
 import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
@@ -293,13 +294,20 @@ public class FolderActivity extends SyncthingActivity {
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            // API < 21
             startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null),
                 FolderPickerActivity.DIRECTORY_REQUEST_CODE);
             return;
         }
+        String prefSuggestNewFolderRoot = mPreferences.getString(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT, Constants.PREF_SUGGEST_NEW_FOLDER_ROOT_DATA);
 
         // This has to be android.net.Uri as it implements a Parcelable.
-        android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this);
+        android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(
+                FolderActivity.this,
+                prefSuggestNewFolderRoot.equals(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT_DATA) ?
+                        ExternalStorageDirType.DATA :
+                        ExternalStorageDirType.MEDIA
+        );
 
         // Display storage access framework directory picker UI.
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
