@@ -658,6 +658,9 @@ public class SyncthingService extends Service {
         }
 
         if (mRestApi != null) {
+            if (mSyncthingRunnable != null) {
+                mRestApi.shutdown();
+            }
             mRestApi = null;
         }
 

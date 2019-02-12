@@ -16,6 +16,7 @@ public class PostRequest extends ApiRequest {
     public static final String URI_DB_IGNORES       = "/rest/db/ignores";
     public static final String URI_DB_OVERRIDE      = "/rest/db/override";
     public static final String URI_SYSTEM_CONFIG    = "/rest/system/config";
+    public static final String URI_SYSTEM_SHUTDOWN  = "/rest/system/shutdown";
 
     public PostRequest(Context context, URL url, String path, String apiKey,
         	           @Nullable Map<String, String> params, @Nullable String postBody,

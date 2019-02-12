@@ -411,6 +411,15 @@ public class RestApi {
     }
 
     /**
+     * Posts shutdown request.
+     * This will cause SyncthingNative to exit and not restart.
+     */
+    public void shutdown() {
+        new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_SHUTDOWN, mApiKey,
+                null, null, null);
+    }
+
+    /**
      * Returns the version name, or a (text) error message on failure.
      */
     public String getVersion() {
