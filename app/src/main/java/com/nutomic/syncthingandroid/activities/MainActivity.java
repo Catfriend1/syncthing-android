@@ -280,6 +280,7 @@ public class MainActivity extends SyncthingActivity
         };
         try {
             mViewPager.setAdapter(mSectionsPagerAdapter);
+            mViewPager.setOffscreenPageLimit(numPages);
         } catch (IllegalStateException e) {
             /**
              * IllegalStateException happens due to a bug in FragmentStatePagerAdapter.
@@ -294,7 +295,6 @@ public class MainActivity extends SyncthingActivity
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> {})
                     .show();
         }
-        mViewPager.setOffscreenPageLimit(numPages);
         TabLayout tabLayout = findViewById(R.id.tabContainer);
         tabLayout.setupWithViewPager(mViewPager);
     }
