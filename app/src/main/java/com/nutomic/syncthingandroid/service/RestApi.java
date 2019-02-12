@@ -147,8 +147,6 @@ public class RestApi {
 
     private Gson mGson;
 
-    @Inject NotificationHandler mNotificationHandler;
-
     public RestApi(Context context, URL url, String apiKey, OnApiAvailableListener apiListener,
                    OnConfigChangedListener configListener) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
@@ -410,10 +408,6 @@ public class RestApi {
             mContext.startService(intent);
         });
         mOnConfigChangedListener.onConfigChanged();
-    }
-
-    public void shutdown() {
-        mNotificationHandler.cancelRestartNotification();
     }
 
     /**
