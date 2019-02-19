@@ -280,7 +280,11 @@ public class MainActivity extends SyncthingActivity
         };
         try {
             mViewPager.setAdapter(mSectionsPagerAdapter);
-            mViewPager.setOffscreenPageLimit(numPages);
+            /**
+             * See issues #321, #327
+             * Call stack on IllegalStateException: onServiceStateChange/updateViewPager/setOffscreenPageLimit
+             */
+            // mViewPager.setOffscreenPageLimit(numPages);
         } catch (IllegalStateException e) {
             /**
              * IllegalStateException happens due to a bug in FragmentStatePagerAdapter.
