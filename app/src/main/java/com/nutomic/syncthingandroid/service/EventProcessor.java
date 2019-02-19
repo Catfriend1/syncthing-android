@@ -38,7 +38,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
     private static final String TAG = "EventProcessor";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
 
     /**
      * Minimum interval in seconds at which the events are polled from syncthing and processed.
@@ -62,6 +62,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
     public EventProcessor(Context context, RestApi restApi) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mContext = context;
         mRestApi = restApi;
     }

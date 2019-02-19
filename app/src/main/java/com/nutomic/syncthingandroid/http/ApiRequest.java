@@ -18,6 +18,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
+
+import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 
 import java.io.File;
@@ -38,7 +40,7 @@ public abstract class ApiRequest {
 
     private static final String TAG = "ApiRequest";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
 
     /**
      * The name of the HTTP header used for the syncthing API key.
@@ -77,6 +79,7 @@ public abstract class ApiRequest {
         mUrl           = url;
         mPath          = path;
         mApiKey        = apiKey;
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(context);
     }
 
     Uri buildUri(Map<String, String> params) {

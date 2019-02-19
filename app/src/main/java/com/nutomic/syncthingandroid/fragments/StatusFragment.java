@@ -1,8 +1,10 @@
 package com.nutomic.syncthingandroid.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,11 +18,13 @@ import android.widget.ArrayAdapter;
 
 import com.google.common.base.Optional;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SettingsActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.SystemStatus;
+import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -32,6 +36,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.text.NumberFormat;
 
+import javax.inject.Inject;
+
 /**
  * Displays why syncthing is running or disabled.
  */
@@ -39,7 +45,9 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
 
     private static final String TAG = "StatusFragment";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
+
+    @Inject SharedPreferences mPreferences;
 
     private Runnable mRestApiQueryRunnable = new Runnable() {
         @Override
@@ -69,6 +77,13 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     private String mUpload = "";
     private String mAnnounceServer = "";
     private String mUptime = "";
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser)

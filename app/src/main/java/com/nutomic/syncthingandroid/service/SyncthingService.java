@@ -48,7 +48,7 @@ public class SyncthingService extends Service {
 
     private static final String TAG = "SyncthingService";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
 
     /**
      * Intent action to perform a Syncthing restart.
@@ -213,10 +213,11 @@ public class SyncthingService extends Service {
      */
     @Override
     public void onCreate() {
-        LogV("onCreate");
         super.onCreate();
         PRNGFixes.apply();
         ((SyncthingApp) getApplication()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
+        LogV("onCreate");
         mHandler = new Handler();
 
         /**
@@ -521,7 +522,6 @@ public class SyncthingService extends Service {
             return;
         }
 
-        Log.v(TAG, "Starting syncthing");
         onServiceStateChange(State.STARTING);
 
         if (mRestApi == null) {

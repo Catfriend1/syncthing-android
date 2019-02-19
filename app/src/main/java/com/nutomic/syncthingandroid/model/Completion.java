@@ -17,10 +17,14 @@ public class Completion {
 
     private static final String TAG = "Completion";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
 
     HashMap<String, HashMap<String, CompletionInfo>> deviceFolderMap =
         new HashMap<String, HashMap<String, CompletionInfo>>();
+
+    public Completion(Boolean enableVerboseLog) {
+        ENABLE_VERBOSE_LOG = enableVerboseLog;
+    }
 
     /**
      * Removes a folder from the cache model.

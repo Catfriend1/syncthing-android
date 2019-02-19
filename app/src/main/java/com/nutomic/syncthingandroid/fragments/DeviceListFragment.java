@@ -1,8 +1,10 @@
 package com.nutomic.syncthingandroid.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.Menu;
@@ -13,10 +15,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.DeviceActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -27,6 +31,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Displays a list of all existing devices.
  */
@@ -35,7 +41,9 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
 
     private final static String TAG = "DeviceListFragment";
 
-    private static final Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean ENABLE_VERBOSE_LOG = false;
+
+    @Inject SharedPreferences mPreferences;
 
     /**
      * Compares devices by name, uses the device ID as fallback if the name is empty
@@ -58,6 +66,13 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     private Boolean mLastVisibleToUser = false;
     private DevicesAdapter mAdapter;
     private SyncthingService.State mServiceState = SyncthingService.State.INIT;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser)

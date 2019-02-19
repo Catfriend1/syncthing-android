@@ -39,6 +39,8 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
     private static final String TAG = "DrawerFragment";
 
+    private static final int SETTINGS_SCREEN_REQUEST = 3460;
+
     /**
      * These buttons might be accessible if the screen is big enough
      * or the user can scroll the drawer to access them.
@@ -194,7 +196,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionSettings:
-                startActivity(new Intent(mActivity, SettingsActivity.class));
+                startActivityForResult(new Intent(mActivity, SettingsActivity.class), SETTINGS_SCREEN_REQUEST);
                 mActivity.closeDrawer();
                 break;
             case R.id.drawerActionExit:
@@ -220,12 +222,26 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         }
     }
 
-    private void doExit() {
+    private Boolean doExit() {
         if (mActivity == null || mActivity.isFinishing()) {
-            return;
+            return false;
         }
         Log.i(TAG, "Exiting app on user request");
         mActivity.stopService(new Intent(mActivity, SyncthingService.class));
         mActivity.finish();
+        return true;
+    }
+
+    /**
+     * Receives result of SettingsActivity.
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == SETTINGS_SCREEN_REQUEST && resultCode == SettingsActivity.RESULT_RESTART_APP) {
+            Log.d(TAG, "Got request to restart MainActivity");
+            if (doExit()) {
+                startActivity(new Intent(getActivity(), MainActivity.class));
+            }
+        }
     }
 }

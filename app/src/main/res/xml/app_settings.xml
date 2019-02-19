@@ -78,12 +78,14 @@
         android:key="category_behaviour"
         android:title="@string/category_behaviour">
 
+        <!-- Autostart on boot -->
         <CheckBoxPreference
             android:key="always_run_in_background"
             android:title="@string/behaviour_autostart_title"
             android:summary="@string/behaviour_autostart_summary"
             android:defaultValue="false" />
 
+        <!-- Use root -->
         <CheckBoxPreference
             android:key="use_root"
             android:title="@string/use_root_title"
@@ -217,12 +219,21 @@
     <PreferenceScreen
         android:title="@string/category_debug">
 
+        <!-- Report issue -->
         <Preference
             android:key="open_issue_tracker"
             android:persistent="false"
             android:title="@string/report_issue_title">
         </Preference>
 
+        <!-- Verbose log -->
+        <CheckBoxPreference
+            android:key="verbose_log"
+            android:title="@string/verbose_log_title"
+            android:summary="@string/verbose_log_summary"
+            android:defaultValue="false" />
+
+        <!-- Open Android or SyncthingNative log -->
         <Preference
             android:title="@string/open_log"
             android:summary="@string/open_log_summary">
@@ -230,21 +241,25 @@
                 android:action=".activities.LogActivity" />
         </Preference>
 
+        <!-- STTRACE facility chooser dialog -->
         <com.nutomic.syncthingandroid.views.SttracePreference
             android:key="debug_facilities_enabled"
             android:title="@string/sttrace_title" />
 
+        <!-- Environment variables -->
         <EditTextPreference
             android:key="environment_variables"
             android:title="@string/environment_variables"
             android:singleLine="true"
             android:inputType="textNoSuggestions"/>
 
+        <!-- Reset database -->
         <Preference
             android:key="st_reset_database"
             android:title="@string/st_reset_database_title"
             android:singleLine="true" />
 
+        <!-- Reset index database -->
         <Preference
             android:key="st_reset_deltas"
             android:title="@string/st_reset_deltas_title"
