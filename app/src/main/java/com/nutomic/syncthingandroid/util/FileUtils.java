@@ -115,8 +115,7 @@ public class FileUtils {
             }
             if (DOWNLOADS_VOLUME_NAME.equals(volumeId)) {
                 Log.v(TAG, "getVolumePath: isDownloadsVolume");
-                // Reading the environment var avoids hard coding the case of the "downloads" folder.
-                return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+                return getExternalStorageDownloadsDirectory();
             }
 
             StorageManager mStorageManager =
@@ -235,6 +234,13 @@ public class FileUtils {
         final String[] split = docId.split(":");
         if ((split.length >= 2) && (split[1] != null)) return split[1];
         else return File.separator;
+    }
+
+    /**
+     * Reading the environment var avoids hard coding the absolute path of the "/Download" folder.
+     */
+    public static String getExternalStorageDownloadsDirectory() {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
     }
 
     @Nullable
