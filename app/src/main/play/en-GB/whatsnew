@@ -1,4 +1,5 @@
 Enhancements
+* Add Binary Eye barcode scanner support (#325)
 * Download Support Bundle (#332)
 * Add label to explain why Syncthing Options are greyed out (#337)
 Notes

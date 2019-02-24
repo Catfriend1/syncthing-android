@@ -604,7 +604,15 @@ public class DeviceActivity extends SyncthingActivity {
     }
 
     private void onQrButtonClick() {
+        final List<String> targetApplications = list(
+            "de.markusfisch.android.binaryeye",                 // Binary Eye
+            "com.srowen.bs.android",                            // Barcode Scanner+
+            "com.srowen.bs.android.simple"                      // Barcode Scanner+ Simple
+            // "com.google.zxing.client.android"                // Barcode Scanner (2019-02-24: no longer on GPlay)
+        );
         IntentIntegrator integrator = new IntentIntegrator(DeviceActivity.this);
+        integrator.setTargetApplications(targetApplications);
+        integrator.setMessage(getString(R.string.install_barcode_scanner_app_message));
         integrator.initiateScan();
     }
 
@@ -720,5 +728,9 @@ public class DeviceActivity extends SyncthingActivity {
         mEditDeviceId.setText((String) view.getTag());
         mDiscoveredDevicesTitle.setVisibility(View.GONE);
         mDiscoveredDevicesContainer.setVisibility(View.GONE);
+    }
+
+    private static List<String> list(String... values) {
+        return Collections.unmodifiableList(Arrays.asList(values));
     }
 }

@@ -320,6 +320,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR Code scannen</string>
 
+    <!-- Dialog message if no compatible barcode scanner app is installed -->
+    <string name="install_barcode_scanner_app_message">Dies erfordert eine Barcode Scanner App. Möchtest Du die App \'Binary Eye\' von F-Droid installieren?</string>
+
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Konnte keine Root-Rechte erhalten.</string>
 
