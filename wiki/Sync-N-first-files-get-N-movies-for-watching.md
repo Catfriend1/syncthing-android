@@ -7,10 +7,65 @@ Thanks for your contribution!
 # sequentialMover.py
 Source: [https://gist.github.com/SerVB/26fd23d9b4e0b8aa57a6169ab1508812](https://gist.github.com/SerVB/26fd23d9b4e0b8aa57a6169ab1508812)
 
-Copy of the script from the source linked above by 2019-02-24_12:48
+Copy of the script from the source linked above by 2019-02-24_16:19
 
-```
+```python
+# "Sequential Mover":
+# The script for moving a few episodes from the source dir to the syncthing "dist" dir.
+#
+# This script uses a json config file. Here is the example:
+# {
+#     "source": "D:/series/",
+#     "dist": "D:/_syncthing/_few_episodes/",
+#     "count": 2,
+#     "exceptions": [
+#         "Chaos - A mathematical adventure",
+#         "Miraculous Ladybug Webisodes"
+#     ]
+# }
+#
+# The script assumes that subdirs of the "source" dir are different TV-series.
+# Then it treats all the files in "TV-series" dirs as episodes.
+# Example:
+# D\
+#  +-series\
+#          +-series1\
+#          |        +-series1-e1.mp4
+#          |        +-series1-e2.mp4
+#          +-series2\
+#                   +-season1\
+#                   |        +-series2-s1e1.mp4
+#                   +-season2\
+#                            +-series2-s2e1.mp4
+#                            +-series2-s2e2.mp4
+#
+# The script searches for the same series in the "dist" dist dir and determines how many episodes to move.
+# Assume "count" = 2. After script run, the "dist" dir will look like this:
+# D\
+#  +-_syncthing\
+#              +-_few_episodes\
+#                             +-series1\
+#                             |        +-series1-e1.mp4
+#                             |        +-series1-e2.mp4
+#                             +-series2\
+#                                      +-series2-s1e1.mp4
+#                                      +-series2-s2e1.mp4
+#
+# If you rerun the script again, it will do nothing, because there are already two episodes moved.
+# If you remove episodes from the "dist" dir, the script will again move episodes filling up to "count".
+#
+# Also, the script removes empty dirs from both "source" and "dist" dirs. So the "source" dir will look like this:
+# D\
+#  +-series\
+#          +-series2\
+#                   +-season2\
+#                            +-series2-s2e2.mp4
+#
+# Here are some tips I use to run the script every hour quietly:
 # https://stackoverflow.com/a/2725908/6639500
+# https://www.howtogeek.com/tips/how-to-run-a-scheduled-task-without-a-command-window-appearing/
+#
+# The pre-history of the script is here:
 # https://github.com/syncthing/syncthing-android/issues/1279
 
 import json
