@@ -384,7 +384,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="category_run_conditions">Laufkonditionen</string>
     <string name="category_behaviour">Verhalten</string>
+
     <string name="category_syncthing_options">Syncthing-Optionen</string>
+
+    <string name="category_syncthing_options_summary">Dieses Menü ist nur verfügbar während Syncthing läuft.</string>
+
     <string name="category_backup">Import und Export</string>
     <string name="category_debug">Fehlerbehebung</string>
     <string name="category_experimental">Experimentell</string>

@@ -109,6 +109,7 @@
 
     <PreferenceScreen
         android:key="category_syncthing_options"
+        android:summary="@string/category_syncthing_options_summary"
         android:title="@string/category_syncthing_options">
 
         <EditTextPreference
