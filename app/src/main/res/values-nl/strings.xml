@@ -258,7 +258,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
 
     <string name="category_run_conditions">Uitvoervoorwaarden</string>
     <string name="category_behaviour">Gedrag</string>
+
     <string name="category_syncthing_options">Syncthing-opties</string>
+
     <string name="category_experimental">Experimenteel</string>
 
     <!-- Preference screen - Run conditions -->

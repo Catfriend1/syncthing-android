@@ -305,7 +305,9 @@
 
     <string name="category_run_conditions">Körvillkor</string>
     <string name="category_behaviour">Beteende</string>
+
     <string name="category_syncthing_options">Syncthing alternativ</string>
+
     <string name="category_backup">Import och export</string>
     <string name="category_debug">Felsök</string>
     <string name="category_experimental">Experimentell</string>

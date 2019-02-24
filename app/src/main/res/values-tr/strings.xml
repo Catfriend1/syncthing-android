@@ -206,7 +206,9 @@
 
     <string name="category_run_conditions">Çalışma Koşulları</string>
     <string name="category_behaviour">Davranış</string>
+
     <string name="category_syncthing_options">Syncthing Seçenekleri</string>
+
     <string name="category_experimental">Deneysel</string>
 
     <!-- Preference screen - Run conditions -->

@@ -216,7 +216,9 @@
 
     <string name="category_run_conditions">Kør betingelser</string>
     <string name="category_behaviour">Adfærd</string>
+
     <string name="category_syncthing_options">Syncthing Muligheder</string>
+
     <string name="category_experimental">Eksperimentalt</string>
 
     <!-- Preference screen - Run conditions -->

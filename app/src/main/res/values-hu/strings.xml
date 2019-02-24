@@ -233,7 +233,9 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
 
     <string name="category_run_conditions">Futás feltételei</string>
     <string name="category_behaviour">Viselkedés</string>
+
     <string name="category_syncthing_options">Syncthing opciók</string>
+
     <string name="category_experimental">Kísérleti</string>
 
     <!-- Preference screen - Run conditions -->

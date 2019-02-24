@@ -197,6 +197,7 @@
     <string name="settings_title">Configuración</string>
 
     <string name="category_syncthing_options">Opciones de Syncthing</string>
+
     <string name="category_experimental">Experimental</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor encienda el WiFi para seleccionar redes.</string>

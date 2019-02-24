@@ -216,7 +216,9 @@
 
     <string name="category_run_conditions">Συνθήκες εκτέλεσης</string>
     <string name="category_behaviour">Συμπεριφορά</string>
+
     <string name="category_syncthing_options">Επιλογές Syncthing</string>
+
     <string name="category_experimental">Πειραματικά</string>
 
     <!-- Preference screen - Run conditions -->

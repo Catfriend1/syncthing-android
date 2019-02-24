@@ -208,7 +208,9 @@
 
     <string name="category_run_conditions">Условия на работа</string>
     <string name="category_behaviour">Поведение</string>
+
     <string name="category_syncthing_options">Настройки на Syncthing</string>
+
     <string name="category_experimental">Експериментални</string>
 
     <!-- Preference screen - Run conditions -->

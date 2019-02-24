@@ -217,7 +217,9 @@
 
     <string name="category_run_conditions">実行条件</string>
     <string name="category_behaviour">動作</string>
+
     <string name="category_syncthing_options">同期オプション</string>
+
     <string name="category_experimental">実験的</string>
 
     <!-- Preference screen - Run conditions -->

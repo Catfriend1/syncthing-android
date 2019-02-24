@@ -293,7 +293,9 @@
 
     <string name="category_run_conditions">运行条件</string>
     <string name="category_behaviour">行为</string>
+
     <string name="category_syncthing_options">同步设置</string>
+
     <string name="category_backup">导入与导出</string>
     <string name="category_debug">调试</string>
     <string name="category_experimental">实验性</string>

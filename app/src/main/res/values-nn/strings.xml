@@ -200,6 +200,7 @@
     <string name="settings_title">Innstillingar</string>
 
     <string name="category_syncthing_options">Syncthing-innstillingar</string>
+
     <string name="category_experimental">Eksperiment</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Skru på WiFi for å velje nettverk.</string>

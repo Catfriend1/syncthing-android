@@ -184,6 +184,7 @@
     <string name="settings_title">Nastavenia</string>
 
     <string name="category_syncthing_options">Nastavenia Syncthing</string>
+
     <string name="use_root_title">Spúšťať Syncthing s root oprávneniami</string>
 
     <string name="device_name">Názov Zariadenia</string>

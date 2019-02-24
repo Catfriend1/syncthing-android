@@ -236,7 +236,9 @@
 
     <string name="category_run_conditions">Conditions d\'exécution</string>
     <string name="category_behaviour">Comportement</string>
+
     <string name="category_syncthing_options">Options Syncthing</string>
+
     <string name="category_experimental">Expérimental</string>
 
     <!-- Preference screen - Run conditions -->

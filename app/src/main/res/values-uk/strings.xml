@@ -172,6 +172,7 @@
 
     <string name="category_run_conditions">Умови запуску</string>
     <string name="category_syncthing_options">Опції Syncthing</string>
+
     <string name="category_experimental">Експериментальне</string>
 
     <!-- Preference screen - Run conditions -->

@@ -251,7 +251,9 @@
 
     <string name="category_run_conditions">Condiții de rulare</string>
     <string name="category_behaviour">Comportament</string>
+
     <string name="category_syncthing_options">Opțiuni Syncthing</string>
+
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->

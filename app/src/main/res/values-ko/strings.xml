@@ -215,7 +215,9 @@
 
     <string name="category_run_conditions">작동 상태</string>
     <string name="category_behaviour">동작</string>
+
     <string name="category_syncthing_options">Syncthing 옵션 </string>
+
     <string name="category_experimental">실험적인 기능</string>
 
     <!-- Preference screen - Run conditions -->

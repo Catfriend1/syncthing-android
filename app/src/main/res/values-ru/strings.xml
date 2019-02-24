@@ -316,7 +316,9 @@
 
     <string name="category_run_conditions">Условия выполнения</string>
     <string name="category_behaviour">Поведение</string>
+
     <string name="category_syncthing_options">Настройки устройства</string>
+
     <string name="category_backup">Импорт и экспорт</string>
     <string name="category_debug">Отладка</string>
     <string name="category_experimental">Экспериментальное</string>

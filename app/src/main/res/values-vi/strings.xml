@@ -197,6 +197,7 @@
     <string name="settings_title">Cài đặt</string>
 
     <string name="category_syncthing_options">Tuỳ chọn Syncthing</string>
+
     <string name="category_experimental">Thực nghiệm</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hãy bật WiFi để lựa chọn mạng.</string>

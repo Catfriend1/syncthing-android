@@ -207,7 +207,9 @@
 
     <string name="category_run_conditions">Condiciones de ejecución</string>
     <string name="category_behaviour">Comportamiento</string>
+
     <string name="category_syncthing_options">Opciones de Syncthing</string>
+
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->

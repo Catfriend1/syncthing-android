@@ -314,7 +314,9 @@
 
     <string name="category_run_conditions">Condicions d\'execució</string>
     <string name="category_behaviour">Comportament</string>
+
     <string name="category_syncthing_options">Opcions del Syncthing</string>
+
     <string name="category_backup">Importa i Exporta</string>
     <string name="category_experimental">Experimental</string>
 
