@@ -1,12 +1,6 @@
 Enhancements
-* Specify sync conditions differently for each folder, device
-* Added "Recent changes" UI, click files to open
-* Configure everything regardless if syncthing is running or not
-* Android TV support
-* Add status light to indicate if syncthing is running
-Fixes
-* Fixed the "battery eater"
-* Android 8 and 9 support
+* Download Support Bundle (#332)
+* Add label to explain why Syncthing Options are greyed out (#337)
 Notes
 * Syncthing v1.0.1
 * Refer to GitHub for detailed change log.
