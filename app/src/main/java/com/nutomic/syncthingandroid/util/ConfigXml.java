@@ -817,6 +817,29 @@ public class ConfigXml {
         }
     }
 
+    public Gui getGui() {
+        Gui defaultGui = new Gui();
+        Element elementGui = (Element) mConfig.getDocumentElement().getElementsByTagName("gui").item(0);
+        if (elementGui == null) {
+            Log.e(TAG, "getGui: elementGui == null. Returning defaults.");
+            return defaultGui;
+        }
+        Gui gui = new Gui();
+        gui.debugging = getAttributeOrDefault(elementGui, "debugging", defaultGui.debugging);
+        gui.enabled = getAttributeOrDefault(elementGui, "enabled", defaultGui.enabled);
+        gui.useTLS = getAttributeOrDefault(elementGui, "tls", defaultGui.useTLS);
+
+        gui.address = getContentOrDefault(elementGui.getElementsByTagName("address").item(0), defaultGui.address);
+        gui.user = getContentOrDefault(elementGui.getElementsByTagName("user").item(0), defaultGui.user);
+        gui.password = getContentOrDefault(elementGui.getElementsByTagName("password").item(0), "");
+        gui.apiKey = getContentOrDefault(elementGui.getElementsByTagName("apiKey").item(0), "");
+        gui.theme = getContentOrDefault(elementGui.getElementsByTagName("theme").item(0), defaultGui.theme);
+        gui.insecureAdminAccess = getContentOrDefault(elementGui.getElementsByTagName("insecureAdminAccess").item(0), defaultGui.insecureAdminAccess);
+        gui.insecureAllowFrameLoading = getContentOrDefault(elementGui.getElementsByTagName("insecureAllowFrameLoading").item(0), defaultGui.insecureAllowFrameLoading);
+        gui.insecureSkipHostCheck = getContentOrDefault(elementGui.getElementsByTagName("insecureSkipHostCheck").item(0), defaultGui.insecureSkipHostCheck);
+        return gui;
+    }
+
     public Options getOptions() {
         Options defaultOptions = new Options();
         Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
