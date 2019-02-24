@@ -193,9 +193,22 @@
             android:title="@string/usage_reporting"
             android:persistent="false" />
 
+        <CheckBoxPreference
+            android:key="webUIDebugging"
+            android:title="@string/webui_debugging_title"
+            android:summary="@string/webui_debugging_summary"
+            android:persistent="false" />
+
+        <Preference
+            android:key="downloadSupportBundle"
+            android:title="@string/download_support_bundle_title"
+            android:persistent="false"
+            android:singleLine="true" />
+
         <Preference
             android:key="undo_ignored_devices_folders"
             android:title="@string/undo_ignored_devices_folders_title"
+            android:persistent="false"
             android:singleLine="true" />
 
     </PreferenceScreen>

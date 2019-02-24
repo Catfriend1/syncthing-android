@@ -42,6 +42,9 @@ import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
@@ -836,6 +839,37 @@ public class RestApi {
         synchronized (mConfigLock) {
             mConfig.options = options;
         }
+    }
+
+    public void downloadSupportBundle(File targetFile, final OnResultListener1<Boolean> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_DEBUG_SUPPORT, mApiKey, null, result -> {
+            Boolean failSuccess = true;
+            LogV("downloadSupportBundle: Writing '" + targetFile.getPath() + "' ...");
+            FileOutputStream fileOutputStream = null;
+            try {
+                if (!targetFile.exists()) {
+                    targetFile.createNewFile();
+                }
+                fileOutputStream = new FileOutputStream(targetFile);
+                fileOutputStream.write(result.getBytes("ISO-8859-1"));  // Do not use UTF-8 here because the ZIP would be corrupted.
+                fileOutputStream.flush();
+            } catch (IOException e) {
+                Log.w(TAG, "downloadSupportBundle: Failed to write '" + targetFile.getPath() + "' #1", e);
+                failSuccess = false;
+            } finally {
+                try {
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                } catch (IOException e) {
+                    Log.e(TAG, "downloadSupportBundle: Failed to write '" + targetFile.getPath() + "' #2", e);
+                    failSuccess = false;
+                }
+            }
+            if (listener != null) {
+                listener.onResult(failSuccess);
+            }
+        });
     }
 
     /**

@@ -501,6 +501,21 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="webui_remote_access_summary">Erlaubt es, von einem anderen Gerät aus auf die Weboberfläche zuzugreifen. Wenn aktiviert, kannst Du dich mit dem Benutzer \'syncthing\' und dem API Key als Passwort anmelden. Standard: Deaktiviert (am sichersten)</string>
 
+    <string name="webui_debugging_title">WebUI Fehlersuchmodus</string>
+
+    <string name="webui_debugging_summary">Ermögliche Profiling und das Herunterladen eines Supportpakets. Ändern dieser Option wird Syncthing sofort neu starten.</string>
+
+    <string name="download_support_bundle_title">Supportpaket herunterladen</string>
+
+    <!-- Summary shown when the user clicked the download support bundle button -->
+    <string name="download_support_bundle_in_progress">Bereite Supportpaket-Download vor ...</string>
+
+    <!-- Toast after successful download of the support bundle -->
+    <string name="download_support_bundle_succeeded">Supportpaket erfolgreich heruntergeladen: %s</string>
+
+    <!-- Toast after failed support bundle download -->
+    <string name="download_support_bundle_failed">Herunterladen des Supportpakets fehlgeschlagen. Prüfe die Logs.</string>
+
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Mache Ignorieren von Geräten und Ordnern rückgängig</string>
     <string name="undo_ignored_devices_folders_question">Dies macht vorherige Entscheidungen, Geräte und Ordner zu ignorieren, rückgängig. Fortfahren?</string>
@@ -562,6 +577,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="config_imported_successful">Konfiguration importiert</string>
     <string name="config_import_failed">Import fehlgeschlagen, Dateien werden in %1$s erwartet</string>
 
+    <string name="dialog_settings_restart_app_title">Neustart erforderlich</string>
+
+    <string name="dialog_settings_restart_app_question">Das Ändern dieser Option erfordert einen sofortigen Neustart der App. Alle anderen Änderungen werden verworfen. Fortsetzen?</string>
+
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE Optionen</string>
 
@@ -589,6 +608,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="st_reset_deltas_done">Syncthing-Änderungsindex erfolgreich zurückgesetzt</string>
 
     <string name="category_about">Über</string>
+
+    <string name="verbose_log_title">Ausführliches Log</string>
+
+    <string name="verbose_log_summary">Aktivieren dieser Option wird sehr detaillierte Logs zur Fehlersuche liefern.</string>
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Log öffnen</string>

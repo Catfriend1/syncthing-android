@@ -51,10 +51,12 @@ import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
+import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Languages;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
 import java.util.HashSet;
@@ -132,9 +134,11 @@ public class SettingsActivity extends SyncthingActivity {
                 Preference.OnPreferenceClickListener {
 
         private static final String TAG = "SettingsFragment";
-        // Settings/Syncthing
+        // Settings/Syncthing Options
         private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
         private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
+        private static final String KEY_WEBUI_DEBUGGING = "webUIDebugging";
+        private static final String KEY_DOWNLOAD_SUPPORT_BUNDLE = "downloadSupportBundle";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
         // Settings/Import and Export
         private static final String KEY_EXPORT_CONFIG = "export_config";
@@ -186,6 +190,8 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
+        private CheckBoxPreference mWebUIDebugging;
+        private Preference mDownloadSupportBundle;
 
         /* Experimental options */
         private CheckBoxPreference mUseWakelock;
@@ -307,7 +313,7 @@ public class SettingsActivity extends SyncthingActivity {
             }
             setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
-            /* Syncthing options */
+            /* Syncthing Options */
             mDeviceName             = (EditTextPreference) findPreference("deviceName");
             mListenAddresses        = (EditTextPreference) findPreference("listenAddresses");
             mMaxRecvKbps            = (EditTextPreference) findPreference("maxRecvKbps");
@@ -322,11 +328,14 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
             mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
+            mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
+            mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
             mCategorySyncthingOptions = findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
             mSyncthingApiKey.setOnPreferenceClickListener(this);
+            mDownloadSupportBundle.setOnPreferenceClickListener(this);
             undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
 
             /* Import and Export */
@@ -503,17 +512,20 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingVersion.setSummary(mRestApi.getVersion());
             mSyncthingApiKey.setSummary(mRestApi.getApiKey());
             mOptions = mRestApi.getOptions();
-
-            Joiner joiner = Joiner.on(", ");
-            mDeviceName.setText(mRestApi.getLocalDevice().name);
-            mListenAddresses.setText(joiner.join(mOptions.listenAddresses));
-            mMaxRecvKbps.setText(Integer.toString(mOptions.maxRecvKbps));
-            mMaxSendKbps.setText(Integer.toString(mOptions.maxSendKbps));
-            mNatEnabled.setChecked(mOptions.natEnabled);
-            mLocalAnnounceEnabled.setChecked(mOptions.localAnnounceEnabled);
-            mGlobalAnnounceEnabled.setChecked(mOptions.globalAnnounceEnabled);
-            mRelaysEnabled.setChecked(mOptions.relaysEnabled);
-            mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
+            if (mOptions != null) {
+                Joiner joiner = Joiner.on(", ");
+                mDeviceName.setText(mRestApi.getLocalDevice().name);
+                mListenAddresses.setText(joiner.join(mOptions.listenAddresses));
+                mMaxRecvKbps.setText(Integer.toString(mOptions.maxRecvKbps));
+                mMaxSendKbps.setText(Integer.toString(mOptions.maxSendKbps));
+                mNatEnabled.setChecked(mOptions.natEnabled);
+                mLocalAnnounceEnabled.setChecked(mOptions.localAnnounceEnabled);
+                mGlobalAnnounceEnabled.setChecked(mOptions.globalAnnounceEnabled);
+                mRelaysEnabled.setChecked(mOptions.relaysEnabled);
+                mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
+                mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
+                mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
+            }
 
             // Web GUI tcp port and bind ip address.
             mGui = mRestApi.getGui();
@@ -521,10 +533,9 @@ public class SettingsActivity extends SyncthingActivity {
                 mWebUITcpPort.setText(mGui.getBindPort());
                 mWebUITcpPort.setSummary(mGui.getBindPort());
                 mWebUIRemoteAccess.setChecked(!BIND_LOCALHOST.equals(mGui.getBindAddress()));
+                mWebUIDebugging.setChecked(mGui.debugging);
+                mDownloadSupportBundle.setEnabled(mGui.debugging);
             }
-
-            mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
-            mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
         }
 
         @Override
@@ -663,6 +674,17 @@ public class SettingsActivity extends SyncthingActivity {
                     mRestApi.setUsageReporting((boolean) o);
                     mOptions = mRestApi.getOptions();
                     break;
+                case KEY_WEBUI_DEBUGGING:
+                    mGui.debugging = (boolean) o;
+
+                    // Immediately apply changes.
+                    mRestApi.editSettings(mGui, mOptions);
+                    if (mRestApi != null &&
+                            mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
+                        mRestApi.saveConfigAndRestart();
+                        mPendingConfig = false;
+                    }
+                    return true;
                 default: throw new InvalidParameterException();
             }
 
@@ -793,6 +815,9 @@ public class SettingsActivity extends SyncthingActivity {
                         return true;
                     default:
                         return false;
+                case KEY_DOWNLOAD_SUPPORT_BUNDLE:
+                    onDownloadSupportBundleClick();
+                    return true;
                 case KEY_UNDO_IGNORED_DEVICES_FOLDERS:
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.undo_ignored_devices_folders_question)
@@ -843,6 +868,30 @@ public class SettingsActivity extends SyncthingActivity {
                             .show();
                     return true;
             }
+        }
+
+        private void onDownloadSupportBundleClick() {
+            if (mRestApi == null) {
+                Toast.makeText(mContext,
+                        getString(R.string.generic_error) + getString(R.string.syncthing_disabled),
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mDownloadSupportBundle.setEnabled(false);
+            mDownloadSupportBundle.setSummary(R.string.download_support_bundle_in_progress);
+            String localDeviceName = mRestApi.getLocalDevice().getDisplayName();
+            String targetFileFullFN = FileUtils.getExternalStorageDownloadsDirectory() + "/" +
+                    "syncthing-support-bundle_" + localDeviceName + ".zip";
+            File targetFile = new File(targetFileFullFN);
+
+            mRestApi.downloadSupportBundle(targetFile, failSuccess -> {
+                mDownloadSupportBundle.setEnabled(true);
+                if (!failSuccess) {
+                    mDownloadSupportBundle.setSummary(R.string.download_support_bundle_failed);
+                    return;
+                }
+                mDownloadSupportBundle.setSummary(getString(R.string.download_support_bundle_succeeded, targetFileFullFN));
+            });
         }
 
         /**
