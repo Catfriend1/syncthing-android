@@ -208,7 +208,7 @@ public class MainActivity extends SyncthingActivity
             }
         }
 
-        fm.beginTransaction().replace(R.id.drawer, mDrawerFragment).commit();
+        fm.beginTransaction().replace(R.id.drawer, mDrawerFragment).commitAllowingStateLoss();
         mDrawerToggle = new Toggle(this, mDrawerLayout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
