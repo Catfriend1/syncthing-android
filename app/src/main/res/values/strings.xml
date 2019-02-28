@@ -756,7 +756,7 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
-    <string name="reason_mobile_data_disallowed">Syncthing is not allowed to run on mobile data connection.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing is not configured to run on mobile data connection.</string>
     <string name="reason_on_mobile_data">Syncthing is running as mobile data is currently connected.</string>
     <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
     <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi or ethernet.</string>
