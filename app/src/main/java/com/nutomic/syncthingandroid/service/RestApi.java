@@ -637,8 +637,8 @@ public class RestApi {
             if (ENABLE_TEST_DATA) {
                 DiscoveredDevice fakeDiscoveredDevice = new DiscoveredDevice();
                 fakeDiscoveredDevice.addresses = new String[]{"tcp4://192.168.178.10:40004"};
-                discoveredDevices.put("ZOK75WR-W3XWWUZ-NNLXV7V-DUYKVWA-SSPD7OH-3QYOZBY-SBH3N2Y-IAVJ4QH", fakeDiscoveredDevice);
-                discoveredDevices.put("ZPUZOWC-SUCJILE-ITNLBLL-MHBWJG5-46QM47Y-CDTQT3M-IA4RSJV-7BYA7QA", fakeDiscoveredDevice);
+                discoveredDevices.put(TestData.DEVICE_A_ID, fakeDiscoveredDevice);
+                discoveredDevices.put(TestData.DEVICE_B_ID, fakeDiscoveredDevice);
             }
             listener.onResult(discoveredDevices);
         });

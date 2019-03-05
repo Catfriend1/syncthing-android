@@ -38,6 +38,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
+import com.nutomic.syncthingandroid.service.TestData;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.Compression;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
@@ -468,6 +469,9 @@ public class DeviceActivity extends SyncthingActivity {
         if (scanResult != null) {
             mDevice.deviceID = scanResult.getContents();
             mEditDeviceId.setText(mDevice.deviceID);
+            if (ENABLE_TEST_DATA) {
+                mEditDeviceId.setText(TestData.DEVICE_A_ID);
+            }
         }
     }
 
