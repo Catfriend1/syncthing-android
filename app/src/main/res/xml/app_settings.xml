@@ -344,6 +344,12 @@
             android:key="syncthing_database_size"
             android:title="@string/syncthing_database_size" />
 
+        <Preference
+            android:persistent="false"
+            android:selectable="false"
+            android:key="os_open_file_limit"
+            android:title="@string/os_open_file_limit" />
+
     </PreferenceScreen>
 
 </PreferenceScreen>

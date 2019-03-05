@@ -651,6 +651,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Title of the preference showing database size -->
     <string name="syncthing_database_size">Syncthing Datenbankgröße</string>
 
+    <!-- Title of the preference showing the OS open file limit -->
+    <string name="os_open_file_limit">Android Offene Dateien Limit</string>
+
     <!-- FolderPickerAcitivity -->
 
 

@@ -672,6 +672,9 @@ Please report any problems you encounter via Github.</string>
     <!-- Title of the preference showing database size -->
     <string name="syncthing_database_size">Syncthing Database Size</string>
 
+    <!-- Title of the preference showing the OS open file limit -->
+    <string name="os_open_file_limit">Android Open File Limit</string>
+
     <!-- FolderPickerAcitivity -->
 
 

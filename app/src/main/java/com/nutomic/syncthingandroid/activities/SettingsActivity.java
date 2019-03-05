@@ -150,6 +150,7 @@ public class SettingsActivity extends SyncthingActivity {
         // Settings/About
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
         private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
+        private static final String KEY_OS_OPEN_FILE_LIMIT = "os_open_file_limit";
 
         private static final String BIND_ALL = "0.0.0.0";
         private static final String BIND_LOCALHOST = "127.0.0.1";
@@ -394,6 +395,7 @@ public class SettingsActivity extends SyncthingActivity {
                 Log.d(TAG, "Failed to get app version name");
             }
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
+            screen.findPreference(KEY_OS_OPEN_FILE_LIMIT).setSummary(getOpenFileLimit());
 
             // Check if we should directly show a sub preference screen.
             Bundle bundle = getArguments();
@@ -1080,6 +1082,17 @@ public class SettingsActivity extends SyncthingActivity {
                 return "N/A";
             }
             return resultParts[0];
+        }
+
+        /**
+         * Get current open file limit enforced by the Android OS.
+         */
+        private String getOpenFileLimit() {
+            String result = Util.runShellCommandGetOutput("/system/bin/ulimit -n", false);
+            if (TextUtils.isEmpty(result)) {
+                return "N/A";
+            }
+            return result;
         }
     }
 }
