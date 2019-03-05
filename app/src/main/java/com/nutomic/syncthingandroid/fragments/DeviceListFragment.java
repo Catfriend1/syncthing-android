@@ -123,7 +123,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         super.onViewCreated(view, savedInstanceState);
 
         setHasOptionsMenu(true);
-        setEmptyText(getString(R.string.devices_list_empty));
+        setEmptyText(getString(R.string.no_devices_configured));
         getListView().setOnItemClickListener(this);
     }
 

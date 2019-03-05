@@ -104,7 +104,8 @@ Please report any problems you encounter via Github.</string>
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes&#8230;</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">Folders</string>
@@ -128,13 +129,16 @@ Please report any problems you encounter via Github.</string>
     <string name="suggest_file_manager_app_dialog_title">No compatible file manager app found</string>
     <string name="suggest_file_manager_app_dialog_text">We recommend you to install the open-source file manager app \'Simple File Manager\' from F-Droid. Would you like to open its app store page?</string>
 
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">Devices</string>
 
-    <!-- Shown if no devices exist -->
+    <!-- Shown if no devices are configured in add folder dialog  -->
     <string name="devices_list_empty">No devices configured. Tap to add a new device.</string>
+
+    <!-- Shown in ListView if no devices are configured -->
+    <string name="no_devices_configured">No devices configured.\nBegin by adding a device now.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Up to Date</string>
