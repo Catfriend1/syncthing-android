@@ -435,7 +435,7 @@ public class ConfigXml {
             folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), 0);
             folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), "random");
             folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
-            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), false);
+            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), true);
             folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), false);
 
             // Devices

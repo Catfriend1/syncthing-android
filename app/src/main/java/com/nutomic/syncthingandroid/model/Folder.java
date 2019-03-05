@@ -27,6 +27,10 @@ public class Folder {
     public boolean fsWatcherEnabled = true;
     public int fsWatcherDelayS = 10;
     private List<Device> devices = new ArrayList<>();
+    /**
+     * Folder rescan interval defaults to 3600s as it is the default in
+     * syncthing when the file watcher is enabled and a new folder is created.
+     */
     public int rescanIntervalS = 3600;
     public boolean ignorePerms = true;
     public boolean autoNormalize = true;
@@ -43,7 +47,7 @@ public class Folder {
     public boolean disableSparseFiles = false;
     public boolean disableTempIndexes = false;
     public boolean paused = false;
-    public boolean useLargeBlocks = false;
+    public boolean useLargeBlocks = true;
     public int weakHashThresholdPct = 25;
     public String markerName = ".stfolder";
 
