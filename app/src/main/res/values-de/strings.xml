@@ -840,6 +840,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="state_unknown">Unbekannt</string>
     <string name="state_paused">Pausiert</string>
     <string name="status_outofsync">Nicht synchronisiert</string>
+    <string name="state_unshared">Ungeteilt</string>
 
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
