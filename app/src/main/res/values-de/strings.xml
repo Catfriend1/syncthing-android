@@ -131,7 +131,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="devices_fragment_title">Geräte</string>
 
     <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">Keine Geräte gefunden</string>
+    <string name="devices_list_empty">Keine Geräte konfiguriert. Tippe zum Hinzufügen eines neuen Geräts.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Aktuell</string>

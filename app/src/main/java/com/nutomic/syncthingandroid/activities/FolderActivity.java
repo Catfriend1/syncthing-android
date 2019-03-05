@@ -326,6 +326,13 @@ public class FolderActivity extends SyncthingActivity {
     }
 
     /**
+     * Open dialog if the user clicked on empty device list view.
+     */
+    private void showAddDeviceDialog() {
+        startActivityForResult(DeviceActivity.createIntent(this), DeviceActivity.DEVICE_ADD_CODE);
+    }
+
+    /**
      * Invoked after user clicked on the {@link #mCustomSyncConditionsDialog} label.
      */
     private void onCustomSyncConditionsDialogClick() {
@@ -582,6 +589,8 @@ public class FolderActivity extends SyncthingActivity {
             mFolder.order = data.getStringExtra(PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER);
             updatePullOrderDescription();
             mFolderNeedsToUpdate = true;
+        } else if (resultCode == Activity.RESULT_OK && requestCode == DeviceActivity.DEVICE_ADD_CODE) {
+            updateViewsAndSetListeners();
         }
     }
 
@@ -678,6 +687,7 @@ public class FolderActivity extends SyncthingActivity {
         emptyView.setGravity(CENTER_VERTICAL);
         emptyView.setText(R.string.devices_list_empty);
         mDevicesContainer.addView(emptyView, params);
+        mDevicesContainer.setOnClickListener(view -> showAddDeviceDialog());
     }
 
     private void addDeviceViewAndSetListener(Device device, LayoutInflater inflater) {

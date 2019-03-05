@@ -134,7 +134,7 @@ Please report any problems you encounter via Github.</string>
     <string name="devices_fragment_title">Devices</string>
 
     <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">No devices found</string>
+    <string name="devices_list_empty">No devices configured. Tap to add a new device.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Up to Date</string>

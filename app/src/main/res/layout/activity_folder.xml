@@ -66,10 +66,11 @@
 
             <LinearLayout
                 android:id="@+id/devicesContainer"
+                android:background="?selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:focusable="false">
+                android:focusable="true">
             </LinearLayout>
 
             <LinearLayout

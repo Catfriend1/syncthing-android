@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.activities;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -60,6 +61,8 @@ import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HI
 import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
+import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
+
 import static com.nutomic.syncthingandroid.util.Compression.METADATA;
 
 /**
@@ -82,6 +85,8 @@ public class DeviceActivity extends SyncthingActivity {
     private static final String IS_SHOWING_DELETE_DIALOG = "DELETE_FOLDER_DIALOG_STATE";
 
     private static final List<String> DYNAMIC_ADDRESS = Collections.singletonList("dynamic");
+
+    public static final int DEVICE_ADD_CODE = 401;
 
     private ConfigRouter mConfig;
 
@@ -184,6 +189,12 @@ public class DeviceActivity extends SyncthingActivity {
         }
     };
 
+    public static Intent createIntent(Context context) {
+        Intent intent = new Intent(context, DeviceActivity.class);
+        intent.putExtra(EXTRA_IS_CREATE, true);
+        return intent;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         mConfig = new ConfigRouter(DeviceActivity.this);
@@ -250,6 +261,7 @@ public class DeviceActivity extends SyncthingActivity {
                 }
                 if (mDevice == null) {
                     Log.w(TAG, "Device not found in API update, maybe it was deleted?");
+                    setResult(Activity.RESULT_CANCELED);
                     finish();
                     return;
                 }
@@ -454,6 +466,7 @@ public class DeviceActivity extends SyncthingActivity {
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
                     mConfig.removeDevice(getApi(), mDevice.deviceID);
                     mDeviceNeedsToUpdate = false;
+                    setResult(Activity.RESULT_OK);
                     finish();
                 })
                 .setNegativeButton(android.R.string.no, null)
@@ -520,6 +533,7 @@ public class DeviceActivity extends SyncthingActivity {
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding device with ID = \'" + mDevice.deviceID + "\'");
             mConfig.addDevice(getApi(), mDevice);
+            setResult(Activity.RESULT_OK);
             finish();
             return;
         }
@@ -527,6 +541,7 @@ public class DeviceActivity extends SyncthingActivity {
         // Edit mode.
         if (!mDeviceNeedsToUpdate) {
             // We've got nothing to save.
+            setResult(Activity.RESULT_CANCELED);
             finish();
             return;
         }
@@ -543,6 +558,7 @@ public class DeviceActivity extends SyncthingActivity {
 
         // Update device using RestApi or ConfigXml.
         mConfig.updateDevice(getApi(), mDevice);
+        setResult(Activity.RESULT_OK);
         finish();
         return;
     }
@@ -645,7 +661,10 @@ public class DeviceActivity extends SyncthingActivity {
     private void showDiscardDialog(){
         mDiscardDialog = new android.app.AlertDialog.Builder(this)
                 .setMessage(R.string.dialog_discard_changes)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> finish())
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        setResult(Activity.RESULT_CANCELED);
+                        finish();
+                })
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
         mDiscardDialog.show();
