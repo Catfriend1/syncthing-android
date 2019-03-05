@@ -78,6 +78,19 @@ public class Folder {
         return devices;
     }
 
+    /**
+     * Note: This is expected to return "1" if a folder is not shared with any
+     * other device. Syncthing's config will list ourself as the only device
+     * sub node which is associated with the folder. This will return >= 2
+     * if the folder is shared with other devices.
+     */
+    public int getDeviceCount() {
+        if (devices == null) {
+            return 1;
+        }
+        return devices.size();
+    }
+
     public Device getDevice(String deviceId) {
         for (Device d : devices) {
             if (d.deviceID.equals(deviceId)) {
