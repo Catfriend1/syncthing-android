@@ -345,10 +345,12 @@ for target in BUILD_TARGETS:
     environ = os.environ.copy()
     environ.update({
         'GOPATH': module_dir,
+        'GO111MODULE': 'on',
         'CGO_ENABLED': '1',
     })
 
     print('Building syncthing version', syncthingVersion);
+    subprocess.check_call([go_bin, 'mod', 'download'], cwd=syncthing_dir)
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
                               '-cc', os.path.join(standalone_ndk_dir, 'bin', target['cc']),

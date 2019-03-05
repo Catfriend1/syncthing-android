@@ -38,6 +38,9 @@ syncthing/go.zip
 syncthing/android-ndk-r*
 syncthing/ndk.zip
 
+# Go modules
+syncthing/pkg/mod/
+
 # MinGit
 syncthing/mingit
 syncthing/mingit.zip
