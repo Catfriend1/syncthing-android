@@ -11,6 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Sources:
+ * - https://github.com/syncthing/syncthing/tree/master/lib/config
+ * - https://github.com/syncthing/syncthing/blob/master/lib/config/folderconfiguration.go
+ */
 public class Folder {
 
     // Folder Configuration
@@ -41,6 +46,9 @@ public class Folder {
     public boolean useLargeBlocks = false;
     public int weakHashThresholdPct = 25;
     public String markerName = ".stfolder";
+
+    // Since v1.1.0, see Issue #5445, PR #5479
+    public Boolean copyOwnershipFromParent = false;
 
     // Folder Status
     public String invalid;
