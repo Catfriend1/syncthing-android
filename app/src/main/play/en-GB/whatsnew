@@ -1,9 +1,11 @@
 Enhancements
-* Add Binary Eye barcode scanner support (#325)
-* Download Support Bundle (#332)
-* Add label to explain why Syncthing Options are greyed out (#337)
-Fixes
-* Minor fixes (#342) (#343)
+* Refresh wrapper UI faster on "modern" devices
+* Add "folder is unshared" status label (#351)
+* Show Android Open File Limit (#350)
+* Improve "no devices configured" UI text (#349)
+* Enable largeBlocks for new folders by default (#301)
+* Add folder dialog: "Tap to add device" if no devices are present (#345)
+* Update status tab text "not allowed to run on mobile data" (#343)
 Notes
 * Syncthing v1.1.0
 * Refer to GitHub for detailed change log.
