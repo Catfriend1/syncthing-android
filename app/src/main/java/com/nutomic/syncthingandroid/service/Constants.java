@@ -110,9 +110,14 @@ public class Constants {
     public static final int PERM_REQ_ACCESS_COARSE_LOCATION = 999; // for issue #999
 
     /**
-     * Interval in ms at which the GUI is updated (eg {@link com.nutomic.syncthingandroid.fragments.DrawerFragment}).
+     * Interval in ms at which RestAPI is polled.
+     * As a rule of thumb: Poll faster on "modern" devices.
      */
-    public static final long GUI_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(5);
+    public static final long GUI_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(
+            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                    ? 3
+                    : 5
+    );
 
     /**
      * Directory where config is exported to and imported from.
