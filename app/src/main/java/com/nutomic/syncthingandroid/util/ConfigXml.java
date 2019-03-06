@@ -963,6 +963,7 @@ public class ConfigXml {
      * Returns if changes to the config have been made.
      */
     private boolean changeDefaultFolder() {
+        Folder defaultFolder = new Folder();
         Element folder = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("folder").item(0);
         String deviceModel = Build.MODEL
@@ -975,8 +976,9 @@ public class ConfigXml {
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
         folder.setAttribute("type", Constants.FOLDER_TYPE_SEND_ONLY);
-        folder.setAttribute("fsWatcherEnabled", "true");
-        folder.setAttribute("fsWatcherDelayS", "10");
+        folder.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
+        folder.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
+        setConfigElement(folder, "useLargeBlocks", Boolean.toString(defaultFolder.useLargeBlocks));
         return true;
     }
 
