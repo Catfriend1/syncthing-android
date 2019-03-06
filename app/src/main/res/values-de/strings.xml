@@ -837,6 +837,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="state_syncing_general">Synchronisiere</string>
     <string name="state_syncing">Synchronisiere (%1$d%%)</string>
     <string name="state_error">Fehler</string>
+    <string name="state_error_message">Fehler (%1$s)</string>
     <string name="state_unknown">Unbekannt</string>
     <string name="state_paused">Pausiert</string>
     <string name="status_outofsync">Nicht synchronisiert</string>

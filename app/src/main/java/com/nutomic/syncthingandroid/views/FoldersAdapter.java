@@ -130,14 +130,11 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "error":
-                        binding.state.setText(
-                                mContext.getString(
-                                    R.string.state_error) +
-                                    (!TextUtils.isEmpty(folderStatus.error)
-                                            ? " (" + folderStatus.error + ")"
-                                            : ""
-                                    )
-                        );
+                        if (TextUtils.isEmpty(folderStatus.error)) {
+                            binding.state.setText(mContext.getString(R.string.state_error));
+                        } else {
+                            binding.state.setText(mContext.getString(R.string.state_error_message, folderStatus.error));
+                        }
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                         break;
                     case "unknown":

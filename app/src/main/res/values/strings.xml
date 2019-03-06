@@ -858,6 +858,7 @@ Please report any problems you encounter via Github.</string>
     <string name="state_syncing_general">Syncing</string>
     <string name="state_syncing">Syncing (%1$d%%)</string>
     <string name="state_error">Error</string>
+    <string name="state_error_message">Error (%1$s)</string>
     <string name="state_unknown">Unknown</string>
     <string name="state_paused">Paused</string>
     <string name="status_outofsync">Out of Sync</string>
