@@ -724,7 +724,11 @@ public class SyncthingService extends Service {
      * Called to notify listeners of an API change.
      */
     private void onServiceStateChange(State newState) {
-        Log.i(TAG, "onServiceStateChange: from " + mCurrentState + " to " + newState);
+        if (newState == mCurrentState) {
+            Log.d(TAG, "onServiceStateChange: Called with unchanged state " + newState);
+        } else {
+            Log.i(TAG, "onServiceStateChange: from " + mCurrentState + " to " + newState);
+        }
         mCurrentState = newState;
         mHandler.post(() -> {
             mNotificationHandler.updatePersistentNotification(this);

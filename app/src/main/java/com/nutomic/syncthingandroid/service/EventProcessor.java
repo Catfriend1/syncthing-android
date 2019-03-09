@@ -338,7 +338,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         protected void onDeleteComplete(int token, Object cookie, int result) {
             super.onUpdateComplete(token, cookie, result);
             if (result == 1 && cookie != null) {
-                // ToDo Log.v(TAG, "onItemFinished: onDeleteComplete: [ok] file=" + cookie.toString() + ", token=" + Integer.toString(token));
+                // Log.v(TAG, "onItemFinished: onDeleteComplete: [ok] file=" + cookie.toString() + ", token=" + Integer.toString(token));
             }
         }
     }
