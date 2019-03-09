@@ -703,6 +703,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- ShareActivity -->
 
 
+    <!-- Toast if user didn't complete the welcome wizard yet -->
+    <string name="complete_welcome_wizard_first">Starte zuerst die App aus der App-Übersicht und schließe den Willkommensassistenten ab, bevor Du Dateien teilst.</string>
+
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Speichern in Syncthing</string>
 

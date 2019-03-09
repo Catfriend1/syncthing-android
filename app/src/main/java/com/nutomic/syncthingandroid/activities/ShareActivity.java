@@ -29,6 +29,7 @@ import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
+import com.nutomic.syncthingandroid.util.ConfigXml.OpenConfigException;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
@@ -76,7 +77,14 @@ public class ShareActivity extends SyncthingActivity
 
     @Override
     public void onServiceStateChange(SyncthingService.State currentState) {
-        List<Folder> folders = mConfig.getFolders(getApi());
+        List<Folder> folders = null;
+        try {
+            folders = mConfig.getFolders(getApi());
+        } catch (OpenConfigException e) {
+            Toast.makeText(this, getString(R.string.complete_welcome_wizard_first), Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         // Get the index of the previously selected folder.
         int folderIndex = 0;

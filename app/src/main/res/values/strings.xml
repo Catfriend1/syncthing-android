@@ -724,6 +724,9 @@ Please report any problems you encounter via Github.</string>
     <!-- ShareActivity -->
 
 
+    <!-- Toast if user didn't complete the welcome wizard yet -->
+    <string name="complete_welcome_wizard_first">First, launch the app from the app drawer and complete the welcome wizard before sharing files.</string>
+
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Save to Syncthing</string>
 
