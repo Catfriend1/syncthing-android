@@ -319,7 +319,8 @@ public class ConfigXml {
         }
 
         // Disable "startBrowser" because it applies to desktop environments and cannot start a mobile browser app.
-        changed = setConfigElement(options, "startBrowser", "false") || changed;
+        Options defaultOptions = new Options();
+        changed = setConfigElement(options, "startBrowser", Boolean.toString(defaultOptions.startBrowser)) || changed;
 
         // Save changes if we made any.
         if (changed) {
@@ -334,6 +335,8 @@ public class ConfigXml {
      * Returns if changes to the config have been made.
      */
     private boolean migrateSyncthingOptions() {
+        Folder defaultFolder = new Folder();
+
         /* Read existing config version */
         int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
         int iOldConfigVersion = iConfigVersion;
@@ -353,8 +356,8 @@ public class ConfigXml {
 
                 // Enable "fsWatcherEnabled" attribute and set default delay.
                 Log.i(TAG, "Set 'fsWatcherEnabled', 'fsWatcherDelayS' on folder " + r.getAttribute("id"));
-                r.setAttribute("fsWatcherEnabled", "true");
-                r.setAttribute("fsWatcherDelayS", "10");
+                r.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
+                r.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
             }
 
             /**
@@ -422,22 +425,22 @@ public class ConfigXml {
             Element r = (Element) nodeFolders.item(i);
             Folder folder = new Folder();
             folder.id = getAttributeOrDefault(r, "id", "");
-            folder.label = getAttributeOrDefault(r, "label", "");
+            folder.label = getAttributeOrDefault(r, "label", folder.label);
             folder.path = getAttributeOrDefault(r, "path", "");
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
-            folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", true);
-            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", 10);
-            folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", true);
-            folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", true);
-            folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", 3600);
+            folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", folder.autoNormalize);
+            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
+            folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", folder.fsWatcherEnabled);
+            folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", folder.ignorePerms);
+            folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", folder.rescanIntervalS);
 
-            folder.copiers = getContentOrDefault(r.getElementsByTagName("copiers").item(0), 0);
-            folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), 0);
-            folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), "random");
-            folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
-            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), true);
-            folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), false);
-            folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), false);
+            folder.copiers = getContentOrDefault(r.getElementsByTagName("copiers").item(0), folder.copiers);
+            folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), folder.hashers);
+            folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), folder.order);
+            folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), folder.paused);
+            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), folder.useLargeBlocks);
+            folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), folder.ignoreDelete);
+            folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), folder.copyOwnershipFromParent);
 
             // Devices
             /*
@@ -451,7 +454,7 @@ public class ConfigXml {
 
                 // Exclude self.
                 if (!TextUtils.isEmpty(device.deviceID) && !device.deviceID.equals(localDeviceID)) {
-                    device.introducedBy = getAttributeOrDefault(elementDevice, "introducedBy", "");
+                    device.introducedBy = getAttributeOrDefault(elementDevice, "introducedBy", device.introducedBy);
                     // Log.v(TAG, "getFolders: deviceID=" + device.deviceID + ", introducedBy=" + device.introducedBy);
                     folder.addDevice(device);
                 }
@@ -464,8 +467,8 @@ public class ConfigXml {
             folder.minDiskFree = new Folder.MinDiskFree();
             Element elementMinDiskFree = (Element) r.getElementsByTagName("minDiskFree").item(0);
             if (elementMinDiskFree != null) {
-                folder.minDiskFree.unit = getAttributeOrDefault(elementMinDiskFree, "unit", "%");
-                folder.minDiskFree.value = getContentOrDefault(elementMinDiskFree, 1f);
+                folder.minDiskFree.unit = getAttributeOrDefault(elementMinDiskFree, "unit", folder.minDiskFree.unit);
+                folder.minDiskFree.value = getContentOrDefault(elementMinDiskFree, folder.minDiskFree.value);
             }
             // Log.v(TAG, "folder.minDiskFree.unit=" + folder.minDiskFree.unit + ", folder.minDiskFree.value=" + folder.minDiskFree.value);
 
@@ -715,12 +718,12 @@ public class ConfigXml {
             if (node.getNodeName().equals("device")) {
                 Element r = (Element) node;
                 Device device = new Device();
-                device.compression = getAttributeOrDefault(r, "compression", "metadata");
+                device.compression = getAttributeOrDefault(r, "compression", device.compression);
                 device.deviceID = getAttributeOrDefault(r, "id", "");
-                device.introducedBy = getAttributeOrDefault(r, "introducedBy", "");
-                device.introducer =  getAttributeOrDefault(r, "introducer", false);
-                device.name = getAttributeOrDefault(r, "name", "");
-                device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
+                device.introducedBy = getAttributeOrDefault(r, "introducedBy", device.introducedBy);
+                device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
+                device.name = getAttributeOrDefault(r, "name", device.name);
+                device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
 
                 // Addresses
                 /*
@@ -821,72 +824,71 @@ public class ConfigXml {
     }
 
     public Gui getGui() {
-        Gui defaultGui = new Gui();
         Element elementGui = (Element) mConfig.getDocumentElement().getElementsByTagName("gui").item(0);
+        Gui gui = new Gui();
         if (elementGui == null) {
             Log.e(TAG, "getGui: elementGui == null. Returning defaults.");
-            return defaultGui;
+            return gui;
         }
-        Gui gui = new Gui();
-        gui.debugging = getAttributeOrDefault(elementGui, "debugging", defaultGui.debugging);
-        gui.enabled = getAttributeOrDefault(elementGui, "enabled", defaultGui.enabled);
-        gui.useTLS = getAttributeOrDefault(elementGui, "tls", defaultGui.useTLS);
 
-        gui.address = getContentOrDefault(elementGui.getElementsByTagName("address").item(0), defaultGui.address);
-        gui.user = getContentOrDefault(elementGui.getElementsByTagName("user").item(0), defaultGui.user);
+        gui.debugging = getAttributeOrDefault(elementGui, "debugging", gui.debugging);
+        gui.enabled = getAttributeOrDefault(elementGui, "enabled", gui.enabled);
+        gui.useTLS = getAttributeOrDefault(elementGui, "tls", gui.useTLS);
+
+        gui.address = getContentOrDefault(elementGui.getElementsByTagName("address").item(0), gui.address);
+        gui.user = getContentOrDefault(elementGui.getElementsByTagName("user").item(0), gui.user);
         gui.password = getContentOrDefault(elementGui.getElementsByTagName("password").item(0), "");
         gui.apiKey = getContentOrDefault(elementGui.getElementsByTagName("apiKey").item(0), "");
-        gui.theme = getContentOrDefault(elementGui.getElementsByTagName("theme").item(0), defaultGui.theme);
-        gui.insecureAdminAccess = getContentOrDefault(elementGui.getElementsByTagName("insecureAdminAccess").item(0), defaultGui.insecureAdminAccess);
-        gui.insecureAllowFrameLoading = getContentOrDefault(elementGui.getElementsByTagName("insecureAllowFrameLoading").item(0), defaultGui.insecureAllowFrameLoading);
-        gui.insecureSkipHostCheck = getContentOrDefault(elementGui.getElementsByTagName("insecureSkipHostCheck").item(0), defaultGui.insecureSkipHostCheck);
+        gui.theme = getContentOrDefault(elementGui.getElementsByTagName("theme").item(0), gui.theme);
+        gui.insecureAdminAccess = getContentOrDefault(elementGui.getElementsByTagName("insecureAdminAccess").item(0), gui.insecureAdminAccess);
+        gui.insecureAllowFrameLoading = getContentOrDefault(elementGui.getElementsByTagName("insecureAllowFrameLoading").item(0), gui.insecureAllowFrameLoading);
+        gui.insecureSkipHostCheck = getContentOrDefault(elementGui.getElementsByTagName("insecureSkipHostCheck").item(0), gui.insecureSkipHostCheck);
         return gui;
     }
 
     public Options getOptions() {
-        Options defaultOptions = new Options();
         Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
+        Options options = new Options();
         if (elementOptions == null) {
             Log.e(TAG, "getOptions: elementOptions == null. Returning defaults.");
-            return defaultOptions;
+            return options;
         }
-        Options options = new Options();
         // options.listenAddresses
         // options.globalAnnounceServers
-        options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), defaultOptions.globalAnnounceEnabled);
-        options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), defaultOptions.localAnnounceEnabled);
-        options.localAnnouncePort = getContentOrDefault(elementOptions.getElementsByTagName("localAnnouncePort").item(0), defaultOptions.localAnnouncePort);
+        options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), options.globalAnnounceEnabled);
+        options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), options.localAnnounceEnabled);
+        options.localAnnouncePort = getContentOrDefault(elementOptions.getElementsByTagName("localAnnouncePort").item(0), options.localAnnouncePort);
         options.localAnnounceMCAddr = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceMCAddr").item(0), "");
-        options.maxSendKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxSendKbps").item(0), defaultOptions.maxSendKbps);
-        options.maxRecvKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxRecvKbps").item(0), defaultOptions.maxRecvKbps);
-        options.reconnectionIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("reconnectionIntervalS").item(0), defaultOptions.reconnectionIntervalS);
-        options.relaysEnabled = getContentOrDefault(elementOptions.getElementsByTagName("relaysEnabled").item(0), defaultOptions.relaysEnabled);
-        options.relayReconnectIntervalM = getContentOrDefault(elementOptions.getElementsByTagName("relayReconnectIntervalM").item(0), defaultOptions.relayReconnectIntervalM);
-        options.startBrowser = getContentOrDefault(elementOptions.getElementsByTagName("startBrowser").item(0), defaultOptions.startBrowser);
-        options.natEnabled = getContentOrDefault(elementOptions.getElementsByTagName("natEnabled").item(0), defaultOptions.natEnabled);
-        options.natLeaseMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natLeaseMinutes").item(0), defaultOptions.natLeaseMinutes);
-        options.natRenewalMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natRenewalMinutes").item(0), defaultOptions.natRenewalMinutes);
-        options.natTimeoutSeconds = getContentOrDefault(elementOptions.getElementsByTagName("natTimeoutSeconds").item(0), defaultOptions.natTimeoutSeconds);
-        options.urAccepted = getContentOrDefault(elementOptions.getElementsByTagName("urAccepted").item(0), defaultOptions.urAccepted);
+        options.maxSendKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxSendKbps").item(0), options.maxSendKbps);
+        options.maxRecvKbps = getContentOrDefault(elementOptions.getElementsByTagName("maxRecvKbps").item(0), options.maxRecvKbps);
+        options.reconnectionIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("reconnectionIntervalS").item(0), options.reconnectionIntervalS);
+        options.relaysEnabled = getContentOrDefault(elementOptions.getElementsByTagName("relaysEnabled").item(0), options.relaysEnabled);
+        options.relayReconnectIntervalM = getContentOrDefault(elementOptions.getElementsByTagName("relayReconnectIntervalM").item(0), options.relayReconnectIntervalM);
+        options.startBrowser = getContentOrDefault(elementOptions.getElementsByTagName("startBrowser").item(0), options.startBrowser);
+        options.natEnabled = getContentOrDefault(elementOptions.getElementsByTagName("natEnabled").item(0), options.natEnabled);
+        options.natLeaseMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natLeaseMinutes").item(0), options.natLeaseMinutes);
+        options.natRenewalMinutes = getContentOrDefault(elementOptions.getElementsByTagName("natRenewalMinutes").item(0), options.natRenewalMinutes);
+        options.natTimeoutSeconds = getContentOrDefault(elementOptions.getElementsByTagName("natTimeoutSeconds").item(0), options.natTimeoutSeconds);
+        options.urAccepted = getContentOrDefault(elementOptions.getElementsByTagName("urAccepted").item(0), options.urAccepted);
         options.urUniqueId = getContentOrDefault(elementOptions.getElementsByTagName("urUniqueId").item(0), "");
-        options.urURL = getContentOrDefault(elementOptions.getElementsByTagName("urURL").item(0), defaultOptions.urURL);
-        options.urPostInsecurely = getContentOrDefault(elementOptions.getElementsByTagName("urPostInsecurely").item(0), defaultOptions.urPostInsecurely);
-        options.urInitialDelayS = getContentOrDefault(elementOptions.getElementsByTagName("urInitialDelayS").item(0), defaultOptions.urInitialDelayS);
-        options.restartOnWakeup = getContentOrDefault(elementOptions.getElementsByTagName("restartOnWakeup").item(0), defaultOptions.restartOnWakeup);
-        options.autoUpgradeIntervalH = getContentOrDefault(elementOptions.getElementsByTagName("autoUpgradeIntervalH").item(0), defaultOptions.autoUpgradeIntervalH);
-        options.upgradeToPreReleases = getContentOrDefault(elementOptions.getElementsByTagName("upgradeToPreReleases").item(0), defaultOptions.upgradeToPreReleases);
-        options.keepTemporariesH = getContentOrDefault(elementOptions.getElementsByTagName("keepTemporariesH").item(0), defaultOptions.keepTemporariesH);
-        options.cacheIgnoredFiles = getContentOrDefault(elementOptions.getElementsByTagName("cacheIgnoredFiles").item(0), defaultOptions.cacheIgnoredFiles);
-        options.progressUpdateIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("progressUpdateIntervalS").item(0), defaultOptions.progressUpdateIntervalS);
-        options.limitBandwidthInLan = getContentOrDefault(elementOptions.getElementsByTagName("limitBandwidthInLan").item(0), defaultOptions.limitBandwidthInLan);
-        options.releasesURL = getContentOrDefault(elementOptions.getElementsByTagName("releasesURL").item(0), defaultOptions.releasesURL);
+        options.urURL = getContentOrDefault(elementOptions.getElementsByTagName("urURL").item(0), options.urURL);
+        options.urPostInsecurely = getContentOrDefault(elementOptions.getElementsByTagName("urPostInsecurely").item(0), options.urPostInsecurely);
+        options.urInitialDelayS = getContentOrDefault(elementOptions.getElementsByTagName("urInitialDelayS").item(0), options.urInitialDelayS);
+        options.restartOnWakeup = getContentOrDefault(elementOptions.getElementsByTagName("restartOnWakeup").item(0), options.restartOnWakeup);
+        options.autoUpgradeIntervalH = getContentOrDefault(elementOptions.getElementsByTagName("autoUpgradeIntervalH").item(0), options.autoUpgradeIntervalH);
+        options.upgradeToPreReleases = getContentOrDefault(elementOptions.getElementsByTagName("upgradeToPreReleases").item(0), options.upgradeToPreReleases);
+        options.keepTemporariesH = getContentOrDefault(elementOptions.getElementsByTagName("keepTemporariesH").item(0), options.keepTemporariesH);
+        options.cacheIgnoredFiles = getContentOrDefault(elementOptions.getElementsByTagName("cacheIgnoredFiles").item(0), options.cacheIgnoredFiles);
+        options.progressUpdateIntervalS = getContentOrDefault(elementOptions.getElementsByTagName("progressUpdateIntervalS").item(0), options.progressUpdateIntervalS);
+        options.limitBandwidthInLan = getContentOrDefault(elementOptions.getElementsByTagName("limitBandwidthInLan").item(0), options.limitBandwidthInLan);
+        options.releasesURL = getContentOrDefault(elementOptions.getElementsByTagName("releasesURL").item(0), options.releasesURL);
         // alwaysLocalNets
-        options.overwriteRemoteDeviceNamesOnConnect = getContentOrDefault(elementOptions.getElementsByTagName("overwriteRemoteDeviceNamesOnConnect").item(0), defaultOptions.overwriteRemoteDeviceNamesOnConnect);
-        options.tempIndexMinBlocks = getContentOrDefault(elementOptions.getElementsByTagName("tempIndexMinBlocks").item(0), defaultOptions.tempIndexMinBlocks);
+        options.overwriteRemoteDeviceNamesOnConnect = getContentOrDefault(elementOptions.getElementsByTagName("overwriteRemoteDeviceNamesOnConnect").item(0), options.overwriteRemoteDeviceNamesOnConnect);
+        options.tempIndexMinBlocks = getContentOrDefault(elementOptions.getElementsByTagName("tempIndexMinBlocks").item(0), options.tempIndexMinBlocks);
         options.defaultFolderPath = getContentOrDefault(elementOptions.getElementsByTagName("defaultFolderPath").item(0), "");
-        options.setLowPriority = getContentOrDefault(elementOptions.getElementsByTagName("setLowPriority").item(0), defaultOptions.setLowPriority);
+        options.setLowPriority = getContentOrDefault(elementOptions.getElementsByTagName("setLowPriority").item(0), options.setLowPriority);
         // minHomeDiskFree
-        options.maxConcurrentScans = getContentOrDefault(elementOptions.getElementsByTagName("maxConcurrentScans").item(0), defaultOptions.maxConcurrentScans);
+        options.maxConcurrentScans = getContentOrDefault(elementOptions.getElementsByTagName("maxConcurrentScans").item(0), options.maxConcurrentScans);
         return options;
     }
 
