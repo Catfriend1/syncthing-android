@@ -314,6 +314,39 @@
 
             </LinearLayout>
 
+            <!-- ignoreDelete -->
+            <LinearLayout
+                android:id="@+id/ignoreDeleteContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:focusable="true">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/ignoreDelete"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_delete_forever_black_24"
+                    android:drawableStart="@drawable/ic_delete_forever_black_24"
+                    android:text="@string/folder_ignore_delete_caption" />
+
+                <TextView
+                    android:id="@+id/ignoreDeleteDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/folder_ignore_delete_description"
+                    android:focusable="false"/>
+
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/editIgnoresContainer"
                 android:layout_width="match_parent"

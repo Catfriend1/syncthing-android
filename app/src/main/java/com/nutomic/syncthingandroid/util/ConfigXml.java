@@ -436,6 +436,7 @@ public class ConfigXml {
             folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), "random");
             folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), false);
             folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), true);
+            folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), false);
             folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), false);
 
             // Devices
@@ -532,6 +533,7 @@ public class ConfigXml {
                 setConfigElement(r, "order", folder.order);
                 setConfigElement(r, "paused", Boolean.toString(folder.paused));
                 setConfigElement(r, "useLargeBlocks", Boolean.toString(folder.useLargeBlocks));
+                setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
