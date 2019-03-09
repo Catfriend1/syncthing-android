@@ -276,6 +276,10 @@ public class DeviceActivity extends SyncthingActivity {
             getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_HIDDEN);
             mNameView.requestFocus();
         }
+
+        // Show expert options conditionally.
+        Boolean prefExpertMode = mPreferences.getBoolean(Constants.PREF_EXPERT_MODE, false);
+        mCompressionContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {

@@ -468,6 +468,10 @@ Please report any problems you encounter via Github.</string>
         <item>[external_storage]/Android/media</item>
     </string-array>
 
+    <string name="expert_mode_title">Expert mode</string>
+
+    <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaust or incomplete synchronization.</string>
+
     <string name="preference_language_title">Language</string>
 
     <string name="preference_language_summary">Change the app language</string>

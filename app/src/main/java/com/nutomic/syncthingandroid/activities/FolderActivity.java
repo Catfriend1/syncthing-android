@@ -107,11 +107,13 @@ public class FolderActivity extends SyncthingActivity {
     private SwitchCompat mCustomSyncConditionsSwitch;
     private TextView mCustomSyncConditionsDescription;
     private TextView mCustomSyncConditionsDialog;
+    private ViewGroup mPullOrderContainer;
     private TextView mPullOrderTypeView;
     private TextView mPullOrderDescriptionView;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private SwitchCompat mVariableSizeBlocks;
+    private ViewGroup mIgnoreDeleteContainer;
     private SwitchCompat mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
@@ -208,11 +210,13 @@ public class FolderActivity extends SyncthingActivity {
         mCustomSyncConditionsSwitch = findViewById(R.id.customSyncConditionsSwitch);
         mCustomSyncConditionsDescription = findViewById(R.id.customSyncConditionsDescription);
         mCustomSyncConditionsDialog = findViewById(R.id.customSyncConditionsDialog);
+        mPullOrderContainer = findViewById(R.id.pullOrderContainer);
         mPullOrderTypeView = findViewById(R.id.pullOrderType);
         mPullOrderDescriptionView = findViewById(R.id.pullOrderDescription);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mVariableSizeBlocks = findViewById(R.id.variableSizeBlocks);
+        mIgnoreDeleteContainer = findViewById(R.id.ignoreDeleteContainer);
         mIgnoreDelete = findViewById(R.id.ignoreDelete);
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
@@ -222,7 +226,7 @@ public class FolderActivity extends SyncthingActivity {
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
 
         findViewById(R.id.folderTypeContainer).setOnClickListener(v -> showFolderTypeDialog());
-        findViewById(R.id.pullOrderContainer).setOnClickListener(v -> showPullOrderDialog());
+        mPullOrderContainer.setOnClickListener(v -> showPullOrderDialog());
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
 
         if (savedInstanceState != null) {
@@ -281,6 +285,11 @@ public class FolderActivity extends SyncthingActivity {
         }
         checkWriteAndUpdateUI();
         updateViewsAndSetListeners();
+
+        // Show expert options conditionally.
+        Boolean prefExpertMode = mPreferences.getBoolean(Constants.PREF_EXPERT_MODE, false);
+        mPullOrderContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
+        mIgnoreDeleteContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
 
         // Open keyboard on label view in edit mode.
         mLabelView.requestFocus();

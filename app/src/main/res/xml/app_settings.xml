@@ -100,6 +100,13 @@
             android:summary="@null"
             android:defaultValue="external_android_data" />
 
+        <!-- Expert mode -->
+        <CheckBoxPreference
+            android:key="expert_mode"
+            android:title="@string/expert_mode_title"
+            android:summary="@string/expert_mode_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="pref_current_language"
             android:title="@string/preference_language_title"

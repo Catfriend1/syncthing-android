@@ -33,6 +33,8 @@ public class Constants {
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_DATA    = "external_android_data";
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_MEDIA   = "external_android_media";
 
+    public static final String PREF_EXPERT_MODE                     = "expert_mode";
+
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";

@@ -465,6 +465,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
         <item>[Ext_Speicher]/Android/media</item>
     </string-array>
 
+    <string name="expert_mode_title">Expertenmodus</string>
+
+    <string name="expert_mode_summary">Durch Aktivieren dieser Option werden erweiterte Konfigurationsoptionen angezeigt. Du solltest Dir zuerst die Syncthing-Dokumentation ansehen, um sicherzustellen, dass Du weißt, wie sie richtig verwendet werden. Falsche Einstellungen können zu hohem Batterieverbrauch, Erschöpfung der Systemressourcen oder unvollständiger Synchronisation führen.</string>
+
     <string name="preference_language_title">Sprache</string>
 
     <string name="preference_language_summary">Anwendungssprache ändern</string>
