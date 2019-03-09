@@ -1,11 +1,11 @@
 Enhancements
-* Refresh wrapper UI faster on "modern" devices
-* Add "folder is unshared" status label (#351)
+* Fix "Share to Syncthing" when user didn't complete welcome wizard (#360)
+* Add option to enable expert mode (#328)
+* Add UI for "ignoreDelete" folder option (#357)
 * Show Android Open File Limit (#350)
 * Improve "no devices configured" UI text (#349)
 * Enable largeBlocks for new folders by default (#301)
 * Add folder dialog: "Tap to add device" if no devices are present (#345)
-* Update status tab text "not allowed to run on mobile data" (#343)
 Notes
 * Syncthing v1.1.0
 * Refer to GitHub for detailed change log.
