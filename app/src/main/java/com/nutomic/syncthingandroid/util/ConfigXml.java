@@ -646,7 +646,7 @@ public class ConfigXml {
         File file;
         FileInputStream fileInputStream = null;
         try {
-            file = new File(folder.path, ".stignore");
+            file = new File(folder.path, Constants.FILENAME_STIGNORE);
             if (file.exists()) {
                 fileInputStream = new FileInputStream(file);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
@@ -662,14 +662,14 @@ public class ConfigXml {
                  */
             }
         } catch (IOException e) {
-            Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/.stignore' #1", e);
+            Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/" + Constants.FILENAME_STIGNORE + "' #1", e);
         } finally {
             try {
                 if (fileInputStream != null) {
                     fileInputStream.close();
                 }
             } catch (IOException e) {
-                Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/.stignore' #2", e);
+                Log.e(TAG, "getFolderIgnoreList: Failed to read '" + folder.path + "/" + Constants.FILENAME_STIGNORE + "' #2", e);
             }
         }
         listener.onResult(folderIgnoreList);
@@ -682,12 +682,12 @@ public class ConfigXml {
         File file;
         FileOutputStream fileOutputStream = null;
         try {
-            file = new File(folder.path, ".stignore");
+            file = new File(folder.path, Constants.FILENAME_STIGNORE);
             if (!file.exists()) {
                 file.createNewFile();
             }
             fileOutputStream = new FileOutputStream(file);
-            // Log.v(TAG, "postFolderIgnoreList: Writing .stignore content=" + TextUtils.join("\n", ignore));
+            // Log.v(TAG, "postFolderIgnoreList: Writing " + Constants.FILENAME_STIGNORE + " content=" + TextUtils.join("\n", ignore));
             fileOutputStream.write(TextUtils.join("\n", ignore).getBytes("UTF-8"));
             fileOutputStream.flush();
         } catch (IOException e) {
@@ -695,14 +695,14 @@ public class ConfigXml {
              * This will happen on external storage folders which exist outside the
              * "/Android/data/[package_name]/files" folder on Android 5+.
              */
-            Log.w(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/.stignore' #1", e);
+            Log.w(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/" + Constants.FILENAME_STIGNORE + "' #1", e);
         } finally {
             try {
                 if (fileOutputStream != null) {
                     fileOutputStream.close();
                 }
             } catch (IOException e) {
-                Log.e(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/.stignore' #2", e);
+                Log.e(TAG, "postFolderIgnoreList: Failed to write '" + folder.path + "/" + Constants.FILENAME_STIGNORE + "' #2", e);
             }
         }
     }

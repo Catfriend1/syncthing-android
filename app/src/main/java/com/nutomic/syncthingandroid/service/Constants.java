@@ -13,6 +13,7 @@ public class Constants {
     public static final Boolean ENABLE_TEST_DATA = false;
 
     public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
+    public static final String FILENAME_STIGNORE                = ".stignore";
 
     // Preferences - Run conditions
     public static final String PREF_START_SERVICE_ON_BOOT       = "always_run_in_background";
