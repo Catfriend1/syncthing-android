@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -43,6 +47,14 @@
 
     <string name="main_menu">主菜单</string>
 
+    <!-- MainActivity -->
+
+
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">打开主菜单</string>
+    <string name="close_main_menu">关闭主菜单</string>
+
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">再次确认以退出程序</string>
     <!-- Title of the "add folder" menu action -->
@@ -76,7 +88,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">正在生成安全密钥。这可能需要一段时间，请稍等。</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">文件夹</string>
@@ -97,13 +110,10 @@
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">设备</string>
-
-    <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">无设备</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">最新</string>
@@ -286,6 +296,14 @@
     <string name="web_gui_loading">正在等待管理页面</string>
 
 
+    <!-- WebViewActivity -->
+
+    <!-- Dialog title displayed when an invalid ssl certificate was found -->
+    <string name="security_notice">安全警告</string>
+
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">在浏览器中打开</string>
+
     <!-- SettingsFragment -->
 
 
@@ -319,6 +337,14 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
+    <string name="power_source_title">设备供电方式</string>
+
+    <string-array name="power_source_entries">
+        <item>电源与电池供电</item>
+        <item>电源供电</item>
+        <item>电池供电</item>
+    </string-array>
+
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
     <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing</string>
 
@@ -383,6 +409,17 @@
 
     <string name="webui_remote_access_title">远程控制 WebUI</string>
 
+    <string name="download_support_bundle_title">下载支持包</string>
+
+    <!-- Summary shown when the user clicked the download support bundle button -->
+    <string name="download_support_bundle_in_progress">正在准备下载支持包...</string>
+
+    <!-- Toast after successful download of the support bundle -->
+    <string name="download_support_bundle_succeeded">支持包已成功下载至%s.</string>
+
+    <!-- Toast after failed support bundle download -->
+    <string name="download_support_bundle_failed">支持包下载失败，请检查错误日志。</string>
+
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">撤销忽略的设备和文件夹</string>
     <string name="undo_ignored_devices_folders_question">该操作将会撤销现有已忽略的设备和文件夹的设置，是否继续？</string>
@@ -412,11 +449,17 @@
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">设置已导出至 %1$s</string>
+    <string name="config_export_failed">配置导出失败，请检查日志文档。</string>
+
     <string name="import_config">导入设置</string>
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">设置已导入</string>
     <string name="config_import_failed">设置导入失败，请确保文件位于 %1$s</string>
+
+    <string name="dialog_settings_restart_app_title">要求重启程序</string>
+
+    <string name="dialog_settings_restart_app_question">修改当前设置项需要重启 Syncthing .  其它所有的修改项将不被保存，是否继续？</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 选项</string>
@@ -447,6 +490,8 @@
     <string name="st_reset_deltas_done">已成功重置 Syncthing Delta 索引</string>
 
     <string name="category_about">关于</string>
+
+    <string name="verbose_log_title">详细日志</string>
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">打开日志</string>
@@ -503,9 +548,6 @@
     <!-- Title of the "share log" menu button -->
     <string name="share_title">日志</string>
 
-    <!-- ShareActivity -->
-
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">保存到 Syncthing</string>
 
@@ -547,9 +589,13 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">子文件夹</string>
 
-    <string name="reason_mobile_data_disallowed">Syncthing 在蜂窝网络环境下不被允许运行</string>
+    <!-- RunConditionMonitor -->
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_charging">手机没有给电池充电。</string>
     <string name="reason_on_mobile_data">Syncthing 当前正在在蜂窝网络环境下运行</string>
     <string name="reason_not_on_mobile_data">Syncthing 被允许在蜂窝网络环境下运行 ， 但当前网络未连接至互联网</string>
+    <string name="reason_on_flight_mode">允许 Syncthing 在飞行模式下运行</string>
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -557,6 +603,8 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing 正在运行</string>
+
+    <string name="syncthing_disabled">Syncthing 待机中</string>
 
     <string name="syncthing_terminated">Syncthing 已停止工作</string>
 
@@ -620,12 +668,12 @@
     <!-- Possible folder states -->
     <string name="state_idle">空闲</string>
     <string name="state_scanning">正在扫描</string>
+    <string name="state_syncing_general">正在同步</string>
     <string name="state_syncing">正在同步 (%1$d%%)</string>
     <string name="state_error">错误</string>
     <string name="state_unknown">未知</string>
     <string name="state_paused">已暫停</string>
     <string name="status_outofsync">未同步</string>
-
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 
@@ -649,6 +697,8 @@
     <string name="pull_order_type_oldestFirst">旧文件优先</string>
     <string name="pull_order_type_newestFirst">新文件优先</string>
 
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">随机顺序拉取文件</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">最长保留时间</string>
     <string name="clean_out_after">在该时间后清除</string>

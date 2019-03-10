@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -75,7 +79,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Genererar säkra nycklar. Detta kan ta några minuter.</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">Mappar</string>
@@ -99,13 +104,10 @@
     <string name="suggest_file_manager_app_dialog_title">Ingen kompatibel filhanterarapp hittades</string>
     <string name="suggest_file_manager_app_dialog_text">Vi rekommenderar att du installerar filhanterarappen \"Simple File Manager\" med öppen källkod från F-Droid. Vill du öppna dess appbutiksida?</string>
 
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">Enheter</string>
-
-    <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">Inga enheter hittade</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Uppdaterad</string>
@@ -130,6 +132,7 @@
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
+    <string name="syncthing_starting">Syncthing startar.</string>
     <string name="syncthing_running">Syncthing körs.</string>
     <string name="syncthing_not_running">Syncthing körs inte.</string>
     <string name="syncthing_has_crashed">Syncthing har kraschat.</string>
@@ -527,9 +530,6 @@
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Dela</string>
 
-    <!-- ShareActivity -->
-
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Spara till Syncthing</string>
 
@@ -578,9 +578,9 @@
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_charging">Telefonen laddas inte.</string>
+    <string name="reason_not_on_battery_power">Telefonen körs inte på batteriet.</string>
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
-    <string name="reason_mobile_data_disallowed">Syncthing är inte tillåtet att köra på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
     <string name="reason_on_whitelisted_wifi">Syncthing får köras på det aktuella Wi-Fi-nätverket.</string>
@@ -658,7 +658,6 @@
     <string name="state_unknown">Okänd</string>
     <string name="state_paused">Pausad</string>
     <string name="status_outofsync">Osynkroniserad</string>
-
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 
