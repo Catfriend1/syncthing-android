@@ -683,6 +683,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="create_folder_failed">Verzeichniserstellung fehlgeschlagen</string>
 
+    <!-- Menu item to go up to parent folder -->
+    <string name="folder_go_up">Aufwärts</string>
+
     <!-- LogActivity -->
 
 
