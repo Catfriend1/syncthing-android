@@ -130,7 +130,7 @@ public class FolderActivity extends SyncthingActivity {
     private final TextWatcher mTextWatcher = new TextWatcherAdapter() {
         @Override
         public void afterTextChanged(Editable s) {
-            mFolder.label        = mLabelView.getText().toString();
+            mFolder.label        = mLabelView.getText().toString().trim();
             mFolder.id           = mIdView.getText().toString();
             // mPathView must not be handled here as it's handled by {@link onActivityResult}
             // mEditIgnoreListContent must not be handled here as it's written back when the dialog ends.
@@ -680,6 +680,9 @@ public class FolderActivity extends SyncthingActivity {
                 ? getIntent().getStringExtra(EXTRA_FOLDER_ID)
                 : generateRandomFolderId();
         mFolder.label = getIntent().getStringExtra(EXTRA_FOLDER_LABEL);
+        if (!TextUtils.isEmpty(mFolder.label)) {
+            mFolder.label = mFolder.label.trim();
+        }
         mFolder.paused = false;
         mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;      // Default for {@link #checkWriteAndUpdateUI}.
         mFolder.minDiskFree = new Folder.MinDiskFree();
