@@ -46,6 +46,8 @@ import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Random;
 import java.util.Map;
@@ -84,9 +86,6 @@ public class FolderActivity extends SyncthingActivity {
     private static final int PULL_ORDER_DIALOG_REQUEST = 3455;
     private static final int FOLDER_TYPE_DIALOG_REQUEST =3456;
     private static final int CHOOSE_FOLDER_REQUEST = 3459;
-
-    private static final String FOLDER_MARKER_NAME = ".stfolder";
-    // private static final String IGNORE_FILE_NAME = ".stignore";
 
     private ConfigRouter mConfig;
     private Folder mFolder;
@@ -736,21 +735,7 @@ public class FolderActivity extends SyncthingActivity {
 
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
-                mFolderUri != null &&
-                mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY)) {
-                /**
-                 * Normally, syncthing takes care of creating the ".stfolder" marker.
-                 * This fails on newer android versions if the syncthing binary only has
-                 * readonly access on the path and the user tries to configure a
-                 * sendonly folder. To fix this, we'll precreate the marker using java code.
-                 */
-                DocumentFile dfFolder = DocumentFile.fromTreeUri(this, mFolderUri);
-                if (dfFolder != null) {
-                    Log.v(TAG, "onSave: Creating new directory " + mFolder.path + File.separator + FOLDER_MARKER_NAME);
-                    dfFolder.createDirectory(FOLDER_MARKER_NAME);
-                }
-            }
+            preCreateFolderMarker(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
             finish();
             return;
@@ -784,6 +769,77 @@ public class FolderActivity extends SyncthingActivity {
         mConfig.updateFolder(restApi, mFolder);
         finish();
         return;
+    }
+
+    private void preCreateFolderMarker(Uri uriFolderRoot, String absolutePath) {
+
+        /**
+         * Normally, syncthing takes care of creating the ".stfolder" marker.
+         * This fails on Android 5+ if the syncthing binary only has
+         * readonly access on the path and the user tries to configure a
+         * sendOnly folder. To fix this, we'll precreate the marker using java code.
+         */
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            return;
+        }
+        if (uriFolderRoot == null) {
+            Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
+            return;
+        }
+
+        // Derive DocumentFile handle from SAF tree Uri where we have write access.
+        DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
+        if (dfFolder == null) {
+            Log.w(TAG, "preCreateFolderMarker: dfFolder == null");
+            return;
+        }
+
+        // Marker directory name and full path.
+        final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
+        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
+
+        // Create marker directory.
+        DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
+        if (dfFolderMarkerDir == null) {
+            Log.w(TAG, "preCreateFolderMarker: Failed to create directory '" + strFolderMarkerDir + "'");
+            return;
+        }
+        Log.v(TAG, "preCreateFolderMarker: Created directory '" + strFolderMarkerDir + "'");
+
+        /**
+         * Name of the dummy file created within the marker directory.
+         * Creating the file is a workaround for issue #131 where manufacturer
+         * specific cleaning routines silently wipe out empty directories like
+         * the marker directory.
+         */
+        final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
+        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
+
+        // Create "DO_NOT_DELETE" file.
+        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
+        if (dfDoNotDeleteFile == null) {
+            Log.w(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #1");
+            return;
+        }
+        Log.v(TAG, "preCreateFolderMarker: Created file '" + strDoNotDeleteFile + "'");
+
+        // Write "DO_NOT_DELETE" text content.
+        OutputStream outputStream = null;
+        try {
+            outputStream = getContentResolver().openOutputStream(dfDoNotDeleteFile.getUri());
+            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes("ISO-8859-1"));
+            outputStream.flush();
+        } catch (IOException e) {
+            Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
+            }
+        }
     }
 
     private void showDiscardDialog(){
