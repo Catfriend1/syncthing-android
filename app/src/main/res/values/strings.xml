@@ -704,6 +704,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="create_folder_failed">Failed to create folder</string>
 
+    <!-- Menu item to go up to parent folder -->
+    <string name="folder_go_up">Go up</string>
+
     <!-- LogActivity -->
 
 

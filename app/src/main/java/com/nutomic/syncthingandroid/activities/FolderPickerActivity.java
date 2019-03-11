@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,9 +42,16 @@ import java.util.Iterator;
 public class FolderPickerActivity extends SyncthingActivity
         implements AdapterView.OnItemClickListener {
 
+    private static final String TAG = "FolderPickerActivity";
+
     private static final String EXTRA_INITIAL_DIRECTORY =
             "com.github.catfriend1.syncthingandroid.activities.FolderPickerActivity.INITIAL_DIRECTORY";
 
+    /**
+     * If requested by {@link #createIntent}, we'll only use one root dir and enforce
+     * the user stays within that. {@link #populateRoots} will respect this extra.
+     * See issue #366.
+     */
     private static final String EXTRA_ROOT_DIRECTORY =
             "com.github.catfriend1.syncthingandroid.activities.FolderPickerActivity.ROOT_DIRECTORY";
 
@@ -89,12 +97,12 @@ public class FolderPickerActivity extends SyncthingActivity
         mListView.setAdapter(mFilesAdapter);
 
         populateRoots();
-
         if (getIntent().hasExtra(EXTRA_INITIAL_DIRECTORY)) {
-            displayFolder(new File(getIntent().getStringExtra(EXTRA_INITIAL_DIRECTORY)));
-        } else {
-            displayRoot();
+            String initialDirectory = getIntent().getStringExtra(EXTRA_INITIAL_DIRECTORY);
+            displayFolder(new File(initialDirectory));
+            return;
         }
+        displayRoot();
     }
 
     /**
@@ -105,16 +113,15 @@ public class FolderPickerActivity extends SyncthingActivity
     @SuppressLint("NewApi")
     private void populateRoots() {
         ArrayList<File> roots = new ArrayList<>();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
-            roots.remove(getExternalFilesDir(null));
-            roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
-        }
-
         String rootDir = getIntent().getStringExtra(EXTRA_ROOT_DIRECTORY);
         if (getIntent().hasExtra(EXTRA_ROOT_DIRECTORY) && !TextUtils.isEmpty(rootDir)) {
             roots.add(new File(rootDir));
         } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
+                roots.remove(getExternalFilesDir(null));
+                roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
+            }
             roots.add(Environment.getExternalStorageDirectory());
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
@@ -167,6 +174,11 @@ public class FolderPickerActivity extends SyncthingActivity
                         .showSoftInput(et, InputMethodManager.SHOW_IMPLICIT));
                 dialog.show();
                 return true;
+            case R.id.folder_go_up:
+                if (canGoUpToSubDir() || canGoUpToRootDir()) {
+                    goUpToParentDir();
+                }
+                return true;
             case R.id.select:
                 Intent intent = new Intent()
                         .putExtra(EXTRA_RESULT_DIRECTORY, Util.formatPath(mLocation.getAbsolutePath()));
@@ -179,6 +191,26 @@ public class FolderPickerActivity extends SyncthingActivity
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public Boolean canGoUpToSubDir() {
+        return mLocation != null && !mRootsAdapter.contains(mLocation);
+    }
+
+    public Boolean canGoUpToRootDir() {
+        return mRootsAdapter.contains(mLocation) && mRootsAdapter.getCount() > 1;
+    }
+
+    public void goUpToParentDir() {
+        if (canGoUpToSubDir()) {
+            displayFolder(mLocation.getParentFile());
+            return;
+        }
+        if (canGoUpToRootDir()) {
+            displayRoot();
+            return;
+        }
+        Log.e(TAG, "goUpToParentDir: Cannot go up.");
     }
 
     /**
@@ -287,14 +319,8 @@ public class FolderPickerActivity extends SyncthingActivity
      */
     @Override
     public void onBackPressed() {
-        if (!mRootsAdapter.contains(mLocation) && mLocation != null) {
-            displayFolder(mLocation.getParentFile());
-        } else if (mRootsAdapter.contains(mLocation) && mRootsAdapter.getCount() > 1) {
-            displayRoot();
-        } else {
-            setResult(Activity.RESULT_CANCELED);
-            finish();
-        }
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 
     /**

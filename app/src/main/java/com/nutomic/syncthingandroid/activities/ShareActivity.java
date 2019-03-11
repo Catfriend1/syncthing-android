@@ -185,9 +185,11 @@ public class ShareActivity extends SyncthingActivity
         browseButton.setOnClickListener(view -> {
             Folder folder = (Folder) mFoldersSpinner.getSelectedItem();
             File initialDirectory = new File(folder.path, getSavedSubDirectory());
-            startActivityForResult(FolderPickerActivity.createIntent(getApplicationContext(),
-                    initialDirectory.getAbsolutePath(), folder.path),
-                    FolderPickerActivity.DIRECTORY_REQUEST_CODE);
+            Intent intent = FolderPickerActivity.createIntent(
+                    getApplicationContext(),
+                    initialDirectory.getAbsolutePath(), folder.path
+            );
+            startActivityForResult(intent, FolderPickerActivity.DIRECTORY_REQUEST_CODE);
         });
 
         mCancelButton.setOnClickListener(view -> finish());
