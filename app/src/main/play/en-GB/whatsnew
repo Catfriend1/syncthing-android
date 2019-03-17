@@ -1,3 +1,5 @@
+Fixes
+* Support for Android 10 Q
 Enhancements
 * Work around cleanup of the folder marker by Huawei, Xiaomi firmware (#363)
 * Fix selecting parent folder after "Sharing to Syncthing" subfolder (#366)
