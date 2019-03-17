@@ -281,6 +281,11 @@
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">无法获取管理员权限</string>
 
+    <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
+
+    <string name="tip_xiaomi_autostart_title">小米：app不会自动启动</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 > 权限 > 应用自启动”允许 Syncthing 自启动</string>
+
     <!-- RecentChangesActivity -->
     <string name="recent_changes_title">近期修改</string>
     <string name="modified_by_device">设备: %1$s</string>
@@ -300,6 +305,9 @@
 
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">安全警告</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">正在载入: \n%1$s ...</string>
 
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">在浏览器中打开</string>
@@ -336,6 +344,8 @@
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">您需要允许 Syncthing 获得定位权限以使用此功能</string>
+
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
     <string name="power_source_title">设备供电方式</string>
 
@@ -355,6 +365,15 @@
     <string name="use_root_title">Syncthing 运行于超级用户</string>
 
     <string name="use_root_summary">该项功能不稳定，可能会导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>
+
+    <string name="suggest_new_folder_root_title">选择新文件夹根目录</string>
+
+    <string-array name="suggest_new_folder_root_entries">
+        <item>[external_storage]/Android/data</item>
+        <item>[external_storage]/Android/media</item>
+    </string-array>
+
+    <string name="expert_mode_title">专家模式</string>
 
     <string name="preference_language_title">语言</string>
 
@@ -409,6 +428,8 @@
 
     <string name="webui_remote_access_title">远程控制 WebUI</string>
 
+    <string name="webui_debugging_title">WebUI 除错模式</string>
+
     <string name="download_support_bundle_title">下载支持包</string>
 
     <!-- Summary shown when the user clicked the download support bundle button -->
@@ -423,7 +444,15 @@
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">撤销忽略的设备和文件夹</string>
     <string name="undo_ignored_devices_folders_question">该操作将会撤销现有已忽略的设备和文件夹的设置，是否继续？</string>
+    <string name="undo_ignored_devices_folders_done">成功撤销</string>
+
     <string name="export_config">导出设置</string>
+
+    <!-- Toast after entering an invalid tcp port -->
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">端口号非法输入。请重新定义一个新的端口号(介于%1$d与%2$d之间)</string>
+
+    <!-- Toast after entering invalid integer value -->
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">数值非法输入。请重新定义一个新的数值(介于%1$d与%2$d之间)</string>
 
     <!-- Experimental options -->
     <string name="use_proxy">使用代理</string>
@@ -671,9 +700,12 @@
     <string name="state_syncing_general">正在同步</string>
     <string name="state_syncing">正在同步 (%1$d%%)</string>
     <string name="state_error">错误</string>
+    <string name="state_error_message">错误 (%1$s)</string>
     <string name="state_unknown">未知</string>
     <string name="state_paused">已暫停</string>
     <string name="status_outofsync">未同步</string>
+    <string name="state_unshared">未分享</string>
+
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 

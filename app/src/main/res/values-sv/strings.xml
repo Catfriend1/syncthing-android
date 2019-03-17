@@ -46,6 +46,8 @@
 
     <string name="ignore">Ignorera</string>
 
+    <string name="main_menu">Huvudmeny</string>
+
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Bekräfta att avsluta appen</string>
     <!-- Title of the "add folder" menu action -->
@@ -108,6 +110,9 @@
 
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Enheter</string>
+
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Inga enheter konfigurerade. Tryck här för att lägga till en ny enhet.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Uppdaterad</string>
@@ -301,6 +306,14 @@
     <string name="web_gui_loading">Väntar på gränssnitt</string>
 
 
+    <!-- WebViewActivity -->
+
+    <!-- Dialog title displayed when an invalid ssl certificate was found -->
+    <string name="security_notice">Säkerhetsmeddelande</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">Läser in webbplats:\n%1$s ...</string>
+
     <!-- SettingsFragment -->
 
 
@@ -321,6 +334,8 @@
 
     <string name="run_on_mobile_data_title">Kör på mobildata</string>
     <string name="run_on_wifi_title">Kör på Wi-Fi</string>
+    <string name="run_on_wifi_summary">Kör när enheten är ansluten till ett Wi-Fi- eller ethernet-nätverk.</string>
+
     <string name="run_on_whitelisted_wifi_title">Kör på angivna Wi-Fi-nätverk</string>
     <string name="specify_wifi_ssid_whitelist">Välj Wi-Fi-nätverk</string>
     <string name="run_on_whitelisted_wifi_networks">Valda Wi-Fi-nätverk: %1$s</string>
@@ -345,6 +360,8 @@
     <string name="respect_battery_saving_summary">Inaktivera Syncthing om batteribesparing är aktiv.</string>
 
     <string name="run_in_flight_mode_title">Kör utan nätverksanslutning</string>
+    <string name="run_in_flight_mode_summary">Om du aktiverar det här alternativet kommer synkronisering att köras även när du är frånkopplad. Aktivera om enheten har problem med att upptäcka manuella Wi-Fi-anslutningar under flygläge.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Starta automatiskt</string>
     <string name="behaviour_autostart_summary">Starta appen automatiskt med operativsystemet.</string>
@@ -417,6 +434,8 @@
     <string name="do_not_use_proxy">Ingen proxy konfigurerad.</string>
 
     <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
+
+    <string name="keep_wakelock_while_binary_running_summary">Endast för Android 5 eller lägre. Använd den här inställningen om du upplever oväntade urkopplingar när du använder batteriet. Detta kommer att resultera i ökad batteriförbrukning.</string>
 
     <string name="use_tor_title">Använd Tor</string>
 
@@ -582,7 +601,10 @@
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
+    <string name="reason_not_on_mobile_data">Syncthing får köras på mobildataanslutning men mobildata är inte anslutet.</string>
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
+    <string name="reason_on_wifi">Syncthing är tillåtet att köra på Wi-Fi och Wi-Fi är för närvarande ansluten.</string>
+    <string name="reason_not_on_wifi">Syncthing får köras på Wi-Fi men Wi-Fi är inte ansluten eller telefonen är i flygläge.</string>
     <string name="reason_on_whitelisted_wifi">Syncthing får köras på det aktuella Wi-Fi-nätverket.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing körs inte eftersom det aktuella Wi-Fi-nätverkets namn inte är vitlistat.</string>
     <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
@@ -597,6 +619,8 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing körs</string>
+
+    <string name="syncthing_disabled">Syncthing sover</string>
 
     <string name="syncthing_terminated">Syncthing avslutades</string>
 
@@ -653,8 +677,10 @@
     <!-- Possible folder states -->
     <string name="state_idle">Inaktiv</string>
     <string name="state_scanning">Skannar</string>
+    <string name="state_syncing_general">Synkroniserar</string>
     <string name="state_syncing">Synkroniserar (%1$d%%)</string>
     <string name="state_error">Fel</string>
+    <string name="state_error_message">Fel (%1$s)</string>
     <string name="state_unknown">Okänd</string>
     <string name="state_paused">Pausad</string>
     <string name="status_outofsync">Osynkroniserad</string>
@@ -670,6 +696,8 @@
     <string name="folder_type_sendreceive">Skicka &amp; ta emot</string>
     <string name="folder_type_sendonly">Skicka endast</string>
     <string name="folder_type_receiveonly">Ta emot endast.</string>
+
+    <string name="folder_type_receiveonly_description">Filer synkroniseras från klustret, men eventuella ändringar som görs lokalt kommer inte att skickas till andra enheter.</string>
 
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Filhämtningsordning</string>
