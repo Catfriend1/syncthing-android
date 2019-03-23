@@ -749,7 +749,7 @@ public class RestApi {
         /**
          * Called for each event.
          */
-        void onEvent(Event event);
+        void onEvent(Event event, JsonElement json);
 
         /**
          * Called after all available events have been processed.
@@ -778,7 +778,7 @@ public class RestApi {
                 if (lastId < event.id)
                     lastId = event.id;
 
-                listener.onEvent(event);
+                listener.onEvent(event, json);
             }
 
             listener.onDone(lastId);

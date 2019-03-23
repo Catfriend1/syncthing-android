@@ -842,6 +842,10 @@ Please report any problems you encounter via Github.</string>
     <string name="notification_persistent_waiting_channel">Monitoring run conditions</string>
     <string name="notifications_other_channel">Other notifications</string>
 
+    <!-- EventProcessor -->
+    <string name="notification_out_of_disk_space">The SDcard is full. File %1$s</string>
+
+
     <!-- RestApi -->
 
 

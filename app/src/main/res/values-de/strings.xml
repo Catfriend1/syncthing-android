@@ -821,6 +821,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="notification_persistent_waiting_channel">Laufkonditionen werden überwacht</string>
     <string name="notifications_other_channel">Andere Benachrichtigungen</string>
 
+    <!-- EventProcessor -->
+    <string name="notification_out_of_disk_space">SD-Karte ist voll. Datei %1$s</string>
+
+
     <!-- RestApi -->
 
 

@@ -15,6 +15,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.annimon.stream.Stream;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.DeviceActivity;
@@ -78,7 +82,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         // If that's the case we've to start at zero because syncthing was restarted.
         mRestApi.getEvents(0, 1, new RestApi.OnReceiveEventListener() {
             @Override
-            public void onEvent(Event event) {
+            public void onEvent(Event event, JsonElement json) {
             }
 
             @Override
@@ -96,7 +100,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
      * Performs the actual event handling.
      */
     @Override
-    public void onEvent(Event event) {
+    public void onEvent(Event event, JsonElement json) {
         switch (event.type) {
             case "ConfigSaved":
                 if (mRestApi != null) {
@@ -118,6 +122,10 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     (String) event.data.get("folder"),          // folderId
                     completionInfo
                 );
+                break;
+            case "FolderErrors":
+                LogV("Event " + event.type + ", data " + event.data);
+                onFolderErrors(json);
                 break;
             case "FolderRejected":
                 onFolderRejected(
@@ -171,9 +179,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "Starting":
             case "StartupComplete":
             case "StateChanged":
-                if (ENABLE_VERBOSE_LOG) {
-                    LogV("Ignored event " + event.type + ", data " + event.data);
-                }
+                LogV("Ignored event " + event.type + ", data " + event.data);
                 break;
             default:
                 Log.d(TAG, "Unhandled event " + event.type);
@@ -293,6 +299,36 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         mNotificationHandler.showConsentNotification(notificationId, title, piAccept, piIgnore);
     }
 
+    private void onFolderErrors(JsonElement json) {
+        JsonElement data = ((JsonObject) json).get("data");
+        if (data == null) {
+            Log.e(TAG, "onFolderErrors: data == null");
+            return;
+        }
+        JsonArray errors = (JsonArray) ((JsonObject) data).get("errors");
+        if (errors == null) {
+            Log.e(TAG, "onFolderErrors: errors == null");
+            return;
+        }
+        for (int i = 0; i < errors.size(); i++) {
+            JsonElement error = errors.get(i);
+            if (error != null) {
+                String strError = ((JsonObject) error).get("error").toString();
+                String strPath = ((JsonObject) error).get("path").toString();
+                if (!TextUtils.isEmpty(strError) &&
+                    !TextUtils.isEmpty(strPath) &&
+                            strError.contains("insufficient space in basic")) {
+                    String[] segments = strPath.split(File.separator);
+                    String shortenedFileAndFolder =
+                            segments.length < 2 ?
+                            strPath :
+                            segments[segments.length-2] + File.separator + segments[segments.length-1];
+                    mNotificationHandler.showCrashedNotification(R.string.notification_out_of_disk_space, shortenedFileAndFolder);
+                }
+            }
+        }
+    }
+
     /**
      * Precondition: action != null
      */
@@ -300,6 +336,14 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         String relativeFilePath = updatedFile.toString();
         if (!TextUtils.isEmpty(error)) {
             Log.e(TAG, "onItemFinished: Error \"" + error + "\" reported on file: " + relativeFilePath);
+            if (error.contains("no space left on device")) {
+                String[] segments = relativeFilePath.split(File.separator);
+                String shortenedFileAndFolder =
+                        segments.length < 2 ?
+                        relativeFilePath :
+                        segments[segments.length-2] + File.separator + segments[segments.length-1];
+                mNotificationHandler.showCrashedNotification(R.string.notification_out_of_disk_space, shortenedFileAndFolder);
+            }
             return;
         }
 
