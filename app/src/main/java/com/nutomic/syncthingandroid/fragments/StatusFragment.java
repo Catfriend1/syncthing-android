@@ -305,14 +305,16 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         if (getActivity() == null) {
             return;
         }
-        Connections.Connection c = connections.total;
+        Connections.Connection total = connections.total;
         synchronized (mStatusHolderLock) {
             /**
-             * Hide the rates on the UI if they are lower than 1 KByte/sec. We don't like to
+             * "Hide" rates on the UI if they are lower than 1 KByte/sec. We don't like to
              * bother the user looking at discovery or index exchange traffic.
              */
-            mDownload = (c.inBits / 8 < 1024) ? "" : Util.readableTransferRate(mActivity, c.inBits);
-            mUpload = (c.outBits / 8 < 1024) ? "" : Util.readableTransferRate(mActivity, c.outBits);
+            mDownload = (total.inBits / 8 < 1024) ? "0 B/s" : Util.readableTransferRate(mActivity, total.inBits);
+            mDownload += " (" + Util.readableFileSize(mActivity, total.inBytesTotal) + ")";
+            mUpload = (total.outBits / 8 < 1024) ? "0 B/s" : Util.readableTransferRate(mActivity, total.outBits);
+            mUpload += " (" + Util.readableFileSize(mActivity, total.outBytesTotal) + ")";
         }
         updateStatus();
     }
