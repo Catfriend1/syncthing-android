@@ -217,6 +217,15 @@ public class FileUtils {
         return null;
     }
 
+    /**
+     * FileProvider does not support converting absolute paths
+     * to a "content://" Uri. As "file://" Uri has been blocked
+     * since Android 7+, we need to build the Uri manually.
+     */
+    public static android.net.Uri getInternalStorageRootUri() {
+        return android.net.Uri.parse("content://com.android.externalstorage.documents/document/primary%3A");
+    }
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private static String getVolumeIdFromTreeUri(final Uri treeUri) {
         final String docId = DocumentsContract.getTreeDocumentId(treeUri);
