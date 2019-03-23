@@ -7,6 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -26,6 +30,8 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
 
@@ -100,6 +106,24 @@ public class RecentChangesActivity extends SyncthingActivity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.recent_changes_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.refresh:
+                onTimerEvent();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         super.onServiceConnected(componentName, iBinder);
         SyncthingServiceBinder syncthingServiceBinder = (SyncthingServiceBinder) iBinder;
@@ -157,9 +181,11 @@ public class RecentChangesActivity extends SyncthingActivity
 
         if (ENABLE_TEST_DATA) {
             DiskEvent fakeDiskEvent = new DiskEvent();
-            fakeDiskEvent.id = 2;
+            fakeDiskEvent.id = 10;
             fakeDiskEvent.globalID = 84;
-            fakeDiskEvent.time = "2018-10-28T14:08:01.6183215+01:00";
+            fakeDiskEvent.time = "2018-10-28T14:08:" +
+                    String.format(Locale.getDefault(), "%02d", new Random().nextInt(60)) +
+                    ".6183215+01:00";
             fakeDiskEvent.type = "RemoteChangeDetected";
             fakeDiskEvent.data.action = "added";
             fakeDiskEvent.data.folder = "abcd-efgh";
@@ -169,11 +195,21 @@ public class RecentChangesActivity extends SyncthingActivity
             fakeDiskEvent.data.path = "document1.txt";
             fakeDiskEvent.data.type = "file";
             diskEvents.add(fakeDiskEvent);
-            fakeDiskEvent = deepCopy(fakeDiskEvent, new TypeToken<DiskEvent>(){}.getType());
-            fakeDiskEvent.id = 1;
-            fakeDiskEvent.data.action = "deleted";
-            diskEvents.add(fakeDiskEvent);
+
+            for (int i = 9; i > 0; i--) {
+                fakeDiskEvent = deepCopy(fakeDiskEvent, new TypeToken<DiskEvent>(){}.getType());
+                fakeDiskEvent.id = i;
+                fakeDiskEvent.data.action = "deleted";
+                diskEvents.add(fakeDiskEvent);
+            }
+
+            if (new Random().nextInt(2) == 0) {
+                diskEvents.clear();
+            }
         }
+
+        // Show text if the list is empty.
+        findViewById(R.id.no_recent_changes).setVisibility(diskEvents.size() > 0 ? View.GONE : View.VISIBLE);
 
         mRecentChangeAdapter.clear();
         for (DiskEvent diskEvent : diskEvents) {

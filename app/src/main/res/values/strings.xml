@@ -59,6 +59,8 @@ Please report any problems you encounter via Github.</string>
 
     <string name="main_menu">Main Menu</string>
 
+    <string name="refresh">Refresh</string>
+
     <!-- MainActivity -->
 
 
@@ -367,6 +369,8 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' > \'Permissions\' > \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
 
     <!-- RecentChangesActivity -->
+    <string name="no_recent_changes">There are no recent changes.</string>
+
     <string name="recent_changes_title">Recent changes</string>
     <string name="modified_by_device">Device: %1$s</string>
     <string name="modification_time">Time: %1$s</string>
