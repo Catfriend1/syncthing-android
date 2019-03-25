@@ -3,6 +3,7 @@ package com.nutomic.syncthingandroid.service;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -188,6 +189,16 @@ public class Constants {
 
     static File getLogFile(Context context) {
         return new File(context.getExternalFilesDir(null), "syncthing.log");
+    }
+
+    /**
+     * Checks if the app is running on an Android emulator (AVD).
+     */
+    public static Boolean isRunningOnEmulator() {
+        return !TextUtils.isEmpty(Build.MANUFACTURER) &&
+                !TextUtils.isEmpty(Build.MODEL) &&
+                Build.MANUFACTURER.equals("Google") &&
+                Build.MODEL.equals("Android SDK built for x86");
     }
 
     /**
