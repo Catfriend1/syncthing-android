@@ -16,27 +16,30 @@ GO_VERSION = '1.12.1'
 GO_EXPECTED_SHASUM_LINUX = '2a3fdabf665496a0db5f41ec6af7a9b15a49fbe71a85a50ca38b1f13a103aeec'
 GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'
 
+NDK_VERSION = 'r19c'
+NDK_EXPECTED_SHASUM_LINUX = 'fd94d0be6017c6acbd193eb95e09cf4b6f61b834'
+NDK_EXPECTED_SHASUM_WINDOWS = 'c4cd8c0b6e7618ca0a871a5f24102e40c239f6a3'
+
 BUILD_TARGETS = [
     {
         'arch': 'arm',
         'goarch': 'arm',
         'jni_dir': 'armeabi',
-        'cc': 'arm-linux-androideabi-clang',
+        'clang': 'armv7a-linux-androideabi16-clang',
         'patch_underaligned_tls': 'yes',
     },
     {
         'arch': 'arm64',
         'goarch': 'arm64',
         'jni_dir': 'arm64-v8a',
-        'cc': 'aarch64-linux-android-clang',
+        'clang': 'aarch64-linux-android21-clang',
         'patch_underaligned_tls': 'yes',
-        'min_sdk': 21,
     },
     {
         'arch': 'x86',
         'goarch': '386',
         'jni_dir': 'x86',
-        'cc': 'i686-linux-android-clang',
+        'clang': 'i686-linux-android16-clang',
     }
 ]
 
@@ -205,12 +208,12 @@ def install_ndk():
     # Consts.
     pwd_path = os.path.dirname(os.path.realpath(__file__))
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/android/repository/android-ndk-r18-windows-x86_64.zip'
-        expected_shasum =   '7fc0e0f94d86ea389bd18761abdc1bae2c005587'
+        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows-x86_64.zip'
+        expected_shasum =   NDK_EXPECTED_SHASUM_WINDOWS
 
     else:
-        url =               'https://dl.google.com/android/repository/android-ndk-r18-linux-x86_64.zip'
-        expected_shasum =   '2ac2e8e1ef73ed551cac3a1479bb28bd49369212'
+        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux-x86_64.zip'
+        expected_shasum =   NDK_EXPECTED_SHASUM_LINUX
 
     zip_fullfn = pwd_path + os.path.sep + 'ndk.zip';
     # Download NDK.
@@ -230,7 +233,7 @@ def install_ndk():
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the NDK if necessary.
-    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-r18'
+    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-' + NDK_VERSION
     if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-r18" in the current path.
@@ -308,11 +311,7 @@ if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
 
 module_dir = os.path.dirname(os.path.realpath(__file__))
 project_dir = os.path.realpath(os.path.join(module_dir, '..'))
-# Use seperate build dir so standalone ndk isn't deleted by `gradle clean`
-build_dir = os.path.join(module_dir, 'gobuild')
-go_build_dir = os.path.join(build_dir, 'go-packages')
 syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'syncthing')
-min_sdk = get_min_sdk(project_dir)
 
 # Check if git is available.
 git_bin = which("git");
@@ -364,35 +363,23 @@ syncthingVersion = subprocess.check_output([
     '--always'
 ]).strip();
 syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
-print('Building syncthing version', syncthingVersion);
 
+print('Cleaning go-build cache')
+subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
+
+print('Building syncthing version', syncthingVersion);
 for target in BUILD_TARGETS:
-    target_min_sdk = str(target.get('min_sdk', min_sdk))
     print('Building for', target['arch'])
 
-    if os.environ.get('SYNCTHING_ANDROID_PREBUILT', ''):
-        # The environment variable indicates the SDK and stdlib was prebuilt, set a custom paths.
-        standalone_ndk_dir = os.environ['ANDROID_NDK_HOME'] + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
-        pkg_argument = []
-    else:
-        # Build standalone NDK toolchain if it doesn't exist.
-        # https://developer.android.com/ndk/guides/standalone_toolchain.html
-        standalone_ndk_dir = build_dir + os.path.sep + 'standalone-ndk' + os.path.sep + 'android-' + target_min_sdk + '-' + target['goarch']
-        pkg_argument = ['-pkgdir', os.path.join(go_build_dir, target['goarch'])]
-
-    if not os.path.isdir(standalone_ndk_dir):
-        print('Building standalone NDK for', target['arch'], 'API level', target_min_sdk, 'to', standalone_ndk_dir)
-        subprocess.check_call([
-            sys.executable,
-            os.path.join(os.environ['ANDROID_NDK_HOME'], 'build', 'tools', 'make_standalone_toolchain.py'),
-            '--arch',
-            target['arch'],
-            '--api',
-            target_min_sdk,
-            '--install-dir',
-            standalone_ndk_dir,
-            '-v'
-        ])
+    ndk_clang_fullfn = os.path.join(
+        os.environ['ANDROID_NDK_HOME'],
+        'toolchains',
+        'llvm',
+        'prebuilt',
+        'windows-x86_64' if sys.platform == 'win32' else 'linux-x86_64',
+        'bin',
+        target['clang'],
+    )
 
     environ = os.environ.copy()
     environ.update({
@@ -404,9 +391,9 @@ for target in BUILD_TARGETS:
     subprocess.check_call([go_bin, 'mod', 'download'], cwd=syncthing_dir)
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android', '-goarch', target['goarch'],
-                              '-cc', os.path.join(standalone_ndk_dir, 'bin', target['cc']),
+                              '-cc', ndk_clang_fullfn,
                               '-version', syncthingVersion
-                          ] + pkg_argument + ['-no-upgrade', 'build'], env=environ, cwd=syncthing_dir)
+                          ] + ['-no-upgrade', 'build'], env=environ, cwd=syncthing_dir)
 
     # Determine path of source artifact
     source_artifact = os.path.join(syncthing_dir, 'syncthing')
