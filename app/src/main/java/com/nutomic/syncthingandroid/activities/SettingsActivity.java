@@ -161,7 +161,7 @@ public class SettingsActivity extends SyncthingActivity {
         private Dialog             mCurrentPrefScreenDialog = null;
 
         /* Run conditions */
-        private Preference         mCategoryRunConditions;
+        private PreferenceScreen   mCategoryRunConditions;
         private ListPreference     mPowerSource;
         private CheckBoxPreference mRunOnMobileData;
         private CheckBoxPreference mRunOnWifi;
@@ -177,7 +177,7 @@ public class SettingsActivity extends SyncthingActivity {
         private Languages          mLanguages;
 
         /* Syncthing Options */
-        private Preference         mCategorySyncthingOptions;
+        private PreferenceScreen   mCategorySyncthingOptions;
         private EditTextPreference mDeviceName;
         private EditTextPreference mListenAddresses;
         private EditTextPreference mMaxRecvKbps;
@@ -297,7 +297,7 @@ public class SettingsActivity extends SyncthingActivity {
                 getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
             );
 
-            mCategoryRunConditions = findPreference("category_run_conditions");
+            mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
             setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
 
             /* Behaviour */
@@ -333,7 +333,7 @@ public class SettingsActivity extends SyncthingActivity {
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
-            mCategorySyncthingOptions = findPreference("category_syncthing_options");
+            mCategorySyncthingOptions = (PreferenceScreen) findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
             mSyncthingApiKey.setOnPreferenceClickListener(this);
             mDownloadSupportBundle.setOnPreferenceClickListener(this);
@@ -549,10 +549,9 @@ public class SettingsActivity extends SyncthingActivity {
         }
 
         private void setPreferenceCategoryChangeListener(
-                Preference category, Preference.OnPreferenceChangeListener listener) {
-            PreferenceScreen ps = (PreferenceScreen) category;
-            for (int i = 0; i < ps.getPreferenceCount(); i++) {
-                Preference p = ps.getPreference(i);
+                PreferenceScreen category, Preference.OnPreferenceChangeListener listener) {
+            for (int i = 0; i < category.getPreferenceCount(); i++) {
+                Preference p = category.getPreference(i);
                 p.setOnPreferenceChangeListener(listener);
             }
         }
