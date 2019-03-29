@@ -27,6 +27,7 @@ public class Constants {
     public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
     public static final String PREF_RESPECT_MASTER_SYNC         = "respect_master_sync";
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
+    public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
 
     // Preferences - Behaviour
     public static final String PREF_USE_ROOT                        = "use_root";
@@ -122,6 +123,13 @@ public class Constants {
                     ? 3
                     : 5
     );
+
+    /**
+     * If the user enabled hourly one-time shot sync, the following
+     * parameters are effective.
+     */
+    public static final int WAIT_FOR_NEXT_SYNC_DELAY_SECS       = isRunningOnEmulator() ? 10 : 3600;
+    public static final int TRIGGERED_SYNC_DURATION_SECS        = isRunningOnEmulator() ? 20 : 300;
 
     /**
      * Directory where config is exported to and imported from.

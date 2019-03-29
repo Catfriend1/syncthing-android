@@ -72,6 +72,13 @@
             android:summary="@string/run_in_flight_mode_summary"
             android:defaultValue="false" />
 
+        <!-- Run on time schedule -->
+        <CheckBoxPreference
+            android:key="run_on_time_schedule"
+            android:title="@string/run_on_time_schedule_title"
+            android:summary="@string/run_on_time_schedule_summary"
+            android:defaultValue="false" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

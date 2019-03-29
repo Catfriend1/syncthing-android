@@ -147,6 +147,11 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <service android:name=".service.SyncthingService" />
+        <service
+            android:name=".service.SyncTriggerJobService"
+            android:label="SyncTriggerJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+       </service>
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

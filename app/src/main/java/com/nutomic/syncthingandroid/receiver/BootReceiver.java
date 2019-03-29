@@ -18,6 +18,10 @@ public class BootReceiver extends BroadcastReceiver {
 
     private static final String TAG = "BootReceiver";
 
+    /**
+     * For testing purposes:
+     * adb root & adb shell am broadcast -a android.intent.action.BOOT_COMPLETED
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         Boolean bootCompleted = intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED);

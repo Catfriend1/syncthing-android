@@ -19,11 +19,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.ReceiverManager;
+import com.nutomic.syncthingandroid.util.JobUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,6 +42,9 @@ public class RunConditionMonitor {
     private static final String TAG = "RunConditionMonitor";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
+
+    public static final String ACTION_SYNC_TRIGGER_FIRED =
+        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED";
 
     private static final String POWER_SOURCE_CHARGER_BATTERY = "ac_and_battery_power";
     private static final String POWER_SOURCE_CHARGER = "ac_power";
@@ -87,8 +92,16 @@ public class RunConditionMonitor {
 
     private final Context mContext;
     private ReceiverManager mReceiverManager;
+    private @Nullable SyncTriggerReceiver mSyncTriggerReceiver = null;
     private Resources res;
     private String mRunDecisionExplanation = "";
+
+    /**
+     * Only relevant if the user has enabled turning Syncthing on by
+     * time schedule for a specific amount of time periodically.
+     * Holds true if we are within a "SyncthingNative should run" time frame.
+     */
+    private Boolean mTimeConditionMatch = false;
 
     @Inject
     SharedPreferences mPreferences;
@@ -142,15 +155,30 @@ public class RunConditionMonitor {
         mSyncStatusObserverHandle = ContentResolver.addStatusChangeListener(
                 ContentResolver.SYNC_OBSERVER_TYPE_SETTINGS, mSyncStatusObserver);
 
+        // SyncTriggerReceiver
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mContext);
+        mSyncTriggerReceiver = new SyncTriggerReceiver();
+        localBroadcastManager.registerReceiver(mSyncTriggerReceiver,
+                new IntentFilter(ACTION_SYNC_TRIGGER_FIRED));
+
         // Initially determine if syncthing should run under current circumstances.
         updateShouldRunDecision();
+
+        // Initially schedule the SyncTrigger job.
+        JobUtils.scheduleSyncTriggerServiceJob(context, Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS);
     }
 
     public void shutdown() {
         LogV("Shutting down");
+        JobUtils.cancelAllScheduledJobs(mContext);
         if (mSyncStatusObserverHandle != null) {
             ContentResolver.removeStatusChangeListener(mSyncStatusObserverHandle);
             mSyncStatusObserverHandle = null;
+        }
+        if (mSyncTriggerReceiver != null) {
+            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mContext);
+            localBroadcastManager.unregisterReceiver(mSyncTriggerReceiver);
+            mSyncTriggerReceiver = null;
         }
         mReceiverManager.unregisterAllReceivers(mContext);
     }
@@ -180,6 +208,38 @@ public class RunConditionMonitor {
             if (PowerManager.ACTION_POWER_SAVE_MODE_CHANGED.equals(intent.getAction())) {
                 updateShouldRunDecision();
             }
+        }
+    }
+
+    private class SyncTriggerReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            LogV("SyncTriggerReceiver: onReceive");
+            boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
+            if (!prefRunOnTimeSchedule) {
+                mTimeConditionMatch = false;
+            } else {
+                /**
+                 * Toggle the "digital input" for this condition as the condition change is
+                 * triggered by a time schedule and not the OS notifying us.
+                 */
+                mTimeConditionMatch = !mTimeConditionMatch;
+                updateShouldRunDecision();
+            }
+
+            /**
+             * Reschedule the job.
+             * If we are within a "SyncthingNative should run" time frame,
+             * let the receiver fire and change to "SyncthingNative shouldn't run" after
+             * TRIGGERED_SYNC_DURATION_SECS seconds elapsed.
+             * If we are within a "SyncthingNative shouldn't run" time frame,
+             * let the receiver fire and change to "SyncthingNative should run" after
+             * WAIT_FOR_NEXT_SYNC_DELAY_SECS seconds elapsed.
+             */
+            JobUtils.scheduleSyncTriggerServiceJob(
+                    context,
+                    mTimeConditionMatch ? Constants.TRIGGERED_SYNC_DURATION_SECS : Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
+            );
         }
     }
 
@@ -301,6 +361,15 @@ public class RunConditionMonitor {
         boolean prefRespectPowerSaving = mPreferences.getBoolean(Constants.PREF_RESPECT_BATTERY_SAVING, true);
         boolean prefRespectMasterSync = mPreferences.getBoolean(Constants.PREF_RESPECT_MASTER_SYNC, false);
         boolean prefRunInFlightMode = mPreferences.getBoolean(Constants.PREF_RUN_IN_FLIGHT_MODE, false);
+        boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
+
+        // PREF_RUN_ON_TIME_SCHEDULE
+        if (prefRunOnTimeSchedule && !mTimeConditionMatch) {
+            // Currently, we aren't within a "SyncthingNative should run" time frame.
+            LogV("decideShouldRun: PREF_RUN_ON_TIME_SCHEDULE && !mTimeConditionMatch");
+            mRunDecisionExplanation = res.getString(R.string.reason_not_within_time_frame);
+            return false;
+        }
 
         // PREF_POWER_SOURCE
         switch (prefPowerSource) {

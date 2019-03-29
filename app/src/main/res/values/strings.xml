@@ -457,6 +457,9 @@ Please report any problems you encounter via Github.</string>
     <string name="run_in_flight_mode_title">Run without network connection</string>
     <string name="run_in_flight_mode_summary">Enabling this option will cause Syncthing to run even when you\'re offline. Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
 
+    <string name="run_on_time_schedule_title">Run according to time schedule</string>
+    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync every hour for the duration of 5 minutes. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Autostart</string>
     <string name="behaviour_autostart_summary">Start app automatically on operating system startup.</string>
@@ -781,6 +784,7 @@ Please report any problems you encounter via Github.</string>
     <!-- RunConditionMonitor -->
 
     <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_within_time_frame">You enabled \'Run according to time schedule\' and the last sync was no more than an hour ago.</string>
     <string name="reason_not_charging">Phone is not charging.</string>
     <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
