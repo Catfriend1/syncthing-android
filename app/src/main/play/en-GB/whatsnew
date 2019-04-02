@@ -8,5 +8,5 @@ Enhancements
 * Suggest new folder creation on primary storage (#379)
 * Enable largeBlocks for new folders by default (#301)
 Notes
-* Syncthing v1.1.0
+* Syncthing v1.1.1
 * Refer to GitHub for detailed change log.
