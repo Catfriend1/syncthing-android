@@ -2,9 +2,9 @@ Fixes
 * Show notification if SDcard is full (#382)
 * Support for Android 10 Q
 Enhancements
-* Add option to sync every hour for 5 minutes (#387)
+* Dark theme (#401)
+* Option to sync every hour for 5 minutes (#387)
 * Show total downloaded and uploaded bytes
-* RecentChanges List: Add refresh button (#380)
 * Suggest new folder creation on primary storage (#379)
 * Enable largeBlocks for new folders by default (#301)
 Notes
