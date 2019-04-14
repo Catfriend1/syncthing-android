@@ -82,6 +82,33 @@
     </PreferenceScreen>
 
     <PreferenceScreen
+        android:key="category_user_interface"
+        android:title="@string/category_user_interface">
+
+        <!-- App Theme -->
+        <ListPreference
+            android:key="app_theme"
+            android:title="@string/preference_app_theme_title"
+            android:entries="@array/app_theme_names"
+            android:entryValues="@array/app_theme_values"
+            android:defaultValue="1" />
+
+        <!-- Expert mode -->
+        <CheckBoxPreference
+            android:key="expert_mode"
+            android:title="@string/expert_mode_title"
+            android:summary="@string/expert_mode_summary"
+            android:defaultValue="false" />
+
+        <!-- Language -->
+        <ListPreference
+            android:key="pref_current_language"
+            android:title="@string/preference_language_title"
+            android:summary="@string/preference_language_summary" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
         android:key="category_behaviour"
         android:title="@string/category_behaviour">
 
@@ -106,18 +133,6 @@
             android:entries="@array/suggest_new_folder_root_entries"
             android:summary="@null"
             android:defaultValue="external_android_data" />
-
-        <!-- Expert mode -->
-        <CheckBoxPreference
-            android:key="expert_mode"
-            android:title="@string/expert_mode_title"
-            android:summary="@string/expert_mode_summary"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:key="pref_current_language"
-            android:title="@string/preference_language_title"
-            android:summary="@string/preference_language_summary" />
 
     </PreferenceScreen>
 

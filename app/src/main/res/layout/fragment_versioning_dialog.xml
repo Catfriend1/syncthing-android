@@ -34,7 +34,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="end"
                 android:text="@string/finish"
-                android:textColor="@color/primary_dark" />
+                android:textColor="?attr/colorControlNormal" />
 
         </LinearLayout>
     </ScrollView>

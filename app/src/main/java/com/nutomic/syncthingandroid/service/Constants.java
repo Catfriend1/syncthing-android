@@ -29,14 +29,16 @@ public class Constants {
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
     public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
 
+    // Preferences - User Interface
+    public static final String PREF_APP_THEME                       = "app_theme";
+    public static final String PREF_EXPERT_MODE                     = "expert_mode";
+
     // Preferences - Behaviour
     public static final String PREF_USE_ROOT                        = "use_root";
 
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT         = "suggest_new_folder_root";
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_DATA    = "external_android_data";
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_MEDIA   = "external_android_media";
-
-    public static final String PREF_EXPERT_MODE                     = "expert_mode";
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
@@ -94,6 +96,12 @@ public class Constants {
      * Read via REST API call in {@link RestApi#updateDebugFacilitiesCache} after first successful binary startup.
      */
     public static final String PREF_DEBUG_FACILITIES_AVAILABLE  = "debug_facilities_available";
+
+    /**
+     * Available app themes
+     */
+    public static final String APP_THEME_LIGHT                  = "1";
+    public static final String APP_THEME_DARK                   = "2";
 
     /**
      * Available folder types.

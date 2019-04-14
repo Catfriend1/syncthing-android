@@ -9,7 +9,7 @@
         android:layout_margin="10dp"
         android:text="@string/command"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="?attr/colorControlNormal"
         android:textSize="18sp"
         android:textStyle="bold" />
 

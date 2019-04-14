@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,7 +19,7 @@ import com.nutomic.syncthingandroid.fragments.dialog.TrashCanVersioningFragment;
 import java.util.Arrays;
 import java.util.List;
 
-public class VersioningDialogActivity extends AppCompatActivity {
+public class VersioningDialogActivity extends ThemedAppCompatActivity {
 
     private Fragment mCurrentFragment;
 

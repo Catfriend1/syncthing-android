@@ -3,7 +3,6 @@ package com.nutomic.syncthingandroid.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -13,7 +12,7 @@ import com.nutomic.syncthingandroid.R;
 import java.util.Arrays;
 import java.util.List;
 
-public class PullOrderDialogActivity extends AppCompatActivity {
+public class PullOrderDialogActivity extends ThemedAppCompatActivity {
 
     public static final String EXTRA_PULL_ORDER = "com.github.catfriend1.syncthingandroid.activities.PullOrderDialogActivity.PULL_ORDER";
     public static final String EXTRA_RESULT_PULL_ORDER = "com.github.catfriend1.syncthingandroid.activities.PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER";

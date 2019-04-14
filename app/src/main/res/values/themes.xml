@@ -4,7 +4,7 @@
     <!-- Activity themes -->
     <eat-comment/>
 
-    <style name="Theme.Syncthing.Base" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Syncthing.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -22,6 +22,7 @@
 
         <item name="android:spinnerStyle">@style/Widget.AppCompat.Spinner.Underlined</item>
         <item name="android:spinnerItemStyle">@style/Widget.Syncthing.TextView.SpinnerItem</item>
+        <item name="android:alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
     </style>
 
     <style name="Theme.Syncthing" parent="Theme.Syncthing.Base"/>
@@ -41,14 +42,14 @@
     <!-- Dialog themes -->
     <eat-comment/>
 
-    <style name="Theme.Syncthing.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <style name="Theme.Syncthing.Dialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="colorAccent">@color/primary_dark</item>
     </style>
 
     <!-- Toolbar themes -->
     <eat-comment/>
 
-    <style name="ThemeOverlay.Syncthing.Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="ThemeOverlay.Syncthing.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:windowBackground">@null</item>
         <item name="colorAccent">@android:color/white</item>
     </style>

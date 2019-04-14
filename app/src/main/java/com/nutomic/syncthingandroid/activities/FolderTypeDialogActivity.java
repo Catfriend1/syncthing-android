@@ -3,7 +3,6 @@ package com.nutomic.syncthingandroid.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,7 +13,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import java.util.Arrays;
 import java.util.List;
 
-public class FolderTypeDialogActivity extends AppCompatActivity {
+public class FolderTypeDialogActivity extends ThemedAppCompatActivity {
 
     public static final String EXTRA_FOLDER_TYPE = "com.github.catfriend1.syncthingandroid.activities.FolderTypeDialogActivity.FOLDER_TYPE";
     public static final String EXTRA_RESULT_FOLDER_TYPE = "com.github.catfriend1.syncthingandroid.activities.FolderTypeDialogActivity.EXTRA_RESULT_FOLDER_TYPE";

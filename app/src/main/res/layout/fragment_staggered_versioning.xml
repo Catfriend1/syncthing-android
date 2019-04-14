@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="@string/maximum_age"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorControlNormal"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_margin="10dp"
@@ -42,7 +42,7 @@
             android:layout_margin="10dp"
             android:text="@string/versions_path"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorControlNormal"
             android:textSize="18sp"
             android:textStyle="bold"
             />

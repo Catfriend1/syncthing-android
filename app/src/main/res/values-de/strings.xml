@@ -402,6 +402,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="settings_title">Einstellungen</string>
 
     <string name="category_run_conditions">Laufkonditionen</string>
+
+    <string name="category_user_interface">Benutzeroberfläche</string>
+
+    <string name="preference_app_theme_title">Thema</string>
+
     <string name="category_behaviour">Verhalten</string>
 
     <string name="category_syncthing_options">Syncthing-Optionen</string>
