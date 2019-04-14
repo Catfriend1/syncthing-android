@@ -6,6 +6,7 @@ import android.content.Context;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
+import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.util.ConfigXml;
@@ -162,6 +163,30 @@ public class ConfigRouter {
 
         // Syncthing is running and REST API is available.
         restApi.removeDevice(deviceID);       // This will send the config afterwards.
+    }
+
+    public Gui getGui(RestApi restApi) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not (yet) available.
+            configXml.loadConfig();
+            return configXml.getGui();
+        }
+
+        // Syncthing is running and REST API is available.
+        return restApi.getGui();
+    }
+
+    public void updateGui(RestApi restApi, final Gui gui) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not (yet) available.
+            configXml.loadConfig();
+            configXml.updateGui(gui);
+            configXml.saveChanges();
+            return;
+        }
+
+        // Syncthing is running and REST API is available.
+        restApi.updateGui(gui);       // This will send the config afterwards.
     }
 
     public Options getOptions(RestApi restApi) {

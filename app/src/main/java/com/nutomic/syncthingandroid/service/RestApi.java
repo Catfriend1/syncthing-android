@@ -596,6 +596,13 @@ public class RestApi {
         }
     }
 
+    public void updateGui(Gui newGui) {
+        synchronized (mConfigLock) {
+            mConfig.gui = newGui;
+            sendConfig();
+        }
+    }
+
     /**
      * Returns a deep copy of object.
      *
