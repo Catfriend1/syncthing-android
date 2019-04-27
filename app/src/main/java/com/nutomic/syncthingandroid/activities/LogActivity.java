@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +20,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.List;
 
 /**
  * Shows the log information from Syncthing.
@@ -148,12 +153,63 @@ public class LogActivity extends SyncthingActivity {
          * @param syncthingLog Filter on Syncthing's native messages.
          */
         private String getLog(final boolean syncthingLog) {
+            String output;
             if (syncthingLog) {
-                String output = Util.runShellCommandGetOutput("/system/bin/logcat -t 300 -v time -s SyncthingNativeCode", false);
-                return output.replaceAll("SyncthingNativeCode", "");
+                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time -s SyncthingNativeCode", false);
             } else {
-                return Util.runShellCommandGetOutput("/system/bin/logcat -t 300 -v time *:i ps:s art:s", false);
+                // Get Android log.
+                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time *:i ps:s art:s", false);
             }
+
+            // Filter Android log.
+            output = output.replaceAll("I/SyncthingNativeCode", "");
+            // Remove PID.
+            output = output.replaceAll("\\(\\s?[0-9]+\\):", "");
+            String[] lines = output.split("\n");
+            List<String> list = new ArrayList<String>(Arrays.asList(lines));
+            ListIterator<String> it = list.listIterator();
+            while (it.hasNext()) {
+                String logline = it.next();
+                if (
+                            logline.contains("--- beginning of ") ||
+                            logline.contains("W/ActionBarDrawerToggle") ||
+                            logline.contains("W/ActivityThread") ||
+                            logline.contains("I/chatty") ||
+                            logline.contains("/Choreographer") ||
+                            logline.contains("W/chmod") ||
+                            logline.contains("/chromium") ||
+                            logline.contains("/ContentCatcher") ||
+                            logline.contains("/cr_AwContents") ||
+                            logline.contains("/cr_base") ||
+                            logline.contains("/cr_BrowserStartup") ||
+                            logline.contains("/cr_ChildProcessConn") ||
+                            logline.contains("/cr_ChildProcLH") ||
+                            logline.contains("/cr_CrashFileManager") ||
+                            logline.contains("/cr_LibraryLoader") ||
+                            logline.contains("/cr_media") ||
+                            logline.contains("/cr_MediaCodecUtil") ||
+                            logline.contains("I/ConfigStore") ||
+                            logline.contains("/eglCodecCommon") ||
+                            logline.contains("/ngandroid.debu") ||
+                            logline.contains("/OpenGLRenderer") ||
+                            logline.contains("/PacProxySelector") ||
+                            logline.contains("W/sh") ||
+                            logline.contains("/StrictMode") ||
+                            logline.contains("/VideoCapabilities") ||
+                            logline.contains("I/WebViewFactory") ||
+                            logline.contains("I/X509Util") ||
+                            logline.contains("/zygote64")
+                        ) {
+                    it.remove();
+                    continue;
+                }
+                // Remove date.
+                logline = logline.replaceFirst("^[0-9]{2}-[0-9]{2}\\s", "");
+                // Remove milliseconds.
+                logline = logline.replaceFirst("^([0-9]{2}:[0-9]{2}:[0-9]{2})\\.[0-9]{3}\\s", "$1");
+                it.set(logline);
+            }
+            return TextUtils.join("\n", list.toArray(new String[0]));
         }
     }
 
