@@ -57,6 +57,7 @@ public class NotificationHandler {
             mPersistentChannel.enableLights(false);
             mPersistentChannel.enableVibration(false);
             mPersistentChannel.setSound(null, null);
+            mPersistentChannel.setShowBadge(false);
             mNotificationManager.createNotificationChannel(mPersistentChannel);
 
             mPersistentChannelWaiting = new NotificationChannel(
@@ -65,6 +66,7 @@ public class NotificationHandler {
             mPersistentChannelWaiting.enableLights(false);
             mPersistentChannelWaiting.enableVibration(false);
             mPersistentChannelWaiting.setSound(null, null);
+            mPersistentChannelWaiting.setShowBadge(false);
             mNotificationManager.createNotificationChannel(mPersistentChannelWaiting);
 
             mInfoChannel = new NotificationChannel(
@@ -72,6 +74,7 @@ public class NotificationHandler {
                     NotificationManager.IMPORTANCE_LOW);
             mPersistentChannel.enableVibration(false);
             mPersistentChannel.setSound(null, null);
+            mPersistentChannel.setShowBadge(true);
             mNotificationManager.createNotificationChannel(mInfoChannel);
         } else {
             mPersistentChannel = null;
