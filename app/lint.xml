@@ -13,6 +13,7 @@
     <issue id="UnusedAttribute" severity="ignore" />
     <!-- We don't care about Google App Indexing -->
     <issue id="GoogleAppIndexingWarning" severity="ignore" />
+    <issue id="ProtectedPermissions" severity="ignore" />
     <!-- Disabling battery optimizations is optional, so this warning doesn't apply to us -->
     <issue id="BatteryLife" severity="ignore" />
     <!-- Ignore types in translations (not handled by us) -->
