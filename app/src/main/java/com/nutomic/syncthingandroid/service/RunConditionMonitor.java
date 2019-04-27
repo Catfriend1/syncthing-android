@@ -100,8 +100,9 @@ public class RunConditionMonitor {
      * Only relevant if the user has enabled turning Syncthing on by
      * time schedule for a specific amount of time periodically.
      * Holds true if we are within a "SyncthingNative should run" time frame.
+     * Initial status true because we like to sync on app start, too.
      */
-    private Boolean mTimeConditionMatch = false;
+    private Boolean mTimeConditionMatch = true;
 
     @Inject
     SharedPreferences mPreferences;
@@ -165,7 +166,11 @@ public class RunConditionMonitor {
         updateShouldRunDecision();
 
         // Initially schedule the SyncTrigger job.
-        JobUtils.scheduleSyncTriggerServiceJob(context, Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS);
+        JobUtils.scheduleSyncTriggerServiceJob(context,
+                mTimeConditionMatch ?
+                    Constants.TRIGGERED_SYNC_DURATION_SECS :
+                    Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
+        );
     }
 
     public void shutdown() {
