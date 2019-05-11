@@ -29,6 +29,8 @@
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Plats tillstånd</string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Nyckelgenerering</string>
     <string name="key_generation_success">Säkra nycklar för privat datautbyte har genererats.</string>
 
     <!-- Generic texts used everywhere -->
@@ -46,7 +48,11 @@
 
     <string name="ignore">Ignorera</string>
 
+    <string name="page_x_of_y">Sida %1$s av %2$s</string>
+
     <string name="main_menu">Huvudmeny</string>
+
+    <string name="refresh">Uppdatera</string>
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Bekräfta att avsluta appen</string>
@@ -210,6 +216,9 @@
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mapp-ID får inte vara tom</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">Mappetiketten får inte vara tom</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Mapp-sökvägen får inte vara tom</string>
 
@@ -273,6 +282,9 @@
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enhetens ID får inte vara tom</string>
 
+    <!-- Toast shown when trying to create a device with an empty name -->
+    <string name="device_name_required">Enhetsnamn får inte vara tomt</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Skanna QR-kod</string>
 
@@ -292,6 +304,8 @@
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: appen startar inte vid start</string>
     <!-- RecentChangesActivity -->
+    <string name="no_recent_changes">Det finns inga nya förändringar.</string>
+
     <string name="recent_changes_title">Nya förändringar</string>
     <string name="modified_by_device">Enhet: %1$s</string>
     <string name="modification_time">Tid: %1$s</string>
@@ -320,6 +334,11 @@
     <string name="settings_title">Inställningar</string>
 
     <string name="category_run_conditions">Körvillkor</string>
+
+    <string name="category_user_interface">Användargränssnitt</string>
+
+    <string name="preference_app_theme_title">Tema</string>
+
     <string name="category_behaviour">Beteende</string>
 
     <string name="category_syncthing_options">Syncthing alternativ</string>
@@ -362,6 +381,7 @@
     <string name="run_in_flight_mode_title">Kör utan nätverksanslutning</string>
     <string name="run_in_flight_mode_summary">Om du aktiverar det här alternativet kommer synkronisering att köras även när du är frånkopplad. Aktivera om enheten har problem med att upptäcka manuella Wi-Fi-anslutningar under flygläge.</string>
 
+    <string name="run_on_time_schedule_title">Kör enligt tidsschema</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Starta automatiskt</string>
     <string name="behaviour_autostart_summary">Starta appen automatiskt med operativsystemet.</string>
@@ -470,6 +490,8 @@
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen importerades</string>
     <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
+
+    <string name="dialog_settings_restart_app_title">Omstart krävs</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE-alternativ</string>
@@ -593,13 +615,11 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">Undermapp</string>
 
-    <!-- RunConditionMonitor -->
-
-    <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_charging">Telefonen laddas inte.</string>
     <string name="reason_not_on_battery_power">Telefonen körs inte på batteriet.</string>
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing är inte konfigurerad för att köras på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_not_on_mobile_data">Syncthing får köras på mobildataanslutning men mobildata är inte anslutet.</string>
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
