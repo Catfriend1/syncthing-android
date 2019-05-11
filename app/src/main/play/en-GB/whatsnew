@@ -1,11 +1,5 @@
-Fixes
-* Support Nokia HMD phones (#410) - see Wiki!
-* Sync every hour: Sync when app starts (#411)
-* Show notification badge if user interaction is required (#408)
 Enhancements
-* Shorten logcat excerpts making them more readable (#412)
-* Dark theme (#401)
-* Option to sync every hour for 5 minutes (#387)
+* Add support for SecScanQR barcode scanner
 Notes
-* Syncthing v1.1.1
+* Syncthing v1.1.3
 * Refer to GitHub for detailed change log.
