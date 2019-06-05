@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -45,7 +49,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">보안 키 생성 중. 몇 분 정도 소요될 수 있습니다.</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">폴더</string>
@@ -58,13 +63,10 @@
         <item quantity="other">%1$d / %2$d 파일</item>
     </plurals>
 
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">기기</string>
-
-    <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">발견된 기기가 없습니다</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">최신</string>
@@ -214,6 +216,7 @@
     <string name="settings_title">설정</string>
 
     <string name="category_run_conditions">작동 상태</string>
+
     <string name="category_behaviour">동작</string>
 
     <string name="category_syncthing_options">Syncthing 옵션 </string>
@@ -349,9 +352,6 @@
     <!-- Title of the "share log" menu button -->
     <string name="share_title">공유</string>
 
-    <!-- ShareActivity -->
-
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Syncthing에 저장</string>
 
@@ -451,7 +451,6 @@
     <string name="state_error">오류</string>
     <string name="state_unknown">알 수 없음</string>
     <string name="status_outofsync">동기화 오류</string>
-
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 

@@ -221,6 +221,7 @@
     <string name="settings_title">設定</string>
 
     <string name="category_run_conditions">執行條件</string>
+
     <string name="category_behaviour">行為</string>
 
     <string name="category_syncthing_options">Syncthing 選項</string>

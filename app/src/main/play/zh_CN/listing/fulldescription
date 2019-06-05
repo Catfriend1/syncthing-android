@@ -1,7 +1,7 @@
 This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
 * 每台设备和每个同步文件夹均可设置单独的同步规则
-*最近的更改显示在UI上，单击以打开文件。
-*高功耗是固定的。
+* 最近已更改显示在UI上，单击以打开文件。
+* 电池消耗问题已解决
 * 支持 Android 8 和 9
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.

@@ -1,27 +1,27 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+這是 syncthing-android 的分支，他包含他包含以下主要的增強功能：
+每臺裝置與資料夾都能單獨的設定同步狀態
+即時更改的使用者界面、點擊即開啟檔案
+解決了耗電的問題
+支援 android 8 跟 android 9
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork for Android 提供了 android 系統本身的使用界面來替換 Syncthing 內建的網路界面。Syncthing 用開放、可靠、去中心化的方式取代專有的同步與雲端服務。你的資料只屬於你自己，所以可選擇儲存的位置、與第三方軟體共享的方式，與透過網路傳輸的模式。
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+分支的目標：
+* 与社区一起开发和尝试增强功能。
+*更频繁地释放包装器以识别和修复由同步子模块中的更改引起的错误
+*可在UI中配置增强功能，用户应能够打开和关闭它们
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+在写这篇文章时上游和分叉之间的比较：
+*两者都包含从GitHub官方来源构建的syncthing二进制文件：syncthing/syncthing
+*同步功能和可靠性取决于syncthing二进制子模块版本。
+* Fork与上游相处，有时他们会接受我的改进。
+*策略和发布频率不同
+*只有包含Android UI的包装器由fork处理。
 
-Website: https://github.com/Catfriend1/syncthing-android
+網站：https://github.com/Catfriend1/syncthing-android
 
 原始碼：https://github.com/Catfriend1/syncthing-android
 
 問題回報：https://github.com/Catfriend1/syncthing-android/issues
 
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+翻譯：https://www.transifex.com/projects/p/syncthing-android-1

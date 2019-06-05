@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -48,7 +52,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Gerando chaves de segurança. Isto pode levar alguns minutos.</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">Pastas</string>
@@ -63,13 +68,10 @@
     </plurals>
 
     <string name="open_file_manager">Abrir gerenciador de arquivos</string>
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositivos</string>
-
-    <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">Nenhum dispositivo encontrado</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Atualizado</string>
@@ -232,6 +234,7 @@
     <string name="settings_title">Configurações</string>
 
     <string name="category_run_conditions">Condições de execução</string>
+
     <string name="category_behaviour">Comportamento</string>
 
     <string name="category_syncthing_options">Opções do Syncthing</string>
@@ -391,9 +394,6 @@
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Compartilhar</string>
 
-    <!-- ShareActivity -->
-
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Salvar para o Syncthing</string>
 
@@ -499,7 +499,6 @@
     <string name="state_unknown">Desconhecido</string>
     <string name="state_paused">Pausado</string>
     <string name="status_outofsync">Fora de sincronia</string>
-
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 

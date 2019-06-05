@@ -1,27 +1,27 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+Este é um fork do pacote Syncthing-Android para o Syncthing que traz maiores aprimoramentos, como:
+* Sincronização individual pode ser aplicada por dispositivo e por pasta.
+* Mudanças na interface, agora você pode tocar para abrir arquivos.
+* Problema de "comer a bateria" está resolvido.
+* Suporte ao android 8 e 9.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork para Android é um pacote para o Syncthing que traz uma interface para o Android ao invés da interface web do Syncthing original. Syncthing substitui os serviços proprietários de sincronização e nuvem por algo aberto, confiável e descentralizado. Seus dados são só seus e você deve escolher onde eles estão salvos, se estão sendo compartilhados com terceiros e como estão sendo transmitidos pela Internet.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Objetivos do fork:
+* Desenvolver e testar aprimoramentos junto da comunidade.
+* Lançamentos mais frequentes do pacote para identificar e corrigir erros causados por mudança no submódulo do syncthing.
+* Aprimorar as configurações: os usuários devem poder ligar e desligar os recursos.
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Comparação entre o fork e o projeto original no momento que estou escrevendo isto:
+* Ambos contém os arquivos do syncthing construídos do repositório original no GitHub:syncthing/syncthing.
+* As funcionalidades e confiabilidade do syncthing depende da versão do submódulo do syncthing.
+* O fork se dá bem com o projeto original e às vezes eles pegam minhas melhorias.
+* Estratégia e frequência de lançamentos são diferentes.
+* Apenas o pacote contendo a interface Android  é endereçado pelo fork
 
-Website: https://github.com/Catfriend1/syncthing-android
+Site do projeto: https://github.com/Catfriend1/syncthing-android
 
 Código-fonte: https://github.com/Catfriend1/syncthing-android
 
 Erros: https://github.com/Catfriend1/syncthing-android/issues
 
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+Tradução: https://www.transifex.com/projects/p/syncthing-android-1

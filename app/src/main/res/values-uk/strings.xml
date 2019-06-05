@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- FirstStartActivity -->
@@ -29,7 +33,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Генеруються ключі безпеки. Процедура може зайняти декілька хвилин.</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">Каталоги</string>
@@ -37,9 +42,9 @@
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Жодного каталогу не знайдено</string>
 
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">Пристрої</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -171,6 +176,7 @@
     <string name="settings_title">Налаштування</string>
 
     <string name="category_run_conditions">Умови запуску</string>
+
     <string name="category_syncthing_options">Опції Syncthing</string>
 
     <string name="category_experimental">Експериментальне</string>
@@ -265,9 +271,6 @@
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Поділитися</string>
 
-    <!-- ShareActivity -->
-
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Зберегти в Syncthing</string>
 
@@ -314,7 +317,6 @@
     <string name="state_error">Помилка</string>
     <string name="state_unknown">Невідомо</string>
     <string name="status_outofsync">Не синхронізовано</string>
-
     <string name="folder_type_sendonly">Лише відправка</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Максимальний вік</string>

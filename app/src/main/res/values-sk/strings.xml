@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+]>
+
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -39,7 +43,8 @@
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Syncthing generuje RSA klúč a certifikát. Táto operácia môže chvíľu trvať.</string>
-    <!-- FoldersFragment -->
+
+    <!-- FolderListFragment -->
 
 
     <string name="folders_fragment_title">Adresáre</string>
@@ -47,13 +52,10 @@
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Žiadne adresáre</string>
 
-    <!-- DevicesFragment -->
+    <!-- DeviceListFragment -->
 
-
+    <!-- Devices tab title -->
     <string name="devices_fragment_title">Zariadenia</string>
-
-    <!-- Shown if no devices exist -->
-    <string name="devices_list_empty">Žiadne zariadenia</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Syncrhronizované</string>
@@ -310,5 +312,4 @@
     <string name="state_error">Chyba</string>
     <string name="state_unknown">Neznámy</string>
     <string name="status_outofsync">Nesynchronizované</string>
-
     </resources>

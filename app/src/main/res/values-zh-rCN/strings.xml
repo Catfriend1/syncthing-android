@@ -15,6 +15,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">欢迎使用 Android 版 Syncthing</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">介绍</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
@@ -286,7 +289,6 @@
     <string name="tip_xiaomi_autostart_title">小米：app不会自动启动</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 > 权限 > 应用自启动”允许 Syncthing 自启动</string>
 
-    <!-- RecentChangesActivity -->
     <string name="recent_changes_title">近期修改</string>
     <string name="modified_by_device">设备: %1$s</string>
     <string name="modification_time">时间: %1$s</string>
@@ -318,6 +320,7 @@
     <string name="settings_title">设置</string>
 
     <string name="category_run_conditions">运行条件</string>
+
     <string name="category_behaviour">行为</string>
 
     <string name="category_syncthing_options">同步设置</string>
@@ -618,9 +621,6 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">子文件夹</string>
 
-    <!-- RunConditionMonitor -->
-
-    <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_charging">手机没有给电池充电。</string>
     <string name="reason_on_mobile_data">Syncthing 当前正在在蜂窝网络环境下运行</string>
     <string name="reason_not_on_mobile_data">Syncthing 被允许在蜂窝网络环境下运行 ， 但当前网络未连接至互联网</string>

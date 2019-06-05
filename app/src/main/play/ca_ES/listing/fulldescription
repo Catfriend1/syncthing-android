@@ -1,27 +1,27 @@
 Versió alternativa de l'embolcall Syncthing-Android per al Syncthing que incorpora grans millores com:
 * Es poden establir condicions de sincronització individuals per dispositiu i carpeta
-* Recent changes UI, click to open files.
+* Interfície gràfica de canvis recents, clic per obrir fitxers.
 * Arreglat el problema amb el consum de bateria.
 * Suport per Android 8 i 9.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+El Syncthing-Fork per Android és un embolcall per al Syncthing que proporciona una interfície Android enlloc de la interfície web integrada amb el Syncthing's. El Syncthing substitueix els serveis propietaris de sincronització i d'emmagatzematge en el núvol per una alternativa oberta, confiable i descentralitzada. Les vostres dades són només vostres, i heu de poder triar on voleu que s'emmagatzemin, si es comparteixen amb tercers i com es transmeten per Internet.
 
 Objectius de la versió alternativa:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+* Desenvolupar i provar millores conjuntament amb la comunitat.
+* Publicar l'aplicació amb més freqüència per identificar i resoldre errors causats per canvis en el submòdul del syncthing
+* Fer les millores configurables des de la interfície, els usuaris han de poder activar-les i desactivar-les
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Comparativa entre la versió oficial i l'alternativa en el moment d'escriure això:
+* Totes dues contenen el binari del syncthing compilat des del lloc oficial a GitHub:syncthing/syncthing
+* La funcionalitat i fiabilitat de la sincronització depen de la versió del submòdul binari del syncthing
+* La versió alternativa es porta bé amb la oficial i a vegades recullen les millores que hi faig.
+* L'estratègia i la freqüència de publicació és diferent
+* La versió alternativa només s'encarrega de l'embolcall que conté la interfície d'usuari.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Pàgina web: https://github.com/Catfriend1/syncthing-android
 
 Codi font: https://github.com/Catfriend1/syncthing-android
 
 Problemes: https://github.com/Catfriend1/syncthing-android/issues
 
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+Traducció: https://www.transifex.com/projects/p/syncthing-android-1
