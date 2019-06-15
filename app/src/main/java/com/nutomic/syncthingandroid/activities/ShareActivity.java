@@ -44,6 +44,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
+
 /**
  * Shares incoming files to syncthing folders.
  * <p>
@@ -119,6 +121,8 @@ public class ShareActivity extends SyncthingActivity
         super.onCreate(savedInstanceState);
         mConfig = new ConfigRouter(ShareActivity.this);
         setContentView(R.layout.activity_share);
+
+        getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         Button mShareButton = findViewById(R.id.share_button);
         Button mCancelButton = findViewById(R.id.cancel_button);
