@@ -114,6 +114,10 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                             binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         }
                         break;
+                    case "scan-waiting":
+                        binding.state.setText(mContext.getString(R.string.state_scan_waiting));
+                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        break;
                     case "scanning":
                         binding.state.setText(mContext.getString(R.string.state_scanning));
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
