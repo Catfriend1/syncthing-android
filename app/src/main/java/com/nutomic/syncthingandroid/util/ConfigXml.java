@@ -438,7 +438,6 @@ public class ConfigXml {
             folder.hashers = getContentOrDefault(r.getElementsByTagName("hashers").item(0), folder.hashers);
             folder.order = getContentOrDefault(r.getElementsByTagName("order").item(0), folder.order);
             folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), folder.paused);
-            folder.useLargeBlocks = getContentOrDefault(r.getElementsByTagName("useLargeBlocks").item(0), folder.useLargeBlocks);
             folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), folder.ignoreDelete);
             folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), folder.copyOwnershipFromParent);
 
@@ -535,7 +534,6 @@ public class ConfigXml {
                 setConfigElement(r, "hashers", Integer.toString(folder.hashers));
                 setConfigElement(r, "order", folder.order);
                 setConfigElement(r, "paused", Boolean.toString(folder.paused));
-                setConfigElement(r, "useLargeBlocks", Boolean.toString(folder.useLargeBlocks));
                 setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
 
                 // Update devices that share this folder.
@@ -1003,7 +1001,6 @@ public class ConfigXml {
         folder.setAttribute("type", Constants.FOLDER_TYPE_SEND_ONLY);
         folder.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
         folder.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
-        setConfigElement(folder, "useLargeBlocks", Boolean.toString(defaultFolder.useLargeBlocks));
         return true;
     }
 

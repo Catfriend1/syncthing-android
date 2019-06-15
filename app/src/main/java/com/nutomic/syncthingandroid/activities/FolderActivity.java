@@ -111,7 +111,6 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mPullOrderDescriptionView;
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
-    private SwitchCompat mVariableSizeBlocks;
     private ViewGroup mIgnoreDeleteContainer;
     private SwitchCompat mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
@@ -175,10 +174,6 @@ public class FolderActivity extends SyncthingActivity {
                     }
                     mFolderNeedsToUpdate = true;
                     break;
-                case R.id.variableSizeBlocks:
-                    mFolder.useLargeBlocks = isChecked;
-                    mFolderNeedsToUpdate = true;
-                    break;
                 case R.id.ignoreDelete:
                     mFolder.ignoreDelete = isChecked;
                     mFolderNeedsToUpdate = true;
@@ -214,7 +209,6 @@ public class FolderActivity extends SyncthingActivity {
         mPullOrderDescriptionView = findViewById(R.id.pullOrderDescription);
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
-        mVariableSizeBlocks = findViewById(R.id.variableSizeBlocks);
         mIgnoreDeleteContainer = findViewById(R.id.ignoreDeleteContainer);
         mIgnoreDelete = findViewById(R.id.ignoreDelete);
         mDevicesContainer = findViewById(R.id.devicesContainer);
@@ -476,7 +470,6 @@ public class FolderActivity extends SyncthingActivity {
         mFolderFileWatcher.setOnCheckedChangeListener(null);
         mFolderPaused.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
-        mVariableSizeBlocks.setOnCheckedChangeListener(null);
         mIgnoreDelete.setOnCheckedChangeListener(null);
 
         // Update views
@@ -487,7 +480,6 @@ public class FolderActivity extends SyncthingActivity {
         updateVersioningDescription();
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         mFolderPaused.setChecked(mFolder.paused);
-        mVariableSizeBlocks.setChecked(mFolder.useLargeBlocks);
         mIgnoreDelete.setChecked(mFolder.ignoreDelete);
         findViewById(R.id.editIgnoresContainer).setVisibility(mIsCreateMode ? View.GONE : View.VISIBLE);
 
@@ -523,7 +515,6 @@ public class FolderActivity extends SyncthingActivity {
         mFolderFileWatcher.setOnCheckedChangeListener(mCheckedListener);
         mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);
-        mVariableSizeBlocks.setOnCheckedChangeListener(mCheckedListener);
         mIgnoreDelete.setOnCheckedChangeListener(mCheckedListener);
     }
 

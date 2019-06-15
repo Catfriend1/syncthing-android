@@ -216,10 +216,6 @@ Please report any problems you encounter via Github.</string>
     <string name="folder_fileWatcherDescription">Asks operating system to notify about changes to files. If disabled falls back to periodic hourly scans.</string>
 
     <!-- Setting title and description -->
-    <string name="folder_variable_size_blocks_caption">Variable Size Blocks</string>
-    <string name="folder_variable_size_blocks_description">Variable size blocks (also "large blocks") are more efficient for large files. If you enable this on one folder, you have to enable it for this folder on all devices.</string>
-
-    <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignore Delete</string>
     <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See &folder_ignore_delete_docs_url;</string>
 

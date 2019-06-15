@@ -281,39 +281,6 @@
 
             </LinearLayout>
 
-            <!-- variableSizeBlocks -->
-            <LinearLayout
-                android:id="@+id/variableSizeBlocksContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackground"
-                android:orientation="vertical"
-                android:gravity="center_vertical"
-                android:focusable="true">
-
-                <android.support.v7.widget.SwitchCompat
-                    android:id="@+id/variableSizeBlocks"
-                    style="@style/Widget.Syncthing.TextView.Label.Details"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:drawableLeft="@drawable/ic_developer_board_black_24dp"
-                    android:drawableStart="@drawable/ic_developer_board_black_24dp"
-                    android:text="@string/folder_variable_size_blocks_caption" />
-
-                <TextView
-                    android:id="@+id/variableSizeBlocksDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
-                    android:layout_marginStart="75dp"
-                    android:layout_marginTop="-20dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:text="@string/folder_variable_size_blocks_description"
-                    android:focusable="false"/>
-
-            </LinearLayout>
-
             <!-- ignoreDelete -->
             <LinearLayout
                 android:id="@+id/ignoreDeleteContainer"
