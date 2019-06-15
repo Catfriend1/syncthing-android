@@ -49,10 +49,10 @@ tx push -s
 # tx pull -a --mode reviewed -r "syncthing-android-1.stringsxml"
 # tx pull -l de --mode reviewed -r "syncthing-android-1.stringsxml"
 #
-tx pull -a -f -r "syncthing-android-1.stringsxml" &
-tx pull -a -f -r "syncthing-android-1.description_fulltxt" &
-tx pull -a -f -r "syncthing-android-1.description_shorttxt" &
-tx pull -a -f -r "syncthing-android-1.titletxt" &
+tx pull -a --mode reviewed -r "syncthing-android-1.stringsxml" &
+tx pull -a --mode reviewed -r "syncthing-android-1.description_fulltxt" &
+tx pull -a --mode reviewed -r "syncthing-android-1.description_shorttxt" &
+tx pull -a --mode reviewed -r "syncthing-android-1.titletxt" &
 wait
 ./gradlew deleteUnsupportedPlayTranslations
 git add -A "app/src/main/play/"
