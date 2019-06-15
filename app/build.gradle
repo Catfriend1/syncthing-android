@@ -61,8 +61,8 @@ android {
         }
         debug {
             gradle.buildFinished {
-                buildResult -> if (!buildResult.failure) {
-                    postBuildScript.execute()
+                buildResult -> if (buildResult.failure) {
+                    logger.lifecycle("BUILD FAILED")
                 }
             }
         }
@@ -87,8 +87,8 @@ play {
 
 tasks.whenTaskAdded { task ->
     if (task.name == 'compileDebugSources') {
-        task.dependsOn lint
-        task.mustRunAfter lint
+        // task.dependsOn lint
+        // task.mustRunAfter lint
     }
 }
 
