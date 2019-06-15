@@ -15,9 +15,6 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">欢迎使用 Android 版 Syncthing</string>
 
-    <!-- Welcome wizard -->
-    <!-- Slide "Introduction" -->
-    <string name="introduction">介绍</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>

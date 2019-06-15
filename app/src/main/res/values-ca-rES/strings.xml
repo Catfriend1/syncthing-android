@@ -206,8 +206,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="folder_fileWatcherDescription">Demana al sistema que notifiqui dels canvis als fitxers. Si es desactiva es faran comprovacions cada hora.</string>
 
     <!-- Setting title and description -->
-    <string name="folder_variable_size_blocks_caption">Blocs de Mida Variable</string>
-    <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignora els Esborrats</string>
     <!-- Setting title -->
     <string name="folder_pause">Posa la carpeta en pausa</string>

@@ -27,7 +27,6 @@
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
-    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
 
     <!-- Slide "Location Permission" -->
@@ -185,10 +184,6 @@
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Следить за изменениями</string>
     <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
-
-    <!-- Setting title and description -->
-    <string name="folder_variable_size_blocks_caption">Блоки переменного размера</string>
-    <string name="folder_variable_size_blocks_description">Блоки переменного размера (также «большие блоки») более эффективны для больших файлов. Если вы включаете это для какой-либо папки, вы также должны включить это для этой папки на всех устройствах.</string>
 
     <!-- Setting title -->
     <string name="folder_pause">Приостановить папку</string>
