@@ -47,6 +47,20 @@ public class Options {
     // Since v1.0.0, see https://github.com/syncthing/syncthing/pull/4888
     public int maxConcurrentScans = 1;
 
+    // Since v1.2.0
+    public String crashReportingURL = "https://crash.syncthing.net/newcrash";
+    public boolean crashReportingEnabled = true;
+    public int stunKeepaliveStartS = 180;
+    public int stunKeepaliveMinS = 20;
+    public String stunServer = "default";
+
+    // Items that may be temporarily missing because they are empty.
+    /**
+     * Possible notification IDs:
+     * crAutoEnabled                   (crash reporting after upgrade to v1.2.0)
+     */
+    public String unackedNotificationID = "";
+
     public static class MinHomeDiskFree {
         public float value = 1;
         public String unit = "%";

@@ -309,11 +309,13 @@ public class ConfigXml {
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node node = childNodes.item(i);
             if (node.getNodeName().equals("unackedNotificationID")) {
-                if (node.equals("fsWatcherNotification")) {
-                    Log.i(TAG, "Remove found unackedNotificationID 'fsWatcherNotification'.");
-                    options.removeChild(node);
-                    changed = true;
-                    break;
+                switch (getContentOrDefault(node, "")) {
+                    case "crAutoEnabled":
+                    case "fsWatcherNotification":
+                        Log.i(TAG, "Remove found unackedNotificationID '" + node + "'.");
+                        options.removeChild(node);
+                        changed = true;
+                        break;
                 }
             }
         }
@@ -908,6 +910,12 @@ public class ConfigXml {
         options.setLowPriority = getContentOrDefault(elementOptions.getElementsByTagName("setLowPriority").item(0), options.setLowPriority);
         // minHomeDiskFree
         options.maxConcurrentScans = getContentOrDefault(elementOptions.getElementsByTagName("maxConcurrentScans").item(0), options.maxConcurrentScans);
+        options.unackedNotificationID = getContentOrDefault(elementOptions.getElementsByTagName("unackedNotificationID").item(0), options.unackedNotificationID);
+        options.crashReportingURL = getContentOrDefault(elementOptions.getElementsByTagName("crashReportingURL").item(0), options.crashReportingURL);
+        options.crashReportingEnabled =getContentOrDefault(elementOptions.getElementsByTagName("crashReportingEnabled").item(0), options.crashReportingEnabled);
+        options.stunKeepaliveStartS = getContentOrDefault(elementOptions.getElementsByTagName("stunKeepaliveStartS").item(0), options.stunKeepaliveStartS);
+        options.stunKeepaliveMinS = getContentOrDefault(elementOptions.getElementsByTagName("stunKeepaliveMinS").item(0), options.stunKeepaliveMinS);
+        options.stunServer = getContentOrDefault(elementOptions.getElementsByTagName("stunServer").item(0), options.stunServer);
         return options;
     }
 
