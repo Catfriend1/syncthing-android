@@ -526,6 +526,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="usage_reporting">Anonymer Nutzungsbericht</string>
 
+    <string name="crash_reporting">Anonymer Absturzbericht</string>
+
     <string name="webui_tcp_port_title">Web UI TCP Port</string>
 
     <string name="webui_remote_access_title">Web UI Fernzugriff</string>

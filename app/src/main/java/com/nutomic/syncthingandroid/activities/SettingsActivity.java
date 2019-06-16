@@ -195,6 +195,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
+        private CheckBoxPreference mCrashReportingEnabled;
         private CheckBoxPreference mWebUIDebugging;
         private Preference mDownloadSupportBundle;
 
@@ -342,6 +343,7 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
             mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
+            mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
             mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
@@ -540,6 +542,7 @@ public class SettingsActivity extends SyncthingActivity {
                 mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
                 mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
                 mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
+                mCrashReportingEnabled.setChecked(mOptions.crashReportingEnabled);
             }
 
             // Web GUI tcp port and bind ip address.
@@ -705,6 +708,9 @@ public class SettingsActivity extends SyncthingActivity {
                 case "urAccepted":
                     mRestApi.setUsageReporting((boolean) o);
                     mOptions = mRestApi.getOptions();
+                    break;
+                case "crashReportingEnabled":
+                    mOptions.crashReportingEnabled = (boolean) o;
                     break;
                 case KEY_WEBUI_DEBUGGING:
                     mGui.debugging = (boolean) o;

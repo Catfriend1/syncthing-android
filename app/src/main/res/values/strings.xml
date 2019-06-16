@@ -529,6 +529,8 @@ Please report any problems you encounter via Github.</string>
 
     <string name="usage_reporting">Anonymous Usage Reporting</string>
 
+    <string name="crash_reporting">Anonymous Crash Reporting</string>
+
     <string name="webui_tcp_port_title">Web UI TCP Port</string>
 
     <string name="webui_remote_access_title">Web UI remote access</string>

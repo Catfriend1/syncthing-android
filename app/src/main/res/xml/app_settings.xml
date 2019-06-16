@@ -224,6 +224,11 @@
             android:persistent="false" />
 
         <CheckBoxPreference
+            android:key="crashReportingEnabled"
+            android:title="@string/crash_reporting"
+            android:persistent="false" />
+
+        <CheckBoxPreference
             android:key="webUIDebugging"
             android:title="@string/webui_debugging_title"
             android:summary="@string/webui_debugging_summary"
