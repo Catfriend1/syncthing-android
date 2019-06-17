@@ -14,7 +14,10 @@ REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
 SET SYNCTHING_RELEASE_KEY_ALIAS=Syncthing-Fork
 title %SYNCTHING_RELEASE_KEY_ALIAS% - Build and Release
 REM 
-SET PATH=C:\Program Files\Android\Android Studio\jre\bin;%PATH%
+SET GIT_INSTALL_DIR=%ProgramFiles%\Git
+SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
+REM 
+SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin";%PATH%
 REM
 echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" GPlay release.
 REM 
@@ -66,6 +69,20 @@ REM Workaround for play-publisher issue, see https://github.com/Triple-T/gradle-
 :clearPlayPublisherCache
 IF EXIST "app\build\generated\gpp" rd /s /q "app\build\generated\gpp"
 IF EXIST "app\build\generated\gpp" TASKKILL /F /IM java.exe & sleep 1 & goto :clearPlayPublisherCache
+REM 
+REM Remove "app\src\main\play\listings\[lang]\graphics\icon" folders because of GPlay API Error #500.
+rd /s /q "app\src\main\play\listings\de-DE\graphics\icon"
+rd /s /q "app\src\main\play\listings\en-GB\graphics\icon"
+REM 
+REM Publish text and image resources to GPlay
+echo [INFO] Publishing descriptive resources to GPlay ...
+call gradlew --quiet publishReleaseListing
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishReleaseListing" exited with code #%RESULT%. & goto :eos
+REM 
+REM Revert removed play icon resources.
+git checkout -- "app\src\main\play\listings\de-DE\graphics\icon\*"
+git checkout -- "app\src\main\play\listings\en-GB\graphics\icon\*"
 REM 
 REM Publish APK to GPlay
 echo [INFO] Publishing APK to GPlay ...
