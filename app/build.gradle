@@ -20,6 +20,10 @@ dependencies {
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
 }
 
+apply from: 'versions.gradle'
+def ourVersionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
+def ourVersionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
+
 android {
     // Changes to these values need to be reflected in `.travis.yml`
     compileSdkVersion 28
@@ -37,8 +41,8 @@ android {
         applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1020001
-        versionName "1.2.0.1"
+        versionCode ourVersionCode
+        versionName ourVersionName
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         playAccountConfig = playAccountConfigs.defaultAccountConfig
