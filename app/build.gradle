@@ -3,19 +3,19 @@ apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.github.triplet.play'
 
 dependencies {
-    implementation 'eu.chainfire:libsuperuser:1.0.0.201704021214'
+    implementation 'eu.chainfire:libsuperuser:1.1.0.201903290044'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.google.zxing:android-integration:3.3.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'org.mindrot:jbcrypt:0.4'
     // com.google.guava:guava:24.1-jre will crash on Android 5.x
-    implementation 'com.google.guava:guava:26.0-android'
+    implementation 'com.google.guava:guava:27.1-android'
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.google.dagger:dagger:2.21'
-    annotationProcessor "com.google.dagger:dagger-compiler:2.21"
+    implementation 'com.google.dagger:dagger:2.23.1'
+    annotationProcessor "com.google.dagger:dagger-compiler:2.23.1"
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
 }
@@ -32,9 +32,9 @@ android {
     buildTypes.debug.applicationIdSuffix ".debug"
     dataBinding.enabled = true
 
-    playAccountConfigs {
+    playConfigs {
         defaultAccountConfig {
-            jsonFile = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
+            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
         }
     }
     defaultConfig {
@@ -45,7 +45,6 @@ android {
         versionName ourVersionName
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-        playAccountConfig = playAccountConfigs.defaultAccountConfig
     }
 
     signingConfigs {
@@ -83,10 +82,9 @@ android {
 }
 
 play {
-    jsonFile = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
-    errorOnSizeLimit = false
-    uploadImages = false
+    serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
     track = 'beta'
+    resolutionStrategy = 'auto'
 }
 
 tasks.whenTaskAdded { task ->
@@ -100,10 +98,14 @@ tasks.whenTaskAdded { task ->
  * Some languages are not supported by Google Play, so we ignore them.
  */
 task deleteUnsupportedPlayTranslations(type: Delete) {
-    delete 'src/main/play/nn'
-    delete 'src/main/play/el-EL'
-    delete 'src/main/play/nb'
-    delete 'src/main/play/en/'
+    delete 'src/main/play/listings/el-EL/'
+    delete 'src/main/play/listings/en/'
+    delete 'src/main/play/listings/eu/'
+    delete 'src/main/play/listings/nb/'
+    delete 'src/main/play/listings/nl_BE/'
+    delete 'src/main/play/listings/nl-BE/'
+    delete 'src/main/play/listings/nn/'
+    delete 'src/main/play/listings/ta/'
 }
 
 task postBuildScript(type: Exec) {

@@ -52,7 +52,6 @@ ext/
 \#enable_push_to_device
 
 # Unsupported translations
-app/src/main/play/el-EL
-app/src/main/play/en
-app/src/main/play/nb
-app/src/main/play/nn
+app/src/main/play/listings/nb
+app/src/main/play/listings/nl-BE
+app/src/main/play/listings/nn

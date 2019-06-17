@@ -9,23 +9,22 @@ source_lang = en
 type = ANDROID
 
 [syncthing-android-1.description_fulltxt]
-file_filter = app/src/main/play/<lang>/listing/fulldescription
-lang_map = ja: ja-JP, sv: sv-SE, da: da-DK, de: de-DE, el: el-EL, es: es-ES, fi: fi-FI, it: it-IT, pl: pl-PL, nl: nl-NL, ru: ru-RU, no: no-NO, pt: pt-PT, ko: ko-KR, cs: cs-CZ, hu: hu-HU, fr: fr-FR, tr: tr-TR
-source_file = app/src/main/play/en-GB/listing/fulldescription
-source_lang = en_GB
+file_filter = app/src/main/play/listings/<lang>/full-description.txt
+lang_map = ca_ES: ca, cs: cs-CZ, da: da-DK, de_AT: de-AT, de: de-DE, el: el-GR, en: en-GB, es_EC: es-419, es_MX: es-US, es: es-ES, eu: eu-ES, fi: fi-FI, fr: fr-FR, hu: hu-HU, it: it-IT, ja: ja-JP, ko: ko-KR, nl: nl-NL, nl_BE: nl-BE, no: no-NO, pl: pl-PL, pt_BR: pt-BR, pt: pt-PT, ru: ru-RU, sv: sv-SE, ta: ta-IN, tr: tr-TR, uk_UA: uk-UA, zh_CN: zh-CN, zh_TW: zh-TW
+source_file = app/src/main/play/listings/en-GB/full-description.txt
+source_lang = en
 type = TXT
 
 [syncthing-android-1.description_shorttxt]
-file_filter = app/src/main/play/<lang>/listing/shortdescription
-lang_map = ja: ja-JP, sv: sv-SE, da: da-DK, de: de-DE, el: el-EL, es: es-ES, fi: fi-FI, it: it-IT, pl: pl-PL, nl: nl-NL, ru: ru-RU, no: no-NO, pt: pt-PT, ko: ko-KR, cs: cs-CZ, hu: hu-HU, fr: fr-FR, tr: tr-TR
-source_file = app/src/main/play/en-GB/listing/shortdescription
-source_lang = en_GB
+file_filter = app/src/main/play/listings/<lang>/short-description.txt
+lang_map = ca_ES: ca, cs: cs-CZ, da: da-DK, de: de-DE, de_AT: de-AT, el: el-GR, en: en-GB, es_EC: es-419, es_MX: es-US, es: es-ES, eu: eu-ES, fi: fi-FI, fr: fr-FR, hu: hu-HU, it: it-IT, ja: ja-JP, ko: ko-KR, nl: nl-NL, nl_BE: nl-BE, no: no-NO, pl: pl-PL, pt_BR: pt-BR, pt: pt-PT, ru: ru-RU, sv: sv-SE, ta: ta-IN, tr: tr-TR, uk_UA: uk-UA, zh_CN: zh-CN, zh_TW: zh-TW
+source_file = app/src/main/play/listings/en-GB/short-description.txt
+source_lang = en
 type = TXT
 
 [syncthing-android-1.titletxt]
-file_filter = app/src/main/play/<lang>/listing/title
-lang_map = ja: ja-JP, sv: sv-SE, da: da-DK, de: de-DE, el: el-EL, es: es-ES, fi: fi-FI, it: it-IT, pl: pl-PL, nl: nl-NL, ru: ru-RU, no: no-NO, pt: pt-PT, ko: ko-KR, cs: cs-CZ, hu: hu-HU, fr: fr-FR, tr: tr-TR
-source_file = app/src/main/play/en-GB/listing/title
-source_lang = en_GB
+file_filter = app/src/main/play/listings/<lang>/title.txt
+lang_map = ca_ES: ca, cs: cs-CZ, da: da-DK, de: de-DE, de_AT: de-AT, el: el-GR, en: en-GB, es_EC: es-419, es_MX: es-US, es: es-ES, eu: eu-ES, fi: fi-FI, fr: fr-FR, hu: hu-HU, it: it-IT, ja: ja-JP, ko: ko-KR, nl: nl-NL, nl_BE: nl-BE, no: no-NO, pl: pl-PL, pt_BR: pt-BR, pt: pt-PT, ru: ru-RU, sv: sv-SE, ta: ta-IN, tr: tr-TR, uk_UA: uk-UA, zh_CN: zh-CN, zh_TW: zh-TW
+source_file = app/src/main/play/listings/en-GB/title.txt
+source_lang = en
 type = TXT
-
