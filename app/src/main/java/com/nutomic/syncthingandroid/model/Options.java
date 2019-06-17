@@ -57,6 +57,7 @@ public class Options {
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
+     * crAutoDisabled                  (crash reporting after upgrade to v1.2.0)
      * crAutoEnabled                   (crash reporting after upgrade to v1.2.0)
      */
     public String unackedNotificationID = "";
