@@ -190,6 +190,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_media") ||
                             logline.contains("/cr_MediaCodecUtil") ||
                             logline.contains("I/ConfigStore") ||
+                            logline.contains("/dalvikvm") ||
                             logline.contains("/eglCodecCommon") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/ngandroid.debu") ||
@@ -203,6 +204,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("I/WebViewFactory") ||
                             logline.contains("I/X509Util") ||
+                            logline.contains("/zygote") ||
                             logline.contains("/zygote64")
                         ) {
                     it.remove();
