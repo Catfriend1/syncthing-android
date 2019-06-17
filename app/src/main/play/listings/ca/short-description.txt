@@ -1,0 +1,1 @@
+Wrapper for Syncthing - Sincronització de fitxers oberta i descentralitzada.

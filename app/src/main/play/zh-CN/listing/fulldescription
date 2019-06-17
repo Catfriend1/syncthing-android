@@ -1,9 +1,0 @@
-This is a fork of the syncthing-android wrapper for syncthing.
-
-Syncthing 是开源、分布式且值得信赖的同步服务。它为取代专有的云同步服务而生。你的数据尽在您的掌握之中并且可以选择数据存储的位置。例如与第三方共享及如何在互联网中传送。
-
-主页：https://syncthing.net/
-
-源代码：https://github.com/Catfriend1/syncthing-android
-
-问题回报：https://github.com/Catfriend1/syncthing-android/issues
