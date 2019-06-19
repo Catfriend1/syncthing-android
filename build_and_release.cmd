@@ -83,15 +83,15 @@ call gradlew --quiet publishReleaseListing
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishReleaseListing" exited with code #%RESULT%. & goto :eos
 REM 
-REM Revert removed play icon resources.
-git checkout -- "app\src\main\play\listings\de-DE\graphics\icon\*"
-git checkout -- "app\src\main\play\listings\en-GB\graphics\icon\*"
-REM 
 REM Publish APK to GPlay
 echo [INFO] Publishing APK to GPlay ...
 call gradlew --quiet publishRelease
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishRelease" exited with code #%RESULT%. & goto :eos
+REM 
+REM Revert removed play icon resources.
+git checkout -- "app\src\main\play\listings\de-DE\graphics\icon\*"
+git checkout -- "app\src\main\play\listings\en-GB\graphics\icon\*"
 REM 
 goto :eos
 :eos
