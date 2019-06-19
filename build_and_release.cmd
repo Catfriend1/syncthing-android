@@ -6,35 +6,40 @@ cls
 REM 
 REM Script Consts.
 SET CLEANUP_BEFORE_BUILD=1
+SET SKIP_RELEASE_BUILD=0
 REM
 REM Runtime Variables.
 REM 
 REM SET SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
 SET SYNCTHING_RELEASE_KEY_ALIAS=Syncthing-Fork
-title %SYNCTHING_RELEASE_KEY_ALIAS% - Build and Release
+title %SYNCTHING_RELEASE_KEY_ALIAS% - Build Debug and Release APK
 REM 
 SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
 REM 
 SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin";%PATH%
-REM
-echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" GPlay release.
-REM 
-echo [INFO] Checking prerequisites ...
-IF NOT EXIST "%SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE%" echo [ERROR] SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE env var not set or file does not exist. & goto :eos
 REM 
 echo [INFO] Checking if SyncthingNative was built before starting this script ...
-REM 
 SET LIBCOUNT=
 for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthing.so"') DO SET LIBCOUNT=%%A
 IF NOT "%LIBCOUNT%" == "3" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. Please run "gradlew buildNative" first. & goto :eos
+REM 
+REM Check if we should skip the release build and just make a debug build.
+IF "%SKIP_RELEASE_BUILD%" == "1" goto :absLint
+REM
+echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" GPlay release.
+REM 
+echo [INFO] Checking release prerequisites ...
+IF NOT EXIST "%SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE%" echo [ERROR] SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE env var not set or file does not exist. & goto :eos
 REM 
 REM User has to enter the signing password if it is not filled in here.
 SET SIGNING_PASSWORD=
 :enterSigningPassword
 IF NOT DEFINED SIGNING_PASSWORD SET /p SIGNING_PASSWORD=Enter signing password:
 IF NOT DEFINED SIGNING_PASSWORD echo [ERROR] Signing password is required. Please retry. & goto :enterSigningPassword
+REM 
+:absLint
 REM 
 echo [INFO] Running lint before building ...
 call gradlew --quiet lint
@@ -48,12 +53,17 @@ SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleDebug" exited with code #%RESULT%. & goto :eos
 type "app\build\intermediates\merged_manifests\debug\AndroidManifest.xml" | findstr /i "android:version"
 REM 
+REM Check if we should skip the release build and just make a debug build.
+IF "%SKIP_RELEASE_BUILD%" == "1" goto :absPostBuildScript
+REM
 IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk" 2> NUL:
 echo [INFO] Building Android APK variant "release" ...
 call gradlew --quiet assembleRelease
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleRelease" exited with code #%RESULT%. & goto :eos
 type "app\build\intermediates\merged_manifests\release\AndroidManifest.xml" | findstr /i "android:version"
+REM 
+:absPostBuildScript
 REM 
 echo [INFO] Running OPTIONAL post build script ...
 call gradlew --quiet postBuildScript
@@ -62,6 +72,9 @@ echo [INFO] Deleting unsupported play translations ...
 call gradlew --quiet deleteUnsupportedPlayTranslations
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew deleteUnsupportedPlayTranslations" exited with code #%RESULT%. & goto :eos
+REM 
+REM Check if we should skip the release upload and finish here.
+IF "%SKIP_RELEASE_BUILD%" == "1" goto :eos
 REM 
 :askUserReadyToPublish
 SET UI_ANSWER=
