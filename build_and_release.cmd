@@ -55,6 +55,9 @@ SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleRelease" exited with code #%RESULT%. & goto :eos
 type "app\build\intermediates\merged_manifests\release\AndroidManifest.xml" | findstr /i "android:version"
 REM 
+echo [INFO] Running OPTIONAL post build script ...
+call gradlew --quiet postBuildScript
+REM 
 echo [INFO] Deleting unsupported play translations ...
 call gradlew --quiet deleteUnsupportedPlayTranslations
 SET RESULT=%ERRORLEVEL%
