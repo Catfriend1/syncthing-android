@@ -1,0 +1,129 @@
+@echo off
+setlocal enabledelayedexpansion
+SET SCRIPT_PATH=%~dps0
+cd /d "%SCRIPT_PATH%"
+title Update and Build SyncthingNative "libsyncthing.so"
+cls
+REM 
+REM Script Consts.
+SET CLEAN_SRC_BEFORE_BUILD=1
+SET USE_GO_DEV=1
+SET DESIRED_SUBMODULE_VERSION=v1.2.0-rc.2
+SET GRADLEW_PARAMS=-q
+REM
+REM Runtime Variables.
+SET PATH=%PATH%;"%ProgramFiles%\Git\bin"
+REM
+echo [INFO] Checking prerequisites ...
+REM 
+IF NOT EXIST "%ProgramFiles%\Git\bin\git.exe" echo [ERROR] git not found. Install "Git for Windows" first. & goto :eos
+REM 
+where /q sed
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH. & goto :eos
+REM 
+IF "%CLEAN_SRC_BEFORE_BUILD%" == "1" call :cleanBeforeBuild 
+REM 
+echo [INFO] Fetching submodule "Syncthing" 1/2 ...
+md "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing" 2> NUL:
+git submodule init
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] git submodule init FAILED. & goto :eos
+REM 
+echo [INFO] Fetching submodule "Syncthing" 2/2 ...
+git submodule update --init --recursive --quiet
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] git submodule update FAILED. & goto :eos
+REM 
+cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
+echo [INFO] Fetching GitHub tags ...
+git fetch --quiet --all
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] git fetch FAILED. & goto :eos
+REM 
+echo [INFO] Checking out syncthing_%DESIRED_SUBMODULE_VERSION% ...
+git checkout %DESIRED_SUBMODULE_VERSION% 2>&1 | find /i "HEAD is now at"
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] git checkout FAILED. & goto :eos
+REM 
+cd /d "%SCRIPT_PATH%"
+REM
+IF "%USE_GO_DEV%" == "1" call :applyGoDev
+REM 
+echo [INFO] Building submodule syncthing_%DESIRED_SUBMODULE_VERSION% ...
+call gradlew %GRADLEW_PARAMS% buildNative
+SET RESULT=%ERRORLEVEL%
+IF "%USE_GO_DEV%" == "1" call :revertGoDev
+IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. & goto :eos
+REM 
+echo [INFO] Checking if SyncthingNative was built successfully ...
+REM 
+SET LIBCOUNT=
+for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthing.so"') DO SET LIBCOUNT=%%A
+IF NOT "%LIBCOUNT%" == "3" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. You should fix that first. & goto :eos
+REM 
+goto :eos
+
+:cleanBeforeBuild
+REM 
+REM Syntax:
+REM 	call :cleanBeforeBuild
+REM 
+echo [INFO] Performing cleanup ...
+rd /s /q "app\src\main\jniLibs" 2> NUL:
+rd /s /q "syncthing\src\github.com\syncthing\syncthing" 2> NUL:
+REM
+goto :eof
+
+:applyGoDev
+REM 
+REM Syntax:
+REM 	call :applyGoDev
+REM 
+echo [INFO] Using go-dev instead of go-stable for this build ...
+sed -e "s/GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'/GO_EXPECTED_SHASUM_WINDOWS = '2fff556d0adaa6fda8300b0751a91a593c359f27265bc0fc7594f9eba794f907'/g" "syncthing\build-syncthing.py" > "%TEMP%\build-syncthing.py.tmp"
+move /y "%TEMP%\build-syncthing.py.tmp" "syncthing\build-syncthing.py" 1> NUL:
+REM
+goto :eof
+
+:revertGoDev
+REM 
+REM Syntax:
+REM 	call :revertGoDev
+REM 
+echo [INFO] Reverting to go-stable ...
+git checkout -- "syncthing\build-syncthing.py"
+SET TMP_RESULT=%ERRORLEVEL%
+IF NOT "%TMP_RESULT%" == "0" echo [ERROR] git checkout "build-syncthing.py" FAILED. & pause & goto :eof
+REM
+goto :eof
+
+:applyGoDevByCommit
+REM 
+REM [UNUSED-FUNC]
+REM 
+REM Syntax:
+REM 	call :applyGoDevByCommit [commit/revert]
+REM 
+REM Consts.
+SET GO_DEV_COMMIT=032c562105b871c2a77e59e3be3de2ada26a365d
+REM 
+IF "%1" == "commit" echo [INFO] Using go-dev instead of go-stable for this build ... & git cherry-pick --quiet %GO_DEV_COMMIT% & goto :eof
+REM 
+REM Revert without leaving a commit on the master.
+SET TMP_GODEV_COMMIT_CNT=0
+for /f "delims= " %%A IN ('git log -1 --pretty^=oneline 2^>^&1 ^| findstr /I /C:"Build with godev"') do SET TMP_GODEV_COMMIT_CNT=1
+IF NOT "%TMP_GODEV_COMMIT_CNT%" == "1" echo [ERROR] Failed to revert go-dev to go-stable - commit not found. & pause & goto :eof
+echo [INFO] Reverting to go-stable ...
+git reset --quiet --hard HEAD~1
+SET TMP_RESULT=%ERRORLEVEL%
+IF NOT "%TMP_RESULT%" == "0" echo [ERROR] git reset FAILED. & pause & goto :eof
+REM
+goto :eof
+
+:eos
+REM 
+echo [INFO] End of Script.
+REM
+pause
+goto :eof
+
