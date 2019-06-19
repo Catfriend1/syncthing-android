@@ -1,5 +1,5 @@
 Notes
-* Syncthing v1.2.0-rc.1
+* Syncthing v1.2.0-rc.2
 * Refer to GitHub for detailed change log.
 Enhancements
 * Add UI for "Anonymous Crash Reporting" pref
