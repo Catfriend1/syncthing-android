@@ -21,6 +21,12 @@ public class FolderStatus {
     public long needFiles;
     public long needSymlinks;
     public long pullErrors;
+    public long receiveOnlyChangedBytes;
+    public long receiveOnlyChangedDeletes;
+    public long receiveOnlyChangedDirectories;
+    public long receiveOnlyChangedFiles;
+    public long receiveOnlyChangedSymlinks;
+    public long receiveOnlyTotalItems;
     public long sequence;
     public String state;
     public String stateChanged;

@@ -96,6 +96,13 @@ public class SyncthingService extends Service {
             "com.github.catfriend1.syncthingandroid.SyncthingService.OVERRIDE_CHANGES";
 
     /**
+     * Intent action to revert local folder changes.
+     */
+    public static final String ACTION_REVERT_LOCAL_CHANGES =
+            "com.github.catfriend1.syncthingandroid.SyncthingService.REVERT_LOCAL_CHANGES";
+
+
+    /**
      * Extra used together with ACTION_IGNORE_DEVICE, ACTION_IGNORE_FOLDER.
      */
     public static final String EXTRA_NOTIFICATION_ID =
@@ -349,6 +356,8 @@ public class SyncthingService extends Service {
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_OVERRIDE_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             mRestApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
+        } else if (ACTION_REVERT_LOCAL_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
+            mRestApi.revertLocalChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
         }
         return START_STICKY;
     }

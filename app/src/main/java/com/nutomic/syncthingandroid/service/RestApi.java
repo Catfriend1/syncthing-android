@@ -383,6 +383,16 @@ public class RestApi {
     }
 
     /**
+     * Revert local folder changes. This is the same as hitting
+     * the "Revert local changes" button from the web UI.
+     */
+    public void revertLocalChanges(String folderId) {
+        Log.d(TAG, "revertLocalChanges '" + folderId + "'");
+        new PostRequest(mContext, mUrl, PostRequest.URI_DB_REVERT, mApiKey,
+            ImmutableMap.of("folder", folderId), null, null);
+    }
+
+    /**
      * Sends current config to Syncthing.
      * Will result in a "ConfigSaved" event.
      * EventProcessor will trigger this.reloadConfig().

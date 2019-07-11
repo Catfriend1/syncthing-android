@@ -130,6 +130,11 @@ Please report any problems you encounter via Github.</string>
     <!-- Override Changes Confirmation Dialog -->
     <string name="override_changes_question">This will undo all changes made on the other devices sharing this folder. Proceed?</string>
 
+    <string name="revert_local_changes">Revert local changes</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">This will undo all changes made on this device within that folder. Proceed?</string>
+
     <string name="open_file_manager">Open file manager</string>
     <string name="open_file_with">Open file with</string>
     <string name="open_file_no_compatible_app">No app found to open the file.</string>

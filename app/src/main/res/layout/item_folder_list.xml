@@ -44,26 +44,49 @@
                 android:ellipsize="end"
                 android:textAppearance="?textAppearanceListItemSecondary" />
 
-            <Button
-                android:id="@+id/override"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/directory"
-                android:contentDescription="@string/override_changes"
-                android:paddingEnd="20dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingStart="20dp"
-                android:text="@string/override_changes"
-                android:drawableLeft="@android:drawable/ic_menu_upload"
-                android:drawableStart="@android:drawable/ic_menu_upload"
-                android:textSize="12sp" />
+            <RelativeLayout
+                    android:id="@+id/override_revert_container"
+                    android:layout_below="@id/directory"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+
+                <Button
+                    android:id="@+id/override"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/override_changes"
+                    android:paddingEnd="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/override_changes"
+                    android:drawableLeft="@drawable/ic_cloud_upload_red_24"
+                    android:drawableStart="@drawable/ic_cloud_upload_red_24"
+                    android:drawablePadding="5sp"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/revert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/revert_local_changes"
+                    android:paddingEnd="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/revert_local_changes"
+                    android:drawableLeft="@drawable/ic_cloud_download_red_24"
+                    android:drawableStart="@drawable/ic_cloud_download_red_24"
+                    android:drawablePadding="5sp"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/items"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/override"
+                android:layout_below="@id/override_revert_container"
                 android:textAppearance="?textAppearanceListItemSecondary" />
 
             <TextView

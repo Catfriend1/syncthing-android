@@ -124,6 +124,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="override_changes">Änderungen überschreiben</string>
 
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">Dadurch werden alle Änderungen rückgängig gemacht, die in diesem Ordner auf anderen Geräten vorgenommen wurden. Fortfahren?</string>
+
+    <string name="revert_local_changes">Lokale Änderungen zurücksetzen</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Dadurch werden alle in diesem Ordner auf diesem Gerät vorgenommenen Änderungen rückgängig gemacht. Fortfahren?</string>
+
     <string name="open_file_manager">Dateimanager öffnen</string>
     <string name="open_file_with">Öffne Datei mit</string>
     <string name="open_file_no_compatible_app">Keine App zum Öffnen der Datei gefunden.</string>
@@ -865,7 +873,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     </string-array>
 
     <!-- Possible folder states -->
-    <string name="state_idle">Untätig</string>
+    <string name="state_idle">Aktuell</string>
     <string name="state_scanning">Scannen</string>
     <string name="state_scan_waiting">Warte auf Scan</string>
     <string name="state_syncing_general">Synchronisiere</string>

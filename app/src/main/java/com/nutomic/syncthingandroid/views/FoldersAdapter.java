@@ -55,6 +55,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         binding.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
         binding.directory.setText(folder.path);
         binding.override.setOnClickListener(view -> { onClickOverride(view, folder); } );
+        binding.revert.setOnClickListener(view -> { onClickRevert(view, folder); } );
         binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
 
         // Update folder icon.
@@ -79,6 +80,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         if (folderStatus == null) {
             binding.items.setVisibility(GONE);
             binding.override.setVisibility(GONE);
+            binding.revert.setVisibility(GONE);
             binding.size.setVisibility(GONE);
             binding.state.setVisibility(GONE);
             setTextOrHide(binding.invalid, folder.invalid);
@@ -89,6 +91,10 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         boolean outOfSync = folderStatus.state.equals("idle") && neededItems > 0;
         boolean overrideButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
         binding.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
+
+        boolean revertButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) && (folderStatus.receiveOnlyTotalItems > 0);
+        binding.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
+
         binding.state.setVisibility(VISIBLE);
         if (outOfSync) {
             binding.state.setText(mContext.getString(R.string.status_outofsync));
@@ -198,6 +204,21 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                     Intent intent = new Intent(mContext, SyncthingService.class)
                             .putExtra(SyncthingService.EXTRA_FOLDER_ID, folder.id);
                     intent.setAction(SyncthingService.ACTION_OVERRIDE_CHANGES);
+                    mContext.startService(intent);
+                })
+                .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {});
+        confirmDialog.show();
+    }
+
+    private void onClickRevert(View view, Folder folder) {
+        AlertDialog.Builder confirmDialog = new AlertDialog.Builder(mContext)
+                .setTitle(R.string.revert_local_changes)
+                .setMessage(R.string.revert_local_changes_question)
+                .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                    // Send "Revert local changes" through our service to the REST API.
+                    Intent intent = new Intent(mContext, SyncthingService.class)
+                            .putExtra(SyncthingService.EXTRA_FOLDER_ID, folder.id);
+                    intent.setAction(SyncthingService.ACTION_REVERT_LOCAL_CHANGES);
                     mContext.startService(intent);
                 })
                 .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {});
