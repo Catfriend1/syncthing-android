@@ -253,19 +253,39 @@ public class RunConditionMonitor {
      * We then need to decide if syncthing should run.
      */
     public void updateShouldRunDecision() {
-        // Check if the current conditions changed the result of decideShouldRun()
-        // compared to the last determined result.
         boolean newShouldRun = decideShouldRun();
-        if (newShouldRun != lastDeterminedShouldRun) {
-            if (mOnShouldRunChangedListener != null) {
-                mOnShouldRunChangedListener.onShouldRunDecisionChanged(newShouldRun);
-            }
-            lastDeterminedShouldRun = newShouldRun;
+        if (newShouldRun) {
+            /**
+             * Trigger:
+             *  a) Sync pre-conditions changed
+             *      a1) AND SyncthingService.State should remain ACTIVE
+             *      a2) AND SyncthingService.State should transition from INIT/DISABLED to ACTIVE
+             *  b) Sync pre-conditions did not change
+             *      b1) AND SyncthingService.State should remain ACTIVE
+             *          because a reevaluation of the run conditions was forced from code.
+             * Action:
+             *  SyncthingService will evaluate custom per-object run conditions
+             *  and pause/unpause objects accordingly.
+             */
+             if (mOnSyncPreconditionChangedListener != null) {
+                 mOnSyncPreconditionChangedListener.onSyncPreconditionChanged(this);
+             }
         }
 
-        // Notify about changed preconditions.
-        if (mOnSyncPreconditionChangedListener != null) {
-            mOnSyncPreconditionChangedListener.onSyncPreconditionChanged(this);
+        /**
+         * Check if the current conditions changed the result of decideShouldRun()
+         * compared to the last determined result.
+         */
+        if (newShouldRun != lastDeterminedShouldRun) {
+            /**
+             * Notify SyncthingService in case it has to transition from
+             * a) INIT/DISABLED => STARTING => ACTIVE
+             * b) ACTIVE => DISABLED
+             */
+            if (mOnShouldRunChangedListener != null) {
+                mOnShouldRunChangedListener.onShouldRunDecisionChanged(newShouldRun);
+                lastDeterminedShouldRun = newShouldRun;
+            }
         }
     }
 
@@ -461,6 +481,7 @@ public class RunConditionMonitor {
 
     /**
      * Check if an object's individual sync conditions are met.
+     * Precondition: Object must own pref "...CustomSyncConditionsEnabled == true".
      */
     public Boolean checkObjectSyncConditions(String objectPrefixAndId) {
         // Sync on mobile data?
