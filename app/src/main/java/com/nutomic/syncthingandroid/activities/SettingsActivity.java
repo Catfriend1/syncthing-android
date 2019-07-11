@@ -166,6 +166,7 @@ public class SettingsActivity extends SyncthingActivity {
         private PreferenceScreen   mCategoryRunConditions;
         private ListPreference     mPowerSource;
         private CheckBoxPreference mRunOnMobileData;
+        private CheckBoxPreference mRunOnRoaming;
         private CheckBoxPreference mRunOnWifi;
         private CheckBoxPreference mRunOnMeteredWifi;
         private CheckBoxPreference mUseWifiWhitelist;
@@ -285,7 +286,9 @@ public class SettingsActivity extends SyncthingActivity {
             mWifiSsidWhitelist =
                     (WifiSsidPreference) findPreference(Constants.PREF_WIFI_SSID_WHITELIST);
             mRunOnMobileData =
-                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_WIFI);
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_MOBILE_DATA);
+            mRunOnRoaming =
+                    (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_ROAMING);
             mPowerSource =
                     (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
             mRunInFlightMode =
@@ -294,6 +297,8 @@ public class SettingsActivity extends SyncthingActivity {
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
             mWifiSsidWhitelist.setEnabled(mRunOnWifi.isChecked() && mUseWifiWhitelist.isChecked());
+
+            mRunOnRoaming.setEnabled(mRunOnMobileData.isChecked());
 
             screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
             String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
@@ -592,6 +597,9 @@ public class SettingsActivity extends SyncthingActivity {
                         getString(R.string.wifi_ssid_whitelist_empty) :
                         getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
                     );
+                    break;
+                case Constants.PREF_RUN_ON_MOBILE_DATA:
+                    mRunOnRoaming.setEnabled((Boolean) o);
                     break;
             }
             mPendingRunConditions = true;

@@ -46,6 +46,13 @@
             android:summary="@string/run_on_mobile_data_summary"
             android:defaultValue="false" />
 
+        <!-- Sync while roaming -->
+        <CheckBoxPreference
+            android:key="run_on_roaming"
+            android:title="@string/run_on_roaming_title"
+            android:summary="@string/run_on_roaming_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="power_source"
             android:title="@string/power_source_title"

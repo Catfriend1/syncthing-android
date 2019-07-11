@@ -431,6 +431,9 @@ Please report any problems you encounter via Github.</string>
     <string name="run_on_mobile_data_title">Run on mobile data</string>
     <string name="run_on_mobile_data_summary">Run when device is connected via the mobile data network. Warning: This can consume a lot of data from your mobile operator data plan if you sync large amounts of data.</string>
 
+    <string name="run_on_roaming_title">Run while roaming</string>
+    <string name="run_on_roaming_summary">Allow Syncthing to use mobile data while roaming. (!) Please post feedback to GitHub if this works correctly.</string>
+
     <string name="run_on_wifi_title">Run on Wi-Fi</string>
     <string name="run_on_wifi_summary">Run when device is connected to a Wi-Fi or ethernet network.</string>
 
@@ -800,9 +803,17 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
+
+    <!-- ... Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing is not configured to run on mobile data connection.</string>
-    <string name="reason_on_mobile_data">Syncthing is running as mobile data is currently connected.</string>
+    <string name="reason_on_mobile_data">Syncthing is allowed to run on mobile data.</string>
     <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
+
+    <!-- ... Roaming -->
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing is allowed to run on roaming and non-roaming mobile data connections.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing is allowed to run on non-roaming mobile data connections. The active connection is non-roaming.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing is not running as you disallowed it to run on roaming mobile data connections.</string>
+
     <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi or ethernet.</string>
     <string name="reason_on_wifi">Syncthing is allowed to run on WiFi and WiFi is currently connected.</string>
     <string name="reason_not_on_wifi">Syncthing is allowed to run on WiFi but WiFi isn\'t connected or the phone is in flight mode.</string>

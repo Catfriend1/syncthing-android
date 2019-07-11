@@ -428,6 +428,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_on_mobile_data_title">Starte bei mobiler Datenverbindung</string>
     <string name="run_on_mobile_data_summary">Starte, wenn das Gerät über das mobile Datennetzwerk verbunden ist. Warnung: Wenn Du große Datenmengen synchronisierst, kann dies einen hohen Verbrauch deines mobilen Datentarifs verursachen.</string>
 
+    <string name="run_on_roaming_title">Starte während Roaming</string>
+    <string name="run_on_roaming_summary">Ermögliche Syncthing, mobile Daten während dem Roaming zu verwenden. (!) Bitte hinterlasse ein Feedback bei GitHub, wenn dies korrekt funktioniert.</string>
+
     <string name="run_on_wifi_title">Starte bei WLAN-Verbindung</string>
     <string name="run_on_wifi_summary">Starte, wenn das Gerät mit einem WLAN- oder Kabel-Netzwerk verbunden ist.</string>
 
@@ -779,9 +782,17 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_on_battery_power">Telefon wird nicht batteriebetrieben</string>
     <string name="reason_not_while_power_saving">Syncthing läuft nicht, weil das Telefon im Energiesparmodus ist.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing läuft nicht, weil die Android-Kachel \"Automatische Datensynchronisation\" ausgeschaltet ist.</string>
+
+    <!-- ... Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing wurde nicht konfiguriert, die mobile Datenverbindung zu nutzen.</string>
-    <string name="reason_on_mobile_data">Syncthing läuft, weil die mobile Datenverbindung aufgebaut ist.</string>
+    <string name="reason_on_mobile_data">Syncthing darf die mobile Datenverbindung nutzen.</string>
     <string name="reason_not_on_mobile_data">Syncthing darf bei mobiler Datenverbindung laufen, jedoch sind mobile Daten nicht verbunden.</string>
+
+    <!-- ... Roaming -->
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing darf bei mobilen Roaming- und Nicht-Roaming-Datenverbindungen ausgeführt werden.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing darf auf mobilen Datenverbindungen ohne Roaming ausgeführt werden. Die aktive Verbindung ist ohne Roaming.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing läuft nicht, da verboten wurde, dass es auf mobilen Datenverbindungen mit Roaming läuft.</string>
+
     <string name="reason_wifi_disallowed">Syncthing wurde verboten, die WLAN- oder Kabel-Verbindung zu nutzen.</string>
     <string name="reason_on_wifi">Syncthing darf bei WLAN-Verbindung laufen und WLAN ist gerade verbunden.</string>
     <string name="reason_not_on_wifi">Syncthing darf bei WLAN-Verbindung laufen, jedoch ist WLAN gerade nicht verbunden oder das Telefon befindet sich im Flugzeugmodus.</string>

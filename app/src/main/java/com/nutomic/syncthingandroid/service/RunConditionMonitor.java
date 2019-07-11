@@ -375,6 +375,25 @@ public class RunConditionMonitor {
     }
 
     /**
+     * Constants.PREF_RUN_ON_ROAMING
+     */
+    private SyncConditionResult checkConditionSyncOnRoaming(String prefNameSyncOnRoaming) {
+        boolean prefSyncOnRoaming = mPreferences.getBoolean(prefNameSyncOnRoaming, false);
+        if (prefSyncOnRoaming) {
+            // Condition is always met as we allow both types of mobile data networks - roaming and non-roaming.
+            return new SyncConditionResult(true, "\n" + res.getString(R.string.reason_on_roaming_nonroaming_mobile_data));
+        }
+
+        // Check if we are on a non-roaming mobile data network.
+        if (!isRoamingNetworkConnection()) {
+            return new SyncConditionResult(true, "\n" + res.getString(R.string.reason_on_nonroaming_mobile_data));
+        }
+
+        // We disallowed non-roaming mobile data and are connected to a mobile data network in roaming mode.
+        return new SyncConditionResult(false, "\n" + res.getString(R.string.reason_not_nonroaming_mobile_data));
+    }
+
+    /**
      * Determines if Syncthing should currently run.
      * Updates mRunDecisionExplanation.
      */
@@ -439,7 +458,14 @@ public class RunConditionMonitor {
         if (scr.conditionMet) {
             // Mobile data is connected.
             LogV("decideShouldRun: checkConditionSyncOnMobileData");
-            return true;
+
+            scr = checkConditionSyncOnRoaming(Constants.PREF_RUN_ON_ROAMING);
+            mRunDecisionExplanation += scr.explanation;
+            if (scr.conditionMet) {
+                // Mobile data connection type is allowed.
+                LogV("decideShouldRun: checkConditionSyncOnMobileData && checkConditionSyncOnRoaming");
+                return true;
+            }
         }
 
         // Run on WiFi?
@@ -626,6 +652,20 @@ public class RunConditionMonitor {
             default:
                 return false;
         }
+    }
+
+    private boolean isRoamingNetworkConnection() {
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            // In flight mode.
+            return false;
+        }
+        if (!ni.isConnected()) {
+            // No network connection.
+            return false;
+        }
+        return ni.isRoaming();
     }
 
     private boolean isWifiOrEthernetConnection() {
