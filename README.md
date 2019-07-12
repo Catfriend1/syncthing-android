@@ -19,7 +19,7 @@
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
-<img src="app/src/main/play/listings/en-GB/graphics/phoneScreenshots/screenshot_phone_03.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phoneScreenshots/screenshot_phone_06.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phoneScreenshots/screenshot_phone_08.png" alt="screenshot 3" width="200" />
+<img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_03.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_06.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_08.png" alt="screenshot 3" width="200" />
 
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/master/privacy-policy.md).
