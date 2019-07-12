@@ -15,7 +15,7 @@
 - UI explains why syncthing is running or not.
 - "Battery eater" problem is fixed.
 - Android 8, 9 and Q support.
-- Light and Dark theme.
+- Discover other Syncthing devices on the same network and easily add them.
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
 
