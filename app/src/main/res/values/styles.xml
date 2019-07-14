@@ -69,4 +69,11 @@
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
+
+    <!-- SegmentedButton -->
+    <style name="TextViewStyleSegmentedButtonHeader">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

@@ -174,6 +174,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
+
+    <string name="button_follow_run_conditions">Befolge Laufkonditionen</string>
+    <string name="button_force_start">Start erzwingen\nLaufkonditionen ignorieren</string>
+    <string name="button_force_stop">Stopp erzwingen\nLaufkonditionen ignorieren</string>
+
     <string name="syncthing_starting">Syncthing wird gestartet.</string>
     <string name="syncthing_running">Syncthing läuft.</string>
     <string name="syncthing_not_running">Syncthing läuft nicht.</string>
@@ -775,6 +780,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="sub_folder">Unterverzeichnis</string>
 
     <!-- RunConditionMonitor -->
+
+    <string name="reason_force_start">Syncthing läuft, weil Sie den Start unabhängig von den Laufkonditionen erzwungen haben.</string>
+    <string name="reason_force_stop">Syncthing schläft, weil Sie den Stopp unabhängig von den Laufkonditionen erzwungen haben.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Sie haben \'Gemäß Zeitplan synchronisieren\' aktiviert, und die letzte Synchronisierung ist nicht länger als eine Stunde her.</string>

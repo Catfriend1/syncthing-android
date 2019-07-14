@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +30,8 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.util.Util;
+import com.nutomic.syncthingandroid.views.SegmentedButton;
+import com.nutomic.syncthingandroid.views.SegmentedButton.OnClickListenerSegmentedButton;
 
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
@@ -37,6 +40,8 @@ import java.util.Map;
 import java.text.NumberFormat;
 
 import javax.inject.Inject;
+
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 
 /**
  * Displays why syncthing is running or disabled.
@@ -149,6 +154,25 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mActivity = (MainActivity) getActivity();
+
+        // Create button group.
+        SegmentedButton btnForceStartStop = (SegmentedButton) mActivity.findViewById(R.id.forceStartStop);
+        btnForceStartStop.clearButtons();
+        btnForceStartStop.addButtons(
+                getString(R.string.button_follow_run_conditions),
+                getString(R.string.button_force_start),
+                getString(R.string.button_force_stop)
+        );
+        btnForceStartStop.setOnClickListener(new OnClickListenerSegmentedButton() {
+                @Override
+                public void onClick(int index) {
+                    onBtnForceStartStopClick(index);
+                }
+        });
+
+        // Restore last state of button group.
+        int prefBtnStateForceStartStop = mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP);
+        btnForceStartStop.setPushedButtonIndex(prefBtnStateForceStartStop);
     }
 
     @Override
@@ -317,6 +341,20 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
             mUpload += " (" + Util.readableFileSize(mActivity, total.outBytesTotal) + ")";
         }
         updateStatus();
+    }
+
+    private void onBtnForceStartStopClick(int index) {
+        LogV("onBtnForceStartStopClick");
+
+        // Note: "index" is equivalent to the defined integer "Constants.PREF_BTNSTATE_*" values.
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, index);
+        editor.apply();
+
+        // Notify {@link RunConditionMonitor} that the button's state changed.
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mActivity);
+        Intent intent = new Intent(ACTION_UPDATE_SHOULDRUN_DECISION);
+        localBroadcastManager.sendBroadcast(intent);
     }
 
     private void LogV(String logMessage) {
