@@ -46,6 +46,9 @@ public class RunConditionMonitor {
     public static final String ACTION_SYNC_TRIGGER_FIRED =
         "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED";
 
+    public static final String ACTION_UPDATE_SHOULDRUN_DECISION =
+        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION";
+
     private static final String POWER_SOURCE_CHARGER_BATTERY = "ac_and_battery_power";
     private static final String POWER_SOURCE_CHARGER = "ac_power";
     private static final String POWER_SOURCE_BATTERY = "battery_power";
@@ -93,6 +96,7 @@ public class RunConditionMonitor {
     private final Context mContext;
     private ReceiverManager mReceiverManager;
     private @Nullable SyncTriggerReceiver mSyncTriggerReceiver = null;
+    private @Nullable UpdateShouldRunDecisionReceiver mUpdateShouldRunDecisionReceiver = null;
     private Resources res;
     private String mRunDecisionExplanation = "";
 
@@ -162,6 +166,11 @@ public class RunConditionMonitor {
         localBroadcastManager.registerReceiver(mSyncTriggerReceiver,
                 new IntentFilter(ACTION_SYNC_TRIGGER_FIRED));
 
+        // UpdateShouldRunDecisionReceiver
+        mUpdateShouldRunDecisionReceiver = new UpdateShouldRunDecisionReceiver();
+        localBroadcastManager.registerReceiver(mUpdateShouldRunDecisionReceiver,
+                new IntentFilter(ACTION_UPDATE_SHOULDRUN_DECISION));
+
         // Initially determine if syncthing should run under current circumstances.
         updateShouldRunDecision();
 
@@ -180,10 +189,19 @@ public class RunConditionMonitor {
             ContentResolver.removeStatusChangeListener(mSyncStatusObserverHandle);
             mSyncStatusObserverHandle = null;
         }
+
+        // SyncTriggerReceiver
         if (mSyncTriggerReceiver != null) {
             LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mContext);
             localBroadcastManager.unregisterReceiver(mSyncTriggerReceiver);
             mSyncTriggerReceiver = null;
+        }
+
+        // UpdateShouldRunDecisionReceiver
+        if (mUpdateShouldRunDecisionReceiver != null) {
+            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mContext);
+            localBroadcastManager.unregisterReceiver(mUpdateShouldRunDecisionReceiver);
+            mUpdateShouldRunDecisionReceiver = null;
         }
         mReceiverManager.unregisterAllReceivers(mContext);
     }
@@ -245,6 +263,14 @@ public class RunConditionMonitor {
                     context,
                     mTimeConditionMatch ? Constants.TRIGGERED_SYNC_DURATION_SECS : Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
             );
+        }
+    }
+
+    private class UpdateShouldRunDecisionReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            LogV("UpdateShouldRunDecisionReceiver: onReceive");
+            updateShouldRunDecision();
         }
     }
 
@@ -401,11 +427,24 @@ public class RunConditionMonitor {
         mRunDecisionExplanation = "";
 
         // Get sync condition preferences.
+        int prefBtnStateForceStartStop = mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP);
         String prefPowerSource = mPreferences.getString(Constants.PREF_POWER_SOURCE, POWER_SOURCE_CHARGER_BATTERY);
         boolean prefRespectPowerSaving = mPreferences.getBoolean(Constants.PREF_RESPECT_BATTERY_SAVING, true);
         boolean prefRespectMasterSync = mPreferences.getBoolean(Constants.PREF_RESPECT_MASTER_SYNC, false);
         boolean prefRunInFlightMode = mPreferences.getBoolean(Constants.PREF_RUN_IN_FLIGHT_MODE, false);
         boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
+
+        // PREF_BTNSTATE_FORCE_START_STOP
+        switch (prefBtnStateForceStartStop) {
+            case Constants.BTNSTATE_FORCE_START:
+                LogV("decideShouldRun: PREF_BTNSTATE_FORCE_START");
+                mRunDecisionExplanation = res.getString(R.string.reason_force_start);
+                return true;
+            case Constants.BTNSTATE_FORCE_STOP:
+                LogV("decideShouldRun: PREF_BTNSTATE_FORCE_STOP");
+                mRunDecisionExplanation = res.getString(R.string.reason_force_stop);
+                return false;
+        }
 
         // PREF_RUN_ON_TIME_SCHEDULE
         if (prefRunOnTimeSchedule && !mTimeConditionMatch) {

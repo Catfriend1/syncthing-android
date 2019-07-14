@@ -2,6 +2,7 @@ Notes
 * Syncthing v1.2.0
 * Refer to GitHub for detailed change log.
 Enhancements
+* Add button to "force start/stop" regardless of run conditions (#443)
 * Add "roaming" option to run conditions (#441)
 * Add "Revert local changes" button to UI (#439)
 * Override changes: Show confirmation dialog (#436)

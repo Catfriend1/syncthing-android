@@ -177,6 +177,11 @@ Please report any problems you encounter via Github.</string>
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
+
+    <string name="button_follow_run_conditions">FOLLOW RUN CONDITIONS</string>
+    <string name="button_force_start">FORCE START\nIGNORE RUN CONDITIONS</string>
+    <string name="button_force_stop">FORCE STOP\nIGNORE RUN CONDITIONS</string>
+
     <string name="syncthing_starting">Syncthing is starting.</string>
     <string name="syncthing_running">Syncthing is running.</string>
     <string name="syncthing_not_running">Syncthing is not running.</string>
@@ -796,6 +801,9 @@ Please report any problems you encounter via Github.</string>
     <string name="sub_folder">Sub folder</string>
 
     <!-- RunConditionMonitor -->
+
+    <string name="reason_force_start">Syncthing is running because you forced it to start regardless of the run conditions.</string>
+    <string name="reason_force_stop">Syncthing is not running because you forced it to stop regardless of the run conditions.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">You enabled \'Run according to time schedule\' and the last sync was no more than an hour ago.</string>

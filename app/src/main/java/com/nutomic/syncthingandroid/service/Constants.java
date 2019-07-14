@@ -88,6 +88,16 @@ public class Constants {
     public static final String PREF_LOCAL_DEVICE_ID             = "localDeviceID";
 
     /**
+     * {@link RunConditionMonitor}
+     * {@link StatusFragment}
+     */
+    public static final String PREF_BTNSTATE_FORCE_START_STOP   = "btnStateForceStartStop";
+
+    public static final int BTNSTATE_NO_FORCE_START_STOP        = 0;
+    public static final int BTNSTATE_FORCE_START                = 1;
+    public static final int BTNSTATE_FORCE_STOP                 = 2;
+
+    /**
      * {@link EventProcessor}
      */
     public static final String PREF_EVENT_PROCESSOR_LAST_SYNC_ID = "last_sync_id";

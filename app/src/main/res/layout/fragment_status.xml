@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/list"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-</ListView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <com.nutomic.syncthingandroid.views.SegmentedButton
+            android:id="@+id/forceStartStop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:gradientColorOnStart="#00264d"
+            app:gradientColorOnEnd="#004d99"
+            app:gradientColorOffStart="#006bb3"
+            app:gradientColorOffEnd="#4db8ff"
+            app:gradientColorSelectedStart="#46d9ff"
+            app:gradientColorSelectedEnd="#b9e6ff"
+            app:textStyle="@style/TextViewStyleSegmentedButtonHeader"
+            app:strokeColor="#bbbbbb"
+            app:strokeWidth="3dp"
+            app:cornerRadius="10dp"
+            app:btnPaddingTop="10dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</LinearLayout>
