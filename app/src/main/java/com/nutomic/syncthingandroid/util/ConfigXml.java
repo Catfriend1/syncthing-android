@@ -483,20 +483,22 @@ public class ConfigXml {
             */
             folder.versioning = new Folder.Versioning();
             Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
-            folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
-            NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
-            for (int j = 0; j < nodeVersioningParam.getLength(); j++) {
-                Element elementVersioningParam = (Element) nodeVersioningParam.item(j);
-                folder.versioning.params.put(
-                        getAttributeOrDefault(elementVersioningParam, "key", ""),
-                        getAttributeOrDefault(elementVersioningParam, "val", "")
-                );
-                /*
-                Log.v(TAG, "folder.versioning.type=" + folder.versioning.type +
-                        ", key=" + getAttributeOrDefault(elementVersioningParam, "key", "") +
-                        ", val=" + getAttributeOrDefault(elementVersioningParam, "val", "")
-                );
-                */
+            if (elementVersioning != null) {
+                folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
+                NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
+                for (int j = 0; j < nodeVersioningParam.getLength(); j++) {
+                    Element elementVersioningParam = (Element) nodeVersioningParam.item(j);
+                    folder.versioning.params.put(
+                            getAttributeOrDefault(elementVersioningParam, "key", ""),
+                            getAttributeOrDefault(elementVersioningParam, "val", "")
+                    );
+                    /*
+                    Log.v(TAG, "folder.versioning.type=" + folder.versioning.type +
+                            ", key=" + getAttributeOrDefault(elementVersioningParam, "key", "") +
+                            ", val=" + getAttributeOrDefault(elementVersioningParam, "val", "")
+                    );
+                    */
+                }
             }
 
             // For testing purposes only.
