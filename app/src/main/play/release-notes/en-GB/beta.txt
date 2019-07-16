@@ -1,6 +1,8 @@
 Notes
 * Syncthing v1.2.0
 * Refer to GitHub for detailed change log.
+Fixes
+* Fixed crash in config reader (#445)
 Enhancements
 * Add button to "force start/stop" regardless of run conditions (#443)
 * Add "roaming" option to run conditions (#441)
