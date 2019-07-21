@@ -23,7 +23,12 @@
     <string name="finish">Completato</string>
     <string name="generic_example">Esempio</string>
     <string name="generic_error">Errore</string>
+    <string name="generic_help">Aiuto</string>
     <string name="ignore">Ignora</string>
+
+    <string name="page_x_of_y">Pagina %1$s di %2$s</string>
+
+    <string name="main_menu">Menu Principale</string>
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Nuova Cartella</string>

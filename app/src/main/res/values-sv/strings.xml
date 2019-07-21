@@ -143,6 +143,7 @@
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
+
     <string name="syncthing_starting">Syncthing startar.</string>
     <string name="syncthing_running">Syncthing körs.</string>
     <string name="syncthing_not_running">Syncthing körs inte.</string>
@@ -619,9 +620,12 @@
     <string name="reason_not_on_battery_power">Telefonen körs inte på batteriet.</string>
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
+
+    <!-- ... Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing är inte konfigurerad för att köras på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_not_on_mobile_data">Syncthing får köras på mobildataanslutning men mobildata är inte anslutet.</string>
+
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
     <string name="reason_on_wifi">Syncthing är tillåtet att köra på Wi-Fi och Wi-Fi är för närvarande ansluten.</string>
     <string name="reason_not_on_wifi">Syncthing får köras på Wi-Fi men Wi-Fi är inte ansluten eller telefonen är i flygläge.</string>

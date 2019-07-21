@@ -139,6 +139,7 @@
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Статус</string>
+
     <string name="syncthing_starting">Syncthing запускается.</string>
     <string name="syncthing_running">Syncthing запущен.</string>
     <string name="syncthing_not_running">Syncthing не запущен.</string>

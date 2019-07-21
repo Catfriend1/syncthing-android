@@ -159,6 +159,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Estat</string>
+
     <string name="syncthing_starting">El Syncthing s\'està iniciant.</string>
     <string name="syncthing_running">El Syncthing està en funcionament.</string>
     <string name="syncthing_not_running">El Syncthing no està en funcionament.</string>
@@ -699,8 +700,10 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="reason_not_on_battery_power">El telèfon no està connectat a la corrent.</string>
     <string name="reason_not_while_power_saving">El Syncthing no està funcionant perquè el telèfon està en mode d\'estalvi d\'energia.</string>
     <string name="reason_not_while_auto_sync_data_disabled">El Syncthing no està funcionant perquè l\'Android té la funció \'Sincronització automàtica de dades\' desactivada.</string>
+
     <string name="reason_on_mobile_data">El Syncthing està funcionant perquè les dades mòbils estan actives.</string>
     <string name="reason_not_on_mobile_data">El Syncthing pot funcionar amb connexions de dades mòbils però les dades mòbils no estan connectades.</string>
+
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->

@@ -15,6 +15,9 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">欢迎使用 Android 版 Syncthing</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">介绍</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
@@ -138,6 +141,7 @@
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">状态</string>
+
     <string name="syncthing_starting">正在启动 Syncthing</string>
     <string name="syncthing_running">Syncthing 正在运行</string>
     <string name="syncthing_not_running">Syncthing 已停止运行</string>
@@ -621,6 +625,7 @@
     <string name="reason_not_charging">手机没有给电池充电。</string>
     <string name="reason_on_mobile_data">Syncthing 当前正在在蜂窝网络环境下运行</string>
     <string name="reason_not_on_mobile_data">Syncthing 被允许在蜂窝网络环境下运行 ， 但当前网络未连接至互联网</string>
+
     <string name="reason_on_flight_mode">允许 Syncthing 在飞行模式下运行</string>
     <!-- SyncthingService -->
 
