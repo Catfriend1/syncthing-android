@@ -492,6 +492,17 @@ public class SyncthingRunnable implements Runnable {
         }
         if (mPreferences.getBoolean("use_legacy_hashing", false))
             targetEnv.put("STHASHING", "standard");
+
+        // Optimize memory usage for older devices.
+        int gogc = 100;         // GO default
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            gogc = 50;
+        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            gogc = 75;
+        }
+        LogV("GOGC=" + Integer.toString(gogc));
+        targetEnv.put("GOGC", Integer.toString(gogc));
+
         putCustomEnvironmentVariables(targetEnv, mPreferences);
         return targetEnv;
     }
