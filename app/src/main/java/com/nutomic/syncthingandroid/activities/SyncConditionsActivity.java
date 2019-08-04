@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -25,8 +25,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginEnd;
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginStart;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;

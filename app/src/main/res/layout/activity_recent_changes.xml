@@ -18,7 +18,7 @@
         android:focusable="false"
         android:text="@string/no_recent_changes" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/changes_recycler_view"
         android:contentDescription="@string/recent_changes_title"
         android:layout_width="match_parent"

@@ -11,8 +11,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v4.provider.DocumentFile;
-import android.support.v7.widget.SwitchCompat;
+import androidx.documentfile.provider.DocumentFile;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -55,8 +55,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginEnd;
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginStart;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;

@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -53,8 +53,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginEnd;
-import static android.support.v4.view.MarginLayoutParamsCompat.setMarginStart;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
 import static android.text.TextUtils.isEmpty;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;

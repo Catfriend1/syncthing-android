@@ -2,7 +2,7 @@ package com.nutomic.syncthingandroid.http;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.volley.Request;
 import com.google.common.base.Optional;

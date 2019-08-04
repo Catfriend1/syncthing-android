@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.SwitchCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.SwitchCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Syncthing.TextView.Label.Details.WifiSsidList"
     android:id="@+id/wifi_ssid_toggle"

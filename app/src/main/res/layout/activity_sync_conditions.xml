@@ -59,7 +59,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/sync_on_wifi_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/sync_on_whitelisted_wifi_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/sync_on_metered_wifi_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
@@ -158,7 +158,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/sync_on_mobile_data_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"

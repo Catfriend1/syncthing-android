@@ -171,7 +171,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
             </LinearLayout>
 
-            <android.support.v7.widget.SwitchCompat
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/introducer"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
@@ -181,7 +181,7 @@
                 android:drawableStart="@drawable/ic_phonelink_black_24dp_active"
                 android:text="@string/introducer" />
 
-            <android.support.v7.widget.SwitchCompat
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/devicePause"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
@@ -200,7 +200,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/customSyncConditionsSwitch"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"

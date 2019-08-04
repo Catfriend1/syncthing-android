@@ -4,12 +4,10 @@ import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.RequiresApi;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 // import android.util.Log;
 
-import com.nutomic.syncthingandroid.service.Constants;
-import com.nutomic.syncthingandroid.service.RunConditionMonitor;
 import com.nutomic.syncthingandroid.util.JobUtils;
 
 /**
