@@ -443,6 +443,7 @@ public class ConfigXml {
             folder.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), folder.paused);
             folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), folder.ignoreDelete);
             folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), folder.copyOwnershipFromParent);
+            folder.modTimeWindowS = getContentOrDefault(r.getElementsByTagName("modTimeWindowS").item(0), folder.modTimeWindowS);
 
             // Devices
             /*
@@ -540,6 +541,8 @@ public class ConfigXml {
                 setConfigElement(r, "order", folder.order);
                 setConfigElement(r, "paused", Boolean.toString(folder.paused));
                 setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
+                setConfigElement(r, "copyOwnershipFromParent", Boolean.toString(folder.copyOwnershipFromParent));
+                setConfigElement(r, "modTimeWindowS", Integer.toString(folder.modTimeWindowS));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
