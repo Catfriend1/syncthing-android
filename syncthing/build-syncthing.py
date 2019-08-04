@@ -12,6 +12,9 @@ import platform
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
+# Leave empty to auto-detect version by 'git describe'.
+FORCE_DISPLAY_SYNCTHING_VERSION = ''
+
 GO_VERSION = '1.12.1'
 GO_EXPECTED_SHASUM_LINUX = '2a3fdabf665496a0db5f41ec6af7a9b15a49fbe71a85a50ca38b1f13a103aeec'
 GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'
@@ -354,15 +357,18 @@ subprocess.check_call([
     '--tags'
 ])
 
-print('Invoking git describe ...')
-syncthingVersion = subprocess.check_output([
-    git_bin,
-    '-C',
-    syncthing_dir,
-    'describe',
-    '--always'
-]).strip();
-syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
+if FORCE_DISPLAY_SYNCTHING_VERSION:
+    syncthingVersion = FORCE_DISPLAY_SYNCTHING_VERSION.replace("rc", "preview");
+else:
+    print('Invoking git describe ...')
+    syncthingVersion = subprocess.check_output([
+        git_bin,
+        '-C',
+        syncthing_dir,
+        'describe',
+        '--always'
+    ]).strip();
+    syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
 
 print('Cleaning go-build cache')
 subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
