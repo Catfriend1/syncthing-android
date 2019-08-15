@@ -1,5 +1,5 @@
 Notes
-* Syncthing v1.2.2-rc.2
+* Syncthing v1.2.2-rc.3
 * Built on top of Android Q SDK, GO 1.13beta1, NDK 20
 * PLEASE NOTICE: Android Q beta 5's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs.
 * Refer to GitHub for detailed change log.
