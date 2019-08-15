@@ -4,8 +4,8 @@ SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
 REM 
 REM Script Consts.
-REM 	SET INTERNAL_STORAGE_MOUNT_POINT=/storage/emulated/0
-SET INTERNAL_STORAGE_MOUNT_POINT=/storage/sdcard0
+SET INTERNAL_STORAGE_MOUNT_POINT=/storage/emulated/0
+REM SET INTERNAL_STORAGE_MOUNT_POINT=/storage/sdcard0
 REM 
 REM 	SET PACKAGE_NAME=com.github.catfriend1.syncthingandroid
 SET PACKAGE_NAME=com.github.catfriend1.syncthingandroid.debug
