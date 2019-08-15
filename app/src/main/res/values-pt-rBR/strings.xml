@@ -15,14 +15,38 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Bem vindo(a) ao Syncthing for Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Introdução</string>
+    <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus ID\'s exclusivos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos.\n\
+Por favor, relate quaisquer problemas que você encontrar através do Github.</string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Permissão de Armazenamento</string>
+    <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Otimização de bateria</string>
+    <string name="ignore_doze_permission_desc">O Android pode interromper a sincronização após algum tempo. Para evitar isso, desative a otimização da bateria. Alguns dispositivos têm aplicativos adicionais que matam tarefas pré-instalados. Você também deve adicionar o Syncthing à lista de permissões.</string>
+    <string name="toast_ignore_doze_permission_required">Este aplicativo só funciona de forma confiável se for isento do modo de poupança de energia \"doze\".</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Seu dispositivo não suporta a desativação das otimizações de bateria</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Permissão de localização</string>
+    <string name="location_permission_desc">A sincronização pode ser configurada para funcionar em redes Wi-Fi selecionadas. O Android exige que o aplicativo tenha permissão de localização para ler o nome da rede Wi-Fi ativa. Se você quiser usar esse recurso, pressione o botão acima. Você pode pular esta etapa. Veja nossa política de privacidade para mais detalhes.</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Geração de Chaves</string>
+    <string name="key_generation_success">Chaves seguras para troca de dados privada foram geradas com sucesso.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Voltar</string>
     <string name="cont">Continuar</string>
     <string name="finish">Finalizar</string>
     <string name="generic_example">Exemplo</string>
     <string name="generic_error">Erro</string>
+    <string name="generic_help">Ajuda</string>
+    <string name="grant_permission">Conceder permissão</string>
     <string name="ignore">Ignorar</string>
 
     <!-- Title of the "add folder" menu action -->
