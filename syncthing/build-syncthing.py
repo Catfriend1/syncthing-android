@@ -15,7 +15,7 @@ SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 # Leave empty to auto-detect version by 'git describe'.
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 
-GO_VERSION = 'go1.13beta1'
+GO_VERSION = '1.13beta1'
 GO_EXPECTED_SHASUM_LINUX = 'dbd131c92f381a5bc5ca1f0cfd942cb8be7d537007b6f412b5be41ff38a7d0d9'
 GO_EXPECTED_SHASUM_WINDOWS = '08098b4b0e1a105971d2fced2842e806f8ffa08973ae8781fd22dd90f76404fb'
 
