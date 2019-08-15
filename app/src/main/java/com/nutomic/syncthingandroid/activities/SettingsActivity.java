@@ -1141,7 +1141,11 @@ public class SettingsActivity extends SyncthingActivity {
          * Get current open file limit enforced by the Android OS.
          */
         private String getOpenFileLimit() {
-            String result = Util.runShellCommandGetOutput("/system/bin/ulimit -n", false);
+            String shellCommand = "ulimit -n";
+            if (Build.VERSION.SDK_INT < 29) {
+                shellCommand += "/system/bin/";
+            }
+            String result = Util.runShellCommandGetOutput(shellCommand, false);
             if (TextUtils.isEmpty(result)) {
                 return "N/A";
             }
