@@ -806,6 +806,22 @@ public class RestApi {
      * Updates cached folder and device completion info according to event data.
      */
     public void setCompletionInfo(String deviceId, String folderId, CompletionInfo completionInfo) {
+        final Folder folder = getFolderByID(folderId);
+        if (folder == null) {
+            Log.e(TAG, "setCompletionInfo: folderId == null");
+            return;
+        }
+        if (folder.paused) {
+            /**
+             * Fixes issue #463 where device sync percentage is displayed 50% on wrapper UI
+             * and 100% on Web UI if there are at least two folders syncing with the same device and
+             * at least one of them is paused. This is caused by EventProcessor telling us a paused
+             * to be 0% complete. To get consistent UI output, we assume 100% completion for paused
+             * folders.
+            **/
+            LogV("setCompletionInfo: Paused folder \"" + folderId + "\" - got " + completionInfo.completion + "%, passing on 100%");
+            completionInfo.completion = 100;
+        }
         mCompletion.setCompletionInfo(deviceId, folderId, completionInfo);
     }
 
