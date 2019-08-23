@@ -1,4 +1,4 @@
-# Fork of Syncthing-Android:
+# Syncthing-Fork - A Syncthing Wrapper for Android:
 
 [![License: MPLv2](https://img.shields.io/badge/License-MPLv2-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 <a href="https://github.com/Catfriend1/syncthing-android/releases" alt="GitHub release"><img src="https://img.shields.io/github/release/Catfriend1/syncthing-android/all.svg" /></a>
@@ -6,6 +6,11 @@
 <a href="https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid" alt="G-Play release"><img src="https://img.shields.io/badge/g--play-1.2.2.1-blue.svg" /></a>
 <a href="https://liberapay.com/~1534877" alt="LiberaPay"><img src="https://img.shields.io/liberapay/patrons/Syncthing-Fork.svg?style=social" /></a>
 <a href="https://www.somsubhra.com/github-release-stats/?username=Catfriend1&repository=syncthing-android" alt="GitHub Stats"><img src="https://img.shields.io/github/downloads/Catfriend1/syncthing-android/total.svg" /></a>
+<a href="https://www.youtube.com/watch?v=rYHQzqSjKWQ" alt="Tutorial: Youtube-Video"><img src="https://img.shields.io/badge/Tutorial-Youtube--Video-blueviolet" /></a>
+
+A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
+
+<img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_03.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_06.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_08.png" alt="screenshot 3" width="200" />
 
 # Major enhancements in this fork are:
 - "Sync every hour" to save even more battery
@@ -16,10 +21,6 @@
 - "Battery eater" problem is fixed.
 - Android 8, 9 and Q support.
 - Discover other Syncthing devices on the same network and easily add them.
-
-A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "syncthing-android" if you are using this fork.
-
-<img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_03.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_06.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_08.png" alt="screenshot 3" width="200" />
 
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/master/privacy-policy.md).
