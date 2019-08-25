@@ -2,7 +2,7 @@ Categories:
   - Internet
 License: MPL-2.0
 WebSite: https://github.com/Catfriend1/syncthing-android/wiki
-SourceCode: https://github.com/Catfriend1/syncthing-android
+SourceCode: https://github.com/Catfriend1/syncthing-android-fdroid
 IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
 Translation: https://www.transifex.com/catfriend1/syncthing-android-1
 Changelog: https://github.com/Catfriend1/syncthing-android/releases
@@ -33,7 +33,7 @@ Description: |-
     * Only the wrapper containing the Android UI is addressed by the fork.
 
 RepoType: git
-Repo: https://github.com/Catfriend1/syncthing-android.git
+Repo: https://github.com/Catfriend1/syncthing-android-fdroid.git
 
 Builds:
   - versionName: 0.14.50.rc2.6
@@ -882,7 +882,25 @@ Builds:
       - PATH="$PWD/go/bin:$PATH" gradle buildNative
     ndk: r19c
 
+  - versionName: 1.2.2.1
+    versionCode: 1020201
+    commit: v1.2.2.1
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+      - echo '66d83bfb5a9ede000e33c6579a91a29e6b101829ad41fffb5c5bb6c900e109d9  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r19c
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.2.0.8
-CurrentVersionCode: 1020008
+CurrentVersion: 1.2.2.1
+CurrentVersionCode: 1020201
