@@ -368,7 +368,7 @@ public class SettingsActivity extends SyncthingActivity {
             Preference verboseLog                   = findPreference(Constants.PREF_VERBOSE_LOG);
             Preference openIssueTracker             = findPreference(KEY_OPEN_ISSUE_TRACKER);
             Preference debugFacilitiesEnabled       = findPreference(Constants.PREF_DEBUG_FACILITIES_ENABLED);
-            Preference environmentVariables         = findPreference("environment_variables");
+            Preference environmentVariables         = findPreference(Constants.PREF_ENVIRONMENT_VARIABLES);
             Preference stResetDatabase              = findPreference("st_reset_database");
             Preference stResetDeltas                = findPreference("st_reset_deltas");
 
@@ -767,14 +767,18 @@ public class SettingsActivity extends SyncthingActivity {
                     mPendingConfig = true;
                     break;
                 case Constants.PREF_ENVIRONMENT_VARIABLES:
-                    if (((String) o).matches("^(\\w+=[\\w:/\\.]+)?( \\w+=[\\w:/\\.]+)*$")) {
-                        mPendingConfig = true;
+                    // Verify if valid environment VAR=VALUE pairs were given as text string.
+                    if (!((String) o).isEmpty()) {
+                        for (String e : ((String) o).split(" ")) {
+                            if (e.split("=", 2).length != 2) {
+                                // Found an invalid "VAR=VALUE" pair.
+                                Toast.makeText(getActivity(), R.string.toast_invalid_environment_variables, Toast.LENGTH_SHORT)
+                                        .show();
+                                return false;
+                            }
+                        }
                     }
-                    else {
-                        Toast.makeText(getActivity(), R.string.toast_invalid_environment_variables, Toast.LENGTH_SHORT)
-                                .show();
-                        return false;
-                    }
+                    mPendingConfig = true;
                     break;
                 case Constants.PREF_USE_WAKE_LOCK:
                     mPendingConfig = true;

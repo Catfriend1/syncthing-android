@@ -279,7 +279,8 @@ public class SyncthingRunnable implements Runnable {
             return;
 
         for (String e : customEnvironment.split(" ")) {
-            String[] e2 = e.split("=");
+            String[] e2 = e.split("=", 2);
+            LogV("Setting env var: [" + e2[0] + "]=[" + e2[1] + "]");
             environment.put(e2[0], e2[1]);
         }
     }
@@ -500,7 +501,7 @@ public class SyncthingRunnable implements Runnable {
         } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             gogc = 75;
         }
-        LogV("GOGC=" + Integer.toString(gogc));
+        LogV("Setting env var: [GOGC]=[" + Integer.toString(gogc) + "]");
         targetEnv.put("GOGC", Integer.toString(gogc));
 
         putCustomEnvironmentVariables(targetEnv, mPreferences);
