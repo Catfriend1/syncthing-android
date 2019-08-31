@@ -160,7 +160,12 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
                 mServiceState != SyncthingService.State.ACTIVE) {
             // Syncthing is not running or REST API is not available yet.
             ConfigXml configXml = new ConfigXml(activity);
-            configXml.loadConfig();
+            try {
+                configXml.loadConfig();
+            } catch (ConfigXml.OpenConfigException e) {
+                Log.e(TAG, "Failed to parse existing config. You will need support from here ...");
+                return;
+            }
             devices = configXml.getDevices(false);
         } else {
             // Syncthing is running and REST API is available.
