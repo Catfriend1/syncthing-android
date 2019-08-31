@@ -167,7 +167,7 @@ public class ConfigXml {
         PreferenceManager.getDefaultSharedPreferences(mContext).edit()
             .putString(Constants.PREF_LOCAL_DEVICE_ID, localDeviceID)
             .apply();
-        Log.v(TAG, "getLocalDeviceIDandStoreToPref: Cached local device ID \"" + localDeviceID + "\"");
+        Log.d(TAG, "getLocalDeviceIDandStoreToPref: Cached local device ID \"" + localDeviceID + "\"");
         return localDeviceID;
     }
 
@@ -183,14 +183,10 @@ public class ConfigXml {
             inputSource.setEncoding("UTF-8");
             DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbfactory.newDocumentBuilder();
-            if (ENABLE_VERBOSE_LOG) {
-                Log.v(TAG, "Parsing config file '" + mConfigFile + "'");
-            }
+            LogV("Parsing config file '" + mConfigFile + "'");
             mConfig = db.parse(inputSource);
             inputStream.close();
-            if (ENABLE_VERBOSE_LOG) {
-                Log.v(TAG, "Successfully parsed config file");
-            }
+            LogV("Successfully parsed config file");
         } catch (SAXException | ParserConfigurationException | IOException e) {
             Log.w(TAG, "Failed to parse config file '" + mConfigFile + "'", e);
             throw new OpenConfigException();
@@ -343,9 +339,7 @@ public class ConfigXml {
         /* Read existing config version */
         int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
         int iOldConfigVersion = iConfigVersion;
-        if (ENABLE_VERBOSE_LOG) {
-            Log.v(TAG, "Found existing config version " + Integer.toString(iConfigVersion));
-        }
+        LogV("Found existing config version " + Integer.toString(iConfigVersion));
 
         /* Check if we have to do manual migration from version X to Y */
         if (iConfigVersion == 27) {
@@ -458,7 +452,7 @@ public class ConfigXml {
                 // Exclude self.
                 if (!TextUtils.isEmpty(device.deviceID) && !device.deviceID.equals(localDeviceID)) {
                     device.introducedBy = getAttributeOrDefault(elementDevice, "introducedBy", device.introducedBy);
-                    // Log.v(TAG, "getFolders: deviceID=" + device.deviceID + ", introducedBy=" + device.introducedBy);
+                    // LogV("getFolders: deviceID=" + device.deviceID + ", introducedBy=" + device.introducedBy);
                     folder.addDevice(device);
                 }
             }
@@ -473,7 +467,7 @@ public class ConfigXml {
                 folder.minDiskFree.unit = getAttributeOrDefault(elementMinDiskFree, "unit", folder.minDiskFree.unit);
                 folder.minDiskFree.value = getContentOrDefault(elementMinDiskFree, folder.minDiskFree.value);
             }
-            // Log.v(TAG, "folder.minDiskFree.unit=" + folder.minDiskFree.unit + ", folder.minDiskFree.value=" + folder.minDiskFree.value);
+            // LogV("folder.minDiskFree.unit=" + folder.minDiskFree.unit + ", folder.minDiskFree.value=" + folder.minDiskFree.value);
 
             // Versioning
             /*
@@ -503,7 +497,7 @@ public class ConfigXml {
             }
 
             // For testing purposes only.
-            // Log.v(TAG, "folder.label=" + folder.label + "/" +"folder.type=" + folder.type + "/" + "folder.paused=" + folder.paused);
+            // LogV("folder.label=" + folder.label + "/" +"folder.type=" + folder.type + "/" + "folder.paused=" + folder.paused);
             folders.add(folder);
         }
         Collections.sort(folders, FOLDERS_COMPARATOR);
@@ -511,7 +505,7 @@ public class ConfigXml {
     }
 
     public void addFolder(final Folder folder) {
-        Log.v(TAG, "addFolder: folder.id=" + folder.id);
+        Log.d(TAG, "addFolder: folder.id=" + folder.id);
         Node nodeConfig = mConfig.getDocumentElement();
         Node nodeFolder = mConfig.createElement("folder");
         nodeConfig.appendChild(nodeFolder);
@@ -550,7 +544,7 @@ public class ConfigXml {
                 for (int j = nodeDevices.getLength() - 1; j >= 0; j--) {
                     Element elementDevice = (Element) nodeDevices.item(j);
                     if (!getAttributeOrDefault(elementDevice, "id", "").equals(localDeviceID)) {
-                        Log.v(TAG, "updateFolder: nodeDevices: Removing deviceID=" + getAttributeOrDefault(elementDevice, "id", ""));
+                        Log.d(TAG, "updateFolder: nodeDevices: Removing deviceID=" + getAttributeOrDefault(elementDevice, "id", ""));
                         removeChildElementFromTextNode(r, elementDevice);
                     }
                 }
@@ -558,7 +552,7 @@ public class ConfigXml {
                 // Pass 2: Add devices below that folder from the POJO model.
                 final List<Device> devices = folder.getDevices();
                 for (Device device : devices) {
-                    Log.v(TAG, "updateFolder: nodeDevices: Adding deviceID=" + device.deviceID);
+                    Log.d(TAG, "updateFolder: nodeDevices: Adding deviceID=" + device.deviceID);
                     Node nodeDevice = mConfig.createElement("device");
                     r.appendChild(nodeDevice);
                     Element elementDevice = (Element) nodeDevice;
@@ -571,7 +565,7 @@ public class ConfigXml {
                     // Pass 1: Remove all minDiskFree nodes from XML (usually one)
                     Element elementMinDiskFree = (Element) r.getElementsByTagName("minDiskFree").item(0);
                     if (elementMinDiskFree != null) {
-                        Log.v(TAG, "updateFolder: nodeMinDiskFree: Removing minDiskFree node");
+                        Log.d(TAG, "updateFolder: nodeMinDiskFree: Removing minDiskFree node");
                         removeChildElementFromTextNode(r, elementMinDiskFree);
                     }
 
@@ -594,7 +588,7 @@ public class ConfigXml {
                 */
                 Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
                 if (elementVersioning != null) {
-                    Log.v(TAG, "updateFolder: nodeVersioning: Removing versioning node");
+                    Log.d(TAG, "updateFolder: nodeVersioning: Removing versioning node");
                     removeChildElementFromTextNode(r, elementVersioning);
                 }
 
@@ -605,7 +599,7 @@ public class ConfigXml {
                 if (!TextUtils.isEmpty(folder.versioning.type)) {
                     elementVersioning.setAttribute("type", folder.versioning.type);
                     for (Map.Entry<String, String> param : folder.versioning.params.entrySet()) {
-                        Log.v(TAG, "updateFolder: nodeVersioning: Adding param key=" + param.getKey() + ", val=" + param.getValue());
+                        Log.d(TAG, "updateFolder: nodeVersioning: Adding param key=" + param.getKey() + ", val=" + param.getValue());
                         Node nodeParam = mConfig.createElement("param");
                         elementVersioning.appendChild(nodeParam);
                         Element elementParam = (Element) nodeParam;
@@ -625,7 +619,7 @@ public class ConfigXml {
             Element r = (Element) nodeFolders.item(i);
             if (folderId.equals(getAttributeOrDefault(r, "id", ""))) {
                 // Found folder node to remove.
-                Log.v(TAG, "removeFolder: Removing folder node, folderId=" + folderId);
+                Log.d(TAG, "removeFolder: Removing folder node, folderId=" + folderId);
                 removeChildElementFromTextNode((Element) r.getParentNode(), r);
                 break;
             }
@@ -693,7 +687,7 @@ public class ConfigXml {
                 file.createNewFile();
             }
             fileOutputStream = new FileOutputStream(file);
-            // Log.v(TAG, "postFolderIgnoreList: Writing " + Constants.FILENAME_STIGNORE + " content=" + TextUtils.join("\n", ignore));
+            // LogV("postFolderIgnoreList: Writing " + Constants.FILENAME_STIGNORE + " content=" + TextUtils.join("\n", ignore));
             fileOutputStream.write(TextUtils.join("\n", ignore).getBytes("UTF-8"));
             fileOutputStream.flush();
         } catch (IOException e) {
@@ -743,11 +737,11 @@ public class ConfigXml {
                 for (int j = 0; j < nodeAddresses.getLength(); j++) {
                     String address = getContentOrDefault(nodeAddresses.item(j), "");
                     device.addresses.add(address);
-                    // Log.v(TAG, "getDevices: address=" + address);
+                    // LogV("getDevices: address=" + address);
                 }
 
                 // For testing purposes only.
-                // Log.v(TAG, "getDevices: device.name=" + device.name + "/" +"device.id=" + device.deviceID + "/" + "device.paused=" + device.paused);
+                // LogV("getDevices: device.name=" + device.name + "/" +"device.id=" + device.deviceID + "/" + "device.paused=" + device.paused);
 
                 // Exclude self if requested.
                 Boolean isLocalDevice = !TextUtils.isEmpty(device.deviceID) && device.deviceID.equals(localDeviceID);
@@ -761,7 +755,7 @@ public class ConfigXml {
     }
 
     public void addDevice(final Device device) {
-        Log.v(TAG, "addDevice: deviceID=" + device.deviceID);
+        Log.d(TAG, "addDevice: deviceID=" + device.deviceID);
         Node nodeConfig = mConfig.getDocumentElement();
         Node nodeDevice = mConfig.createElement("device");
         nodeConfig.appendChild(nodeDevice);
@@ -791,14 +785,14 @@ public class ConfigXml {
                     NodeList nodeAddresses = r.getElementsByTagName("address");
                     for (int j = nodeAddresses.getLength() - 1; j >= 0; j--) {
                         Element elementAddress = (Element) nodeAddresses.item(j);
-                        Log.v(TAG, "updateDevice: nodeAddresses: Removing address=" + getContentOrDefault(elementAddress, ""));
+                        Log.d(TAG, "updateDevice: nodeAddresses: Removing address=" + getContentOrDefault(elementAddress, ""));
                         removeChildElementFromTextNode(r, elementAddress);
                     }
 
                     // Pass 2: Add addresses from the POJO model.
                     if (device.addresses != null) {
                         for (String address : device.addresses) {
-                            Log.v(TAG, "updateDevice: nodeAddresses: Adding address=" + address);
+                            Log.d(TAG, "updateDevice: nodeAddresses: Adding address=" + address);
                             Node nodeAddress = mConfig.createElement("address");
                             r.appendChild(nodeAddress);
                             Element elementAddress = (Element) nodeAddress;
@@ -821,7 +815,7 @@ public class ConfigXml {
                 Element r = (Element) node;
                 if (deviceID.equals(getAttributeOrDefault(r, "id", ""))) {
                     // Found device to remove.
-                    Log.v(TAG, "removeDevice: Removing device node, deviceID=" + deviceID);
+                    Log.d(TAG, "removeDevice: Removing device node, deviceID=" + deviceID);
                     removeChildElementFromTextNode((Element) r.getParentNode(), r);
                     break;
                 }
@@ -1076,6 +1070,12 @@ public class ConfigXml {
             mConfigTempFile.renameTo(mConfigFile);
         } catch (Exception e) {
             Log.w(TAG, "Failed to rename temporary config file to original file");
+        }
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
         }
     }
 }
