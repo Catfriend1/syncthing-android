@@ -1,8 +1,10 @@
 Este é um fork do pacote Syncthing-Android para o Syncthing que traz maiores aprimoramentos, como:
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
 * Sincronização individual pode ser aplicada por dispositivo e por pasta.
 * Mudanças na interface, agora você pode tocar para abrir arquivos.
 * Problema de "comer a bateria" está resolvido.
-* Suporte ao android 8 e 9.
+* Android 8, 9 and Q support.
 
 Syncthing-Fork para Android é um pacote para o Syncthing que traz uma interface para o Android ao invés da interface web do Syncthing original. Syncthing substitui os serviços proprietários de sincronização e nuvem por algo aberto, confiável e descentralizado. Seus dados são só seus e você deve escolher onde eles estão salvos, se estão sendo compartilhados com terceiros e como estão sendo transmitidos pela Internet.
 
@@ -22,6 +24,11 @@ Site do projeto: https://github.com/Catfriend1/syncthing-android
 
 Código-fonte: https://github.com/Catfriend1/syncthing-android
 
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
 Erros: https://github.com/Catfriend1/syncthing-android/issues
 
+Please help with the
 Tradução: https://www.transifex.com/projects/p/syncthing-android-1

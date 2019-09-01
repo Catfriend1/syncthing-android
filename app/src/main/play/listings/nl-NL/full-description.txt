@@ -1,8 +1,10 @@
 Dit is een fork van de Synthing-Android-wrapper voor Syncthing die vele verbeteringen brengt, waaronder:
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
 * Individuele synchrinisatie-omstandigheden kunnen worden toegepast per appparaat en map
 * Pagina met recente wijzigingen, druk om bestanden te openen
 * Hoog accuverbruik is opgelost
-* Ondersteuning voor Android 8 en 9
+* Android 8, 9 and Q support.
 
 Syncthing vervangt niet-vrije diensten door iets opens, betrouwbaars en gedecentraliseerds. Je gegevens behoren enkel jou toe en jij bepaalt waar ze worden opgeslagen, of ze gedeeld worden met een derde partij en hoe ze over het internet verzonden worden.
 
@@ -22,6 +24,11 @@ Website: https://github.com/Catfriend1/syncthing-android
 
 Broncode: https://github.com/Catfriend1/syncthing-android
 
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
 Problemen: https://github.com/Catfriend1/syncthing-android/issues
 
+Please help with the
 Vertaling: https://www.transifex.com/projects/p/syncthing-android-1

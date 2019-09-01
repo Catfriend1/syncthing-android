@@ -1,8 +1,10 @@
 這是 syncthing-android 的分支，他包含他包含以下主要的增強功能：
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
 每臺裝置與資料夾都能單獨的設定同步狀態
 即時更改的使用者界面、點擊即開啟檔案
 解決了耗電的問題
-支援 android 8 跟 android 9
+* Android 8, 9 and Q support.
 
 Syncthing-Fork for Android 提供了 android 系統本身的使用界面來替換 Syncthing 內建的網路界面。Syncthing 用開放、可靠、去中心化的方式取代專有的同步與雲端服務。你的資料只屬於你自己，所以可選擇儲存的位置、與第三方軟體共享的方式，與透過網路傳輸的模式。
 
@@ -22,6 +24,11 @@ Syncthing-Fork for Android 提供了 android 系統本身的使用界面來替�
 
 原始碼：https://github.com/Catfriend1/syncthing-android
 
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
 問題回報：https://github.com/Catfriend1/syncthing-android/issues
 
+Please help with the
 翻譯：https://www.transifex.com/projects/p/syncthing-android-1

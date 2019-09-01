@@ -1,8 +1,10 @@
 Versió alternativa de l'embolcall Syncthing-Android per al Syncthing que incorpora grans millores com:
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
 * Es poden establir condicions de sincronització individuals per dispositiu i carpeta
 * Interfície gràfica de canvis recents, clic per obrir fitxers.
 * Arreglat el problema amb el consum de bateria.
-* Suport per Android 8 i 9.
+* Android 8, 9 and Q support.
 
 El Syncthing-Fork per Android és un embolcall per al Syncthing que proporciona una interfície Android enlloc de la interfície web integrada amb el Syncthing's. El Syncthing substitueix els serveis propietaris de sincronització i d'emmagatzematge en el núvol per una alternativa oberta, confiable i descentralitzada. Les vostres dades són només vostres, i heu de poder triar on voleu que s'emmagatzemin, si es comparteixen amb tercers i com es transmeten per Internet.
 
@@ -22,6 +24,11 @@ Pàgina web: https://github.com/Catfriend1/syncthing-android
 
 Codi font: https://github.com/Catfriend1/syncthing-android
 
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
 Problemes: https://github.com/Catfriend1/syncthing-android/issues
 
+Please help with the
 Traducció: https://www.transifex.com/projects/p/syncthing-android-1

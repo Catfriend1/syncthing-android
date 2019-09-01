@@ -1,8 +1,10 @@
 This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
 * Individual sync conditions can be applied per device and per folder
 * Recent changes UI, click to open files.
 * "Battery eater" problem is fixed.
-* Android 8 and 9 support.
+* Android 8, 9 and Q support.
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
@@ -22,6 +24,11 @@ Website: https://github.com/Catfriend1/syncthing-android
 
 Source code: https://github.com/Catfriend1/syncthing-android
 
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
 Issues: https://github.com/Catfriend1/syncthing-android/issues
 
+Please help with the
 Translation: https://www.transifex.com/projects/p/syncthing-android-1
