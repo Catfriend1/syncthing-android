@@ -683,6 +683,8 @@ public class FolderActivity extends SyncthingActivity {
         mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;      // Default for {@link #checkWriteAndUpdateUI}.
         mFolder.minDiskFree = new Folder.MinDiskFree();
         mFolder.versioning = new Folder.Versioning();
+        mFolder.versioning.type = "trashcan";
+        mFolder.versioning.params.put("cleanoutDays", Integer.toString(14));
     }
 
     private void addEmptyDeviceListView() {
