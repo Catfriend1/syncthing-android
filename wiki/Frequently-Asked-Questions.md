@@ -5,15 +5,9 @@ Use the import/export items in the app settings. This will use the folder `/sdca
 ### Persistent notification - required or optional?
 The persistent notification is necessary to run a so called foreground service to avoid the app being put asleep by Android and missing run condition changes or synchronization activity. See [#333](https://github.com/Catfriend1/syncthing-android/issues/333) and [#327](https://github.com/Catfriend1/syncthing-android/issues/327) for details. While some users reported a foreground service necessary since Android 8+ and others reported it's working without we are in the same mess here in-between differently behaving, manufacturer specific Android versions that we cannot ensure it working for all users when we would remove the persistent notification. That's why it's required and cannot be configured in Syncthing-Fork as we want the app to work out of the box for all users out there. Other popular apps, like Linphone and Telegram FOSS use the same technique to ensure not being interrupted by the Android OS.
 
-### What about SD card support?
+### What about SD card write access?
 
-Syncthing can not write to external SD cards, but there are a few known workarounds:
-* If you format the external SD Card as internal storage, the SD card will be the new `/storage/emulated/0/` and will be encrypted and only usable in that phone.
-* If you want a "Send Only" folder, you can create an empty file named `.stfolder` in the folder.
-* Create your destination folders under Syncthing's application-specific folder, e.g. `/storage/emulated/0/Android/data/com.github.catfriend1.syncthingandroid/files` or `/storage/emulated/0/Android/media/com.github.catfriend1.syncthingandroid`
-* If on a rooted phone running Nougat or Marshmallow, try using [this Xposed module](https://play.google.com/store/apps/details?id=com.balamurugan.marshmallowsdfix) to give Syncthing permission to write to the SD card.
-
-Implementing this would involve a lot of work, and so far, no one was willing to program this. If you want to help with this and are familiar with Go, Java and Android, read through the discussion in issues [#29](https://github.com/syncthing/syncthing-android/issues/29) and [#1008](https://github.com/syncthing/syncthing-android/issues/1008).
+See [SD card write access](SD-card-write-access) for instructions on how to properly use Syncthing with folders residing on external SD cards.
 
 ### Where are the logs?
 
