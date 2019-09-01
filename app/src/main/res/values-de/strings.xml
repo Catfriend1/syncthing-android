@@ -945,6 +945,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="maximum_age">Höchstalter</string>
     <string name="clean_out_after">Aufräumen nach</string>
     <string name="file_versioning">Dateiversionierung</string>
+    <string name="file_versioning_generic_description">Syncthing unterstützt das Archivieren der alten Version einer Datei, wenn diese gelöscht oder durch eine neuere Version aus dem Cluster ersetzt wird. Klicke hier, um die verfügbaren Versionierungsstrategien anzuzeigen. Die Dateiversionierung wird pro Ordner und Gerät konfiguriert. Gewählte Strategie:</string>
     <string name="none">Keine</string>
     <string name="versions_path">Versionspfad</string>
     <string name="command">Befehl</string>

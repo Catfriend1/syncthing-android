@@ -966,6 +966,7 @@ Please report any problems you encounter via Github.</string>
     <string name="maximum_age">Maximum Age</string>
     <string name="clean_out_after">Clean out after</string>
     <string name="file_versioning">File Versioning</string>
+    <string name="file_versioning_generic_description">Syncthing supports archiving the old version of a file when it is deleted or replaced with a newer version from the cluster. Click to see available versioning strategies. File versioning is configured per folder, on a per-device basis. Selected strategy:</string>
     <string name="none"> None</string>
     <string name="versions_path">Versions Path</string>
     <string name="command">Command</string>

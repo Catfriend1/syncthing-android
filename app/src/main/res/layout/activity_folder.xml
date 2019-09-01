@@ -242,6 +242,7 @@
 
             </LinearLayout>
 
+            <!-- Versioning -->
             <LinearLayout
                 android:id="@+id/versioningContainer"
                 android:layout_width="match_parent"
@@ -263,12 +264,21 @@
                     android:text="@string/file_versioning" />
 
                 <TextView
-                    android:id="@+id/versioningType"
+                    android:id="@+id/versioningGenericDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
+                    android:text="@string/file_versioning_generic_description"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                <TextView
+                    android:id="@+id/versioningType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
                 <TextView
