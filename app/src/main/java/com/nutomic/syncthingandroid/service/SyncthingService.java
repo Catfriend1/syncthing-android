@@ -909,65 +909,70 @@ public class SyncthingService extends Service {
         File file;
         FileInputStream fileInputStream = null;
         ObjectInputStream objectInputStream = null;
-        Map<String, Object> sharedPrefsMap = null;
+        Map<?, ?> sharedPrefsMap = null;
         try {
             file = new File(Constants.EXPORT_PATH_OBJ, Constants.SHARED_PREFS_EXPORT_FILE);
             if (file.exists()) {
                 // Read, deserialize shared preferences.
                 fileInputStream = new FileInputStream(file);
                 objectInputStream = new ObjectInputStream(fileInputStream);
-                sharedPrefsMap = (Map) objectInputStream.readObject();
+                Object objectFromInputStream = objectInputStream.readObject();
+                if (objectFromInputStream instanceof Map) {
+                    sharedPrefsMap = (Map<?, ?>) objectFromInputStream;
 
-                // Prepare a SharedPreferences commit.
-                SharedPreferences.Editor editor = mPreferences.edit();
-                editor.clear();
-                for (Map.Entry<String, Object> e : sharedPrefsMap.entrySet()) {
-                    String prefKey = e.getKey();
-                    switch (prefKey) {
-                        // Preferences that are no longer used and left-overs from previous versions of the app.
-                        case "first_start":
-                        case "advanced_folder_picker":
-                        case "notification_type":
-                        case "notify_crashes":
-                        case "start_into_web_gui":
-                            LogV("importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
-                            break;
-                        // Cached information which is not available on SettingsActivity.
-                        case Constants.PREF_BTNSTATE_FORCE_START_STOP:
-                        case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
-                        case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
-                        case Constants.PREF_LAST_BINARY_VERSION:
-                        case Constants.PREF_LOCAL_DEVICE_ID:
-                            LogV("importConfig: Ignoring cache pref \"" + prefKey + "\".");
-                            break;
-                        default:
-                            Log.i(TAG, "importConfig: Adding pref \"" + prefKey + "\" to commit ...");
+                    // Prepare a SharedPreferences commit.
+                    SharedPreferences.Editor editor = mPreferences.edit();
+                    editor.clear();
+                    for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
+                        String prefKey = (String) e.getKey();
+                        switch (prefKey) {
+                            // Preferences that are no longer used and left-overs from previous versions of the app.
+                            case "first_start":
+                            case "advanced_folder_picker":
+                            case "notification_type":
+                            case "notify_crashes":
+                            case "start_into_web_gui":
+                                LogV("importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
+                                break;
+                            // Cached information which is not available on SettingsActivity.
+                            case Constants.PREF_BTNSTATE_FORCE_START_STOP:
+                            case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
+                            case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
+                            case Constants.PREF_LAST_BINARY_VERSION:
+                            case Constants.PREF_LOCAL_DEVICE_ID:
+                                LogV("importConfig: Ignoring cache pref \"" + prefKey + "\".");
+                                break;
+                            default:
+                                Log.i(TAG, "importConfig: Adding pref \"" + prefKey + "\" to commit ...");
 
-                            // The editor only provides typed setters.
-                            if (e.getValue() instanceof Boolean) {
-                                editor.putBoolean(prefKey, (Boolean) e.getValue());
-                            } else if (e.getValue() instanceof String) {
-                                editor.putString(prefKey, (String) e.getValue());
-                            } else if (e.getValue() instanceof Integer) {
-                                editor.putInt(prefKey, (int) e.getValue());
-                            } else if (e.getValue() instanceof Float) {
-                                editor.putFloat(prefKey, (float) e.getValue());
-                            } else if (e.getValue() instanceof Long) {
-                                editor.putLong(prefKey, (Long) e.getValue());
-                            } else if (e.getValue() instanceof Set) {
-                                editor.putStringSet(prefKey, (Set<String>) e.getValue());
-                            } else {
-                                Log.w(TAG, "importConfig: SharedPref type " + e.getValue().getClass().getName() + " is unknown");
-                            }
-                            break;
+                                // The editor only provides typed setters.
+                                if (e.getValue() instanceof Boolean) {
+                                    editor.putBoolean(prefKey, (Boolean) e.getValue());
+                                } else if (e.getValue() instanceof String) {
+                                    editor.putString(prefKey, (String) e.getValue());
+                                } else if (e.getValue() instanceof Integer) {
+                                    editor.putInt(prefKey, (Integer) e.getValue());
+                                } else if (e.getValue() instanceof Float) {
+                                    editor.putFloat(prefKey, (Float) e.getValue());
+                                } else if (e.getValue() instanceof Long) {
+                                    editor.putLong(prefKey, (Long) e.getValue());
+                                } else if (e.getValue() instanceof Set) {
+                                    editor.putStringSet(prefKey, asSet((Set<?>) e.getValue(), String.class));
+                                } else {
+                                    Log.w(TAG, "importConfig: SharedPref type " + e.getValue().getClass().getName() + " is unknown");
+                                }
+                                break;
+                        }
                     }
-                }
 
-                /**
-                 * If all shared preferences have been added to the commit successfully,
-                 * apply the commit.
-                 */
-                failSuccess = failSuccess && editor.commit();
+                    /**
+                     * If all shared preferences have been added to the commit successfully,
+                     * apply the commit.
+                     */
+                    failSuccess = failSuccess && editor.commit();
+                } else {
+                    Log.e(TAG, "importConfig: Invalid object stream");
+                }
             } else {
                 // File not found.
                 Log.w(TAG, "importConfig: SharedPreferences file missing. This is expected if you migrate from the official app to the forked app.");
@@ -1033,6 +1038,17 @@ public class SyncthingService extends Service {
             mainLooper.post(launchStartupTaskRunnable);
         }
         return failSuccess;
+    }
+
+    public static <T> Set<T> asSet(Set<?> c, Class<? extends T> type) {
+        if (c == null) {
+            return null;
+        }
+        Set<T> set = new HashSet<T>();
+        for (Object o : c) {
+            set.add(type.cast(o));
+        }
+        return set;
     }
 
     private void LogV(String logMessage) {
