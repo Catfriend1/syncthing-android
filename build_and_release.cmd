@@ -23,7 +23,7 @@ REM
 echo [INFO] Checking if SyncthingNative was built before starting this script ...
 SET LIBCOUNT=
 for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthing.so"') DO SET LIBCOUNT=%%A
-IF NOT "%LIBCOUNT%" == "3" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. Please run "gradlew buildNative" first. & goto :eos
+IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. Please run "gradlew buildNative" first. & goto :eos
 REM 
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absLint
