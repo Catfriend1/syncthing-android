@@ -1,9 +1,10 @@
-Notes
-* Syncthing v1.2.2-rc.3
-* Built on top of Android Q SDK, GO 1.13beta1, NDK 20
-* PLEASE NOTICE: Android Q beta 5's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs.
-* Refer to GitHub for detailed change log.
-Fixes
-* Fixed override/revert button showing up with no changes on extSdCard synced folders (#455)
-Enhancements
-* Optimized memory usage on older phones (#449)
+* Syncthing v1.2.2
+* Built on top of Android Q SDK, GO 1.13rc2, NDK 20
+* PLEASE NOTE: Android Q beta 5's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
+* See detailed changelog on GitHub.
+Fixed
+* Folder, device list crash while parsing config (#477)
+* Device sync percentage calculation for paused folders (#470)
+* Display of open file limit on Android Q (#465)
+Enhanced
+* Suggest trash can file versioner by default (#481)
