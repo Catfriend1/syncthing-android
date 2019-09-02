@@ -9,7 +9,7 @@ REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
 SET USE_GO_DEV=0
-SET DESIRED_SUBMODULE_VERSION=v1.2.2-rc.3
+SET DESIRED_SUBMODULE_VERSION=v1.2.2
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
@@ -63,7 +63,7 @@ echo [INFO] Checking if SyncthingNative was built successfully ...
 REM 
 SET LIBCOUNT=
 for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthing.so"') DO SET LIBCOUNT=%%A
-IF NOT "%LIBCOUNT%" == "3" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. You should fix that first. & goto :eos
+IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. You should fix that first. & goto :eos
 REM 
 goto :eos
 
