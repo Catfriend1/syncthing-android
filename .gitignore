@@ -9,10 +9,7 @@
 *.class
 
 # generated files
-bin/
 build/
-gen/
-obj/
 .gradle/
 
 # Local configuration file (sdk path, etc)
@@ -29,21 +26,8 @@ project.properties
 gradle/wrapper/gradle/
 gradle/wrapper/gradlew*
 
-# Prebuilt-go
-syncthing/go
-syncthing/go.tgz
-syncthing/go.zip
-
-# Android NDK
-syncthing/android-ndk-r*
-syncthing/ndk.zip
-
 # Go modules
 syncthing/pkg/mod/
-
-# MinGit
-syncthing/mingit
-syncthing/mingit.zip
 
 # External build artifacts
 ext/

@@ -104,12 +104,13 @@ def install_git():
     else:
         from urllib import urlretrieve
 
-    # Consts.
-    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    if not os.path.isdir(prerequisite_tools_dir):
+        os.makedirs(prerequisite_tools_dir)
+
     if sys.platform == 'win32':
         url =               'https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/MinGit-2.19.0-64-bit.zip'
         expected_shasum =   '424d24b5fc185a9c5488d7872262464f2facab4f1d4693ea8008196f14a3c19b'
-        zip_fullfn = pwd_path + os.path.sep + 'mingit.zip';
+        zip_fullfn = prerequisite_tools_dir + os.path.sep + 'mingit.zip';
     else:
         print('Portable on-demand git installation is currently not supported on linux.')
         return None
@@ -131,15 +132,15 @@ def install_git():
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the MinGit.
-    if not os.path.isfile(pwd_path + os.path.sep + 'mingit' + os.path.sep + 'LICENSE.txt'):
+    if not os.path.isfile(prerequisite_tools_dir + os.path.sep + 'mingit' + os.path.sep + 'LICENSE.txt'):
         print("Extracting MinGit ...")
         # This will go to a subfolder "mingit" in the current path.
         zip = zipfile.ZipFile(zip_fullfn, 'r')
-        zip.extractall(pwd_path + os.path.sep + 'mingit')
+        zip.extractall(prerequisite_tools_dir + os.path.sep + 'mingit')
         zip.close()
 
     # Add "mingit/cmd" to the PATH.
-    git_bin_path = pwd_path + os.path.sep + 'mingit' + os.path.sep + 'cmd'
+    git_bin_path = prerequisite_tools_dir + os.path.sep + 'mingit' + os.path.sep + 'cmd'
     print('Adding to PATH:', git_bin_path)
     os.environ["PATH"] += os.pathsep + git_bin_path
 
@@ -155,16 +156,17 @@ def install_go():
     else:
         from urllib import urlretrieve
 
-    # Consts.
-    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    if not os.path.isdir(prerequisite_tools_dir):
+        os.makedirs(prerequisite_tools_dir)
+
     if sys.platform == 'win32':
         url =               'https://dl.google.com/go/go' + GO_VERSION + '.windows-amd64.zip'
         expected_shasum =   GO_EXPECTED_SHASUM_WINDOWS
-        tar_gz_fullfn = pwd_path + os.path.sep + 'go.zip';
+        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go.zip';
     else:
         url =               'https://dl.google.com/go/go' + GO_VERSION + '.linux-amd64.tar.gz'
         expected_shasum =   GO_EXPECTED_SHASUM_LINUX
-        tar_gz_fullfn = pwd_path + os.path.sep + 'go.tgz';
+        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go.tgz';
 
     # Download prebuilt-go.
     url_base_name = os.path.basename(url)
@@ -183,21 +185,21 @@ def install_go():
     print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
 
     # Proceed with extraction of the prebuilt go.
-    if not os.path.isfile(pwd_path + os.path.sep + 'go' + os.path.sep + 'LICENSE'):
+    if not os.path.isfile(prerequisite_tools_dir + os.path.sep + 'go' + os.path.sep + 'LICENSE'):
         print("Extracting prebuilt-go ...")
         # This will go to a subfolder "go" in the current path.
         file_name, file_extension = os.path.splitext(url_base_name)
         if sys.platform == 'win32':
             zip = zipfile.ZipFile(tar_gz_fullfn, 'r')
-            zip.extractall(pwd_path)
+            zip.extractall(prerequisite_tools_dir)
             zip.close()
         else:
             tar = tarfile.open(tar_gz_fullfn)
-            tar.extractall(pwd_path)
+            tar.extractall(prerequisite_tools_dir)
             tar.close()
 
     # Add "go/bin" to the PATH.
-    go_bin_path = pwd_path + os.path.sep + 'go' + os.path.sep + 'bin'
+    go_bin_path = prerequisite_tools_dir + os.path.sep + 'go' + os.path.sep + 'bin'
     print('Adding to PATH:', go_bin_path)
     os.environ["PATH"] += os.pathsep + go_bin_path
 
@@ -214,8 +216,9 @@ def install_ndk():
     else:
         from urllib import urlretrieve
 
-    # Consts.
-    pwd_path = os.path.dirname(os.path.realpath(__file__))
+    if not os.path.isdir(prerequisite_tools_dir):
+        os.makedirs(prerequisite_tools_dir)
+    
     if sys.platform == 'win32':
         url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows-x86_64.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_WINDOWS
@@ -224,7 +227,7 @@ def install_ndk():
         url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux-x86_64.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_LINUX
 
-    zip_fullfn = pwd_path + os.path.sep + 'ndk.zip';
+    zip_fullfn = prerequisite_tools_dir + os.path.sep + 'ndk.zip';
     # Download NDK.
     url_base_name = os.path.basename(url)
     if not os.path.isfile(zip_fullfn):
@@ -242,13 +245,13 @@ def install_ndk():
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the NDK if necessary.
-    ndk_home_path = pwd_path + os.path.sep + 'android-ndk-' + NDK_VERSION
+    ndk_home_path = prerequisite_tools_dir + os.path.sep + 'android-ndk-' + NDK_VERSION
     if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-r18" in the current path.
         file_name, file_extension = os.path.splitext(url_base_name)
         zip = zipfile.ZipFile(zip_fullfn, 'r')
-        zip.extractall(pwd_path)
+        zip.extractall(prerequisite_tools_dir)
         zip.close()
 
     # Linux only - Set executable permission on files.
@@ -321,6 +324,7 @@ if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
 module_dir = os.path.dirname(os.path.realpath(__file__))
 project_dir = os.path.realpath(os.path.join(module_dir, '..'))
 syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'syncthing')
+prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
 
 # Check if git is available.
 git_bin = which("git");
