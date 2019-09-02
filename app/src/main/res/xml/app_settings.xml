@@ -163,14 +163,12 @@
         <EditTextPreference
             android:key="maxRecvKbps"
             android:title="@string/max_recv_kbps"
-            android:numeric="integer"
             android:persistent="false"
             android:inputType="number" />
 
         <EditTextPreference
             android:key="maxSendKbps"
             android:title="@string/max_send_kbps"
-            android:numeric="integer"
             android:persistent="false"
             android:inputType="number" />
 
