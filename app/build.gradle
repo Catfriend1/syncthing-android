@@ -43,7 +43,6 @@ android {
         targetSdkVersion 29
         versionCode ourVersionCode
         versionName ourVersionName
-        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
