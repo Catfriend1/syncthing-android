@@ -1,7 +1,7 @@
 package com.nutomic.syncthingandroid;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.service.NotificationHandler;
 

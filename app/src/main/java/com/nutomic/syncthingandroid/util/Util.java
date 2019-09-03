@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.util;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.UiModeManager;
 import android.content.ClipData;
@@ -10,13 +9,14 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.common.base.Charsets;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
+import com.google.common.base.Charsets;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 
@@ -24,8 +24,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 
@@ -313,7 +313,7 @@ public class Util {
      * Make sure that dialog is showing and activity is valid before dismissing dialog, to prevent
      * various crashes.
      */
-    public static void dismissDialogSafe(Dialog dialog, Activity activity) {
+    public static void dismissDialogSafe(Dialog dialog, AppCompatActivity activity) {
         if (dialog == null || !dialog.isShowing())
             return;
 

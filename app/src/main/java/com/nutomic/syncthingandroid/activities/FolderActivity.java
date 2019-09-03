@@ -2,7 +2,6 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -11,8 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import androidx.documentfile.provider.DocumentFile;
-import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -29,8 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.documentfile.provider.DocumentFile;
+
 import com.google.gson.Gson;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderIgnoreList;
@@ -38,7 +40,6 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
-import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.FileUtils.ExternalStorageDirType;
@@ -49,17 +50,17 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.Random;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
-import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
+import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
 
 /**
  * Shows folder details and allows changing them.

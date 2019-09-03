@@ -18,11 +18,11 @@
         <item name="android:listDivider">@drawable/list_divider_inset</item>
         <item name="drawerArrowStyle">@style/Widget.Syncthing.DrawerArrowToggle</item>
 
-        <item name="android:actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
 
-        <item name="android:spinnerStyle">@style/Widget.AppCompat.Spinner.Underlined</item>
+        <item name="spinnerStyle">@style/Widget.AppCompat.Spinner.Underlined</item>
         <item name="android:spinnerItemStyle">@style/Widget.Syncthing.TextView.SpinnerItem</item>
-        <item name="android:alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
+        <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
     </style>
 
     <style name="Theme.Syncthing" parent="Theme.Syncthing.Base"/>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -100,7 +101,7 @@
             android:paddingRight="20dp"
             android:paddingStart="30dp"
             android:paddingTop="5dp"
-            android:src="@drawable/ic_phonelink_black_24dp_active" />
+            app:srcCompat="@drawable/ic_phonelink_black_24dp_active" />
 
     </RelativeLayout>
 

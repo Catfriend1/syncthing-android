@@ -21,7 +21,7 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

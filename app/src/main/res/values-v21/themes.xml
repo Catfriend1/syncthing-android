@@ -3,7 +3,6 @@
 
     <!-- DialogTheme produces weird background on 4.4, so we only use it on Lollipop for now. -->
     <style name="Theme.Syncthing" parent="Theme.Syncthing.Base">
-        <item name="android:alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
         <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
     </style>
 

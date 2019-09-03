@@ -3,7 +3,7 @@ package com.nutomic.syncthingandroid.service;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.util.Log;
 
 /**

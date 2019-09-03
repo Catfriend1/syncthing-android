@@ -1,8 +1,7 @@
 package com.nutomic.syncthingandroid.activities;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.DialogInterface;
@@ -12,21 +11,9 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -39,7 +26,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.fragments.DeviceListFragment;
@@ -51,14 +52,13 @@ import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.Util;
 
-import java.lang.IllegalStateException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import static java.lang.Math.min;
 import static com.nutomic.syncthingandroid.service.Constants.PREF_BROADCAST_SERVICE_CONTROL;
+import static java.lang.Math.min;
 
 /**
  * Shows {@link FolderListFragment} and
@@ -448,7 +448,7 @@ public class MainActivity extends SyncthingActivity
      * Handles drawer opened and closed events, toggling option menu state.
      */
     private class Toggle extends ActionBarDrawerToggle {
-        public Toggle(Activity activity, DrawerLayout drawerLayout) {
+        public Toggle(AppCompatActivity activity, DrawerLayout drawerLayout) {
             super(activity, drawerLayout, R.string.open_main_menu, R.string.close_main_menu);
             setDrawerIndicatorEnabled(false);
         }

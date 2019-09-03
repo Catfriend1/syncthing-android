@@ -2,7 +2,6 @@ package com.nutomic.syncthingandroid.util;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -12,17 +11,19 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.provider.DocumentsContract;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.nutomic.syncthingandroid.R;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.lang.reflect.Array;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;

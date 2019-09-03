@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -122,7 +123,7 @@
             android:paddingRight="20dp"
             android:paddingStart="30dp"
             android:paddingTop="5dp"
-            android:src="@drawable/ic_folder_black_24dp" />
+            app:srcCompat="@drawable/ic_folder_black_24dp" />
 
     </RelativeLayout>
 

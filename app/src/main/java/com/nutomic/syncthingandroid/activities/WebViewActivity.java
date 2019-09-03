@@ -1,13 +1,10 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.http.SslError;
 import android.net.Uri;
-import android.os.Build;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,6 +14,8 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.util.Util;

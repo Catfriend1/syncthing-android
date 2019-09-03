@@ -1,17 +1,18 @@
 package com.nutomic.syncthingandroid.views;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import androidx.databinding.DataBindingUtil;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.databinding.ItemFolderListBinding;

@@ -9,8 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,11 +24,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.DiscoveredDevice;
@@ -40,7 +42,6 @@ import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.service.TestData;
-import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.Compression;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
@@ -53,16 +54,14 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import static android.text.TextUtils.isEmpty;
+import static android.view.Gravity.CENTER_VERTICAL;
+import static android.view.View.VISIBLE;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
-import static android.text.TextUtils.isEmpty;
-import static android.view.View.VISIBLE;
-import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
-import static android.view.Gravity.CENTER_VERTICAL;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
-
 import static com.nutomic.syncthingandroid.util.Compression.METADATA;
 
 /**
@@ -465,12 +464,12 @@ public class DeviceActivity extends SyncthingActivity {
     }
 
     private Dialog createDeleteDialog(){
-        return new android.app.AlertDialog.Builder(this)
+        return new AlertDialog.Builder(this)
                 .setMessage(R.string.remove_device_confirm)
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
                     mConfig.removeDevice(getApi(), mDevice.deviceID);
                     mDeviceNeedsToUpdate = false;
-                    setResult(Activity.RESULT_OK);
+                    setResult(AppCompatActivity.RESULT_OK);
                     finish();
                 })
                 .setNegativeButton(android.R.string.no, null)
@@ -537,7 +536,7 @@ public class DeviceActivity extends SyncthingActivity {
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding device with ID = \'" + mDevice.deviceID + "\'");
             mConfig.addDevice(getApi(), mDevice);
-            setResult(Activity.RESULT_OK);
+            setResult(AppCompatActivity.RESULT_OK);
             finish();
             return;
         }
@@ -545,7 +544,7 @@ public class DeviceActivity extends SyncthingActivity {
         // Edit mode.
         if (!mDeviceNeedsToUpdate) {
             // We've got nothing to save.
-            setResult(Activity.RESULT_CANCELED);
+            setResult(AppCompatActivity.RESULT_CANCELED);
             finish();
             return;
         }
@@ -562,7 +561,7 @@ public class DeviceActivity extends SyncthingActivity {
 
         // Update device using RestApi or ConfigXml.
         mConfig.updateDevice(getApi(), mDevice);
-        setResult(Activity.RESULT_OK);
+        setResult(AppCompatActivity.RESULT_OK);
         finish();
         return;
     }
@@ -664,10 +663,10 @@ public class DeviceActivity extends SyncthingActivity {
     }
 
     private void showDiscardDialog(){
-        mDiscardDialog = new android.app.AlertDialog.Builder(this)
+        mDiscardDialog = new AlertDialog.Builder(this)
                 .setMessage(R.string.dialog_discard_changes)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                        setResult(Activity.RESULT_CANCELED);
+                        setResult(AppCompatActivity.RESULT_CANCELED);
                         finish();
                 })
                 .setNegativeButton(android.R.string.cancel, null)

@@ -1,14 +1,16 @@
 package com.nutomic.syncthingandroid.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.fragments.dialog.ExternalVersioningFragment;
 import com.nutomic.syncthingandroid.fragments.dialog.NoVersioningFragment;
@@ -54,7 +56,7 @@ public class VersioningDialogActivity extends ThemedAppCompatActivity {
     private void saveConfiguration() {
         Intent intent = new Intent();
         intent.putExtras(mCurrentFragment.getArguments());
-        setResult(Activity.RESULT_OK, intent);
+        setResult(AppCompatActivity.RESULT_OK, intent);
     }
 
     private void initiateSpinner() {

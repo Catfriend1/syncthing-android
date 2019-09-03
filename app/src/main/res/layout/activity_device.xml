@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -52,7 +53,7 @@
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
                     android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
-                    android:src="@drawable/ic_qrcode_black_24dp_active" />
+                    app:srcCompat="@drawable/ic_qrcode_black_24dp_active" />
 
             </LinearLayout>
 
@@ -113,7 +114,7 @@
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
                     android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
-                    android:src="@drawable/ic_content_copy_black_24dp" />
+                    app:srcCompat="@drawable/ic_content_copy_black_24dp" />
 
             </LinearLayout>
 
