@@ -7,16 +7,16 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-28.0.3
-    - android-28
+    - build-tools-29.0.2
+    - android-29
     - extra-android-m2repository
 
 # Install Android NDK (apparently there is no easier way to do this)
 # https://github.com/travis-ci/travis-ci/issues/5395
 before_script:
-  - curl -L https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip -O
-  - unzip -q android-ndk-r15c-linux-x86_64.zip
-  - export ANDROID_NDK_HOME=`pwd`/android-ndk-r15c
+  - curl -L https://dl.google.com/android/repository/android-ndk-r20-linux-x86_64.zip -O
+  - unzip -q android-ndk-r20-linux-x86_64.zip
+  - export ANDROID_NDK_HOME=`pwd`/android-ndk-r20
 
 before_install:
   # Install Go using gimme tool
@@ -24,7 +24,7 @@ before_install:
   - chmod +x ~/bin/gimme
   - eval "$(gimme stable)"
   # Hack to accept Android licenses
-  - yes | sdkmanager "platforms;android-27"
+  - yes | sdkmanager "platforms;android-29"
 
 # Cache gradle dependencies
 # https://docs.travis-ci.com/user/languages/android/#Caching

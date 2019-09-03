@@ -15,9 +15,9 @@ SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 # Leave empty to auto-detect version by 'git describe'.
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 
-GO_VERSION = '1.13rc2'
-GO_EXPECTED_SHASUM_LINUX = '3cd4490021a5f1f25a7440edca03910e40a38e587b578cf52ab7143a81db1861'
-GO_EXPECTED_SHASUM_WINDOWS = 'ed34ad4b9594ab0d19b2fed9b07ea56c573279f46041b3c40a17c39a35bf285c'
+GO_VERSION = '1.13'
+GO_EXPECTED_SHASUM_LINUX = '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856'
+GO_EXPECTED_SHASUM_WINDOWS = '7d162b83157d3171961f8e05a55b7da8476244df3fac28a5da1c9e215acfea89'
 
 NDK_VERSION = 'r20'
 NDK_EXPECTED_SHASUM_LINUX = '8665fc84a1b1f0d6ab3b5fdd1e30200cc7b9adff'
@@ -29,14 +29,12 @@ BUILD_TARGETS = [
         'goarch': 'arm',
         'jni_dir': 'armeabi',
         'clang': 'armv7a-linux-androideabi16-clang',
-        'patch_underaligned_tls': 'yes',
     },
     {
         'arch': 'arm64',
         'goarch': 'arm64',
         'jni_dir': 'arm64-v8a',
         'clang': 'aarch64-linux-android21-clang',
-        'patch_underaligned_tls': 'yes',
     },
     {
         'arch': 'x86',
@@ -218,7 +216,7 @@ def install_ndk():
 
     if not os.path.isdir(prerequisite_tools_dir):
         os.makedirs(prerequisite_tools_dir)
-    
+
     if sys.platform == 'win32':
         url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows-x86_64.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_WINDOWS
