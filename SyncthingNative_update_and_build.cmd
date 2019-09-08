@@ -13,11 +13,11 @@ SET DESIRED_SUBMODULE_VERSION=v1.2.2
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
-SET PATH=%PATH%;"%ProgramFiles%\Git\bin"
+SET PATH=%PATH%;"%ProgramFiles%\Git\cmd"
 REM
 echo [INFO] Checking prerequisites ...
 REM 
-IF NOT EXIST "%ProgramFiles%\Git\bin\git.exe" echo [ERROR] git not found. Install "Git for Windows" first. & goto :eos
+IF NOT EXIST "%ProgramFiles%\Git\cmd\git.exe" echo [ERROR] git not found. Install "Git for Windows" first. Maybe you have to update the path in the batch file. & goto :eos
 REM 
 where /q sed
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH. & goto :eos
