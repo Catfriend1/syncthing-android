@@ -337,7 +337,7 @@ public class ConfigXml {
         Folder defaultFolder = new Folder();
 
         /* Read existing config version */
-        int iConfigVersion = Integer.parseInt(mConfig.getDocumentElement().getAttribute("version"));
+        int iConfigVersion = getAttributeOrDefault(mConfig.getDocumentElement(), "version", 0);
         int iOldConfigVersion = iConfigVersion;
         LogV("Found existing config version " + Integer.toString(iConfigVersion));
 
