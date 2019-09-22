@@ -59,6 +59,11 @@ SET RESULT=%ERRORLEVEL%
 IF "%USE_GO_DEV%" == "1" call :revertGoDev
 IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. & goto :eos
 REM 
+echo [INFO] Reverting "go.mod" to checkout state ...
+cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
+git checkout -- go.mod
+cd /d "%SCRIPT_PATH%"
+REM 
 echo [INFO] Checking if SyncthingNative was built successfully ...
 REM 
 SET LIBCOUNT=
