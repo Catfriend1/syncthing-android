@@ -374,6 +374,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: App startet nicht beim Hochfahren</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI verbietet standardmäßig den Apps, sich selbst zu starten. Von Deinem Startbildschirm beginnend: Wähle \"Einstellungen\" > \"Rechte\" > \"Autostart\" und aktiviere den \"Syncthing-Fork\" Schieberegler.</string>
 
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: App zeigt wiederholt Begrüßungsbildschirm</string>
+    <string name="tip_xiaomi_battery_saver_text">Die Xiaomi MIUI System App für Batteriesparen widerruft bei jedem Geräteneustart die Berechtigung zum \"Ignorieren der Batterieoptimierung\". Dies führt dazu, dass die App den Begrüßungsbildschirm anzeigt und erneut nach der fehlenden, notwendigen Berechtigung fragt. Lösung: Öffnen Sie auf dem Startbildschirm die App-Übersicht > Drücken Sie lange auf \'Syncthing-Fork\' > \'App-Informationen > \'Batteriesparen\' und wählen Sie \'Uneingeschränkt\' (MIUI 10.3.2.0+).</string>
+
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Es gibt keine kürzlichen Änderungen.</string>
 

@@ -377,6 +377,9 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: app does not start on boot</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' > \'Permissions\' > \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
 
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: app repeatedly shows welcome screen</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. Solution: From home screen, open the app drawer > Long press \'Syncthing-Fork\' > \'App info\' > \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
+
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">There are no recent changes.</string>
 

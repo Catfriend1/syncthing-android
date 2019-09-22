@@ -69,6 +69,7 @@ public class TipsAndTricksActivity extends SyncthingActivity {
         // Tips referring to Xiaomi devices.
         if ("xiaomi".equalsIgnoreCase(Build.MANUFACTURER)) {
             mTipListAdapter.add(getString(R.string.tip_xiaomi_autostart_title), getString(R.string.tip_xiaomi_autostart_text));
+            mTipListAdapter.add(getString(R.string.tip_xiaomi_battery_saver_title), getString(R.string.tip_xiaomi_battery_saver_text));
         }
 
         // Fill tip title and text content.
