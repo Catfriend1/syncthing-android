@@ -1,10 +1,10 @@
 * Syncthing v1.2.2
-* Built on top of Android Q SDK, GO 1.13rc2, NDK 20
-* PLEASE NOTE: Android Q beta 5's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
+* PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 Fixed
-* Folder, device list crash while parsing config (#477)
-* Device sync percentage calculation for paused folders (#470)
-* Display of open file limit on Android Q (#465)
+* SyncthingService/importConfig: Fix unchecked type casts (#489)
+* NPE crash when config.xml "version" attr is broken (#497)
 Enhanced
-* Suggest trash can file versioner by default (#481)
+* Added tip: Turn off Xiaomi battery saver for the app (#498)
+* Prepared Syncthing v1.3.0 API changes (#496)
+* Migrated to AndroidX implementations (#488)
