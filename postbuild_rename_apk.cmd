@@ -11,10 +11,11 @@ setlocal enabledelayedexpansion
 cls
 SET SCRIPT_PATH=%~dps0
 SET TEMP_OUTPUT_FOLDER=X:\
-SET GIT_INSTALL_DIR=%ProgramFiles%\Git
-SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
+REM SET GIT_INSTALL_DIR=%ProgramFiles%\Git
+REM SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
 REM 
-SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
+REM SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
+where git 2> NUL: || call setenv.cmd
 REM 
 REM Get "applicationId"
 SET APPLICATION_ID=
@@ -50,7 +51,7 @@ SET VERSION_NAME=%VERSION_MAJOR%.%VERSION_MINOR%.%VERSION_PATCH%.%VERSION_WRAPPE
 echo [INFO] VERSION_NAME=[%VERSION_NAME%]
 REM 
 REM Get short hash of last commit.
-IF NOT EXIST %GIT_BIN% echo [ERROR] git.exe not found. & pause & goto :eof
+REM IF NOT EXIST %GIT_BIN% echo [ERROR] git.exe not found. & pause & goto :eof
 pushd %SCRIPT_PATH%
 FOR /F "tokens=1" %%A IN ('git rev-parse --short --verify HEAD 2^>NUL:') DO SET COMMIT_SHORT_HASH=%%A
 popd
