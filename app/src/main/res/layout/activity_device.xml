@@ -38,7 +38,7 @@
                     android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_cellphone_black_24dp"
                     android:drawableStart="@drawable/ic_cellphone_black_24dp"
-                    android:hint="@string/device_id"
+                    android:contentDescription="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine"
                     android:focusable="true"
