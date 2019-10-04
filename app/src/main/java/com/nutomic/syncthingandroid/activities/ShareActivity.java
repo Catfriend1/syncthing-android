@@ -137,13 +137,23 @@ public class ShareActivity extends SyncthingActivity
         String action = getIntent().getAction();
         if (action != null) {
             if (action.equals(Intent.ACTION_SEND)) {
-                Uri uri = getIntent().getParcelableExtra(Intent.EXTRA_STREAM);
-                if (uri != null)
-                    extrasToCopy.add(uri);
+                try {
+                    Uri uri = getIntent().getParcelableExtra(Intent.EXTRA_STREAM);
+                    if (uri != null) {
+                        extrasToCopy.add(uri);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Intent.ACTION_SEND: Ignored malformed intent.");
+                }
             } else if (action.equals(Intent.ACTION_SEND_MULTIPLE)) {
-                ArrayList<Uri> extras = getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-                if (extras != null)
-                    extrasToCopy = extras;
+                try {
+                    ArrayList<Uri> extras = getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+                    if (extras != null) {
+                        extrasToCopy = extras;
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Intent.ACTION_SEND_MULTIPLE: Ignored malformed intent.");
+                }
             }
         }
 
