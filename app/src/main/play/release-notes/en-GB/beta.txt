@@ -1,10 +1,7 @@
-* Syncthing v1.2.2
+* Syncthing v1.3.0
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 Fixed
-* SyncthingService/importConfig: Fix unchecked type casts (#489)
-* NPE crash when config.xml "version" attr is broken (#497)
+-
 Enhanced
-* Added tip: Turn off Xiaomi battery saver for the app (#498)
-* Prepared Syncthing v1.3.0 API changes (#496)
-* Migrated to AndroidX implementations (#488)
+-
