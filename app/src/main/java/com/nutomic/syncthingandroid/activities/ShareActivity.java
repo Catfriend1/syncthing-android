@@ -134,14 +134,17 @@ public class ShareActivity extends SyncthingActivity
         mFoldersSpinner = findViewById(R.id.folders);
 
         ArrayList<Uri> extrasToCopy = new ArrayList<>();
-        if (getIntent().getAction().equals(Intent.ACTION_SEND)) {
-            Uri uri = getIntent().getParcelableExtra(Intent.EXTRA_STREAM);
-            if (uri != null)
-                extrasToCopy.add(uri);
-        } else if (getIntent().getAction().equals(Intent.ACTION_SEND_MULTIPLE)) {
-            ArrayList<Uri> extras = getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-            if (extras != null)
-                extrasToCopy = extras;
+        String action = getIntent().getAction();
+        if (action != null) {
+            if (action.equals(Intent.ACTION_SEND)) {
+                Uri uri = getIntent().getParcelableExtra(Intent.EXTRA_STREAM);
+                if (uri != null)
+                    extrasToCopy.add(uri);
+            } else if (action.equals(Intent.ACTION_SEND_MULTIPLE)) {
+                ArrayList<Uri> extras = getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+                if (extras != null)
+                    extrasToCopy = extras;
+            }
         }
 
         if (extrasToCopy.isEmpty()) {
