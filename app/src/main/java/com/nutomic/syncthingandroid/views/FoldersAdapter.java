@@ -135,6 +135,10 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                         );
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
+                    case "sync-preparing":
+                        binding.state.setText(mContext.getString(R.string.state_sync_preparing));
+                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        break;
                     case "error":
                         if (TextUtils.isEmpty(folderStatus.error)) {
                             binding.state.setText(mContext.getString(R.string.state_error));

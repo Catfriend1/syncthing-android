@@ -919,6 +919,7 @@ Please report any problems you encounter via Github.</string>
     <string name="state_idle">Idle</string>
     <string name="state_scanning">Scanning</string>
     <string name="state_scan_waiting">Waiting to Scan</string>
+    <string name="state_sync_preparing">Preparing to Sync</string>
     <string name="state_syncing_general">Syncing</string>
     <string name="state_syncing">Syncing (%1$d%%)</string>
     <string name="state_error">Error</string>
