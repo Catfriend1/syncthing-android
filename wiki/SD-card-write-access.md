@@ -5,8 +5,8 @@ https://source.android.com/devices/storage/traditional.html
 
 It is true if you did not format the external SD card as adoptable storage but left it as portable. Doing this prevents any native linux app from writing to this card freely. The directories on the SD card that an app can write to are restricted to the following places, for example:
 
-* /storage/[ABCD-EFGH]/Android/data/com.github.catfriend1.synctingandroid.[debug]/files
-* /storage/[ABCD-EFGH]/Android/media/com.github.catfriend1.synctingandroid.[debug]
+* /storage/[ABCD-EFGH]/Android/data/com.github.catfriend1.syncthingandroid.[debug]/files
+* /storage/[ABCD-EFGH]/Android/media/com.github.catfriend1.syncthingandroid.[debug]
 
 In Syncthing-Fork, when you are prompted for the directory, you are automatically taken to a writable directory by the built-in directory chooser to help finding out these writable directories with ease. Just create your folder you wish to be used by Syncthing below the suggested directory that opens up on the UI.
 
