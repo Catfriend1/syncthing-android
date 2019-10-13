@@ -26,24 +26,24 @@ import dagger.Component;
 @Singleton
 @Component(modules = {SyncthingModule.class})
 public interface DaggerComponent {
-
-    void inject(SyncthingApp app);
-    void inject(MainActivity activity);
-    void inject(FirstStartActivity activity);
-    void inject(DeviceActivity activity);
-    void inject(FolderActivity activity);
-    void inject(FolderPickerActivity activity);
-    void inject(SyncConditionsActivity activity);
-    void inject(DeviceListFragment fragment);
-    void inject(FolderListFragment fragment);
-    void inject(StatusFragment fragment);
-    void inject(Languages languages);
-    void inject(SyncthingService service);
-    void inject(RunConditionMonitor runConditionMonitor);
-    void inject(EventProcessor eventProcessor);
-    void inject(SyncthingRunnable syncthingRunnable);
-    void inject(NotificationHandler notificationHandler);
     void inject(AppConfigReceiver appConfigReceiver);
+    void inject(DeviceActivity activity);
+    void inject(DeviceListFragment fragment);
+    void inject(EventProcessor eventProcessor);
+    void inject(FirstStartActivity activity);
+    void inject(FolderActivity activity);
+    void inject(FolderListFragment fragment);
+    void inject(FolderPickerActivity activity);
+    void inject(Languages languages);
+    void inject(MainActivity activity);
+    void inject(NotificationHandler notificationHandler);
     void inject(RestApi restApi);
+    void inject(RunConditionMonitor runConditionMonitor);
     void inject(SettingsActivity.SettingsFragment fragment);
+    void inject(StatusFragment fragment);
+    void inject(SyncConditionsActivity activity);
+    void inject(SyncthingApp app);
+    void inject(SyncthingRunnable syncthingRunnable);
+    void inject(SyncthingService service);
+
 }
