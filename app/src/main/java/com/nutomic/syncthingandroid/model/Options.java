@@ -48,7 +48,8 @@ public class Options {
     public int maxConcurrentScans = 1;
 
     // Since v1.2.0
-    public String crashReportingURL = "https://crash.syncthing.net/newcrash";
+    // json: crURL, xml: crashReportingURL
+    public String crURL = "https://crash.syncthing.net/newcrash";
     public boolean crashReportingEnabled = true;
     public int stunKeepaliveStartS = 180;
     public int stunKeepaliveMinS = 20;
