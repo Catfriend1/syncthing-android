@@ -55,6 +55,9 @@ public class Options {
     public int stunKeepaliveMinS = 20;
     public String stunServer = "default";
 
+    // Since v1.3.0
+    public String databaseTuning = "small";         // SyncthingNative defaults to "auto".
+
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
