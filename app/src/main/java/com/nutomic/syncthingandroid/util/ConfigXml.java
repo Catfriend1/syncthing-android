@@ -319,6 +319,14 @@ public class ConfigXml {
         changed = setConfigElement(options, "startBrowser", Boolean.toString(defaultOptions.startBrowser)) || changed;
         changed = setConfigElement(options, "databaseTuning", defaultOptions.databaseTuning) || changed;
 
+        /**
+         * Disable Syncthing's NAT feature because it causes kernel oops on some buggy kernels.
+         */
+        if (Constants.osHasKernelBugIssue505()) {
+            LogV("Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
+            changed = setConfigElement(options, "natEnabled", Boolean.toString(false)) || changed;
+        }
+
         // Save changes if we made any.
         if (changed) {
             saveChanges();
