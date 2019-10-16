@@ -274,10 +274,6 @@
 
     <string name="use_tor_title">Tor を使用する</string>
 
-    <string name="use_legacy_hashing_title">レガシーハッシュを使用する</string>
-
-    <string name="use_legacy_hashing_summary">互換性のため従来のハッシュパッケージの使用を強制</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
 

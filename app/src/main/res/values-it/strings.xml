@@ -317,10 +317,6 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Il dato inserito viola la sintassi del proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Utilizza la funzione di hash precedente</string>
-
-    <string name="use_legacy_hashing_summary">Forza Syncthing ad utilizzare il pacchetto di hash precedente per scopi di compatibilità</string>
-
     <string name="restart_on_wakeup_title">Riavvio alla Riattivazione</string>
 
     <string name="restart_on_wakeup_summary">Predefinito: Abilitato. La disattivazione di questa funzione può comportare il rallentamento delle scansioni delle cartelle e il ricollegamento dei dispositivi per risparmiare la batteria.</string>

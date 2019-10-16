@@ -278,10 +278,6 @@
 
     <string name="use_tor_title">使用 Tor</string>
 
-    <string name="use_legacy_hashing_title">使用過時的雜湊</string>
-
-    <string name="use_legacy_hashing_summary">為了相容性，強制 Syncthing 使用過時的雜湊套</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">你確認要匯出你的設定？已存在的檔案將會被覆蓋。\n\n警告！其他的應用程式也許能從備份位置讀取私鑰，並且利用它來下載、修改同步的檔案。</string>
 

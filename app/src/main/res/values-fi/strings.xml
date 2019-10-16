@@ -269,10 +269,6 @@
 
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
 
-    <string name="use_legacy_hashing_title">Käytä vanhaa tarkistussumman laskentaa</string>
-
-    <string name="use_legacy_hashing_summary">Pakota Syncthing käyttämään vanhaa tarkistussumman laskentapakettia yhteensopivuuden parantamiseksi</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi? Vanhat tiedostot ylikirjoitetaan.\n\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
 

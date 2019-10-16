@@ -277,10 +277,6 @@
 
     <string name="use_tor_title">Korzystanie z Tor</string>
 
-    <string name="use_legacy_hashing_title">Użyj starego mechanizmu haszowania</string>
-
-    <string name="use_legacy_hashing_summary">Wymuś użycie przedawnionego hashowania paczki dla zachowania kompatybilności</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Wyeksportować ustawienia? Istniejące pliki zostaną zastąpione.\n\nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
 

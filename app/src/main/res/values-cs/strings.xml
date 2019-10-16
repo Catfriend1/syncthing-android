@@ -277,10 +277,6 @@
 
     <string name="use_tor_title">Použít Tor</string>
 
-    <string name="use_legacy_hashing_title">Používat standardní kontrolní součet</string>
-
-    <string name="use_legacy_hashing_summary">Vynutit použití původního hashovacího algoritmu pro lepší kompatibilitu</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány.\n\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
 

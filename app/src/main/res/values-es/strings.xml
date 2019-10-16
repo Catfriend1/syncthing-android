@@ -263,10 +263,6 @@
 
     <string name="use_tor_title">Usar Tor</string>
 
-    <string name="use_legacy_hashing_title">Utilizar método antiguo para generar los hash</string>
-
-    <string name="use_legacy_hashing_summary">Forzar el uso de un paquete de hashing antiguo por compatibilidad</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Se sobreescribirán los ficheros existentes.\n\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
 

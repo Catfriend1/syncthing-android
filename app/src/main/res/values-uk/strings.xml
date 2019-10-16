@@ -216,8 +216,6 @@
 
     <string name="use_tor_title">Використовувати Tor</string>
 
-    <string name="use_legacy_hashing_title">Старий спосіб хешування</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію? Існуючі файли будуть перезаписані</string>
 

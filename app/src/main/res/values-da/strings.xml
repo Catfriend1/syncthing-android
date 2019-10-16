@@ -273,10 +273,6 @@
 
     <string name="use_tor_title">Brug Tor</string>
 
-    <string name="use_legacy_hashing_title">Brug legacy hashing</string>
-
-    <string name="use_legacy_hashing_summary">Tving Syncthing til at bruge legacy hashing pakken af kompatibilitetsgrunde </string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt.\n\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
 

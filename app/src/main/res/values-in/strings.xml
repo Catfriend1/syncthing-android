@@ -259,10 +259,6 @@
 
     <string name="use_tor_title">Gunakan Tor</string>
 
-    <string name="use_legacy_hashing_title">Gunakan hashing lawas</string>
-
-    <string name="use_legacy_hashing_summary">Paksa Syncthing menggunakan paket hashing lawas untuk kompatibilitas</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Anda yakin ingin mengekspor konfigurasi? Berkas yang ada akan ditimpa.\n\nPERINGATAN| Aplikasi lain mungkin bisa membaca kunci privat dari lokasi backup dan menggunakannya untuk mengunduh/mengubah berkas terselaraskan.</string>
 

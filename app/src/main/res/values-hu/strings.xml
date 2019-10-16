@@ -307,10 +307,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">A bemenet sérti a proxy szintaxist \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Régi típusú hashing használata</string>
-
-    <string name="use_legacy_hashing_summary">Régi típusú hashing használatának kényszerítése kompatibilitási okokból </string>
-
     <string name="restart_on_wakeup_title">Újraindítás felébresztéskor</string>
 
     <string name="restart_on_wakeup_summary">Alapértelmezés: bekapcsolva. A funckió bekapcsolása a mappák szkennelésének és az eszközök újracsatlakozásának késleltetését okozza az akkumulátor kímélése érdekében.</string>

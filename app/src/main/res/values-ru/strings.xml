@@ -405,10 +405,6 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Использовать старый алгоритм хеширования</string>
-
-    <string name="use_legacy_hashing_summary">Использовать старый метод хеширования в целях совместимости</string>
-
     <string name="restart_on_wakeup_title">Перезапуск при пробуждении</string>
 
     <string name="restart_on_wakeup_summary">По умолчанию: Включено. Выключение данной функции может вызывать задержки сканирования папок и переподключения устройства для экономии заряда батареи.</string>

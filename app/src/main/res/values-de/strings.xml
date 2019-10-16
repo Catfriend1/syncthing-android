@@ -601,10 +601,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Die Eingabe entspricht nicht der Form \'http://[IP/HOSTNAME]:[PORT]\'.</string>
 
-    <string name="use_legacy_hashing_title">Nutze veraltetes Hashing</string>
-
-    <string name="use_legacy_hashing_summary">Für Abwärtskompatibilität soll Syncthing die alten Hashfunktionen verwenden</string>
-
     <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
 
     <string name="broadcast_service_control_summary">Standard: Deaktiviert. Aktiviere diese Option, um den Dienst durch Broadcasts z. B. mit Drittanbieter Automatisierungsapps zu starten und zu stoppen. Hinweis: Nach dem Ändern dieser Option musst du die App manuell neu starten.</string>

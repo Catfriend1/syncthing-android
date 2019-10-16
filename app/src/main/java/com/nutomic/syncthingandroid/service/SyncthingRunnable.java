@@ -473,9 +473,6 @@ public class SyncthingRunnable implements Runnable {
             targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
         targetEnv.put("STNORESTART", "1");
         targetEnv.put("STNOUPGRADE", "1");
-        // Disable hash benchmark for faster startup.
-        // https://github.com/syncthing/syncthing/issues/4348
-        targetEnv.put("STHASHING", "minio");
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
@@ -491,8 +488,6 @@ public class SyncthingRunnable implements Runnable {
                 targetEnv.put("https_proxy", httpProxyAddress);
             }
         }
-        if (mPreferences.getBoolean("use_legacy_hashing", false))
-            targetEnv.put("STHASHING", "standard");
 
         // Optimize memory usage for older devices.
         int gogc = 100;         // GO default

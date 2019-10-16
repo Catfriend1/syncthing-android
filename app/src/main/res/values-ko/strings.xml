@@ -272,10 +272,6 @@
 
     <string name="use_tor_title">Tor 사용</string>
 
-    <string name="use_legacy_hashing_title">레가시 해싱 쓰기</string>
-
-    <string name="use_legacy_hashing_summary">호환성의 목적을 위하여 Syncthing이 Legacy Hashing 패키지를 쓰도록 강제합니다</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까? 현재 존재하는 파일이 덮어쓰기됩니다.\n\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
 

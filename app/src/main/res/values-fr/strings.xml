@@ -315,10 +315,6 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Utiliser le hachage habituel</string>
-
-    <string name="use_legacy_hashing_summary">Force Syncthing à utiliser le hachage d\'origine pour des raisons de compatibilité.</string>
-
     <string name="restart_on_wakeup_title">Redémarrer en cas de réveil</string>
 
     <string name="restart_on_wakeup_summary">Par défaut: Activé. La désactivation de cette fonction, pour économiser la batterie, peut entraîner des retards dans l\'analyse des partages et dans la reconnexion des appareils.</string>

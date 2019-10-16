@@ -224,7 +224,7 @@ public class ConfigXml {
     /**
      * Updates the config file.
      * Sets ignorePerms flag to true on every folder, force enables TLS, sets the
-     * username/password, and disables weak hash checking.
+     * username/password.
      */
     @SuppressWarnings("SdCardPath")
     private void updateIfNeeded() {
@@ -291,14 +291,11 @@ public class ConfigXml {
         }
 
         /* Section - options */
-        // Disable weak hash benchmark for faster startup.
-        // https://github.com/syncthing/syncthing/issues/4348
         Element options = (Element) mConfig.getDocumentElement()
                 .getElementsByTagName("options").item(0);
         if (options == null) {
             throw new OpenConfigException();
         }
-        changed = setConfigElement(options, "weakHashSelectionMethod", "never") || changed;
 
         /* Dismiss "fsWatcherNotification" according to https://github.com/syncthing/syncthing-android/pull/1051 */
         NodeList childNodes = options.getChildNodes();

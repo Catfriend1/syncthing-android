@@ -337,10 +337,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Gebruik verouderde hashing</string>
-
-    <string name="use_legacy_hashing_summary">Dwing Syncthing om het verouderd hashingpakket te gebruiken voor compatibiliteitsredenen</string>
-
     <string name="restart_on_wakeup_title">Herstarten bij wekken</string>
 
     <string name="restart_on_wakeup_summary">Standaard: ingeschakeld. Deze functie uitschakelen kan ertoe leiden dat het scannen van mappen en opnieuw verbinden met apparaten uitgesteld wordt om de batterij te besparen.</string>

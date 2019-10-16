@@ -331,10 +331,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Entrada viola sintaxe do proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Usar hashing legado</string>
-
-    <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar hashing legado para fins de compatibilidade</string>
-
     <string name="restart_on_wakeup_title">Reiniciar no Wakeup</string>
 
     <string name="restart_on_wakeup_summary">Padrão: habilitado. Desabilitando esse recurso pode resultar em varreduras nos diretórios e reconexões com dispositivos sendo adiadas para poupar bateria.</string>

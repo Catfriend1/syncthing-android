@@ -252,10 +252,6 @@
 
     <string name="use_tor_title">Utilizar o Tor</string>
 
-    <string name="use_legacy_hashing_title">Usar verificação antiga</string>
-
-    <string name="use_legacy_hashing_summary">Forçar o Syncthing a usar um pacote de verificação antiga por questões de compatabilidade</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Tem a certeza de que quer exportar a sua configuração? Ficheiros existentes serão sobrescritos.\n\nAVISO! Outras aplicações poderão ler a chave privada da localização da cópia de segurança e utilizá-la para descarregar/modificar os ficheiros sincronizados.</string>
 

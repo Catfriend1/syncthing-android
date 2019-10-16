@@ -477,10 +477,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Textul nu respectă sintaxa proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="use_legacy_hashing_title">Folosește modul vechi de hashing</string>
-
-    <string name="use_legacy_hashing_summary">Forțează utilizarea pachetului de hashing vechi din motive de compatibilitate</string>
-
     <string name="restart_on_wakeup_title">Repornire la trezire</string>
 
     <string name="restart_on_wakeup_summary">Implicit: Activat. Dezactivarea acestei caracteristici ar putea duce la amânarea scanării directoarelor și a conectării dispozitivelor pentru a putea micșora consumul bateriei.</string>

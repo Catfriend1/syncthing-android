@@ -344,11 +344,6 @@
             android:inputType="textUri|textNoSuggestions" />
 
         <CheckBoxPreference
-            android:key="use_legacy_hashing"
-            android:title="@string/use_legacy_hashing_title"
-            android:summary="@string/use_legacy_hashing_summary" />
-
-        <CheckBoxPreference
             android:key="broadcast_service_control"
             android:title="@string/broadcast_service_control_title"
             android:summary="@string/broadcast_service_control_summary" />

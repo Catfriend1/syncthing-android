@@ -470,10 +470,6 @@
 
     <string name="socks_proxy_address_title">SOCKS5 代理</string>
     <string name="http_proxy_address_title">HTTP(S) 代理</string>
-    <string name="use_legacy_hashing_title">使用传统哈希</string>
-
-    <string name="use_legacy_hashing_summary">强制 Syncthing 使用传统哈希包以提高兼容性</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">您确定要导出您的配置？若您之前导出过配置，则文件会被当前导出的配置所覆盖。\n\n 警告！其他应用程序可以从您导出的配置文件中获取到您的密钥，并且可以通过它来下载或者修改您的同步文件。</string>
 
