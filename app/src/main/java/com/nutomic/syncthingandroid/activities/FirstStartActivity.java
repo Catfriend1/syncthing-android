@@ -218,9 +218,11 @@ public class FirstStartActivity extends AppCompatActivity {
             // Move to previous slider.
             mViewPager.setCurrentItem(current);
             if (current == 0) {
-                mBackButton.setVisibility(View.GONE);
                 mNextButton.requestFocus();
             }
+        } else if (current == -1) {
+            // "Back" on first slide quits the app.
+            finish();
         }
     }
 

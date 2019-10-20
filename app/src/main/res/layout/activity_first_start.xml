@@ -44,7 +44,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="@string/back"
-                android:visibility="gone"
                 style="@style/Theme.Syncthing.GreyButton" />
 
         <Button
