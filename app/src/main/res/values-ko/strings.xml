@@ -399,7 +399,7 @@
 
     <string name="config_create_failed">구성 파일을 만드는데 실패 했습니다.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">카메라</string>
+    <string name="default_android_camera_folder_label">Android 카메라</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-사진</string>

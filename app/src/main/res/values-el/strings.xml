@@ -402,9 +402,6 @@
     <string name="syncthing_active">Το Syncthing εκτελείται</string>
 
     <string name="config_create_failed">Αδυναμία δημιουργίας αρχείου ρυθμίσεων</string>
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Φωτογραφική μηχανή</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
 

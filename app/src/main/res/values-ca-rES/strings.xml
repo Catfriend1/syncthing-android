@@ -59,6 +59,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="refresh">Actualitza</string>
 
+
+
     <!-- MainActivity -->
 
 
@@ -716,9 +718,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Falta un fitxer de configuració esencial per al funcionament</string>
-
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Càmera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>

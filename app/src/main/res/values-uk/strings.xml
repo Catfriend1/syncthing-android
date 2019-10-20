@@ -289,9 +289,6 @@
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing працює</string>
 
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Камера</string>
-
     <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
 
     <!-- RestApi -->

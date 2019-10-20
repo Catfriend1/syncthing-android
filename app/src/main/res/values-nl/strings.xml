@@ -488,9 +488,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="syncthing_terminated">Syncthing is beëindigd</string>
 
     <string name="config_create_failed">Aanmaken van configuratiebestand mislukt</string>
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Camera</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto\'s</string>
 

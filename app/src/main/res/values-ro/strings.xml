@@ -60,6 +60,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="refresh">Reîmprospătare</string>
 
+
+
     <!-- MainActivity -->
 
 
@@ -639,9 +641,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Un fișier de configurare esențial pentru această operație lipsește</string>
-
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Camera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotografii</string>

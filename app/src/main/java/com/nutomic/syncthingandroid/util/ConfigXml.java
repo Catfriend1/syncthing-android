@@ -327,6 +327,14 @@ public class ConfigXml {
             changed = setConfigElement(options, "natEnabled", Boolean.toString(false)) || changed;
         }
 
+        // Add the "Syncthing Camera" folder if the user consented to use the feature.
+        Boolean prefEnableSyncthingCamera =
+                PreferenceManager.getDefaultSharedPreferences(mContext)
+                        .getBoolean(Constants.PREF_ENABLE_SYNCTHING_CAMERA, false);
+        if (prefEnableSyncthingCamera) {
+            changed = addSyncthingCameraFolder() || changed;
+        }
+
         // Save changes if we made any.
         if (changed) {
             saveChanges();
@@ -997,6 +1005,53 @@ public class ConfigXml {
     }
 
     /**
+     * Adds a new folder pointing to the app-specific "Syncthing Camera"
+     * directory if it hasn't been added to the config yet.
+     * Returns if changes to the config have been made.
+     */
+    private boolean addSyncthingCameraFolder() {
+        // LogV("addSyncthingCameraFolder: Examining config if folder already exists ...");
+        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
+        Boolean folderAlreadyPresentInConfig = false;
+        for (int i = 0; i < nodeFolders.getLength(); i++) {
+            Element r = (Element) nodeFolders.item(i);
+            String folderId = getAttributeOrDefault(r, "id", "");
+            if (!TextUtils.isEmpty(folderId) && folderId.equals(Constants.syncthingCameraFolderId)) {
+                folderAlreadyPresentInConfig = true;
+                break;
+            }
+        }
+        if (folderAlreadyPresentInConfig) {
+            // LogV("addSyncthingCameraFolder: Folder [" + Constants.syncthingCameraFolderId + "] already present in config.");
+            return false;
+        }
+
+        // Get app specific directory, e.g. "/storage/emulated/0/Android/data/[PACKAGE_NAME]/Pictures".
+        File storageDir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        if (storageDir == null) {
+            Log.e(TAG, "addSyncthingCameraFolder: storageDir == null");
+            return false;
+        }
+
+        // Prepare folder element.
+        Folder folder = new Folder();
+        folder.minDiskFree = new Folder.MinDiskFree();
+        folder.id = Constants.syncthingCameraFolderId;
+        folder.label = mContext.getString(R.string.default_syncthing_camera_folder_label);
+        folder.path = storageDir.getAbsolutePath();
+
+        // Add versioning.
+        folder.versioning = new Folder.Versioning();
+        folder.versioning.type = "trashcan";
+        folder.versioning.params.put("cleanoutDays", Integer.toString(14));
+
+        // Add folder to config.
+        LogV("addSyncthingCameraFolder: Adding folder to config ...");
+        addFolder(folder);
+        return true;
+    }
+
+    /**
      * Change default folder id to camera and path to camera folder path.
      * Returns if changes to the config have been made.
      */
@@ -1009,7 +1064,7 @@ public class ConfigXml {
                 .toLowerCase(Locale.US)
                 .replaceAll("[^a-z0-9_-]", "");
         String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
-        folder.setAttribute("label", mContext.getString(R.string.default_folder_label));
+        folder.setAttribute("label", mContext.getString(R.string.default_android_camera_folder_label));
         folder.setAttribute("id", mContext.getString(R.string.default_folder_id, defaultFolderId));
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());

@@ -467,7 +467,7 @@
 
     <string name="config_create_failed">Echec de création du fichier de configuration</string>
     <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Caméra</string>
+    <string name="default_android_camera_folder_label">Android Caméra</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>

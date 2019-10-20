@@ -466,9 +466,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="syncthing_active">O Syncthing está rodando</string>
 
     <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Câmera</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>
 

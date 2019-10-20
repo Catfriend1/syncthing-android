@@ -62,6 +62,32 @@ Please report any problems you encounter via Github.</string>
 
     <string name="refresh">Refresh</string>
 
+
+
+    <!-- PhotoShootActivity -->
+
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
+
+    <string name="photo_shoot_intro_welcome_title">Welcome to Syncthing Camera</string>
+
+    <string name="photo_shoot_intro_permission_title">Required permissions</string>
+
+    <string name="photo_shoot_intro_no_camera">Sorry, this device doesn\'t have a camera.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">We require storage and camera permission to continue.</string>
+
+    <string name="grant_storage_permission">Grant storage permission</string>
+
+    <string name="grant_camera_permission">Grant camera permission</string>
+
+    <string name="photo_shoot_intro_permission_desc">Syncthing Camera requires your consent to shoot pictures and store them on your device. This feature is optional. To use it, grant permissions and tap \"Continue\". We will setup a Syncthing Camera folder for you which you can share with other Syncthing devices later.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
+
+
+
     <!-- MainActivity -->
 
 
@@ -863,7 +889,7 @@ Please report any problems you encounter via Github.</string>
     <string name="webui_tcp_port_unavailable">WebUI tcp port %s busy. Second instance?</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Camera</string>
+    <string name="default_android_camera_folder_label">Android Camera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>

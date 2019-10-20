@@ -646,7 +646,7 @@
     <string name="webui_tcp_port_unavailable">WebUI TCP端口 %s 正忙. Second instance?</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">摄像机</string>
+    <string name="default_android_camera_folder_label">Android 摄像机</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-照片</string>

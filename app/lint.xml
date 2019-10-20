@@ -70,6 +70,7 @@
     <issue id="PrivateResource" severity="ignore" />
     <issue id="RelativeOverlap">
         <ignore path="src/main/res/layout/activity_first_start.xml" />
+        <ignore path="src/main/res/layout/activity_photo_shoot_intro.xml" />
     </issue>
     <!-- Ignore unused drawables -->
     <issue id="UnusedResources" severity="ignore">

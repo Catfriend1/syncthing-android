@@ -412,9 +412,6 @@
     <string name="syncthing_active">Syncthing jest uruchomiony</string>
 
     <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego</string>
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Kamera</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-zdjęcia</string>
 

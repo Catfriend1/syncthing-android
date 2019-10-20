@@ -84,9 +84,15 @@ public class Constants {
     /**
      * Cached information which is not available on SettingsActivity.
      */
+    public static final String PREF_ENABLE_SYNCTHING_CAMERA     = "enableSyncthingCamera";
     public static final String PREF_KNOWN_WIFI_SSIDS            = "knownWifiSsids";
     public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
     public static final String PREF_LOCAL_DEVICE_ID             = "localDeviceID";
+
+    /**
+     * {@link ConfigXml#addSyncthingCameraFolder}
+     */
+    public static final String syncthingCameraFolderId          = "syncthingAndroidCamera-52x89-60es4";
 
     /**
      * {@link RunConditionMonitor}

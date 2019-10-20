@@ -62,6 +62,32 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="refresh">Aktualisieren</string>
 
+
+
+    <!-- PhotoShootActivity -->
+
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork Kamera</string>
+
+    <string name="photo_shoot_intro_welcome_title">Willkommen zur Syncthing Kamera</string>
+
+    <string name="photo_shoot_intro_permission_title">Erforderliche Berechtigungen</string>
+
+    <string name="photo_shoot_intro_no_camera">Entschuldigung, dieses Gerät hat keine Kamera.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Wir benötigen Speicher- und Kameraberechtigung, um fortzufahren.</string>
+
+    <string name="grant_storage_permission">Gewähre Speicherzugriff</string>
+
+    <string name="grant_camera_permission">Gewähre Kamerazugriff</string>
+
+    <string name="photo_shoot_intro_permission_desc">Syncthing Kamera erfordert Deine Zustimmung, um Fotos aufzunehmen und auf Deinem Gerät zu speichern. Das Feature ist optional. Um es zu verwenden, erteile die Berechtigungen und tippe auf \"Weiter\". Wir richten Dir einen Syncthing Kamera-Ordner ein, den Du später für andere Syncthing-Geräte freigeben kannst.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Syncthing Kamera</string>
+
+
+
     <!-- MainActivity -->
 
 
@@ -842,7 +868,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="webui_tcp_port_unavailable">WebGUI TCP-Port %s belegt. Zweite Instanz?</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Kamera</string>
+    <string name="default_android_camera_folder_label">Android Kamera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-Bilder</string>

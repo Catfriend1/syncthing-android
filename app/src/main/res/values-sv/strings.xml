@@ -54,6 +54,8 @@
 
     <string name="refresh">Uppdatera</string>
 
+
+
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Bekräfta att avsluta appen</string>
     <!-- Title of the "add folder" menu action -->
@@ -647,9 +649,6 @@
     <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
-
-    <!-- Label of the default folder created of first start (camera folder). -->
-    <string name="default_folder_label">Kamera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s foton</string>

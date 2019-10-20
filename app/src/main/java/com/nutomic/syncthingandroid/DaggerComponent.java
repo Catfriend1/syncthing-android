@@ -6,6 +6,7 @@ import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.activities.FolderPickerActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SettingsActivity;
+import com.nutomic.syncthingandroid.activities.PhotoShootActivity;
 import com.nutomic.syncthingandroid.activities.SyncConditionsActivity;
 import com.nutomic.syncthingandroid.fragments.DeviceListFragment;
 import com.nutomic.syncthingandroid.fragments.FolderListFragment;
@@ -37,6 +38,7 @@ public interface DaggerComponent {
     void inject(Languages languages);
     void inject(MainActivity activity);
     void inject(NotificationHandler notificationHandler);
+    void inject(PhotoShootActivity photoShootActivity);
     void inject(RestApi restApi);
     void inject(RunConditionMonitor runConditionMonitor);
     void inject(SettingsActivity.SettingsFragment fragment);
