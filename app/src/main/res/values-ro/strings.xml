@@ -70,8 +70,13 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="open_main_menu">Deschideți Meniul principal</string>
     <string name="close_main_menu">Închideți Meniul principal</string>
 
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">A fost întâlnită o eroare cunoscută care nu a fost încă rezolvată. Consultați %1$s/%2$s pentru mai multe informații. Vă rugăm să ne lăsați o descriere precisă a celor întâmplate dinainte.</string>
+
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirmați închiderea aplicației</string>
+    <string name="dialog_exit_while_running_as_service_message">Pentru atenția dumneavoastră: Ați configurat ca aplicația să pornească automat la pornire. Prin urmare, ea monitorizează condițiile de rulare și se sincronizează în fundal oricând se potrivesc condițiile. Ar trebui să o închideți manual numai dacă aveți probleme grave. În caz contrar, dezactivați „Start automat la pornire” în setări. Ați dori să renunțați acum până la repornirea dispozitivului?</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adăugare director</string>
 
@@ -121,8 +126,22 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="override_changes">Suprascrie schimbări</string>
 
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">Aceasta va anula toate modificările aduse celorlalte dispozitive care distribuie acest dosar. Continuați?</string>
+
+    <string name="revert_local_changes">Întoarceți modificările locale</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continuați?</string>
+
     <string name="open_file_manager">Deschide managerul de fișiere</string>
     <string name="open_file_with">Deschideți fișierul cu</string>
+    <string name="open_file_no_compatible_app">Nu a fost găsită nicio aplicație care să deschidă fișierul.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Nu a fost găsită nicio aplicație manager de fișiere compatibilă</string>
+    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația managerului de fișiere open-source „Simple File Manager” de la F-Droid. Doriți să deschideți pagina magazinului de aplicații?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -157,6 +176,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">Stare</string>
+
+    <string name="button_follow_run_conditions">URMĂREȘTE CONDIȚIILE DE RULARE</string>
+    <string name="button_force_start">PORNIRE FORȚATĂ\nIGNORĂ CONDIȚIILE DE RULARE</string>
+    <string name="button_force_stop">OPRIRE FORȚATĂ\nIGNORĂ CONDIȚIILE DE RULARE</string>
 
     <string name="syncthing_starting">Syncthing pornește.</string>
     <string name="syncthing_running">Syncthing rulează.</string>
@@ -206,6 +229,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignorare Ștergere</string>
+    <string name="folder_ignore_delete_description">Opțiune de expert care afectează gestionarea actualizărilor de indexuri primite. Când este setat, actualizările primite marcate ca ștergere sunt ignorate. Consultați &folder_ignore_delete_docs_url;</string>
+
     <!-- Setting title -->
     <string name="folder_pause">Întrerupe director</string>
 
@@ -260,6 +285,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Status title -->
     <string name="discovered_devices_title">Dispozitive descoperite - Atingeți pentru a selecta</string>
 
+    <!-- Status text -->
+    <string name="discovered_device_list_empty">Descoperirea locală nu a găsit niciun dispozitiv în rețeaua locală. Rulați această aplicație pe un al doilea telefon. Fișierele de instalare pentru computere sunt disponibile la: %1$s</string>
+
+    <!-- Status text -->
+    <string name="local_discovery_disabled">Ați dezactivat descoperirea locală în „Setări”> „Opțiuni de sincronizare”> „Descoperire locală”. Activați pentru a permite căutarea dispozitivelor în rețeaua locală.</string>
+
     <!-- Setting title -->
     <string name="name">Nume</string>
 
@@ -302,11 +333,20 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID-ul dispozitivului nu poate fi gol</string>
 
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_invalid">ID-ul dispozitivului nu este formatat corect. Încercați din nou și introduceți codul corect.</string>
+
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">Numele dispozitivului nu trebuie să fie gol</string>
 
+    <!-- Toast shown when trying to create a device with invalid addresses -->
+    <string name="device_addresses_invalid">Adresele dispozitivului nu sunt formatate corect. Încercați din nou. Consultați documentele Syncthing pentru mai multe informații.</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanare cod QR</string>
+
+    <!-- Dialog message if no compatible barcode scanner app is installed -->
+    <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Doriți să instalați aplicația „Binary Eye” din F-Droid?</string>
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Nu s-a obținut acces root</string>
@@ -318,6 +358,25 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="tips_and_tricks_title">Sfaturi și trucuri</string>
 
     <string name="tip_write_to_sdcard_title">Soluția pentru scrierea pe cardul SD extern</string>
+    <string name="tip_write_to_sdcard_text">Dacă vedeți un mesaj care afirmă că „Android acordă acces doar în citire pentru syncthing” la un anumit dosar, creați un nou dosar folosind această cale pentru a obține acces la scriere:\n%1$s/NUMELE_DOSARULUI\nFiți atenți: acest dosar va fi șters de Android dacă dezinstalați această aplicație. Înainte de a dezinstala aplicația, mutați datele într-un loc sigur în afara dosarului .../Android.</string>
+
+    <string name="tip_sync_on_local_network_title">Sincronizați doar utilizând rețeaua locală WiFi</string>
+    <string name="tip_sync_on_local_network_text">Dacă doriți să sincronizați doar cu dispozitivele localizate în rețeaua WiFi locală sau accesibile prin WiFi hotspot, puteți reduce consumul de baterie și puteți evita sincronizarea accidentală prin datele mobile, dezactivând următoarele opțiuni în „Setări/Opțiuni Syncthing”:\n- Activare traversare NAT\n- Descoperire globală\n- Activare retransmitere\nLăsați doar „Descoperirea locală” activată.</string>
+
+    <string name="tip_custom_sync_conditions_title">Utilizați condiții de sincronizare personalizate per dosar/dispozitiv</string>
+    <string name="tip_custom_sync_conditions_text">Această caracteristică va fi îmbunătățită în versiunile viitoare. Deocamdată, nu am dorit să modificăm configurațiile existente și comportamentul aplicației. De aceea, condițiile de sincronizare personalizate pentru un anumit tip de rețea pot fi setate numai dacă activați mai întâi sincronizarea în rețea în condițiile de rulare globală.</string>
+
+    <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer?</string>
+    <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” > „Avansat” > „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
+
+    <string name="tip_huawei_device_disconnected_title">Soluție pentru Huawei: „dispozitiv deconectat”</string>
+    <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este  deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:\ntcp4://%1$s, dinamic\nA fost confirmată funcționarea pentru: Huawei P10</string>
+    <string name="tip_xiaomi_autostart_title">Xiaomi: aplicația nu rulează de la pornire</string>
+    <string name="tip_xiaomi_autostart_text">MIUI  de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” > \"Aplicații\" > „Permisiuni” > „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
+
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplicația arată în mod repetat ecranul de bun venit</string>
+    <string name="tip_xiaomi_battery_saver_text">Aplicația de sistem pentru economisirea bateriei instalată în MIUI de la Xiaomi revocă permisiunea aplicației „ignoră optimizarea bateriei” la fiecare repornire a telefonului. Acest lucru face ca aplicația să afișeze ecranul de bun venit și să solicite din nou permisiunea obligatorie care lipsește. Soluție: din ecranul de pornire, deschideți sertarul aplicațiilor > apăsați lung „Syncthing-Fork” > „Informații aplicație” > „Economisire baterie” și selectați „Nicio restricție” (MIUI 10.3.2.0+).</string>
+
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Nu există modificări recente.</string>
 
@@ -339,6 +398,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviz de securitate</string>
+
+    <!-- Dialog message if an invalid ssl certificate was detected -->
+    <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continuați?</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">Se încarcă pagina web:\n%1$s ...</string>
 
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Deschideți în browser</string>
@@ -371,6 +436,20 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="run_on_mobile_data_title">Rulare cu datele mobile</string>
     <string name="run_on_mobile_data_summary">Rulează atunci când dispozitivul este conectat prin intermediul rețelei de date mobile. Avertisment: aceasta poate consuma o mulțime de date din planul de date al operatorului dvs. mobil dacă sincronizați cantități mari de date.</string>
 
+    <string name="run_on_roaming_title">Rulare în roaming</string>
+    <string name="run_on_roaming_summary">Permite aplicației Syncthing să utilizeze datele mobile în roaming. (!) Vă rugăm să trimiteți feedback la GitHub dacă acest lucru funcționează corect.</string>
+
+    <string name="run_on_wifi_title">Rulare în Wi-Fi</string>
+    <string name="run_on_wifi_summary">Rulează atunci când dispozitivul este conectat la o rețea Wi-Fi sau Ethernet.</string>
+
+    <string name="run_on_metered_wifi_title">Rulează în Wi-Fi contorizat</string>
+    <string name="run_on_metered_wifi_summary">Rulează atunci când dispozitivul este conectat la o rețea Wi-Fi contorizată, de ex. o rețea hotspot. Atenție: aceasta poate consuma o mare parte din planul dvs. de date dacă sincronizați o mulțime de date.</string>
+
+    <string name="run_on_whitelisted_wifi_title">Rulează în rețele Wi-Fi specificate</string>
+    <string name="specify_wifi_ssid_whitelist">Selectați rețelele Wi-Fi</string>
+    <string name="run_on_whitelisted_wifi_networks">Rețele Wi-Fi selectate: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">Nu sunt specificate rețele Wi-Fi. Faceți clic pentru a specifica rețele.</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
 
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
@@ -389,8 +468,19 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="respect_battery_saving_title">Se va respecta setarea de economisire a bateriei din Android</string>
     <string name="respect_battery_saving_summary">Dezactivare Syncthing dacă economisirea bateriei este activă.</string>
 
+    <string name="respect_master_sync_title">Se respectă setarea Android „Sincronizare automată a datelor”</string>
+    <string name="respect_master_sync_summary">Se dezactivează Syncthing atunci când sincronizarea automată este dezactivată.</string>
+
+    <string name="run_in_flight_mode_title">Rulează fără conexiune la rețea</string>
+    <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
+
+    <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
+    <string name="run_on_time_schedule_summary">Activarea acestei opțiuni va încerca să sincronizeze în fiecare oră pe durata a 5 minute. Aceasta poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Vă rugăm să rețineți: acest lucru poate lăsa fișierele temporare incomplete până la următoarea sincronizare programată.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Pornire automată</string>
+    <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>
+
     <string name="use_root_title">Rulează ca root</string>
 
     <string name="use_root_summary">Aceasta este o funcție instabilă care ar putea cauza probleme atăt Syncthing cât și dispozitivului dumneavoastră. Dacă vă confruntați cu probleme, v-a trebui să reinstalați Syncthing.</string>
@@ -478,6 +568,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Textul nu respectă sintaxa proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
+    <string name="broadcast_service_control_title">Controlul serviciului prin Broadcast</string>
+
+    <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activați această opțiune pentru a porni și opri serviciul prin trimiterea de mesaje Broadcast, de ex. din aplicații terțe de automatizare. Notă: trebuie să reporniți aplicația manual după modificarea acestei opțiuni.</string>
+
     <string name="restart_on_wakeup_title">Repornire la trezire</string>
 
     <string name="restart_on_wakeup_summary">Implicit: Activat. Dezactivarea acestei caracteristici ar putea duce la amânarea scanării directoarelor și a conectării dispozitivelor pentru a putea micșora consumul bateriei.</string>
@@ -497,6 +591,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="config_import_failed">Importarea configurației a eșuat, asigurați-vă că fișierele sunt în %1$s</string>
 
     <string name="dialog_settings_restart_app_title">Repornire necesară</string>
+
+    <string name="dialog_settings_restart_app_question">Modificarea acestei opțiuni necesită o repornire imediată a aplicației. Toate celelalte modificări vor fi anulate. Continuați?</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opțiuni STTRACE</string>
@@ -542,6 +638,15 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versiune Syncthing</string>
 
+    <!-- Title of the preference showing the REST API key -->
+    <string name="syncthing_api_key">Cheie API Syncthing (faceți clic pentru a copia)</string>
+
+    <!-- Shown when the API key is copied to the clipboard -->
+    <string name="api_key_copied_to_clipboard">Cheia API Syncthing a fost copiată în clipboard</string>
+
+    <!-- Title of the preference showing database size -->
+    <string name="syncthing_database_size">Dimensiunea bazei de date Syncthing</string>
+
     <!-- FolderPickerAcitivity -->
 
 
@@ -578,6 +683,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Partajează</string>
+
+    <!-- ShareActivity -->
+
+
+    <!-- Toast if user didn't complete the welcome wizard yet -->
+    <string name="complete_welcome_wizard_first">Mai întâi, lansați aplicația din sertarul de aplicații și completați asistentul de bun venit înainte de a partaja fișiere.</string>
 
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Salvează cu Syncthing</string>
@@ -626,8 +737,20 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Sub Folder title -->
     <string name="sub_folder">Subdirector</string>
 
+    <!-- RunConditionMonitor -->
+
+    <string name="reason_force_start">Syncthing rulează deoarece l-ați obligat să pornească indiferent de condițiile de rulare.</string>
+    <string name="reason_force_stop">Syncthing nu se execută, deoarece l-ați forțat să se oprească indiferent de condițiile de rulare.</string>
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_within_time_frame">Ați activat „Executare conform graficului de timp”, iar ultima sincronizare nu a fost mai mult de o oră în urmă.</string>
     <string name="reason_not_charging">Telefonul nu se încarcă.</string>
     <string name="reason_not_on_battery_power">Telefonul nu rulează pe baterie.</string>
+    <string name="reason_not_while_power_saving">Syncthing nu rulează deoarece telefonul este în modul de economisire în prezent.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing nu rulează deoarece Android are dezactivată „sincronizarea automată a datelor”.</string>
+
+    <!-- ... Mobile data -->
+    <string name="reason_mobile_data_disallowed">Syncthing nu este configurat să ruleze prin conexiunea de date mobile.</string>
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -713,6 +836,11 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="folder_type_sendonly">Doar trimitere</string>
     <string name="folder_type_receiveonly">Doar primire</string>
 
+    <!-- Folder type dialog descriptions for folder types -->
+    <string name="folder_type_sendreceive_description">Dosarul va trimite și va recepționa modificări de la dispozitivele la distanță.</string>
+    <string name="folder_type_sendonly_description">Fișierele sunt protejate de modificările făcute pe alte dispozitive, dar modificările făcute pe acest dispozitiv vor fi trimise restului clusterului.</string>
+    <string name="folder_type_receiveonly_description">Fișierele sunt sincronizate din cluster, dar orice modificare făcută local nu va fi trimisă altor dispozitive.</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordinea de preluare a fișierelor</string>
 
@@ -736,6 +864,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="maximum_age">Vârstă maximă</string>
     <string name="clean_out_after">Curățare după</string>
     <string name="file_versioning">Versiuni fișiere</string>
+    <string name="file_versioning_generic_description">Syncthing acceptă arhivarea versiunii vechi a unui fișier atunci când este șters sau înlocuit cu o versiune mai nouă din cluster. Faceți clic pentru a vedea strategiile de versiune disponibile. Versiunea de fișiere este configurată pe dosar, pe bază de dispozitiv. Strategia selectată:</string>
     <string name="none">Nici unul</string>
     <string name="versions_path">Cale versiune</string>
     <string name="command">Comandă</string>
@@ -770,4 +899,9 @@ atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt ș
     <string name="browse">Navighează</string>
     <string name="no_sub_folder_is_selected">Nu este selectat nici un subdirector</string>
     <string name="share_device_id_chooser">Partajează ID dispozitiv cu</string>
-    </resources>
+    <string name="run_on_whitelisted_wifi_summary">Activați lista albă pentru a restricționa sincronizarea doar în rețelele WiFi specificate.</string>
+    <string name="custom_sync_conditions_title">Condiții de sincronizare personalizate</string>
+    <string name="custom_sync_conditions_description">Vă permite să specificați excepții de la condițiile de rulare globală.</string>
+    <string name="custom_sync_conditions_dialog">Specificați condițiile de sincronizare</string>
+
+</resources>
