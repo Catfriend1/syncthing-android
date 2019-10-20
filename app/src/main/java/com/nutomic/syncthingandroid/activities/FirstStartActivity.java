@@ -49,7 +49,8 @@ public class FirstStartActivity extends AppCompatActivity {
 
     private static String TAG = "FirstStartActivity";
     private static final int REQUEST_COARSE_LOCATION = 141;
-    private static final int REQUEST_WRITE_STORAGE = 142;
+    private static final int REQUEST_BACKGROUND_LOCATION = 142;
+    private static final int REQUEST_WRITE_STORAGE = 143;
 
     private static class Slide {
         public int layout;
@@ -71,6 +72,7 @@ public class FirstStartActivity extends AppCompatActivity {
      */
     private int mSlidePosStoragePermission = -1;
     private int mSlidePosIgnoreDozePermission = -1;
+    private int mSlideLocationPermission = -1;
     private int mSlidePosKeyGeneration = -1;
 
     private CustomViewPager mViewPager;
@@ -153,6 +155,7 @@ public class FirstStartActivity extends AppCompatActivity {
             mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_ignore_doze_permission, colorsActive[4], colorsInactive[4]);
         }
         if (showSlideLocationPermission) {
+            mSlideLocationPermission = slideIndex;
             mSlides[slideIndex++] = new Slide(R.layout.activity_firststart_location_permission, colorsActive[2], colorsInactive[2]);
         }
         if (showSlideKeyGeneration) {
@@ -263,8 +266,12 @@ public class FirstStartActivity extends AppCompatActivity {
                     ignoreDozeOsNotice.setText(getString(R.string.ignore_doze_permission_os_notice, getString(R.string.wiki_url), "Android-TV-preparations"));
                     ignoreDozeOsNotice.setVisibility(View.VISIBLE);
                 }
-            }
-            else if (current == mSlidePosKeyGeneration) {
+            } else if (current == mSlideLocationPermission) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    TextView locationPermissionTipApi29 = (TextView) findViewById(R.id.locationPermissionTipApi29);
+                    locationPermissionTipApi29.setVisibility(View.VISIBLE);
+                }
+            } else if (current == mSlidePosKeyGeneration) {
                 onKeyGenerationSlideShown();
             }
         } else {
@@ -453,12 +460,28 @@ public class FirstStartActivity extends AppCompatActivity {
     }
 
     private boolean haveLocationPermission() {
-        int permissionState = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION);
-        return permissionState == PackageManager.PERMISSION_GRANTED;
+        Boolean coarseLocationGranted = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        Boolean backgroundLocationGranted = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            backgroundLocationGranted = ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        }
+        return coarseLocationGranted && backgroundLocationGranted;
     }
 
     private void requestLocationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                    },
+                    REQUEST_BACKGROUND_LOCATION
+            );
+            return;
+        }
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                 REQUEST_COARSE_LOCATION);
@@ -487,6 +510,16 @@ public class FirstStartActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted ACCESS_COARSE_LOCATION permission.");
+                    mNextButton.requestFocus();
+                }
+                break;
+            case REQUEST_BACKGROUND_LOCATION:
+                if (grantResults.length == 0 ||
+                        grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    Log.i(TAG, "User denied ACCESS_BACKGROUND_LOCATION permission.");
+                } else {
+                    Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "User granted ACCESS_BACKGROUND_LOCATION permission.");
                     mNextButton.requestFocus();
                 }
                 break;

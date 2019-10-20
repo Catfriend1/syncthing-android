@@ -34,7 +34,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permís d\'ubicació</string>
     <string name="location_permission_desc">Podeu configurar el Syncthing perquè funcioni amb les xarxes Wi-Fi que seleccioneu. L\'Android requereix que les aplicacions tinguin permís d\'ubicació per poder cercar el nom de les xarxes Wi-Fi actives. Si voleu utilitzar aquesta característica, premeu el botó de la part superior. Podeu ometre aquest pas. Vegeu la nostra política de privacitat per més detalls.</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generació de Claus</string>
     <string name="key_generation_success">S\'han generat amb èxit les claus segures per a l\'intercanvi privat de dades</string>

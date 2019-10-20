@@ -35,7 +35,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permisiune locație</string>
     <string name="location_permission_desc">Syncthing poate fi configurat pentru a funcționa în rețelele Wi-Fi selectate. Android necesită ca aplicația să aibă permisiunea locației pentru a putea citi numele rețelei Wi-Fi activă. Dacă doriți să utilizați această caracteristică, apăsați butonul de mai sus. Puteți omite acest pas. Consultați politica noastră de confidențialitate pentru mai multe detalii.</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generare cheie</string>
     <string name="key_generation_success">Cheile securizate pentru schimbul de date privat au fost generate cu succes.</string>

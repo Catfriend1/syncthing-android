@@ -84,6 +84,7 @@ public class Constants {
     /**
      * Cached information which is not available on SettingsActivity.
      */
+    public static final String PREF_KNOWN_WIFI_SSIDS            = "knownWifiSsids";
     public static final String PREF_LAST_BINARY_VERSION         = "lastBinaryVersion";
     public static final String PREF_LOCAL_DEVICE_ID             = "localDeviceID";
 
@@ -131,7 +132,7 @@ public class Constants {
      * On Android 8.1, ACCESS_COARSE_LOCATION is required to access WiFi SSID.
      * This is the request code used when requesting the permission.
      */
-    public static final int PERM_REQ_ACCESS_COARSE_LOCATION = 999; // for issue #999
+    public static final int PERM_REQ_ACCESS_LOCATION = 999; // for issue #999
 
     /**
      * Interval in ms at which RestAPI is polled.

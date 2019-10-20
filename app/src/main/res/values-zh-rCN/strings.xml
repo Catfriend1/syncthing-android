@@ -30,7 +30,6 @@
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">位置權限</string>
     <string name="location_permission_desc">Syncthing 可以被设置在指定的 Wi-Fi 网络下工作。 Android 要求应用获取定位权限以便获取设备当前 Wi-Fi 信息。 若您想使用该功能，请允许该权限请求。当然您也可以选择跳过该选项，更多信息请查阅我们的隐私政策。</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">秘钥生成</string>
     <!-- Generic texts used everywhere -->

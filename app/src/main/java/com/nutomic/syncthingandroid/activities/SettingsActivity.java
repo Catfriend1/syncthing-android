@@ -94,7 +94,7 @@ public class SettingsActivity extends SyncthingActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // On Android 8.1, ACCESS_COARSE_LOCATION is required, see issue #999
-        if (requestCode == Constants.PERM_REQ_ACCESS_COARSE_LOCATION) {
+        if (requestCode == Constants.PERM_REQ_ACCESS_LOCATION) {
             for (int i = 0; i < permissions.length; i++) {
                 if (Manifest.permission.ACCESS_COARSE_LOCATION.equals(permissions[i])) {
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {

@@ -741,6 +741,7 @@ public class RunConditionMonitor {
         if (wifiSsid == null || wifiSsid.equals("<unknown ssid>")) {
             throw new LocationUnavailableException("isWifiConnectionWhitelisted: Got null SSID. Try to enable android location service.");
         }
+        // DO NOT RELEASE WITH THIS LINE: Log.v(TAG, "isWifiConnectionWhitelisted: wifiSsid=[" + wifiSsid + "]");
         return whitelistedSsids.contains(wifiSsid);
     }
 

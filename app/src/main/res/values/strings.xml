@@ -35,6 +35,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_desc">Syncthing can be configured to work on selected Wi-Fi networks. Android requires the app to have location permission to read the active Wi-Fi network name. If you want to use this feature, press the button above. You may skip this step. See our privacy policy for more details.</string>
+    <string name="location_permission_desc_api_29">Tip for Android 10+: \"Allow all the time\"</string>
 
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Key Generation</string>
@@ -829,7 +830,7 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing is not running as the current WiFi network\'s name is not whitelisted.</string>
     <string name="reason_on_nonmetered_wifi">Syncthing is allowed to run on non-metered WiFi connections. The active WiFi connection is non-metered.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
-    <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on and reconnect WiFi.</string>
+    <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on, grant location permission and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
     <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' > \'Experimental\' > \'Service Control by Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>

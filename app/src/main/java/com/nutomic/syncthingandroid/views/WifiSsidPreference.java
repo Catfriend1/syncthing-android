@@ -4,16 +4,20 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.MultiSelectListPreference;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -62,67 +66,98 @@ public class WifiSsidPreference extends MultiSelectListPreference {
      */
     @Override
     protected void showDialog(Bundle state) {
-        WifiConfiguration[] networks = loadConfiguredNetworksSorted();
-        if (networks != null) {
-            Set<String> selected = getSharedPreferences().getStringSet(getKey(), new HashSet<>());
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        Set<String> knownSsids;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            knownSsids = sharedPreferences.getStringSet(Constants.PREF_KNOWN_WIFI_SSIDS, new HashSet<>());
+            String currentWifiSsid = getCurrentWifiSsid();
+            if (!TextUtils.isEmpty(currentWifiSsid)) {
+                if (!knownSsids.contains(currentWifiSsid)) {
+                    knownSsids.add(currentWifiSsid);
+                }
+            }
+        } else {
+            knownSsids = getConfiguredWifiSsidsAPI16to28();
+        }
+
+        if (!knownSsids.isEmpty()) {
+            sharedPreferences.edit()
+                .putStringSet(Constants.PREF_KNOWN_WIFI_SSIDS, knownSsids)
+                .apply();
+
+            Set<String> selectedSsids = sharedPreferences.getStringSet(getKey(), new HashSet<>());
+
             // from JavaDoc: Note that you must not modify the set instance returned by this call.
-            // therefore required to make a defensive copy of the elements
-            selected = new HashSet<>(selected);
-            CharSequence[] all = extractSsid(networks, false);
-            filterRemovedNetworks(selected, all);
-            setEntries(extractSsid(networks, true)); // display without surrounding quotes
+            // therefore required to make a defensive copy of the elements.
+            selectedSsids = new HashSet<>(selectedSsids);
+
+            // Convert knownSsids including quotes.
+            CharSequence[] all = knownSsids.toArray(new CharSequence[knownSsids.size()]);
+            filterRemovedNetworks(selectedSsids, all);
+            setEntries(stripQuotesFromSsid(knownSsids)); // display without surrounding quotes
             setEntryValues(all); // the value of the entry is the SSID "as is"
-            setValues(selected); // the currently selected values (without meanwhile deleted networks)
+            setValues(selectedSsids); // the currently selected values (without meanwhile deleted networks)
             super.showDialog(state);
         } else {
             Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_wifi_turn_on_wifi, Toast.LENGTH_LONG).show();
         }
 
-        // On Android 8.1, ACCESS_COARSE_LOCATION is required, see issue #999
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                if (getContext() instanceof Activity) {
-                    Activity activity = (Activity) getContext();
-                    ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.ACCESS_COARSE_LOCATION }, Constants.PERM_REQ_ACCESS_COARSE_LOCATION);
-                    this.getDialog().dismiss(); // wait for result
-                } else {
-                    Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_need_to_grant_location_permission, Toast.LENGTH_LONG).show();
-                }
+        if (!haveLocationPermission()) {
+            if (getContext() instanceof Activity) {
+                Activity activity = (Activity) getContext();
+                requestLocationPermission(activity);
+            } else {
+                Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_need_to_grant_location_permission, Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    /**
+     * Required permissions:
+     * - API 16 to 28
+     *      permission.ACCESS_COARSE_LOCATIO
+     * - API 29+
+     *      permission.ACCESS_FINE_LOCATION
+     *      permission.ACCESS_BACKGROUND_LOCATION
+     */
+    private final String getCurrentWifiSsid() {
+        WifiManager wifiManager = (WifiManager) getContext().getApplicationContext()
+                .getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (wifiInfo == null) {
+            // May be null, if wifi has been turned off.
+            Log.d(TAG, "getCurrentWifiSsid: SSID unknown due to wifiInfo == null");
+            return "";
+        }
+        String wifiSsid = wifiInfo.getSSID();
+        if (wifiSsid == null || wifiSsid.equals("<unknown ssid>")) {
+            Log.d(TAG, "getCurrentWifiSsid: Got null SSID. Try to enable android location service.");
+            return "";
+        }
+        return wifiSsid;
     }
 
     /**
      * Removes any network that is no longer saved on the device. Otherwise it will never be
      * removed from the allowed set by MultiSelectListPreference.
      */
-    private void filterRemovedNetworks(Set<String> selected, CharSequence[] all) {
+    private void filterRemovedNetworks(Set<String> selectedSsids, CharSequence[] all) {
         HashSet<CharSequence> availableNetworks = new HashSet<>(Arrays.asList(all));
-        selected.retainAll(availableNetworks);
+        selectedSsids.retainAll(availableNetworks);
     }
 
     /**
-     * Converts WiFi configuration to it's string representation, using the SSID.
-     *
-     * It can also remove surrounding quotes which indicate that the SSID is an UTF-8
+     * Removes surrounding quotes which indicate that the SSID is an UTF-8
      * string and not a Hex-String, if the strings are intended to be displayed to the
      * user, who will not expect the quotes.
      *
-     * @param configs the objects to convert
-     * @param stripQuotes if to remove surrounding quotes
-     * @return the formatted SSID of the wifi configurations
+     * @param ssids the objects to convert
+     * @return the formatted SSID to display
      */
-    private CharSequence[] extractSsid(WifiConfiguration[] configs, boolean stripQuotes) {
-        CharSequence[] result = new CharSequence[configs.length];
-        for (int i = 0; i < configs.length; i++) {
-            // See #620: there may be null-SSIDs
-            String ssid = configs[i].SSID != null ? configs[i].SSID : "";
-            // WiFi SSIDs can either be UTF-8 (encapsulated in '"') or hex-strings
-            if (stripQuotes) {
-                result[i] = ssid.replaceFirst("^\"", "").replaceFirst("\"$", "");
-            } else {
-                result[i] = ssid;
-            }
+    private CharSequence[] stripQuotesFromSsid(Set<String> ssids) {
+        CharSequence[] result = ssids.toArray(new CharSequence[ssids.size()]);
+        for (int i = 0; i < result.length; i++) {
+            result[i] = ((String) result[i]).replaceFirst("^\"", "").replaceFirst("\"$", "");
         }
         return result;
     }
@@ -130,14 +165,17 @@ public class WifiSsidPreference extends MultiSelectListPreference {
     /**
      * Load the configured WiFi networks, sort them by SSID.
      *
-     * @return a sorted array of WifiConfiguration, or null, if data cannot be retrieved
+     * @return a sorted array of WiFi SSIDs, or an empty set, if data cannot be retrieved.
      */
-    private WifiConfiguration[] loadConfiguredNetworksSorted() {
+    private Set<String> getConfiguredWifiSsidsAPI16to28() {
+        Set<String> retSsids = new HashSet<>();
+
         WifiManager wifiManager = (WifiManager)
                 getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (wifiManager == null) {
             // WiFi is turned off or device doesn't have WiFi.
-            return null;
+            Log.w(TAG, "getConfiguredWifiSsidsAPI16to28: WiFi is turned off or device doesn't have WiFi.");
+            return retSsids;
         }
 
         List<WifiConfiguration> configuredNetworks = null;
@@ -145,11 +183,13 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             configuredNetworks = wifiManager.getConfiguredNetworks();
         } catch (SecurityException e) {
             // See changes in Android Q, https://developer.android.com/reference/android/net/wifi/WifiManager.html#getConfiguredNetworks()
-            Log.e(TAG, "loadConfiguredNetworksSorted:", e);
+            Log.e(TAG, "getConfiguredWifiSsidsAPI16to28:", e);
         }
         if (configuredNetworks == null) {
-            return null;
+            Log.i(TAG, "getConfiguredWifiSsidsAPI16to28: wifiManager returned configuredNetworks == null");
+            return retSsids;
         }
+        Log.v(TAG, "getConfiguredWifiSsidsAPI16to28 != null");
 
         WifiConfiguration[] result = configuredNetworks.toArray(new WifiConfiguration[configuredNetworks.size()]);
         Arrays.sort(result, (lhs, rhs) -> {
@@ -158,7 +198,42 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             String r = rhs.SSID != null ? rhs.SSID : "";
             return l.compareToIgnoreCase(r);
         });
-        return result;
+
+        for (int i = 0; i < result.length; i++) {
+            // Exclude null SSIDs.
+            if (result[i].SSID != null) {
+                retSsids.add(result[i].SSID);
+            }
+        }
+        return retSsids;
+    }
+
+    private boolean haveLocationPermission() {
+        Boolean coarseLocationGranted = ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        Boolean backgroundLocationGranted = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            backgroundLocationGranted = ContextCompat.checkSelfPermission(getContext(),
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        }
+        return coarseLocationGranted && backgroundLocationGranted;
+    }
+
+    private void requestLocationPermission(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ActivityCompat.requestPermissions(
+                    activity,
+                    new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                    },
+                    Constants.PERM_REQ_ACCESS_LOCATION
+            );
+            return;
+        }
+        ActivityCompat.requestPermissions(activity,
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                Constants.PERM_REQ_ACCESS_LOCATION);
     }
 
 }

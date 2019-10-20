@@ -34,7 +34,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permissão de localização</string>
     <string name="location_permission_desc">A sincronização pode ser configurada para funcionar em redes Wi-Fi selecionadas. O Android exige que o aplicativo tenha permissão de localização para ler o nome da rede Wi-Fi ativa. Se você quiser usar esse recurso, pressione o botão acima. Você pode pular esta etapa. Veja nossa política de privacidade para mais detalhes.</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Geração de Chaves</string>
     <string name="key_generation_success">Chaves seguras para troca de dados privada foram geradas com sucesso.</string>
