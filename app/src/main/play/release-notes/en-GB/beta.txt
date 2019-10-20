@@ -2,7 +2,6 @@
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 Fixed
-* Disable NAT option if a buggy 3.4 kernel is detected (#513)
-* Removed non-existant deprecated weak hashing option (#510)
+* Fix selecting WiFi network SSIDs to whitelist on Android 10 (#515)
 Enhanced
-* Set Database Tuning to "small" to lower RAM usage (#512)
+-
