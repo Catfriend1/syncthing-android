@@ -2,6 +2,6 @@
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 Fixed
-* Fix selecting WiFi network SSIDs to whitelist on Android 10 (#515)
+* Welcome wizard: Quit app if user hits "Back" on first slide
 Enhanced
--
+* "Syncthing Camera" - take pictures together with your "Syncthing" partner (#507)
