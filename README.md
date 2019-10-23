@@ -13,6 +13,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_03.png" alt="screenshot 1" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_06.png" alt="screenshot 2" width="200" /> <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/screenshot_phone_08.png" alt="screenshot 3" width="200" />
 
 # Major enhancements in this fork are:
+- "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
 - "Sync every hour" to save even more battery
 - Individual sync conditions can be applied per device and per folder (for expert users).
 - Recent changes UI, click to open files.
