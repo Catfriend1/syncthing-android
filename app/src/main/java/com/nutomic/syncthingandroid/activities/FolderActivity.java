@@ -554,6 +554,12 @@ public class FolderActivity extends SyncthingActivity {
                 .setMessage(R.string.remove_folder_confirm)
                 .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> {
                     mConfig.removeFolder(getApi(), mFolder.id);
+                    if (mFolder.id.equals(Constants.syncthingCameraFolderId)) {
+                        // Remove consent to "Syncthing Camera" feature.
+                        SharedPreferences.Editor editor = mPreferences.edit();
+                        editor.putBoolean(Constants.PREF_ENABLE_SYNCTHING_CAMERA, false);
+                        editor.apply();
+                    }
                     mFolderNeedsToUpdate = false;
                     finish();
                 })
