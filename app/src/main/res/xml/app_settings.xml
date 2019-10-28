@@ -142,6 +142,13 @@
             android:summary="@null"
             android:defaultValue="external_android_data" />
 
+        <!-- Show "Syncthing Camera" icon in launcher -->
+        <CheckBoxPreference
+            android:key="launcher_show_camera_icon"
+            android:title="@string/launcher_show_camera_icon_title"
+            android:summary="@string/launcher_show_camera_icon_summary"
+            android:defaultValue="true" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

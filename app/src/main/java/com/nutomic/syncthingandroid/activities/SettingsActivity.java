@@ -640,6 +640,12 @@ public class SettingsActivity extends SyncthingActivity {
                     mSuggestNewFolderRoot.setValue(o.toString());
                     preference.setSummary(mSuggestNewFolderRoot.getEntry());
                     break;
+                case Constants.PREF_LAUNCHER_SHOW_CAMERA_ICON:
+                    if (!showHideLauncherCameraIcon((Boolean) o)) {
+                        Toast.makeText(getActivity(), R.string.toast_show_hide_launcher_icon_failed, Toast.LENGTH_LONG)
+                                .show();
+                    }
+                    break;
             }
             return true;
         }
@@ -1154,6 +1160,26 @@ public class SettingsActivity extends SyncthingActivity {
                 return "N/A";
             }
             return result;
+        }
+
+        /**
+         * Returns if the operation succeeded.
+         */
+        private Boolean showHideLauncherCameraIcon(Boolean showIcon) {
+            try {
+                SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+                PackageManager packageManager = syncthingActivity.getPackageManager();
+                ComponentName componentName = new ComponentName(syncthingActivity, com.nutomic.syncthingandroid.activities.PhotoShootActivity.class);
+                packageManager.setComponentEnabledSetting(
+                        componentName,
+                        showIcon ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                        PackageManager.DONT_KILL_APP
+                );
+                return true;
+            } catch (Exception e) {
+                Log.e(TAG, "showHideLauncherCameraIcon", e);
+                return false;
+            }
         }
     }
 }

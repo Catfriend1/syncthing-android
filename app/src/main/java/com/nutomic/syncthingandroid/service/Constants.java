@@ -41,6 +41,8 @@ public class Constants {
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_DATA    = "external_android_data";
     public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_MEDIA   = "external_android_media";
 
+    public static final String PREF_LAUNCHER_SHOW_CAMERA_ICON       = "launcher_show_camera_icon";
+
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";
