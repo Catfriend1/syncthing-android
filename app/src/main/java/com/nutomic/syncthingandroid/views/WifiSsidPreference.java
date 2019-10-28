@@ -116,7 +116,7 @@ public class WifiSsidPreference extends MultiSelectListPreference {
      * Required permissions:
      * - API 16 to 28
      *      permission.ACCESS_COARSE_LOCATIO
-     * - API 29+
+     * - API 29+ (Android 10+)
      *      permission.ACCESS_FINE_LOCATION
      *      permission.ACCESS_BACKGROUND_LOCATION
      */

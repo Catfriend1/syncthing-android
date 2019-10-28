@@ -133,6 +133,7 @@
             android:summary="@string/use_root_summary"
             android:defaultValue="false" />
 
+        <!-- Folder root suggestion -->
         <ListPreference
             android:key="suggest_new_folder_root"
             android:title="@string/suggest_new_folder_root_title"
