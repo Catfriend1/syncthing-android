@@ -60,7 +60,7 @@
         <activity
                 android:name=".activities.PhotoShootActivity"
                 android:icon="@mipmap/ic_launcher_photoshoot"
-                android:label="@string/photo_shoot_activity_title"
+                android:label="@string/photo_shoot_launcher_title"
                 android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

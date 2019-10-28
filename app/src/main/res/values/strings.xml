@@ -66,6 +66,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- PhotoShootActivity -->
 
+    <string name="photo_shoot_launcher_title">Sync. Camera</string>
 
     <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
 
