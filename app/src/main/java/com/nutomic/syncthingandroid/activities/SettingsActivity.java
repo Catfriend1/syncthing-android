@@ -1021,7 +1021,7 @@ public class SettingsActivity extends SyncthingActivity {
             protected void onPostExecute(Void aVoid) {
                 // Get a reference to the activity if it is still there.
                 SettingsActivity settingsActivity = refSettingsActivity.get();
-                if (settingsActivity == null) {
+                if (settingsActivity == null || settingsActivity.isFinishing()) {
                     return;
                 }
                 if (!actionSucceeded) {
@@ -1076,13 +1076,18 @@ public class SettingsActivity extends SyncthingActivity {
          * Calley by {@link SyncthingService#importConfig} after config import.
          */
         private void afterConfigImport(Boolean actionSucceeded) {
+            SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+            if (syncthingActivity == null || syncthingActivity.isFinishing()) {
+                return;
+            }
+
             if (!actionSucceeded) {
-                Toast.makeText(getActivity(),
+                Toast.makeText(syncthingActivity,
                     getString(R.string.config_import_failed,
                     Constants.EXPORT_PATH_OBJ), Toast.LENGTH_LONG).show();
                     return;
             }
-            Toast.makeText(getActivity(),
+            Toast.makeText(syncthingActivity,
                 getString(R.string.config_imported_successful), Toast.LENGTH_LONG).show();
 
             // We don't have to send the config via REST on leaving activity.
@@ -1090,7 +1095,7 @@ public class SettingsActivity extends SyncthingActivity {
 
             // We have to evaluate run conditions, they may have changed by the imported prefs.
             mPendingRunConditions = true;
-            getActivity().finish();
+            syncthingActivity.finish();
         }
 
         /**
