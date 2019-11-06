@@ -926,6 +926,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Possible folder states -->
     <string name="state_idle">Aktuell</string>
+    <string name="state_local_additions">Lokale Ergänzungen</string>
     <string name="state_scanning">Scannen</string>
     <string name="state_scan_waiting">Warte auf Scan</string>
     <string name="state_sync_preparing">Sync vorbereiten</string>
