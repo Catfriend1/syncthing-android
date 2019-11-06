@@ -18,15 +18,55 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">介紹</string>
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">儲存空間權限</string>
     <string name="storage_permission_desc">Syncthing 需要獲得您的存儲權限以進行檔案同步。</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">電池最佳化</string>
     <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">位置權限</string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">產生鑰匙</string>
     <string name="cont">繼續</string>
     <string name="finish">完成</string>
+    <string name="generic_example">例子</string>
     <string name="generic_error">錯誤</string>
+    <string name="generic_help">幫助</string>
+    <string name="grant_permission">請求權限</string>
+    <string name="permission_granted">已授權</string>
+    <string name="accept">接受</string>
+
+    <string name="ignore">拒絕</string>
+
+    <string name="main_menu">主選單</string>
+
+    <string name="refresh">更新</string>
+
+
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork 相機</string>
+
+    <string name="photo_shoot_intro_welcome_title">歡迎使用 Syncthing-Fork 相機</string>
+
+    <string name="photo_shoot_intro_permission_title">所需要的權限</string>
+
+    <string name="photo_shoot_intro_no_camera">抱歉，這台設備並無相機。</string>
+
+    <string name="grant_storage_permission">允許儲存權限</string>
+
+    <string name="grant_camera_permission">允許相機權限</string>
+
+    <!-- MainActivity -->
+
+
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">打開主選單</string>
+    <string name="close_main_menu">關閉主選單</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">增加資料夾</string>
 
@@ -47,6 +87,8 @@
     <string name="open_website">打開網站</string>
 
     <string name="toast_write_storage_permission_required">應用程式需要寫入儲存空間的權限</string>
+
+    <string name="device_rejected">有 %1$s 裝置想要連線</string>
 
     <!-- StateDialogActivity -->
 
@@ -498,4 +540,5 @@
     <string name="browse">瀏覽</string>
     <string name="no_sub_folder_is_selected">無子資料夾被選擇</string>
     <string name="share_device_id_chooser">分享裝置識別代碼</string>
+    <string name="custom_sync_conditions_title">自訂同步條件</string>
     </resources>
