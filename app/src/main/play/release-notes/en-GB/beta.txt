@@ -3,7 +3,5 @@
 * See detailed changelog on GitHub.
 Permissions
 * The camera permission is optional and will be asked only if you decide to use the Syncthing Camera feature.
-Fixed
-* Revoke "Syncthing Camera" feature consent if user removes the folder (#524)
 Enhanced
-* Option to hide "Syncthing Camera" launcher icon (#521)
+* Show "Local Additions" status for receiveOnly folders
