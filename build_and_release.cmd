@@ -92,10 +92,6 @@ REM Workaround for play-publisher issue, see https://github.com/Triple-T/gradle-
 IF EXIST "app\build\generated\gpp" rd /s /q "app\build\generated\gpp"
 IF EXIST "app\build\generated\gpp" TASKKILL /F /IM java.exe & sleep 1 & goto :clearPlayPublisherCache
 REM 
-REM Remove "app\src\main\play\listings\[lang]\graphics\icon" folders because of GPlay API Error #500.
-REM rd /s /q "app\src\main\play\listings\de-DE\graphics\icon"
-REM rd /s /q "app\src\main\play\listings\en-GB\graphics\icon"
-REM 
 REM Publish text and image resources to GPlay
 echo [INFO] Publishing descriptive resources to GPlay ...
 call gradlew --quiet publishReleaseListing
@@ -110,10 +106,6 @@ REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishRelease" exited with c
 call gradlew --quiet publishBundle
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & goto :eos
-REM 
-REM Revert removed play icon resources.
-REM git checkout -- "app\src\main\play\listings\de-DE\graphics\icon\*"
-REM git checkout -- "app\src\main\play\listings\en-GB\graphics\icon\*"
 REM 
 goto :eos
 :eos
