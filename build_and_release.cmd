@@ -35,8 +35,14 @@ IF NOT EXIST "%SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE%" echo [ERROR] SYNCTHI
 REM 
 REM User has to enter the signing password if it is not filled in here.
 SET SIGNING_PASSWORD=
+IF DEFINED SIGNING_PASSWORD goto :absLint
 :enterSigningPassword
-IF NOT DEFINED SIGNING_PASSWORD SET /p SIGNING_PASSWORD=Enter signing password:
+setlocal DisableDelayedExpansion
+set "psCommand=powershell -Command "$pword = read-host 'Enter signing password' -AsSecureString ; ^
+	$BSTR=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($pword); ^
+		[System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)""
+for /f "usebackq delims=" %%p in (`%psCommand%`) do SET SIGNING_PASSWORD=%%p
+setlocal EnableDelayedExpansion
 IF NOT DEFINED SIGNING_PASSWORD echo [ERROR] Signing password is required. Please retry. & goto :enterSigningPassword
 REM 
 :absLint
