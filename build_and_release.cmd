@@ -63,6 +63,12 @@ SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleRelease" exited with code #%RESULT%. & goto :eos
 type "app\build\intermediates\merged_manifests\release\AndroidManifest.xml" | findstr /i "android:version"
 REM 
+IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\bundle\release\app-release.aab" 2> NUL:
+echo [INFO] Building Android BUNDLE variant "release" ...
+call gradlew --quiet bundleRelease
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew bundleRelease" exited with code #%RESULT%. & goto :eos
+REM 
 :absPostBuildScript
 REM 
 echo [INFO] Running OPTIONAL post build script ...
@@ -98,9 +104,12 @@ IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishReleaseListing" exited wit
 REM 
 REM Publish APK to GPlay
 echo [INFO] Publishing APK to GPlay ...
-call gradlew --quiet publishRelease
+REM call gradlew --quiet publishRelease
+REM SET RESULT=%ERRORLEVEL%
+REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishRelease" exited with code #%RESULT%. & goto :eos
+call gradlew --quiet publishBundle
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishRelease" exited with code #%RESULT%. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & goto :eos
 REM 
 REM Revert removed play icon resources.
 REM git checkout -- "app\src\main\play\listings\de-DE\graphics\icon\*"
