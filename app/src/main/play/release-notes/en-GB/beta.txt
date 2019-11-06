@@ -3,5 +3,7 @@
 * See detailed changelog on GitHub.
 Permissions
 * The camera permission is optional and will be asked only if you decide to use the Syncthing Camera feature.
+Fixes
+* Fix crash after taking picture on pre-nougat cyanogen OS (#534)
 Enhanced
 * Show "Local Additions" status for receiveOnly folders
