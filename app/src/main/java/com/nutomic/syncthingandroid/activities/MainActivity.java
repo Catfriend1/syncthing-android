@@ -351,6 +351,7 @@ public class MainActivity extends SyncthingActivity
         super.onSaveInstanceState(outState);
 
         FragmentManager fm = getSupportFragmentManager();
+        fm.executePendingTransactions();
         Consumer<Fragment> putFragment = fragment -> {
             if (fragment != null && fragment.isAdded()) {
                 fm.putFragment(outState, fragment.getClass().getName(), fragment);
