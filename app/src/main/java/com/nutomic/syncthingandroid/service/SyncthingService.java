@@ -20,6 +20,7 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
@@ -540,7 +541,14 @@ public class SyncthingService extends Service {
         mSyncthingRunnable.killSyncthing();
 
         // Start the syncthing binary in a separate thread.
+        Thread.UncaughtExceptionHandler syncthingRunnableThreadExceptionHandler = new Thread.UncaughtExceptionHandler() {
+                public void uncaughtException(Thread syncthingRunnableThread, Throwable ex) {
+                    Log.e(TAG, "mSyncthingRunnableThread: Uncaught exception [ExecutableNotFoundException]");
+                    mNotificationHandler.showCrashedNotification(R.string.executable_not_found, "libsyncthing.so");
+                }
+        };
         mSyncthingRunnableThread = new Thread(mSyncthingRunnable);
+        mSyncthingRunnableThread.setUncaughtExceptionHandler(syncthingRunnableThreadExceptionHandler);
         mSyncthingRunnableThread.start();
 
         /**
