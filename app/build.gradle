@@ -77,6 +77,18 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+
     lintOptions {
         // Gradle 5.6.1: Lint crashes while running pass "IconMissingDensityFolder".
         disable "IconMissingDensityFolder"
