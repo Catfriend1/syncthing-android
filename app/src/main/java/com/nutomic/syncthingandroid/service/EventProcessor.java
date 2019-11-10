@@ -21,8 +21,6 @@ import com.google.gson.JsonObject;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.activities.DeviceActivity;
-import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
@@ -109,10 +107,19 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 }
                 break;
             case "DeviceRejected":
+                /**
+                 * This is obsolete since v0.14.51, https://github.com/syncthing/syncthing/pull/5084
+                 * Unknown devices are now stored to "config.xml" and persisted until the user decided
+                 * to accept or ignore the device connection request. We don't need to catch the event
+                 * as a "ConfigSaved" event is fired which will be forwarded to:
+                 * {@link RestApi#reloadConfig} => {@link RestApi#onReloadConfigComplete}
+                 */
+                /*
                 onDeviceRejected(
                     (String) event.data.get("device"),          // deviceId
                     (String) event.data.get("name")             // deviceName
                 );
+                */
                 break;
             case "FolderCompletion":
                 CompletionInfo completionInfo = new CompletionInfo();
@@ -128,11 +135,20 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 onFolderErrors(json);
                 break;
             case "FolderRejected":
+                /**
+                 * This is obsolete since v0.14.51, https://github.com/syncthing/syncthing/pull/5084
+                 * Unknown folders are now stored to "config.xml" and persisted until the user decided
+                 * to accept or ignore the folder share request. We don't need to catch the event
+                 * as a "ConfigSaved" event is fired which will be forwarded to:
+                 * {@link RestApi#reloadConfig} => {@link RestApi#onReloadConfigComplete}
+                 */
+                /*
                 onFolderRejected(
                     (String) event.data.get("device"),          // deviceId
                     (String) event.data.get("folder"),          // folderId
                     (String) event.data.get("folderLabel")      // folderLabel
                 );
+                */
                 break;
             case "ItemFinished":
                 String action               = (String) event.data.get("action");
@@ -223,46 +239,28 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         }
     }
 
+    /*
     private void onDeviceRejected(String deviceId, String deviceName) {
         if (deviceId == null) {
             return;
         }
-        Log.d(TAG, "Unknown device " + deviceName + "(" + deviceId + ") wants to connect");
+        Log.d(TAG, "Unknown device '" + deviceName + "' (" + deviceId + ") wants to connect");
 
-        String title = mContext.getString(R.string.device_rejected,
-                deviceName.isEmpty() ? deviceId.substring(0, 7) : deviceName);
-        int notificationId = mNotificationHandler.getNotificationIdFromText(title);
-
-        // Prepare "accept" action.
-        Intent intentAccept = new Intent(mContext, DeviceActivity.class)
-                .putExtra(DeviceActivity.EXTRA_NOTIFICATION_ID, notificationId)
-                .putExtra(DeviceActivity.EXTRA_IS_CREATE, true)
-                .putExtra(DeviceActivity.EXTRA_DEVICE_ID, deviceId)
-                .putExtra(DeviceActivity.EXTRA_DEVICE_NAME, deviceName);
-        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
-            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // Prepare "ignore" action.
-        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
-                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
-                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId);
-        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_DEVICE);
-        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
-            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // Show notification.
-        mNotificationHandler.showConsentNotification(notificationId, title, piAccept, piIgnore);
+        // Show device approve/ignore notification.
+        mNotificationHandler.showDeviceConnectNotification(deviceId, deviceName);
     }
+    */
 
+    /*
     private void onFolderRejected(String deviceId, String folderId,
                                     String folderLabel) {
         if (deviceId == null || folderId == null) {
             return;
         }
-        Log.d(TAG, "Device " + deviceId + " wants to share folder " +
-            folderLabel + " (" + folderId + ")");
+        Log.d(TAG, "Device '" + deviceId + "' wants to share folder '" +
+            folderLabel + "' (" + folderId + ")");
 
-        // Find the deviceName corresponding to the deviceId
+        // Find the deviceName corresponding to the deviceId.
         String deviceName = null;
         for (Device d : mRestApi.getDevices(false)) {
             if (d.deviceID.equals(deviceId)) {
@@ -270,34 +268,20 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 break;
             }
         }
-        String title = mContext.getString(R.string.folder_rejected, deviceName,
-                folderLabel.isEmpty() ? folderId : folderLabel + " (" + folderId + ")");
-        int notificationId = mNotificationHandler.getNotificationIdFromText(title);
 
-        // Prepare "accept" action.
-        boolean isNewFolder = Stream.of(mRestApi.getFolders())
+        Boolean isNewFolder = Stream.of(mRestApi.getFolders())
                 .noneMatch(f -> f.id.equals(folderId));
-        Intent intentAccept = new Intent(mContext, FolderActivity.class)
-                .putExtra(FolderActivity.EXTRA_NOTIFICATION_ID, notificationId)
-                .putExtra(FolderActivity.EXTRA_IS_CREATE, isNewFolder)
-                .putExtra(FolderActivity.EXTRA_DEVICE_ID, deviceId)
-                .putExtra(FolderActivity.EXTRA_FOLDER_ID, folderId)
-                .putExtra(FolderActivity.EXTRA_FOLDER_LABEL, folderLabel);
-        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
-            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        // Prepare "ignore" action.
-        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
-                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
-                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId)
-                .putExtra(SyncthingService.EXTRA_FOLDER_ID, folderId);
-        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_FOLDER);
-        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
-            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        // Show notification.
-        mNotificationHandler.showConsentNotification(notificationId, title, piAccept, piIgnore);
+        // Show folder approve/ignore notification.
+        mNotificationHandler.showFolderShareNotification(
+            deviceId,
+            deviceName,
+            folderId,
+            folderLabel,
+            isNewFolder
+        );
     }
+    */
 
     private void onFolderErrors(JsonElement json) {
         JsonElement data = ((JsonObject) json).get("data");

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import android.util.Log;
 
+import com.annimon.stream.Stream;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
@@ -150,6 +151,8 @@ public class RestApi {
 
     private Gson mGson;
 
+    @Inject NotificationHandler mNotificationHandler;
+
     public RestApi(Context context, URL url, String apiKey, OnApiAvailableListener apiListener,
                    OnConfigChangedListener configListener) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
@@ -229,8 +232,56 @@ public class RestApi {
             throw new RuntimeException("config is null: " + result);
         }
         Log.d(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
-        LogV("mConfig.pendingDevices = " + mGson.toJson(mConfig.pendingDevices));
-        LogV("mConfig.remoteIgnoredDevices = " + mGson.toJson(mConfig.remoteIgnoredDevices));
+
+        synchronized (mConfigLock) {
+            String logRemoteIgnoredDevices = mGson.toJson(mConfig.remoteIgnoredDevices);
+            if (!logRemoteIgnoredDevices.equals("[]")) {
+                LogV("ORCC: remoteIgnoredDevices = " + logRemoteIgnoredDevices);
+            }
+
+            // Check if device approval notifications are pending.
+            String logPendingDevices = mGson.toJson(mConfig.pendingDevices);
+            if (!logPendingDevices.equals("[]")) {
+                LogV("ORCC: pendingDevices = " + logPendingDevices);
+            }
+            for (final PendingDevice pendingDevice : mConfig.pendingDevices) {
+                if (mNotificationHandler != null && pendingDevice.deviceID != null) {
+                    Log.d(TAG, "ORCC: pendingDevice.deviceID = " + pendingDevice.deviceID + "('" + pendingDevice.name + "')");
+                    mNotificationHandler.showDeviceConnectNotification(
+                        pendingDevice.deviceID,
+                        pendingDevice.name
+                    );
+                }
+            }
+
+            // Loop through devices.
+            for (final Device device : getDevices(false)) {
+                String logIgnoredFolders = mGson.toJson(device.ignoredFolders);
+                if (!logIgnoredFolders.equals("[]")) {
+                    LogV("ORCC: device[" + device.getDisplayName() + "].ignoredFolders = " + logIgnoredFolders);
+                }
+
+                // Check if folder approval notifications are pending for the device.
+                String logPendingFolders = mGson.toJson(device.pendingFolders);
+                if (!logPendingFolders.equals("[]")) {
+                    LogV("ORCC: device[" + device.getDisplayName() + "].pendingFolders = " + logPendingFolders);
+                }
+                for (final PendingFolder pendingFolder : device.pendingFolders) {
+                    if (mNotificationHandler != null && pendingFolder.id != null) {
+                        Log.d(TAG, "ORCC: pendingFolder.id = " + pendingFolder.id + "('" + pendingFolder.label + "')");
+                        Boolean isNewFolder = Stream.of(getFolders())
+                                .noneMatch(f -> f.id.equals(pendingFolder.id));
+                        mNotificationHandler.showFolderShareNotification(
+                            device.deviceID,
+                            device.name,
+                            pendingFolder.id,
+                            pendingFolder.label,
+                            isNewFolder
+                        );
+                    }
+                }
+            }
+        }
 
         // Update cached device and folder information stored in the mCompletion model.
         mCompletion.updateFromConfig(getDevices(true), getFolders());
@@ -324,7 +375,7 @@ public class RestApi {
                     for (IgnoredFolder ignoredFolder : device.ignoredFolders) {
                         if (folderId.equals(ignoredFolder.id)) {
                             // Folder already ignored.
-                            Log.d(TAG, "Folder [" + folderId + "] already ignored on device [" + deviceId + "]");
+                            Log.d(TAG, "ignoreFolder: Folder [" + folderId + "] already ignored on device [" + deviceId + "]");
                             return;
                         }
                     }
@@ -347,8 +398,8 @@ public class RestApi {
                         }
                     }
                     device.ignoredFolders.add(ignoredFolder);
-                    LogV("device.pendingFolders = " + mGson.toJson(device.pendingFolders));
-                    LogV("device.ignoredFolders = " + mGson.toJson(device.ignoredFolders));
+                    LogV("ignoreFolder: device.pendingFolders = " + mGson.toJson(device.pendingFolders));
+                    LogV("ignoreFolder: device.ignoredFolders = " + mGson.toJson(device.ignoredFolders));
                     sendConfig();
                     Log.d(TAG, "Ignored folder [" + folderId + "] announced by device [" + deviceId + "]");
 

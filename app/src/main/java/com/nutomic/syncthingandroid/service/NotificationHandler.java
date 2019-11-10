@@ -14,7 +14,9 @@ import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.activities.DeviceActivity;
 import com.nutomic.syncthingandroid.activities.FirstStartActivity;
+import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.service.SyncthingService.State;
@@ -299,5 +301,75 @@ public class NotificationHandler {
             nb.setCategory(Notification.CATEGORY_ERROR);
         }
         mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
+    }
+
+    public void showDeviceConnectNotification(String deviceId, String deviceName) {
+        if (deviceId == null) {
+            Log.e(TAG, "showDeviceConnectNotification: deviceId == null");
+            return;
+        }
+        String title = mContext.getString(R.string.device_rejected,
+                deviceName.isEmpty() ? deviceId.substring(0, 7) : deviceName);
+        int notificationId = getNotificationIdFromText(title);
+
+        // Prepare "accept" action.
+        Intent intentAccept = new Intent(mContext, DeviceActivity.class)
+                .putExtra(DeviceActivity.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(DeviceActivity.EXTRA_IS_CREATE, true)
+                .putExtra(DeviceActivity.EXTRA_DEVICE_ID, deviceId)
+                .putExtra(DeviceActivity.EXTRA_DEVICE_NAME, deviceName);
+        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
+            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Prepare "ignore" action.
+        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
+                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId);
+        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_DEVICE);
+        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
+            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Show notification.
+        showConsentNotification(notificationId, title, piAccept, piIgnore);
+    }
+
+    public void showFolderShareNotification(String deviceId,
+                                                String deviceName,
+                                                String folderId,
+                                                String folderLabel,
+                                                Boolean isNewFolder) {
+        if (deviceId == null) {
+            Log.e(TAG, "showFolderShareNotification: deviceId == null");
+            return;
+        }
+        if (folderId == null) {
+            Log.e(TAG, "showFolderShareNotification: folderId == null");
+            return;
+        }
+        String title = mContext.getString(R.string.folder_rejected, deviceName,
+                folderLabel.isEmpty() ? folderId : folderLabel + " (" + folderId + ")");
+        int notificationId = getNotificationIdFromText(title);
+
+        // Prepare "accept" action.
+        Intent intentAccept = new Intent(mContext, FolderActivity.class)
+                .putExtra(FolderActivity.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(FolderActivity.EXTRA_IS_CREATE, isNewFolder)
+                .putExtra(FolderActivity.EXTRA_DEVICE_ID, deviceId)
+                .putExtra(FolderActivity.EXTRA_FOLDER_ID, folderId)
+                .putExtra(FolderActivity.EXTRA_FOLDER_LABEL, folderLabel);
+        PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
+            intentAccept, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Prepare "ignore" action.
+        Intent intentIgnore = new Intent(mContext, SyncthingService.class)
+                .putExtra(SyncthingService.EXTRA_NOTIFICATION_ID, notificationId)
+                .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId)
+                .putExtra(SyncthingService.EXTRA_FOLDER_ID, folderId);
+        intentIgnore.setAction(SyncthingService.ACTION_IGNORE_FOLDER);
+        PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
+            intentIgnore, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Show notification.
+        showConsentNotification(notificationId, title, piAccept, piIgnore);
     }
 }

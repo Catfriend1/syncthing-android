@@ -14,16 +14,20 @@ import androidx.core.content.ContextCompat;
 import android.util.Log;
 
 import com.android.PRNGFixes;
+import com.annimon.stream.Stream;
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
-import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
+import com.nutomic.syncthingandroid.model.PendingDevice;
+import com.nutomic.syncthingandroid.model.PendingFolder;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
+import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -165,6 +169,7 @@ public class SyncthingService extends Service {
      * {@link #onStartCommand}.
      */
     private State mCurrentState = State.DISABLED;
+    private ConfigRouter mConfigRouter;
     private ConfigXml mConfig;
     private Thread mSyncthingRunnableThread = null;
     private Handler mHandler;
@@ -226,6 +231,7 @@ public class SyncthingService extends Service {
         ((SyncthingApp) getApplication()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         LogV("onCreate");
+        mConfigRouter = new ConfigRouter(SyncthingService.this);
         mHandler = new Handler();
 
         /**
@@ -347,20 +353,78 @@ public class SyncthingService extends Service {
             if (mRunConditionMonitor != null) {
                 mRunConditionMonitor.updateShouldRunDecision();
             }
-        } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            // mRestApi is not null due to State.ACTIVE
-            mRestApi.ignoreDevice(intent.getStringExtra(EXTRA_DEVICE_ID));
+        } else if (ACTION_IGNORE_DEVICE.equals(intent.getAction())) {
+            mConfigRouter.ignoreDevice(mRestApi, intent.getStringExtra(EXTRA_DEVICE_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
-        } else if (ACTION_IGNORE_FOLDER.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
-            // mRestApi is not null due to State.ACTIVE
-            mRestApi.ignoreFolder(intent.getStringExtra(EXTRA_DEVICE_ID), intent.getStringExtra(EXTRA_FOLDER_ID));
+        } else if (ACTION_IGNORE_FOLDER.equals(intent.getAction())) {
+            mConfigRouter.ignoreFolder(mRestApi, intent.getStringExtra(EXTRA_DEVICE_ID), intent.getStringExtra(EXTRA_FOLDER_ID));
             mNotificationHandler.cancelConsentNotification(intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         } else if (ACTION_OVERRIDE_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             mRestApi.overrideChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
         } else if (ACTION_REVERT_LOCAL_CHANGES.equals(intent.getAction()) && mCurrentState == State.ACTIVE) {
             mRestApi.revertLocalChanges(intent.getStringExtra(EXTRA_FOLDER_ID));
+        } else {
+            afterFreshServiceInstanceStart();
         }
         return START_STICKY;
+    }
+
+    /**
+     * Event handler ot catch a fresh service startup right after the run condition evaluation took place
+     * and SyncthingNative may be starting in the background meanwhilst or non-present.
+     */
+    private void afterFreshServiceInstanceStart() {
+        LogV("afterFreshServiceInstanceStart: Service started from scratch, SyncthingNative is going to STATE_" + mCurrentState + " meanwhilst ...");
+        if (mCurrentState == State.DISABLED) {
+            // Read and parse the config from disk.
+            ConfigXml configXml = new ConfigXml(this);
+            try {
+                configXml.loadConfig();
+            } catch (ConfigXml.OpenConfigException e) {
+                mNotificationHandler.showCrashedNotification(R.string.config_read_failed, "afterFreshServiceInstanceStart:OpenConfigException");
+                synchronized (mStateLock) {
+                    onServiceStateChange(State.ERROR);
+                }
+                stopSelf();
+                return;
+            }
+
+            // Check if pending devices are waiting for approval.
+            List<PendingDevice> pendingDevices = configXml.getPendingDevices();
+            if (pendingDevices != null) {
+                for (final PendingDevice pendingDevice : pendingDevices) {
+                    if (mNotificationHandler != null && pendingDevice.deviceID != null) {
+                        Log.d(TAG, "AFSIS: pendingDevice.deviceID = " + pendingDevice.deviceID + "('" + pendingDevice.name + "')");
+                        mNotificationHandler.showDeviceConnectNotification(
+                            pendingDevice.deviceID,
+                            pendingDevice.name
+                        );
+                    }
+                }
+            }
+
+            // Loop through devices.
+            List<Device> devices = configXml.getDevices(false);
+            if (devices != null) {
+                for (final Device device : devices) {
+                    // Check if folder approval notifications are pending for the device.
+                    for (final PendingFolder pendingFolder : device.pendingFolders) {
+                        if (mNotificationHandler != null && pendingFolder.id != null) {
+                            Log.d(TAG, "AFSIS: pendingFolder.id = " + pendingFolder.id + "('" + pendingFolder.label + "')");
+                            Boolean isNewFolder = Stream.of(configXml.getFolders())
+                                    .noneMatch(f -> f.id.equals(pendingFolder.id));
+                            mNotificationHandler.showFolderShareNotification(
+                                device.deviceID,
+                                device.name,
+                                pendingFolder.id,
+                                pendingFolder.label,
+                                isNewFolder
+                            );
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**

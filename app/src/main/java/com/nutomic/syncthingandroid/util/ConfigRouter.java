@@ -59,6 +59,19 @@ public class ConfigRouter {
         restApi.addFolder(folder);       // This will send the config afterwards.
     }
 
+    public void ignoreFolder(RestApi restApi, final String deviceId, final String folderId) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not (yet) available.
+            configXml.loadConfig();
+            configXml.ignoreFolder(deviceId, folderId);
+            configXml.saveChanges();
+            return;
+        }
+
+        // Syncthing is running and REST API is available.
+        restApi.ignoreFolder(deviceId, folderId);       // This will send the config afterwards.
+    }
+
     public void updateFolder(RestApi restApi, final Folder folder) {
         if (restApi == null || !restApi.isConfigLoaded()) {
             // Syncthing is not running or REST API is not (yet) available.
@@ -163,6 +176,19 @@ public class ConfigRouter {
 
         // Syncthing is running and REST API is available.
         restApi.removeDevice(deviceID);       // This will send the config afterwards.
+    }
+
+    public void ignoreDevice(RestApi restApi, final String deviceID) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not (yet) available.
+            configXml.loadConfig();
+            configXml.ignoreDevice(deviceID);
+            configXml.saveChanges();
+            return;
+        }
+
+        // Syncthing is running and REST API is available.
+        restApi.ignoreDevice(deviceID);       // This will send the config afterwards.
     }
 
     public Gui getGui(RestApi restApi) {
