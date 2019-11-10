@@ -3,9 +3,9 @@ package com.nutomic.syncthingandroid.model;
 import android.text.TextUtils;
 
 public class IgnoredFolder {
-    public String time = "";
     public String id = "";
     public String label = "";
+    public String time = "";
 
     /**
      * Returns the folder label, or the first characters of the ID if the label is empty.
