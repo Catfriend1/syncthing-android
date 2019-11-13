@@ -28,11 +28,23 @@
                 android:lines="1"
                 android:textAppearance="?textAppearanceListItemPrimary" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:ellipsize="end"
+                android:theme="@style/progressBarBlue" />
+
             <RelativeLayout
                 android:id="@+id/rateInOutContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/name">
+                android:layout_below="@+id/progressBar">
 
                 <TextView
                     android:id="@+id/download_title"

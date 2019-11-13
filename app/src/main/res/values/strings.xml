@@ -946,6 +946,7 @@ Please report any problems you encounter via Github.</string>
     </string-array>
 
     <!-- Possible folder states -->
+    <string name="state_failed_items">Failed Items (%1$d)</string>
     <string name="state_idle">Idle</string>
     <string name="state_local_additions">Local Additions</string>
     <string name="state_scanning">Scanning</string>

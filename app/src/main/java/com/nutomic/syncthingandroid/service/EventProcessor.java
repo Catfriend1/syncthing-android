@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.annimon.stream.Stream;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -25,9 +26,11 @@ import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.model.FolderStatus;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -46,7 +49,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
      * Minimum interval in seconds at which the events are polled from syncthing and processed.
      * This interval will not wake up the device to save battery power.
      */
-    private static final long EVENT_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(15);
+    private static final long EVENT_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(5);
 
     /**
      * Use the MainThread for all callbacks and message handling
@@ -122,17 +125,16 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 */
                 break;
             case "FolderCompletion":
-                CompletionInfo completionInfo = new CompletionInfo();
-                completionInfo.completion = (Double) event.data.get("completion");
-                mRestApi.setCompletionInfo(
-                    (String) event.data.get("device"),          // deviceId
-                    (String) event.data.get("folder"),          // folderId
-                    completionInfo
-                );
+                onFolderCompletion(event.data);
                 break;
             case "FolderErrors":
                 LogV("Event " + event.type + ", data " + event.data);
                 onFolderErrors(json);
+                break;
+            case "FolderPaused":
+                onFolderPaused(
+                        (String) event.data.get("id")              // folderId
+                );
                 break;
             case "FolderRejected":
                 /**
@@ -149,6 +151,17 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     (String) event.data.get("folderLabel")      // folderLabel
                 );
                 */
+                break;
+            case "FolderResumed":
+                onFolderResumed(
+                        (String) event.data.get("id")              // folderId
+                );
+                break;
+            case "FolderSummary":
+                onFolderSummary(
+                        json,
+                        (String) event.data.get("folder")          // folderId
+                );
                 break;
             case "ItemFinished":
                 String action               = (String) event.data.get("action");
@@ -177,14 +190,17 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "Ping":
                 // Ignored.
                 break;
+            case "StateChanged":
+                onStateChanged(
+                        (String) event.data.get("folder"),         // folderId
+                        (String) event.data.get("to")
+                );
+                break;
             case "DeviceConnected":
             case "DeviceDisconnected":
             case "DeviceDiscovered":
             case "DownloadProgress":
-            case "FolderPaused":
-            case "FolderResumed":
             case "FolderScanProgress":
-            case "FolderSummary":
             case "FolderWatchStateChanged":
             case "ItemStarted":
             case "ListenAddressesChanged":
@@ -194,7 +210,6 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "RemoteIndexUpdated":
             case "Starting":
             case "StartupComplete":
-            case "StateChanged":
                 LogV("Ignored event " + event.type + ", data " + event.data);
                 break;
             default:
@@ -239,51 +254,17 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         }
     }
 
-    /*
-    private void onDeviceRejected(String deviceId, String deviceName) {
-        if (deviceId == null) {
-            return;
-        }
-        Log.d(TAG, "Unknown device '" + deviceName + "' (" + deviceId + ") wants to connect");
-
-        // Show device approve/ignore notification.
-        mNotificationHandler.showDeviceConnectNotification(deviceId, deviceName);
-    }
-    */
-
-    /*
-    private void onFolderRejected(String deviceId, String folderId,
-                                    String folderLabel) {
-        if (deviceId == null || folderId == null) {
-            return;
-        }
-        Log.d(TAG, "Device '" + deviceId + "' wants to share folder '" +
-            folderLabel + "' (" + folderId + ")");
-
-        // Find the deviceName corresponding to the deviceId.
-        String deviceName = null;
-        for (Device d : mRestApi.getDevices(false)) {
-            if (d.deviceID.equals(deviceId)) {
-                deviceName = d.getDisplayName();
-                break;
-            }
-        }
-
-        Boolean isNewFolder = Stream.of(mRestApi.getFolders())
-                .noneMatch(f -> f.id.equals(folderId));
-
-        // Show folder approve/ignore notification.
-        mNotificationHandler.showFolderShareNotification(
-            deviceId,
-            deviceName,
-            folderId,
-            folderLabel,
-            isNewFolder
+    private void onFolderCompletion(final Map<String, Object> eventData) {
+        CompletionInfo completionInfo = new CompletionInfo();
+        completionInfo.completion = (Double) eventData.get("completion");
+        mRestApi.setRemoteCompletionInfo(
+            (String) eventData.get("device"),          // deviceId
+            (String) eventData.get("folder"),          // folderId
+            completionInfo
         );
     }
-    */
 
-    private void onFolderErrors(JsonElement json) {
+    private void onFolderErrors(final JsonElement json) {
         JsonElement data = ((JsonObject) json).get("data");
         if (data == null) {
             Log.e(TAG, "onFolderErrors: data == null");
@@ -312,6 +293,37 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             }
         }
     }
+
+    private void onFolderPaused(final String folderId) {
+        mRestApi.updateLocalFolderPause(folderId, true);
+    }
+
+    private void onFolderResumed(final String folderId) {
+        mRestApi.updateLocalFolderPause(folderId, false);
+    }
+
+    private void onFolderSummary(final JsonElement json, final String folderId) {
+        JsonElement data = ((JsonObject) json).get("data");
+        if (data == null) {
+            Log.e(TAG, "onFolderSummary: data == null");
+            return;
+        }
+        JsonElement summary = ((JsonObject) data).get("summary");
+        if (summary == null) {
+            Log.e(TAG, "onFolderSummary: summary == null");
+            return;
+        }
+        FolderStatus folderStatus = new FolderStatus();
+        try {
+            folderStatus = new GsonBuilder().create()
+                    .fromJson(summary, FolderStatus.class);
+        } catch (Exception e) {
+            Log.e(TAG, "onFolderSummary: gson.fromJson failed", e);
+            return;
+        }
+        mRestApi.setLocalFolderStatus(folderId, folderStatus);
+    }
+
 
     /**
      * Precondition: action != null
@@ -354,6 +366,13 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             default:
                 Log.w(TAG, "onItemFinished: Unhandled action \"" + action + "\"");
         }
+    }
+
+    /**
+     * Emitted when a folder changes state.
+     */
+    private void onStateChanged(final String folderId, final String newState) {
+        mRestApi.updateLocalFolderState(folderId, newState);
     }
 
     private static class LoggingAsyncQueryHandler extends AsyncQueryHandler {

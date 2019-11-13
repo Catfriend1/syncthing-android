@@ -10,4 +10,5 @@ package com.nutomic.syncthingandroid.model;
  */
 public class CompletionInfo {
     public double completion = 100;
+    public boolean paused = false;
 }

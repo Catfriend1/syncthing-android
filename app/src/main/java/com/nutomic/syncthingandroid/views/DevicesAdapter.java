@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nutomic.syncthingandroid.R;
@@ -49,6 +50,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
         View rateInOutView = convertView.findViewById(R.id.rateInOutContainer);
         TextView name = convertView.findViewById(R.id.name);
+        ProgressBar progressBar = convertView.findViewById(R.id.progressBar);
         TextView status = convertView.findViewById(R.id.status);
         TextView download = convertView.findViewById(R.id.download);
         TextView upload = convertView.findViewById(R.id.upload);
@@ -65,6 +67,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
         if (conn == null) {
             // Syncthing is not running.
+            progressBar.setVisibility(GONE);
             rateInOutView.setVisibility(GONE);
             status.setVisibility(GONE);
             status.setText(r.getString(R.string.device_state_unknown));
@@ -73,6 +76,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         }
 
         if (conn.paused) {
+            progressBar.setVisibility(GONE);
             rateInOutView.setVisibility(GONE);
             status.setVisibility(VISIBLE);
             status.setText(r.getString(R.string.device_paused));
@@ -85,7 +89,10 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             upload.setText(Util.readableTransferRate(getContext(), conn.outBits));
             rateInOutView.setVisibility(VISIBLE);
             status.setVisibility(VISIBLE);
-            if (conn.completion == 100) {
+
+            Boolean syncingState = !(conn.completion == 100);
+            progressBar.setVisibility(syncingState ? VISIBLE : GONE);
+            if (!syncingState) {
                 /**
                  * UI polish - We distinguish the following cases:
                  * a) conn.completion == 100 because of the model init assignment, data transmission ongoing.
@@ -101,6 +108,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                     status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
                 }
             } else {
+                progressBar.setProgress(conn.completion);
                 status.setText(r.getString(R.string.device_syncing, conn.completion));
                 status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
             }
@@ -108,6 +116,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         }
 
         // !conn.connected
+        progressBar.setVisibility(GONE);
         rateInOutView.setVisibility(GONE);
         status.setVisibility(VISIBLE);
         status.setText(r.getString(R.string.device_disconnected));
