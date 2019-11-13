@@ -2,5 +2,10 @@
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 
+Fixed
+* Folder tab not showing failed items (#547)
+
 Enhanced
+* Show progress bars on folder and device tab (#548)
+* Reduce expensive API calls by caching to save battery (#546)
 * Improved device/folder approval notifications to fire faster and on app start (#471)
