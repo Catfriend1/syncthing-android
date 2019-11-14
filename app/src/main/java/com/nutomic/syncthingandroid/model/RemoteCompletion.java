@@ -138,7 +138,13 @@ public class RemoteCompletion {
         if (folderCount == 0) {
             return 100;
         }
-        return (int) Math.floor(sumCompletion / folderCount);
+        int totalDeviceCompletion = (int) Math.floor(sumCompletion / folderCount);
+        if (totalDeviceCompletion < 0) {
+            totalDeviceCompletion = 0;
+        } else if (totalDeviceCompletion > 100) {
+            totalDeviceCompletion = 100;
+        }
+        return totalDeviceCompletion;
     }
 
     /**
