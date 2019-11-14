@@ -2,6 +2,7 @@
 <androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
@@ -13,6 +14,7 @@
     android:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
     <RelativeLayout
+        android:id="@+id/topRel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -46,6 +48,46 @@
             android:visibility="gone"
             app:buttonTint="#ffae03"/>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/topRelTotalSyncProgress"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/topRel1"
+        android:layout_toRightOf="@+id/topRel1"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/pbTotalSyncComplete"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:background="@drawable/circular_shape"
+            android:ellipsize="end"
+            android:indeterminate="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/circular_progress_bar" />
+
+        <TextView
+            android:id="@+id/tvTotalSyncComplete"
+            android:background="#00000000"
+            android:color="@android:color/white"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_alignLeft="@id/pbTotalSyncComplete"
+            android:layout_alignStart="@id/pbTotalSyncComplete"
+            android:layout_alignTop="@id/pbTotalSyncComplete"
+            android:layout_alignEnd="@id/pbTotalSyncComplete"
+            android:layout_alignRight="@id/pbTotalSyncComplete"
+            android:layout_alignBottom="@id/pbTotalSyncComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@null"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
     </RelativeLayout>
 
 </androidx.appcompat.widget.Toolbar>
