@@ -96,7 +96,13 @@ public class LocalCompletion {
         if (folderCount == 0) {
             return 100;
         }
-        return (int) Math.floor(sumCompletion / folderCount);
+        int totalFolderCompletion = (int) Math.floor(sumCompletion / folderCount);
+        if (totalFolderCompletion < 0) {
+            totalFolderCompletion = 0;
+        } else if (totalFolderCompletion > 100) {
+            totalFolderCompletion = 100;
+        }
+        return totalFolderCompletion;
     }
 
     /**
