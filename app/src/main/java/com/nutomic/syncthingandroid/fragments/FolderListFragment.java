@@ -38,6 +38,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
 
     private static final String TAG = "FolderListFragment";
 
+    private Boolean ENABLE_DEBUG_LOG = false;
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     @Inject SharedPreferences mPreferences;
@@ -127,7 +128,9 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         if (mainActivity.isFinishing()) {
             return;
         }
-        LogV("Invoking updateList on UI thread");
+        if (ENABLE_DEBUG_LOG) {
+            LogV("Invoking updateList on UI thread");
+        }
         mainActivity.runOnUiThread(FolderListFragment.this::updateList);
     }
 
