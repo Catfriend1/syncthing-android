@@ -66,23 +66,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:minHeight="48dp"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
-                android:paddingRight="@dimen/abc_action_bar_content_inset_material">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/syncthingVersion"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/appName"
+                    style="@style/Widget.Syncthing.TextView.Label"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/syncthing_version_title"
+                    android:drawableLeft="@drawable/ic_syncthing_logo_black"
+                    android:drawableStart="@drawable/ic_syncthing_logo_black"
+                    android:text="@string/app_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="?android:textColorSecondary" />
-
-                <TextView
-                    android:id="@+id/version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                    android:textColor="@color/text_blue"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <View

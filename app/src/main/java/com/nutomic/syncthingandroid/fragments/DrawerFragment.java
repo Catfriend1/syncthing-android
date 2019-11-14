@@ -46,7 +46,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
      * These buttons might be accessible if the screen is big enough
      * or the user can scroll the drawer to access them.
      */
-    private TextView mVersion = null;
     private TextView mDrawerActionShowQrCode;
     private TextView mDrawerRecentChanges;
     private TextView mDrawerActionWebGui;
@@ -96,7 +95,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
         mRunningOnTV = Util.isRunningOnTV(mActivity);
 
-        mVersion                    = view.findViewById(R.id.version);
         mDrawerActionShowQrCode     = view.findViewById(R.id.drawerActionShowQrCode);
         mDrawerRecentChanges        = view.findViewById(R.id.drawerActionRecentChanges);
         mDrawerActionWebGui         = view.findViewById(R.id.drawerActionWebGui);
@@ -128,13 +126,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private void updateUI() {
         Boolean syncthingRunning = mServiceState == SyncthingService.State.ACTIVE;
 
-        // Update static info labels.
-        if (sharedPreferences != null && mVersion != null) {
-            mVersion.setText(sharedPreferences.getString(Constants.PREF_LAST_BINARY_VERSION, ""));
-        }
-
         // Update action button availability. Show buttons if syncthing is running.
-        mVersion.setVisibility(View.VISIBLE);
         mDrawerActionShowQrCode.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerRecentChanges.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerActionWebGui.setVisibility((syncthingRunning && !mRunningOnTV) ? View.VISIBLE : View.GONE);
