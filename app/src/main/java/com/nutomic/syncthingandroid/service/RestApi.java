@@ -772,6 +772,47 @@ public class RestApi {
     }
 
     /**
+     * Returns overall sync completion percentage representing all
+     * currently running folder and device transfers.
+     * Folder percentage means we are currently pulling changes from remotes.
+     * Device percentage means remotes currently pull changes from us.
+     */
+    public int getTotalSyncCompletion() {
+        int totalFolderCompletion = mLocalCompletion.getTotalFolderCompletion();
+
+        // We only look at connected devices to calculate the overall sync progress.
+        int deviceCount = 0;
+        int totalDeviceCompletion =  0;
+        double sumDeviceCompletion = 0;
+        if (mPreviousConnections.isPresent()) {
+            Connections connections = deepCopy(mPreviousConnections.get(), Connections.class);
+            for (Map.Entry<String, Connections.Connection> e : connections.connections.entrySet()) {
+                sumDeviceCompletion += mRemoteCompletion.getDeviceCompletion(e.getKey());
+                deviceCount++;
+            }
+        }
+        if (deviceCount == 0) {
+            totalDeviceCompletion = 100;
+        } else {
+            totalDeviceCompletion = (int) Math.floor(sumDeviceCompletion / deviceCount);
+        }
+
+        // Calculate overall sync completion percentage.
+        int totalSyncCompletion = (int) Math.floor((double) (totalFolderCompletion + totalDeviceCompletion) / 2);
+        if (totalSyncCompletion < 0) {
+            totalSyncCompletion = 0;
+        } else if (totalSyncCompletion > 100) {
+            totalSyncCompletion = 100;
+        }
+        /*
+        LogV("getTotalSyncCompletion: totalSyncCompletion=" + Integer.toString(totalSyncCompletion) + "%, " +
+                "folders=" + Integer.toString(totalFolderCompletion) + "%, " +
+                "devices=" + Integer.toString(totalDeviceCompletion) + "%");
+        */
+        return totalSyncCompletion;
+    }
+
+    /**
      * Requests and parses information about recent changes.
      */
     public void getDiskEvents(int limit, OnResultListener1<List<DiskEvent>> listener) {
