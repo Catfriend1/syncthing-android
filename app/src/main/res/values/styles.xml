@@ -17,7 +17,7 @@
     <style name="Widget.Syncthing.TextView" />
 
     <style name="Widget.Syncthing.TextView.Label" parent="@android:style/Widget.TextView">
-        <item name="background">?selectableItemBackground</item>
+        <item name="android:background">?selectableItemBackground</item>
         <item name="android:drawablePadding">32dp</item>
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
