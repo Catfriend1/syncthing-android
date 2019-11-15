@@ -641,7 +641,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing körs</string>
-
     <string name="syncthing_disabled">Syncthing sover</string>
 
     <string name="syncthing_terminated">Syncthing avslutades</string>
@@ -693,7 +692,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inaktiv</string>
     <string name="state_scanning">Skannar</string>
     <string name="state_syncing_general">Synkroniserar</string>

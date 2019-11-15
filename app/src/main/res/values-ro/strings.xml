@@ -758,7 +758,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing rulează</string>
-
     <string name="syncthing_terminated">Syncthing a fost închis</string>
 
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
@@ -810,7 +809,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
         <item>TiO/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inactiv</string>
     <string name="state_scanning">Scanare</string>
     <string name="state_scan_waiting">În așteptarea scanării</string>

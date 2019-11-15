@@ -369,7 +369,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing dinyalakan</string>
-
     <string name="state_syncing">Sinkronisasi (%1$d%%)</string>
     <string name="folder_type_sendonly">Kirim Saja</string>
     </resources>

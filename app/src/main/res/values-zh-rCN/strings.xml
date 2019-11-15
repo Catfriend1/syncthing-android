@@ -629,7 +629,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing 正在运行</string>
-
     <string name="syncthing_disabled">Syncthing 待机中</string>
 
     <string name="syncthing_terminated">Syncthing 已停止工作</string>
@@ -691,7 +690,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">空闲</string>
     <string name="state_scanning">正在扫描</string>
     <string name="state_syncing_general">正在同步</string>

@@ -291,7 +291,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing está en ejecución</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
 
@@ -327,7 +326,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Sin utilizar</string>
     <string name="state_scanning">Escaneando</string>
     <string name="state_syncing">Sincronizando (%1$d%%)</string>

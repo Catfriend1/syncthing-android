@@ -708,7 +708,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">El Syncthing s\'està executant</string>
-
     <string name="syncthing_disabled">El Syncthing està adormit</string>
 
     <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
@@ -760,7 +759,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inactiu</string>
     <string name="state_scanning">Escanejant</string>
     <string name="state_syncing_general">Sincronitzant</string>

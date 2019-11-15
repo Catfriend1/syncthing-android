@@ -462,7 +462,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing fonctionne</string>
-
     <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
 
     <string name="config_create_failed">Echec de création du fichier de configuration</string>
@@ -510,7 +509,6 @@
         <item>To/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">En veille</string>
     <string name="state_scanning">Analyse en cours</string>
     <string name="state_syncing">Synchronisation (%1$d%%)</string>

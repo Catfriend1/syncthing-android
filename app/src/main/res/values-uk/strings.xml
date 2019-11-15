@@ -288,7 +288,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing працює</string>
-
     <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
 
     <!-- RestApi -->
@@ -305,7 +304,6 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID пристрою скопійовано в буфер обміну</string>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Очікування</string>
     <string name="state_scanning">Сканування</string>
     <string name="state_syncing">Синхронізуються (%1$d%%)</string>

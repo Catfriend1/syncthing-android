@@ -464,7 +464,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing è in esecuzione</string>
-
     <string name="syncthing_terminated">Syncthing è stato terminato</string>
 
     <string name="config_create_failed">Impossibile creare il file di configurazione</string>
@@ -509,7 +508,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inattivo</string>
     <string name="state_scanning">Scansione in corso</string>
     <string name="state_syncing">Sincronizzazione (%1$d%%)</string>

@@ -373,7 +373,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing se está ejecutando</string>
-
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Cámara</string>
 
@@ -414,7 +413,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inactivo</string>
     <string name="state_scanning">Escaneando</string>
     <string name="state_syncing">Sincronizando (%1$d%%)</string>

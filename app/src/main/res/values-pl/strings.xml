@@ -410,7 +410,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing jest uruchomiony</string>
-
     <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-zdjęcia</string>
@@ -451,7 +450,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Bezczynny</string>
     <string name="state_scanning">Skanowanie</string>
     <string name="state_syncing">Synchronizowanie (%1$d%%)</string>

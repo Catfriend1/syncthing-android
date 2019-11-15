@@ -396,7 +396,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing이 작동 중입니다</string>
-
     <string name="config_create_failed">구성 파일을 만드는데 실패 했습니다.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android 카메라</string>
@@ -440,7 +439,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">대기</string>
     <string name="state_scanning">스캔 중</string>
     <string name="state_syncing">동기화 중 (%1$d%%)</string>

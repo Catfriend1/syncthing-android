@@ -444,7 +444,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing 正在執行</string>
-
     <string name="config_create_failed">無法建立設定檔</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android 相機</string>
@@ -490,7 +489,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">閒置</string>
     <string name="state_scanning">正在掃描</string>
     <string name="state_syncing">正在同步 (%1$d%%)</string>

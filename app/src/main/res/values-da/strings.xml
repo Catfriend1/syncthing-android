@@ -391,7 +391,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing kører</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>
 
@@ -429,7 +428,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Ledig</string>
     <string name="state_scanning">Scanner</string>
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>

@@ -484,7 +484,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing draait</string>
-
     <string name="syncthing_terminated">Syncthing is beëindigd</string>
 
     <string name="config_create_failed">Aanmaken van configuratiebestand mislukt</string>
@@ -529,7 +528,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Inactief</string>
     <string name="state_scanning">Bezig met scannen</string>
     <string name="state_syncing">Bezig met synchroniseren (%1$d%%)</string>

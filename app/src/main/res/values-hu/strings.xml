@@ -454,7 +454,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">A Syncthing fut</string>
-
     <string name="config_create_failed">Nem sikerült létrehozni a konfigurációs fájlt</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-kepek</string>
@@ -497,7 +496,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">Tétlen</string>
     <string name="state_scanning">Vizsgálat</string>
     <string name="state_syncing">Szinkronizálás (%1$d%%)</string>

@@ -371,7 +371,6 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing on käynnissä</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-kuvat</string>
 
@@ -409,7 +408,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <!-- Possible folder states -->
     <string name="state_idle">toimeton</string>
     <string name="state_scanning">Skannataan</string>
     <string name="state_syncing">Synkronoidaan (%1$d%%)</string>
