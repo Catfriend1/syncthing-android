@@ -33,7 +33,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.model.Connections;
+import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.DiscoveredDevice;
 import com.nutomic.syncthingandroid.model.Options;
@@ -306,7 +306,18 @@ public class DeviceActivity extends SyncthingActivity {
         syncthingService.getNotificationHandler().cancelConsentNotification(getIntent().getIntExtra(EXTRA_NOTIFICATION_ID, 0));
         RestApi restApi = syncthingService.getApi();
         if (restApi != null) {
-            restApi.getConnections(this::onReceiveConnections);
+            // Query device connection info from cache.
+            boolean viewsExist = mSyncthingVersionView != null && mCurrentAddressView != null;
+            if (viewsExist && (mDevice != null)) {
+                Connection connection = restApi.getRemoteDeviceStatus(mDevice.deviceID);
+                if (!connection.at.isEmpty()) {
+                    mCurrentAddressView.setVisibility(VISIBLE);
+                    mSyncthingVersionView.setVisibility(VISIBLE);
+                    mCurrentAddressView.setText(connection.address);
+                    mSyncthingVersionView.setText(connection.clientVersion);
+                }
+            }
+
             if (mIsCreateMode) {
                 mDiscoveredDevicesTitle.setOnClickListener(view -> {
                     if (restApi != null) {
@@ -357,30 +368,6 @@ public class DeviceActivity extends SyncthingActivity {
 
         outState.putBoolean(IS_SHOWING_DELETE_DIALOG, mDeleteDialog != null && mDeleteDialog.isShowing());
         Util.dismissDialogSafe(mDeleteDialog, this);
-    }
-
-    /**
-     * Sets version and current address of the device.
-     * NOTE: This is only called once on startup, should be called more often to properly display
-     * version/address changes.
-     */
-    private void onReceiveConnections(Connections connections) {
-        if (connections == null || connections.connections == null) {
-            Log.e(TAG, "onReceiveConnections: connections == null || connections.connections == null");
-            return;
-        }
-        if (mDevice == null) {
-            Log.e(TAG, "onReceiveConnections: mDevice == null");
-            return;
-        }
-
-        boolean viewsExist = mSyncthingVersionView != null && mCurrentAddressView != null;
-        if (viewsExist && connections.connections.containsKey(mDevice.deviceID)) {
-            mCurrentAddressView.setVisibility(VISIBLE);
-            mSyncthingVersionView.setVisibility(VISIBLE);
-            mCurrentAddressView.setText(connections.connections.get(mDevice.deviceID).address);
-            mSyncthingVersionView.setText(connections.connections.get(mDevice.deviceID).clientVersion);
-        }
     }
 
     private void updateViewsAndSetListeners() {

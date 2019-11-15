@@ -22,8 +22,9 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.activities.ShareActivity;
 import com.nutomic.syncthingandroid.http.GetRequest;
 import com.nutomic.syncthingandroid.http.PostRequest;
+import com.nutomic.syncthingandroid.model.CachedFolderStatus;
 import com.nutomic.syncthingandroid.model.Config;
-import com.nutomic.syncthingandroid.model.CompletionInfo;
+import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.DiscoveredDevice;
@@ -39,6 +40,7 @@ import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.model.PendingDevice;
 import com.nutomic.syncthingandroid.model.PendingFolder;
 import com.nutomic.syncthingandroid.model.RemoteCompletion;
+import com.nutomic.syncthingandroid.model.RemoteCompletionInfo;
 import com.nutomic.syncthingandroid.model.RemoteIgnoredDevice;
 import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
@@ -109,7 +111,7 @@ public class RestApi {
     private Optional<Connections> mPreviousConnections = Optional.absent();
 
     /**
-     * Stores the timestamp of the last successful request to {@link GetRequest#URI_CONNECTIONS}.
+     * Stores the timestamp of the last result of the REST API endpoint {@link GetRequest#URI_CONNECTIONS}.
      */
     private long mPreviousConnectionTime = 0;
 
@@ -141,6 +143,8 @@ public class RestApi {
      */
     private LocalCompletion mLocalCompletion;
     private RemoteCompletion mRemoteCompletion;
+    private int mLastOnlineDeviceCount = 0;
+    private int mLastTotalSyncCompletion = -1;
 
     private Gson mGson;
 
@@ -281,6 +285,9 @@ public class RestApi {
         final List<Folder> tmpFolders = getFolders();
         mLocalCompletion.updateFromConfig(tmpFolders);
         mRemoteCompletion.updateFromConfig(getDevices(true), tmpFolders);
+
+        // Perform first query for remote device status by forcing a cache miss.
+        getRemoteDeviceStatus("");
     }
 
     /**
@@ -741,34 +748,71 @@ public class RestApi {
     }
 
     /**
-     * Returns connection info for the local device and all connected devices.
+     * Returns status information about the device with the given id from cache.
+     * Set deviceId to "" to query status for an initially empty cache.
      */
-    public void getConnections(final OnResultListener1<Connections> listener) {
-        new GetRequest(mContext, mUrl, GetRequest.URI_CONNECTIONS, mApiKey, null, result -> {
-            Long now = System.currentTimeMillis();
-            Long msElapsed = now - mPreviousConnectionTime;
-            if (msElapsed < Constants.GUI_UPDATE_INTERVAL) {
-                listener.onResult(deepCopy(mPreviousConnections.get(), Connections.class));
-                return;
-            }
+    public final Connection getRemoteDeviceStatus(
+            final String deviceId) {
+        Connection cacheEntry = mRemoteCompletion.getDeviceStatus(deviceId);
+        if (cacheEntry.at.isEmpty()) {
+            /**
+             * Cache miss.
+             * Query the required information so it will be available on a future call to this function.
+             */
+            LogV("getRemoteDeviceStatus: Cache miss, deviceId=\"" + deviceId + "\". Performing query.");
+            new GetRequest(mContext, mUrl, GetRequest.URI_CONNECTIONS, mApiKey, null, result -> {
+                    /**
+                     * We got connection status information for ALL devices instead of one.
+                     * It does not hurt storing all of them.
+                     */
+                    Connections connections = mGson.fromJson(result, Connections.class);
+                    calculateConnectionStats(connections);
+                    for (Map.Entry<String, Connection> e : connections.connections.entrySet()) {
+                        mRemoteCompletion.setDeviceStatus(
+                                e.getKey(),             // deviceId
+                                e.getValue()            // connection
+                        );
+                    }
+            });
+        }
+        return cacheEntry;
+    }
 
-            mPreviousConnectionTime = now;
-            Connections connections = mGson.fromJson(result, Connections.class);
-            for (Map.Entry<String, Connections.Connection> e : connections.connections.entrySet()) {
-                e.getValue().completion = mRemoteCompletion.getDeviceCompletion(e.getKey());
+    public final int getRemoteDeviceCompletion(
+            final String deviceId) {
+        return mRemoteCompletion.getDeviceCompletion(deviceId);
+    }
 
-                Connections.Connection prev =
-                        (mPreviousConnections.isPresent() && mPreviousConnections.get().connections.containsKey(e.getKey()))
-                                ? mPreviousConnections.get().connections.get(e.getKey())
-                                : new Connections.Connection();
-                e.getValue().setTransferRate(prev, msElapsed);
-            }
-            Connections.Connection prev =
-                    mPreviousConnections.transform(c -> c.total).or(new Connections.Connection());
-            connections.total.setTransferRate(prev, msElapsed);
-            mPreviousConnections = Optional.of(connections);
-            listener.onResult(deepCopy(connections, Connections.class));
-        });
+    public final Connection getTotalConnectionStatistic() {
+        if (!mPreviousConnections.isPresent()) {
+            return new Connection();
+        }
+        return deepCopy(mPreviousConnections.get().total, Connection.class);
+    }
+
+    /**
+     * Calculate transfer rates for each remote device connection and the "total device" stats.
+     */
+    private void calculateConnectionStats(Connections connections) {
+        Long now = System.currentTimeMillis();
+        Long msElapsed = now - mPreviousConnectionTime;
+        if (msElapsed < Constants.GUI_UPDATE_INTERVAL) {
+            connections = deepCopy(mPreviousConnections.get(), Connections.class);
+            return;
+        }
+
+        mPreviousConnectionTime = now;
+        for (Map.Entry<String, Connection> e : connections.connections.entrySet()) {
+            Connection prev =
+                    (mPreviousConnections.isPresent() && mPreviousConnections.get().connections.containsKey(e.getKey()))
+                            ? mPreviousConnections.get().connections.get(e.getKey())
+                            : new Connection();
+            e.getValue().setTransferRate(prev, msElapsed);
+        }
+        Connection prev =
+                mPreviousConnections.transform(c -> c.total).or(new Connection());
+        connections.total.setTransferRate(prev, msElapsed);
+        mPreviousConnections = Optional.of(connections);
     }
 
     /**
@@ -778,37 +822,31 @@ public class RestApi {
      * Device percentage means remotes currently pull changes from us.
      */
     public int getTotalSyncCompletion() {
+        int totalDeviceCompletion = mRemoteCompletion.getTotalDeviceCompletion();
+        if (totalDeviceCompletion == -1) {
+            // Total sync completion is not applicable because there are no devices or no devices are connected.
+            return -1;
+        }
+
         int totalFolderCompletion = mLocalCompletion.getTotalFolderCompletion();
 
-        // We only look at connected devices to calculate the overall sync progress.
-        int deviceCount = 0;
-        int totalDeviceCompletion =  0;
-        double sumDeviceCompletion = 0;
-        if (mPreviousConnections.isPresent()) {
-            Connections connections = deepCopy(mPreviousConnections.get(), Connections.class);
-            for (Map.Entry<String, Connections.Connection> e : connections.connections.entrySet()) {
-                sumDeviceCompletion += mRemoteCompletion.getDeviceCompletion(e.getKey());
-                deviceCount++;
-            }
-        }
-        if (deviceCount == 0) {
-            totalDeviceCompletion = 100;
+        // Calculate overall sync completion percentage.
+        int totalSyncCompletion;
+        if (totalFolderCompletion == 100) {
+            totalSyncCompletion = totalDeviceCompletion;
         } else {
-            totalDeviceCompletion = (int) Math.floor(sumDeviceCompletion / deviceCount);
+            totalSyncCompletion = (int) Math.floor((double) (totalFolderCompletion + totalDeviceCompletion) / 2);
         }
 
-        // Calculate overall sync completion percentage.
-        int totalSyncCompletion = (int) Math.floor((double) (totalFolderCompletion + totalDeviceCompletion) / 2);
+        // Filter invalid percentage values.
         if (totalSyncCompletion < 0) {
             totalSyncCompletion = 0;
         } else if (totalSyncCompletion > 100) {
             totalSyncCompletion = 100;
         }
-        /*
         LogV("getTotalSyncCompletion: totalSyncCompletion=" + Integer.toString(totalSyncCompletion) + "%, " +
                 "folders=" + Integer.toString(totalFolderCompletion) + "%, " +
                 "devices=" + Integer.toString(totalDeviceCompletion) + "%");
-        */
         return totalSyncCompletion;
     }
 
@@ -882,13 +920,13 @@ public class RestApi {
     /**
      * Returns status information about the folder with the given id from cache.
      */
-    public final Map.Entry<FolderStatus, CompletionInfo> getFolderStatus (
+    public final Map.Entry<FolderStatus, CachedFolderStatus> getFolderStatus (
             final String folderId) {
-        final Map.Entry<FolderStatus, CompletionInfo> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
         if (cacheEntry.getKey().stateChanged.isEmpty()) {
             /**
              * Cache miss because we haven't received a "FolderSummary" event yet.
-             * Query for the required information so it will be available on a future call to this function.
+             * Query the required information so it will be available on a future call to this function.
              */
             LogV("getFolderStatus: Cache miss, folderId=\"" + folderId + "\". Performing query.");
             new GetRequest(mContext, mUrl, GetRequest.URI_DB_STATUS, mApiKey,
@@ -914,14 +952,18 @@ public class RestApi {
     public void setLocalFolderStatus(final String folderId,
                                             final FolderStatus folderStatus) {
         mLocalCompletion.setFolderStatus(folderId, folderStatus);
+        onTotalSyncCompletionChange();
     }
 
-    public void setRemoteCompletionInfo(String deviceId, String folderId, CompletionInfo completionInfo) {
+    public void setRemoteCompletionInfo(final String deviceId,
+                                            final String folderId,
+                                            final Double completion) {
         final Folder folder = getFolderByID(folderId);
         if (folder == null) {
             Log.e(TAG, "setRemoteCompletionInfo: folderId == null");
             return;
         }
+        RemoteCompletionInfo remoteCompletionInfo = new RemoteCompletionInfo();
         if (folder.paused) {
             /**
              * Fixes issue #463 where device sync percentage is displayed 50% on wrapper UI
@@ -930,10 +972,14 @@ public class RestApi {
              * to be 0% complete. To get consistent UI output, we assume 100% completion for paused
              * folders.
             **/
-            LogV("setRemoteCompletionInfo: Paused folder \"" + folderId + "\" - got " + completionInfo.completion + "%, passing on 100%");
-            completionInfo.completion = 100;
+            LogV("setRemoteCompletionInfo: Paused folder \"" + folderId + "\" - got " +
+                    remoteCompletionInfo.completion + "%, passing on 100%");
+            remoteCompletionInfo.completion = 100;
+        } else {
+            remoteCompletionInfo.completion = completion;
         }
-        mRemoteCompletion.setCompletionInfo(deviceId, folderId, completionInfo);
+        mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
+        onTotalSyncCompletionChange();
     }
 
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {
@@ -942,9 +988,24 @@ public class RestApi {
     }
 
     public void updateLocalFolderState(final String folderId, final String newState) {
-        final Map.Entry<FolderStatus, CompletionInfo> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
         cacheEntry.getKey().state = newState;
         mLocalCompletion.setFolderStatus(folderId, cacheEntry.getKey());
+    }
+
+    public void updateRemoteDeviceConnected(final String deviceId, final Boolean newConnected) {
+        Connection cacheEntry = mRemoteCompletion.getDeviceStatus(deviceId);
+        cacheEntry.connected = newConnected;
+        mRemoteCompletion.setDeviceStatus(deviceId, cacheEntry);
+        onTotalSyncCompletionChange();
+    }
+
+    public void updateRemoteDevicePaused(final String deviceId, final Boolean newPaused) {
+        Connection cacheEntry = mRemoteCompletion.getDeviceStatus(deviceId);
+        cacheEntry.connected = false;
+        cacheEntry.paused = newPaused;
+        mRemoteCompletion.setDeviceStatus(deviceId, cacheEntry);
+        onTotalSyncCompletionChange();
     }
 
     /**
@@ -1096,6 +1157,28 @@ public class RestApi {
                 LogV("applyCustomRunConditions: No action was necessary.");
             }
         }
+    }
+
+    private void onTotalSyncCompletionChange() {
+        // LogV("onTotalSyncCompletionChange fired.");
+        if (mNotificationHandler == null) {
+            return;
+        }
+
+        int onlineDeviceCount = mRemoteCompletion.getOnlineDeviceCount();
+        int totalSyncCompletion = getTotalSyncCompletion();
+        if ((onlineDeviceCount == mLastOnlineDeviceCount) &&
+                (totalSyncCompletion == mLastTotalSyncCompletion)) {
+            return;
+        }
+        mNotificationHandler.updatePersistentNotification(
+                (SyncthingService) mContext,
+                false,                                              // Do not persist previous notification text.
+                onlineDeviceCount,
+                totalSyncCompletion
+        );
+        mLastOnlineDeviceCount = onlineDeviceCount;
+        mLastTotalSyncCompletion = totalSyncCompletion;
     }
 
     private Gson getGson() {

@@ -879,6 +879,18 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing is running</string>
+    <string name="syncthing_active_details">Syncthing is running: %1$s</string>
+    <string name="no_remote_devices_connected">No remote devices connected</string>
+
+    <plurals name="device_online_up_to_date">
+        <item quantity="one">%1$d device online and up to date</item>
+        <item quantity="other">%1$d devices online and up to date</item>
+    </plurals>
+
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Syncing: %1$d%% complete, %2$d device online</item>
+        <item quantity="other">Syncing: %1$d%% complete, %2$d devices online</item>
+    </plurals>
 
     <string name="syncthing_disabled">Syncthing is sleeping</string>
 

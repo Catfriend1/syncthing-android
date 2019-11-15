@@ -170,6 +170,9 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         } else {
             // Syncthing is running and REST API is available.
             devices = restApi.getDevices(false);
+
+            // Force a cache-miss to query status of all devices asynchronously.
+            restApi.getRemoteDeviceStatus("");
         }
         if (devices == null) {
             return;
@@ -178,13 +181,13 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
             mAdapter = new DevicesAdapter(activity);
             setListAdapter(mAdapter);
         }
+        mAdapter.setRestApi(restApi);
 
         // Prevent scroll position reset due to list update from clear().
         mAdapter.setNotifyOnChange(false);
         mAdapter.clear();
         Collections.sort(devices, DEVICES_COMPARATOR);
         mAdapter.addAll(devices);
-        mAdapter.updateDeviceStatus(restApi);
         mAdapter.notifyDataSetChanged();
         setListShown(true);
     }

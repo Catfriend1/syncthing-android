@@ -16,7 +16,7 @@ import android.text.TextUtils;
 
 /**
  * This class caches local folder synchronization
- * completion indicators defined in {@link CompletionInfo}
+ * completion indicators defined in {@link CachedFolderStatus}
  * according to Syncthing's "FolderSummary" event JSON result schema.
  * Completion model of Syncthing's web UI is completion[folderId]
  */
@@ -27,8 +27,8 @@ public class LocalCompletion {
     private Boolean ENABLE_DEBUG_LOG = false;
     private Boolean ENABLE_VERBOSE_LOG = false;
 
-    HashMap<String, Map.Entry<FolderStatus, CompletionInfo>> folderMap =
-        new HashMap<String, Map.Entry<FolderStatus, CompletionInfo>>();
+    HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>> folderMap =
+        new HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>>();
 
     public LocalCompletion(Boolean enableVerboseLog) {
         ENABLE_VERBOSE_LOG = enableVerboseLog;
@@ -73,7 +73,7 @@ public class LocalCompletion {
                         folder.id,
                         new SimpleEntry(
                                 new FolderStatus(),
-                                new CompletionInfo()
+                                new CachedFolderStatus()
                         )
                 );
             }
@@ -86,10 +86,19 @@ public class LocalCompletion {
     public int getTotalFolderCompletion() {
         int folderCount = 0;
         double sumCompletion = 0;
-        for (Map.Entry<String, Map.Entry<FolderStatus, CompletionInfo>> folder : folderMap.entrySet()) {
-            CompletionInfo completionInfo  = folder.getValue().getValue();
-            if (!completionInfo.paused) {
-                sumCompletion += completionInfo.completion;
+        for (Map.Entry<String, Map.Entry<FolderStatus, CachedFolderStatus>> folder : folderMap.entrySet()) {
+            CachedFolderStatus cachedFolderStatus = folder.getValue().getValue();
+
+            // Filter invalid percentage values we may have got from the REST API.
+            if (cachedFolderStatus.completion < 0) {
+                cachedFolderStatus.completion = 0;
+            } else if (cachedFolderStatus.completion > 100) {
+                cachedFolderStatus.completion = 100;
+            }
+
+            if (!cachedFolderStatus.paused &&
+                    cachedFolderStatus.completion != 100) {
+                sumCompletion += cachedFolderStatus.completion;
                 folderCount++;
             }
         }
@@ -108,50 +117,50 @@ public class LocalCompletion {
     /**
      * Returns local folder status including completion info.
      */
-    public final Map.Entry<FolderStatus, CompletionInfo> getFolderStatus (final String folderId) {
+    public final Map.Entry<FolderStatus, CachedFolderStatus> getFolderStatus (final String folderId) {
         if (!folderMap.containsKey(folderId)) {
             return new SimpleEntry(
                     new FolderStatus(),
-                    new CompletionInfo()
+                    new CachedFolderStatus()
             );
         }
-        Map.Entry<FolderStatus, CompletionInfo> folderEntry = folderMap.get(folderId);
+        Map.Entry<FolderStatus, CachedFolderStatus> folderEntry = folderMap.get(folderId);
         return new SimpleEntry(
                 deepCopy(folderEntry.getKey(), new TypeToken<FolderStatus>(){}.getType()),
-                deepCopy(folderEntry.getValue(), new TypeToken<CompletionInfo>(){}.getType())
+                deepCopy(folderEntry.getValue(), new TypeToken<CachedFolderStatus>(){}.getType())
         );
     }
 
     /**
      * Store folderStatus for later when we need info for the UI.
-     * Calculate completionInfo within the completion[folderId] model.
+     * Calculate cachedFolderStatus within the completion[folderId] model.
      */
     public void setFolderStatus(final String folderId,
                                     final Boolean folderPaused,
                                     final FolderStatus folderStatus) {
-        CompletionInfo completionInfo = new CompletionInfo();
-        completionInfo.paused = folderPaused;
+        CachedFolderStatus cachedFolderStatus = new CachedFolderStatus();
+        cachedFolderStatus.paused = folderPaused;
         if (folderStatus.globalBytes == 0 ||
                 (folderStatus.inSyncBytes > folderStatus.globalBytes)) {
-            completionInfo.completion = 100;
+            cachedFolderStatus.completion = 100;
         } else {
-            completionInfo.completion = (int) Math.floor(((double) folderStatus.inSyncBytes / folderStatus.globalBytes) * 100);
+            cachedFolderStatus.completion = (int) Math.floor(((double) folderStatus.inSyncBytes / folderStatus.globalBytes) * 100);
         }
         if (ENABLE_DEBUG_LOG) {
             Log.d(TAG, "setFolderStatus: folderId=\"" + folderId + "\"" +
                     ", state=\"" + folderStatus.state + "\"" +
-                    ", paused=" + Boolean.toString(completionInfo.paused) +
-                    ", completion=" + (int) completionInfo.completion + "%");
+                    ", paused=" + Boolean.toString(cachedFolderStatus.paused) +
+                    ", completion=" + (int) cachedFolderStatus.completion + "%");
         }
 
         // Add folder or update existing folder entry.
-        folderMap.put(folderId, new SimpleEntry(folderStatus, completionInfo));
+        folderMap.put(folderId, new SimpleEntry(folderStatus, cachedFolderStatus));
     }
 
     public void setFolderStatus(final String folderId,
                                     final FolderStatus folderStatus) {
-        // Persist completionInfo.paused from the previous entry.
-        final Map.Entry<FolderStatus, CompletionInfo> cacheEntry = getFolderStatus(folderId);
+        // Persist cachedFolderStatus.paused from the previous entry.
+        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
         setFolderStatus(folderId, cacheEntry.getValue().paused, folderStatus);
     }
 

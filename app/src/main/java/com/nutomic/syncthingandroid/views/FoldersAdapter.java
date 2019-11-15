@@ -16,7 +16,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.databinding.ItemFolderListBinding;
-import com.nutomic.syncthingandroid.model.CompletionInfo;
+import com.nutomic.syncthingandroid.model.CachedFolderStatus;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -94,9 +94,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         }
 
         // mRestApi is available.
-        final Map.Entry<FolderStatus, CompletionInfo> folderEntry = mRestApi.getFolderStatus(folder.id);
+        final Map.Entry<FolderStatus, CachedFolderStatus> folderEntry = mRestApi.getFolderStatus(folder.id);
         final FolderStatus folderStatus = folderEntry.getKey();
-        final CompletionInfo completionInfo = folderEntry.getValue();
+        final CachedFolderStatus cachedFolderStatus = folderEntry.getValue();
 
         binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
 
@@ -148,11 +148,11 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "syncing":
-                        binding.progressBar.setProgress((int) completionInfo.completion);
+                        binding.progressBar.setProgress((int) cachedFolderStatus.completion);
                         binding.state.setText(
                                 mContext.getString(
                                     R.string.state_syncing,
-                                    (int) completionInfo.completion
+                                    (int) cachedFolderStatus.completion
                                 )
                         );
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));

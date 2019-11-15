@@ -22,7 +22,6 @@ import com.google.gson.JsonObject;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.model.CompletionInfo;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
 import com.nutomic.syncthingandroid.model.Folder;
@@ -109,6 +108,24 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     mRestApi.reloadConfig();
                 }
                 break;
+            case "DeviceConnected":
+                mRestApi.updateRemoteDeviceConnected(
+                        (String) event.data.get("id"),          // deviceId
+                        true
+                );
+                break;
+            case "DeviceDisconnected":
+                mRestApi.updateRemoteDeviceConnected(
+                        (String) event.data.get("id"),          // deviceId
+                        false
+                );
+                break;
+            case "DevicePaused":
+                mRestApi.updateRemoteDevicePaused(
+                        (String) event.data.get("id"),          // deviceId
+                        true
+                );
+                break;
             case "DeviceRejected":
                 /**
                  * This is obsolete since v0.14.51, https://github.com/syncthing/syncthing/pull/5084
@@ -123,6 +140,12 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     (String) event.data.get("name")             // deviceName
                 );
                 */
+                break;
+            case "DeviceResumed":
+                mRestApi.updateRemoteDevicePaused(
+                        (String) event.data.get("id"),          // deviceId
+                        false
+                );
                 break;
             case "FolderCompletion":
                 onFolderCompletion(event.data);
@@ -196,8 +219,6 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                         (String) event.data.get("to")
                 );
                 break;
-            case "DeviceConnected":
-            case "DeviceDisconnected":
             case "DeviceDiscovered":
             case "DownloadProgress":
             case "FolderScanProgress":
@@ -255,12 +276,10 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     }
 
     private void onFolderCompletion(final Map<String, Object> eventData) {
-        CompletionInfo completionInfo = new CompletionInfo();
-        completionInfo.completion = (Double) eventData.get("completion");
         mRestApi.setRemoteCompletionInfo(
             (String) eventData.get("device"),          // deviceId
             (String) eventData.get("folder"),          // folderId
-            completionInfo
+            (Double) eventData.get("completion")
         );
     }
 

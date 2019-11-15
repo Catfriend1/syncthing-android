@@ -163,6 +163,7 @@ public class MainActivity extends SyncthingActivity
                 finish();
                 break;
         }
+        updateTotalSyncProgressBar();
     }
 
     /**
@@ -618,14 +619,23 @@ public class MainActivity extends SyncthingActivity
                 tvTotalSyncComplete == null) {
             return;
         }
-        topRelTotalSyncProgress.setVisibility(mSyncthingServiceState == SyncthingService.State.ACTIVE ? View.VISIBLE : View.GONE);
 
         RestApi restApi = getApi();
         if (restApi == null || !restApi.isConfigLoaded()) {
+            topRelTotalSyncProgress.setVisibility(View.GONE);
             return;
         }
 
         int totalSyncCompletePercent = restApi.getTotalSyncCompletion();
+        Boolean showTotalSyncProgress = (
+                (mSyncthingServiceState == SyncthingService.State.ACTIVE) &&
+                (totalSyncCompletePercent != -1)
+        );
+        if (!showTotalSyncProgress) {
+            topRelTotalSyncProgress.setVisibility(View.GONE);
+            return;
+        }
+        topRelTotalSyncProgress.setVisibility(View.VISIBLE);
         pbTotalSyncComplete.setProgress(totalSyncCompletePercent);
         tvTotalSyncComplete.setText(Integer.toString(totalSyncCompletePercent));
     }

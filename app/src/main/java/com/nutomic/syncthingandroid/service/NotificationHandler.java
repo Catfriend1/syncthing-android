@@ -43,6 +43,7 @@ public class NotificationHandler {
     private final NotificationChannel mPersistentChannelWaiting;
     private final NotificationChannel mInfoChannel;
 
+    private String mLastNotificationText = null;
     private Boolean lastStartForegroundService = false;
     private Boolean appShutdownInProgress = false;
 
@@ -97,6 +98,14 @@ public class NotificationHandler {
      * Shows, updates or hides the notification.
      */
     public void updatePersistentNotification(SyncthingService service) {
+        // Persist previous notification details.
+        updatePersistentNotification(service, true, 0, 0);
+    }
+
+    public void updatePersistentNotification(SyncthingService service,
+                                                    Boolean persistNotificationDetails,
+                                                    int onlineDeviceCount,
+                                                    int totalSyncCompletion) {
         boolean startServiceOnBoot = mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
         State currentServiceState = service.getCurrentState();
         boolean syncthingRunning = currentServiceState == SyncthingService.State.ACTIVE ||
@@ -134,21 +143,47 @@ public class NotificationHandler {
         }
 
         // Prepare notification builder.
-        int title = R.string.syncthing_terminated;
+        String text;
         switch (currentServiceState) {
             case ERROR:
             case INIT:
+                text = mContext.getString(R.string.syncthing_terminated);
                 break;
             case DISABLED:
-                title = R.string.syncthing_disabled;
+                text = mContext.getString(R.string.syncthing_disabled);
                 break;
             case STARTING:
-                title = R.string.syncthing_starting;
+                text = mContext.getString(R.string.syncthing_starting);
                 break;
             case ACTIVE:
-                title = R.string.syncthing_active;
+                if (mLastNotificationText == null || !persistNotificationDetails) {
+                    if (totalSyncCompletion == -1) {
+                        mLastNotificationText = mContext.getString(
+                                R.string.syncthing_active_details,
+                                mContext.getString(R.string.no_remote_devices_connected)
+                        );
+                    } else if (totalSyncCompletion == 100) {
+                        mLastNotificationText = mContext.getString(
+                                R.string.syncthing_active_details,
+                                mContext.getResources().getQuantityString(
+                                        R.plurals.device_online_up_to_date,
+                                        onlineDeviceCount,
+                                        onlineDeviceCount
+                                )
+                        );
+                    } else {
+                        mLastNotificationText = mContext.getResources().getQuantityString(
+                                R.plurals.syncthing_active_syncing_device_online,
+                                onlineDeviceCount,
+                                totalSyncCompletion,
+                                onlineDeviceCount
+                        );
+                    }
+                }
+                text = mLastNotificationText;
                 break;
             default:
+                text = mContext.getString(R.string.syncthing_terminated);
                 break;
         }
 
@@ -161,7 +196,7 @@ public class NotificationHandler {
         Intent intent = new Intent(mContext, MainActivity.class);
         NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
         NotificationCompat.Builder builder = getNotificationBuilder(channel)
-                .setContentTitle(mContext.getString(title))
+                .setContentTitle(text)
                 .setSmallIcon(R.drawable.ic_stat_notify)
                 .setOngoing(true)
                 .setOnlyAlertOnce(true)

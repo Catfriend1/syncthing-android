@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -33,10 +34,14 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
      */
     private static final long ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD = 50 * 1024 * 8;
 
-    private Connections mConnections;
+    private RestApi mRestApi;
 
     public DevicesAdapter(Context context) {
         super(context, R.layout.item_device_list);
+    }
+
+    public void setRestApi(RestApi restApi) {
+        mRestApi = restApi;
     }
 
     @Override
@@ -60,12 +65,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         name.setText(getItem(position).getDisplayName());
         Resources r = getContext().getResources();
 
-        Connections.Connection conn = null;
-        if (mConnections != null && mConnections.connections.containsKey(deviceId)) {
-            conn = mConnections.connections.get(deviceId);
-        }
-
-        if (conn == null) {
+        if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
             // Syncthing is not running.
             progressBar.setVisibility(GONE);
             rateInOutView.setVisibility(GONE);
@@ -75,6 +75,8 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             return convertView;
         }
 
+        final Connection conn = mRestApi.getRemoteDeviceStatus(deviceId);
+        int completion = mRestApi.getRemoteDeviceCompletion(deviceId);
         if (conn.paused) {
             progressBar.setVisibility(GONE);
             rateInOutView.setVisibility(GONE);
@@ -90,7 +92,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             rateInOutView.setVisibility(VISIBLE);
             status.setVisibility(VISIBLE);
 
-            Boolean syncingState = !(conn.completion == 100);
+            Boolean syncingState = !(completion == 100);
             progressBar.setVisibility(syncingState ? VISIBLE : GONE);
             if (!syncingState) {
                 /**
@@ -108,8 +110,8 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                     status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
                 }
             } else {
-                progressBar.setProgress(conn.completion);
-                status.setText(r.getString(R.string.device_syncing, conn.completion));
+                progressBar.setProgress(completion);
+                status.setText(r.getString(R.string.device_syncing, completion));
                 status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
             }
             return convertView;
@@ -122,25 +124,5 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         status.setText(r.getString(R.string.device_disconnected));
         status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
         return convertView;
-    }
-
-    /**
-     * Requests new connection info for all devices visible in listView.
-     */
-    public void updateDeviceStatus(RestApi restApi) {
-        if (restApi == null || !restApi.isConfigLoaded()) {
-            // Syncthing is not running. Clear last state.
-            mConnections = null;
-            return;
-        }
-        for (int i = 0; i < getCount(); i++) {
-            restApi.getConnections(this::onReceiveConnections);
-        }
-    }
-
-    private void onReceiveConnections(Connections connections) {
-        mConnections = connections;
-        // This will invoke "getView" for all elements.
-        notifyDataSetChanged();
     }
 }
