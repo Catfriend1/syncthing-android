@@ -1,10 +1,14 @@
 這是 syncthing-android 的分支，他包含他包含以下主要的增強功能：
+* Folder, device and overall sync progress can easily be read off the UI.
+* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
 * "Sync every hour" to save even more battery
-* Changes to folder and device config can be made regardless if Syncthing is running or not
 每臺裝置與資料夾都能單獨的設定同步狀態
 即時更改的使用者界面、點擊即開啟檔案
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* UI explains why syncthing is running or not.
 解決了耗電的問題
-* Android 8, 9 and Q support.
+* Discover other Syncthing devices on the same network and easily add them.
+* Android 8, 9 and 10 support.
 
 Syncthing-Fork for Android 提供了 android 系統本身的使用界面來替換 Syncthing 內建的網路界面。Syncthing 用開放、可靠、去中心化的方式取代專有的同步與雲端服務。你的資料只屬於你自己，所以可選擇儲存的位置、與第三方軟體共享的方式，與透過網路傳輸的模式。
 

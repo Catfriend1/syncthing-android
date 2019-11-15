@@ -1,10 +1,14 @@
 Este é um fork do pacote Syncthing-Android para o Syncthing que traz maiores aprimoramentos, como:
+* Folder, device and overall sync progress can easily be read off the UI.
+* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
 * "Sync every hour" to save even more battery
-* Changes to folder and device config can be made regardless if Syncthing is running or not
 * Sincronização individual pode ser aplicada por dispositivo e por pasta.
 * Mudanças na interface, agora você pode tocar para abrir arquivos.
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* UI explains why syncthing is running or not.
 * Problema de "comer a bateria" está resolvido.
-* Android 8, 9 and Q support.
+* Discover other Syncthing devices on the same network and easily add them.
+* Android 8, 9 and 10 support.
 
 Syncthing-Fork para Android é um pacote para o Syncthing que traz uma interface para o Android ao invés da interface web do Syncthing original. Syncthing substitui os serviços proprietários de sincronização e nuvem por algo aberto, confiável e descentralizado. Seus dados são só seus e você deve escolher onde eles estão salvos, se estão sendo compartilhados com terceiros e como estão sendo transmitidos pela Internet.
 

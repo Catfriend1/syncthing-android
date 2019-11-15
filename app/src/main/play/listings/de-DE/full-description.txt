@@ -1,10 +1,14 @@
 Dies ist ein Fork des Syncthing-Android Wrappers für Syncthing, der die folgenden, größeren Verbesserungen mitbringt:
+* Der Fortschritt der Ordner-, Geräte- und Gesamtsynchronisierung kann problemlos auf der Benutzeroberfläche abgelesen werden.
+* "Syncthing Kamera" - eine optionale Funktion (mit optionaler Berechtigung zur Verwendung der Kamera), mit der Sie zusammen mit Ihrem Freund, Partner, ... Bilder auf zwei Telefonen in einem gemeinsamen und privaten Syncthing-Ordner aufnehmen können. Keine Cloud beteiligt. - FEATURE AKTUELL IN BETA PHASE -
 * "Synchronisiere stündlich", um noch mehr Akku zu sparen
-* Änderungen an der Ordner- und Gerätekonfiguration können unabhängig davon vorgenommen werden, ob die Synchronisation läuft oder nicht
 * Sync-Bedingungen können pro Gerät und pro Ordner individuell angewandt werden.
 * GUI zeigt letzte Änderungen; Klicke zum Öffnen von Dateien.
+* Änderungen an der Ordner- und Gerätekonfiguration können unabhängig davon vorgenommen werden, ob die Synchronisation läuft oder nicht
+* Die Benutzeroberfläche erklärt, warum Syncthing läuft oder schläft.
 * Das "Batteriefresser"-Problem wurde gelöst.
-* Android 8, 9 und Q Unterstützung
+* Finden Sie andere Syncthing-Geräte im selben Netzwerk und fügen Sie sie ganz einfach hinzu.
+* Unterstützt Android 8, 9 und 10
 
 Syncthing-Fork für Android ist ein Wrapper für Syncthing, der eine Android Bedienoberfläche anstelle der Syncthing-eigenen Weboberfläche anbietet. Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas Offenem, Vertrauenswürdigen und Dezentralem. Deine Daten sind deine Daten und Du allein entscheidest, wo sie gespeichert werden, ob sie mit Dritten geteilt und wie sie über das Netz übertragen werden.
 

@@ -1,10 +1,14 @@
 This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
+* Folder, device and overall sync progress can easily be read off the UI.
+* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
 * "Sync every hour" to save even more battery
-* Changes to folder and device config can be made regardless if Syncthing is running or not
 * 每台设备和每个同步文件夹均可设置单独的同步规则
 * 最近已更改显示在UI上，单击以打开文件。
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* UI explains why syncthing is running or not.
 * 电池消耗问题已解决
-* Android 8, 9 and Q support.
+* Discover other Syncthing devices on the same network and easily add them.
+* Android 8, 9 and 10 support.
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
