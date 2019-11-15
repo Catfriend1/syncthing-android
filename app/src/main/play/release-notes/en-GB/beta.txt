@@ -3,9 +3,9 @@
 * See detailed changelog on GitHub.
 
 Fixed
+* Selected menu item not visible on Android TV (#557)
 * Folder tab not showing failed items (#547)
 
 Enhanced
-* Show progress bars on folder and device tab (#548)
-* Reduce expensive API calls by caching to save battery (#546)
-* Improved device/folder approval notifications to fire faster and on app start (#471)
+* Show progress bars and overall progress, better notification (#548) (#552) (#555)
+* Save battery by using events API instead of polling (#546)
