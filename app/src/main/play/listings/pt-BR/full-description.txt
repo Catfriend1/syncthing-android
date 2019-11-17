@@ -1,10 +1,10 @@
 Este é um fork do pacote Syncthing-Android para o Syncthing que traz maiores aprimoramentos, como:
 * Folder, device and overall sync progress can easily be read off the UI.
 * "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
+* "Sincronize a cada hora" para economizar ainda mais bateria
 * Sincronização individual pode ser aplicada por dispositivo e por pasta.
 * Mudanças na interface, agora você pode tocar para abrir arquivos.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
+* Alterações na pasta e na configuração do dispositivo podem ser feitas independentemente de o Syncthing estar em execução ou não.
 * UI explains why syncthing is running or not.
 * Problema de "comer a bateria" está resolvido.
 * Discover other Syncthing devices on the same network and easily add them.
@@ -28,11 +28,11 @@ Site do projeto: https://github.com/Catfriend1/syncthing-android
 
 Código-fonte: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Como o Syncthing grava no cartão SD externo: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ e artigos úteis: https://github.com/Catfriend1/syncthing-android/wiki
 
 Erros: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
+Por favor, ajude com o
 Tradução: https://www.transifex.com/projects/p/syncthing-android-1
