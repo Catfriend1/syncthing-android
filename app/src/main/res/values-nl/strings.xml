@@ -528,7 +528,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Inactief</string>
     <string name="state_scanning">Bezig met scannen</string>
     <string name="state_syncing">Bezig met synchroniseren (%1$d%%)</string>
     <string name="state_error">Fout</string>

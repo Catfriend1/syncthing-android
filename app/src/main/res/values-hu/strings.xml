@@ -496,7 +496,6 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Tétlen</string>
     <string name="state_scanning">Vizsgálat</string>
     <string name="state_syncing">Szinkronizálás (%1$d%%)</string>
     <string name="state_error">Hiba</string>

@@ -304,7 +304,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Nečinné</string>
     <string name="state_scanning">Skenovanie</string>
     <string name="state_syncing">Synchronizuje sa (%1$d%%)</string>
     <string name="state_error">Chyba</string>

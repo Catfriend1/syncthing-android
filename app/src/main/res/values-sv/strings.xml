@@ -358,6 +358,7 @@
     <string name="run_on_wifi_title">Kör på Wi-Fi</string>
     <string name="run_on_wifi_summary">Kör när enheten är ansluten till ett Wi-Fi- eller ethernet-nätverk.</string>
 
+    <string name="run_on_metered_wifi_title">Kör på uppmätt Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_title">Kör på angivna Wi-Fi-nätverk</string>
     <string name="specify_wifi_ssid_whitelist">Välj Wi-Fi-nätverk</string>
     <string name="run_on_whitelisted_wifi_networks">Valda Wi-Fi-nätverk: %1$s</string>
@@ -629,6 +630,8 @@
     <string name="reason_not_on_wifi">Syncthing får köras på Wi-Fi men Wi-Fi är inte ansluten eller telefonen är i flygläge.</string>
     <string name="reason_on_whitelisted_wifi">Syncthing får köras på det aktuella Wi-Fi-nätverket.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing körs inte eftersom det aktuella Wi-Fi-nätverkets namn inte är vitlistat.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing får köras på icke-uppmätta Wi-Fi-anslutningar. Den aktiva Wi-Fi-anslutningen är icke-uppmätt.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing körs inte eftersom du inte tillät det att köras på uppmätta Wi-Fi-anslutningar.</string>
     <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
     <!-- Sync Conditions Dialog -->
 
@@ -692,7 +695,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Inaktiv</string>
     <string name="state_scanning">Skannar</string>
     <string name="state_syncing_general">Synkroniserar</string>
     <string name="state_syncing">Synkroniserar (%1$d%%)</string>

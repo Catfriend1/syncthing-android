@@ -450,7 +450,7 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Bezczynny</string>
+    <string name="state_up_to_date">aktualny</string>
     <string name="state_scanning">Skanowanie</string>
     <string name="state_syncing">Synchronizowanie (%1$d%%)</string>
     <string name="state_error">Błąd</string>

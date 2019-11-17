@@ -959,7 +959,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Possible folder states -->
     <string name="state_failed_items">Failed Items (%1$d)</string>
-    <string name="state_idle">Idle</string>
+    <string name="state_up_to_date">Up to Date</string>
     <string name="state_local_additions">Local Additions</string>
     <string name="state_scanning">Scanning</string>
     <string name="state_scan_waiting">Waiting to Scan</string>

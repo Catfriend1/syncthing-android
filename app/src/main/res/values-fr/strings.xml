@@ -509,7 +509,7 @@
         <item>To/s</item>
     </string-array>
 
-    <string name="state_idle">En veille</string>
+    <string name="state_up_to_date">à jour</string>
     <string name="state_scanning">Analyse en cours</string>
     <string name="state_syncing">Synchronisation (%1$d%%)</string>
     <string name="state_error">Erreur</string>

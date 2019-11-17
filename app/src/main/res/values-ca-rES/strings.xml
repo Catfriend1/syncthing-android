@@ -759,7 +759,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Inactiu</string>
     <string name="state_scanning">Escanejant</string>
     <string name="state_syncing_general">Sincronitzant</string>
     <string name="state_syncing">Sincronitzant (%1$d%%)</string>

@@ -326,7 +326,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Rãnh rỗi</string>
     <string name="state_scanning">Đang quét</string>
     <string name="state_syncing">Đang đ.bộ (%1$d%%)</string>
     <string name="state_error">Lỗi</string>

@@ -441,7 +441,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">アイドル</string>
     <string name="state_scanning">スキャン中</string>
     <string name="state_syncing">同期中 (%1$d%%)</string>
     <string name="state_error">エラー</string>

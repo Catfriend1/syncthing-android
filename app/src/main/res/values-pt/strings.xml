@@ -356,7 +356,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Em espera</string>
     <string name="state_scanning">Verificando</string>
     <string name="state_syncing">Sincronizando (%1$d%%)</string>
     <string name="state_error">Erro</string>

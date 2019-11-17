@@ -809,7 +809,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
         <item>TiO/s</item>
     </string-array>
 
-    <string name="state_idle">Inactiv</string>
     <string name="state_scanning">Scanare</string>
     <string name="state_scan_waiting">În așteptarea scanării</string>
     <string name="state_syncing_general">Sincronizare</string>

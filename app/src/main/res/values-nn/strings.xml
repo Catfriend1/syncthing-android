@@ -335,7 +335,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Kviler</string>
     <string name="state_scanning">Skannar</string>
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>
     <string name="state_error">Feil</string>

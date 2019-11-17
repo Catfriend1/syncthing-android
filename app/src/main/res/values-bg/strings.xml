@@ -352,7 +352,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Бездействие</string>
     <string name="state_scanning">Сканиране</string>
     <string name="state_syncing">Синхронизиране (%1$d%%)</string>
     <string name="state_error">Грешка</string>

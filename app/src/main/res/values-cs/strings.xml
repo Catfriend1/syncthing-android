@@ -450,7 +450,7 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Aktuální</string>
+    <string name="state_up_to_date">Aktuální</string>
     <string name="state_scanning">Skenování</string>
     <string name="state_syncing">Synchronizuje se (%1$d%%)</string>
     <string name="state_error">Chyba</string>

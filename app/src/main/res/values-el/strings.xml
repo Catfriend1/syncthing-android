@@ -440,7 +440,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Αδρανής</string>
     <string name="state_scanning">Σάρωση</string>
     <string name="state_syncing">Συγχρονισμός (%1$d%%)</string>
     <string name="state_error">Σφάλμα</string>

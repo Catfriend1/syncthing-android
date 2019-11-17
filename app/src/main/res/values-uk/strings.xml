@@ -304,7 +304,6 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID пристрою скопійовано в буфер обміну</string>
 
-    <string name="state_idle">Очікування</string>
     <string name="state_scanning">Сканування</string>
     <string name="state_syncing">Синхронізуються (%1$d%%)</string>
     <string name="state_error">Помилка</string>

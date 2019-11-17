@@ -408,7 +408,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">toimeton</string>
     <string name="state_scanning">Skannataan</string>
     <string name="state_syncing">Synkronoidaan (%1$d%%)</string>
     <string name="state_error">Virhe</string>

@@ -18,6 +18,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">介绍</string>
+    <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要分享哪些文件夹至该设备上。
+请通过 GitHub 报告任何你遇到的问题。</string>
+
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
@@ -48,6 +51,10 @@
     <string name="page_x_of_y">第%1$s页，共%2$s页</string>
 
     <string name="main_menu">主菜单</string>
+
+    <string name="refresh">刷新</string>
+
+
 
     <!-- MainActivity -->
 
@@ -105,6 +112,8 @@
     </plurals>
 
     <string name="override_changes">覆盖修改</string>
+
+    <string name="revert_local_changes">还原本地更改</string>
 
     <string name="open_file_manager">打开文件管理器</string>
     <string name="open_file_with">打开为......</string>
@@ -690,7 +699,7 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">空闲</string>
+    <string name="state_up_to_date">最新</string>
     <string name="state_scanning">正在扫描</string>
     <string name="state_syncing_general">正在同步</string>
     <string name="state_syncing">正在同步 (%1$d%%)</string>

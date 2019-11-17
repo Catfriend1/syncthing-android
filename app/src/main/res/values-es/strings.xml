@@ -413,7 +413,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Inactivo</string>
     <string name="state_scanning">Escaneando</string>
     <string name="state_syncing">Sincronizando (%1$d%%)</string>
     <string name="state_error">Error</string>

@@ -135,7 +135,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                             binding.state.setText(mContext.getString(R.string.state_local_additions));
                             binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         } else {
-                            binding.state.setText(mContext.getString(R.string.state_idle));
+                            binding.state.setText(mContext.getString(R.string.state_up_to_date));
                             binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         }
                         break;

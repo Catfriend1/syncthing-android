@@ -350,7 +350,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Boşta</string>
     <string name="state_scanning">Taranıyor</string>
     <string name="state_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
     <string name="state_error">Hata</string>

@@ -428,7 +428,6 @@
         <item>TiB/s</item>
     </string-array>
 
-    <string name="state_idle">Ledig</string>
     <string name="state_scanning">Scanner</string>
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>
     <string name="state_error">Fejl</string>
