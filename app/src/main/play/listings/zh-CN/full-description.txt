@@ -1,38 +1,38 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
+这是用于Syncthing的Syncthing-Android包装器的一个分支，它带来了一些重要的增强功能，例如：
+*文件夹，设备和整体同步进度可以从UI轻松读取。
+*“ Syncthing 相机”-一项可选功能（具有使用相机的可选权限），您可以在其中将您的朋友，伴侣，...在两部手机上拍照到一个共享的和私有的Syncthing文件夹中。 不涉及云。 -当前处于测试阶段的功能-
+*“每小时同步”以节省更多电量
 * 每台设备和每个同步文件夹均可设置单独的同步规则
 * 最近已更改显示在UI上，单击以打开文件。
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
+*无论是否正在运行同步，都可以更改文件夹和设备配置
+* UI解释了为什么同步正在运行或不运行。
 * 电池消耗问题已解决
-* Discover other Syncthing devices on the same network and easily add them.
-* Android 8, 9 and 10 support.
+*发现同一网络上的其他Syncthing设备并轻松添加它们。
+* Android 8、9和10支持。
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Android的Syncthing-Fork是Syncthing的包装，它提供了Android UI而不是Syncthing的内置Web UI。 Syncthing以开放，可信赖和分散的方式取代了专有的同步和云服务。 您的数据仅是数据，如果与某些第三方共享，则应选择存储位置以及如何通过Internet传输。
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+分叉的目标：
+*与社区一起开发并尝试增强功能。
+*更频繁地释放包装器，以识别和修复由同步子模块中的更改引起的错误
+*使增强功能在用户界面中可配置，用户应该能够打开和关闭它们
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+在撰写本文时，上游和分支之间的比较：
+*两者都包含从官方来源构建的同步二进制文件，网址为 GitHub:syncthing/syncthing
+*同步功能和可靠性取决于同步二进制子模块的版本。
+* Fork与上游相处，有时他们会接受我的改进。
+*策略和发布频率不同
+*派生仅处理包含Android UI的包装器。
 
 网站：https://github.com/Catfriend1/syncthing-android
 
 源代码：https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Syncthing如何写入外部SD卡：https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki，常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/wiki
 
 问题回报：https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
+请帮助
 翻译：https://www.transifex.com/projects/p/syncthing-android-1
