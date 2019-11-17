@@ -27,8 +27,13 @@ public class LocalCompletion {
     private Boolean ENABLE_DEBUG_LOG = false;
     private Boolean ENABLE_VERBOSE_LOG = false;
 
-    HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>> folderMap =
+    HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>> mFolderMap =
         new HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>>();
+
+    /**
+     * Object that must be locked upon accessing mFolderMapLock.
+     */
+    private final Object mFolderMapLock = new Object();
 
     public LocalCompletion(Boolean enableVerboseLog) {
         ENABLE_VERBOSE_LOG = enableVerboseLog;
@@ -39,43 +44,41 @@ public class LocalCompletion {
      * after a config update.
      */
     public void updateFromConfig(final List<Folder> newFolders) {
-        // Handle folders that were removed from the config.
-        List<String> removedFolders = new ArrayList<>();
-        Boolean folderFound;
-        for (String folderId : folderMap.keySet()) {
-            folderFound = false;
-            for (Folder folder : newFolders) {
-                if (folder.id.equals(folderId)) {
-                    folderFound = true;
-                    break;
+        synchronized(mFolderMapLock) {
+            // Handle folders that were removed from the config.
+            List<String> removedFolders = new ArrayList<>();
+            Boolean folderFound;
+            for (String folderId : mFolderMap.keySet()) {
+                folderFound = false;
+                for (Folder folder : newFolders) {
+                    if (folder.id.equals(folderId)) {
+                        folderFound = true;
+                        break;
+                    }
+                }
+                if (!folderFound) {
+                    removedFolders.add(folderId);
                 }
             }
-            if (!folderFound) {
-                removedFolders.add(folderId);
+            for (String folderId : removedFolders) {
+                LogV("updateFromConfig: Remove folder '" + folderId + "' from cache model");
+                if (mFolderMap.containsKey(folderId)) {
+                    mFolderMap.remove(folderId);
+                }
             }
-        }
-        for (String folderId : removedFolders) {
-            if (ENABLE_VERBOSE_LOG) {
-                Log.v(TAG, "updateFromConfig: Remove folder '" + folderId + "' from cache model");
-            }
-            if (folderMap.containsKey(folderId)) {
-                folderMap.remove(folderId);
-            }
-        }
 
-        // Handle folders that were added to the config.
-        for (Folder folder : newFolders) {
-            if (!folderMap.containsKey(folder.id)) {
-                if (ENABLE_VERBOSE_LOG) {
-                    Log.v(TAG, "updateFromConfig: Add folder '" + folder.id + "' to cache model.");
+            // Handle folders that were added to the config.
+            for (Folder folder : newFolders) {
+                if (!mFolderMap.containsKey(folder.id)) {
+                    LogV("updateFromConfig: Add folder '" + folder.id + "' to cache model.");
+                    mFolderMap.put(
+                            folder.id,
+                            new SimpleEntry(
+                                    new FolderStatus(),
+                                    new CachedFolderStatus()
+                            )
+                    );
                 }
-                folderMap.put(
-                        folder.id,
-                        new SimpleEntry(
-                                new FolderStatus(),
-                                new CachedFolderStatus()
-                        )
-                );
             }
         }
     }
@@ -84,51 +87,55 @@ public class LocalCompletion {
      * Calculates local folder sync completion percentage across all folders.
      */
     public int getTotalFolderCompletion() {
-        int folderCount = 0;
-        double sumCompletion = 0;
-        for (Map.Entry<String, Map.Entry<FolderStatus, CachedFolderStatus>> folder : folderMap.entrySet()) {
-            CachedFolderStatus cachedFolderStatus = folder.getValue().getValue();
+        synchronized(mFolderMapLock) {
+            int folderCount = 0;
+            double sumCompletion = 0;
+            for (Map.Entry<String, Map.Entry<FolderStatus, CachedFolderStatus>> folder : mFolderMap.entrySet()) {
+                CachedFolderStatus cachedFolderStatus = folder.getValue().getValue();
 
-            // Filter invalid percentage values we may have got from the REST API.
-            if (cachedFolderStatus.completion < 0) {
-                cachedFolderStatus.completion = 0;
-            } else if (cachedFolderStatus.completion > 100) {
-                cachedFolderStatus.completion = 100;
-            }
+                // Filter invalid percentage values we may have got from the REST API.
+                if (cachedFolderStatus.completion < 0) {
+                    cachedFolderStatus.completion = 0;
+                } else if (cachedFolderStatus.completion > 100) {
+                    cachedFolderStatus.completion = 100;
+                }
 
-            if (!cachedFolderStatus.paused &&
-                    cachedFolderStatus.completion != 100) {
-                sumCompletion += cachedFolderStatus.completion;
-                folderCount++;
+                if (!cachedFolderStatus.paused &&
+                        cachedFolderStatus.completion != 100) {
+                    sumCompletion += cachedFolderStatus.completion;
+                    folderCount++;
+                }
             }
+            if (folderCount == 0) {
+                return 100;
+            }
+            int totalFolderCompletion = (int) Math.floor(sumCompletion / folderCount);
+            if (totalFolderCompletion < 0) {
+                totalFolderCompletion = 0;
+            } else if (totalFolderCompletion > 100) {
+                totalFolderCompletion = 100;
+            }
+            return totalFolderCompletion;
         }
-        if (folderCount == 0) {
-            return 100;
-        }
-        int totalFolderCompletion = (int) Math.floor(sumCompletion / folderCount);
-        if (totalFolderCompletion < 0) {
-            totalFolderCompletion = 0;
-        } else if (totalFolderCompletion > 100) {
-            totalFolderCompletion = 100;
-        }
-        return totalFolderCompletion;
     }
 
     /**
      * Returns local folder status including completion info.
      */
     public final Map.Entry<FolderStatus, CachedFolderStatus> getFolderStatus (final String folderId) {
-        if (!folderMap.containsKey(folderId)) {
+        synchronized(mFolderMapLock) {
+            if (!mFolderMap.containsKey(folderId)) {
+                return new SimpleEntry(
+                        new FolderStatus(),
+                        new CachedFolderStatus()
+                );
+            }
+            Map.Entry<FolderStatus, CachedFolderStatus> folderEntry = mFolderMap.get(folderId);
             return new SimpleEntry(
-                    new FolderStatus(),
-                    new CachedFolderStatus()
+                    deepCopy(folderEntry.getKey(), new TypeToken<FolderStatus>(){}.getType()),
+                    deepCopy(folderEntry.getValue(), new TypeToken<CachedFolderStatus>(){}.getType())
             );
         }
-        Map.Entry<FolderStatus, CachedFolderStatus> folderEntry = folderMap.get(folderId);
-        return new SimpleEntry(
-                deepCopy(folderEntry.getKey(), new TypeToken<FolderStatus>(){}.getType()),
-                deepCopy(folderEntry.getValue(), new TypeToken<CachedFolderStatus>(){}.getType())
-        );
     }
 
     /**
@@ -138,30 +145,34 @@ public class LocalCompletion {
     public void setFolderStatus(final String folderId,
                                     final Boolean folderPaused,
                                     final FolderStatus folderStatus) {
-        CachedFolderStatus cachedFolderStatus = new CachedFolderStatus();
-        cachedFolderStatus.paused = folderPaused;
-        if (folderStatus.globalBytes == 0 ||
-                (folderStatus.inSyncBytes > folderStatus.globalBytes)) {
-            cachedFolderStatus.completion = 100;
-        } else {
-            cachedFolderStatus.completion = (int) Math.floor(((double) folderStatus.inSyncBytes / folderStatus.globalBytes) * 100);
-        }
-        if (ENABLE_DEBUG_LOG) {
-            Log.d(TAG, "setFolderStatus: folderId=\"" + folderId + "\"" +
-                    ", state=\"" + folderStatus.state + "\"" +
-                    ", paused=" + Boolean.toString(cachedFolderStatus.paused) +
-                    ", completion=" + (int) cachedFolderStatus.completion + "%");
-        }
+        synchronized(mFolderMapLock) {
+            CachedFolderStatus cachedFolderStatus = new CachedFolderStatus();
+            cachedFolderStatus.paused = folderPaused;
+            if (folderStatus.globalBytes == 0 ||
+                    (folderStatus.inSyncBytes > folderStatus.globalBytes)) {
+                cachedFolderStatus.completion = 100;
+            } else {
+                cachedFolderStatus.completion = (int) Math.floor(((double) folderStatus.inSyncBytes / folderStatus.globalBytes) * 100);
+            }
+            if (ENABLE_DEBUG_LOG) {
+                Log.d(TAG, "setFolderStatus: folderId=\"" + folderId + "\"" +
+                        ", state=\"" + folderStatus.state + "\"" +
+                        ", paused=" + Boolean.toString(cachedFolderStatus.paused) +
+                        ", completion=" + (int) cachedFolderStatus.completion + "%");
+            }
 
-        // Add folder or update existing folder entry.
-        folderMap.put(folderId, new SimpleEntry(folderStatus, cachedFolderStatus));
+            // Add folder or update existing folder entry.
+            mFolderMap.put(folderId, new SimpleEntry(folderStatus, cachedFolderStatus));
+        }
     }
 
     public void setFolderStatus(final String folderId,
                                     final FolderStatus folderStatus) {
-        // Persist cachedFolderStatus.paused from the previous entry.
-        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
-        setFolderStatus(folderId, cacheEntry.getValue().paused, folderStatus);
+        synchronized(mFolderMapLock) {
+            // Persist cachedFolderStatus.paused from the previous entry.
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
+            setFolderStatus(folderId, cacheEntry.getValue().paused, folderStatus);
+        }
     }
 
     /**
@@ -172,5 +183,11 @@ public class LocalCompletion {
     private <T> T deepCopy(T object, Type type) {
         Gson gson = new Gson();
         return gson.fromJson(gson.toJson(object, type), type);
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
     }
 }
