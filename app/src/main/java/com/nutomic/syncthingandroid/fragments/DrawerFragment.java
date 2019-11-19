@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 import com.google.common.collect.ImmutableMap;
+import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.RecentChangesActivity;
@@ -129,7 +130,16 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         // Update action button availability. Show buttons if syncthing is running.
         mDrawerActionShowQrCode.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerRecentChanges.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerActionWebGui.setVisibility((syncthingRunning && !mRunningOnTV) ? View.VISIBLE : View.GONE);
+        /**
+         * Show Web UI menu item on Android TV for debug builds only.
+         * Reason: SyncthingNative's Web UI is not approved by Google because
+         *          it is lacking full DPAD navigation support. See issue #567.
+         */
+        mDrawerActionWebGui.setVisibility(
+                (syncthingRunning && (!mRunningOnTV || BuildConfig.DEBUG)) ?
+                        View.VISIBLE :
+                        View.GONE
+        );
         mDrawerActionRestart.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
         mDrawerActionExit.setVisibility(View.VISIBLE);
