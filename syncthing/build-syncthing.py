@@ -13,7 +13,7 @@ import platform
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
 # Leave empty to auto-detect version by 'git describe'.
-FORCE_DISPLAY_SYNCTHING_VERSION = 'v1.3.2-preview.3'
+FORCE_DISPLAY_SYNCTHING_VERSION = ''
 
 GO_VERSION = '1.13.4'
 GO_EXPECTED_SHASUM_LINUX = '692d17071736f74be04a72a06dab9cac1cd759377bd85316e52b2227604c004c'
