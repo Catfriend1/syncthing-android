@@ -15,13 +15,51 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Velkommen til Syncthing til Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Introduktion</string>
+    <string name="welcome_text">Syncthing er en åben kildekode filsynkroniserings applikation. For at dele data ,ed andre enheder, skal du tilføje deres unikke enhedsid til enhedslisten. Derefter kan du vælge hvilke mapper der skal deles med hvilke enheder.\n\
+Rapporter et hvilket som helst problem du møder via GitHub. </string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Lagertilladelser</string>
+    <string name="storage_permission_desc">Syncthing skal have adgang til dit lager for at kunne synkronisere filer.</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batterioptimering</string>
+    <string name="ignore_doze_permission_desc">Android vil måske stoppe synkroniseringen efter noget tid. For at forhindre dette, slå batterioptimering fra. Nogle enheder har yderligere task-killing applikationer preinstallierede. Du burde også tilføje Syncthing til deres whitelist.       </string>
+    <string name="toast_ignore_doze_permission_required">Denne app virker kun pålideligt hvis den er fritaget fra \"doze\" strømbesparelses tilstand.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra.</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Placeringstilladelse</string>
+    <string name="location_permission_desc">Syncthing kan blive konfigurede til at virke på valgte Wi-Fi netværk. Android kræver at appen skal have placeringstilladelse for at kunne læse aktive Wi-Fi netværksnavn. Hvis du vil bruge dette funktion så klik på knappen ovenover. Du må gerne springe dette trin over. Se vores privatlivspolitik for flere detaljer.     </string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Nøglegenerering</string>
+    <string name="key_generation_success">Sikre nøgler til private dataudveksling er blevet genererede.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Tilbage</string>
     <string name="cont">Fortsæt</string>
     <string name="finish">Færdiggør</string>
+    <string name="generic_example">Eksempel</string>
     <string name="generic_error">Fejl</string>
+    <string name="generic_help">Hjælp</string>
+    <string name="grant_permission">Giv tilladelse</string>
+    <string name="permission_granted">Tilladelse givet</string>
+    <string name="reason">Begrundelse:</string>
+
+    <string name="accept">Accepter</string>
+
+    <string name="ignore">Ignorer</string>
+
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">En kendt fejl der ikke er blevet løst endnu er blevet mødt. Se %1$s/%2$s for flere informationer. Giv os en præcis forklaring af hvad der skete før.</string>
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Bekræft for at lukke appen</string>
+    <string name="dialog_exit_while_running_as_service_message">Til dine overvejelser: Du konfigurerede appen til at starte automatisk ved start. Derfor kontrollere den kørebetingelser og synkronisering hele tiden i baggrunden når betingelserne er mødt. Du bør kun lukke manuelt hvis du løber ikke alvorlige problemer. Ellers slå \'Start automatically on boot\' fra i indstillingerne. Vil du gerne lukke nu indtil enheden er genstartet?     </string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Tilføj mappe</string>
 
@@ -42,6 +80,10 @@
     <string name="open_website">Åben Hjemmeside</string>
 
     <string name="toast_write_storage_permission_required">Write storage rettigheder er nødvendige for denne app.</string>
+
+    <string name="device_rejected">Enheden \"%1$s\" vil gerne få forbindelse</string>
+
+    <string name="folder_rejected">Enhed \"%1$s\" vil gerne dele mappen \"%2$s\"</string>
 
     <!-- StateDialogActivity -->
 
@@ -64,10 +106,23 @@
         <item quantity="other">%1$d/%2$d Filer</item>
     </plurals>
 
+    <string name="override_changes">Overskriv ændringer</string>
+
+    <string name="open_file_manager">Åben filmanager</string>
+    <string name="open_file_with">Åben fil med</string>
+    <string name="open_file_no_compatible_app">Ingen app fundet til at åbne filen.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Ingen kompatible filmanager app fundet </string>
+    <string name="suggest_file_manager_app_dialog_text">Vi anbefaler dig at installere filmanageren \'Simple File Manager\' fra F-Droid. Vil du gerne åbne dens butikside? </string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Enheder</string>
+
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Ingen enheder konfigurerede. Klik for at tilføje en ny enhed. </string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Seneste version installeret</string>
@@ -78,6 +133,9 @@
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Forbindelse afbrudt</string>
 
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">På pause</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Ukendt</string>
 
@@ -86,6 +144,14 @@
 
     <!-- Title for current upload rate -->
     <string name="upload_title">Upload</string>
+
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Status</string>
+
+    <string name="syncthing_starting">Syncthing starter.</string>
+    <string name="syncthing_running">Syncthing kører.</string>
+    <string name="syncthing_not_running">Syncthing kører ikke.</string>
+    <string name="syncthing_has_crashed">Syncthing crashede</string>
 
     <!-- DrawerFragment -->
 
@@ -105,6 +171,9 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Bekendtgør Server</string>
 
+    <!-- Title for uptime status -->
+    <string name="uptime">Oppetid</string>
+
     <string name="restart">Genstart</string>
 
     <string name="dialog_confirm_restart">Ønsker du at genstarte Syncthing?</string>
@@ -120,6 +189,13 @@
 
     <!-- Setting title -->
     <string name="directory">Katalog</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Kig efter ændringer</string>
+    <string name="folder_fileWatcherDescription">Beder operationssystemet om at underrette omkring ændringer til filer. Hvis slået fra, vil den gå tilbage til pr. time scanning</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Sæt mappe på pause</string>
 
     <!-- Setting title -->
     <string name="devices">Enheder</string>
@@ -150,6 +226,15 @@
 
     <string name="dialog_discard_changes">Slet dine ændringer?</string>
 
+    <!-- Summary shown if we only have readonly access to the folder path -->
+    <string name="folder_path_readonly">Din Android version tillader kun Syncthing at læse den valgte mappe.  </string>
+
+    <!-- Summary shown if we only have readwrite access to the folder path -->
+    <string name="folder_path_readwrite">Din Android version tillader Syncthing at læse og skrive til den valgte mappe.</string>
+
+    <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
+    <string name="toast_invalid_folder_selected">Beklager. Den valgte mappe kan ikke blive brugt. Prøv at vælge en mappe placerede i det interne og eksterne lager.</string>
+
     <string name="ignore_patterns">Ignorer-mønstre</string>
     <!-- DeviceActivity -->
 
@@ -179,6 +264,9 @@
     <!-- Setting title -->
     <string name="introducer">Introducer</string>
 
+    <!-- Setting title -->
+    <string name="pause_device">Sæt enhed på pause</string>
+
     <!-- ActionBar item -->
     <string name="delete_device">Slet Enhed</string>
 
@@ -202,6 +290,33 @@
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Fik ikke root rettigheder</string>
 
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Tips &amp; Tricks</string>
+
+    <string name="tip_write_to_sdcard_title">Skriv til ekstern sd kort omvej </string>
+    <string name="tip_write_to_sdcard_text">Hvis du ser at UI\'en siger at  \'Android only grants syncthing read-only access\' til visse mapper, så lav en ny mappe ved at bruge denne sti til  at få adgang til at skrive:\n%1$s/YOUR_FOLDER_NAME\nVær forsigtig: Denne mappe vil blive slettet af android hvis du afinstallere denne app. Før du afinstallere appen bør du flytte dine data til en sikkert sted udenfor .../Android mappen.</string>
+
+    <string name="tip_sync_on_local_network_title">Synkronisering bruger kun det lokale WiFi netværk</string>
+    <string name="tip_sync_on_local_network_text">Hvis du gerne vil synkronisere med enheder der er placerede på lokale WiFi netværk eller som kan nås via WiFi hotspot kan du mindske batteriforbruget og undgå synkronisering over mobildata ved at slå følgende muligheder til under \'Settings/Syncthing Options\':\n- Enable NAT traversal\n- Global Discovery\n- Enable Relaying\nOnly leave \'Local discovery\'.    </string>
+
+    <string name="tip_custom_sync_conditions_title">Brug per mappe/enhed brugerdefinerede synkroniseringsbetingelser </string>
+    <string name="tip_custom_sync_conditions_text">Denne funktion vil stadigvæk blive forbedret i fremtidige udgivelser. For nu vil vi ikke smadre eksisterende konfigureringer og app opførsel. Det er derfor brugerdefinerede betingelser til et bestemt netværkstyper kun kan blive sat hvis du slå synkronisering til på netværk i de globale kørebetingelser først.    </string>
+
+    <string name="tip_huawei_device_disconnected_title">Huawei: \'enhed afbrudt\' omvej</string>
+    <string name="tip_huawei_device_disconnected_text">Hvis din stationær konstant reportere din Huawei enhed som afbrudt, så åben Syncthing UI på din stationær. Gå til \'remote devices\', udvid telefonens indgang, klik \'Edit\', skift til \'Advanced\'. Indtast din IP-adresse i \'Addresses\' ligesom her:\ntcp4://%1$s, dynamic\nBekræftet for at virke til: Huawei P10</string>
+    <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>
+
+    <string name="tip_xiaomi_autostart_title">Xiaomi: app starter ikke ved systemstart </string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI tillader ikke apps til at starte på deres egne default. Fra hjemmeskærmen, gå til \'Settings\' > \'Permissions\' > \'Autostart\' og slå \'Syncthing-Fork\' til.</string>
+
+    <string name="recent_changes_title">Nylige ændringer</string>
+    <string name="modified_by_device">Enhed: %1$s</string>
+    <string name="modification_time">Tid: %1$s</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -222,13 +337,56 @@
 
     <string name="category_syncthing_options">Syncthing Muligheder</string>
 
+    <string name="category_backup">Importer og Eksporter</string>
+    <string name="category_debug">Fejlfinding</string>
     <string name="category_experimental">Eksperimentalt</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Kør betingelser</string>
+    <string name="run_conditions_summary">Brug følgende muligheder til at beslutte hvornår Syncthing skal køre.</string>
+
+    <string name="run_on_mobile_data_title">Kør på mobildata</string>
+    <string name="run_on_mobile_data_summary">Kør når enhed er forbundet via mobildata netværk. Advarsel: Dette kan forbruge meget af din mobildata hvis du synkronisere store mængder af data. </string>
+
+    <string name="run_on_wifi_title">Kør på Wi-Fi</string>
+    <string name="run_on_wifi_summary">Kør når enheder er forbundet til Wi-Fi eller ethernet netværk.</string>
+
+    <string name="run_on_metered_wifi_title">Kør på målt Wi-Fi</string>
+    <string name="run_on_metered_wifi_summary">Kør når enheden er forbundet til et målt Wi-Fi netværk f.eks. et hotspot eller bindende netværk. Vær opmærksom: Dette kan indsamle store portioner af din dataplan hvis du synkronisere en masse data.   </string>
+
+    <string name="run_on_whitelisted_wifi_title">Kør på specificerede Wi-Fi netværk </string>
+    <string name="specify_wifi_ssid_whitelist">Vælg WiFi netværk</string>
+    <string name="run_on_whitelisted_wifi_networks">Valgt Wi-Fi netværk: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">Intet Wi-Fi netværk specificerede. Klik for at specificere netværk.</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vær venlig at slukke WiFi for at vælge netværk.</string>
 
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du nødt til at tillade PLACERING for at kunne bruge denne funktion.</string>
+
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Tilladelse påkrævet</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Fra starten af Android 8.1, vil lokationstilladelse være krævet for at kunne læse Wi-Fi-navnet. Du kan kun bruge denne egenskab hvis du tillader denne tilladelse.</string>
+
+    <string name="power_source_title">Kør når enheden er tilsluttet til</string>
+
+    <string-array name="power_source_entries">
+        <item>AC og batteri strøm</item>
+        <item>AC strøm.</item>
+        <item>Batteri strøm</item>
+    </string-array>
+
     <string name="respect_battery_saving_title">Respekter Android battery saving indstillinger</string>
+    <string name="respect_battery_saving_summary">Afbryd Syncthing hvis batteribesparelse er aktivt.</string>
+
+    <string name="respect_master_sync_title">Respekter Android \'Auto-sync data\' indstilling</string>
+    <string name="respect_master_sync_summary">Afbryd Syncthing når indstillingen \'Auto-sync data\' er slået fra.</string>
+
+    <string name="run_in_flight_mode_title">Kør uden netværksforbindelse</string>
+    <string name="run_in_flight_mode_summary">Aktivering af denne mulighed vil gøre at Syncthing køre selvom du er offline. Aktiver dette hvis din enhed har problemer med at finde manuelle Wi-Fi forbindelser i flystilstand.</string>
+
+    <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Autostart</string>
+    <string name="behaviour_autostart_summary">Start app automatisk ved operativsystem start. </string>
+
     <string name="use_root_title">Kør Syncthing som Superuser</string>
 
     <string name="use_root_summary">Dette er en ustabil feature som kan forudsage problemer med Syncthing og din enhed. Hvis du støder på problemer, kan det være du er nødt til at geninstallere Syncthing.</string>
@@ -238,6 +396,21 @@
     <string name="preference_language_summary">Ændr app sproget</string>
 
     <string name="pref_language_default">Default Sprog</string>
+
+    <string-array name="folder_types">
+        <item>Send &amp; Modtag </item>
+        <item>Send Kun</item>
+        <item>Modtag Kun</item>
+    </string-array>
+
+    <string-array name="pull_order_types">
+        <item>Tilfældig</item>
+        <item>Alfabetisk</item>
+        <item>Mindste Først</item>
+        <item>Størst Først</item>
+        <item>Ældste Først</item>
+        <item>Nyeste Først</item>
+    </string-array>
 
     <string-array name="versioning_types">
         <item>Ingen</item>
@@ -267,11 +440,39 @@
 
     <string name="usage_reporting">Anonym Forburgsrapportering</string>
 
+    <!-- Titles for the preference to undo ignored devices and folders -->
+    <string name="undo_ignored_devices_folders_title">Fortryd at ignorer enheder og mapper</string>
+    <string name="undo_ignored_devices_folders_question">Dette vil fortryde forrige beslutninger til at ignorer enheder og foldere. Fortsæt?</string>
+    <string name="undo_ignored_devices_folders_done">Vellykket ufærdige valg.</string>
+
     <string name="export_config">Eksporter Konfigurering</string>
+
+    <!-- Toast after entering invalid integer value -->
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Inputværdi ikke gyldig. Indtast en værdi mellem %1$d og %2$d. </string>
+
+    <!-- Experimental options -->
+    <string name="use_proxy">Forbind gennem en proxy</string>
+    <string name="do_not_use_proxy">Ingen proxy er konfigurerede. </string>
 
     <string name="keep_wakelock_while_binary_running">Lad CPU\'en køre imens Syncthing kører</string>
 
+    <string name="keep_wakelock_while_binary_running_summary">Kun for Android 5 eller lavere. Brug denne indstilling hvis du oplever uventet afbrydelser mens batteriet bliver brugt. Dette vil resultere i et større batteriforbrug. </string>
+
     <string name="use_tor_title">Brug Tor</string>
+
+    <string name="use_tor_summary">Gennemtving alt trafik gennem Tor til forhøjet privatliv. Kræver Orbot. Afbryder proxy muligheder.</string>
+
+    <string name="socks_proxy_address_title">SOCKS5 proxy</string>
+    <!-- Toast after entering invalid socks proxy address -->
+    <string name="toast_invalid_socks_proxy_address">Input overtræder proxy syntaks \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="http_proxy_address_title">HTTP(S) proxy</string>
+    <!-- Toast after entering invalid http proxy address -->
+    <string name="toast_invalid_http_proxy_address">Input overtræder proxy syntaks \'http://[IP/HOSTNAME]:[PORT]\'</string>
+
+    <string name="restart_on_wakeup_title">Genstart ved tænding</string>
+
+    <string name="restart_on_wakeup_summary">Default: Slået til. At slå denne funktion fra kunne resultere i at mapper bliver skannet og enheder bliver genforbundet for at spare på batteriet. </string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt.\n\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
@@ -281,6 +482,8 @@
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfigurationen blev eksporteret til %1$s</string>
+    <string name="config_export_failed">Eksportering af konfigurering fejlede, tjek logcat output.</string>
+
     <string name="import_config">Importer Konfiguration</string>
 
     <!-- Toast shown after config was imported -->
@@ -299,7 +502,21 @@
     <string name="st_reset_database_title">Nulstil database</string>
 
     <!-- Syncthing was reset -->
+    <string name="st_reset_database_question">Denne aktion bør kun blive brugt baserede på en en anbefaling fra vores supportteam.
+        \nEr du sikker på du vil rydde Syncthing\'s databaser?</string>
+
+    <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthing\'s database successfuldt nulstillet</string>
+
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_deltas_title">Genstart Delta Indekser</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_question">Denne aktion bør kun blive brugt baserede på en en anbefaling fra vores supportteam.
+        \nEr du sikker på du vil rydde Syncthing delta indekser?</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_done">Vellykket genstart af Syncthing\'s delta indekser.   </string>
 
     <string name="category_about">Omkring</string>
 
@@ -314,6 +531,9 @@
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Version</string>
+
+    <!-- Title of the preference showing this app's version name -->
+    <string name="app_version_title">Syncthing-Fork Wrapper Version</string>
 
     <!-- FolderPickerAcitivity -->
 
@@ -331,6 +551,12 @@
     <string name="select_folder">Vælg Mappe</string>
 
     <string name="create_folder_failed">Det lykkedes ikke at oprette en ny mappe</string>
+
+    <!-- LogActivity -->
+
+
+    <string name="syncthing_log_title">Syncthing Log</string>
+    <string name="android_log_title">Android Logbog</string>
 
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Vis Android Log</string>
@@ -384,6 +610,33 @@
         <item quantity="other">Filliste</item>
     </plurals>
 
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Undermappe</string>
+
+    <string name="reason_not_charging">Telefonen oplader ikke.</string>
+    <string name="reason_not_on_battery_power">Telefon kører ikke på batteri.</string>
+    <string name="reason_not_while_power_saving">Syncthing kører ikke da telefonen er sat til batteribesparelse.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing kører ikke da Android lige nu har \'Auto-sync data\' slået fra.</string>
+
+    <!-- ... Mobile data -->
+    <string name="reason_mobile_data_disallowed">Syncthing er ikke konfigurerede til ar køre på mobildataforbindelser.  </string>
+    <string name="reason_on_mobile_data">Syncthing har fået tilladelse til at køre på mobildata.</string>
+    <string name="reason_not_on_mobile_data">Syncthing har fået tilladelse til at køre på mobildataforbindelser, men mobildata er ikke forbundet.</string>
+
+    <string name="reason_wifi_disallowed">Syncthing har ikke tilladelse til at køre på WiFi eller ethernet.</string>
+    <string name="reason_on_wifi">Syncthing har fået tilladelse til at køre på WiFi og WiFi er lige nu forbundet.</string>
+    <string name="reason_not_on_wifi">Syncthing har fået tilladelse til at køre på Wi-Fi, men Wi-Fi er ikke forbundet eller telefon er sat til flytilstand.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing har tilladelse til at køre på målte og ikke-målte WiFi forbindelser</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing har tilladelse til at køre på det nuværende WiFi netværk</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing kører ikke da det nuværende Wi-Fi netværksnavn ikke er godkendt. </string>
+    <string name="reason_on_nonmetered_wifi">Syncthing har ikke tilladelse til at køre på ikke-målt WiFi forbindelser. Den aktive WiFi forbindelse er ikke-målt.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing kører ikke da du ikke har tilladt den at køre på målt Wi-Fi forbindelse.</string>
+    <string name="reason_location_unavailable">Du slog \'Run on selected WiFi networks\' til i indstillingerne. Android placeringsservice er lige nu slået fra. Ifølge Android restriktioner kan Syncthing ikke bestemme det nuværende WiFi netværksnavn for at vælge hvis den skulle køre. Løsning: Slå placering til, giv tilladelse til placering og genetabler WiFi. </string>
+    <string name="reason_on_flight_mode">Syncthing kører, som du tillod den, når flytilstand var slået til.</string>
+    <!-- Sync Conditions Dialog -->
+
+    <string name="custom_wifi_ssid_whitelist_empty">Intet WiFi SSID\'s som er whitelisted. Specificer nogle i indstillinger. </string>
+
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -391,10 +644,28 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing kører</string>
+    <string name="syncthing_disabled">Syncthing sover</string>
+
+    <string name="syncthing_terminated">Syncthing blev afbrudt</string>
+
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="executable_not_found">Core executable \"%s\" mangler. Tjek build og logcat output.</string>
+    <string name="config_create_failed">Fejlede at lave en konfigurering. Tjek logcat output. </string>
+    <string name="config_read_failed">Fejlede at læse konfigurationen. Prøv at sikkerhedskopiere fra din synkroniseringsmapper, derefter ryd denne app\'s data i Android instillinger og start den igen.   </string>
+
+    <!-- Toast shown if a config file crucial to operation is missing -->
+    <string name="config_file_missing">En konfigureringsfil, afgørende for at kunne virke, mangler</string>
+
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>
 
     <string name="notification_crash_title">Syncthing crashede %1$s</string>
+
+    <string name="notification_crash_text">Klik for at se logbog(%1$s)</string>
+
+    <string name="notifications_persistent_channel">Syncthing aktiv</string>
+    <string name="notification_persistent_waiting_channel">Kontrollere kørebetingelser</string>
+    <string name="notifications_other_channel">Andre notifikationer </string>
 
     <!-- RestApi -->
 
@@ -432,13 +703,45 @@
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>
     <string name="state_error">Fejl</string>
     <string name="state_unknown">Ukendt</string>
+    <string name="state_paused">Sat på pause</string>
     <string name="status_outofsync">Usynkroniseret</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 
     <string name="appconfig_receiver_background_enabled">At stoppe Syncthing er ikke understøttet når kørsel i baggrunden er aktiveret.</string>
 
+    <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
+    <string name="folder_type">Mappetype</string>
+
+    <!-- Displays the current folder type in the folder activity -->
+    <string name="folder_type_sendreceive">Send &amp; Modtag</string>
     <string name="folder_type_sendonly">Send kun</string>
+    <string name="folder_type_receiveonly">Modtag Kun</string>
+
+    <!-- Folder type dialog descriptions for folder types -->
+    <string name="folder_type_sendreceive_description">Mappen vil både sende og modtage ændringer til og fra fjernliggende enheder.</string>
+    <string name="folder_type_sendonly_description">Filer er beskyttet fra ændringer lavet fra andre enheder, men ændringer lavet på denne enhed vil blive sendt til resten af gruppen.</string>
+    <string name="folder_type_receiveonly_description">Filer er synkroniserede fra gruppen, men enhver ændring lavet lokalt vil ikke være sendt til andre enheder.</string>
+
+    <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
+    <string name="pull_order">Filhentningsrækkefølge </string>
+
+    <!-- Displays the current pull order type in the Folder activity -->
+    <string name="pull_order_type_random">Tilfældig</string>
+    <string name="pull_order_type_alphabetic">Alfabetisk</string>
+    <string name="pull_order_type_smallestFirst">Mindste Først</string>
+    <string name="pull_order_type_largestFirst">Største Først</string>
+    <string name="pull_order_type_oldestFirst">Ældste først</string>
+    <string name="pull_order_type_newestFirst">Nyeste Først</string>
+
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">Hent filer i tilfældige rækkefølger.</string>
+    <string name="pull_order_type_alphabetic_description">Hent filer sorterede efter filnavn alfabetisk.</string>
+    <string name="pull_order_type_smallestFirst_description">Hent filer sorterede efter størrelse. Henholdsvis mindst først.</string>
+    <string name="pull_order_type_largestFirst_description">Hentede filer sorterede efter filstørrelse. Henholdsvis størst først.</string>
+    <string name="pull_order_type_oldestFirst_description">Hent filer sorterede efter ændringstid. Henholdsvis ældste først.</string>
+    <string name="pull_order_type_newestFirst_description">Hent filer sorterede efter ændringstid. Henholdsvis nyeste først.</string>
+
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maksimal Alder</string>
     <string name="clean_out_after">Gør rent efter</string>
@@ -473,4 +776,12 @@
 
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Kunne ikke tilgå enheds-ID.</string>
-    </resources>
+    <string name="browse">Udforsk</string>
+    <string name="no_sub_folder_is_selected">Ingen undermapper er valgt</string>
+    <string name="share_device_id_chooser">Del enhedsid med</string>
+    <string name="run_on_whitelisted_wifi_summary">Slå whitelist til for at begrænse synkronisering kun sker på specificerede WiFi netværk.</string>
+    <string name="custom_sync_conditions_title">Brugerdefineret synkroniseringsbetingelser </string>
+    <string name="custom_sync_conditions_description">Tillader dig at specificere undtagelser til globale kørebetingelser. </string>
+    <string name="custom_sync_conditions_dialog">Specificer synkroniseringsbetingelser </string>
+
+</resources>

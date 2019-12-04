@@ -55,7 +55,7 @@
 
     <string name="photo_shoot_intro_no_camera">抱歉，這台設備並無相機。</string>
 
-    <string name="photo_shoot_intro_missing_permissions">我們需要除存與地理位置權限才能往下一步</string>
+    <string name="photo_shoot_intro_missing_permissions">我們需要儲存與地理位置權限才能往下一步</string>
 
     <string name="grant_storage_permission">允許儲存權限</string>
 
@@ -92,7 +92,7 @@
 
     <string name="device_rejected">有 %1$s 裝置想要連線</string>
 
-    <string name="folder_rejected">%1$s 想要分享檔案給 %2$s</string>
+    <string name="folder_rejected">设备%1$s 要共享文件夹%2$s</string>
 
     <!-- StateDialogActivity -->
 

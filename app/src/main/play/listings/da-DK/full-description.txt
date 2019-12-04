@@ -15,13 +15,13 @@ Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android U
 Goals of the fork:
 * Develop and try out enhancements together with the community.
 * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+* Lav forbedringer konfigurerbare i UI'en, brugere burde kunne slå dem til og fra   
 
 Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
+* Begge indeholder syncthing binary built fra den officielle kilde på GitHub:syncthing/syncthing
 * Syncing functionality and reliability depends on the syncthing binary submodule version.
 * Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
+* Strategi og udgivelsesfrekvens er forskelligt
 * Only the wrapper containing the Android UI is addressed by the fork.
 
 Website: https://github.com/Catfriend1/syncthing-android
