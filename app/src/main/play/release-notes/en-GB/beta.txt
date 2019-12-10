@@ -1,11 +1,9 @@
-* Syncthing v1.3.2
+* Syncthing v1.3.3-rc.1
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 
 Fixed
-* Selected menu item not visible on Android TV (#557)
-* Folder tab not showing failed items (#547)
+-
 
 Enhanced
-* Show progress bars and overall progress, better notification (#548) (#552) (#555)
-* Save battery by using events API instead of polling (#546)
+-
