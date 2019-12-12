@@ -1,7 +1,7 @@
 @echo off
 REM 
 REM Purpose:
-REM 	Rename and move built APK's to match this style:
+REM 	Copy built APK's to match this style:
 REM 		[APPLICATION_ID]_v[VERSION_NAME]_[COMMIT_SHORT_HASH].apk
 REM 	Example:
 REM 		com.github.catfriend1.syncthingandroid_v1.0.0.1_7d59e75.apk
