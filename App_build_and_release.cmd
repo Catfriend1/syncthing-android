@@ -85,6 +85,9 @@ call gradlew --quiet deleteUnsupportedPlayTranslations
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew deleteUnsupportedPlayTranslations" exited with code #%RESULT%. & goto :eos
 REM 
+REM Copy build artifacts with correct file name to upload folder.
+call "%SCRIPT_PATH%postbuild_copy_apk.cmd"
+REM 
 REM Check if we should skip the release upload and finish here.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :eos
 REM 
