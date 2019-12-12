@@ -6,4 +6,4 @@ Fixed
 -
 
 Enhanced
--
+- Trigger sync window after share-to-Syncthing (#575)
