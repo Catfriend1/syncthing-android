@@ -8,13 +8,19 @@ REM 		com.github.catfriend1.syncthingandroid_v1.0.0.1_7d59e75.apk
 REM 
 title %~nx0
 setlocal enabledelayedexpansion
-cls
+REM cls
+REM 
+REM Runtime variables.
 SET SCRIPT_PATH=%~dps0
+SET PACKAGE_SOURCE_CODE=1
 SET TEMP_OUTPUT_FOLDER=X:\
+REM 
 REM SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 REM SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
-REM 
 REM SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
+REM 
+echo [INFO] *** postbuild_copy_apk BEGIN ***
+REM 
 where git 2> NUL: || call setenv.cmd
 REM 
 REM Get "applicationId"
@@ -48,14 +54,18 @@ SET VERSION_WRAPPER=%VERSION_WRAPPER:"=%
 REM echo [INFO] versionWrapper="%VERSION_WRAPPER%"
 REM
 SET VERSION_NAME=%VERSION_MAJOR%.%VERSION_MINOR%.%VERSION_PATCH%.%VERSION_WRAPPER%
-echo [INFO] VERSION_NAME=[%VERSION_NAME%]
 REM 
 REM Get short hash of last commit.
 REM IF NOT EXIST %GIT_BIN% echo [ERROR] git.exe not found. & pause & goto :eof
 pushd %SCRIPT_PATH%
+SET COMMIT_LONG_HASH=
+FOR /F "tokens=1" %%A IN ('git rev-parse --verify HEAD 2^>NUL:') DO SET COMMIT_LONG_HASH=%%A
+REM 
+SET COMMIT_SHORT_HASH=
 FOR /F "tokens=1" %%A IN ('git rev-parse --short --verify HEAD 2^>NUL:') DO SET COMMIT_SHORT_HASH=%%A
 popd
-echo [INFO] commit="%COMMIT_SHORT_HASH%"
+echo [INFO] VERSION_NAME=[%VERSION_NAME%], commit=[%COMMIT_SHORT_HASH%]=[%COMMIT_LONG_HASH%].
+echo [INFO] Copying APK to same directory ...
 REM 
 REM Copy APK to be ready for upload to the GitHub release page.
 SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
@@ -65,15 +75,20 @@ REM
 SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 REM call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %APK_GPLAY_NEW_FILENAME%
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME%
-echo [INFO] APK file copy step complete.
 REM 
 REM Copy both APK to temporary storage location if the storage is available.
-IF EXIST %TEMP_OUTPUT_FOLDER% copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
-IF EXIST %TEMP_OUTPUT_FOLDER% copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+IF EXIST %TEMP_OUTPUT_FOLDER% (
+	echo [INFO] Copying APK to [%TEMP_OUTPUT_FOLDER%] ...
+	copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+	copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+)
 REM 
-echo [INFO] End of Script.
-timeout 3
+IF "%PACKAGE_SOURCE_CODE%" == "1" call :packageSourceCode
+REM 
+echo [INFO] *** postbuild_copy_apk END ***
+REM timeout 3
 goto :eof
+
 
 :copyIfExist
 REM 
@@ -84,6 +99,40 @@ IF EXIST %1 copy /y %1 %2 & goto :eof
 echo [INFO] File not found: %1
 REM 
 goto :eof
+
+
+:packageSourceCode
+REM 
+REM Syntax:
+REM 	call :packageSourceCode
+REM 
+REM Global variables.
+REM 	[IN] COMMIT_LONG_HASH
+REM 	[IN] COMMIT_SHORT_HASH
+REM 	[IN] TEMP_OUTPUT_FOLDER
+REM 	[IN] VERSION_NAME
+REM 
+REM Variables.
+SET TMP_DSC_ZIPFILE_FULLFN="%TEMP_OUTPUT_FOLDER%\%DATE:~-4%-%DATE:~-7,-5%-%DATE:~-10,-8%_com.github.catfriend1.syncthingandroid_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.zip"
+SET TMP_DSC_SEVENZIP_EXE="%ProgramFiles%\7-Zip\7z.exe"
+REM 
+REM Check prerequisites.
+where curl 1> NUL: 2>&1 || (echo [ERROR] curl not found on PATH. & goto :eof)
+IF NOT EXIST %TEMP_OUTPUT_FOLDER% echo [ERROR] TEMP_OUTPUT_FOLDER=[%TEMP_OUTPUT_FOLDER%] not found. & goto :eof
+IF NOT EXIST %TMP_DSC_SEVENZIP_EXE% echo [ERROR] TMP_DSC_SEVENZIP_EXE=[%TMP_DSC_SEVENZIP_EXE%] not found. & goto :eof
+REM 
+REM Download source code for current build commit as ZIP.
+echo [INFO] Downloading source code ZIP from GitHub ...
+curl -s -k -L -o %TMP_DSC_ZIPFILE_FULLFN% "https://github.com/Catfriend1/syncthing-android/archive/%COMMIT_LONG_HASH%.zip"
+IF NOT EXIST %TMP_DSC_ZIPFILE_FULLFN% echo [ERROR] Download source code FAILED. & pause & goto :eof
+REM 
+REM Package built APKs into ZIP.
+echo [INFO] Adding built APKs to source code ZIP ...
+%TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GITHUB_NEW_FILENAME%
+%TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GPLAY_NEW_FILENAME%
+REM 
+goto :eof
+
 
 :renIfExist
 REM 
