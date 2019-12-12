@@ -4,12 +4,12 @@ import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
-import androidx.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,9 +23,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.service.AppPrefs;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
@@ -44,7 +49,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
+
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED;
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW;
 
 /**
  * Shares incoming files to syncthing folders.
@@ -56,6 +66,9 @@ public class ShareActivity extends SyncthingActivity
         implements SyncthingService.OnServiceStateChangeListener {
 
     private static final String TAG = "ShareActivity";
+
+    private Boolean ENABLE_VERBOSE_LOG = false;
+
     private static final String PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER = "previously_selected_syncthing_folder";
 
     public static final String PREF_FOLDER_SAVED_SUBDIRECTORY = "saved_sub_directory_";
@@ -67,6 +80,8 @@ public class ShareActivity extends SyncthingActivity
     private SyncthingService mSyncthingService = null;
 
     private TextView mSubDirectoryTextView;
+
+    @Inject SharedPreferences mPreferences;
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -90,7 +105,7 @@ public class ShareActivity extends SyncthingActivity
 
         // Get the index of the previously selected folder.
         int folderIndex = 0;
-        String savedFolderId = PreferenceManager.getDefaultSharedPreferences(this)
+        String savedFolderId = mPreferences
                 .getString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, "");
         for (Folder folder : folders) {
             if (folder.id.equals(savedFolderId)) {
@@ -119,6 +134,8 @@ public class ShareActivity extends SyncthingActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((SyncthingApp) getApplication()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mConfig = new ConfigRouter(ShareActivity.this);
         setContentView(R.layout.activity_share);
 
@@ -218,7 +235,7 @@ public class ShareActivity extends SyncthingActivity
         super.onPause();
         if (mFoldersSpinner.getSelectedItem() != null) {
             Folder selectedFolder = (Folder) mFoldersSpinner.getSelectedItem();
-            PreferenceManager.getDefaultSharedPreferences(this).edit()
+            mPreferences.edit()
                     .putString(PREF_PREVIOUSLY_SELECTED_SYNCTHING_FOLDER, selectedFolder.id)
                     .apply();
         }
@@ -235,7 +252,7 @@ public class ShareActivity extends SyncthingActivity
             subDirectory = subDirectory.replace(folderDirectory, "");
             mSubDirectoryTextView.setText(subDirectory);
 
-            PreferenceManager.getDefaultSharedPreferences(this)
+            mPreferences
                     .edit().putString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, subDirectory)
                     .apply();
         }
@@ -337,7 +354,7 @@ public class ShareActivity extends SyncthingActivity
         String savedSubDirectory = "";
 
         if (selectedFolder != null) {
-            savedSubDirectory = PreferenceManager.getDefaultSharedPreferences(this)
+            savedSubDirectory = mPreferences
                     .getString(PREF_FOLDER_SAVED_SUBDIRECTORY + selectedFolder.id, "");
         }
 
@@ -414,17 +431,43 @@ public class ShareActivity extends SyncthingActivity
                 return;
             }
             Util.dismissDialogSafe(mProgress, shareActivity);
+
+            if (isError) {
+                Toast.makeText(shareActivity, shareActivity.getString(R.string.copy_exception),
+                        Toast.LENGTH_SHORT).show();
+                shareActivity.finish();
+                return;
+            }
+
             Toast.makeText(shareActivity, mIgnored > 0 ?
                             shareActivity.getResources().getQuantityString(R.plurals.copy_success_partially, mCopied,
                                     mCopied, mFolder.label, mIgnored) :
                             shareActivity.getResources().getQuantityString(R.plurals.copy_success, mCopied, mCopied,
                                     mFolder.label),
                     Toast.LENGTH_LONG).show();
-            if (isError) {
-                Toast.makeText(shareActivity, shareActivity.getString(R.string.copy_exception),
-                        Toast.LENGTH_SHORT).show();
-            }
-            shareActivity.finish();
+
+            shareActivity.afterCopyFilesTask();
+        }
+    }
+
+    private void afterCopyFilesTask() {
+        // Check if feature "Sync according to time schedule" is enabled.
+        boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
+        if (prefRunOnTimeSchedule) {
+            // Notify {@link RunConditionMonitor} to start SyncthingNative immediately for a certain amount of time.
+            LogV("prefRunOnTimeSchedule=true, notifying RunConditionMonitor via intent");
+            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+            Intent intent = new Intent(ACTION_SYNC_TRIGGER_FIRED);
+            intent.putExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
+            localBroadcastManager.sendBroadcast(intent);
+        }
+
+        this.finish();
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
         }
     }
 }

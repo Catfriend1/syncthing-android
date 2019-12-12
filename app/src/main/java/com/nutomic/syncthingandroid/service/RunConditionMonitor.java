@@ -48,6 +48,9 @@ public class RunConditionMonitor {
     public static final String ACTION_UPDATE_SHOULDRUN_DECISION =
         "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION";
 
+    public static final String EXTRA_BEGIN_ACTIVE_TIME_WINDOW =
+        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.BEGIN_ACTIVE_TIME_WINDOW";
+
     private static final String POWER_SOURCE_CHARGER_BATTERY = "ac_and_battery_power";
     private static final String POWER_SOURCE_CHARGER = "ac_power";
     private static final String POWER_SOURCE_BATTERY = "battery_power";
@@ -236,18 +239,35 @@ public class RunConditionMonitor {
     private class SyncTriggerReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            LogV("SyncTriggerReceiver: onReceive");
+            boolean extraBeginActiveTimeWindow = intent.getBooleanExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, false);
+            LogV("SyncTriggerReceiver: onReceive, extraBeginActiveTimeWindow=" + Boolean.toString(extraBeginActiveTimeWindow));
+
             boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
             if (!prefRunOnTimeSchedule) {
+                /**
+                 * The feature is currently disabled.
+                 * Reschedule the job to see if the user turned on this feature in the meantime.
+                 */
                 mTimeConditionMatch = false;
+                JobUtils.cancelAllScheduledJobs(context);
+                JobUtils.scheduleSyncTriggerServiceJob(
+                        context,
+                        Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
+                );
+                return;
+            }
+
+            if (extraBeginActiveTimeWindow) {
+                // We should immediately start SyncthingNative for TRIGGERED_SYNC_DURATION_SECS.
+                mTimeConditionMatch = true;
             } else {
                 /**
                  * Toggle the "digital input" for this condition as the condition change is
-                 * triggered by a time schedule and not the OS notifying us.
+                 * triggered by a time schedule.
                  */
                 mTimeConditionMatch = !mTimeConditionMatch;
-                updateShouldRunDecision();
             }
+            updateShouldRunDecision();
 
             /**
              * Reschedule the job.
@@ -258,6 +278,7 @@ public class RunConditionMonitor {
              * let the receiver fire and change to "SyncthingNative should run" after
              * WAIT_FOR_NEXT_SYNC_DELAY_SECS seconds elapsed.
              */
+            JobUtils.cancelAllScheduledJobs(context);
             JobUtils.scheduleSyncTriggerServiceJob(
                     context,
                     mTimeConditionMatch ? Constants.TRIGGERED_SYNC_DURATION_SECS : Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
