@@ -1,4 +1,5 @@
 * Syncthing v1.3.3-rc.1
+* Updated build dependencies.
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 
