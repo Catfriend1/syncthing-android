@@ -570,6 +570,7 @@ public class FolderActivity extends SyncthingActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK && requestCode == CHOOSE_FOLDER_REQUEST) {
             // This result case only occurs on API level >= Build.VERSION_CODES.LOLLIPOP (21)
             mFolderUri = data.getData();

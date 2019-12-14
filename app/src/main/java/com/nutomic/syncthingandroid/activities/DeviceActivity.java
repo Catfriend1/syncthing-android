@@ -468,6 +468,7 @@ public class DeviceActivity extends SyncthingActivity {
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null) {
             mDevice.deviceID = scanResult.getContents();

@@ -203,6 +203,7 @@ public class PhotoShootActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                                   Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CAPTURE_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
                 Log.d(TAG, "User took a picture.");
