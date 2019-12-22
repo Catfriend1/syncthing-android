@@ -1,8 +1,9 @@
 from __future__ import print_function
 import os
 import os.path
-import sys
+import shutil
 import subprocess
+import sys
 import platform
 #
 # Script Compatibility:
@@ -41,12 +42,6 @@ BUILD_TARGETS = [
         'goarch': '386',
         'jni_dir': 'x86',
         'clang': 'i686-linux-android16-clang',
-    },
-    {
-        'arch': 'x86_64',
-        'goarch': 'amd64',
-        'jni_dir': 'x86_64',
-        'clang': 'x86_64-linux-android21-clang',
     }
 ]
 
@@ -430,5 +425,12 @@ for target in BUILD_TARGETS:
     os.rename(os.path.join(syncthing_dir, 'syncthing'), target_artifact)
 
     print('*** Finished build for', target['arch'])
+
+print('Copy x86 artifact to x86_64 folder, workaround for issue #583')
+target_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', 'x86_64')
+if not os.path.isdir(target_dir):
+    os.makedirs(target_dir)
+shutil.copy(os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', 'x86', 'libsyncthing.so'),
+        os.path.join(target_dir, 'libsyncthing.so'))
 
 print('All builds finished')
