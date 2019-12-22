@@ -5,6 +5,7 @@
 
 Fixed
 -
+- SyncthingNative not running on x86_64 arch (#583)
 
 Enhanced
 -
