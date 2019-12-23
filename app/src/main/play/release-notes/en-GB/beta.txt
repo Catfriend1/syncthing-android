@@ -11,3 +11,4 @@ Fixed
 Enhanced
 -
 - Trigger sync window after share-to-Syncthing (#575)
+- Show device ID and qr code when native is not running (#591)
