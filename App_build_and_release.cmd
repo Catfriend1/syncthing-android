@@ -22,8 +22,8 @@ SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin"
 REM
 echo [INFO] Checking if SyncthingNative was built before starting this script ...
 SET LIBCOUNT=
-for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "syncthing.so"') DO SET LIBCOUNT=%%A
-IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "syncthing.so" are missing. Please run "gradlew buildNative" first. & goto :eos
+for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthingnative.so"') DO SET LIBCOUNT=%%A
+IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthingnative.so" are missing. Please run "gradlew buildNative" first. & goto :eos
 REM
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absLint

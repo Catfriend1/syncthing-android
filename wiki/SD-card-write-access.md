@@ -17,7 +17,7 @@ To sum up:
 
 To ease your technical understanding of the issue and prevent the opening of tickets caused by misunderstandings:
 * Syncthing-Fork consists of two components:
-1. "syncthing.so" - A cross-compiled linux binary which we often call "SyncthingNative". It contains all synchronization functionality and carries out everything required to read, transfer and store files.
+1. "libsyncthingnative.so" - A cross-compiled linux binary which we often call "SyncthingNative". It contains all synchronization functionality and carries out everything required to read, transfer and store files.
 2. The wrapper which represents the UI. It mainly controls the start and stop of the SyncthingNative binary to save your battery and monitor health of the syncing process.
 
 Android forces SD card access to be read only upon SyncthingNative outside the above mentioned directory paths. People often asked on the issue tracker and forum why the Syncthing-Fork app refrains from asking for SD card directory tree permission using the WRITE_EXTERNAL_STORAGE permission. It might disappoint you, but this was already tried. If the Java app (2.) asks for permission and the user grants it, Android still forces the SD card paths to be accessed read-only by SyncthingNative (1.). This is why we don't ask the user for a directory tree permission like for example file manager 3rd party apps would have done it. File manager apps are technically different from Syncthing because they run as Java code and not as Native code.

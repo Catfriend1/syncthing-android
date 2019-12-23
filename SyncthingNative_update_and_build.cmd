@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
-title Update and Build SyncthingNative "syncthing.so"
+title Update and Build SyncthingNative "libsyncthingnative.so"
 cls
 REM
 REM Script Consts.
@@ -67,8 +67,8 @@ REM
 echo [INFO] Checking if SyncthingNative was built successfully ...
 REM
 SET LIBCOUNT=
-for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "syncthing.so"') DO SET LIBCOUNT=%%A
-IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "syncthing.so" are missing. You should fix that first. & goto :eos
+for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthingnative.so"') DO SET LIBCOUNT=%%A
+IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthingnative.so" are missing. You should fix that first. & goto :eos
 REM
 goto :eos
 
