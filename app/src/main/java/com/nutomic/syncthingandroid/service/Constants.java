@@ -13,7 +13,7 @@ public class Constants {
     // Always set ENABLE_TEST_DATA to false before building debug or release APK's.
     public static final Boolean ENABLE_TEST_DATA = false;
 
-    public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthing.so";
+    public static final String FILENAME_SYNCTHING_BINARY        = "syncthing.so";
     public static final String FILENAME_STIGNORE                = ".stignore";
 
     // Preferences - Run conditions

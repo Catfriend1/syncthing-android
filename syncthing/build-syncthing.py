@@ -15,6 +15,7 @@ SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
 # Leave empty to auto-detect version by 'git describe'.
 FORCE_DISPLAY_SYNCTHING_VERSION = 'v1.3.3-preview.1'
+FILENAME_SYNCTHING_BINARY = 'syncthing.so'
 
 GO_VERSION = '1.13.5'
 GO_EXPECTED_SHASUM_LINUX = '512103d7ad296467814a6e3f635631bd35574cab3369a97a323c9a585ccaa569'
@@ -419,7 +420,7 @@ for target in BUILD_TARGETS:
     target_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', target['jni_dir'])
     if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
-    target_artifact = os.path.join(target_dir, 'libsyncthing.so')
+    target_artifact = os.path.join(target_dir, FILENAME_SYNCTHING_BINARY)
     if os.path.exists(target_artifact):
         os.unlink(target_artifact)
     os.rename(os.path.join(syncthing_dir, 'syncthing'), target_artifact)
@@ -430,7 +431,7 @@ print('Copy x86 artifact to x86_64 folder, workaround for issue #583')
 target_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', 'x86_64')
 if not os.path.isdir(target_dir):
     os.makedirs(target_dir)
-shutil.copy(os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', 'x86', 'libsyncthing.so'),
-        os.path.join(target_dir, 'libsyncthing.so'))
+shutil.copy(os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', 'x86', FILENAME_SYNCTHING_BINARY),
+        os.path.join(target_dir, FILENAME_SYNCTHING_BINARY))
 
 print('All builds finished')

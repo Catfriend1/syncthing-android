@@ -2,9 +2,9 @@
 setlocal enabledelayedexpansion
 SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
-title Update and Build SyncthingNative "libsyncthing.so"
+title Update and Build SyncthingNative "syncthing.so"
 cls
-REM 
+REM
 REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
@@ -16,67 +16,67 @@ REM Runtime Variables.
 SET PATH=%PATH%;"%ProgramFiles%\Git\cmd"
 REM
 echo [INFO] Checking prerequisites ...
-REM 
+REM
 IF NOT EXIST "%ProgramFiles%\Git\cmd\git.exe" echo [ERROR] git not found. Install "Git for Windows" first. Maybe you have to update the path in the batch file. & goto :eos
-REM 
+REM
 where /q sed
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH. & goto :eos
-REM 
-IF "%CLEAN_BEFORE_BUILD%" == "1" call :cleanBeforeBuild 
-REM 
+REM
+IF "%CLEAN_BEFORE_BUILD%" == "1" call :cleanBeforeBuild
+REM
 IF "%SKIP_CHECKOUT_SRC%" == "1" goto :afterCheckoutSrc
-REM 
+REM
 echo [INFO] Fetching submodule "Syncthing" 1/2 ...
 md "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing" 2> NUL:
 git submodule init
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git submodule init FAILED. & goto :eos
-REM 
+REM
 echo [INFO] Fetching submodule "Syncthing" 2/2 ...
 git submodule update --init --recursive --quiet
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git submodule update FAILED. & goto :eos
-REM 
+REM
 cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
 echo [INFO] Fetching GitHub tags ...
 git fetch --quiet --all
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git fetch FAILED. & goto :eos
-REM 
+REM
 echo [INFO] Checking out syncthing_%DESIRED_SUBMODULE_VERSION% ...
 git checkout %DESIRED_SUBMODULE_VERSION% 2>&1 | find /i "HEAD is now at"
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git checkout FAILED. & goto :eos
-REM 
+REM
 :afterCheckoutSrc
 cd /d "%SCRIPT_PATH%"
 REM
 IF "%USE_GO_DEV%" == "1" call :applyGoDev
-REM 
+REM
 echo [INFO] Building submodule syncthing_%DESIRED_SUBMODULE_VERSION% ...
 call gradlew %GRADLEW_PARAMS% buildNative
 SET RESULT=%ERRORLEVEL%
 IF "%USE_GO_DEV%" == "1" call :revertGoDev
 IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. & goto :eos
-REM 
+REM
 echo [INFO] Reverting "go.mod" to checkout state ...
 cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
 git checkout -- go.mod
 cd /d "%SCRIPT_PATH%"
-REM 
+REM
 echo [INFO] Checking if SyncthingNative was built successfully ...
-REM 
+REM
 SET LIBCOUNT=
-for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "libsyncthing.so"') DO SET LIBCOUNT=%%A
-IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthing.so" are missing. You should fix that first. & goto :eos
-REM 
+for /f "tokens=*" %%A IN ('dir /s /a "%SCRIPT_PATH%app\src\main\jniLibs\*" 2^>NUL: ^| find /C "syncthing.so"') DO SET LIBCOUNT=%%A
+IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "syncthing.so" are missing. You should fix that first. & goto :eos
+REM
 goto :eos
 
 :cleanBeforeBuild
-REM 
+REM
 REM Syntax:
 REM 	call :cleanBeforeBuild
-REM 
+REM
 echo [INFO] Performing cleanup ...
 rd /s /q "app\src\main\jniLibs" 2> NUL:
 IF NOT "%SKIP_CHECKOUT_SRC%" == "1" rd /s /q "syncthing\src\github.com\syncthing\syncthing" 2> NUL:
@@ -84,10 +84,10 @@ REM
 goto :eof
 
 :applyGoDev
-REM 
+REM
 REM Syntax:
 REM 	call :applyGoDev
-REM 
+REM
 echo [INFO] Using go-dev instead of go-stable for this build ...
 sed -e "s/GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'/GO_EXPECTED_SHASUM_WINDOWS = '2fff556d0adaa6fda8300b0751a91a593c359f27265bc0fc7594f9eba794f907'/g" "syncthing\build-syncthing.py" > "%TEMP%\build-syncthing.py.tmp"
 move /y "%TEMP%\build-syncthing.py.tmp" "syncthing\build-syncthing.py" 1> NUL:
@@ -95,10 +95,10 @@ REM
 goto :eof
 
 :revertGoDev
-REM 
+REM
 REM Syntax:
 REM 	call :revertGoDev
-REM 
+REM
 echo [INFO] Reverting to go-stable ...
 git checkout -- "syncthing\build-syncthing.py"
 SET TMP_RESULT=%ERRORLEVEL%
@@ -107,17 +107,17 @@ REM
 goto :eof
 
 :applyGoDevByCommit
-REM 
+REM
 REM [UNUSED-FUNC]
-REM 
+REM
 REM Syntax:
 REM 	call :applyGoDevByCommit [commit/revert]
-REM 
+REM
 REM Consts.
 SET GO_DEV_COMMIT=032c562105b871c2a77e59e3be3de2ada26a365d
-REM 
+REM
 IF "%1" == "commit" echo [INFO] Using go-dev instead of go-stable for this build ... & git cherry-pick --quiet %GO_DEV_COMMIT% & goto :eof
-REM 
+REM
 REM Revert without leaving a commit on the master.
 SET TMP_GODEV_COMMIT_CNT=0
 for /f "delims= " %%A IN ('git log -1 --pretty^=oneline 2^>^&1 ^| findstr /I /C:"Build with godev"') do SET TMP_GODEV_COMMIT_CNT=1
@@ -130,9 +130,8 @@ REM
 goto :eof
 
 :eos
-REM 
+REM
 echo [INFO] End of Script.
 REM
 pause
 goto :eof
-

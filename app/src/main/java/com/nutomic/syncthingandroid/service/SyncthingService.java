@@ -608,7 +608,7 @@ public class SyncthingService extends Service {
         Thread.UncaughtExceptionHandler syncthingRunnableThreadExceptionHandler = new Thread.UncaughtExceptionHandler() {
                 public void uncaughtException(Thread syncthingRunnableThread, Throwable ex) {
                     Log.e(TAG, "mSyncthingRunnableThread: Uncaught exception [ExecutableNotFoundException]");
-                    mNotificationHandler.showCrashedNotification(R.string.executable_not_found, "libsyncthing.so");
+                    mNotificationHandler.showCrashedNotification(R.string.executable_not_found, Constants.FILENAME_SYNCTHING_BINARY);
                 }
         };
         mSyncthingRunnableThread = new Thread(mSyncthingRunnable);

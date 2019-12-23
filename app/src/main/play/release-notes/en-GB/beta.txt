@@ -6,6 +6,7 @@
 Fixed
 -
 - SyncthingNative not running on x86_64 arch (#583)
+- Rename "libsyncthing.so" to "syncthing.so" (#590)
 
 Enhanced
 -

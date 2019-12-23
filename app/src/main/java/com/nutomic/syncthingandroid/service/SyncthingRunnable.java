@@ -86,7 +86,7 @@ public class SyncthingRunnable implements Runnable {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mContext = context;
-        // Example: mSyncthingBinary="/data/app/com.github.catfriend1.syncthingandroid.debug-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/libsyncthing.so"
+        // Example: mSyncthingBinary="/data/app/com.github.catfriend1.syncthingandroid.debug-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/syncthing.so"
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
         mLogFile = Constants.getLogFile(mContext);
 
@@ -286,7 +286,7 @@ public class SyncthingRunnable implements Runnable {
     }
 
     /**
-     * Look for running libsyncthing.so processes and return an array
+     * Look for running syncthing.so processes and return an array
      * containing the PIDs of found instances.
      */
     private List<String> getSyncthingPIDs(Boolean enableLog) {
@@ -335,7 +335,7 @@ public class SyncthingRunnable implements Runnable {
     }
 
     /**
-     * Look for a running libsyncthing.so process and nice its IO.
+     * Look for a running syncthing.so process and nice its IO.
      */
     private void niceSyncthing() {
         if (!mUseRoot) {
@@ -363,7 +363,7 @@ public class SyncthingRunnable implements Runnable {
     }
 
     /**
-     * Look for running libsyncthing.so processes and end them gracefully.
+     * Look for running syncthing.so processes and end them gracefully.
      */
     public void killSyncthing() {
         int exitCode;
@@ -504,7 +504,7 @@ public class SyncthingRunnable implements Runnable {
     }
 
     private Process setupAndLaunch(HashMap<String, String> env) throws IOException, ExecutableNotFoundException {
-        // Check if "libSyncthing.so" exists.
+        // Check if "syncthing.so" exists.
         if (mCommand.length > 0) {
             File libSyncthing = new File(mCommand[0]);
             if (!libSyncthing.exists()) {
