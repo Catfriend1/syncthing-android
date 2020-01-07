@@ -9,8 +9,11 @@ Introduction: If you have issues with this fork, feel free to post them. I'll lo
     Syncthing Version: v1.x.y
     Android Version: Android x.y / LineAgeOS x.y / ...
     Device manufacturer: Huawei / LG / Samsung / Xiaomi / ...
-    Device model: I9100 / H815/ MI8 / ...
+    Device model: I9100 / H815 / MI8 / ...
+
+### Device platform info
+    adb shell "getprop | grep ro.product"
 
 ### Android Log
-    adb shell / logcat
+    adb logcat v
     or MatLog (search on GitHub) output
