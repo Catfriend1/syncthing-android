@@ -11,7 +11,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'org.mindrot:jbcrypt:0.4'
     // com.google.guava:guava:x.y-jre will crash on Android 5.x
-    implementation 'com.google.guava:guava:28.1-android'
+    implementation 'com.google.guava:guava:28.2-android'
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
