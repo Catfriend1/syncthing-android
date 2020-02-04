@@ -1,14 +1,10 @@
-* Syncthing v1.3.3
+* Syncthing v1.3.4
 * Updated build dependencies.
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 * See detailed changelog on GitHub.
 
 Fixed
 -
-- SyncthingNative not running on x86_64 arch (#583)
-- Rename "libsyncthing.so" to "libsyncthingnative.so" (#590)
 
 Enhanced
 -
-- Trigger sync window after share-to-Syncthing (#575)
-- Show device ID and qr code when native is not running (#591)
