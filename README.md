@@ -37,9 +37,9 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 
 The project is translated on [Transifex](https://www.transifex.com/projects/p/syncthing-android-1).
 
-# Building
+### Building
 
-### Prerequisites
+# Prerequisites
 - Android SDK
 `You can skip this if you are using Android Studio.`
 - Android NDK r20b
@@ -52,7 +52,7 @@ The project is translated on [Transifex](https://www.transifex.com/projects/p/sy
 `Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.`
 - Java Version 8 (you might need to set `$JAVA_HOME` accordingly)
 
-### Build instructions
+# Build instructions
 
 Make sure you clone the project with
 `git clone https://github.com/Catfriend1/syncthing-android.git --recursive`.
@@ -96,6 +96,6 @@ adb forward tcp:18384 tcp:8384
 
 Start Syncthing app on your emulator and access the web interface from you favorite browser of your development machine via https://127.0.0.1:18384
 
-# License
+### License
 
 The project is licensed under the [MPLv2](LICENSE).
