@@ -61,13 +61,11 @@ def get_min_sdk(project_dir):
 
     fail('Failed to find minSdkVersion')
 
-def which(program):
+def which_raw(program):
     import os
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
-    if (sys.platform == 'win32'):
-        program += ".exe"
     fpath, fname = os.path.split(program)
     if fpath:
         if is_exe(program):
@@ -79,6 +77,17 @@ def which(program):
                 return exe_file
 
     return None
+
+def which(program):
+    if (sys.platform == 'win32'):
+        which_result = which_raw(program + ".bat")
+        if not which_result:
+            which_result = which_raw(program + ".cmd")
+            if not which_result:
+                which_result = which_raw(program + ".exe")
+        return which_result
+    else:
+        return which_raw(program)
 
 def change_permissions_recursive(path, mode):
     import os
@@ -116,7 +125,7 @@ def install_git():
         zip_fullfn = urlretrieve(url, zip_fullfn)[0]
     print('Downloaded MinGit to:', zip_fullfn)
 
-    # Verfiy SHA-256 checksum of downloaded files.
+    # Verify SHA-256 checksum of downloaded files.
     with open(zip_fullfn, 'rb') as f:
         contents = f.read()
         found_shasum = hashlib.sha256(contents).hexdigest()
@@ -169,7 +178,7 @@ def install_go():
         tar_gz_fullfn = urlretrieve(url, tar_gz_fullfn)[0]
     print('Downloaded prebuilt-go to:', tar_gz_fullfn)
 
-    # Verfiy SHA-256 checksum of downloaded files.
+    # Verify SHA-256 checksum of downloaded files.
     with open(tar_gz_fullfn, 'rb') as f:
         contents = f.read()
         found_shasum = hashlib.sha256(contents).hexdigest()
@@ -229,7 +238,7 @@ def install_ndk():
         zip_fullfn = urlretrieve(url, zip_fullfn)[0]
     print('Downloaded NDK to:', zip_fullfn)
 
-    # Verfiy SHA-1 checksum of downloaded files.
+    # Verify SHA-1 checksum of downloaded files.
     with open(zip_fullfn, 'rb') as f:
         contents = f.read()
         found_shasum = hashlib.sha1(contents).hexdigest()

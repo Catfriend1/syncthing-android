@@ -101,6 +101,14 @@ REM
 goto :eof
 
 
+:getFileSize
+REM 
+REM Get file size to variable defined in parameter #2.
+SET %~2=%~z1
+REM 
+goto :eof
+
+
 :packageSourceCode
 REM 
 REM Syntax:
@@ -124,7 +132,10 @@ REM
 REM Download source code for current build commit as ZIP.
 echo [INFO] Downloading source code ZIP from GitHub ...
 curl -s -k -L -o %TMP_DSC_ZIPFILE_FULLFN% "https://github.com/Catfriend1/syncthing-android/archive/%COMMIT_LONG_HASH%.zip"
-IF NOT EXIST %TMP_DSC_ZIPFILE_FULLFN% echo [ERROR] Download source code FAILED. & pause & goto :eof
+IF NOT EXIST %TMP_DSC_ZIPFILE_FULLFN% echo [ERROR] Download source code FAILED #1. & pause & goto :eof
+call :getFileSize %TMP_DSC_ZIPFILE_FULLFN% FILE_SIZE
+IF "%FILE_SIZE%" == "" echo [ERROR] Download source code FAILED #2. & pause & goto :eof
+IF %FILE_SIZE% LSS 23 echo [ERROR] Download source code FAILED #3. & pause & goto :eof
 REM 
 REM Package built APKs into ZIP.
 echo [INFO] Adding built APKs to source code ZIP ...

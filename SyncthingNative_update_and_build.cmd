@@ -13,14 +13,19 @@ SET DESIRED_SUBMODULE_VERSION=v1.3.3
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
-SET PATH=%PATH%;"%ProgramFiles%\Git\cmd"
 REM
 echo [INFO] Checking prerequisites ...
 REM
-IF NOT EXIST "%ProgramFiles%\Git\cmd\git.exe" echo [ERROR] git not found. Install "Git for Windows" first. Maybe you have to update the path in the batch file. & goto :eos
+SET GIT_BIN=
+FOR /F "tokens=*" %%A IN ('where git 2^> NUL:') DO SET GIT_BIN="%%A"
+IF NOT DEFINED GIT_BIN echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
+IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
 REM
 where /q sed
-IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH. & goto :eos
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH env var. & goto :eos
+REM 
+where /q python
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] python.exe not found on PATH env var. & goto :eos
 REM
 IF "%CLEAN_BEFORE_BUILD%" == "1" call :cleanBeforeBuild
 REM
