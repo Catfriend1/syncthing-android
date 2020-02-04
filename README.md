@@ -80,6 +80,12 @@ To clean up all files generated during build, use the following commands:
 
 `cd /d "YOUR_CLONED_GIT_ROOT"`
 
+`python install_minimum_android_sdk_prerequisites.py`
+
+Edit "setenv.cmd" and adjust Android studio or Java path according to your needs.
+
+`setenv`
+
 `SyncthingNative_update_and_build`
 
 Edit "App_build_and_release.cmd" and set "SKIP_RELEASE_BUILD=1" if you don't need to upload signed releases to Google Play.
