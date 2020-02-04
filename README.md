@@ -58,6 +58,8 @@ Make sure you clone the project with
 `git clone https://github.com/Catfriend1/syncthing-android.git --recursive`.
 Alternatively, run `git submodule init && git submodule update` in the project folder.
 
+## Build on Linux
+
 A Linux VM, for example running Debian, is recommended to build this.
 
 Build Syncthing and the Syncthing-Android wrapper using the following commands:
@@ -74,7 +76,7 @@ To clean up all files generated during build, use the following commands:
 
 `./gradlew clean`
 
-Build on Windows
+## Build on Windows
 
 `cd /d "YOUR_CLONED_GIT_ROOT"`
 
