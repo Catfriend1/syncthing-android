@@ -42,11 +42,11 @@ The project is translated on [Transifex](https://www.transifex.com/projects/p/sy
 ### Prerequisites
 - Android SDK
 `You can skip this if you are using Android Studio.`
-- Android NDK r16b
+- Android NDK r20b
 `$ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.`
-- Go 1.9.7
+- Go 1.13.5
 `Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.`
-- Python 2.7
+- Python 3.6.5
 `Make sure, Python is installed and available on the PATH environment variable.`
 - Git (for Linux) or Git for Windows
 `Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.`
@@ -73,6 +73,16 @@ To clean up all files generated during build, use the following commands:
 `./gradlew cleanNative`
 
 `./gradlew clean`
+
+Build on Windows
+
+`cd /d "YOUR_CLONED_GIT_ROOT"`
+
+`SyncthingNative_update_and_build`
+
+Edit "App_build_and_release.cmd" and set "SKIP_RELEASE_BUILD=1" if you don't need to upload signed releases to Google Play.
+
+`App_build_and_release`
 
 ### Development Notes
 
