@@ -44,9 +44,6 @@ public class Options {
     // Since v0.14.28, Issue #3307, PR #4087
     public MinHomeDiskFree minHomeDiskFree;
 
-    // Since v1.0.0, see https://github.com/syncthing/syncthing/pull/4888
-    public int maxFolderConcurrency = 1;
-
     // Since v1.2.0
     // json: crURL, xml: crashReportingURL
     public String crURL = "https://crash.syncthing.net/newcrash";
@@ -57,6 +54,12 @@ public class Options {
 
     // Since v1.3.0
     public String databaseTuning = "small";         // SyncthingNative defaults to "auto".
+
+    // Since v1.4.0
+    // See https://github.com/syncthing/syncthing/pull/6290
+    public int maxFolderConcurrency = 1;
+    // See https://github.com/syncthing/syncthing/pull/6303
+    public int maxConcurrentIncomingRequestKiB = 0;
 
     // Items that may be temporarily missing because they are empty.
     /**
