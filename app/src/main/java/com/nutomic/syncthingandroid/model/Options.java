@@ -45,7 +45,7 @@ public class Options {
     public MinHomeDiskFree minHomeDiskFree;
 
     // Since v1.0.0, see https://github.com/syncthing/syncthing/pull/4888
-    public int maxConcurrentScans = 1;
+    public int maxFolderConcurrency = 1;
 
     // Since v1.2.0
     // json: crURL, xml: crashReportingURL
