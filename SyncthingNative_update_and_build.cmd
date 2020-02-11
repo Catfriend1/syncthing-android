@@ -9,7 +9,7 @@ REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
 SET USE_GO_DEV=0
-SET DESIRED_SUBMODULE_VERSION=v1.3.4
+SET DESIRED_SUBMODULE_VERSION=v1.4.0-rc.2
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
@@ -23,7 +23,7 @@ IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" fir
 REM
 where /q sed
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH env var. & goto :eos
-REM 
+REM
 where /q python
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] python.exe not found on PATH env var. & goto :eos
 REM

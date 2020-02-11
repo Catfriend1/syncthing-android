@@ -1,6 +1,6 @@
 ext {
     versionMajor = 1
-    versionMinor = 3
-    versionPatch = 4
+    versionMinor = 4
+    versionPatch = 0
     versionWrapper = 0
 }
