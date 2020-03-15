@@ -150,8 +150,12 @@ public class FileUtils {
         } catch (Exception e) {
             Log.w(TAG, "getVolumePath exception", e);
         }
-        Log.e(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
-        return null;
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Log.w(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
+            return "/storage/" + volumeId;
+        // }
+        // Log.e(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
+        // return null;
     }
 
     /**
