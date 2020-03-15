@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="@dimen/dots_height"
+            android:layout_gravity="center_horizontal"
             android:justificationMode="inter_word"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"

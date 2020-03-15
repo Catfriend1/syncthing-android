@@ -13,6 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/maximum_age"
             android:textAlignment="center"
             android:textColor="?attr/colorControlNormal"
@@ -40,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/versions_path"
             android:textAlignment="center"
             android:textColor="?attr/colorControlNormal"
