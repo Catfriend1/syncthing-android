@@ -152,6 +152,9 @@ public class FileUtils {
         }
         // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             Log.w(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
+            if (volumeId.equals("primary")) {
+                return "/storage/emulated/0";
+            }
             return "/storage/" + volumeId;
         // }
         // Log.e(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
