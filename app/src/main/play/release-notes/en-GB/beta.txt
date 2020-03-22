@@ -1,6 +1,4 @@
 * Syncthing v1.4.1-rc.3
-* PLEASE NOTE: Android 11's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
-* See detailed changelog on GitHub.
 
 Fixed
 -
