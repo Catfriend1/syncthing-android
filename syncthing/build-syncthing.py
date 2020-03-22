@@ -165,11 +165,11 @@ def install_go():
     if sys.platform == 'win32':
         url =               'https://dl.google.com/go/go' + GO_VERSION + '.windows-amd64.zip'
         expected_shasum =   GO_EXPECTED_SHASUM_WINDOWS
-        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go.zip';
+        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION + '.zip';
     else:
         url =               'https://dl.google.com/go/go' + GO_VERSION + '.linux-amd64.tar.gz'
         expected_shasum =   GO_EXPECTED_SHASUM_LINUX
-        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go.tgz';
+        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION + '.tgz';
 
     # Download prebuilt-go.
     url_base_name = os.path.basename(url)
@@ -230,7 +230,7 @@ def install_ndk():
         url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux-x86_64.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_LINUX
 
-    zip_fullfn = prerequisite_tools_dir + os.path.sep + 'ndk.zip';
+    zip_fullfn = prerequisite_tools_dir + os.path.sep + 'ndk_' + NDK_VERSION + '.zip';
     # Download NDK.
     url_base_name = os.path.basename(url)
     if not os.path.isfile(zip_fullfn):
