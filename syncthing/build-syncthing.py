@@ -188,10 +188,10 @@ def install_go():
     print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
 
     # Proceed with extraction of the prebuilt go.
-    if not os.path.isfile(prerequisite_tools_dir + os.path.sep + 'go' + os.path.sep + 'LICENSE'):
+    go_extracted_folder = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION
+    if not os.path.isfile(go_extracted_folder + os.path.sep + 'LICENSE'):
         print("Extracting prebuilt-go ...")
         # This will go to a subfolder "go" in the current path.
-        file_name, file_extension = os.path.splitext(url_base_name)
         if sys.platform == 'win32':
             zip = zipfile.ZipFile(tar_gz_fullfn, 'r')
             zip.extractall(prerequisite_tools_dir)
@@ -200,9 +200,10 @@ def install_go():
             tar = tarfile.open(tar_gz_fullfn)
             tar.extractall(prerequisite_tools_dir)
             tar.close()
+        os.rename(prerequisite_tools_dir + os.path.sep + 'go', go_extracted_folder)
 
     # Add "go/bin" to the PATH.
-    go_bin_path = prerequisite_tools_dir + os.path.sep + 'go' + os.path.sep + 'bin'
+    go_bin_path = go_extracted_folder + os.path.sep + 'bin'
     print('Adding to PATH:', go_bin_path)
     os.environ["PATH"] += os.pathsep + go_bin_path
 
@@ -251,8 +252,7 @@ def install_ndk():
     ndk_home_path = prerequisite_tools_dir + os.path.sep + 'android-ndk-' + NDK_VERSION
     if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
-        # This will go to a subfolder "android-ndk-r18" in the current path.
-        file_name, file_extension = os.path.splitext(url_base_name)
+        # This will go to a subfolder "android-ndk-rXY" in the current path.
         zip = zipfile.ZipFile(zip_fullfn, 'r')
         zip.extractall(prerequisite_tools_dir)
         zip.close()
