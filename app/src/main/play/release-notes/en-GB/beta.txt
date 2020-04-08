@@ -1,4 +1,4 @@
-* Syncthing v1.4.1-rc.3
+* Syncthing v1.4.2
 
 Fixed
 -
