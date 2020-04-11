@@ -10,13 +10,15 @@
             android:persistent="false"
             android:selectable="false"
             android:title="@string/run_conditions_title"
-            android:summary="@string/run_conditions_summary"/>
+            android:summary="@string/run_conditions_summary"
+            android:singleLineTitle="false" />
 
         <!-- Sync on WiFi -->
         <CheckBoxPreference
             android:key="run_on_wifi"
             android:title="@string/run_on_wifi_title"
             android:summary="@string/run_on_wifi_summary"
+            android:singleLineTitle="false"
             android:defaultValue="true" />
 
         <!-- Sync on metered WiFi -->
@@ -24,6 +26,7 @@
             android:key="run_on_metered_wifi"
             android:title="@string/run_on_metered_wifi_title"
             android:summary="@string/run_on_metered_wifi_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Use WiFi Ssid whitelist -->
@@ -31,19 +34,22 @@
             android:key="use_wifi_whitelist"
             android:title="@string/run_on_whitelisted_wifi_title"
             android:summary="@string/run_on_whitelisted_wifi_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Select whitelisted WiFi Ssid -->
         <com.nutomic.syncthingandroid.views.WifiSsidPreference
             android:key="wifi_ssid_whitelist"
             android:title="@string/specify_wifi_ssid_whitelist"
-            android:summary="@null" />
+            android:summary="@null"
+            android:singleLineTitle="false" />
 
         <!-- Sync on mobile data -->
         <CheckBoxPreference
             android:key="run_on_mobile_data"
             android:title="@string/run_on_mobile_data_title"
             android:summary="@string/run_on_mobile_data_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Sync while roaming -->
@@ -51,6 +57,7 @@
             android:key="run_on_roaming"
             android:title="@string/run_on_roaming_title"
             android:summary="@string/run_on_roaming_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <ListPreference
@@ -59,24 +66,29 @@
             android:entryValues="@array/power_source_values"
             android:entries="@array/power_source_entries"
             android:summary="@null"
+            android:singleLineTitle="false"
             android:defaultValue="ac_and_battery_power" />
 
+        <!-- Respect Android battery optimization -->
         <CheckBoxPreference
             android:key="respect_battery_saving"
             android:title="@string/respect_battery_saving_title"
             android:summary="@string/respect_battery_saving_summary"
+            android:singleLineTitle="false"
             android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="respect_master_sync"
             android:title="@string/respect_master_sync_title"
             android:summary="@string/respect_master_sync_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="run_in_flight_mode"
             android:title="@string/run_in_flight_mode_title"
             android:summary="@string/run_in_flight_mode_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Run on time schedule -->
@@ -84,6 +96,7 @@
             android:key="run_on_time_schedule"
             android:title="@string/run_on_time_schedule_title"
             android:summary="@string/run_on_time_schedule_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
     </PreferenceScreen>
@@ -98,6 +111,7 @@
             android:title="@string/preference_app_theme_title"
             android:entries="@array/app_theme_names"
             android:entryValues="@array/app_theme_values"
+            android:singleLineTitle="false"
             android:defaultValue="1" />
 
         <!-- Expert mode -->
@@ -105,13 +119,15 @@
             android:key="expert_mode"
             android:title="@string/expert_mode_title"
             android:summary="@string/expert_mode_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Language -->
         <ListPreference
             android:key="pref_current_language"
             android:title="@string/preference_language_title"
-            android:summary="@string/preference_language_summary" />
+            android:summary="@string/preference_language_summary"
+            android:singleLineTitle="false" />
 
     </PreferenceScreen>
 
@@ -124,6 +140,7 @@
             android:key="always_run_in_background"
             android:title="@string/behaviour_autostart_title"
             android:summary="@string/behaviour_autostart_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Use root -->
@@ -131,6 +148,7 @@
             android:key="use_root"
             android:title="@string/use_root_title"
             android:summary="@string/use_root_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Folder root suggestion -->
@@ -140,6 +158,7 @@
             android:entryValues="@array/suggest_new_folder_root_values"
             android:entries="@array/suggest_new_folder_root_entries"
             android:summary="@null"
+            android:singleLineTitle="false"
             android:defaultValue="external_android_data" />
 
         <!-- Show "Syncthing Camera" icon in launcher -->
@@ -147,6 +166,7 @@
             android:key="launcher_show_camera_icon"
             android:title="@string/launcher_show_camera_icon_title"
             android:summary="@string/launcher_show_camera_icon_summary"
+            android:singleLineTitle="false"
             android:defaultValue="true" />
 
     </PreferenceScreen>
@@ -165,50 +185,59 @@
         <EditTextPreference
             android:key="listenAddresses"
             android:title="@string/listen_address"
+            android:singleLineTitle="false"
             android:persistent="false"
             android:inputType="textNoSuggestions" />
 
         <EditTextPreference
             android:key="maxRecvKbps"
             android:title="@string/max_recv_kbps"
+            android:singleLineTitle="false"
             android:persistent="false"
             android:inputType="number" />
 
         <EditTextPreference
             android:key="maxSendKbps"
             android:title="@string/max_send_kbps"
+            android:singleLineTitle="false"
             android:persistent="false"
             android:inputType="number" />
 
         <CheckBoxPreference
             android:key="natEnabled"
             android:title="@string/enable_nat_traversal"
+            android:singleLineTitle="false"
             android:persistent="false"/>
 
         <CheckBoxPreference
             android:key="localAnnounceEnabled"
             android:title="@string/local_announce_enabled"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <CheckBoxPreference
             android:key="globalAnnounceEnabled"
             android:title="@string/global_announce_enabled"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <CheckBoxPreference
             android:key="relaysEnabled"
             android:title="@string/enable_relaying"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <EditTextPreference
             android:key="globalAnnounceServers"
             android:title="@string/global_announce_server"
+            android:singleLineTitle="false"
             android:persistent="false"
             android:inputType="textNoSuggestions" />
 
         <EditTextPreference
             android:key="webUITcpPort"
             android:title="@string/webui_tcp_port_title"
+            android:singleLineTitle="false"
             android:summary=""
             android:persistent="false"
             android:inputType="number" />
@@ -217,47 +246,53 @@
             android:key="webUIRemoteAccess"
             android:title="@string/webui_remote_access_title"
             android:summary="@string/webui_remote_access_summary"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <Preference
             android:persistent="false"
             android:selectable="true"
             android:key="syncthing_api_key"
-            android:title="@string/syncthing_api_key" />
+            android:title="@string/syncthing_api_key"
+            android:singleLineTitle="false" />
 
         <CheckBoxPreference
             android:key="restartOnWakeup"
             android:title="@string/restart_on_wakeup_title"
             android:summary="@string/restart_on_wakeup_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="urAccepted"
             android:title="@string/usage_reporting"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <CheckBoxPreference
             android:key="crashReportingEnabled"
             android:title="@string/crash_reporting"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <CheckBoxPreference
             android:key="webUIDebugging"
             android:title="@string/webui_debugging_title"
             android:summary="@string/webui_debugging_summary"
+            android:singleLineTitle="false"
             android:persistent="false" />
 
         <Preference
             android:key="downloadSupportBundle"
             android:title="@string/download_support_bundle_title"
             android:persistent="false"
-            android:singleLine="true" />
+            android:singleLineTitle="false" />
 
         <Preference
             android:key="undo_ignored_devices_folders"
             android:title="@string/undo_ignored_devices_folders_title"
             android:persistent="false"
-            android:singleLine="true" />
+            android:singleLineTitle="false" />
 
     </PreferenceScreen>
 
@@ -284,7 +319,8 @@
         <Preference
             android:key="open_issue_tracker"
             android:persistent="false"
-            android:title="@string/report_issue_title">
+            android:title="@string/report_issue_title"
+            android:singleLineTitle="false">
         </Preference>
 
         <!-- Verbose log -->
@@ -292,12 +328,14 @@
             android:key="verbose_log"
             android:title="@string/verbose_log_title"
             android:summary="@string/verbose_log_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
         <!-- Open Android or SyncthingNative log -->
         <Preference
             android:title="@string/open_log"
-            android:summary="@string/open_log_summary">
+            android:summary="@string/open_log_summary"
+            android:singleLineTitle="false">
             <intent
                 android:action=".activities.LogActivity" />
         </Preference>
@@ -305,26 +343,27 @@
         <!-- STTRACE facility chooser dialog -->
         <com.nutomic.syncthingandroid.views.SttracePreference
             android:key="debug_facilities_enabled"
-            android:title="@string/sttrace_title" />
+            android:title="@string/sttrace_title"
+            android:singleLineTitle="false" />
 
         <!-- Environment variables -->
         <EditTextPreference
             android:key="environment_variables"
             android:title="@string/environment_variables"
-            android:singleLine="true"
+            android:singleLineTitle="false"
             android:inputType="textNoSuggestions"/>
 
         <!-- Reset database -->
         <Preference
             android:key="st_reset_database"
             android:title="@string/st_reset_database_title"
-            android:singleLine="true" />
+            android:singleLineTitle="false" />
 
         <!-- Reset index database -->
         <Preference
             android:key="st_reset_deltas"
             android:title="@string/st_reset_deltas_title"
-            android:singleLine="true" />
+            android:singleLineTitle="false" />
 
     </PreferenceScreen>
 
@@ -335,12 +374,14 @@
         <CheckBoxPreference
             android:key="use_tor"
             android:title="@string/use_tor_title"
-            android:summary="@string/use_tor_summary" />
+            android:summary="@string/use_tor_summary"
+            android:singleLineTitle="false" />
 
         <EditTextPreference
             android:key="socks_proxy_address"
             android:title="@string/socks_proxy_address_title"
             android:summary=""
+            android:singleLineTitle="false"
             android:hint="@string/socks_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
 
@@ -348,19 +389,22 @@
             android:key="http_proxy_address"
             android:title="@string/http_proxy_address_title"
             android:summary=""
+            android:singleLineTitle="false"
             android:hint="@string/http_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
 
         <CheckBoxPreference
             android:key="broadcast_service_control"
             android:title="@string/broadcast_service_control_title"
-            android:summary="@string/broadcast_service_control_summary" />
+            android:summary="@string/broadcast_service_control_summary"
+            android:singleLineTitle="false" />
 
         <!-- Only valid for Android < 6 -->
         <CheckBoxPreference
             android:key="wakelock_while_binary_running"
             android:title="@string/keep_wakelock_while_binary_running"
             android:summary="@string/keep_wakelock_while_binary_running_summary"
+            android:singleLineTitle="false"
             android:defaultValue="false" />
 
     </PreferenceScreen>
@@ -372,25 +416,29 @@
             android:persistent="false"
             android:selectable="false"
             android:key="app_version"
-            android:title="@string/app_version_title" />
+            android:title="@string/app_version_title"
+            android:singleLineTitle="false" />
 
         <Preference
             android:persistent="false"
             android:selectable="false"
             android:key="syncthing_version"
-            android:title="@string/syncthing_version_title" />
+            android:title="@string/syncthing_version_title"
+            android:singleLineTitle="false" />
 
         <Preference
             android:persistent="false"
             android:selectable="false"
             android:key="syncthing_database_size"
-            android:title="@string/syncthing_database_size" />
+            android:title="@string/syncthing_database_size"
+            android:singleLineTitle="false" />
 
         <Preference
             android:persistent="false"
             android:selectable="false"
             android:key="os_open_file_limit"
-            android:title="@string/os_open_file_limit" />
+            android:title="@string/os_open_file_limit"
+            android:singleLineTitle="false" />
 
     </PreferenceScreen>
 
