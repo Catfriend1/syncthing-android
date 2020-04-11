@@ -104,7 +104,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="upload_title_colon">Feltöltve:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">CPU használat</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Memória használat</string>

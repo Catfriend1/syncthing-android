@@ -156,7 +156,6 @@
     <string name="upload_title_colon">Отдача:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Загрузка процессора</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Использование памяти</string>

@@ -72,7 +72,6 @@
     <string name="upload_title_colon">Відправка:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Використання ЦП</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Використання RAM</string>

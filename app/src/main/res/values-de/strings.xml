@@ -222,7 +222,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="upload_title_colon">Hochladen:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Prozessorauslastung</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-Auslastung</string>

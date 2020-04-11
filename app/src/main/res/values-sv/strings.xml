@@ -161,7 +161,6 @@
     <string name="upload_title_colon">Skickar:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">CPU användning</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM användning</string>

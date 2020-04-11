@@ -91,7 +91,6 @@
     <string name="upload_title_colon">Unggah:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Penggunaan CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Penggunaan RAM</string>

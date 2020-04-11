@@ -9,6 +9,10 @@ public class SystemStatus {
     // Example: 25857744
     public long alloc;
 
+    /**
+     * No longer supported since SyncthingNative v1.4.1
+     * v1.4.1+ return "cpuPercent = 0"
+     */
     // Example: 1.1183119275778985
     public double cpuPercent;
 
@@ -44,7 +48,7 @@ public class SystemStatus {
     // Example: "2019-09-21T10:59:47.1951229+02:00"
     public String startTime;
 
-    // Example: 46476920
+    // RAM usage, Example: 46476920
     public long sys;
 
     // Example: "C:\Users\Dev"

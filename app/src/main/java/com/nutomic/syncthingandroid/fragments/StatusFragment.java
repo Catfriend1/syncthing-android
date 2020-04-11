@@ -59,7 +59,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         @Override
         public void run() {
             onTimerEvent();
-            mRestApiQueryHandler.postDelayed(this, Constants.GUI_UPDATE_INTERVAL);
+            mRestApiQueryHandler.postDelayed(this, Constants.REST_UPDATE_INTERVAL);
         }
     };
 
@@ -77,7 +77,6 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     /**
      * Status holders, filled on callbacks.
      */
-    private String mCpuUsage = "";
     private String mRamUsage = "";
     private String mDownload = "";
     private String mUpload = "";
@@ -239,9 +238,6 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
                 if (!TextUtils.isEmpty(mRamUsage)) {
                     statusItems.add(getString(R.string.ram_usage) + ": " + mRamUsage);
                 }
-                if (!TextUtils.isEmpty(mCpuUsage)) {
-                    statusItems.add(getString(R.string.cpu_usage) + ": " + mCpuUsage);
-                }
                 if (!TextUtils.isEmpty(mDownload)) {
                     statusItems.add(getString(R.string.download_title) + ": " + mDownload);
                 }
@@ -303,7 +299,6 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         int announceConnected =
                 announceTotal - Optional.fromNullable(systemStatus.discoveryErrors).transform(Map::size).or(0);
         synchronized (mStatusHolderLock) {
-            mCpuUsage = (systemStatus.cpuPercent < 5) ? "" : percentFormat.format(systemStatus.cpuPercent / 100);
             mRamUsage = Util.readableFileSize(mActivity, systemStatus.sys);
             mAnnounceServer = (announceTotal == 0) ?
                     "" :

@@ -97,7 +97,6 @@
     <string name="upload_title_colon">Αποστολή:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Χρήση CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Χρήση RAM</string>

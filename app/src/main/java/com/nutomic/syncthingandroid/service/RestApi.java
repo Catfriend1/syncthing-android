@@ -803,7 +803,7 @@ public class RestApi {
     private void calculateConnectionStats(Connections connections) {
         Long now = System.currentTimeMillis();
         Long msElapsed = now - mPreviousConnectionTime;
-        if (msElapsed < Constants.GUI_UPDATE_INTERVAL) {
+        if (msElapsed < Constants.REST_UPDATE_INTERVAL) {
             connections = deepCopy(mPreviousConnections.get(), Connections.class);
             return;
         }
@@ -827,6 +827,7 @@ public class RestApi {
      * currently running folder and device transfers.
      * Folder percentage means we are currently pulling changes from remotes.
      * Device percentage means remotes currently pull changes from us.
+     * Uses cached stats instead of performing REST queries.
      */
     public int getTotalSyncCompletion() {
         int totalDeviceCompletion = mRemoteCompletion.getTotalDeviceCompletion();

@@ -23,7 +23,8 @@ import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
-import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
+import com.nutomic.syncthingandroid.util.ConfigXml.OpenConfigException;
 import com.nutomic.syncthingandroid.views.FoldersAdapter;
 
 import java.util.List;
@@ -40,6 +41,8 @@ public class FolderListFragment extends ListFragment implements SyncthingService
 
     private Boolean ENABLE_DEBUG_LOG = false;
     private Boolean ENABLE_VERBOSE_LOG = false;
+
+    private ConfigRouter mConfigRouter = null;
 
     @Inject SharedPreferences mPreferences;
 
@@ -144,23 +147,16 @@ public class FolderListFragment extends ListFragment implements SyncthingService
         if (activity == null || getView() == null || activity.isFinishing()) {
             return;
         }
+        if (mConfigRouter == null) {
+            mConfigRouter = new ConfigRouter(activity);
+        }
         List<Folder> folders;
         RestApi restApi = activity.getApi();
-        if (restApi == null ||
-                !restApi.isConfigLoaded() ||
-                mServiceState != SyncthingService.State.ACTIVE) {
-            // Syncthing is not running or REST API is not available yet.
-            ConfigXml configXml = new ConfigXml(activity);
-            try {
-                configXml.loadConfig();
-            } catch (ConfigXml.OpenConfigException e) {
-                Log.e(TAG, "Failed to parse existing config. You will need support from here ...");
-                return;
-            }
-            folders = configXml.getFolders();
-        } else {
-            // Syncthing is running and REST API is available.
-            folders = restApi.getFolders();
+        try {
+            folders = mConfigRouter.getFolders(restApi);
+        } catch (OpenConfigException e) {
+            Log.e(TAG, "Failed to parse existing config. You will need support from here ...");
+            return;
         }
         if (folders == null) {
             return;

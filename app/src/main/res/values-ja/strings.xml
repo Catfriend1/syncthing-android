@@ -98,7 +98,6 @@
     <string name="upload_title_colon">アップロード:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">CPU 使用率</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">メモリ使用量</string>

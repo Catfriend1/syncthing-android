@@ -102,7 +102,6 @@
     <string name="upload_title_colon">Lähetys:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Suorittimen käyttö</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Muistin käyttö</string>

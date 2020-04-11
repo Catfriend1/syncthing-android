@@ -92,7 +92,6 @@
     <string name="upload_title_colon">Envio:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Utilização da CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilização da RAM</string>

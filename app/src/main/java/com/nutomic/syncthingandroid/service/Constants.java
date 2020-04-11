@@ -146,11 +146,13 @@ public class Constants {
      * Interval in ms at which RestAPI is polled.
      * As a rule of thumb: Poll faster on "modern" devices.
      */
-    public static final long GUI_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(
+    public static final long REST_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(
             (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                     ? 3
                     : 5
     );
+
+    public static final long GUI_UPDATE_INTERVAL = TimeUnit.SECONDS.toMillis(1);
 
     /**
      * If the user enabled hourly one-time shot sync, the following

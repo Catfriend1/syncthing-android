@@ -61,7 +61,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         @Override
         public void run() {
             onTimerEvent();
-            mUpdateListHandler.postDelayed(this, Constants.GUI_UPDATE_INTERVAL);
+            mUpdateListHandler.postDelayed(this, Constants.REST_UPDATE_INTERVAL);
         }
     };
 

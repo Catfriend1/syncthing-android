@@ -90,7 +90,6 @@
     <string name="upload_title_colon">Качване:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Процесор в употреба</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM в употреба</string>

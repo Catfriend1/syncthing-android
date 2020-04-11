@@ -87,7 +87,6 @@
     <string name="upload_title_colon">Subida:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Uso de CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Uso de RAM</string>

@@ -85,7 +85,6 @@
     <string name="upload_title_colon">Opplasting:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Prosessorbruk</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Minnebruk</string>

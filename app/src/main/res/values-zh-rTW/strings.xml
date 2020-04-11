@@ -147,7 +147,6 @@
     <string name="upload_title_colon">上載:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">CPU 使用率</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">記憶體使用率</string>

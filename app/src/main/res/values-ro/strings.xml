@@ -196,7 +196,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="upload_title_colon">Încărcare:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Utilizare CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilizare RAM</string>

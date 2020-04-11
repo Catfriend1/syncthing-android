@@ -163,7 +163,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="upload_title_colon">Upload:\u0020 </string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">CPU forbrug</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM forbrug</string>

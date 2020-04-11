@@ -1,0 +1,10 @@
+Atom Editor - RegEx Tipps
+=========================
+
+> Find and delete lines.
+
+^\s*<string name="state_cleaning">.*</string>\n?\r?
+
+^\s*<string name="state_cleaning".*>.*</string>\n?\r?\n?
+
+^.*: https://domain.tld/\n?\r?\n?

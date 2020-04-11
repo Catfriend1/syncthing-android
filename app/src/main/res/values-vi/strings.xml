@@ -87,7 +87,6 @@
     <string name="upload_title_colon">Tải lên:\u0020</string>
 
     <!-- Title for current CPU usage -->
-    <string name="cpu_usage">Mức s.dụng CPU</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Mức s.dụng RAM</string>
