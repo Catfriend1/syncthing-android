@@ -1,7 +1,11 @@
 * Syncthing v1.4.2
 
 Fixed
+--
 -
 
 Enhanced
--
+--
+- Make GUI faster where it displays cached stats (#628)
+- Devices tab - Show shared folders below device (#627)
+- Device dialog - Edit folders shared with a device (#611)
