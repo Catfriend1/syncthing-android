@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.documentfile.provider.DocumentFile;
 
@@ -87,6 +89,8 @@ public class FolderActivity extends SyncthingActivity {
     private static final int PULL_ORDER_DIALOG_REQUEST = 3455;
     private static final int FOLDER_TYPE_DIALOG_REQUEST =3456;
     private static final int CHOOSE_FOLDER_REQUEST = 3459;
+
+    public static final int FOLDER_ADD_CODE = 402;
 
     private ConfigRouter mConfig;
     private Folder mFolder;
@@ -183,6 +187,12 @@ public class FolderActivity extends SyncthingActivity {
         }
     };
 
+    public static Intent createIntent(Context context) {
+        Intent intent = new Intent(context, FolderActivity.class);
+        intent.putExtra(EXTRA_IS_CREATE, true);
+        return intent;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         mConfig = new ConfigRouter(FolderActivity.this);
@@ -251,6 +261,7 @@ public class FolderActivity extends SyncthingActivity {
                 }
                 if (mFolder == null) {
                     Log.w(TAG, "Folder not found in API update, maybe it was deleted?");
+                    setResult(Activity.RESULT_CANCELED);
                     finish();
                     return;
                 }
@@ -746,6 +757,7 @@ public class FolderActivity extends SyncthingActivity {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
             preCreateFolderMarker(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
+            setResult(AppCompatActivity.RESULT_OK);
             finish();
             return;
         }
@@ -753,6 +765,7 @@ public class FolderActivity extends SyncthingActivity {
         // Edit mode.
         if (!mFolderNeedsToUpdate) {
             // We've got nothing to save.
+            setResult(AppCompatActivity.RESULT_CANCELED);
             finish();
             return;
         }
@@ -776,6 +789,7 @@ public class FolderActivity extends SyncthingActivity {
 
         // Update folder using RestApi or ConfigXml.
         mConfig.updateFolder(restApi, mFolder);
+        setResult(AppCompatActivity.RESULT_OK);
         finish();
         return;
     }
@@ -854,7 +868,10 @@ public class FolderActivity extends SyncthingActivity {
     private void showDiscardDialog(){
         mDiscardDialog = new AlertDialog.Builder(this)
                 .setMessage(R.string.dialog_discard_changes)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> finish())
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                        setResult(AppCompatActivity.RESULT_CANCELED);
+                        finish();
+                })
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
         mDiscardDialog.show();

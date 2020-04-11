@@ -455,7 +455,7 @@ public class RestApi {
         synchronized (mConfigLock) {
             jsonConfig = mGson.toJson(mConfig);
         }
-        // Log.v(TAG, "sendConfig: config=" + jsonConfig);
+        // LogVMultipleLines("sendConfig: config=" + jsonToPrettyFormat(jsonConfig));
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_CONFIG, mApiKey,
             null, jsonConfig, null);
         mOnConfigChangedListener.onConfigChanged();
@@ -605,17 +605,25 @@ public class RestApi {
         throw new RuntimeException("RestApi.getLocalDevice: Failed to get the local device crucial to continuing execution.");
     }
 
-    public void addDevice(Device device) {
-        synchronized (mConfigLock) {
-            mConfig.devices.add(device);
-            sendConfig();
-        }
-    }
-
+    /**
+     * Adds or updates a device identified by its device ID.
+     */
     public void updateDevice(Device newDevice) {
         synchronized (mConfigLock) {
             removeDeviceInternal(newDevice.deviceID);
             mConfig.devices.add(newDevice);
+
+            Set<String> deviceSharesFolders = newDevice.getFolders();
+            for (Folder folder : mConfig.folders) {
+                if (deviceSharesFolders.contains(folder.id)) {
+                    LogV("updateDevice: Device '" + newDevice.getDisplayName() + "' shares folder '" + folder.toString() + "'");
+                    folder.addDevice(newDevice);
+                } else {
+                    LogV("updateDevice: Device '" + newDevice.getDisplayName() + "' does not share folder '" + folder.toString() + "'");
+                    folder.removeDevice(newDevice.deviceID);
+                }
+            }
+
             sendConfig();
         }
     }
@@ -1186,9 +1194,37 @@ public class RestApi {
         return gson;
     }
 
+    private String jsonToPrettyFormat(String jsonString) {
+        JsonObject json = (new JsonParser()).parse(jsonString).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
     private void LogV(String logMessage) {
         if (ENABLE_VERBOSE_LOG) {
             Log.v(TAG, logMessage);
         }
+    }
+
+    private void LogVMultipleLines(String logMessage) {
+        final int MAX_CHARS_PER_LOG_LINE = 4000;
+        if (!ENABLE_VERBOSE_LOG) {
+            return;
+        }
+        if (logMessage.length() <= MAX_CHARS_PER_LOG_LINE) {
+            LogV(logMessage);
+            return;
+        }
+        LogV("*** Multiple line log START ***");
+        int chunkCount = logMessage.length() / MAX_CHARS_PER_LOG_LINE;
+        for (int i = 0; i <= chunkCount; i++) {
+            int max = MAX_CHARS_PER_LOG_LINE * (i + 1);
+            if (max >= logMessage.length()) {
+                LogV(logMessage.substring(MAX_CHARS_PER_LOG_LINE * i));
+                continue;
+            }
+            LogV(logMessage.substring(MAX_CHARS_PER_LOG_LINE * i, max));
+        }
+        LogV("*** Multiple line log END ***");
     }
 }

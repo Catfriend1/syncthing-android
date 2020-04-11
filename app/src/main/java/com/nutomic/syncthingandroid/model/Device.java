@@ -10,7 +10,9 @@ import com.nutomic.syncthingandroid.util.Luhn;
 
 import java.lang.System;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Device {
     public String deviceID;
@@ -25,6 +27,24 @@ public class Device {
     public List<IgnoredFolder> ignoredFolders;
 
     // private static final String TAG = "Device";
+
+    /**
+     * Those properties are not present in Syncthing's config.
+     * They are only required by the device edit dialog. {@link DeviceActivity}
+     */
+    private transient Set<String> folders = new HashSet<>();
+
+    public void addFolder(final String folderId) {
+        folders.add(folderId);
+    }
+
+    public final Set<String> getFolders() {
+        return folders;
+    }
+
+    public void removeFolder(final String folderId) {
+        folders.remove(folderId);
+    }
 
     /**
      * Relevant fields for Folder.List<Device> "shared-with-device" model,

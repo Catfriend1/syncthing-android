@@ -324,6 +324,9 @@ Please report any problems you encounter via Github.</string>
     <string name="name">Name</string>
 
     <!-- Setting title -->
+    <string name="folders">Folders</string>
+
+    <!-- Setting title -->
     <string name="addresses">Addresses</string>
 
     <!-- Setting title -->
@@ -376,6 +379,9 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Dialog message if no compatible barcode scanner app is installed -->
     <string name="install_barcode_scanner_app_message">This requires a barcode scanner app. Would you like to install the app \'Binary Eye\' from F-Droid?</string>
+
+    <!-- Shown if no folders are configured -->
+    <string name="folders_list_empty">No folders configured. Tap to add a new folder.</string>
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Did not get root permissions</string>

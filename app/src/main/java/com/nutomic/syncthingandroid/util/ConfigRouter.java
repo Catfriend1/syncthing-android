@@ -139,19 +139,6 @@ public class ConfigRouter {
         return restApi.getDevices(includeLocal);
     }
 
-    public void addDevice(RestApi restApi, Device device) {
-        if (restApi == null || !restApi.isConfigLoaded()) {
-            // Syncthing is not running or REST API is not (yet) available.
-            configXml.loadConfig();
-            configXml.addDevice(device);
-            configXml.saveChanges();
-            return;
-        }
-
-        // Syncthing is running and REST API is available.
-        restApi.addDevice(device);       // This will send the config afterwards.
-    }
-
     public void updateDevice(RestApi restApi, final Device device) {
         if (restApi == null || !restApi.isConfigLoaded()) {
             // Syncthing is not running or REST API is not (yet) available.

@@ -144,6 +144,24 @@
                 android:inputType="textNoSuggestions"
                 android:importantForAutofill="no" />
 
+            <TextView
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
+                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                android:focusable="false"
+                android:text="@string/folders" />
+
+            <LinearLayout
+                android:id="@+id/foldersContainer"
+                android:background="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:focusable="true">
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/compressionContainer"
                 android:layout_width="match_parent"

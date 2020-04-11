@@ -70,6 +70,9 @@ public class Folder {
     }
 
     public void addDevice(final Device device) {
+        // Avoid {@link ConfigXml#updateDevice} creating two list entries with the same device ID.
+        removeDevice(device.deviceID);
+
         Device d = new Device();
         d.deviceID = device.deviceID;
         d.introducedBy = device.introducedBy;
