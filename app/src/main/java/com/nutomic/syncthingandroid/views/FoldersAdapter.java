@@ -123,7 +123,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         } else {
             if (folder.paused) {
                 binding.state.setText(mContext.getString(R.string.state_paused));
-                binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_black));
+                binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
             } else {
                 switch(folderStatus.state) {
                     case "idle":

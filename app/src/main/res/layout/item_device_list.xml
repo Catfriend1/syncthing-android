@@ -41,10 +41,32 @@
                 android:theme="@style/progressBarBlue" />
 
             <RelativeLayout
-                android:id="@+id/rateInOutContainer"
+                android:id="@+id/deviceInfoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/progressBar">
+
+                <TextView
+                    android:id="@+id/sharedFoldersTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shared_folders_title_colon"
+                    android:textAppearance="?textAppearanceListItemSecondary" />
+
+                <TextView
+                    android:id="@+id/sharedFolders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sharedFoldersTitle"
+                    android:textAppearance="?textAppearanceListItemSecondary" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rateInOutContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/deviceInfoContainer">
 
                 <TextView
                     android:id="@+id/download_title"
@@ -86,13 +108,12 @@
         <TextView
             android:id="@+id/status"
             android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inner"
-            android:layout_alignTop="@+id/inner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/open_device"
             android:layout_toLeftOf="@+id/open_device"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
             android:lines="1"
             android:textAppearance="?textAppearanceListItemSmall"
             tools:ignore="RelativeOverlap" />
@@ -101,18 +122,17 @@
             android:id="@+id/open_device"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inner"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/inner"
             android:background="@null"
             android:contentDescription="@null"
-            android:paddingBottom="5dp"
+            android:paddingBottom="9dp"
             android:paddingEnd="20dp"
             android:paddingLeft="25dp"
             android:paddingRight="20dp"
             android:paddingStart="30dp"
-            android:paddingTop="5dp"
+            android:paddingTop="9dp"
             app:srcCompat="@drawable/ic_phonelink_black_24dp_active" />
 
     </RelativeLayout>

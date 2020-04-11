@@ -613,7 +613,7 @@ public class RestApi {
             removeDeviceInternal(newDevice.deviceID);
             mConfig.devices.add(newDevice);
 
-            Set<String> deviceSharesFolders = newDevice.getFolders();
+            Set<String> deviceSharesFolders = newDevice.getFolderIDs();
             for (Folder folder : mConfig.folders) {
                 if (deviceSharesFolders.contains(folder.id)) {
                     LogV("updateDevice: Device '" + newDevice.getDisplayName() + "' shares folder '" + folder.toString() + "'");

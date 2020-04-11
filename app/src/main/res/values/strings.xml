@@ -194,8 +194,14 @@ Please report any problems you encounter via Github.</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Paused</string>
 
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Unused</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unknown</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Folders:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>

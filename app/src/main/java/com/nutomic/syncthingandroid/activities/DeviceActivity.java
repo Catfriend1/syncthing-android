@@ -176,7 +176,7 @@ public class DeviceActivity extends SyncthingActivity {
                 case R.id.folder_toggle:
                     Folder folder = (Folder) view.getTag();
                     if (isChecked) {
-                        mDevice.addFolder(folder.id);
+                        mDevice.addFolder(folder);
                     } else {
                         mDevice.removeFolder(folder.id);
                     }
@@ -536,7 +536,6 @@ public class DeviceActivity extends SyncthingActivity {
             List<Device> devices = folder.getDevices();
             for (Device device : devices) {
                 if (mDevice.deviceID.equals(device.deviceID)) {
-                    mDevice.addFolder(folder.id);
                     folderSharedWithDevice = true;
                     break;
                 }

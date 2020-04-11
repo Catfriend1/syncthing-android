@@ -1,9 +1,9 @@
 package com.nutomic.syncthingandroid.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.databinding.ItemDeviceListBinding;
 import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.util.Util;
 
@@ -34,10 +40,13 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
      */
     private static final long ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD = 50 * 1024 * 8;
 
+    private final Context mContext;
+
     private RestApi mRestApi;
 
     public DevicesAdapter(Context context) {
-        super(context, R.layout.item_device_list);
+        super(context, 0);
+        mContext = context;
     }
 
     public void setRestApi(RestApi restApi) {
@@ -47,53 +56,59 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
     @Override
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) getContext()
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_device_list, parent, false);
+        ItemDeviceListBinding binding = (convertView == null)
+                ? DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_device_list, parent, false)
+                : DataBindingUtil.bind(convertView);
+
+        Device device = getItem(position);
+        binding.name.setText(getItem(position).getDisplayName());
+
+        updateDeviceStatusView(binding, device);
+        return binding.getRoot();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void updateDeviceStatusView(ItemDeviceListBinding binding, Device device) {
+        View rateInOutView = binding.getRoot().findViewById(R.id.rateInOutContainer);
+
+        if (device.getFolderCount() == 0) {
+            binding.sharedFoldersTitle.setText(R.string.device_state_unused);
+            binding.sharedFolders.setVisibility(GONE);
+        } else {
+            binding.sharedFoldersTitle.setText(R.string.shared_folders_title_colon);
+            binding.sharedFolders.setVisibility(VISIBLE);
+            binding.sharedFolders.setText("\u2022 " + TextUtils.join("\n\u2022 ", device.getFolders()));
         }
 
-        View rateInOutView = convertView.findViewById(R.id.rateInOutContainer);
-        TextView name = convertView.findViewById(R.id.name);
-        ProgressBar progressBar = convertView.findViewById(R.id.progressBar);
-        TextView status = convertView.findViewById(R.id.status);
-        TextView download = convertView.findViewById(R.id.download);
-        TextView upload = convertView.findViewById(R.id.upload);
-
-        String deviceId = getItem(position).deviceID;
-
-        name.setText(getItem(position).getDisplayName());
-        Resources r = getContext().getResources();
+        if (device.paused) {
+            binding.progressBar.setVisibility(GONE);
+            rateInOutView.setVisibility(GONE);
+            binding.status.setVisibility(VISIBLE);
+            binding.status.setText(R.string.device_paused);
+            binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_purple));
+            return;
+        }
 
         if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
             // Syncthing is not running.
-            progressBar.setVisibility(GONE);
+            binding.progressBar.setVisibility(GONE);
             rateInOutView.setVisibility(GONE);
-            status.setVisibility(GONE);
-            status.setText(r.getString(R.string.device_state_unknown));
-            status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
-            return convertView;
+            binding.status.setText(R.string.device_disconnected);
+            binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+            return;
         }
 
-        final Connection conn = mRestApi.getRemoteDeviceStatus(deviceId);
-        final int completion = mRestApi.getRemoteDeviceCompletion(deviceId);
-        if (conn.paused) {
-            progressBar.setVisibility(GONE);
-            rateInOutView.setVisibility(GONE);
-            status.setVisibility(VISIBLE);
-            status.setText(r.getString(R.string.device_paused));
-            status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_black));
-            return convertView;
-        }
+        final Connection conn = mRestApi.getRemoteDeviceStatus(device.deviceID);
+        final int completion = mRestApi.getRemoteDeviceCompletion(device.deviceID);
 
         if (conn.connected) {
-            download.setText(Util.readableTransferRate(getContext(), conn.inBits));
-            upload.setText(Util.readableTransferRate(getContext(), conn.outBits));
+            binding.download.setText(Util.readableTransferRate(getContext(), conn.inBits));
+            binding.upload.setText(Util.readableTransferRate(getContext(), conn.outBits));
             rateInOutView.setVisibility(VISIBLE);
-            status.setVisibility(VISIBLE);
+            binding.status.setVisibility(VISIBLE);
 
             Boolean syncingState = !(completion == 100);
-            progressBar.setVisibility(syncingState ? VISIBLE : GONE);
+            binding.progressBar.setVisibility(syncingState ? VISIBLE : GONE);
             if (!syncingState) {
                 /**
                  * UI polish - We distinguish the following cases:
@@ -102,27 +117,27 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                  */
                 if ((conn.inBits + conn.outBits) >= ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD) {
                     // case a) device_syncing
-                    status.setText(r.getString(R.string.state_syncing_general));
-                    status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                    binding.status.setText(R.string.state_syncing_general);
+                    binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
                 } else {
                     // case b) device_up_to_date
-                    status.setText(r.getString(R.string.device_up_to_date));
-                    status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                    binding.status.setText(R.string.device_up_to_date);
+                    binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
                 }
             } else {
-                progressBar.setProgress(completion);
-                status.setText(r.getString(R.string.device_syncing, completion));
-                status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                binding.progressBar.setProgress(completion);
+                binding.status.setText(mContext.getString(R.string.device_syncing, completion));
+                binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
             }
-            return convertView;
+            return;
         }
 
         // !conn.connected
-        progressBar.setVisibility(GONE);
+        binding.progressBar.setVisibility(GONE);
         rateInOutView.setVisibility(GONE);
-        status.setVisibility(VISIBLE);
-        status.setText(r.getString(R.string.device_disconnected));
-        status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
-        return convertView;
+        binding.status.setVisibility(VISIBLE);
+        binding.status.setText(R.string.device_disconnected);
+        binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+        return;
     }
 }

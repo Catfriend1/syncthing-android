@@ -888,7 +888,7 @@ public class ConfigXml {
                     }
 
                     // Folders
-                    Set<String> deviceSharesFolders = device.getFolders();
+                    Set<String> deviceSharesFolders = device.getFolderIDs();
                     for (Folder folder : getFolders()) {
                         if (deviceSharesFolders.contains(folder.id)) {
                             LogV("updateDevice: Device '" + device.getDisplayName() + "' shares folder '" + folder.toString() + "'");

@@ -1,17 +1,22 @@
 package com.nutomic.syncthingandroid.model;
 
 import android.text.TextUtils;
-import java.util.Locale;
 // import android.util.Log;
 
 import com.google.common.io.BaseEncoding;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 
 import com.nutomic.syncthingandroid.util.Luhn;
 
 import java.lang.System;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public class Device {
@@ -30,20 +35,42 @@ public class Device {
 
     /**
      * Those properties are not present in Syncthing's config.
-     * They are only required by the device edit dialog. {@link DeviceActivity}
+     * They are required by:
+     * - device edit dialog         {@link DeviceActivity}
+     * - devices tab                {@link DevicesAdapter}
      */
-    private transient Set<String> folders = new HashSet<>();
+    private transient List<Folder> folders = new ArrayList<>();
 
-    public void addFolder(final String folderId) {
-        folders.add(folderId);
+    public void addFolder(final Folder folder) {
+        folders.add(deepCopy(folder, new TypeToken<Folder>(){}.getType()));
     }
 
-    public final Set<String> getFolders() {
+    public int getFolderCount() {
+        if (folders == null) {
+            return 0;
+        }
+        return folders.size();
+    }
+
+    public final Set<String> getFolderIDs() {
+        Set<String> folderIDs = new HashSet<>();
+        for (Folder folder : folders) {
+            folderIDs.add(folder.id);
+        }
+        return folderIDs;
+    }
+
+    public final List<Folder> getFolders() {
         return folders;
     }
 
     public void removeFolder(final String folderId) {
-        folders.remove(folderId);
+        for (Iterator<Folder> it = folders.iterator(); it.hasNext();) {
+            String currentId = it.next().id;
+            if (currentId.equals(folderId)) {
+                it.remove();
+            }
+        }
     }
 
     /**
@@ -222,5 +249,15 @@ public class Device {
             }
         }
         return true;
+    }
+
+    /**
+     * Returns a deep copy of object.
+     *
+     * This method uses Gson and only works with objects that can be converted with Gson.
+     */
+    private <T> T deepCopy(T object, Type type) {
+        Gson gson = new Gson();
+        return gson.fromJson(gson.toJson(object, type), type);
     }
 }

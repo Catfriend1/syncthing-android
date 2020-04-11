@@ -24,7 +24,8 @@ import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
-import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
+import com.nutomic.syncthingandroid.util.ConfigXml.OpenConfigException;
 import com.nutomic.syncthingandroid.views.DevicesAdapter;
 
 import java.util.Collections;
@@ -42,6 +43,8 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     private final static String TAG = "DeviceListFragment";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
+
+    private ConfigRouter mConfigRouter = null;
 
     @Inject SharedPreferences mPreferences;
 
@@ -153,30 +156,30 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         if (activity == null || getView() == null || activity.isFinishing()) {
             return;
         }
+        if (mConfigRouter == null) {
+            mConfigRouter = new ConfigRouter(activity);
+        }
         List<Device> devices;
         RestApi restApi = activity.getApi();
-        if (restApi == null ||
-                !restApi.isConfigLoaded() ||
-                mServiceState != SyncthingService.State.ACTIVE) {
-            // Syncthing is not running or REST API is not available yet.
-            ConfigXml configXml = new ConfigXml(activity);
-            try {
-                configXml.loadConfig();
-            } catch (ConfigXml.OpenConfigException e) {
-                Log.e(TAG, "Failed to parse existing config. You will need support from here ...");
-                return;
-            }
-            devices = configXml.getDevices(false);
-        } else {
-            // Syncthing is running and REST API is available.
-            devices = restApi.getDevices(false);
-
-            // Force a cache-miss to query status of all devices asynchronously.
-            restApi.getRemoteDeviceStatus("");
+        try {
+            devices = mConfigRouter.getDevices(restApi, false);
+        } catch (OpenConfigException e) {
+            Log.e(TAG, "Failed to parse existing config. You will need support from here ...");
+            return;
         }
         if (devices == null) {
             return;
         }
+        if (mServiceState == SyncthingService.State.ACTIVE &&
+                restApi != null &&
+                restApi.isConfigLoaded()) {
+            /**
+             * Syncthing is running and REST API is available.
+             * Force a cache-miss to query status of all devices asynchronously.
+            */
+            restApi.getRemoteDeviceStatus("");
+        }
+
         if (mAdapter == null) {
             mAdapter = new DevicesAdapter(activity);
             setListAdapter(mAdapter);
