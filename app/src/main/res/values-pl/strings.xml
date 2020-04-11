@@ -15,15 +15,30 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Witamy w Syncthing dla systemu Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Wprowadzenie</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optymalizacja akumulatora</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Twoje urządzenie nie wspiera wyłączania optymalizacji baterii</string>
 
     <string name="cont">Kontynuuj</string>
     <string name="finish">Koniec</string>
+    <string name="generic_example">Przykład</string>
     <string name="generic_error">Błąd</string>
+    <string name="generic_help">Pomoc</string>
+    <string name="reason">Powód:</string>
+
     <string name="ignore">Ignoru</string>
 
+    <string name="main_menu">Menu główne</string>
+
+    <string name="refresh">Odśwież</string>
+
+
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Potwierdź zamknięcie aplikacji</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Dodaj katalog</string>
 
@@ -44,6 +59,10 @@
     <string name="open_website">Otwórz stronę internetową</string>
 
     <string name="toast_write_storage_permission_required">Wymagane zezwolenie na zapisywanie do pamięci zewnętrznej</string>
+
+    <string name="device_rejected">Urządzenie \"%1$s\" chce się połączyć</string>
+
+    <string name="folder_rejected">Urządzenie \"%1$s\" chce udostępnić folder \"%2$s\"</string>
 
     <!-- StateDialogActivity -->
 
@@ -68,6 +87,15 @@
         <item quantity="other">%1$d / %2$d</item>
     </plurals>
 
+    <string name="override_changes">Nadpisz zmiany</string>
+
+    <string name="revert_local_changes">Odwróć zmiany lokalne</string>
+
+    <string name="open_file_manager">Otwórz menedżer plików</string>
+    <string name="open_file_no_compatible_app">Nie znaleziono aplikacji do otwarcia tego pliku.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Nie znaleziono kompatybilnej aplikacji menedżera plików</string>
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -99,8 +127,6 @@
 
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Wysyłanie:\u0020</string>
-
-    <!-- Title for current CPU usage -->
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Użycie pamięci</string>

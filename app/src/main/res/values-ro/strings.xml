@@ -35,6 +35,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permisiune locație</string>
     <string name="location_permission_desc">Syncthing poate fi configurat pentru a funcționa în rețelele Wi-Fi selectate. Android necesită ca aplicația să aibă permisiunea locației pentru a putea citi numele rețelei Wi-Fi activă. Dacă doriți să utilizați această caracteristică, apăsați butonul de mai sus. Puteți omite acest pas. Consultați politica noastră de confidențialitate pentru mai multe detalii.</string>
+    <string name="location_permission_desc_api_29">Sfat pentru Android 10+: „Permiteți tot timpul”</string>
+
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generare cheie</string>
     <string name="key_generation_success">Cheile securizate pentru schimbul de date privat au fost generate cu succes.</string>
@@ -59,6 +61,25 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="main_menu">Meniu principal</string>
 
     <string name="refresh">Reîmprospătare</string>
+
+
+
+    <string name="photo_shoot_intro_welcome_title">Bine ați venit la Syncthing Camera</string>
+
+    <string name="photo_shoot_intro_permission_title">Permisiuni necesare</string>
+
+    <string name="photo_shoot_intro_no_camera">Ne pare rău, acest dispozitiv nu are o cameră foto.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Pentru a continua, avem nevoie de permisiunea de a accesa stocarea și camera.</string>
+
+    <string name="grant_storage_permission">Acordați permisiunea de stocare</string>
+
+    <string name="grant_camera_permission">Acordați permisiunea de acces a camerei</string>
+
+    <string name="photo_shoot_intro_permission_desc">Syncthing Camera necesită consimțământul dvs. pentru a realiza fotografii și a le stoca pe dispozitiv. Această caracteristică este opțională. Pentru a o utiliza, acordați permisiunile și atingeți „Continuare”. Vom configura un dosar pentru Syncthing Camera pe care îl puteți partaja cu alte dispozitive Syncthing ulterior.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
 
 
 
@@ -194,8 +215,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Încărcare:\u0020</string>
-
-    <!-- Title for current CPU usage -->
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilizare RAM</string>
@@ -486,6 +505,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="suggest_new_folder_root_title">Selectați noua rădăcină a dosarului</string>
 
+    <string name="launcher_show_camera_icon_summary">Dezactivați această opțiune dacă nu doriți să utilizați funcția „Syncthing Camera”. Aceasta nu funcționează cu aplicațiile Lansator care nu acceptă ascunderea pictogramelor.</string>
+
+    <string name="toast_show_hide_launcher_icon_failed">Eroare la afișarea sau ascunderea pictogramei.</string>
+
     <string name="expert_mode_title">Modul expert</string>
 
     <string name="expert_mode_summary">Activarea acestei opțiuni va afișa opțiuni de configurare avansate. Ar trebui să aruncați o privire mai întâi la manualul de utilizare Syncthing pentru a vă asigura că știți cum să le utilizați corect. Setările incorecte pot provoca descărcarea rapidă a bateriei, epuizarea resurselor sistemului sau sincronizarea incompletă.</string>
@@ -538,6 +561,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="enable_relaying">Activează transmiterea prin relee</string>
 
     <string name="usage_reporting">Raport utilizare anonim</string>
+
+    <string name="crash_reporting">Raportarea anonimă a problemelor</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
@@ -757,11 +782,15 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing rulează</string>
+    <string name="syncthing_active_details">Syncthing rulează: %1$s</string>
     <string name="syncthing_terminated">Syncthing a fost închis</string>
 
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Un fișier de configurare esențial pentru această operație lipsește</string>
+
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_android_camera_folder_label">Android Camera</string>
 
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotografii</string>
@@ -808,8 +837,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
         <item>TiO/s</item>
     </string-array>
 
+    <!-- Possible folder states -->
+    <string name="state_failed_items">Elemente eșuate (%1$d)</string>
+    <string name="state_up_to_date">Actualizat</string>
     <string name="state_scanning">Scanare</string>
     <string name="state_scan_waiting">În așteptarea scanării</string>
+    <string name="state_sync_preparing">Pregătire pentru sincronizare</string>
     <string name="state_syncing_general">Sincronizare</string>
     <string name="state_syncing">Se sincronizează(%1$d%%)</string>
     <string name="state_error">Eroare</string>

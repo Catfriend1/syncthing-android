@@ -191,8 +191,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausiert</string>
 
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Ungenutzt</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unbekannt</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Ordner:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
@@ -220,8 +226,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Hochladen:\u0020</string>
-
-    <!-- Title for current CPU usage -->
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-Auslastung</string>
@@ -320,6 +324,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="name">Name</string>
 
     <!-- Setting title -->
+    <string name="folders">Ordner</string>
+
+    <!-- Setting title -->
     <string name="addresses">Adressen</string>
 
     <!-- Setting title -->
@@ -372,6 +379,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Dialog message if no compatible barcode scanner app is installed -->
     <string name="install_barcode_scanner_app_message">Dies erfordert eine Barcode Scanner App. Möchtest Du die App \'Binary Eye\' von F-Droid installieren?</string>
+
+    <!-- Shown if no folders are configured -->
+    <string name="folders_list_empty">Keine Ordner konfiguriert. Tippe zum Hinzufügen eines neuen Ordners.</string>
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Konnte keine Root-Rechte erhalten.</string>
@@ -941,6 +951,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="state_local_additions">Lokale Ergänzungen</string>
     <string name="state_scanning">Scannen</string>
     <string name="state_scan_waiting">Warte auf Scan</string>
+    <string name="state_sync_waiting">Sync abwarten</string>
     <string name="state_sync_preparing">Sync vorbereiten</string>
     <string name="state_syncing_general">Synchronisiere</string>
     <string name="state_syncing">Synchronisiere (%1$d%%)</string>

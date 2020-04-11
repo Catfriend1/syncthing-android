@@ -175,8 +175,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Pujada:\u0020</string>
 
-    <!-- Title for current CPU usage -->
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Ús de RAM</string>
 
