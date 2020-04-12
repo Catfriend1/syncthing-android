@@ -102,10 +102,18 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         final int completion = mRestApi.getRemoteDeviceCompletion(device.deviceID);
 
         if (conn.connected) {
-            binding.download.setText(Util.readableTransferRate(getContext(), conn.inBits));
-            binding.upload.setText(Util.readableTransferRate(getContext(), conn.outBits));
-            rateInOutView.setVisibility(VISIBLE);
             binding.status.setVisibility(VISIBLE);
+
+            String bandwidthUpDownText = "\u21f5 ";     // down+up arrow
+            bandwidthUpDownText += mContext.getString(R.string.download_title);
+            bandwidthUpDownText += " \u02c5 ";          // down arrow
+            bandwidthUpDownText += Util.readableTransferRate(getContext(), conn.inBits);
+            bandwidthUpDownText += " \u2022 ";          // dot
+            bandwidthUpDownText += mContext.getString(R.string.upload_title);
+            bandwidthUpDownText += " \u02c4 ";          // up arrow
+            bandwidthUpDownText += Util.readableTransferRate(getContext(), conn.outBits);
+            binding.bandwidthUpDown.setText(bandwidthUpDownText);
+            rateInOutView.setVisibility(VISIBLE);
 
             Boolean syncingState = !(completion == 100);
             binding.progressBar.setVisibility(syncingState ? VISIBLE : GONE);

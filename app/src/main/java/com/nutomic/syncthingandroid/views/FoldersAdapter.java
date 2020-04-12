@@ -59,7 +59,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
         Folder folder = getItem(position);
         binding.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
-        binding.directory.setText(folder.path);
+        binding.directory.setText(getShortPathForUI(folder.path));
         binding.override.setOnClickListener(view -> { onClickOverride(view, folder); } );
         binding.revert.setOnClickListener(view -> { onClickRevert(view, folder); } );
         binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
@@ -89,7 +89,6 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             binding.override.setVisibility(GONE);
             binding.progressBar.setVisibility(GONE);
             binding.revert.setVisibility(GONE);
-            binding.size.setVisibility(GONE);
             binding.state.setVisibility(GONE);
             setTextOrHide(binding.invalid, folder.invalid);
             return;
@@ -186,13 +185,14 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         showLastItemFinishedUI(binding, cachedFolderStatus);
 
         binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
-        binding.items.setText(mContext.getResources()
-                .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles));
-
-        binding.size.setVisibility(folder.paused ? GONE : VISIBLE);
-        binding.size.setText(mContext.getString(R.string.folder_size_format,
+        String itemsAndSize = "\u2211 ";
+        itemsAndSize += mContext.getResources()
+                .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles);
+        itemsAndSize += " \u2022 ";
+        itemsAndSize += mContext.getString(R.string.folder_size_format,
                 Util.readableFileSize(mContext, folderStatus.inSyncBytes),
-                Util.readableFileSize(mContext, folderStatus.globalBytes)));
+                Util.readableFileSize(mContext, folderStatus.globalBytes));
+        binding.items.setText(itemsAndSize);
 
         setTextOrHide(binding.invalid, folderStatus.invalid);
     }
@@ -236,6 +236,13 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             view.setText(text);
             view.setVisibility(VISIBLE);
         }
+    }
+
+    private final String getShortPathForUI(final String path) {
+        String shortenedPath = path.replaceFirst("/storage/emulated/0", "[int]");
+        shortenedPath = shortenedPath.replaceFirst("/storage/[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}", "[ext]");
+        shortenedPath = shortenedPath.replaceFirst("/" + mContext.getPackageName(), "/[app]");
+        return "\u2756 " + Util.getPathEllipsis(shortenedPath);
     }
 
     private void onClickOverride(View view, Folder folder) {

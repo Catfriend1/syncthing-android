@@ -117,17 +117,10 @@
                 android:textAppearance="?textAppearanceListItemSecondary" />
 
             <TextView
-                android:id="@+id/size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/items"
-                android:textAppearance="?textAppearanceListItemSecondary" />
-
-            <TextView
                 android:id="@+id/invalid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/size"
+                android:layout_below="@id/items"
                 android:textAppearance="?textAppearanceListItemSecondary"
                 android:textColor="@color/text_red" />
 

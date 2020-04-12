@@ -69,36 +69,9 @@
                 android:layout_below="@+id/deviceInfoContainer">
 
                 <TextView
-                    android:id="@+id/download_title"
+                    android:id="@+id/bandwidthUpDown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/download_title_colon"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-                <TextView
-                    android:id="@+id/download"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/download_title"
-                    android:layout_toEndOf="@id/download_title"
-                    android:layout_toRightOf="@id/download_title"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-                <TextView
-                    android:id="@+id/upload_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/download_title"
-                    android:text="@string/upload_title_colon"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-                <TextView
-                    android:id="@+id/upload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/upload_title"
-                    android:layout_toEndOf="@id/upload_title"
-                    android:layout_toRightOf="@id/upload_title"
                     android:textAppearance="?textAppearanceListItemSecondary" />
 
             </RelativeLayout>
