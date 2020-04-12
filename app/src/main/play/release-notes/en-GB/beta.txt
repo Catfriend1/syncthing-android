@@ -2,9 +2,13 @@
 
 Fixed
 --
+- Add dark mode assets (#633)
+- Wrap pref titles (#630)
 
 Enhanced
 --
+- Show last transferred file in folder view (#631)
+- Imported translations (#629)
 - Make GUI faster where it displays cached stats (#628)
 - Devices tab - Show shared folders below device (#627)
 - Device dialog - Edit folders shared with a device (#611)
