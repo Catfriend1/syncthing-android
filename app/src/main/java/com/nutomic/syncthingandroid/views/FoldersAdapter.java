@@ -83,6 +83,8 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
     private void updateFolderStatusView(ItemFolderListBinding binding, Folder folder) {
         if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
+            binding.lastItemFinishedItem.setVisibility(GONE);
+            binding.lastItemFinishedTime.setVisibility(GONE);
             binding.items.setVisibility(GONE);
             binding.override.setVisibility(GONE);
             binding.progressBar.setVisibility(GONE);
@@ -98,8 +100,6 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         final FolderStatus folderStatus = folderEntry.getKey();
         final CachedFolderStatus cachedFolderStatus = folderEntry.getValue();
 
-        binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
-
         boolean failedItems = folderStatus.errors > 0;
 
         long neededItems = folderStatus.needFiles + folderStatus.needDirectories + folderStatus.needSymlinks + folderStatus.needDeletes;
@@ -112,7 +112,6 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         boolean revertButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) && (folderStatus.receiveOnlyTotalItems > 0);
         binding.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
 
-        binding.size.setVisibility(folder.paused ? GONE : VISIBLE);
         binding.state.setVisibility(VISIBLE);
         if (outOfSync) {
             binding.state.setText(mContext.getString(R.string.status_outofsync));
@@ -184,14 +183,50 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             }
         }
 
+        showLastItemFinishedUI(binding, cachedFolderStatus);
+
+        binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
         binding.items.setText(mContext.getResources()
                 .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles));
 
+        binding.size.setVisibility(folder.paused ? GONE : VISIBLE);
         binding.size.setText(mContext.getString(R.string.folder_size_format,
                 Util.readableFileSize(mContext, folderStatus.inSyncBytes),
                 Util.readableFileSize(mContext, folderStatus.globalBytes)));
 
         setTextOrHide(binding.invalid, folderStatus.invalid);
+    }
+
+    private void showLastItemFinishedUI(ItemFolderListBinding binding, final CachedFolderStatus cachedFolderStatus) {
+        if (TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedAction) ||
+                TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedItem) ||
+                TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedTime)) {
+            binding.lastItemFinishedItem.setVisibility(GONE);
+            binding.lastItemFinishedTime.setVisibility(GONE);
+            return;
+        }
+        String finishedItemText = "\u21cc";
+        switch (cachedFolderStatus.lastItemFinishedAction) {
+            case "update":
+                finishedItemText += " \u229b";
+                break;
+            case "delete":
+                finishedItemText += " \u2297";
+                break;
+            default:
+                finishedItemText += " \u2049";
+        }
+        finishedItemText += " " + Util.getPathEllipsis(cachedFolderStatus.lastItemFinishedItem);
+
+        binding.lastItemFinishedItem.setText(finishedItemText);
+        binding.lastItemFinishedItem.setVisibility(VISIBLE);
+
+        String finishedItemTime = "\u21cc\u231a";
+        finishedItemTime += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
+        binding.lastItemFinishedTime.setText(finishedItemTime);
+        binding.lastItemFinishedTime.setVisibility(VISIBLE);
+
+        return;
     }
 
     private void setTextOrHide(TextView view, String text) {

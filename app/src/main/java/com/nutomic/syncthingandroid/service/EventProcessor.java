@@ -205,6 +205,10 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     }
                 }
                 if (!TextUtils.isEmpty(folderPath)) {
+                    if (TextUtils.isEmpty(error)) {
+                        // We don't intend to show errors as the last synced item on the UI.
+                        mRestApi.setLocalFolderLastItemFinished(folderId, action, relativeFilePath, event.time);
+                    }
                     onItemFinished(action, error, new File(folderPath, relativeFilePath));
                 } else {
                     Log.w(TAG, "ItemFinished: Failed to determine folder.path for folder.id=\"" + (TextUtils.isEmpty(folderId) ? "" : folderId) + "\"");

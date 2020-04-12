@@ -963,6 +963,18 @@ public class RestApi {
         onTotalSyncCompletionChange();
     }
 
+    public void setLocalFolderLastItemFinished(final String folderId,
+                                                    final String lastItemFinishedAction,
+                                                    final String lastItemFinishedItem,
+                                                    final String lastItemFinishedTime) {
+        mLocalCompletion.setLastItemFinished(
+                folderId,
+                lastItemFinishedAction,
+                lastItemFinishedItem,
+                lastItemFinishedTime
+        );
+    }
+
     public void setRemoteCompletionInfo(final String deviceId,
                                             final String folderId,
                                             final Double completion) {

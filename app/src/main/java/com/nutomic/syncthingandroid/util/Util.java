@@ -28,6 +28,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.util.Locale;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -336,6 +341,81 @@ public class Util {
         return new File(path).toURI().normalize().getPath();
     }
 
+    /**
+     * Shorten a path using ellipsis to display it on UI
+     * where we have little space to display it.
+     */
+    public static final String getPathEllipsis(final String fullFN) {
+        final boolean FUNC_LOG_D = false;
+        final boolean FUNC_LOG_V = false;
+        final int MAX_CHARS_SUBDIR = 15;
+        final int MAX_CHARS_FILENAME = MAX_CHARS_SUBDIR * 2;
+
+        int index;
+        String part;
+        String workIn = fullFN;
+        String workOut = "";
+        while(true) {
+            index = workIn.indexOf('/');
+            if (index < 0) {
+                // Last part is the filename.
+                if (FUNC_LOG_V) {
+                    Log.v(TAG, "getPathEllipsis: workIn [" + workIn + "] @ index <= 0");
+                }
+                if (workIn.length() > MAX_CHARS_FILENAME) {
+                    int indexFileExt = workIn.lastIndexOf(".");
+                    if (indexFileExt > 0) {
+                        // Filename with extension.
+                        String fileName = workIn.substring(0, indexFileExt);
+                        if (fileName.length() > MAX_CHARS_FILENAME) {
+                            fileName = fileName.substring(0, MAX_CHARS_FILENAME) + "\u22ef";
+                        }
+                        workIn = fileName + workIn.substring(indexFileExt);
+                    } else {
+                        // Filename without extension
+                        workIn = workIn.substring(0, MAX_CHARS_FILENAME) + "\u22ef";
+                    }
+                }
+                workOut += workIn;
+                break;
+            }
+            // Handle one directory from the path.
+            part = workIn.substring(0, index);
+            if (FUNC_LOG_V) {
+                Log.v(TAG, "getPathEllipsis: part [" + part + "]");
+            }
+            if (part.length() > MAX_CHARS_SUBDIR) {
+                part = part.substring(0, MAX_CHARS_SUBDIR) + "\u22ef";
+            }
+            workOut += part + "/";
+            workIn = workIn.substring(index + 1);
+            if (FUNC_LOG_V) {
+                Log.v(TAG, "getPathEllipsis: workIn [" + workIn + "], workOut [" + workOut + "]");
+            }
+        }
+        if (FUNC_LOG_D) {
+            Log.v(TAG, "getPathEllipsis: INP [" + fullFN + "]");
+            Log.v(TAG, "getPathEllipsis: OUT [" + workOut + "]");
+        }
+        return workOut;
+    }
+
+    public static void testPathEllipsis() {
+        getPathEllipsis("");
+        getPathEllipsis("/");
+        getPathEllipsis("//");
+        getPathEllipsis("go2sync.dll");
+        getPathEllipsis("MY-LINK-/Cool 12345 Configuration Utility/sdk/bin/go2sync.dll");
+        getPathEllipsis("MY-LINK-Iam-bin-sum-another-and-make-long/Cool 12345 Configuration Utility/sdk/bin/go2sync.dll");
+        getPathEllipsis("MY-LINK-Iam-bin-sum-another-and-make-long-textfiles-are-cool.txt");
+        getPathEllipsis("MY-LINK-/Cool 12345 Configuration Utility/sdk/bin-Iam-bin-sum-another-and-make-long/go2sync-long-textfiles-are-cool.dll");
+        getPathEllipsis("MY-LINK-//Cool 12345 Configuration Utility/sdk/bin-Iam-bin-sum-another-and-make-long/go2sync-long-textfiles-are-cool.dll");
+        getPathEllipsis("MY-LINK-//Cool 12345 Configuration Utility/sdk/bin-Iam-bin-sum-another-and-make-long//go2sync-long-textfiles-are-cool.dll");
+        getPathEllipsis("MY-LINK-//Cool 12345 Configuration Utility/sdk/bin-Iam-bin-sum-another-and-make-long//go2sync-long-textfiles-are-cool");
+        getPathEllipsis("MY-LINK-//Cool 12345 Configuration Utility/sdk/bin-Iam-bin-sum-another-and-make-long//go2sync-long-textfiles-are-cool.correctlongeextensionswassolldas-denn-bitte");
+        getPathEllipsis("MY-LINK-Iam-bin-sum-another-and-make-long/Cool 12345 Configuration Utility/sdk/bin/go2sync.dllcorrectlongeextensionswassolldas-denn-bitte");
+    }
+
     public static boolean containsIgnoreCase(String src, String what) {
         final int length = what.length();
         if (length == 0) {
@@ -352,5 +432,32 @@ public class Util {
     public static Boolean isRunningOnTV(Context context) {
         UiModeManager uiModeManager = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
         return uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION;
+    }
+
+    /**
+     * Converts dateTime to readable localized string.
+     */
+    public static String formatDateTime(String dateTime) {
+        // Convert dateTime to readable localized string.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return dateTime;
+        }
+
+        ZonedDateTime parsedDateTime = ZonedDateTime.parse(dateTime);
+        ZonedDateTime zonedDateTime = parsedDateTime.withZoneSameInstant(ZoneId.systemDefault());
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(Locale.getDefault());
+        return formatter.format(zonedDateTime);
+    }
+
+    public static String formatTime(String dateTime) {
+        // Convert dateTime to readable localized string.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return dateTime;
+        }
+
+        ZonedDateTime parsedDateTime = ZonedDateTime.parse(dateTime);
+        ZonedDateTime zonedDateTime = parsedDateTime.withZoneSameInstant(ZoneId.systemDefault());
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).withLocale(Locale.getDefault());
+        return formatter.format(zonedDateTime);
     }
 }

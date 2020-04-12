@@ -96,10 +96,24 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/items"
+                android:id="@+id/lastItemFinishedItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/override_revert_container"
+                android:textAppearance="?textAppearanceListItemSecondary" />
+
+            <TextView
+                android:id="@+id/lastItemFinishedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lastItemFinishedItem"
+                android:textAppearance="?textAppearanceListItemSecondary" />
+
+            <TextView
+                android:id="@+id/items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lastItemFinishedTime"
                 android:textAppearance="?textAppearanceListItemSecondary" />
 
             <TextView

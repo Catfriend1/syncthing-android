@@ -187,6 +187,9 @@ public class MainActivity extends SyncthingActivity
         super.onCreate(savedInstanceState);
         ((SyncthingApp) getApplication()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
+        if (ENABLE_VERBOSE_LOG) {
+            Util.testPathEllipsis();
+        }
 
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);

@@ -146,7 +146,8 @@ public class LocalCompletion {
                                     final Boolean folderPaused,
                                     final FolderStatus folderStatus) {
         synchronized(mFolderMapLock) {
-            CachedFolderStatus cachedFolderStatus = new CachedFolderStatus();
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
+            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
             cachedFolderStatus.paused = folderPaused;
             if (folderStatus.globalBytes == 0 ||
                     (folderStatus.inSyncBytes > folderStatus.globalBytes)) {
@@ -172,6 +173,26 @@ public class LocalCompletion {
             // Persist cachedFolderStatus.paused from the previous entry.
             final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
             setFolderStatus(folderId, cacheEntry.getValue().paused, folderStatus);
+        }
+    }
+
+    /**
+     * Setters of additionally stored information
+     * e.g. "ItemFinished" event details arriving through {@link EventProcessor} > {@link RestApi}
+     */
+    public void setLastItemFinished(final String folderId,
+                                        final String lastItemFinishedAction,
+                                        final String lastItemFinishedItem,
+                                        final String lastItemFinishedTime) {
+        synchronized(mFolderMapLock) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
+            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            cachedFolderStatus.lastItemFinishedAction = lastItemFinishedAction;
+            cachedFolderStatus.lastItemFinishedItem = lastItemFinishedItem;
+            cachedFolderStatus.lastItemFinishedTime = lastItemFinishedTime;
+
+            // Add folder or update existing folder entry.
+            mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));
         }
     }
 
