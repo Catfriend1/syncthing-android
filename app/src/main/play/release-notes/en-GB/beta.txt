@@ -7,6 +7,7 @@ Fixed
 
 Enhanced
 --
+- Recent Changes dialog - Filter unnecessary rows (#636)
 - Show last transferred file in folder view (#631)
 - Imported translations (#629)
 - Make GUI faster where it displays cached stats (#628)
