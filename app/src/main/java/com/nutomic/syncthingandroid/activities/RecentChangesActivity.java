@@ -1,6 +1,7 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.content.ComponentName;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +17,11 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.DiskEvent;
 import com.nutomic.syncthingandroid.model.Folder;
+import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
@@ -29,9 +32,12 @@ import com.nutomic.syncthingandroid.views.ChangeListAdapter.ItemClickListener;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+
+import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
 
@@ -45,15 +51,21 @@ public class RecentChangesActivity extends SyncthingActivity
 
     private static int DISK_EVENT_LIMIT = 100;
 
+    private Boolean ENABLE_VERBOSE_LOG = false;
+
     private List<Device> mDevices;
     private ChangeListAdapter mRecentChangeAdapter;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private SyncthingService.State mServiceState = SyncthingService.State.INIT;
 
+    @Inject SharedPreferences mPreferences;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((SyncthingApp) getApplication()).component().inject(this);
+        ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         setContentView(R.layout.activity_recent_changes);
         mRecyclerView = findViewById(R.id.changes_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -66,11 +78,11 @@ public class RecentChangesActivity extends SyncthingActivity
             new ItemClickListener() {
                 @Override
                 public void onItemClick(DiskEvent diskEvent) {
-                    Log.v(TAG, "User clicked item with title \'" + diskEvent.data.path + "\'");
                     switch (diskEvent.data.action) {
                         case "deleted":
                             return;
                     }
+                    LogV("User clicked item with title \'" + diskEvent.data.path + "\'");
                     if (mServiceState != SyncthingService.State.ACTIVE) {
                         return;
                     }
@@ -132,7 +144,7 @@ public class RecentChangesActivity extends SyncthingActivity
 
     @Override
     public void onServiceStateChange(SyncthingService.State newState) {
-        Log.v(TAG, "onServiceStateChange(" + newState + ")");
+        LogV("onServiceStateChange(" + newState + ")");
         mServiceState = newState;
         if (newState == SyncthingService.State.ACTIVE) {
             onTimerEvent();
@@ -166,7 +178,7 @@ public class RecentChangesActivity extends SyncthingActivity
             return;
         }
         mDevices = restApi.getDevices(true);
-        Log.v(TAG, "Querying disk events");
+        LogV("Querying disk events");
         restApi.getDiskEvents(DISK_EVENT_LIMIT, this::onReceiveDiskEvents);
         if (ENABLE_TEST_DATA) {
             onReceiveDiskEvents(new ArrayList());
@@ -174,39 +186,17 @@ public class RecentChangesActivity extends SyncthingActivity
     }
 
     private void onReceiveDiskEvents(List<DiskEvent> diskEvents) {
-        Log.v(TAG, "onReceiveDiskEvents");
+        LogV("onReceiveDiskEvents");
         if (isFinishing()) {
             return;
         }
 
         if (ENABLE_TEST_DATA) {
-            DiskEvent fakeDiskEvent = new DiskEvent();
-            fakeDiskEvent.id = 10;
-            fakeDiskEvent.globalID = 84;
-            fakeDiskEvent.time = "2018-10-28T14:08:" +
-                    String.format(Locale.getDefault(), "%02d", new Random().nextInt(60)) +
-                    ".6183215+01:00";
-            fakeDiskEvent.type = "RemoteChangeDetected";
-            fakeDiskEvent.data.action = "added";
-            fakeDiskEvent.data.folder = "abcd-efgh";
-            fakeDiskEvent.data.folderID = "abcd-efgh";
-            fakeDiskEvent.data.label = "label_abcd-efgh";
-            fakeDiskEvent.data.modifiedBy = "SRV01";
-            fakeDiskEvent.data.path = "document1.txt";
-            fakeDiskEvent.data.type = "file";
-            diskEvents.add(fakeDiskEvent);
-
-            for (int i = 9; i > 0; i--) {
-                fakeDiskEvent = deepCopy(fakeDiskEvent, new TypeToken<DiskEvent>(){}.getType());
-                fakeDiskEvent.id = i;
-                fakeDiskEvent.data.action = "deleted";
-                diskEvents.add(fakeDiskEvent);
-            }
-
-            if (new Random().nextInt(2) == 0) {
-                diskEvents.clear();
-            }
+            getTestData(diskEvents);
         }
+
+        // Hide disk events that are useless to display.
+        removeUselessDiskEvents(diskEvents);
 
         // Show text if the list is empty.
         findViewById(R.id.no_recent_changes).setVisibility(diskEvents.size() > 0 ? View.GONE : View.VISIBLE);
@@ -229,6 +219,158 @@ public class RecentChangesActivity extends SyncthingActivity
         mRecentChangeAdapter.notifyDataSetChanged();
     }
 
+    private void getTestData(List<DiskEvent> diskEvents) {
+        Random random = new Random();
+        /*
+        if (random.nextInt(2) == 0) {
+            diskEvents.clear();
+            return;
+        }
+        */
+
+        /**
+         * Items on UI without "removeUselessDiskEvents"
+         *  10
+         * Items on UI after "removeUselessDiskEvents"
+         *  6
+         */
+        int id = 11;
+        DiskEvent fakeDiskEvent = new DiskEvent();
+        fakeDiskEvent.globalID = 84;
+        fakeDiskEvent.type = "RemoteChangeDetected";
+        fakeDiskEvent.data.folder = "abcd-efgh";
+        fakeDiskEvent.data.folderID = "abcd-efgh";
+        fakeDiskEvent.data.label = "label_abcd-efgh";
+        fakeDiskEvent.data.modifiedBy = "SRV01";
+
+        // - "Camera - Copy" folder
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "deleted";
+        fakeDiskEvent.data.path = "Camera - Copy";
+        fakeDiskEvent.data.type = "dir";
+        fakeDiskEvent.time = "2018-10-29T15:18:52.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // - "document2.txt"
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "deleted";
+        fakeDiskEvent.data.path = "document2.txt";
+        fakeDiskEvent.data.type = "file";
+        fakeDiskEvent.time = "2020-04-13T15:01:00.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // + "document2.txt" - to be removed by Pass 2
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "added";
+        fakeDiskEvent.data.path = "document2.txt";
+        fakeDiskEvent.time = "2020-04-13T15:00:00.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // - "Camera - Copy/IMG_20200413_130936.jpg" - to be removed by Pass 3
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "deleted";
+        fakeDiskEvent.data.path = "Camera - Copy/IMG_20200413_130936.jpg";
+        fakeDiskEvent.time = "2018-10-29T15:18:50.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // + "document1.txt"
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "added";
+        fakeDiskEvent.data.path = "document1.txt";
+        fakeDiskEvent.time = "2018-10-29T17:08:00.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // - "Camera - Copy/IMG_20200413_132532.jpg" - to be removed by Pass 3
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "deleted";
+        fakeDiskEvent.data.path = "Camera - Copy/IMG_20200413_132532.jpg";
+        fakeDiskEvent.time = "2018-10-29T15:18:50.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // - "Camera - Copy/IMG_20200413_132049.jpg" - to be removed by Pass 3
+        fakeDiskEvent.id = --id;
+        fakeDiskEvent.data.action = "deleted";
+        fakeDiskEvent.data.path = "Camera - Copy/IMG_20200413_132049.jpg";
+        fakeDiskEvent.time = "2018-10-29T15:18:50.6183215+01:00";
+        addFakeDiskEvent(diskEvents, fakeDiskEvent);
+
+        // - "document1.txt"
+        for (int i = --id; i > 0; i--) {
+            fakeDiskEvent.id = i;
+            fakeDiskEvent.data.action = "deleted";
+            fakeDiskEvent.data.path = "document1.txt";
+            fakeDiskEvent.time = "2018-10-28T14:08:" +
+                    String.format(Locale.getDefault(), "%02d", random.nextInt(60)) +
+                    ".6183215+01:00";
+            addFakeDiskEvent(diskEvents, fakeDiskEvent);
+        }
+    }
+
+    private void addFakeDiskEvent(List<DiskEvent> diskEvents,
+                                        final DiskEvent fakeDiskEvent) {
+        diskEvents.add(deepCopy(fakeDiskEvent, new TypeToken<DiskEvent>(){}.getType()));
+    }
+
+    private void removeUselessDiskEvents(List<DiskEvent> diskEvents) {
+        /**
+         * Pass 1
+         * Remove invalid disk events
+         */
+        for (Iterator<DiskEvent> it = diskEvents.iterator(); it.hasNext();) {
+            DiskEvent diskEvent = it.next();
+            if (diskEvent.data == null) {
+                Log.d(TAG, "removeUselessDiskEvents: Pass 1: Clearing event with data == null");
+                it.remove();
+            }
+        }
+
+        /**
+         * Pass 2
+         * Check if a file has been created and deleted afterwards.
+         * We can remove the creation event for the non-existent file.
+         */
+        for (Iterator<DiskEvent> it = diskEvents.iterator(); it.hasNext();) {
+            DiskEvent diskEvent = it.next();
+            for (Iterator<DiskEvent> it2 = diskEvents.iterator(); it2.hasNext();) {
+                DiskEvent diskEvent2 = it2.next();
+                if (diskEvent2.id > diskEvent.id) {
+                    // diskEvent2 occured after diskEvent.
+                    // LogV("removeUselessDiskEvents: Pass 2: curId=" + diskEvent.id + ", foundId=" + diskEvent2.id);
+                    if (diskEvent2.data.path.equals(diskEvent.data.path) &&
+                            diskEvent.data.action.equals("added") &&
+                            diskEvent2.data.action.equals("deleted")) {
+                        LogV("removeUselessDiskEvents: Pass 2: Removing \"added\" event because file was deleted afterwards, path=[" + diskEvent.data.path + "]");
+                        it.remove();
+                        break;
+                    }
+                }
+            }
+        }
+
+        /**
+         * Pass 3
+         * Check if a folder has been removed.
+         * We can remove prior events corresponding to the folder.
+         */
+        for (Iterator<DiskEvent> it = diskEvents.iterator(); it.hasNext();) {
+            DiskEvent diskEvent = it.next();
+            for (Iterator<DiskEvent> it2 = diskEvents.iterator(); it2.hasNext();) {
+                DiskEvent diskEvent2 = it2.next();
+                if (diskEvent2.id > diskEvent.id) {
+                    // diskEvent2 occured after diskEvent.
+                    // LogV("removeUselessDiskEvents: Pass 3: curId=" + diskEvent.id + ", foundId=" + diskEvent2.id);
+                    if (diskEvent2.data.type.equals("dir") &&
+                            diskEvent2.data.action.equals("deleted") &&
+                            diskEvent.data.path.startsWith(diskEvent2.data.path + "/")) {
+                        LogV("removeUselessDiskEvents: Pass 3: Removing event because folder was deleted afterwards, path=[" + diskEvent.data.path + "]");
+                        it.remove();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * Returns a deep copy of object.
      *
@@ -237,5 +379,11 @@ public class RecentChangesActivity extends SyncthingActivity
     private <T> T deepCopy(T object, Type type) {
         Gson gson = new Gson();
         return gson.fromJson(gson.toJson(object, type), type);
+    }
+
+    private void LogV(String logMessage) {
+        if (ENABLE_VERBOSE_LOG) {
+            Log.v(TAG, logMessage);
+        }
     }
 }
