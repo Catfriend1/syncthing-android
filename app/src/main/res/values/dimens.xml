@@ -4,7 +4,6 @@
     <dimen name="toolbar_elevation">4dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="dots_height">30dp</dimen>
     <dimen name="dots_margin_bottom">20dp</dimen>
     <dimen name="welcome_title">18sp</dimen>
     <dimen name="slide_title">20sp</dimen>
