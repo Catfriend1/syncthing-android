@@ -986,8 +986,11 @@ public class SettingsActivity extends SyncthingActivity {
                 if (haveRoot) {
                     settingsFragment.mPendingConfig = true;
                 } else {
-                    Toast.makeText(settingsFragment.getActivity(), R.string.toast_root_denied, Toast.LENGTH_SHORT)
-                            .show();
+                    SyncthingActivity syncthingActivity = (SyncthingActivity) settingsFragment.getActivity();
+                    if (syncthingActivity != null && !syncthingActivity.isFinishing()) {
+                        Toast.makeText(syncthingActivity, R.string.toast_root_denied, Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
                 settingsFragment.mUseRoot.setOnPreferenceChangeListener(settingsFragment::onBehaviourPreferenceChange);
             }
