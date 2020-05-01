@@ -1,6 +1,8 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.github.ben-manes.versions'
-apply plugin: 'com.github.triplet.play'
+plugins {
+    id 'com.android.application'
+    id 'com.github.ben-manes.versions'
+    id 'com.github.triplet.play' version '2.7.5'
+}
 
 dependencies {
     implementation 'eu.chainfire:libsuperuser:1.1.0.202004101746'
