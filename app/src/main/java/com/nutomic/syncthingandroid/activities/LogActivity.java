@@ -171,6 +171,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("W/ActivityThread") ||
                             logline.contains("I/Adreno") ||
+                            logline.contains("AssistStructure") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/Choreographer") ||
                             logline.contains("W/chmod") ||
@@ -187,15 +188,20 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_MediaCodecUtil") ||
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
+                            logline.contains("/DecorView") ||
                             logline.contains("/eglCodecCommon") ||
                             logline.contains("/InputEventReceiver") ||
+                            logline.contains("/InputMethodManager") ||
+                            logline.contains("/libEGL") ||
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
                             logline.contains("I/Perf") ||
                             logline.contains("/RenderThread") ||
+                            logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
                             logline.contains("/StrictMode") ||
+                            logline.contains("I/System.out") ||
                             logline.contains("I/Timeline") ||
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("I/WebViewFactory") ||
