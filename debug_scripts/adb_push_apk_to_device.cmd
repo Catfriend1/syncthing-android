@@ -16,8 +16,8 @@ REM
 echo [INFO] Installing APK to attached USB device ...
 adb install -r %APK_USER_INSTALL% "%APK_FULLFN%"
 REM 
-echo [INFO] Starting app ...
-adb shell monkey -p "%APK_PACKAGE_NAME%" 1
+REM echo [INFO] Starting app ...
+REM adb shell monkey -p "%APK_PACKAGE_NAME%" 1
 REM 
 timeout 2
 goto :eof
