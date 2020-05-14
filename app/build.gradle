@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation 'eu.chainfire:libsuperuser:1.1.0.202004101746'
+    implementation 'eu.chainfire:libsuperuser:1.1.0.201907261845'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.google.zxing:android-integration:3.3.0'
