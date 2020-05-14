@@ -80,4 +80,10 @@
         <ignore path="src/main/res/drawable-xxhdpi" />
         <ignore path="src/main/res/drawable-xxxhdpi" />
     </issue>
+    <!-- Ignore FragmentTag deprecation warning -->
+    <issue id="FragmentTagUsage" severity="ignore">
+        <ignore path="src/main/res/layout/fragment_simple_versioning.xml" />
+        <ignore path="src/main/res/layout/fragment_staggered_versioning.xml" />
+        <ignore path="src/main/res/layout/fragment_trashcan_versioning.xml" />
+    </issue>
 </lint>
