@@ -1,7 +1,11 @@
-* Syncthing v1.5.0
+* Syncthing v1.6.0-preview.2
 
 Fixed
 --
 
 Enhanced
 --
+
+Other issues
+--
+- SyncthingNative doesn't start in root shell (#655)
