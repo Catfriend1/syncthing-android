@@ -273,6 +273,11 @@ public class Constants {
         if (kernelVersion == null) {
             return false;
         }
-        return kernelVersion.startsWith("3.4.");
+        /**
+         * Affected kernels:
+         * Samsung Note N7000 - LOS 16 - 3.0.101-gf32669ee5be #1 Tue Apr 7 20:05:58 +08 2020
+         */
+        return kernelVersion.startsWith("3.0.") ||
+                kernelVersion.startsWith("3.4.");
     }
 }

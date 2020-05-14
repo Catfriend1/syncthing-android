@@ -345,8 +345,11 @@ public class ConfigXml {
          * Disable Syncthing's NAT feature because it causes kernel oops on some buggy kernels.
          */
         if (Constants.osHasKernelBugIssue505()) {
-            LogV("Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
-            changed = setConfigElement(options, "natEnabled", Boolean.toString(false)) || changed;
+            Boolean natEnabledChanged = setConfigElement(options, "natEnabled", Boolean.toString(false));
+            if (natEnabledChanged) {
+                Log.d(TAG, "Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
+                changed = true;
+            }
         }
 
         // Add the "Syncthing Camera" folder if the user consented to use the feature.
