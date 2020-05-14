@@ -474,6 +474,9 @@ public class ConfigXml {
             folder.ignoreDelete = getContentOrDefault(r.getElementsByTagName("ignoreDelete").item(0), folder.ignoreDelete);
             folder.copyOwnershipFromParent = getContentOrDefault(r.getElementsByTagName("copyOwnershipFromParent").item(0), folder.copyOwnershipFromParent);
             folder.modTimeWindowS = getContentOrDefault(r.getElementsByTagName("modTimeWindowS").item(0), folder.modTimeWindowS);
+            folder.blockPullOrder = getContentOrDefault(r.getElementsByTagName("blockPullOrder").item(0), folder.blockPullOrder);
+            folder.disableFsync = getContentOrDefault(r.getElementsByTagName("disableFsync").item(0), folder.disableFsync);
+            folder.maxConcurrentWrites = getContentOrDefault(r.getElementsByTagName("maxConcurrentWrites").item(0), folder.maxConcurrentWrites);
 
             // Devices
             /*
@@ -573,6 +576,9 @@ public class ConfigXml {
                 setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
                 setConfigElement(r, "copyOwnershipFromParent", Boolean.toString(folder.copyOwnershipFromParent));
                 setConfigElement(r, "modTimeWindowS", Integer.toString(folder.modTimeWindowS));
+                setConfigElement(r, "blockPullOrder", folder.blockPullOrder);
+                setConfigElement(r, "disableFsync", Boolean.toString(folder.disableFsync));
+                setConfigElement(r, "maxConcurrentWrites", Integer.toString(folder.maxConcurrentWrites));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
