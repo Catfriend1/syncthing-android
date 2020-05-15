@@ -471,7 +471,7 @@ public class SyncthingRunnable implements Runnable {
         File externalFilesDir = mContext.getExternalFilesDir(null);
         if (externalFilesDir != null)
             targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
-        targetEnv.put("STNORESTART", "1");
+        targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
