@@ -1,12 +1,10 @@
-* Syncthing v1.6.0
+* Syncthing v1.7.0-preview.1
 
 Fixed
 --
-- SyncthingNative doesn't start in root shell (#655)
 
 Enhanced
 --
 
 Other issues
 --
-- Workaround for ip get route bug, some LOS kernels 3.0.x
