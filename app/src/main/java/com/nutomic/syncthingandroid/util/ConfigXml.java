@@ -325,6 +325,7 @@ public class ConfigXml {
             Node node = childNodes.item(i);
             if (node.getNodeName().equals("unackedNotificationID")) {
                 switch (getContentOrDefault(node, "")) {
+                    case "authenticationUserAndPassword":
                     case "crAutoEnabled":
                     case "crAutoDisabled":
                     case "fsWatcherNotification":
