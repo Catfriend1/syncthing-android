@@ -5,6 +5,8 @@ Fixed
 
 Enhanced
 --
+- Initial SDcard read/write support on Android 11+ (#618)
 
 Other issues
 --
+- Android 11 wrapper parts are use-able, but not complete yet.
