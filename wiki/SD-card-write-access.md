@@ -1,3 +1,6 @@
+### UPDATE 2020/07/08
+Android 11 is being expected to be the first version since 4.4 that supports writing to external SD card again using Syncthing. Stay tuned.
+
 ### Why SD card use together with Syncthing requires special attention
 According to Google's document:
 
@@ -26,4 +29,5 @@ Implementing Syncthing as Java code instead of using the Native would involve a 
 
 ### Special ways to bypass the Android SD card write access restriction for IT nerds or experts
 * You may ROOT your phone at your own risk. Syncthing-Fork has an option in its settings to enable the execution of SyncthingNative with root privileges. BUT: Executing SyncthingNative with such a high privilege level may also open up security issues (in theory).
+* You may use the [ExtSDCard Write Enabler Magisk Module](https://forum.xda-developers.com/apps/magisk/module-exsdcard-write-access-enabler-t3670428).
 * Android 6, 7: If you are on a rooted phone, you could use [this Xposed module](https://play.google.com/store/apps/details?id=com.balamurugan.marshmallowsdfix) to give Syncthing permission to write to the external SD card storage.
