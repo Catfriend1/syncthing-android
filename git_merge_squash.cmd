@@ -16,7 +16,7 @@ SET BRANCH_TO_MERGE=%1
 IF NOT DEFINED BRANCH_TO_MERGE echo [ERROR] Parameter #1 BRANCH_TO_MERGE is missing. & goto :pauseExit
 REM 
 call :runGit merge --squash --no-commit "%BRANCH_TO_MERGE%"
-call :runGit commit -m "Merged branch \"%BRANCH_TO_MERGE%\""
+REM call :runGit commit -m "Merged branch \"%BRANCH_TO_MERGE%\""
 REM 
 goto :eof
 
