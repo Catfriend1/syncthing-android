@@ -21,7 +21,6 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">儲存空間權限</string>
     <string name="storage_permission_desc">Syncthing 需要獲得您的存儲權限以進行檔案同步。</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">電池最佳化</string>
     <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>

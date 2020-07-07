@@ -21,7 +21,6 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Lagringsbehörighet</string>
     <string name="storage_permission_desc">Syncthing behöver komma åt din lagring för att göra filsynkronisering.</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batterioptimering</string>
     <string name="toast_ignore_doze_permission_required">Den här appen fungerar bara tillförlitligt om den är undantagen från\" doze\"-energisparläge.</string>

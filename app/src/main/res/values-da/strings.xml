@@ -24,7 +24,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Lagertilladelser</string>
     <string name="storage_permission_desc">Syncthing skal have adgang til dit lager for at kunne synkronisere filer.</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batterioptimering</string>
     <string name="ignore_doze_permission_desc">Android vil måske stoppe synkroniseringen efter noget tid. For at forhindre dette, slå batterioptimering fra. Nogle enheder har yderligere task-killing applikationer preinstallierede. Du burde også tilføje Syncthing til deres whitelist.       </string>

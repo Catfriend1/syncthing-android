@@ -25,7 +25,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permís d\'emmagatzematge</string>
     <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimització de bateria</string>
     <string name="toast_ignore_doze_permission_required">Aquesta aplicació només pot funcionar de maner fiable si està eximida del mode d\'estalvi d\'energia \"doze\"</string>

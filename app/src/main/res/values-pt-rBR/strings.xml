@@ -24,7 +24,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permissão de Armazenamento</string>
     <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Otimização de bateria</string>
     <string name="ignore_doze_permission_desc">O Android pode interromper a sincronização após algum tempo. Para evitar isso, desative a otimização da bateria. Alguns dispositivos têm aplicativos adicionais que matam tarefas pré-instalados. Você também deve adicionar o Syncthing à lista de permissões.</string>

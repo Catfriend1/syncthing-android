@@ -24,13 +24,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Speicher-Berechtigung</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
+    <string name="dialog_all_files_access_not_supported">Dein Gerät unterstützt den vollwertigen Dateizugriff nicht</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akku-Optimierung</string>
     <string name="ignore_doze_permission_os_notice">Es ist bekannt, dass Android TV\'s die App gelegentlich beenden, wenn sie im Hintergrund ausgeführt wird. Eine Lösung ist im Wiki unter \'%1$s/%2$s\' verfügbar.</string>
     <string name="ignore_doze_permission_desc">Android kann die Synchronisation nach einiger Zeit stoppen. Um dies zu verhindern, muss die Akku-Optimierung deaktiviert werden. Einige Geräte haben Apps vorinstalliert, welche Hintergrundaktivitäten unterbinden. Syncthing sollte deshalb auf deren Ausnahmeliste hinzugefügt werden.</string>
     <string name="toast_ignore_doze_permission_required">Diese App funktioniert nur dann zuverlässig, wenn Sie vom \"Doze\" Energiesparmodus ausgenommen wird.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Dein Gerät unterstützt das deaktivieren der Batterielaufzeit Optimierung nicht</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Dein Gerät unterstützt das Deaktivieren der Batterielaufzeit Optimierung nicht</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Standort-Berechtigung</string>

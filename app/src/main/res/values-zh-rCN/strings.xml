@@ -24,7 +24,6 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">电池优化</string>
     <string name="ignore_doze_permission_desc">Android 在某些时候会停止 Syncthing 同步进程。为了防止该情况出现，我们建议您关闭电池优化功能。在一些设备系统中会预装内存清理工具，若您在使用这些系统，请把 Syncthing 加入至白名单。</string>

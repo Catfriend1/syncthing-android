@@ -24,7 +24,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permisiune de stocare</string>
     <string name="storage_permission_desc">Syncthing trebuie să acceseze spațiul de stocare pentru a realiza sincronizarea fișierelor.</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimizare baterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV este cunoscut pentru oprirea ocazională a aplicațiilor atunci când rulează în fundal. O soluție este disponibilă la \'%1$s/%2$s\'.</string>

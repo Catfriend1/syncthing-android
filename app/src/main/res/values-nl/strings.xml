@@ -24,7 +24,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batterijoptimalisatie</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Je apparaat biedt geen ondersteuning voor het uitschakelen van batterijoptimalisatie</string>
