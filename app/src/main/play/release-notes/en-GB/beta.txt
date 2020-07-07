@@ -1,4 +1,4 @@
-* Syncthing v1.7.0-preview.1
+* Syncthing v1.7.0
 
 Fixed
 --
