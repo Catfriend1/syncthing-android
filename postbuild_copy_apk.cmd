@@ -13,7 +13,7 @@ REM
 REM Runtime variables.
 SET SCRIPT_PATH=%~dps0
 SET PACKAGE_SOURCE_CODE=1
-SET TEMP_OUTPUT_FOLDER=X:\
+SET TEMP_OUTPUT_FOLDER=X:
 REM 
 REM SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 REM SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
@@ -23,9 +23,11 @@ echo [INFO] *** postbuild_copy_apk BEGIN ***
 REM 
 where git 2> NUL: || call setenv.cmd
 REM 
+IF NOT DEFINED BUILD_FLAVOUR_GPLAY echo [ERROR] Env var BUILD_FLAVOUR_GPLAY not defined. & SET "BUILD_FLAVOUR_GPLAY=gplay"
+REM 
 REM Get "applicationId"
 SET APPLICATION_ID=
-FOR /F "tokens=2 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle" 2^>^&1 ^| findstr "applicationId"') DO SET APPLICATION_ID=%%A
+FOR /F "tokens=2 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle" 2^>^&1 ^| findstr /c:"applicationId "') DO SET APPLICATION_ID=%%A
 SET APPLICATION_ID=%APPLICATION_ID:"=%
 echo [INFO] applicationId="%APPLICATION_ID%"
 REM 
@@ -69,18 +71,16 @@ echo [INFO] Copying APK to same directory ...
 REM 
 REM Copy APK to be ready for upload to the GitHub release page.
 SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
-REM call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %APK_GITHUB_NEW_FILENAME%
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME%
 REM 
 SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
-REM call :renIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %APK_GPLAY_NEW_FILENAME%
-call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME%
+call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME%
 REM 
 REM Copy both APK to temporary storage location if the storage is available.
-IF EXIST %TEMP_OUTPUT_FOLDER% (
+IF EXIST %TEMP_OUTPUT_FOLDER%\ (
 	echo [INFO] Copying APK to [%TEMP_OUTPUT_FOLDER%] ...
-	copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
-	copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER% 2> NUL:
+	copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
+	copy /y %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
 )
 REM 
 IF "%PACKAGE_SOURCE_CODE%" == "1" call :packageSourceCode
@@ -126,7 +126,7 @@ SET TMP_DSC_SEVENZIP_EXE="%ProgramFiles%\7-Zip\7z.exe"
 REM 
 REM Check prerequisites.
 where curl 1> NUL: 2>&1 || (echo [ERROR] curl not found on PATH. & goto :eof)
-IF NOT EXIST %TEMP_OUTPUT_FOLDER% echo [ERROR] TEMP_OUTPUT_FOLDER=[%TEMP_OUTPUT_FOLDER%] not found. & goto :eof
+IF NOT EXIST %TEMP_OUTPUT_FOLDER%\ echo [ERROR] TEMP_OUTPUT_FOLDER=[%TEMP_OUTPUT_FOLDER%] not found. & goto :eof
 IF NOT EXIST %TMP_DSC_SEVENZIP_EXE% echo [ERROR] TMP_DSC_SEVENZIP_EXE=[%TMP_DSC_SEVENZIP_EXE%] not found. & goto :eof
 REM 
 REM Download source code for current build commit as ZIP.
@@ -135,7 +135,7 @@ curl -s -k -L -o %TMP_DSC_ZIPFILE_FULLFN% "https://github.com/Catfriend1/syncthi
 IF NOT EXIST %TMP_DSC_ZIPFILE_FULLFN% echo [ERROR] Download source code FAILED #1. & pause & goto :eof
 call :getFileSize %TMP_DSC_ZIPFILE_FULLFN% FILE_SIZE
 IF "%FILE_SIZE%" == "" echo [ERROR] Download source code FAILED #2. & pause & goto :eof
-IF %FILE_SIZE% LSS 23 echo [ERROR] Download source code FAILED #3. & pause & goto :eof
+IF %FILE_SIZE% LSS 23 echo [ERROR] Download source code FAILED #3. & DEL /F %TMP_DSC_ZIPFILE_FULLFN% & pause & goto :eof
 REM 
 REM Package built APKs into ZIP.
 echo [INFO] Adding built APKs to source code ZIP ...

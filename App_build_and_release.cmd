@@ -13,6 +13,7 @@ REM
 REM SET SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
 SET SYNCTHING_RELEASE_KEY_ALIAS=Syncthing-Fork
+SET BUILD_FLAVOUR_GPLAY=gplay
 title %SYNCTHING_RELEASE_KEY_ALIAS% - Build Debug and Release APK
 REM
 SET GIT_INSTALL_DIR=%ProgramFiles%\Git
@@ -62,18 +63,18 @@ REM
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absPostBuildScript
 REM
-IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk" 2> NUL:
-echo [INFO] Building Android APK variant "release" ...
-call gradlew --quiet assembleRelease
+IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk" 2> NUL:
+echo [INFO] Building Android APK variant "%BUILD_FLAVOUR_GPLAY%" ...
+call gradlew --quiet assemble%BUILD_FLAVOUR_GPLAY%
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleRelease" exited with code #%RESULT%. & goto :eos
-type "app\build\intermediates\merged_manifests\release\AndroidManifest.xml" | findstr /i "android:version"
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assemble%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
+type "app\build\intermediates\merged_manifests\%BUILD_FLAVOUR_GPLAY%\AndroidManifest.xml" | findstr /i "android:version"
 REM
-IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\bundle\release\app-release.aab" 2> NUL:
-echo [INFO] Building Android BUNDLE variant "release" ...
-call gradlew --quiet bundleRelease
+IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\bundle\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.aab" 2> NUL:
+echo [INFO] Building Android BUNDLE variant "%BUILD_FLAVOUR_GPLAY%" ...
+call gradlew --quiet bundle%BUILD_FLAVOUR_GPLAY%
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew bundleRelease" exited with code #%RESULT%. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew bundle%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
 REM
 :absPostBuildScript
 REM
@@ -103,15 +104,15 @@ IF EXIST "app\build\generated\gpp" TASKKILL /F /IM java.exe & sleep 1 & goto :cl
 REM
 REM Publish text and image resources to GPlay
 echo [INFO] Publishing descriptive resources to GPlay ...
-call gradlew --quiet publishReleaseListing
+call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Listing
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishReleaseListing" exited with code #%RESULT%. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%Listing" exited with code #%RESULT%. & goto :eos
 REM
 REM Publish APK to GPlay
 echo [INFO] Publishing APK to GPlay ...
-REM call gradlew --quiet publishRelease
+REM call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%
 REM SET RESULT=%ERRORLEVEL%
-REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishRelease" exited with code #%RESULT%. & goto :eos
+REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
 call gradlew --quiet publishBundle
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & goto :eos

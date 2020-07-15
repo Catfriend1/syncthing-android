@@ -34,8 +34,6 @@ android {
     // Changes to these values need to be reflected in `.travis.yml`
     compileSdkVersion 30
     buildToolsVersion '30.0.0'
-
-    buildTypes.debug.applicationIdSuffix ".debug"
     buildFeatures.dataBinding = true
 
     playConfigs {
@@ -66,9 +64,15 @@ android {
     }
     buildTypes {
         release {
+            applicationIdSuffix ".fdroid"
             signingConfig = signingConfigs.release.storeFile ? signingConfigs.release : null
         }
+        gplay {
+            initWith release
+            applicationIdSuffix ""
+        }
         debug {
+            applicationIdSuffix ".debug"
             gradle.buildFinished {
                 buildResult -> if (buildResult.failure) {
                     logger.lifecycle("BUILD FAILED")
