@@ -1,12 +1,9 @@
-* Syncthing v1.7.0
+* Syncthing v1.8.0-rc.1
 
 Fixed
 --
+-
 
 Enhanced
 --
-- Initial SDcard read/write support on Android 11+ (#618)
-
-Other issues
---
-- Android 11 wrapper parts are use-able, but not complete yet.
+-
