@@ -30,7 +30,7 @@
     <!-- CAMERA is required for the "Syncthing Camera" feature -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- MANAGE_EXTERNAL_STORAGE is required on Android 11 "R" -->
-    <!-- <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="false"
