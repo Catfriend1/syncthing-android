@@ -29,7 +29,7 @@ REM
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absLint
 REM
-echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" GPlay release.
+echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" release.
 REM
 echo [INFO] Checking release prerequisites ...
 IF NOT EXIST "%SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE%" echo [ERROR] SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE env var not set or file does not exist. & goto :eos
@@ -53,22 +53,13 @@ call gradlew --quiet lint
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew lint" exited with code #%RESULT%. & goto :eos
 REM
-echo [INFO] Building Android APK variant "debug" ...
-IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk" 2> NUL:
-call gradlew --quiet assembleDebug
-SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assembleDebug" exited with code #%RESULT%. & goto :eos
-type "app\build\intermediates\merged_manifests\debug\AndroidManifest.xml" | findstr /i "android:version"
+call :buildApk debug
 REM
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absPostBuildScript
 REM
-IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk" 2> NUL:
-echo [INFO] Building Android APK variant "%BUILD_FLAVOUR_GPLAY%" ...
-call gradlew --quiet assemble%BUILD_FLAVOUR_GPLAY%
-SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assemble%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
-type "app\build\intermediates\merged_manifests\%BUILD_FLAVOUR_GPLAY%\AndroidManifest.xml" | findstr /i "android:version"
+call :buildApk release
+call :buildApk %BUILD_FLAVOUR_GPLAY%
 REM
 IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\bundle\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.aab" 2> NUL:
 echo [INFO] Building Android BUNDLE variant "%BUILD_FLAVOUR_GPLAY%" ...
@@ -113,7 +104,7 @@ echo [INFO] Publishing APK to GPlay ...
 REM call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%
 REM SET RESULT=%ERRORLEVEL%
 REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
-call gradlew --quiet publishBundle
+call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Bundle
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & goto :eos
 REM
@@ -123,4 +114,23 @@ REM
 echo [INFO] End of Script.
 REM
 pause
+goto :eof
+
+
+:buildApk
+REM 
+REM Syntax:
+REM 	call :buildApk [BUILD_TYPE]
+REM 
+REM Variables.
+SET "BA_BUILD_TYPE=%1"
+IF NOT DEFINED BA_BUILD_TYPE echo [ERROR] buildApk: Parameter 1 BUILD_TYPE missing. & pause & goto :eof
+REM 
+IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\%BA_BUILD_TYPE%\app-%BA_BUILD_TYPE%.apk" 2> NUL:
+echo [INFO] Building Android APK variant "%BA_BUILD_TYPE%" ...
+call gradlew --quiet assemble%BA_BUILD_TYPE%
+SET RESULT=%ERRORLEVEL%
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assemble%BA_BUILD_TYPE%" exited with code #%RESULT%. & goto :eos
+type "app\build\intermediates\merged_manifests\%BA_BUILD_TYPE%\AndroidManifest.xml" | findstr /i "android:version"
+REM 
 goto :eof
