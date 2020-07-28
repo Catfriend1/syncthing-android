@@ -36,11 +36,6 @@ android {
     buildToolsVersion '30.0.0'
     buildFeatures.dataBinding = true
 
-    playConfigs {
-        defaultAccountConfig {
-            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
-        }
-    }
     defaultConfig {
         applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 16
@@ -62,6 +57,7 @@ android {
             keyPassword System.getenv("SIGNING_PASSWORD") ?: ""
         }
     }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.release.storeFile ? signingConfigs.release : null
@@ -76,6 +72,15 @@ android {
                     logger.lifecycle("BUILD FAILED")
                 }
             }
+        }
+    }
+
+    playConfigs {
+        release {
+            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
+        }
+        gplay {
+            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
         }
     }
 

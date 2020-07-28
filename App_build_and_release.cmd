@@ -118,19 +118,19 @@ goto :eof
 
 
 :buildApk
-REM 
+REM
 REM Syntax:
 REM 	call :buildApk [BUILD_TYPE]
-REM 
+REM
 REM Variables.
 SET "BA_BUILD_TYPE=%1"
 IF NOT DEFINED BA_BUILD_TYPE echo [ERROR] buildApk: Parameter 1 BUILD_TYPE missing. & pause & goto :eof
-REM 
+REM
 IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\apk\%BA_BUILD_TYPE%\app-%BA_BUILD_TYPE%.apk" 2> NUL:
 echo [INFO] Building Android APK variant "%BA_BUILD_TYPE%" ...
 call gradlew --quiet assemble%BA_BUILD_TYPE%
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew assemble%BA_BUILD_TYPE%" exited with code #%RESULT%. & goto :eos
 type "app\build\intermediates\merged_manifests\%BA_BUILD_TYPE%\AndroidManifest.xml" | findstr /i "android:version"
-REM 
+REM
 goto :eof
