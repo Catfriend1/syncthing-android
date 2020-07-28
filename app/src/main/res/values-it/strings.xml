@@ -24,6 +24,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Autorizzazione Memoria</string>
     <string name="storage_permission_desc">Syncthing deve accedere alla tua memoria per poter sincronizzare i file.</string>
+    <string name="dialog_all_files_access_not_supported">Il tuo dispositivo non supporta l\'accesso a tutti i file</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Ottimizzazione della batteria</string>
     <string name="ignore_doze_permission_os_notice">Su Android TV può accadere che l\'app venga terminata mentre è in esecuzione in background. Una soluzione è disponibile nella wiki a \'%1$s/%2$s\'.</string>
