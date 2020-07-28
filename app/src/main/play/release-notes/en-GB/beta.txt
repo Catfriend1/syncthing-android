@@ -1,4 +1,4 @@
-* Syncthing v1.8.0-rc.1
+* Syncthing v1.8.0-rc.3
 
 Fixed
 --
