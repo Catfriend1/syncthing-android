@@ -124,6 +124,8 @@ public class FolderActivity extends SyncthingActivity {
     @Inject
     SharedPreferences mPreferences;
 
+    private boolean mPrefExpertMode = false;
+
     private boolean mIsCreateMode;
     private boolean mFolderNeedsToUpdate = false;
     private boolean mIgnoreListNeedsToUpdate = false;
@@ -203,6 +205,8 @@ public class FolderActivity extends SyncthingActivity {
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
         setTitle(mIsCreateMode ? R.string.create_folder : R.string.edit_folder);
+
+        mPrefExpertMode = mPreferences.getBoolean(Constants.PREF_EXPERT_MODE, false);
 
         mLabelView = findViewById(R.id.label);
         mIdView = findViewById(R.id.id);
@@ -292,9 +296,7 @@ public class FolderActivity extends SyncthingActivity {
         updateViewsAndSetListeners();
 
         // Show expert options conditionally.
-        Boolean prefExpertMode = mPreferences.getBoolean(Constants.PREF_EXPERT_MODE, false);
-        mPullOrderContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
-        mIgnoreDeleteContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
+        mIgnoreDeleteContainer.setVisibility(mPrefExpertMode ? View.VISIBLE : View.GONE);
 
         // Open keyboard on label view in edit mode.
         mLabelView.requestFocus();
@@ -920,6 +922,10 @@ public class FolderActivity extends SyncthingActivity {
                         getString(R.string.folder_type_receiveonly_description));
                 break;
         }
+
+        // Disable "file pull order" option for sendOnly folders. See issue syncthing/syncthing#6807
+        mPullOrderContainer.setVisibility(mPrefExpertMode &&
+                !mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) ? View.VISIBLE : View.GONE);
     }
 
     private void setFolderTypeDescription(String type, String description) {
