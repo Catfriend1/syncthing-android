@@ -79,11 +79,10 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         String deviceLastSeen = sharedPreferences.getString(
             Constants.PREF_CACHE_DEVICE_LASTSEEN_PREFIX + device.deviceID, ""
         );
-        String formattedDeviceLastSeen = Util.formatDateTime(deviceLastSeen);
         final String TIMESTAMP_NEVER_SEEN = "1970-01-01T00:00:00Z";
         binding.lastSeen.setText(mContext.getString(R.string.device_last_seen,
                 TextUtils.isEmpty(deviceLastSeen) || deviceLastSeen.equals(TIMESTAMP_NEVER_SEEN) ?
-                        mContext.getString(R.string.device_last_seen_never) : formattedDeviceLastSeen)
+                        mContext.getString(R.string.device_last_seen_never) : Util.formatDateTime(deviceLastSeen))
         );
 
         if (device.getFolderCount() == 0) {
