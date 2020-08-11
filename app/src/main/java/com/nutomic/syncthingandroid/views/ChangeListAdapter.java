@@ -91,8 +91,11 @@ public class ChangeListAdapter extends RecyclerView.Adapter<ChangeListAdapter.Vi
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         DiskEvent diskEvent = mChangeData.get(position);
 
+        // Encode "#" character so Uri.parse can handle it. See issue syncthing-android/651
+        String uriParsePathInput = diskEvent.data.path.replace("#", Uri.encode("#"));
+
         // Separate path and filename.
-        Uri uri = Uri.parse(diskEvent.data.path);
+        Uri uri = Uri.parse(uriParsePathInput);
         String filename = uri.getLastPathSegment();
         String path = getPathFromFullFN(diskEvent.data.path);
 
