@@ -94,7 +94,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
 
     <!-- Main bottom navigation view -->
-    <string name="activity_main_bottom_navigation_rescan_all">Alle neu scannen</string>    
+    <string name="activity_main_bottom_navigation_rescan_all">Alle neu scannen</string>
 
 
     <!-- Main menu button -->
@@ -200,6 +200,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unbekannt</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Zuletzt online:\u0020%1$s</string>
+    <string name="device_last_seen_never">Nie</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">Ordner:\u0020</string>

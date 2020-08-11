@@ -94,7 +94,7 @@ Please report any problems you encounter via Github.</string>
 
 
     <!-- Main bottom navigation view -->
-    <string name="activity_main_bottom_navigation_rescan_all">Rescan All</string>    
+    <string name="activity_main_bottom_navigation_rescan_all">Rescan All</string>
 
 
     <!-- Main menu button -->
@@ -203,6 +203,10 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unknown</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Last seen:\u0020%1$s</string>
+    <string name="device_last_seen_never">Never</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">Folders:\u0020</string>

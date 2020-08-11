@@ -47,9 +47,16 @@
                 android:layout_below="@+id/progressBar">
 
                 <TextView
+                    android:id="@+id/lastSeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceListItemSecondary" />
+
+                <TextView
                     android:id="@+id/sharedFoldersTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/lastSeen"
                     android:text="@string/shared_folders_title_colon"
                     android:textAppearance="?textAppearanceListItemSecondary" />
 

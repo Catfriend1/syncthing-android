@@ -26,6 +26,7 @@ import com.nutomic.syncthingandroid.model.Config;
 import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.DeviceStat;
 import com.nutomic.syncthingandroid.model.DiscoveredDevice;
 import com.nutomic.syncthingandroid.model.DiskEvent;
 import com.nutomic.syncthingandroid.model.Event;
@@ -788,6 +789,29 @@ public class RestApi {
                                 e.getKey(),             // deviceId
                                 e.getValue()            // connection
                         );
+                    }
+            });
+            new GetRequest(mContext, mUrl, GetRequest.URI_STATS_DEVICE, mApiKey, null, result -> {
+                    /**
+                     * We got the last seen timestamp for ALL devices - including the local device - instead of one.
+                     * It does not hurt storing all of them.
+                     */
+                    if (result == null) {
+                        Log.e(TAG, "getRemoteDeviceStatus: URI_STATS_DEVICE, result == null");
+                        return;
+                    }
+                    JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+                    if (jsonObject == null) {
+                        Log.e(TAG, "getRemoteDeviceStatus: URI_STATS_DEVICE, jsonObject == null");
+                        return;
+                    }
+                    Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+                    for (Map.Entry<String, JsonElement> entry: entries) {
+                        final String resultDeviceId = entry.getKey();
+                        final DeviceStat deviceStat = mGson.fromJson(entry.getValue(), DeviceStat.class);
+                        PreferenceManager.getDefaultSharedPreferences(mContext).edit()
+                                .putString(Constants.PREF_CACHE_DEVICE_LASTSEEN_PREFIX + resultDeviceId, deviceStat.lastSeen)
+                                .apply();
                     }
             });
         }

@@ -92,6 +92,11 @@ public class Constants {
     public static final String PREF_LOCAL_DEVICE_ID             = "localDeviceID";
 
     /**
+     * Cached device stats.
+     */
+    public static final String PREF_CACHE_DEVICE_LASTSEEN_PREFIX        = "device_lastseen_";
+
+    /**
      * {@link ConfigXml#addSyncthingCameraFolder}
      */
     public static final String syncthingCameraFolderId          = "syncthingAndroidCamera-52x89-60es4";
