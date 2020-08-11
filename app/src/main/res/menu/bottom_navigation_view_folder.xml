@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_navigation_item_rescan_all"
+        android:icon="@drawable/ic_autorenew_black_24dp"
+        android:title="@string/activity_main_bottom_navigation_rescan_all" />
+
+</menu>

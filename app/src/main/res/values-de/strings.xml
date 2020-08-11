@@ -93,6 +93,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- MainActivity -->
 
 
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Alle neu scannen</string>    
+
 
     <!-- Main menu button -->
     <string name="open_main_menu">Öffne Hauptmenü</string>

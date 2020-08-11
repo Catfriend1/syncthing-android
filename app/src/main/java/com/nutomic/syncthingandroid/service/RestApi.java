@@ -436,6 +436,15 @@ public class RestApi {
     }
 
     /**
+     * Rescan all folders
+     */
+    public void rescanAll() {
+        Log.d(TAG, "rescanAll");
+        new PostRequest(mContext, mUrl, PostRequest.URI_DB_SCAN, mApiKey,
+            null, null, null);
+    }
+
+    /**
      * Revert local folder changes. This is the same as hitting
      * the "Revert local changes" button from the web UI.
      */

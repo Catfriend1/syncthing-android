@@ -2,4 +2,8 @@
 <resources>
     <color name="primary">#0288D1</color>
     <color name="primary_dark">#002171</color>
+
+    <!-- MainActivity start -->
+    <color name="bottom_navigation_bar">#263238</color>
+    <!-- MainActivity end -->
 </resources>

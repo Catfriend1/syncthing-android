@@ -93,6 +93,9 @@ Please report any problems you encounter via Github.</string>
     <!-- MainActivity -->
 
 
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Rescan All</string>    
+
 
     <!-- Main menu button -->
     <string name="open_main_menu">Open Main Menu</string>

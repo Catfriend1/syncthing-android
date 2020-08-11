@@ -53,4 +53,8 @@
         <item>@color/dot_dark_screen5</item>
     </array>
     <!-- FirstStartActivity welcome wizard end -->
+
+    <!-- MainActivity start -->
+    <color name="bottom_navigation_bar">#1d57a1</color>
+    <!-- MainActivity end -->
 </resources>

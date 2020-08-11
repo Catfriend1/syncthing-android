@@ -42,6 +42,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -426,6 +427,19 @@ public class MainActivity extends SyncthingActivity
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true);
         }
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.bottom_navigation_item_rescan_all:
+                            rescanAll();
+                            break;
+                    }
+                    return true;
+                }
+        });
     }
 
     @Override
@@ -484,7 +498,7 @@ public class MainActivity extends SyncthingActivity
     }
 
     @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
@@ -641,6 +655,15 @@ public class MainActivity extends SyncthingActivity
         topRelTotalSyncProgress.setVisibility(View.VISIBLE);
         pbTotalSyncComplete.setProgress(totalSyncCompletePercent);
         tvTotalSyncComplete.setText(Integer.toString(totalSyncCompletePercent));
+    }
+
+    private void rescanAll() {
+        RestApi restApi = getApi();
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            Log.e(TAG, "rescanAll skipped because Syncthing is not running.");
+            return;
+        }
+        restApi.rescanAll();
     }
 
     private void LogV(String logMessage) {
