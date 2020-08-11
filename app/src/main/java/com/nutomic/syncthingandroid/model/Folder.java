@@ -69,6 +69,7 @@ public class Folder {
 
     public static class Versioning implements Serializable {
         public String type;
+        public int cleanupIntervalS;
         public Map<String, String> params = new HashMap<>();
     }
 

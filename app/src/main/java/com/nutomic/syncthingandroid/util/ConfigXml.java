@@ -517,12 +517,14 @@ public class ConfigXml {
             <versioning></versioning>
             <versioning type="trashcan">
                 <param key="cleanoutDays" val="90"></param>
+                <cleanupIntervalS>0</cleanupIntervalS>
             </versioning>
             */
             folder.versioning = new Folder.Versioning();
             Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
             if (elementVersioning != null) {
                 folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
+                folder.versioning.cleanupIntervalS = getAttributeOrDefault(elementVersioning, "cleanupIntervalS", 0);
                 NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
                 for (int j = 0; j < nodeVersioningParam.getLength(); j++) {
                     Element elementVersioningParam = (Element) nodeVersioningParam.item(j);
@@ -628,13 +630,6 @@ public class ConfigXml {
 
                 // Versioning
                 // Pass 1: Remove all versioning nodes from XML (usually one)
-                /*
-                NodeList nlVersioning = r.getElementsByTagName("versioning");
-                for (int j = nlVersioning.getLength() - 1; j >= 0; j--) {
-                    Log.v(TAG, "updateFolder: nodeVersioning: Removing versioning node");
-                    removeChildElementFromTextNode(r, (Element) nlVersioning.item(j));
-                }
-                */
                 Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
                 if (elementVersioning != null) {
                     Log.d(TAG, "updateFolder: nodeVersioning: Removing versioning node");
@@ -647,6 +642,7 @@ public class ConfigXml {
                 elementVersioning = (Element) nodeVersioning;
                 if (!TextUtils.isEmpty(folder.versioning.type)) {
                     elementVersioning.setAttribute("type", folder.versioning.type);
+                    elementVersioning.setAttribute("cleanupIntervalS", Integer.toString(folder.versioning.cleanupIntervalS));
                     for (Map.Entry<String, String> param : folder.versioning.params.entrySet()) {
                         Log.d(TAG, "updateFolder: nodeVersioning: Adding param key=" + param.getKey() + ", val=" + param.getValue());
                         Node nodeParam = mConfig.createElement("param");
@@ -1360,6 +1356,7 @@ public class ConfigXml {
         folder.versioning = new Folder.Versioning();
         folder.versioning.type = "trashcan";
         folder.versioning.params.put("cleanoutDays", Integer.toString(14));
+        folder.versioning.cleanupIntervalS = 0;
 
         // Add folder to config.
         LogV("addSyncthingCameraFolder: Adding folder to config ...");
