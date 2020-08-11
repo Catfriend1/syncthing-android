@@ -481,6 +481,7 @@ public class ConfigXml {
             folder.blockPullOrder = getContentOrDefault(r.getElementsByTagName("blockPullOrder").item(0), folder.blockPullOrder);
             folder.disableFsync = getContentOrDefault(r.getElementsByTagName("disableFsync").item(0), folder.disableFsync);
             folder.maxConcurrentWrites = getContentOrDefault(r.getElementsByTagName("maxConcurrentWrites").item(0), folder.maxConcurrentWrites);
+            folder.copyRangeMethod = getContentOrDefault(r.getElementsByTagName("copyRangeMethod").item(0), folder.copyRangeMethod);
 
             // Devices
             /*
@@ -585,6 +586,7 @@ public class ConfigXml {
                 setConfigElement(r, "blockPullOrder", folder.blockPullOrder);
                 setConfigElement(r, "disableFsync", Boolean.toString(folder.disableFsync));
                 setConfigElement(r, "maxConcurrentWrites", Integer.toString(folder.maxConcurrentWrites));
+                setConfigElement(r, "copyRangeMethod", folder.copyRangeMethod);
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.

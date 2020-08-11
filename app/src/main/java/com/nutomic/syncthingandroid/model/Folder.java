@@ -64,6 +64,10 @@ public class Folder {
     // see PR #6573
     public int maxConcurrentWrites = 2;
 
+    // Since v1.8.0
+    // see PR #6746: "all", "copy_file_range", "duplicate_extents", "ioctl", "sendfile", "standard"
+    public String copyRangeMethod = "standard";
+
     // Folder Status
     public String invalid;
 
