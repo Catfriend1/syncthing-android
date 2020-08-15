@@ -9,4 +9,4 @@ Fixed
 Enhanced
 --
 - Device tab: Show device last seen date and time (#687)
-- Offer button to "rescan all" folders (#681)
+- Offer button to "rescan all" folders (#681) (#693)
