@@ -434,7 +434,7 @@ public class MainActivity extends SyncthingActivity
                 public boolean onNavigationItemSelected(MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.bottom_navigation_item_rescan_all:
-                            rescanAll();
+                            // rescanAll();
                             break;
                     }
                     return true;
@@ -655,15 +655,6 @@ public class MainActivity extends SyncthingActivity
         topRelTotalSyncProgress.setVisibility(View.VISIBLE);
         pbTotalSyncComplete.setProgress(totalSyncCompletePercent);
         tvTotalSyncComplete.setText(Integer.toString(totalSyncCompletePercent));
-    }
-
-    private void rescanAll() {
-        RestApi restApi = getApi();
-        if (restApi == null || !restApi.isConfigLoaded()) {
-            Log.e(TAG, "rescanAll skipped because Syncthing is not running.");
-            return;
-        }
-        restApi.rescanAll();
     }
 
     private void LogV(String logMessage) {

@@ -35,11 +35,12 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:itemIconTint="@android:color/white"
                 app:itemTextColor="@android:color/white"
                 app:menu="@menu/bottom_navigation_view_folder"/>
         </RelativeLayout>
-        
+
     </LinearLayout>
 
     <FrameLayout

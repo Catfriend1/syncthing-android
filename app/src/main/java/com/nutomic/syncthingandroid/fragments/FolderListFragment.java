@@ -196,9 +196,25 @@ public class FolderListFragment extends ListFragment implements SyncthingService
                         .putExtra(FolderActivity.EXTRA_IS_CREATE, true);
                 startActivity(intent);
                 return true;
+            case R.id.rescan_all:
+                rescanAll();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void rescanAll() {
+        SyncthingActivity activity = (SyncthingActivity) getActivity();
+        if (activity == null || getView() == null || activity.isFinishing()) {
+            return;
+        }
+        RestApi restApi = activity.getApi();
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            Log.e(TAG, "rescanAll skipped because Syncthing is not running.");
+            return;
+        }
+        restApi.rescanAll();
     }
 
     private void LogV(String logMessage) {

@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/rescan_all"
+        android:icon="@drawable/ic_autorenew_white"
+        android:title="@string/activity_main_bottom_navigation_rescan_all"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
         android:id="@+id/add_folder"
         android:icon="@drawable/btn_add_folder"
         android:title="@string/add_folder"
