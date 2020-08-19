@@ -1,12 +1,8 @@
-* Syncthing v1.8.0
+* Syncthing v1.9.0-rc.1
 
 Fixed
 --
-- RecentChangesDialog: Fix display of filenames containing "#" (#686)
-- Disable "file pull order" option for sendOnly folders (#683)
-- Minor fixes in model to get compatible with Syncthing v1.8.0 (#684) (#685)
+
 
 Enhanced
 --
-- Device tab: Show device last seen date and time (#687)
-- Offer button to "rescan all" folders (#681) (#693)

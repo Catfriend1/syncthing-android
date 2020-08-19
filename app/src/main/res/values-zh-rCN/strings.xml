@@ -55,10 +55,6 @@
 
 
 
-    <!-- MainActivity -->
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">打开主菜单</string>
     <string name="close_main_menu">关闭主菜单</string>

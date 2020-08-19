@@ -90,10 +90,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
 
 
-    <!-- MainActivity -->
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">Apri menu principale</string>
     <string name="close_main_menu">Chiudi menu principale</string>

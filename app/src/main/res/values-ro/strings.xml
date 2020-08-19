@@ -82,10 +82,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
 
 
-    <!-- MainActivity -->
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">Deschideți Meniul principal</string>
     <string name="close_main_menu">Închideți Meniul principal</string>

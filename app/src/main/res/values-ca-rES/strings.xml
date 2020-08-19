@@ -60,10 +60,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
 
 
-    <!-- MainActivity -->
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">Obre el Menú Principal</string>
     <string name="close_main_menu">Tanca el Menú Principal</string>

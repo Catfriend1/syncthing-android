@@ -60,10 +60,6 @@
 
     <string name="grant_camera_permission">允許相機權限</string>
 
-    <!-- MainActivity -->
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">打開主選單</string>
     <string name="close_main_menu">關閉主選單</string>
