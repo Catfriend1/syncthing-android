@@ -124,6 +124,14 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
             } else {
                 switch(folderStatus.state) {
+                    case "clean-waiting":
+                        binding.state.setText(mContext.getString(R.string.state_clean_waiting));
+                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        break;
+                    case "cleaning":
+                        binding.state.setText(mContext.getString(R.string.state_cleaning));
+                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        break;
                     case "idle":
                         if (folder.getDeviceCount() <= 1) {
                             // Special case: The folder is IDLE and UNSHARED.

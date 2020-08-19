@@ -978,6 +978,8 @@ Please report any problems you encounter via Github.</string>
     <string name="state_failed_items">Failed Items (%1$d)</string>
     <string name="state_up_to_date">Up to Date</string>
     <string name="state_local_additions">Local Additions</string>
+    <string name="state_cleaning">Cleaning Versions</string>
+    <string name="state_clean_waiting">Waiting to Clean</string>
     <string name="state_scanning">Scanning</string>
     <string name="state_scan_waiting">Waiting to Scan</string>
     <string name="state_sync_waiting">Waiting to Sync</string>
