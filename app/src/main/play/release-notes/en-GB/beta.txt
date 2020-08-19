@@ -6,3 +6,4 @@ Fixed
 
 Enhanced
 --
+- Always show all actions in the menu

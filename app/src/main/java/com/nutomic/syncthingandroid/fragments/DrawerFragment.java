@@ -130,22 +130,17 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private void updateUI() {
         Boolean syncthingRunning = mServiceState == SyncthingService.State.ACTIVE;
 
-        // Update action button availability. Show buttons if syncthing is running.
-        mDrawerActionShowQrCode.setVisibility(View.VISIBLE);
-        mDrawerRecentChanges.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
         /**
          * Show Web UI menu item on Android TV for debug builds only.
          * Reason: SyncthingNative's Web UI is not approved by Google because
          *          it is lacking full DPAD navigation support. See issue #567.
          */
-        mDrawerActionWebGui.setVisibility(
-                (syncthingRunning && (!mRunningOnTV || BuildConfig.DEBUG)) ?
-                        View.VISIBLE :
-                        View.GONE
-        );
-        mDrawerActionRestart.setVisibility(syncthingRunning ? View.VISIBLE : View.GONE);
-        mDrawerTipsAndTricks.setVisibility(View.VISIBLE);
-        mDrawerActionExit.setVisibility(View.VISIBLE);
+        mDrawerActionWebGui.setVisibility((!mRunningOnTV || BuildConfig.DEBUG) ? View.VISIBLE : View.GONE);
+
+        // Enable buttons if syncthing is running.
+        mDrawerRecentChanges.setEnabled(syncthingRunning);
+        mDrawerActionWebGui.setEnabled(syncthingRunning);
+        mDrawerActionRestart.setEnabled(syncthingRunning);
     }
 
     /**

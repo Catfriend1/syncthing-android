@@ -34,7 +34,6 @@
             android:drawableLeft="@drawable/ic_close_black_24dp"
             android:drawableStart="@drawable/ic_close_black_24dp"
             android:text="@string/exit"
-            android:visibility="gone"
             android:clickable="true"
             android:focusable="true" />
 
