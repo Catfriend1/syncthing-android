@@ -68,6 +68,10 @@ public class Folder {
     // see PR #6746: "all", "copy_file_range", "duplicate_extents", "ioctl", "sendfile", "standard"
     public String copyRangeMethod = "standard";
 
+    // Since v1.9.0
+    // see https://github.com/syncthing/syncthing/commit/932d8c69de9e34824ecc4d5de0a482dfdb71936e
+    public Boolean caseSensitiveFS = false;
+
     // Folder Status
     public String invalid;
 
