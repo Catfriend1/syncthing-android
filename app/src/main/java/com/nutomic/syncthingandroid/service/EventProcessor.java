@@ -82,6 +82,10 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         // If that's the case we've to start at zero because syncthing was restarted.
         mRestApi.getEvents(0, 1, new RestApi.OnReceiveEventListener() {
             @Override
+            public void onError() {
+            }
+
+            @Override
             public void onEvent(Event event, JsonElement json) {
             }
 
@@ -256,6 +260,17 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
         synchronized (mMainThreadHandler) {
             if (!mShutdown) {
+                mMainThreadHandler.removeCallbacks(this);
+                mMainThreadHandler.postDelayed(this, EVENT_UPDATE_INTERVAL);
+            }
+        }
+    }
+
+    @Override
+    public void onError() {
+        synchronized (mMainThreadHandler) {
+            if (!mShutdown) {
+                Log.d(TAG, "Event sink aborted, will retry in " + Long.toString(EVENT_UPDATE_INTERVAL) + "s");
                 mMainThreadHandler.removeCallbacks(this);
                 mMainThreadHandler.postDelayed(this, EVENT_UPDATE_INTERVAL);
             }

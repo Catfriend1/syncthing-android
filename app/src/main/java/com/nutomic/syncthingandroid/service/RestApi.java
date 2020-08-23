@@ -191,14 +191,14 @@ public class RestApi {
                 asyncQueryVersionComplete = true;
                 checkReadConfigFromRestApiCompleted();
             }
-        });
+        }, error -> {});
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, result -> {
             onReloadConfigComplete(result);
             synchronized (mAsyncQueryCompleteLock) {
                 asyncQueryConfigComplete = true;
                 checkReadConfigFromRestApiCompleted();
             }
-        });
+        }, error -> {});
         getSystemStatus(info -> {
             mLocalDeviceId = info.myID;
             mUrVersionMax = info.urVersionMax;
@@ -218,7 +218,7 @@ public class RestApi {
     }
 
     public void reloadConfig() {
-        new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, this::onReloadConfigComplete);
+        new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, this::onReloadConfigComplete, error -> {});
     }
 
     private void onReloadConfigComplete(String result) {
@@ -320,7 +320,7 @@ public class RestApi {
                 } catch (Exception e) {
                     Log.w(TAG, "updateDebugFacilitiesCache: Failed to get debug facilities. result=" + result);
                 }
-            });
+            }, error -> {});
         }
     }
 
@@ -703,7 +703,7 @@ public class RestApi {
             } catch (Exception e) {
                 Log.e(TAG, "getSystemStatus: Parsing REST API result failed. result=" + result);
             }
-        });
+        }, error -> {});
     }
 
     public boolean isConfigLoaded() {
@@ -726,7 +726,7 @@ public class RestApi {
                 discoveredDevices.put(TestData.DEVICE_B_ID, fakeDiscoveredDevice);
             }
             listener.onResult(discoveredDevices);
-        });
+        }, error -> {});
     }
 
     /**
@@ -737,7 +737,7 @@ public class RestApi {
                 ImmutableMap.of("folder", folderId), result -> {
             FolderIgnoreList folderIgnoreList = mGson.fromJson(result, FolderIgnoreList.class);
             listener.onResult(folderIgnoreList);
-        });
+        }, error -> {});
     }
 
     /**
@@ -757,7 +757,7 @@ public class RestApi {
         new GetRequest(mContext, mUrl, GetRequest.URI_VERSION, mApiKey, null, result -> {
             SystemVersion systemVersion = mGson.fromJson(result, SystemVersion.class);
             listener.onResult(systemVersion);
-        });
+        }, error -> {});
     }
 
     /**
@@ -786,7 +786,7 @@ public class RestApi {
                                 e.getValue()            // connection
                         );
                     }
-            });
+            }, error -> {});
             new GetRequest(mContext, mUrl, GetRequest.URI_STATS_DEVICE, mApiKey, null, result -> {
                     /**
                      * We got the last seen timestamp for ALL devices - including the local device - instead of one.
@@ -809,7 +809,7 @@ public class RestApi {
                                 .putString(Constants.PREF_CACHE_DEVICE_LASTSEEN_PREFIX + resultDeviceId, deviceStat.lastSeen)
                                 .apply();
                     }
-            });
+            }, error -> {});
         }
         return cacheEntry;
     }
@@ -907,7 +907,7 @@ public class RestApi {
                     } catch (Exception e) {
                         Log.e(TAG, "getDiskEvents: Parsing REST API result failed. result=" + result);
                     }
-                }
+                }, error -> {}
         );
     }
 
@@ -915,6 +915,8 @@ public class RestApi {
      * Listener for {@link #getEvents}.
      */
     public interface OnReceiveEventListener {
+        void onError();
+
         /**
          * Called for each event.
          */
@@ -951,6 +953,8 @@ public class RestApi {
             }
 
             listener.onDone(lastId);
+        }, error -> {
+            listener.onError();
         });
     }
 
@@ -978,7 +982,7 @@ public class RestApi {
                         folder.paused,
                         mGson.fromJson(result, FolderStatus.class)
                 );
-            });
+            }, error -> {});
         }
         return cacheEntry;
     }
@@ -1065,7 +1069,7 @@ public class RestApi {
             JsonElement json = new JsonParser().parse(result);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             listener.onResult(gson.toJson(json));
-        });
+        }, error -> {});
     }
 
     public String getApiKey() {
@@ -1134,7 +1138,7 @@ public class RestApi {
             if (listener != null) {
                 listener.onResult(failSuccess);
             }
-        });
+        }, error -> {});
     }
 
     /**

@@ -2,6 +2,7 @@
 
 Fixed
 --
+- Fix event processing failing silently (#700)
 
 
 Enhanced

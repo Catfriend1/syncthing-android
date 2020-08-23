@@ -32,11 +32,12 @@ public class GetRequest extends ApiRequest {
     public static final String URI_STATS_DEVICE     = "/rest/stats/device";
 
     public GetRequest(Context context, URL url, String path, String apiKey,
-                      @Nullable Map<String, String> params, OnSuccessListener listener) {
+                      @Nullable Map<String, String> params,
+                      OnSuccessListener onSuccess, OnErrorListener onError) {
         super(context, url, path, apiKey);
         Map<String, String> safeParams = Optional.fromNullable(params).or(Collections.emptyMap());
         Uri uri = buildUri(safeParams);
-        connect(Request.Method.GET, uri, null, listener, null);
+        connect(Request.Method.GET, uri, null, onSuccess, onError);
     }
 
 }
