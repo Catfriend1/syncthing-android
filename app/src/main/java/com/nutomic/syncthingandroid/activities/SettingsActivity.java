@@ -732,7 +732,7 @@ public class SettingsActivity extends SyncthingActivity {
                     mRestApi.editSettings(mGui, mOptions);
                     if (mRestApi != null &&
                             mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                        mRestApi.saveConfigAndRestart();
+                        mRestApi.sendConfig();
                         mPendingConfig = false;
                     }
                     return true;
@@ -751,7 +751,7 @@ public class SettingsActivity extends SyncthingActivity {
                 if (mPendingConfig) {
                     if (mRestApi != null &&
                             mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                        mRestApi.saveConfigAndRestart();
+                        mRestApi.sendConfig();
                         mPendingConfig = false;
                     }
                 }

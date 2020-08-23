@@ -587,11 +587,11 @@ public class MainActivity extends SyncthingActivity
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         restApi.setUsageReporting(true);
-                        restApi.saveConfigAndRestart();
+                        restApi.sendConfig();
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
                         restApi.setUsageReporting(false);
-                        restApi.saveConfigAndRestart();
+                        restApi.sendConfig();
                         break;
                     case DialogInterface.BUTTON_NEUTRAL:
                         final Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
