@@ -270,7 +270,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     public void onError() {
         synchronized (mMainThreadHandler) {
             if (!mShutdown) {
-                Log.d(TAG, "Event sink aborted, will retry in " + Long.toString(EVENT_UPDATE_INTERVAL) + "s");
+                Log.d(TAG, "Event sink aborted, will retry in " + Long.toString(EVENT_UPDATE_INTERVAL) + " ms");
                 mMainThreadHandler.removeCallbacks(this);
                 mMainThreadHandler.postDelayed(this, EVENT_UPDATE_INTERVAL);
             }
