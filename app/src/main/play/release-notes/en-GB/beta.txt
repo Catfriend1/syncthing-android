@@ -9,3 +9,4 @@ Enhanced
 --
 - Always show all actions in the menu
 - Removed unnecessary restarts (#698)
+- Welcome assistant: Proceed to next slide if permissions were granted (#701)

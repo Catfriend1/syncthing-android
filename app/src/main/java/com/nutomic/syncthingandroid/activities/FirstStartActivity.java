@@ -581,6 +581,7 @@ public class FirstStartActivity extends AppCompatActivity {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted ACCESS_COARSE_LOCATION permission.");
                     mNextButton.requestFocus();
+                    onBtnNextClick();
                 }
                 break;
             case REQUEST_BACKGROUND_LOCATION:
@@ -591,6 +592,7 @@ public class FirstStartActivity extends AppCompatActivity {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted ACCESS_BACKGROUND_LOCATION permission.");
                     mNextButton.requestFocus();
+                    onBtnNextClick();
                 }
                 break;
             case REQUEST_FINE_LOCATION:
@@ -621,8 +623,10 @@ public class FirstStartActivity extends AppCompatActivity {
                     Log.i(TAG, "User granted WRITE_EXTERNAL_STORAGE permission.");
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                         requestAllFilesAccessPermission();
+                        mNextButton.requestFocus();
+                        return;
                     }
-                    mNextButton.requestFocus();
+                    onBtnNextClick();
                 }
                 break;
             default:
