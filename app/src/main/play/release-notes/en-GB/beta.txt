@@ -1,12 +1,5 @@
-* Syncthing v1.9.0-rc.5
+* Syncthing v1.9.0
 
-Fixed
+Other issues
 --
-- Fix event processing failing silently (#700)
-
-
-Enhanced
---
-- Always show all actions in the menu
-- Removed unnecessary restarts (#698)
-- Welcome assistant: Proceed to next slide if permissions were granted (#701)
+- If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
