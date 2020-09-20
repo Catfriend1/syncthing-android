@@ -9,6 +9,8 @@ SET GITPATH=%ProgramFiles%\Git\cmd
 SET GIT_BIN="%GITPATH%\git.exe"
 REM 
 echo [INFO] Checking prerequisites ...
+SET GIT_BIN=
+FOR /F "tokens=*" %%A IN ('where git 2^> NUL:') DO SET GIT_BIN="%%A"
 IF NOT EXIST %GIT_BIN% echo [ERROR] GIT_BIN not found. & goto :pauseExit
 REM 
 REM Script parameters.
