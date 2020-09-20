@@ -414,13 +414,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="use_root_summary">Aquesta característica és inestable i podria causar problemes amb el Syncthing i amb el vostre dispositiu. Si us trobeu amb problemes, potser haureu de reinstal·lar el Syncthing.</string>
 
-    <string name="suggest_new_folder_root_title">Seleccioneu la nova carpeta arrel</string>
-
-    <string-array name="suggest_new_folder_root_entries">
-        <item>[emmagatzematge_extern]/Android/data</item>
-        <item>[emmagatzematge_extern]/Android/media</item>
-    </string-array>
-
     <string name="expert_mode_title">Mode expert</string>
 
     <string name="preference_language_title">Idioma</string>

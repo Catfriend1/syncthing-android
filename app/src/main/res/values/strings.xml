@@ -533,13 +533,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature cautious.</string>
 
-    <string name="suggest_new_folder_root_title">Select new folder root</string>
-
-    <string-array name="suggest_new_folder_root_entries">
-        <item>[external_storage]/Android/data</item>
-        <item>[external_storage]/Android/media</item>
-    </string-array>
-
     <string name="launcher_show_camera_icon_title">Show camera icon in launcher</string>
 
     <string name="launcher_show_camera_icon_summary">Disable this option if you do not like to use the \'Syncthing Camera\' feature. This does not work with launcher apps that do not support hiding icons.</string>

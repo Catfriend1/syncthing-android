@@ -498,8 +498,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="use_root_summary">Aceasta este o funcție instabilă care ar putea cauza probleme atăt Syncthing cât și dispozitivului dumneavoastră. Dacă vă confruntați cu probleme, v-a trebui să reinstalați Syncthing.</string>
 
-    <string name="suggest_new_folder_root_title">Selectați noua rădăcină a dosarului</string>
-
     <string name="launcher_show_camera_icon_summary">Dezactivați această opțiune dacă nu doriți să utilizați funcția „Syncthing Camera”. Aceasta nu funcționează cu aplicațiile Lansator care nu acceptă ascunderea pictogramelor.</string>
 
     <string name="toast_show_hide_launcher_icon_failed">Eroare la afișarea sau ascunderea pictogramei.</string>

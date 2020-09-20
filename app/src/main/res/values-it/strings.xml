@@ -519,13 +519,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="use_root_summary">Questa è una caratteristica instabile che può causare problemi con Syncthing e con il dispositivo. In caso di problemi, potrebbe essere necessario reinstallare Syncthing.</string>
 
-    <string name="suggest_new_folder_root_title">Seleziona nuova cartella radice</string>
-
-    <string-array name="suggest_new_folder_root_entries">
-        <item>[memoria_esterna]/Android/data</item>
-        <item>[memoria_esterna]/Android/media</item>
-    </string-array>
-
     <string name="launcher_show_camera_icon_title">Mostra icona fotocamera nel launcher</string>
 
     <string name="launcher_show_camera_icon_summary">Disabilita questa opzione se non vuoi usare la funzione \'Fotocamera Syncthing\'. Non funziona con i launcher che non possono nascondere le icone.</string>

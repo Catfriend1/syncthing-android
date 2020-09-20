@@ -370,13 +370,6 @@
 
     <string name="use_root_summary">该项功能不稳定，可能会导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>
 
-    <string name="suggest_new_folder_root_title">选择新文件夹根目录</string>
-
-    <string-array name="suggest_new_folder_root_entries">
-        <item>[external_storage]/Android/data</item>
-        <item>[external_storage]/Android/media</item>
-    </string-array>
-
     <string name="expert_mode_title">专家模式</string>
 
     <string name="preference_language_title">语言</string>

@@ -530,13 +530,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
 
-    <string name="suggest_new_folder_root_title">Wähle Stamm für neue Ordner</string>
-
-    <string-array name="suggest_new_folder_root_entries">
-        <item>[Ext_Speicher]/Android/data</item>
-        <item>[Ext_Speicher]/Android/media</item>
-    </string-array>
-
     <string name="launcher_show_camera_icon_title">Kamera-Symbol im Launcher anzeigen</string>
 
     <string name="launcher_show_camera_icon_summary">Deaktivieren Sie diese Option, wenn Sie die Funktion \"Syncthing Kamera\" nicht verwenden möchten. Dies funktioniert nicht mit Launcher-Apps, die das Ausblenden von Symbolen nicht unterstützen.</string>
