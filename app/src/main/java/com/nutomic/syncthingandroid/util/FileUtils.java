@@ -205,7 +205,7 @@ public class FileUtils {
             }
             // Extract the volumeId, e.g. "abcd-efgh"
             String volumeId = segments[2];
-            switch(extDirType ){
+            switch(extDirType) {
                 case DATA:
                     // Build the content Uri for our private ".../data/[PKG_NAME]/files" folder.
                     return android.net.Uri.parse(
