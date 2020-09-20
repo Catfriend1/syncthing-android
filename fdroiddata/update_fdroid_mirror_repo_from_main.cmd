@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
 cls
-title Syncthing-Fork - Update F-Droid Mirror Repo from Master
+title Syncthing-Fork - Update F-Droid Mirror Repo from main
 REM 
 REM Runtime Variables.
 SET APP_BUILD_GRADLE=%~dps0app\build.gradle
@@ -11,7 +11,7 @@ where git 2> NUL: || call setenv.cmd
 REM 
 call :runGit fetch --all
 REM 
-call :runGit pull upstream master
+call :runGit pull upstream main
 REM 
 call :readVersionFromVersionsGradle
 echo [INFO] applicationId="%APPLICATION_ID%"
