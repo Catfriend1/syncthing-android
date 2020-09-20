@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/device_button"
     style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
@@ -10,8 +11,8 @@
     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
     android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
     android:clickable="true"
-    android:drawableEnd="@drawable/ic_content_copy_black_24dp"
-    android:drawableRight="@drawable/ic_content_copy_black_24dp"
+    app:drawableEndCompat="@drawable/ic_content_copy_black_24dp"
+    app:drawableRightCompat="@drawable/ic_content_copy_black_24dp"
     android:focusable="true"
     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
     tools:ignore="RtlHardcoded,RtlSymmetry"

@@ -306,11 +306,6 @@ public class SettingsActivity extends SyncthingActivity {
             );
 
             mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                // Remove pref as we use JobScheduler implementation which is not available on API < 21.
-                CheckBoxPreference prefRunOnTimeSchedule = (CheckBoxPreference) findPreference(Constants.PREF_RUN_ON_TIME_SCHEDULE);
-                mCategoryRunConditions.removePreference(prefRunOnTimeSchedule);
-            }
             setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
 
             /* User Interface */

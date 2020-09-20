@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         applicationId "com.github.catfriend1.syncthingandroid"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode ourVersionCode
         versionName ourVersionName

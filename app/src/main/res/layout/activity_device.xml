@@ -36,8 +36,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_cellphone_black_24dp"
-                    android:drawableStart="@drawable/ic_cellphone_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_cellphone_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_cellphone_black_24dp"
                     android:contentDescription="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine"
@@ -51,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
-                    android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
                     app:srcCompat="@drawable/ic_qrcode_black_24dp_active" />
 
@@ -63,12 +62,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
-                android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                 android:clickable="true"
-                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
-                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
-                android:drawableEnd="@drawable/ic_refresh_black_24"
-                android:drawableRight="@drawable/ic_refresh_black_24"
+                app:drawableLeftCompat="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableEndCompat="@drawable/ic_refresh_black_24"
                 android:focusable="true"
                 android:text="@string/discovered_devices_title"
                 android:visibility="gone" />
@@ -99,8 +96,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_cellphone_black_24dp"
-                    android:drawableStart="@drawable/ic_cellphone_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_cellphone_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_cellphone_black_24dp"
                     android:hint="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine" />
@@ -112,7 +109,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
-                    android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
                     app:srcCompat="@drawable/ic_content_copy_black_24dp" />
 
@@ -124,8 +120,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_tag_text_outline_black_24dp_active"
-                android:drawableStart="@drawable/ic_tag_text_outline_black_24dp_active"
+                app:drawableLeftCompat="@drawable/ic_tag_text_outline_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_tag_text_outline_black_24dp_active"
                 android:hint="@string/name"
                 android:imeOptions="actionNext"
                 android:inputType="textCapWords"
@@ -137,8 +133,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_link_black_24dp_active"
-                android:drawableStart="@drawable/ic_link_black_24dp_active"
+                app:drawableLeftCompat="@drawable/ic_link_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_link_black_24dp_active"
                 android:hint="@string/addresses"
                 android:imeOptions="actionDone"
                 android:inputType="textNoSuggestions"
@@ -148,8 +144,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
-                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableLeftCompat="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_device_hub_black_24dp_active"
                 android:focusable="false"
                 android:text="@string/folders" />
 
@@ -177,8 +173,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_zip_box_black_24dp_active"
-                    android:drawableStart="@drawable/ic_zip_box_black_24dp_active"
+                    app:drawableLeftCompat="@drawable/ic_zip_box_black_24dp_active"
+                    app:drawableStartCompat="@drawable/ic_zip_box_black_24dp_active"
                     android:text="@string/compression" />
 
                 <TextView
@@ -186,7 +182,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
-                    android:layout_marginRight="@dimen/abc_action_bar_content_inset_material"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
             </LinearLayout>
 
@@ -196,8 +191,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_phonelink_black_24dp_active"
-                android:drawableStart="@drawable/ic_phonelink_black_24dp_active"
+                app:drawableLeftCompat="@drawable/ic_phonelink_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_phonelink_black_24dp_active"
                 android:text="@string/introducer" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -206,8 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_pause_circle_outline_black_24dp"
-                android:drawableStart="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableStartCompat="@drawable/ic_pause_circle_outline_black_24dp"
                 android:text="@string/pause_device" />
 
             <!-- Custom sync conditions -->
@@ -225,15 +220,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_autorenew_black_24dp"
-                    android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
                     android:text="@string/custom_sync_conditions_title" />
 
                 <TextView
                     android:id="@+id/customSyncConditionsDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -243,7 +237,6 @@
                 <TextView
                     android:id="@+id/customSyncConditionsDialog"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
-                    android:layout_marginLeft="56dp"
                     android:layout_marginStart="56dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -253,7 +246,6 @@
                     android:id="@+id/customSyncConditionsCurrent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -267,8 +259,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_info_black_24dp_inactive"
-                android:drawableStart="@drawable/ic_info_black_24dp_inactive"
+                app:drawableLeftCompat="@drawable/ic_info_black_24dp_inactive"
+                app:drawableStartCompat="@drawable/ic_info_black_24dp_inactive"
                 android:enabled="false"
                 android:hint="@string/current_address"
                 android:visibility="gone"
@@ -279,7 +271,6 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="72dp"
                 android:paddingStart="72dp"
                 android:enabled="false"
                 android:hint="@string/syncthing_version_title"

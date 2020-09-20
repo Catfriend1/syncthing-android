@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -35,15 +36,14 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_autorenew_black_24dp"
-                    android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
                     android:text="@string/run_conditions_title" />
 
                 <TextView
                     android:id="@+id/static_sync_conditions_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:text="@string/run_conditions_summary"
@@ -65,15 +65,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_wifi_black_24dp"
-                    android:drawableStart="@drawable/ic_wifi_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_wifi_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_wifi_black_24dp"
                     android:text="@string/run_on_wifi_title" />
 
                 <TextView
                     android:id="@+id/sync_on_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -96,15 +95,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_signal_wifi_0_bar_black_24dp"
-                    android:drawableStart="@drawable/ic_signal_wifi_0_bar_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_signal_wifi_0_bar_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_signal_wifi_0_bar_black_24dp"
                     android:text="@string/run_on_whitelisted_wifi_title" />
 
                 <TextView
                     android:id="@+id/sync_on_whitelisted_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -133,15 +131,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_wifi_tethering_black_24dp"
-                    android:drawableStart="@drawable/ic_wifi_tethering_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_wifi_tethering_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_wifi_tethering_black_24dp"
                     android:text="@string/run_on_metered_wifi_title" />
 
                 <TextView
                     android:id="@+id/sync_on_metered_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -164,15 +161,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_signal_cellular_connected_no_internet_4_bar_black_24dp"
-                    android:drawableStart="@drawable/ic_signal_cellular_connected_no_internet_4_bar_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_signal_cellular_connected_no_internet_4_bar_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_signal_cellular_connected_no_internet_4_bar_black_24dp"
                     android:text="@string/run_on_mobile_data_title" />
 
                 <TextView
                     android:id="@+id/sync_on_mobile_data_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"

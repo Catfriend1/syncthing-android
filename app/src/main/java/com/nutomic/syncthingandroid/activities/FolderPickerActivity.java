@@ -118,19 +118,15 @@ public class FolderPickerActivity extends SyncthingActivity
         if (getIntent().hasExtra(EXTRA_ROOT_DIRECTORY) && !TextUtils.isEmpty(rootDir)) {
             roots.add(new File(rootDir));
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
-                roots.remove(getExternalFilesDir(null));
-                roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
-            }
+            roots.addAll(Arrays.asList(getExternalFilesDirs(null)));
+            roots.remove(getExternalFilesDir(null));
+            roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             roots.add(Environment.getExternalStorageDirectory());
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM));
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS));
-            }
+            roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS));
 
             // Add paths where we might have read-only access.
             Collections.addAll(roots, new File("/storage/").listFiles());

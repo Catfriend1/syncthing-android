@@ -18,9 +18,6 @@ public class JobUtils {
 
     @TargetApi(21)
     public static void scheduleSyncTriggerServiceJob(Context context, int delayInSeconds) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return;
-        }
         ComponentName serviceComponent = new ComponentName(context, SyncTriggerJobService.class);
         JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
 
@@ -40,9 +37,6 @@ public class JobUtils {
 
     @TargetApi(21)
     public static void cancelAllScheduledJobs(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return;
-        }
         JobScheduler jobScheduler = (JobScheduler) context.getSystemService(context.JOB_SCHEDULER_SERVICE);
         jobScheduler.cancelAll();
     }

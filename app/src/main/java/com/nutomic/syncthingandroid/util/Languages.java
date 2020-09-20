@@ -89,11 +89,7 @@ public final class Languages {
 
         final Resources resources = context.getResources();
         Configuration config = resources.getConfiguration();
-        if (Build.VERSION.SDK_INT >= 17) {
-            config.setLocale(locale);
-        } else {
-            config.locale = locale;
-        }
+        config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 

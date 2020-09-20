@@ -325,7 +325,7 @@ public class Util {
         if (activity.isFinishing())
             return;
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN && activity.isDestroyed())
+        if (activity.isDestroyed())
             return;
 
         dialog.dismiss();

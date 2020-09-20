@@ -315,13 +315,6 @@ public class FolderActivity extends SyncthingActivity {
      */
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // API < 21
-            startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null),
-                FolderPickerActivity.DIRECTORY_REQUEST_CODE);
-            return;
-        }
-
         // This has to be android.net.Uri as it implements a Parcelable.
         android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.MEDIA);
 
@@ -799,9 +792,6 @@ public class FolderActivity extends SyncthingActivity {
          * readonly access on the path and the user tries to configure a
          * sendOnly folder. To fix this, we'll precreate the marker using java code.
          */
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return;
-        }
         if (uriFolderRoot == null) {
             Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
             return;

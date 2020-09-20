@@ -246,11 +246,6 @@ public class Constants {
      * to syncthing core v0.14.53+.
      */
     public static Boolean osSupportsTLS12() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // Pre-Lollipop devices don't support TLS 1.2
-            return false;
-        }
-
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
             /**
              * SSLProtocolException: SSL handshake failed on Android N/7.0,

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -24,8 +25,7 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:clickable="true"
-                android:drawableEnd="@drawable/ic_content_copy_black_24dp"
-                android:drawableRight="@drawable/ic_content_copy_black_24dp"
+                app:drawableEndCompat="@drawable/ic_content_copy_black_24dp"
                 android:focusable="true"
                 android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -38,8 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:drawableRight="@drawable/ic_share_black_24dp"
-                android:drawableEnd="@drawable/ic_share_black_24dp"
+                app:drawableEndCompat="@drawable/ic_share_black_24dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:contentDescription="@string/share_title" />

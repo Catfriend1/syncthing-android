@@ -21,9 +21,7 @@
                 android:id="@+id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_toLeftOf="@+id/state"
                 android:layout_toStartOf="@+id/state"
                 android:ellipsize="end"
                 android:maxLines="1"
@@ -34,7 +32,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:textAppearance="?textAppearanceListItemSmall" />
 
             <ProgressBar
@@ -73,8 +70,8 @@
                     android:paddingRight="20dp"
                     android:paddingStart="20dp"
                     android:text="@string/override_changes"
-                    android:drawableLeft="@drawable/ic_cloud_upload_red_24"
-                    android:drawableStart="@drawable/ic_cloud_upload_red_24"
+                    app:drawableLeftCompat="@drawable/ic_cloud_upload_red_24"
+                    app:drawableStartCompat="@drawable/ic_cloud_upload_red_24"
                     android:drawablePadding="5sp"
                     android:textSize="12sp" />
 
@@ -88,8 +85,8 @@
                     android:paddingRight="20dp"
                     android:paddingStart="20dp"
                     android:text="@string/revert_local_changes"
-                    android:drawableLeft="@drawable/ic_cloud_download_red_24"
-                    android:drawableStart="@drawable/ic_cloud_download_red_24"
+                    app:drawableLeftCompat="@drawable/ic_cloud_download_red_24"
+                    app:drawableStartCompat="@drawable/ic_cloud_download_red_24"
                     android:drawablePadding="5sp"
                     android:textSize="12sp" />
 
@@ -132,14 +129,11 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/inner"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/inner"
             android:background="@null"
             android:contentDescription="@string/open_file_manager"
             android:paddingBottom="5dp"
             android:paddingEnd="20dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="20dp"
             android:paddingStart="30dp"
             android:paddingTop="5dp"
             app:srcCompat="@drawable/ic_folder_black_24dp" />

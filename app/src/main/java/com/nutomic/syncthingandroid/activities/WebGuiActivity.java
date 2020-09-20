@@ -253,11 +253,6 @@ public class WebGuiActivity extends SyncthingActivity
      */
     @SuppressLint("PrivateApi")
     public static boolean setWebViewProxy(Context appContext, String host, int port, String exclusionList) {
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            // Not supported on android version lower than KitKat.
-            return false;
-        }
-
         Properties properties = System.getProperties();
         properties.setProperty("http.proxyHost", host);
         properties.setProperty("http.proxyPort", Integer.toString(port));
@@ -282,12 +277,7 @@ public class WebGuiActivity extends SyncthingActivity
                         Method onReceiveMethod = clazz.getDeclaredMethod("onReceive", Context.class, Intent.class);
                         Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
 
-                        String CLASS_NAME;
-                        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-                            CLASS_NAME = "android.net.ProxyProperties";
-                        } else {
-                            CLASS_NAME = "android.net.ProxyInfo";
-                        }
+                        String CLASS_NAME = "android.net.ProxyInfo";
                         Class cls = Class.forName(CLASS_NAME);
                         Constructor constructor = cls.getConstructor(String.class, Integer.TYPE, String.class);
                         constructor.setAccessible(true);

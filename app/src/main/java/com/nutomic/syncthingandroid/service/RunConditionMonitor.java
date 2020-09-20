@@ -477,14 +477,14 @@ public class RunConditionMonitor {
         // PREF_POWER_SOURCE
         switch (prefPowerSource) {
             case POWER_SOURCE_CHARGER:
-                if (!isCharging()) {
+                if (!isCharging_API17()) {
                     LogV("decideShouldRun: POWER_SOURCE_AC && !isCharging");
                     mRunDecisionExplanation = res.getString(R.string.reason_not_charging);
                     return false;
                 }
                 break;
             case POWER_SOURCE_BATTERY:
-                if (isCharging()) {
+                if (isCharging_API17()) {
                     LogV("decideShouldRun: POWER_SOURCE_BATTERY && isCharging");
                     mRunDecisionExplanation = res.getString(R.string.reason_not_on_battery_power);
                     return false;
@@ -622,24 +622,6 @@ public class RunConditionMonitor {
     /**
      * Functions for run condition information retrieval.
      */
-    private boolean isCharging() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // API level < 21
-            return isCharging_API16();
-        } else {
-            // API level >= 21
-            return isCharging_API17();
-        }
-    }
-
-    @TargetApi(16)
-    private boolean isCharging_API16() {
-        Intent batteryIntent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        int status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-        return status == BatteryManager.BATTERY_STATUS_CHARGING ||
-            status == BatteryManager.BATTERY_STATUS_FULL;
-    }
-
     @TargetApi(17)
     private boolean isCharging_API17() {
         Intent intent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
@@ -651,10 +633,6 @@ public class RunConditionMonitor {
 
     @TargetApi(21)
     private boolean isPowerSaving() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            Log.e(TAG, "isPowerSaving may not be called on pre-lollipop android versions.");
-            return false;
-        }
         PowerManager powerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         if (powerManager == null) {
             Log.e(TAG, "getSystemService(POWER_SERVICE) unexpectedly returned NULL.");

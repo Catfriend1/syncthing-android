@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -26,8 +27,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_label_outline_black_24dp"
-                android:drawableStart="@drawable/ic_label_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_label_outline_black_24dp"
+                app:drawableStartCompat="@drawable/ic_label_outline_black_24dp"
                 android:hint="@string/folder_label"
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords|textNoSuggestions"
@@ -38,8 +39,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_vpn_key_black_24dp"
+                app:drawableStartCompat="@drawable/ic_vpn_key_black_24dp"
                 android:hint="@string/folder_id"
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords"
@@ -50,8 +51,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_folder_black_24dp"
-                android:drawableStart="@drawable/ic_folder_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_folder_black_24dp"
+                app:drawableStartCompat="@drawable/ic_folder_black_24dp"
                 android:focusable="true"
                 android:hint="@string/directory"/>
 
@@ -59,8 +60,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_device_hub_black_24dp_active"
-                android:drawableStart="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableLeftCompat="@drawable/ic_device_hub_black_24dp_active"
+                app:drawableStartCompat="@drawable/ic_device_hub_black_24dp_active"
                 android:focusable="false"
                 android:text="@string/devices" />
 
@@ -89,15 +90,14 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_lock_black_24dp_active"
-                    android:drawableStart="@drawable/ic_lock_black_24dp_active"
+                    app:drawableLeftCompat="@drawable/ic_lock_black_24dp_active"
+                    app:drawableStartCompat="@drawable/ic_lock_black_24dp_active"
                     android:text="@string/folder_type" />
 
                 <TextView
                     android:id="@+id/folderType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
@@ -106,7 +106,6 @@
                     android:id="@+id/folderTypeDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -114,7 +113,6 @@
                     android:id="@+id/accessExplanationView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -126,15 +124,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_autorenew_black_24dp"
-                android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
+                app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
                 android:text="@string/folder_fileWatcher" />
 
             <TextView
                 android:id="@+id/fileWatcherDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
                 android:layout_marginStart="75dp"
                 android:layout_marginTop="-20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -147,8 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:drawableLeft="@drawable/ic_pause_circle_outline_black_24dp"
-                android:drawableStart="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableStartCompat="@drawable/ic_pause_circle_outline_black_24dp"
                 android:text="@string/folder_pause" />
 
             <!-- Custom sync conditions -->
@@ -166,15 +163,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_autorenew_black_24dp"
-                    android:drawableStart="@drawable/ic_autorenew_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
                     android:text="@string/custom_sync_conditions_title" />
 
                 <TextView
                     android:id="@+id/customSyncConditionsDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -184,7 +180,6 @@
                 <TextView
                     android:id="@+id/customSyncConditionsDialog"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
-                    android:layout_marginLeft="56dp"
                     android:layout_marginStart="56dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -194,7 +189,6 @@
                     android:id="@+id/customSyncConditionsCurrent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -219,15 +213,14 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_content_copy_black_24dp"
-                    android:drawableStart="@drawable/ic_content_copy_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_content_copy_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_content_copy_black_24dp"
                     android:text="@string/pull_order" />
 
                 <TextView
                     android:id="@+id/pullOrderType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
@@ -236,7 +229,6 @@
                     android:id="@+id/pullOrderDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -259,15 +251,14 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_history_black_24dp_active"
-                    android:drawableStart="@drawable/ic_history_black_24dp_active"
+                    app:drawableLeftCompat="@drawable/ic_history_black_24dp_active"
+                    app:drawableStartCompat="@drawable/ic_history_black_24dp_active"
                     android:text="@string/file_versioning" />
 
                 <TextView
                     android:id="@+id/versioningGenericDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:text="@string/file_versioning_generic_description"
@@ -277,7 +268,6 @@
                     android:id="@+id/versioningType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -285,7 +275,6 @@
                     android:id="@+id/versioningDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
@@ -307,15 +296,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:drawableLeft="@drawable/ic_delete_forever_black_24"
-                    android:drawableStart="@drawable/ic_delete_forever_black_24"
+                    app:drawableLeftCompat="@drawable/ic_delete_forever_black_24"
+                    app:drawableStartCompat="@drawable/ic_delete_forever_black_24"
                     android:text="@string/folder_ignore_delete_caption" />
 
                 <TextView
                     android:id="@+id/ignoreDeleteDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -339,8 +327,8 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:drawableLeft="@drawable/ic_visibility_off_black_24dp"
-                    android:drawableStart="@drawable/ic_visibility_off_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_visibility_off_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_visibility_off_black_24dp"
                     android:text="@string/ignore_patterns"/>
 
                 <EditText
@@ -351,7 +339,6 @@
                     android:hint="@string/ignore_patterns"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="-20dp"
                     android:minLines="5"

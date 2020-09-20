@@ -44,16 +44,16 @@ public class TipsAndTricksActivity extends SyncthingActivity {
          * Determine the app's private data folder on external storage if present.
          * e.g. "/storage/abcd-efgh/Android/[PACKAGE_NAME]/files"
          */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ArrayList<File> externalFilesDir = new ArrayList<>();
-            externalFilesDir.addAll(Arrays.asList(getExternalFilesDirs(null)));
-            externalFilesDir.remove(getExternalFilesDir(null));
-            externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
-            if (externalFilesDir.size() > 0) {
-                String absExternalStorageAppFilesPath = externalFilesDir.get(0).getAbsolutePath();
-                mTipListAdapter.add(getString(R.string.tip_write_to_sdcard_title),
-                        getString(R.string.tip_write_to_sdcard_text, absExternalStorageAppFilesPath));
-            }
+        ArrayList<File> externalFilesDir = new ArrayList<>();
+        externalFilesDir.addAll(Arrays.asList(getExternalMediaDirs()));
+        if (externalFilesDir.size() > 0) {
+            externalFilesDir.remove(externalFilesDir.get(0));
+        }
+        externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
+        if (externalFilesDir.size() > 0) {
+            String absExternalStorageAppFilesPath = externalFilesDir.get(0).getAbsolutePath();
+            mTipListAdapter.add(getString(R.string.tip_write_to_sdcard_title),
+                    getString(R.string.tip_write_to_sdcard_text, absExternalStorageAppFilesPath));
         }
 
         // Tips referring to Huawei devices.

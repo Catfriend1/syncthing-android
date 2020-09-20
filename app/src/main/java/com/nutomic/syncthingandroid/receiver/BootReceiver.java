@@ -92,9 +92,6 @@ public class BootReceiver extends BroadcastReceiver {
      *      adb shell pm grant com.github.catfriend1.syncthingandroid.debug android.permission.WRITE_SECURE_SETTINGS
      */
     private static void disableDuraSpeed(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            return;
-        }
         Log.d(TAG, "Disabling DuraSpeed");
         try {
             Settings.Global.putInt(context.getContentResolver(), "setting.duraspeed.enabled", -1);

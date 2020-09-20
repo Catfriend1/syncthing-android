@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dip"
-        android:layout_marginRight="6dip"
         android:contentDescription="@string/generic_help"
         android:gravity="top"
         app:srcCompat="@drawable/ic_help_outline_black_24dp" />
@@ -19,7 +18,6 @@
     <TextView
         android:id="@+id/tip_title"
         android:layout_marginTop="-25dp"
-        android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +25,6 @@
 
     <TextView
         android:id="@+id/tip_text"
-        android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

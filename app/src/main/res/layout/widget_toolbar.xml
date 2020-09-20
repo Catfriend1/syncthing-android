@@ -55,7 +55,6 @@
         android:layout_width="30dp"
         android:layout_height="match_parent"
         android:layout_toEndOf="@+id/topRel1"
-        android:layout_toRightOf="@+id/topRel1"
         android:visibility="gone" >
 
         <ProgressBar
@@ -76,11 +75,9 @@
             android:color="@android:color/white"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:layout_alignLeft="@id/pbTotalSyncComplete"
             android:layout_alignStart="@id/pbTotalSyncComplete"
             android:layout_alignTop="@id/pbTotalSyncComplete"
             android:layout_alignEnd="@id/pbTotalSyncComplete"
-            android:layout_alignRight="@id/pbTotalSyncComplete"
             android:layout_alignBottom="@id/pbTotalSyncComplete"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
