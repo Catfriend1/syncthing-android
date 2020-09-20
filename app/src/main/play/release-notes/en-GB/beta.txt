@@ -3,3 +3,4 @@
 Other issues
 --
 - If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
+- Minimum required OS is Android 5.0
