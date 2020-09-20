@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.service;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -7,11 +8,13 @@ import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.Manifest;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import android.util.Log;
 
 import com.android.PRNGFixes;
 import com.annimon.stream.Stream;
@@ -239,9 +242,10 @@ public class SyncthingService extends Service {
          * see issue: https://github.com/syncthing/syncthing-android/issues/871
          * We need to recheck if we still have the storage permission.
          */
-        mStoragePermissionGranted = (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                PackageManager.PERMISSION_GRANTED);
+        mStoragePermissionGranted = haveStoragePermission();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            mStoragePermissionGranted = mStoragePermissionGranted && haveAllFilesAccessPermission();
+        }
 
         if (mNotificationHandler != null) {
             mNotificationHandler.setAppShutdownInProgress(false);
@@ -1008,6 +1012,7 @@ public class SyncthingService extends Service {
                             case "notification_type":
                             case "notify_crashes":
                             case "start_into_web_gui":
+                            case "suggest_new_folder_root":
                             case "use_legacy_hashing":
                                 LogV("importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
                                 break;
@@ -1126,6 +1131,20 @@ public class SyncthingService extends Service {
             set.add(type.cast(o));
         }
         return set;
+    }
+
+    /**
+     * Permission check and request functions
+     */
+    @TargetApi(30)
+    private boolean haveAllFilesAccessPermission() {
+        return Environment.isExternalStorageManager();
+    }
+
+    private boolean haveStoragePermission() {
+        int permissionState = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        return permissionState == PackageManager.PERMISSION_GRANTED;
     }
 
     private void LogV(String logMessage) {
