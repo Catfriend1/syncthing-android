@@ -36,11 +36,6 @@ public class Constants {
 
     // Preferences - Behaviour
     public static final String PREF_USE_ROOT                        = "use_root";
-
-    public static final String PREF_SUGGEST_NEW_FOLDER_ROOT         = "suggest_new_folder_root";
-    public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_DATA    = "external_android_data";
-    public static final String PREF_SUGGEST_NEW_FOLDER_ROOT_MEDIA   = "external_android_media";
-
     public static final String PREF_LAUNCHER_SHOW_CAMERA_ICON       = "launcher_show_camera_icon";
 
     // Preferences - Troubleshooting

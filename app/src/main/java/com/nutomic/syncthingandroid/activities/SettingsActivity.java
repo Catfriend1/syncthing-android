@@ -178,7 +178,6 @@ public class SettingsActivity extends SyncthingActivity {
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
         private CheckBoxPreference mUseRoot;
-        private ListPreference     mSuggestNewFolderRoot;
 
         /* Syncthing Options */
         private PreferenceScreen   mCategorySyncthingOptions;
@@ -323,13 +322,6 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
             mUseRoot =
                     (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            mSuggestNewFolderRoot =
-                    (ListPreference) findPreference(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT);
-            screen.findPreference(Constants.PREF_SUGGEST_NEW_FOLDER_ROOT).setSummary(mSuggestNewFolderRoot.getEntry());
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                // Remove preference as FileUtils#getExternalFilesDirUri is only supported on API 21+ (LOLLIPOP+).
-                categoryBehaviour.removePreference(mSuggestNewFolderRoot);
-            }
             setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
             /* Syncthing Options */
@@ -635,10 +627,6 @@ public class SettingsActivity extends SyncthingActivity {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
                         mPendingConfig = true;
                     }
-                    break;
-                case Constants.PREF_SUGGEST_NEW_FOLDER_ROOT:
-                    mSuggestNewFolderRoot.setValue(o.toString());
-                    preference.setSummary(mSuggestNewFolderRoot.getEntry());
                     break;
                 case Constants.PREF_LAUNCHER_SHOW_CAMERA_ICON:
                     if (!showHideLauncherCameraIcon((Boolean) o)) {
