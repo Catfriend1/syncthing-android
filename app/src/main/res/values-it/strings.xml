@@ -90,6 +90,13 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
 
 
+    <!-- MainActivity -->
+
+
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Scansiona tutto</string>
+
+
     <!-- Main menu button -->
     <string name="open_main_menu">Apri menu principale</string>
     <string name="close_main_menu">Chiudi menu principale</string>
@@ -193,6 +200,10 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Sconosciuto</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Ultimo accesso:\u0020%1$s</string>
+    <string name="device_last_seen_never">Mai</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">Caretelle:\u0020</string>
@@ -551,7 +562,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     </string-array>
 
     <string-array name="versioning_types">
-        <item>Nessono</item>
+        <item>Nessuno</item>
         <item>Cestino</item>
         <item>Semplice</item>
         <item>Cadenzato</item>

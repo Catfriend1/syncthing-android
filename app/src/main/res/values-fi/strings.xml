@@ -15,14 +15,98 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Tervetuloa Syncthingiin Androidille</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Johdanto</string>
+    <string name="welcome_text">Syncthing on avoimen lähdekoodin tiedostojensynkronointisovellus. Jakaaksesi tiedostoja muiden laitteiden kanssa tarvitset niiden uniikit laitetunnukset laitelistaasi. Myöhemmin voit valita, mitä kansioita jaat millekin laitteille.\n\</string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Tallennustilan käyttöoikeus</string>
+    <string name="storage_permission_desc">Syncthing tarvitsee pääsyn tallennustilaasi synkronoidakseen.</string>
+    <string name="dialog_all_files_access_not_supported">Laitteesi ei tue pääsyä kaikkiin tiedostoihin</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
+    <string name="ignore_doze_permission_os_notice">Android TV:t tiedettävästi sulkevat toisinaan sovelluksen, kun se on käynnissä taustalla. Ratkaisu on saatavilla wikissä kohdassa \'%1$s/%2$s.</string>
+    <string name="ignore_doze_permission_desc">Android voi lopettaa synkronoinnin jonkin ajan kuluttua. Poista akun käytön optimointi käytöstä estääksesi tämän. Joissakin laitteissa voi olla ylimääräisiä tehtävienlopetussovelluksia esiasennettuna. Syncthing lopettaminen tulisi estää näiden sovellusten asetuksissa.</string>
+    <string name="toast_ignore_doze_permission_required">Tämä sovellus toimii luotettavasti vain, jos se on sallittu \'doze\'-virransäästötilassa.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Laitteesi ei tue akun käytön optimoinnin poistamista käytöstä</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Sijainnin käyttöoikeus</string>
+    <string name="location_permission_desc">Syncthing voidaan asettaa toimimaan vain valituissa Wi-Fi-verkoissa. Android vaatii sijainnin käyttöoikeuden aktiivisen Wi-Fi-verkon nimen lukemiseksi. Paina yllä olevaa painiketta, jos haluat käyttää tätä ominaisuutta. Voit ohittaa tämän vaiheen. Katso lisätietoja tietosuojakäytännöstämme.</string>
+    <string name="location_permission_desc_api_29">Vinkki Android-versioille 10+: \"Salli aina\"</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Avainten luonti</string>
+    <string name="key_generation_success">Turvalliset avaimet yksityiseen datan jakamiseen on onnistuneesti luotu.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Takaisin</string>
     <string name="cont">Jatka</string>
     <string name="finish">Valmis</string>
     <string name="generic_example">Esimerkki</string>
     <string name="generic_error">Virhe</string>
+    <string name="generic_help">Ohje</string>
+    <string name="grant_permission">Myönnä käyttöoikeus</string>
+    <string name="permission_granted">Käyttöoikeus myönnetty</string>
+    <string name="reason">Syy:</string>
+
+    <string name="accept">Hyväksy</string>
+
+    <string name="ignore">Ohita</string>
+
+    <string name="page_x_of_y">Sivu %1$s/%2$s</string>
+
+    <string name="main_menu">Päävalikko</string>
+
+    <string name="refresh">Päivitä</string>
+
+
+
+    <!-- PhotoShootActivity -->
+
+    <string name="photo_shoot_launcher_title">Sync. Kamera</string>
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork Kamera</string>
+
+    <string name="photo_shoot_intro_welcome_title">Tervetuloa Syncthing Kameraan</string>
+
+    <string name="photo_shoot_intro_permission_title">Vaaditut käyttöoikeudet</string>
+
+    <string name="photo_shoot_intro_no_camera">Pahoittelut, tässä laitteessa ei ole kameraa.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Tarvitsemme tallennustilan ja kameran käyttöoikeudet jatkaaksemme.</string>
+
+    <string name="grant_storage_permission">Myönnä tallennustilan käyttöoikeus</string>
+
+    <string name="grant_camera_permission">Myönnä kameran käyttöoikeus</string>
+
+    <string name="photo_shoot_intro_permission_desc">Syncthing Kamera vaatii lupasi kuvien ottamiseen ja tallentamiseen laitteeseen. Tämä ominaisuus on valinnainen. Käyttääksesi sitä, myönnä käyttöoikeudet ja napauta \"Jatka\". Asetamme sinulle Syncthing Kamera -kansion, jonka voit myöhemmin jakaa muiden Syncthing-laitteiden kanssa.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Syncthing Kamera</string>
+
+
+
+    <!-- MainActivity -->
+
+
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Skannaa kaikki uudelleen</string>
+
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">Avaa päävalikko</string>
+    <string name="close_main_menu">Sulje päävalikko</string>
+
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">On ilmennyt tunnettu bugi, jota ei ole vielä korjattu. Katso %1$s/%2$s lisätietoja varten. Ole hyvä ja jätä meille tarkka kuvaus, mitä tapahtui juuri ennen.</string>
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Vahvista sovelluksen sulkeminen</string>
+    <string name="dialog_exit_while_running_as_service_message">Tiedoksesi: Asetit sovelluksen käynnistymään automaattisesti käynnistyksen yhteydessä. Tästä johtuen se tarkkailee käyntiehtoja ja synkronoi taustalla, kun ehdot täyttyvät. Sovellus tulisi sulkea manuaalisesti vain, jos kohtaat vakavia ongelmia. Muussa tapauksessa ota \'Käynnisty automaattisesti käynnistyksen yhteydessä\' pois käytöstä asetuksissa. Haluaisitko lopettaa nyt, kunnes laite uudelleenkäynnistetään?</string>
+
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lisää kansio</string>
 
@@ -43,6 +127,10 @@
     <string name="open_website">Avaa verkkosivu</string>
 
     <string name="toast_write_storage_permission_required">Tämä sovellus vaatii tallennustilan kirjoitusoikeuden</string>
+
+    <string name="device_rejected">Laite \"%1$s\" haluaa yhdistää</string>
+
+    <string name="folder_rejected">Laite \"%1$s\" haluaa jakaa kansion \"%2$s\"</string>
 
     <!-- StateDialogActivity -->
 
@@ -65,11 +153,34 @@
         <item quantity="other">%1$d / %2$d tiedostoa</item>
     </plurals>
 
+    <string name="override_changes">Ohita muutokset</string>
+
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">Tämä peruu kaikki muutokset muista laitteista tähän kansioon. Jatketaanko?</string>
+
+    <string name="revert_local_changes">Peru paikalliset muutokset</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Tämä peruu kaikki tällä laitteella kansioon tehdyt muutokset. Jatketaanko?</string>
+
     <string name="open_file_manager">Avaa tiedostonhallinta</string>
+    <string name="open_file_with">Avaa tiedosto sovelluksessa</string>
+    <string name="open_file_no_compatible_app">Ei löytynyt sovellusta tiedoston avaamiseksi.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Yhteensopivaa tiedostonhallintasovellusta ei löytynyt</string>
+    <string name="suggest_file_manager_app_dialog_text">Suosittelemme asentamaan avoimen lähdekoodin tiedostonhallintasovelluksen \'Simple File Manager\' F-Droidista. Haluaisitko avata kyseisen sovelluksen sivun sovelluskaupassa?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Laitteet</string>
+
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Ei asetettuja laitteita. Napauta lisätäksesi uuden laitteen.</string>
+
+    <!-- Shown in ListView if no devices are configured -->
+    <string name="no_devices_configured">Ei laitteita asetettuna.\nAloita lisäämällä laite.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Ajan tasalla</string>
@@ -83,14 +194,36 @@
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Tauolla</string>
 
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Ei käytössä</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Tuntematon</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Viimeksi nähty:\u0020%1$s</string>
+    <string name="device_last_seen_never">Ei koskaan</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Kansiot:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Lataus</string>
 
     <!-- Title for current upload rate -->
     <string name="upload_title">Lähetys</string>
+
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Tila</string>
+
+    <string name="button_follow_run_conditions">NOUDATA KÄYNTIEHTOJA</string>
+    <string name="button_force_start">PAKOTA KÄYNNISTYMINEN\nOHITA KÄYNTIEHDOT</string>
+    <string name="button_force_stop">PAKOTA PYSÄYTTÄMINEN\nOHITA KÄYNTIEHDOT</string>
+
+    <string name="syncthing_starting">Syncthing on käynnistymässä.</string>
+    <string name="syncthing_running">Syncthing on käynnissä.</string>
+    <string name="syncthing_not_running">Syncthing ei ole käynnissä.</string>
+    <string name="syncthing_has_crashed">Syncthing on kaatunut.</string>
 
     <!-- DrawerFragment -->
 
@@ -107,6 +240,9 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Etsintäpalvelin</string>
 
+    <!-- Title for uptime status -->
+    <string name="uptime">Päälläoloaika</string>
+
     <string name="restart">Käynnistä uudelleen</string>
 
     <string name="dialog_confirm_restart">Haluatko käynnistää Syncthingin uudelleen?</string>
@@ -122,6 +258,17 @@
 
     <!-- Setting title -->
     <string name="directory">Hakemisto</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Tarkkaile muutoksia</string>
+    <string name="folder_fileWatcherDescription">Pyytää käyttöjärjestelmää ilmoittamaan muutoksista tiedostoihin. Kerran tunnissa skannaus otetaan käyttöön, jos tämä on pois päältä.</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_ignore_delete_caption">Ohita poistot</string>
+    <string name="folder_ignore_delete_description">Edistynyt asetus, joka vaikuttaa saapuviin indeksin päivityksiin. Käytössä ollessaan saapuvat päivitykset, joissa on poistomerkintä, jätetään huomioimatta. Katso See &folder_ignore_delete_docs_url;</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Keskeytä kansio</string>
 
     <!-- Setting title -->
     <string name="devices">Laitteet</string>
@@ -147,6 +294,9 @@
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Kansion tunnus ei voi olla tyhjä</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">Kansion nimi ei voi olla tyhjä</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Kansion polku ei voi olla tyhjä</string>
 
@@ -157,6 +307,9 @@
 
     <!-- Setting title -->
     <string name="device_id">Laitetunnus</string>
+
+    <!-- Status text -->
+    <string name="discovered_device_list_empty">Paikallinen haku ei löytänyt laitteita lähiverkosta. Käynnistä tämä sovellus toisessa puhelimessa. Asennustiedostot tietokoneille ovat saatavilla osoitteessa: %1$s</string>
 
     <!-- Setting title -->
     <string name="name">Nimi</string>
@@ -197,11 +350,22 @@
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Laitetunnus ei voi olla tyhjä</string>
 
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_invalid">Laitteen ID on väärin muotoiltu. Ole hyvä ja yritä uudelleen.</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Lue QR-koodi</string>
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Pääkäyttäjän oikeuksien saaminen epäonnistui</string>
+
+    <string name="tip_sync_on_local_network_text">Jos haluaisit synkronoida vain laitteiden kanssa, jotka ovat paikallisessa WiFi-verkossa tai saatavilla WiFi-tukiaseman kautta, voit alentaa akun käyttöä ja välttää vahingossa mobiilidatalla synkronoinnin ottamalla pois käytöstä seuraavat asetukset kohdassa \'Asetukset/Syncthing-asetukset\':\n- Aktivoi osoitteenmuunnoksen kierto\n- Globaali etsintä\n- Aktivoi yhteyden välitys\nJätä vain \'Paikallinen etsintä\' käyttöön.</string>
+
+    <string name="tip_custom_sync_conditions_text">Tätä ominaisuutta parannetaan vielä tulevissa sovellusversioissa. Toistaiseksi emme halunneet rikkoa olemassa olevia asetuksia ja sovelluksen käyttäytymistä. Tästä syystä räätälöidyt käyntiehdot tietylle verkkotyypille voidaan asettaa vain, jos otat ensin käyttöön verkossa synkronoinnin globaaleista käyntiehdoista.</string>
+
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI estää oletuksena sovellusten käynnistymisen itsestään. Mene kotinäytöltä \'Asetukset\' > \'Käyttöoikeudet\' > \'Autostart\' ja kytke päälle \'Syncthing-Fork\':n valitsin.</string>
+
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI:n virransäästöjärjestelmäsovellus poistaa jokaisen uudelleenkäynnistyksen yhteydessä sovelluksen oikeuden ohittaa akun käytön optimointi. Tämä aiheuttaa sovelluksen näkymisen alkutervehdysruudulla ja puuttuvan käyttöoikeuden kysymisen uudestaan. Ratkaisu: avaaa kotinäytöllä sovellusvalitsin > paina pitkään \'Syncthing-Fork\' > \'Sovellustiedot\' > \'Virransäästö\' ja valitse \'Ei rajoituksia\' (MIUI 10.3.2.0+).</string>
 
     <!-- WebGuiActivity -->
 
@@ -223,13 +387,41 @@
 
     <string name="category_syncthing_options">Syncthing asetukset</string>
 
+    <string name="category_syncthing_options_summary">Tämä valikko on käytettävissä vain, jos Syncthing on käynnissä.</string>
+
     <string name="category_experimental">Kokeellinen</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Käyntiehdot</string>
+    <string name="run_conditions_summary">Käytä seuraavia valintoja päättääksesi, koska Syncthing on käynnissä.</string>
+
+    <string name="run_on_mobile_data_title">Käytä mobiilidatalla</string>
+    <string name="run_on_mobile_data_summary">Käytä laitteen ollessa yhteydessä mobiiliverkkoon. Varoitus: Tämä voi käyttää paljon dataa operaattorisi datansiirtomäärästä, jos synkronoit suuria määriä dataa.</string>
+
+    <string name="run_on_roaming_title">Käytä verkkovierailun aikana</string>
+    <string name="run_on_wifi_title">Käytä WiFi-verkossa</string>
+    <string name="run_on_wifi_summary">Käytä laitteen ollessa yhteydessä WiFi- tai ethernet-verkkoon.</string>
+
+    <string name="run_on_metered_wifi_title">Käytä käytön mukaan laskutettavassa WiFi-verkossa</string>
+    <string name="run_on_metered_wifi_summary">Käytä laitteen ollessa yhteydessä käytön mukaan laskutettavaan WiFi-verkkoon, kuten maksulliseen verkkoon tai mobiiliyhteyteen sidottuun verkkoon. Huomio: Tämä voi käyttää suuren osan datansiirtomäärästä, jos synkronoit paljon dataa.</string>
+
+    <string name="run_on_whitelisted_wifi_title">Käytä valituissa WiFi-verkoissa</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Laita Wifi päälle valitaksesi verkkoja.</string>
 
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Sinun tarvitsee myöntää sijainnin käyttöoikeus tämän ominaisuuden käyttämiseksi.</string>
+
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Käyttöoikeus vaaditaan</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Alkaen Android-versiosta 8.1 sijainnin käyttöoikeus vaaditaan Wi-Fin nimen lukemiseksi. Voit käyttää tätä ominaisuutta vain, jos myönnät tämän käyttöoikeuden.</string>
+
+    <string name="power_source_title">Käytä, kun virtalähteenä on</string>
+
     <string name="respect_battery_saving_title">Noudata Androidin virransäästöasetusta</string>
+    <string name="run_in_flight_mode_title">Käytä ilman verkkoyhteyttä</string>
+    <string name="run_in_flight_mode_summary">Tämän valitseminen ottaa Synthingin käyttöön ollessasi offline-tilassa. Valitse, jos laitteellasi on ongelmia havaita manuaalinen WiFi-yhteys lentotilassa.</string>
+
+    <string name="run_on_time_schedule_title">Käytä aikataulun mukaisesti</string>
+    <string name="behaviour_autostart_summary">Käynnistä sovellus automaattisesti käyttöjärjestelmän käynnistyessä.</string>
+
     <string name="use_root_title">Käynnistä Syncthing pääkäyttäjän oikeuksin.</string>
 
     <string name="use_root_summary">Tämä on epävakaa ominaisuus joka voi aiheuttaa ongelmia Synthingin ja laitteesi kanssa. Jos sinulle tulee vastaan ongelmia, voit joutua asentamaan Syncthingin uudelleen.</string>
@@ -265,6 +457,8 @@
     <string name="keep_wakelock_while_binary_running">Pidä suoritin hereillä kun Syncthing on käynnissä</string>
 
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
+
+    <string name="broadcast_service_control_title">Palvelun hallinta lähetetyillä komennoilla (Broadcasts)</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi? Vanhat tiedostot ylikirjoitetaan.\n\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
@@ -361,6 +555,40 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">Alikansio</string>
 
+    <!-- RunConditionMonitor -->
+
+    <string name="reason_force_start">Syncthing on käynnissä, koska pakotit sen käynnistymään käyntiehdoista riippumatta.</string>
+    <string name="reason_force_stop">Syncthing ei ole käynnissä, koska pakotit sen pysähtymään käyntiehdoista riippumatta.</string>
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_within_time_frame">Otit käyttöön \'Käytä aikataulun mukaisesti\' ja viimeisin synkronointi oli alle tunti sitten.</string>
+    <string name="reason_not_on_battery_power">Puhelin ei ole käynnissä akkuvirralla.</string>
+    <string name="reason_not_while_power_saving">Syncthing ei ole käynnissä, koska puhelin on virransäästötilassa.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing ei ole käynnissä, koska Androidin asetus \'Synkronoi tiedot automaattisesti\' on pois päältä.</string>
+
+    <!-- ... Mobile data -->
+    <string name="reason_mobile_data_disallowed">Syncthing ei ole asetettu käytettäväksi mobiilidatayhteydellä.</string>
+    <string name="reason_on_mobile_data">Syncthingin käyttö mobiilidatalla on sallittu.</string>
+    <string name="reason_not_on_mobile_data">Syncthingin käyttö on sallittu mobiilidatayhteydellä, mutta mobiilidatayhteyttä ei ole.</string>
+
+    <!-- ... Roaming -->
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthingin käyttö on sallittu mobiiliverkossa sekä verkkovierailun aikana että kotiverkossa.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthingin käyttö on sallittu mobiiliverkossa muutoin kuin verkkovierailun aikana. Aktiivinen yhteys on kotiverkkoon.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing ei ole käynnissä, koska kielsit sen käytön verkkovierailun aikana.</string>
+
+    <string name="reason_wifi_disallowed">Synthingin käyttöä ei ole sallittu WiFi- tai ethernet-verkoissa.</string>
+    <string name="reason_on_wifi">Syncthingin käyttö on sallittu WiFi-verkoissa ja WiFi on tällä hetkellä yhdistettynä.</string>
+    <string name="reason_not_on_wifi">Syncthingin käyttö on sallittu WiFi-verkoissa mutta WiFi ei ole tällä hetkellä yhdistettynä tai puhelin on lentotilassa.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthingin käyttö on sallittu käytön mukaan laskutettavilla ja kiinteähintaisilla WiFi-verkkoyhteyksillä. </string>
+    <string name="reason_on_whitelisted_wifi">Syncthingin käyttö on sallittu yhdistetyssä WiFi-verkossa.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing ei ole käynnissä, koska yhdistetyn WiFi-verkon nimi ei ole sallittujen listalla.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthingin käyttö on sallittu WiFi-yhteyksillä, jotka eivät ole käytön mukaan laskutettavia. Aktiivinen yhteys ei ole käytön mukaan laskutettava.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing ei ole käynnissä, koska se on estetty käytön mukaan laskutettavilla WiFi-verkkoyhteyksillä.</string>
+    <string name="reason_location_unavailable">Valitsit \'Käytä valituissa WiFi-verkoissa\' asetuksissa. Androidin sijaintipalvelut ovat pois päältä. Androidin rajotteiden mukaisesti Syncthing ei voi selvittää nykyisen WiFi-verkon nimeä päätelläkseen pitäisikö sen olla käytössä. Ratkaisu: Laita sijainti päälle, salli sijainnin käyttöoikeus ja yhdistä uudelleen WiFi-verkkoon.</string>
+    <string name="reason_on_flight_mode">Syncthing on käynnissä, koska sallit sen käytön lentotilassa.</string>
+    <string name="reason_broadcast_controlled">Syncthing kuuntelee kolmannen osapuolen sovelluksen tai ADB lähettämiä komentoja. Voit ottaa sisäänrakennetut käyntiehdot uudestaan käyttöön poistamalla valinnan \'Asetukset\' > \'Kokeellinen\' > \'Palvelun hallinta lähetetyillä komennoilla (Broadcasts)\'</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor ei ole alustettu. Ole hyvä ja käynnistä sovellus uudelleen ja tee bugiraportti, jos tämä virhe ei katoa uudelleenkäynnistyksen jälkeen.</string>
+
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -368,11 +596,16 @@
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing on käynnissä</string>
+    <string name="syncthing_active_details">Syncthing on käynnissä: %1$s</string>
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_android_camera_folder_label">Android Kamera</string>
+
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-kuvat</string>
 
     <string name="notification_crash_title">Syncthing kaatui %1$s</string>
 
+    <string name="notification_persistent_waiting_channel">Tarkkaillaan käyntiehtoja</string>
     <!-- RestApi -->
 
 
@@ -433,5 +666,9 @@
     <string name="external_versioning_info">Komento: %1$s</string>
     <string name="show_device_id">Näytä laitteen tunnus</string>
 
+    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Ei pääsyä laitteen ID:hen</string>
     <string name="browse">Selaa</string>
+    <string name="share_device_id_chooser">Jaa laitteen ID</string>
+    <string name="custom_sync_conditions_description">Antaa sinun valita poikkeukset globaaleihin käyntiehtoihin</string>
     </resources>

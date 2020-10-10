@@ -50,6 +50,18 @@
 
     <string name="ignore">Игнорировать</string>
 
+    <string name="page_x_of_y">Страница %1$s из %2$s</string>
+
+    <string name="main_menu">Главное меню</string>
+
+    <string name="refresh">Обновить</string>
+
+
+
+    <string name="photo_shoot_intro_permission_title">Необходимые разрешения</string>
+
+    <string name="photo_shoot_intro_no_camera">Извините, у текущего устройства нет камеры</string>
+
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">Была встречена найденная ошибка, которая ещё не была решена. Больше информации в %1$s/%2$s. Пожалуйста, оставьте нам точное описание произошедшего перед этим.</string>
 
@@ -105,6 +117,11 @@
 
     <string name="override_changes">Переопределить изменения</string>
 
+    <string name="revert_local_changes">Откатить локальные изменения</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Это действие откатит все изменения в папке на текущем устройстве. Продолжить?</string>
+
     <string name="open_file_manager">Открыть файловый менеджер</string>
     <string name="open_file_with">Открыть файл с помощью</string>
     <string name="open_file_no_compatible_app">Не найдено приложение, чтобы открыть файл.</string>
@@ -115,6 +132,12 @@
 
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Устройства</string>
+
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Устройства не заданы. Нажмите для добавления нового.</string>
+
+    <!-- Shown in ListView if no devices are configured -->
+    <string name="no_devices_configured">Устройства не заданы.\nНачните работу, добавив новое</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Обновлено</string>
@@ -130,6 +153,8 @@
 
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Неизвестно</string>
+
+    <string name="device_last_seen_never">Никогда</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Скачивание</string>
@@ -231,8 +256,14 @@
     <!-- Setting title -->
     <string name="device_id">ID устройства</string>
 
+    <!-- Status title -->
+    <string name="discovered_devices_title">Обнаруженные устройства - Нажмите для выбора</string>
+
     <!-- Setting title -->
     <string name="name">Имя</string>
+
+    <!-- Setting title -->
+    <string name="folders">Папки</string>
 
     <!-- Setting title -->
     <string name="addresses">Адреса</string>
@@ -279,6 +310,9 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Сканировать QR Код</string>
 
+    <!-- Shown if no folders are configured -->
+    <string name="folders_list_empty">Папки не заданы. Нажмите для добавления новой.</string>
+
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Рут права не доступны</string>
 
@@ -288,6 +322,7 @@
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Советы</string>
 
+    <string name="tip_sync_on_local_network_title">Синхронизировать только по локальной WiFi сети</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="recent_changes_title">Последние изменения</string>
@@ -304,6 +339,9 @@
     <string name="web_gui_loading">Ожидание GUI</string>
 
 
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">Открыть в браузере</string>
+
     <!-- SettingsFragment -->
 
 
@@ -311,9 +349,15 @@
 
     <string name="category_run_conditions">Условия выполнения</string>
 
+    <string name="category_user_interface">Интерфейс</string>
+
+    <string name="preference_app_theme_title">Тема</string>
+
     <string name="category_behaviour">Поведение</string>
 
     <string name="category_syncthing_options">Настройки устройства</string>
+
+    <string name="category_syncthing_options_summary">Это меню доступно только во время работы Syncthing.</string>
 
     <string name="category_backup">Импорт и экспорт</string>
     <string name="category_debug">Отладка</string>
@@ -321,6 +365,10 @@
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Условия выполнения</string>
+    <string name="specify_wifi_ssid_whitelist">Выбрать Wi-Fi сети</string>
+    <string name="run_on_whitelisted_wifi_networks">Выбранные Wi-Fi сети: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">Wi-Fi сети не заданы. Нажмите для добавления новых.</string>
+
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
 
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
