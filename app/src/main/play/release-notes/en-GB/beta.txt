@@ -1,5 +1,10 @@
 * Syncthing v1.10.0
 
+Enhanced
+--
+- Integrated QR Code Scanner, thanks to @sumit-anantwar
+- Theme: Add "Follow system" for API 28+, thanks to @praveenrajput
+
 Other issues
 --
 - If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
