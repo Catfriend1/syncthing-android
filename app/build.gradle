@@ -8,7 +8,7 @@ dependencies {
     implementation 'eu.chainfire:libsuperuser:1.1.0.202004101746'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.google.zxing:android-integration:3.3.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     implementation 'com.google.zxing:core:3.4.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'org.mindrot:jbcrypt:0.4'

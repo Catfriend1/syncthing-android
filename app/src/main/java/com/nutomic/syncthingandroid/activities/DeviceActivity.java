@@ -30,8 +30,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.gson.Gson;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Connection;
@@ -89,6 +87,7 @@ public class DeviceActivity extends SyncthingActivity {
     private static final List<String> DYNAMIC_ADDRESS = Collections.singletonList("dynamic");
 
     public static final int DEVICE_ADD_CODE = 401;
+    private static final int QR_SCAN_REQUEST_CODE = 403;
 
     private ConfigRouter mConfig;
 
@@ -240,7 +239,7 @@ public class DeviceActivity extends SyncthingActivity {
         if (Util.isRunningOnTV(this)) {
             mQrButton.setVisibility(View.GONE);
         }
-        mQrButton.setOnClickListener(view -> onQrButtonClick());
+        mQrButton.setOnClickListener(view -> startActivityForResult(QRScannerActivity.intent(DeviceActivity.this), QR_SCAN_REQUEST_CODE));
         mShowDeviceIdContainer.setOnClickListener(view -> onCopyDeviceIdClick());
         mCompressionContainer.setOnClickListener(view -> onCompressionContainerClick());
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
@@ -484,18 +483,17 @@ public class DeviceActivity extends SyncthingActivity {
         mDeleteDialog.show();
     }
 
-    /**
-     * Receives value of scanned QR code and sets it as device ID.
-     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult != null) {
-            mDevice.deviceID = scanResult.getContents();
-            mEditDeviceId.setText(mDevice.deviceID);
-            if (ENABLE_TEST_DATA) {
-                mEditDeviceId.setText(TestData.DEVICE_A_ID);
+        if (resultCode == Activity.RESULT_OK && requestCode == QR_SCAN_REQUEST_CODE) {
+            String scannedDeviceId = intent.getStringExtra(QRScannerActivity.QR_RESULT_ARG);
+            if (scannedDeviceId != null) {
+                mDevice.deviceID = scannedDeviceId;
+                mEditDeviceId.setText(mDevice.deviceID);
+                if (ENABLE_TEST_DATA) {
+                    mEditDeviceId.setText(TestData.DEVICE_A_ID);
+                }
             }
         } else if (resultCode == Activity.RESULT_OK && requestCode == FolderActivity.FOLDER_ADD_CODE) {
             updateViewsAndSetListeners();
@@ -677,20 +675,6 @@ public class DeviceActivity extends SyncthingActivity {
 
     private void onCopyDeviceIdClick() {
         Util.copyDeviceId(this, mDevice.deviceID);
-    }
-
-    private void onQrButtonClick() {
-        final List<String> targetApplications = list(
-            "de.markusfisch.android.binaryeye",                 // Binary Eye
-            "de.t_dankworth.secscanqr",                         // SecScanQR
-            "com.srowen.bs.android",                            // Barcode Scanner+
-            "com.srowen.bs.android.simple"                      // Barcode Scanner+ Simple
-            // "com.google.zxing.client.android"                // Barcode Scanner (2019-02-24: no longer on GPlay)
-        );
-        IntentIntegrator integrator = new IntentIntegrator(DeviceActivity.this);
-        integrator.setTargetApplications(targetApplications);
-        integrator.setMessage(getString(R.string.install_barcode_scanner_app_message));
-        integrator.initiateScan();
     }
 
     private void showCompressionDialog(){

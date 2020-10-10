@@ -27,7 +27,7 @@
     <!-- WRITE_SETTINGS, WRITE_SECURE_SETTINGS are required to disable DuraSpeed -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
-    <!-- CAMERA is required for the "Syncthing Camera" feature -->
+    <!-- CAMERA is required for the "Syncthing Camera" feature and QR scanning -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- MANAGE_EXTERNAL_STORAGE is required on Android 11 "R" -->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -212,6 +212,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nutomic.syncthingandroid.activities.FolderActivity" />
+        </activity>
+        <activity android:name=".activities.QRScannerActivity"
+            android:label="QR Code Scanner"
+            android:parentActivityName=".activities.DeviceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nutomic.syncthingandroid.activities.DeviceActivity" />
         </activity>
         <provider
              android:name="androidx.core.content.FileProvider"
