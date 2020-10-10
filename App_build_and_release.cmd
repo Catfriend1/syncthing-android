@@ -97,7 +97,7 @@ REM Publish text and image resources to GPlay
 echo [INFO] Publishing descriptive resources to GPlay ...
 call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Listing
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%Listing" exited with code #%RESULT%. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%Listing" exited with code #%RESULT%. & pause & goto :clearPlayPublisherCache
 REM
 REM Publish APK to GPlay
 echo [INFO] Publishing APK to GPlay ...
@@ -106,7 +106,7 @@ REM SET RESULT=%ERRORLEVEL%
 REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
 call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Bundle
 SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & pause & goto :clearPlayPublisherCache
 REM
 goto :eos
 :eos
