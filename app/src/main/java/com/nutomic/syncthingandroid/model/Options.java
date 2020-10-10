@@ -61,6 +61,10 @@ public class Options {
     // See https://github.com/syncthing/syncthing/pull/6303
     public int maxConcurrentIncomingRequestKiB = 0;
 
+    // Since v1.10.0
+    // See https://github.com/syncthing/syncthing/pull/6896
+    public boolean announceLanAddresses = true;
+
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
