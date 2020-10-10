@@ -120,6 +120,7 @@ public class Constants {
     /**
      * Available app themes
      */
+    public static final String APP_THEME_FOLLOW_SYSTEM          = "-1";
     public static final String APP_THEME_LIGHT                  = "1";
     public static final String APP_THEME_DARK                   = "2";
 

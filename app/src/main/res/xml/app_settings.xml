@@ -112,7 +112,7 @@
             android:entries="@array/app_theme_names"
             android:entryValues="@array/app_theme_values"
             android:singleLineTitle="false"
-            android:defaultValue="1" />
+            android:defaultValue="-1" /> <!-- -1 is Follow system -->
 
         <!-- Expert mode -->
         <CheckBoxPreference

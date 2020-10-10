@@ -20,7 +20,7 @@ public abstract class ThemedAppCompatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Load theme.
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        Integer prefAppTheme = Integer.parseInt(sharedPreferences.getString(Constants.PREF_APP_THEME, Constants.APP_THEME_LIGHT));
+        Integer prefAppTheme = Integer.parseInt(sharedPreferences.getString(Constants.PREF_APP_THEME, Constants.APP_THEME_FOLLOW_SYSTEM));
         AppCompatDelegate.setDefaultNightMode(prefAppTheme);
         super.onCreate(savedInstanceState);
     }

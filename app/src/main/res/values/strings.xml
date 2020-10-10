@@ -467,6 +467,10 @@ Please report any problems you encounter via Github.</string>
 
     <string name="preference_app_theme_title">Theme</string>
 
+    <string name="preference_app_theme_follow_system">Follow system</string>
+    <string name="preference_app_theme_follow_light">Light</string>
+    <string name="preference_app_theme_follow_dark">Dark</string>
+
     <string name="category_behaviour">Behaviour</string>
 
     <string name="category_syncthing_options">Syncthing Options</string>

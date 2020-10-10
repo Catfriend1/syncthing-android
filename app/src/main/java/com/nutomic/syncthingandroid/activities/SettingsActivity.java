@@ -596,11 +596,11 @@ public class SettingsActivity extends SyncthingActivity {
             switch (preference.getKey()) {
                 case Constants.PREF_APP_THEME:
                     String newTheme = (String) o;
-                    String prevTheme = mPreferences.getString(Constants.PREF_APP_THEME, Constants.APP_THEME_LIGHT);
+                    String prevTheme = mPreferences.getString(Constants.PREF_APP_THEME, Constants.APP_THEME_FOLLOW_SYSTEM);
                     if (!newTheme.equals(prevTheme)) {
                         ConfigRouter config = new ConfigRouter(getActivity());
                         Gui gui = config.getGui(mRestApi);
-                        gui.theme = newTheme.equals(Constants.APP_THEME_LIGHT) ? "default" : "dark";
+                        gui.theme = newTheme.equals(Constants.APP_THEME_DARK) ? "dark" : "default";
                         config.updateGui(mRestApi, gui);
                         getAppRestartConfirmationDialog(getActivity())
                                 .show();
