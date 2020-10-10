@@ -831,6 +831,8 @@ public class SettingsActivity extends SyncthingActivity {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.dialog_confirm_import)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                // Import will discard our pending config changes.
+                                mPendingConfig = false;
                                 new ImportConfigTask(this, mSyncthingService)
                                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                             })
