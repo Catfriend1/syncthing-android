@@ -1,38 +1,38 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Android 8, 9 and 10 support.
+これは Syncthing-Android ラッパーのフォークです。以下のような大きな機能強化をもたらします：
+* フォルダやデバイス、全体的な同期の進行状況が簡単に分かります。
+* "Syncthing Camera" - 友人やパートナー、など、2台の携帯電話で1つの共有したり、プライベートなSyncthingフォルダに写真を撮ることができるオプション機能（カメラの使用許可をオプションで取得）。クラウドは関係ありません。- 現在ベータ段階にある機能です -
+* "Sync every hour"(1時間ごとに同期) でさらにバッテリーを節約
+* デバイスごとやフォルダごとに個別の同期条件を適用可能です。
+* 最近のUI変更点UIは、クリックするとファイルが開くようになりました。
+* Syncthing が起動しているかどうかに関わらず、フォルダやデバイスの設定を変更することができます。
+* 同期が実行されているかどうかはUIで明確です。
+* バッテリー消費が多い問題を修正しました。
+* 同じネットワーク上の他の Syncthing デバイスを発見し、簡単に追加することができます。
+* Android 8、9、10に対応しています。
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork for Android は Syncthing のラッパーで、Syncthing に内蔵されている Web UI の代わりに Android UI を提供します。Syncthing は、プロプライエタリな同期サービスやクラウドサービスを、オープンで信頼性が高く、分散化されたものに置き換えます。あなたのデータはあなただけのものであり、どこに保存するか、第三者と共有するか、インターネットを介してどのように転送するかを選択する権利があります。
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+以下がこのこのフォークアプリのゴールです：
+* コミュニティと一緒に機能拡張を開発し、試してみること
+* Syncthing のサブモジュールの変更に起因するバグを特定し、修正するために、ラッパーをより頻繁にリリースする。
+* UIで機能拡張を設定可能にし、ユーザーはそれらをオン/オフできるようにする。
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+これを書いている時点でのオリジナルとフォークの比較: 
+* どちらもGitHub:syncthing/syncthingにある公式ソースからビルドされたsyncthingバイナリを含んでいます。
+* 同期機能と信頼性は、Syncthing バイナリのサブモジュールのバージョンに依存します。
+* フォークは上流と仲良くしていて、たまに改善点を拾ってくれることもあります。
+* 戦略とリリース頻度が異なります。
+* Android UIを含むラッパーのみがフォークで指定されるものです。
 
-Website: https://github.com/Catfriend1/syncthing-android
+Webサイト: https://github.com/Catfriend1/syncthing-android
 
 ソースコード: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Syncthingに外部SDカード書き込み許可を与える方法：  https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ, 役立つ記事: https://github.com/Catfriend1/syncthing-android/wiki
 
 問題: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+一緒に手伝って下さい：
+翻訳： https://www.transifex.com/projects/p/syncthing-android-1
