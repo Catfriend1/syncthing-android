@@ -129,7 +129,6 @@
                 android:text="@string/folder_fileWatcher" />
 
             <TextView
-                android:id="@+id/fileWatcherDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="75dp"
@@ -186,7 +185,6 @@
                     android:text="@string/custom_sync_conditions_dialog"/>
 
                 <TextView
-                    android:id="@+id/customSyncConditionsCurrent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -256,7 +254,6 @@
                     android:text="@string/file_versioning" />
 
                 <TextView
-                    android:id="@+id/versioningGenericDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -301,7 +298,6 @@
                     android:text="@string/folder_ignore_delete_caption" />
 
                 <TextView
-                    android:id="@+id/ignoreDeleteDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"

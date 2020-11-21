@@ -29,7 +29,6 @@
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/static_sync_conditions_title"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -41,7 +40,6 @@
                     android:text="@string/run_conditions_title" />
 
                 <TextView
-                    android:id="@+id/static_sync_conditions_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -70,7 +68,6 @@
                     android:text="@string/run_on_wifi_title" />
 
                 <TextView
-                    android:id="@+id/sync_on_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -100,7 +97,6 @@
                     android:text="@string/run_on_whitelisted_wifi_title" />
 
                 <TextView
-                    android:id="@+id/sync_on_whitelisted_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -136,7 +132,6 @@
                     android:text="@string/run_on_metered_wifi_title" />
 
                 <TextView
-                    android:id="@+id/sync_on_metered_wifi_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
@@ -166,7 +161,6 @@
                     android:text="@string/run_on_mobile_data_title" />
 
                 <TextView
-                    android:id="@+id/sync_on_mobile_data_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"

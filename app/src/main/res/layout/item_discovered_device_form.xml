@@ -2,7 +2,6 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/device_button"
     style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

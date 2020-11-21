@@ -103,7 +103,6 @@
                     android:inputType="textNoSuggestions|textMultiLine" />
 
                 <ImageView
-                    android:id="@+id/copyDeviceIdIcon"
                     style="?actionButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,7 +242,6 @@
                     android:text="@string/custom_sync_conditions_dialog"/>
 
                 <TextView
-                    android:id="@+id/customSyncConditionsCurrent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="75dp"
