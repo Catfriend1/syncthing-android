@@ -1,9 +1,8 @@
-* Syncthing v1.11.1
+* Syncthing v1.12.0-rc.3
 
 Enhanced
 --
-- Integrated QR Code Scanner, thanks to @sumit-anantwar
-- Theme: Add "Follow system" for API 28+, thanks to @praveenrajput
+
 
 Other issues
 --
