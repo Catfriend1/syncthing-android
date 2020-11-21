@@ -1045,6 +1045,7 @@ public class ConfigXml {
         options.databaseTuning = getContentOrDefault(elementOptions.getElementsByTagName("databaseTuning").item(0), options.databaseTuning);
         options.maxConcurrentIncomingRequestKiB = getContentOrDefault(elementOptions.getElementsByTagName("maxConcurrentIncomingRequestKiB").item(0), options.maxConcurrentIncomingRequestKiB);
         options.announceLanAddresses = getContentOrDefault(elementOptions.getElementsByTagName("announceLANAddresses").item(0), options.announceLanAddresses);
+        options.sendFullIndexOnUpgrade = getContentOrDefault(elementOptions.getElementsByTagName("sendFullIndexOnUpgrade").item(0), options.sendFullIndexOnUpgrade);
         return options;
     }
 

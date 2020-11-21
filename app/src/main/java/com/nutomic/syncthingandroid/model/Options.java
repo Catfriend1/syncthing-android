@@ -65,6 +65,10 @@ public class Options {
     // See https://github.com/syncthing/syncthing/pull/6896
     public boolean announceLanAddresses = true;
 
+    // Since v1.11.0
+    // See https://github.com/calmh/syncthing/commit/e57eec8660606fa65fd3080b9c5d98447f54abeb
+    public boolean sendFullIndexOnUpgrade = false;
+
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
