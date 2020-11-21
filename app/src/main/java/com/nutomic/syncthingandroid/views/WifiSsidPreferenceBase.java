@@ -43,16 +43,16 @@ import java.util.TreeSet;
  * SSIDs are formatted according to the naming convention of WifiManager, i.e. they have the
  * surrounding double-quotes (") for UTF-8 names, or they are hex strings (if not quoted).
  */
-public class WifiSsidPreference extends MultiSelectListPreference {
+public class WifiSsidPreferenceBase extends MultiSelectListPreference {
 
-    private static final String TAG = "WifiSsidPreference";
+    protected static final String TAG = "WifiSsidPreference";
 
-    public WifiSsidPreference(Context context, AttributeSet attrs) {
+    public WifiSsidPreferenceBase(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDefaultValue(new TreeSet<String>());
     }
 
-    public WifiSsidPreference(Context context) {
+    public WifiSsidPreferenceBase(Context context) {
         this(context, null);
     }
 
@@ -176,13 +176,7 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             return retSsids;
         }
 
-        List<WifiConfiguration> configuredNetworks = null;
-        try {
-            configuredNetworks = wifiManager.getConfiguredNetworks();
-        } catch (SecurityException e) {
-            // See changes in Android Q, https://developer.android.com/reference/android/net/wifi/WifiManager.html#getConfiguredNetworks()
-            Log.e(TAG, "getConfiguredWifiSsidsAPI16to28:", e);
-        }
+        List<WifiConfiguration> configuredNetworks = wifiManager_getConfiguredNetworks(wifiManager);
         if (configuredNetworks == null) {
             Log.i(TAG, "getConfiguredWifiSsidsAPI16to28: wifiManager returned configuredNetworks == null");
             return retSsids;
@@ -204,6 +198,11 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             }
         }
         return retSsids;
+    }
+
+    // See buildType source folders, wifiManager.getConfiguredNetworks is valid for "debug, release". Not valid for "gplay".
+    private List<WifiConfiguration> wifiManager_getConfiguredNetworks(WifiManager wifiManager) {
+        return null;
     }
 
     private boolean haveLocationPermission() {
