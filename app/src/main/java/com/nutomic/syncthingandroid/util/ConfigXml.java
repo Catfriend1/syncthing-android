@@ -31,6 +31,7 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -200,7 +201,7 @@ public class ConfigXml {
         }
         try {
             FileInputStream inputStream = new FileInputStream(mConfigFile);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             InputSource inputSource = new InputSource(inputStreamReader);
             inputSource.setEncoding("UTF-8");
             DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
@@ -698,10 +699,10 @@ public class ConfigXml {
             file = new File(folder.path, Constants.FILENAME_STIGNORE);
             if (file.exists()) {
                 fileInputStream = new FileInputStream(file);
-                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
                 byte[] data = new byte[(int) file.length()];
                 fileInputStream.read(data);
-                folderIgnoreList.ignore = new String(data, "UTF-8").split("\n");
+                folderIgnoreList.ignore = new String(data, StandardCharsets.UTF_8).split("\n");
             } else {
                 // File not found.
                 Log.w(TAG, "getFolderIgnoreList: File missing " + file);
@@ -737,7 +738,7 @@ public class ConfigXml {
             }
             fileOutputStream = new FileOutputStream(file);
             // LogV("postFolderIgnoreList: Writing " + Constants.FILENAME_STIGNORE + " content=" + TextUtils.join("\n", ignore));
-            fileOutputStream.write(TextUtils.join("\n", ignore).getBytes("UTF-8"));
+            fileOutputStream.write(TextUtils.join("\n", ignore).getBytes(StandardCharsets.UTF_8));
             fileOutputStream.flush();
         } catch (IOException e) {
             /**
@@ -1420,7 +1421,7 @@ public class ConfigXml {
         try {
             // Write XML header.
             FileOutputStream fileOutputStream = new FileOutputStream(mConfigTempFile);
-            fileOutputStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes("UTF-8"));
+            fileOutputStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes(StandardCharsets.UTF_8));
 
             // Prepare Object-to-XML transform.
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -1432,7 +1433,7 @@ public class ConfigXml {
 
             // Output XML body.
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            StreamResult streamResult = new StreamResult(new OutputStreamWriter(byteArrayOutputStream, "UTF-8"));
+            StreamResult streamResult = new StreamResult(new OutputStreamWriter(byteArrayOutputStream, StandardCharsets.UTF_8));
             transformer.transform(new DOMSource(mConfig), streamResult);
             byte[] outputBytes = byteArrayOutputStream.toByteArray();
             fileOutputStream.write(outputBytes);

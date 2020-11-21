@@ -311,6 +311,6 @@ public class SegmentedButton extends LinearLayout {
     }
 
     public interface OnClickListenerSegmentedButton {
-        public void onClick(int index);
+        void onClick(int index);
     }
 }

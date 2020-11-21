@@ -166,7 +166,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private Bitmap generateQrCodeBitmap(String text, int width, int height) throws WriterException, NullPointerException {
         BitMatrix bitMatrix;
         try {
-            bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.DATA_MATRIX.QR_CODE,
+            bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE,
             width, height, null);
         } catch (IllegalArgumentException ex) {
             return null;

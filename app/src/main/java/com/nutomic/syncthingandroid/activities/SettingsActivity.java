@@ -1133,7 +1133,7 @@ public class SettingsActivity extends SyncthingActivity {
             if (TextUtils.isEmpty(result)) {
                 return "N/A";
             }
-            String resultParts[] = result.split("\\s+");
+            String[] resultParts = result.split("\\s+");
             if (resultParts.length == 0) {
                 return "N/A";
             }

@@ -52,6 +52,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -1120,7 +1121,7 @@ public class RestApi {
                     targetFile.createNewFile();
                 }
                 fileOutputStream = new FileOutputStream(targetFile);
-                fileOutputStream.write(result.getBytes("ISO-8859-1"));  // Do not use UTF-8 here because the ZIP would be corrupted.
+                fileOutputStream.write(result.getBytes(StandardCharsets.ISO_8859_1));  // Do not use UTF-8 here because the ZIP would be corrupted.
                 fileOutputStream.flush();
             } catch (IOException e) {
                 Log.w(TAG, "downloadSupportBundle: Failed to write '" + targetFile.getPath() + "' #1", e);

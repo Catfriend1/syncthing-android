@@ -72,9 +72,7 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             knownSsids = sharedPreferences.getStringSet(Constants.PREF_KNOWN_WIFI_SSIDS, new HashSet<>());
             String currentWifiSsid = getCurrentWifiSsid();
             if (!TextUtils.isEmpty(currentWifiSsid)) {
-                if (!knownSsids.contains(currentWifiSsid)) {
-                    knownSsids.add(currentWifiSsid);
-                }
+                knownSsids.add(currentWifiSsid);
             }
         } else {
             knownSsids = getConfiguredWifiSsidsAPI16to28();

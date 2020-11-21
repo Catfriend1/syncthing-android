@@ -51,6 +51,7 @@ import com.nutomic.syncthingandroid.util.Util;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -837,7 +838,7 @@ public class FolderActivity extends SyncthingActivity {
         OutputStream outputStream = null;
         try {
             outputStream = getContentResolver().openOutputStream(dfDoNotDeleteFile.getUri());
-            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes("ISO-8859-1"));
+            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
             outputStream.flush();
         } catch (IOException e) {
             Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
