@@ -8,7 +8,6 @@ REM 		com.github.catfriend1.syncthingandroid_v1.0.0.1_7d59e75.apk
 REM 
 title %~nx0
 setlocal enabledelayedexpansion
-REM cls
 REM 
 REM Runtime variables.
 SET SCRIPT_PATH=%~dps0
@@ -70,20 +69,20 @@ echo [INFO] VERSION_NAME=[%VERSION_NAME%], commit=[%COMMIT_SHORT_HASH%]=[%COMMIT
 echo [INFO] Copying APK to same directory ...
 REM 
 REM Copy APK to be ready for upload to the GitHub release page.
-SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_github_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME%
 REM 
-SET APK_RELEASE_NEW_FILENAME=%APPLICATION_ID%_fdroid_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+SET APK_RELEASE_NEW_FILENAME=%APPLICATION_ID%_gplay_full_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %SCRIPT_PATH%app\build\outputs\apk\release\%APK_RELEASE_NEW_FILENAME%
 REM 
-SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_light_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME%
 REM 
 REM Copy both APK to temporary storage location if the storage is available.
 IF EXIST %TEMP_OUTPUT_FOLDER%\ (
 	echo [INFO] Copying APK to [%TEMP_OUTPUT_FOLDER%] ...
 	copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
-	REM copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_RELEASE_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
+	copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_RELEASE_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
 	copy /y %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
 )
 REM 
@@ -144,7 +143,7 @@ REM
 REM Package built APKs into ZIP.
 echo [INFO] Adding built APKs to source code ZIP ...
 %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GITHUB_NEW_FILENAME%
-REM %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_RELEASE_NEW_FILENAME%
+%TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_RELEASE_NEW_FILENAME%
 %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GPLAY_NEW_FILENAME%
 REM 
 goto :eof
