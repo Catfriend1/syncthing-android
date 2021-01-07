@@ -126,7 +126,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 break;
             case "DevicePaused":
                 mRestApi.updateRemoteDevicePaused(
-                        (String) event.data.get("id"),          // deviceId
+                        (String) event.data.get("device"),          // deviceId
                         true
                 );
                 break;
@@ -147,7 +147,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 break;
             case "DeviceResumed":
                 mRestApi.updateRemoteDevicePaused(
-                        (String) event.data.get("id"),          // deviceId
+                        (String) event.data.get("device"),          // deviceId
                         false
                 );
                 break;
