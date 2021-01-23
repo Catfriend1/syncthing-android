@@ -244,13 +244,15 @@ public class RestApi {
             if (!logPendingDevices.equals("[]")) {
                 LogV("ORCC: pendingDevices = " + logPendingDevices);
             }
-            for (final PendingDevice pendingDevice : mConfig.pendingDevices) {
-                if (mNotificationHandler != null && pendingDevice.deviceID != null) {
-                    Log.d(TAG, "ORCC: pendingDevice.deviceID = " + pendingDevice.deviceID + "('" + pendingDevice.name + "')");
-                    mNotificationHandler.showDeviceConnectNotification(
-                        pendingDevice.deviceID,
-                        pendingDevice.name
-                    );
+            if (mConfig.pendingDevices != null) {
+                for (final PendingDevice pendingDevice : mConfig.pendingDevices) {
+                    if (mNotificationHandler != null && pendingDevice.deviceID != null) {
+                        Log.d(TAG, "ORCC: pendingDevice.deviceID = " + pendingDevice.deviceID + "('" + pendingDevice.name + "')");
+                        mNotificationHandler.showDeviceConnectNotification(
+                            pendingDevice.deviceID,
+                            pendingDevice.name
+                        );
+                    }
                 }
             }
 
@@ -266,18 +268,20 @@ public class RestApi {
                 if (!logPendingFolders.equals("[]")) {
                     LogV("ORCC: device[" + device.getDisplayName() + "].pendingFolders = " + logPendingFolders);
                 }
-                for (final PendingFolder pendingFolder : device.pendingFolders) {
-                    if (mNotificationHandler != null && pendingFolder.id != null) {
-                        Log.d(TAG, "ORCC: pendingFolder.id = " + pendingFolder.id + "('" + pendingFolder.label + "')");
-                        Boolean isNewFolder = Stream.of(getFolders())
-                                .noneMatch(f -> f.id.equals(pendingFolder.id));
-                        mNotificationHandler.showFolderShareNotification(
-                            device.deviceID,
-                            device.name,
-                            pendingFolder.id,
-                            pendingFolder.label,
-                            isNewFolder
-                        );
+                if (device.pendingFolders != null) {
+                    for (final PendingFolder pendingFolder : device.pendingFolders) {
+                        if (mNotificationHandler != null && pendingFolder.id != null) {
+                            Log.d(TAG, "ORCC: pendingFolder.id = " + pendingFolder.id + "('" + pendingFolder.label + "')");
+                            Boolean isNewFolder = Stream.of(getFolders())
+                                    .noneMatch(f -> f.id.equals(pendingFolder.id));
+                            mNotificationHandler.showFolderShareNotification(
+                                device.deviceID,
+                                device.name,
+                                pendingFolder.id,
+                                pendingFolder.label,
+                                isNewFolder
+                            );
+                        }
                     }
                 }
             }
