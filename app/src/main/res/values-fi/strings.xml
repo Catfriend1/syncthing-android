@@ -24,7 +24,6 @@
     <string name="storage_permission_title">Tallennustilan käyttöoikeus</string>
     <string name="storage_permission_desc">Syncthing tarvitsee pääsyn tallennustilaasi synkronoidakseen.</string>
     <string name="dialog_all_files_access_not_supported">Laitteesi ei tue pääsyä kaikkiin tiedostoihin</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
     <string name="ignore_doze_permission_os_notice">Android TV:t tiedettävästi sulkevat toisinaan sovelluksen, kun se on käynnissä taustalla. Ratkaisu on saatavilla wikissä kohdassa \'%1$s/%2$s.</string>

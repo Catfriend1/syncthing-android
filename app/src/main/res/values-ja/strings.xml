@@ -25,7 +25,6 @@
     <string name="storage_permission_title">ストレージアクセス許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
     <string name="dialog_all_files_access_not_supported">お使いのデバイスがすべてのファイルへのアクセスをサポートしていません</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">バッテリー最適化</string>
     <string name="toast_ignore_doze_permission_required">このアプリは「ドーズ」の省電力モードが解除されている場合のみ確実に動作します。</string>
@@ -141,7 +140,13 @@
 
     <string name="override_changes">上書き変更</string>
 
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">これにより、このフォルダを共有している他のデバイスで行われた変更がすべて元に戻されます。続けますか？</string>
+
     <string name="revert_local_changes">ローカルの変更を元に戻す</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">これにより、このデバイスで行われたそのフォルダ内のすべての変更が元に戻されます。続けますか？</string>
 
     <string name="open_file_manager">ファイルマネージャーを開く</string>
     <string name="open_file_with">手段を指定してファイルを開く</string>
@@ -178,7 +183,12 @@
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">不明</string>
 
+    <!-- Last seen title -->
+    <string name="device_last_seen">最後に見たもの:　%1$s</string>
     <string name="device_last_seen_never">二度としない</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">フォルダ:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">ダウンロード</string>
@@ -188,6 +198,10 @@
 
     <!-- StatusFragment -->
     <string name="status_fragment_title">ステータス</string>
+
+    <string name="button_follow_run_conditions">実行条件に従う</string>
+    <string name="button_force_start">強制開始\n実行条件を無視</string>
+    <string name="button_force_stop">強制停止\n実行条件を無視</string>
 
     <string name="syncthing_starting">Syncthing が開始しています</string>
     <string name="syncthing_running">Syncthing は実行中です</string>
@@ -269,6 +283,9 @@
     <!-- Setting title -->
     <string name="device_id">デバイス ID</string>
 
+    <!-- Status title -->
+    <string name="discovered_devices_title">発見されたデバイス - タップして選択</string>
+
     <!-- Setting title -->
     <string name="name">名前</string>
 
@@ -294,6 +311,9 @@
     <!-- Setting title -->
     <string name="introducer">紹介者デバイス</string>
 
+    <!-- Setting title -->
+    <string name="pause_device">デバイスをポーズ</string>
+
     <!-- ActionBar item -->
     <string name="delete_device">デバイスを削除</string>
 
@@ -311,6 +331,9 @@
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">デバイス ID は空にできません</string>
 
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_invalid">デバイスIDが正しく記載されていません。再試行して、正しいIDを入力してください。</string>
+
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">デバイス名は空に出来ません。</string>
 
@@ -319,6 +342,9 @@
 
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR コードをスキャン</string>
+
+    <!-- Dialog message if no compatible barcode scanner app is installed -->
+    <string name="install_barcode_scanner_app_message">バーコードスキャナアプリが必要です。F-Droid からアプリ「Binary Eye」をインストールしてみませんか？</string>
 
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">フォルダが設定されていません。タップして新しいフォルダを追加して下さい。。</string>
@@ -334,11 +360,13 @@
 
     <string name="tip_write_to_sdcard_title">外部SDカードへの書き込みの回避策</string>
     <string name="tip_sync_on_local_network_title">ローカルWiFiネットワークを使用してのみ同期する</string>
+    <string name="tip_custom_sync_conditions_title">フォルダ/デバイスごとにカスタム同期条件を使用</string>
     <string name="tip_ignore_delete_title">携帯電話からパソコンに写真をバックアップしますか？</string>
     <string name="tip_huawei_device_disconnected_title">Huawei：「デバイス切断」回避策</string>
     <string name="tip_phone_ip_address_syntax">スマートフォンのIPアドレス</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: アプリはスマホ起動時に開始しません。</string>
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: アプリが繰り返しウェルカム画面を表示する。</string>
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">最近の変更はありません。</string>
 
@@ -393,6 +421,8 @@
     <string name="run_on_mobile_data_title">モバイルデータ上での実行</string>
     <string name="run_on_roaming_title">ローミング中に実行する</string>
     <string name="run_on_wifi_title">Wi-Fi上での実行</string>
+    <string name="run_on_wifi_summary">デバイスがWi-Fiまたはイーサネットネットワークに接続されているときに実行します。</string>
+
     <string name="run_on_metered_wifi_title">従量制のWi-Fiで実行</string>
     <string name="run_on_whitelisted_wifi_title">指定されたWi-Fiネットワーク上での実行</string>
     <string name="specify_wifi_ssid_whitelist">Wi-Fiネットワークを選択</string>
@@ -404,6 +434,8 @@
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">この機能を使用するには、位置情報取得許可を与える必要があります。</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">許可が必要</string>
+    <string name="power_source_title">デバイスの電源が次のものである場合に実行</string>
+
     <string-array name="power_source_entries">
         <item>ACとバッテリー電源。</item>
         <item>AC電源</item>
@@ -411,14 +443,22 @@
     </string-array>
 
     <string name="respect_battery_saving_title">Android の節電設定に従う</string>
+    <string name="respect_battery_saving_summary">バッテリー節約が有効な場合は、Syncthingを無効にします。</string>
+
+    <string name="respect_master_sync_title">Androidの「自動同期データ」の設定を優先します。</string>
     <string name="run_in_flight_mode_title">ネットワーク接続なしで実行</string>
+    <string name="run_on_time_schedule_title">タイムスケジュールに合わせて実行する。</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自動起動</string>
+    <string name="behaviour_autostart_summary">OS起動時に自動的にアプリを起動します。</string>
+
     <string name="use_root_title">スーパーユーザーとして実行</string>
 
     <string name="use_root_summary">これは Syncthing とお使いのデバイスに問題が生じる可能性のある、安定していない機能です。問題が発生した場合は、Syncthing の再インストールが必要な場合があります。</string>
 
     <string name="launcher_show_camera_icon_title">ランチャーにカメラアイコンを表示</string>
+
+    <string name="toast_show_hide_launcher_icon_failed">ランチャーアイコンの表示・非表示に失敗しました。</string>
 
     <string name="expert_mode_title">エキスパートモード</string>
 
@@ -493,6 +533,8 @@
 
     <string name="socks_proxy_address_title">SOCKS5 プロキシ</string>
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
+    <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
+
     <string name="restart_on_wakeup_title">ウェイクアップ時の再起動</string>
 
     <!-- Dialog shown before config export -->
@@ -740,6 +782,14 @@
     <string name="pull_order_type_largestFirst">大きい順</string>
     <string name="pull_order_type_oldestFirst">古い順</string>
     <string name="pull_order_type_newestFirst">新しい順</string>
+
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">ランダムな順にファイルを取得する。</string>
+    <string name="pull_order_type_alphabetic_description">ファイル名順に取得する。</string>
+    <string name="pull_order_type_smallestFirst_description">ファイルが小さい順に取得する。</string>
+    <string name="pull_order_type_largestFirst_description">ファイルが大きい順に取得する。</string>
+    <string name="pull_order_type_oldestFirst_description">修正時間が古い順にファイルを取得する。</string>
+    <string name="pull_order_type_newestFirst_description">修正時間が新しい順にファイルを取得する。</string>
 
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">最大保存日数</string>

@@ -25,7 +25,6 @@
     <string name="storage_permission_title">存储器读写权限</string>
     <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
     <string name="dialog_all_files_access_not_supported">您的设备不支持所有的文件访问</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">电池优化</string>
     <string name="ignore_doze_permission_os_notice">众所周知，当应用程序在后台运行时，Android TV偶尔会终止它。您可以在项目百科页面\'%1$s/%2$s\'找到一个解决方案。</string>
