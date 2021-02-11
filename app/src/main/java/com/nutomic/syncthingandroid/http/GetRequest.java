@@ -22,6 +22,8 @@ public class GetRequest extends ApiRequest {
     public static final String URI_VERSION          = "/rest/system/version";
     public static final String URI_SYSTEM_STATUS    = "/rest/system/status";
     public static final String URI_CONNECTIONS      = "/rest/system/connections";
+    public static final String URI_PENDING_DEVICES  = "/rest/cluster/pending/devices";
+    public static final String URI_PENDING_FOLDERS  = "/rest/cluster/pending/folders";
     public static final String URI_DEBUG_SUPPORT    = "/rest/debug/support";
     public static final String URI_DB_IGNORES       = "/rest/db/ignores";
     public static final String URI_DB_STATUS        = "/rest/db/status";

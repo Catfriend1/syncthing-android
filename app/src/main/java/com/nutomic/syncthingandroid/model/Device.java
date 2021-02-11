@@ -28,7 +28,6 @@ public class Device {
     public String introducedBy = "";
     public boolean introducer = false;
     public boolean paused = false;
-    public List<PendingFolder> pendingFolders;
     public List<IgnoredFolder> ignoredFolders;
 
     // private static final String TAG = "Device";

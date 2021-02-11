@@ -66,6 +66,7 @@ import java.util.Set;
 import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
+import static com.nutomic.syncthingandroid.util.Util.getLocalZonedDateTime;
 
 /**
  * Provides functions to interact with the syncthing REST API.
@@ -125,9 +126,9 @@ public class RestApi {
      * {@link ../activities/SettingsActivity#SettingsFragment#onServiceStateChange} needs cached config and system information available.
      * e.g. SettingsFragment need "mLocalDeviceId"
      */
-    private Boolean asyncQueryConfigComplete = false;
-    private Boolean asyncQueryVersionComplete = false;
-    private Boolean asyncQuerySystemStatusComplete = false;
+    private Boolean asyncQueryConfigComplete            = false;
+    private Boolean asyncQueryVersionComplete           = false;
+    private Boolean asyncQuerySystemStatusComplete      = false;
 
     /**
      * Object that must be locked upon accessing the following variables:
@@ -211,7 +212,9 @@ public class RestApi {
     }
 
     private void checkReadConfigFromRestApiCompleted() {
-        if (asyncQueryVersionComplete && asyncQueryConfigComplete && asyncQuerySystemStatusComplete) {
+        if (asyncQueryVersionComplete &&
+                asyncQueryConfigComplete &&
+                asyncQuerySystemStatusComplete) {
             LogV("Reading config from REST completed. Syncthing version is " + mVersion);
             // Tell SyncthingService it can transition to State.ACTIVE.
             mOnApiAvailableListener.onApiAvailable();
@@ -222,14 +225,14 @@ public class RestApi {
         new GetRequest(mContext, mUrl, GetRequest.URI_CONFIG, mApiKey, null, this::onReloadConfigComplete, error -> {});
     }
 
-    private void onReloadConfigComplete(String result) {
+    private void onReloadConfigComplete(String configResult) {
         Boolean configParseSuccess;
         synchronized(mConfigLock) {
-            mConfig = mGson.fromJson(result, Config.class);
+            mConfig = mGson.fromJson(configResult, Config.class);
             configParseSuccess = mConfig != null;
         }
         if (!configParseSuccess) {
-            throw new RuntimeException("config is null: " + result);
+            throw new RuntimeException("config is null: " + configResult);
         }
         Log.d(TAG, "onReloadConfigComplete: Successfully parsed configuration.");
 
@@ -239,53 +242,91 @@ public class RestApi {
                 LogV("ORCC: remoteIgnoredDevices = " + logRemoteIgnoredDevices);
             }
 
-            // Check if device approval notifications are pending.
-            String logPendingDevices = mGson.toJson(mConfig.pendingDevices);
-            if (!logPendingDevices.equals("[]")) {
-                LogV("ORCC: pendingDevices = " + logPendingDevices);
-            }
-            if (mConfig.pendingDevices != null) {
-                for (final PendingDevice pendingDevice : mConfig.pendingDevices) {
-                    if (mNotificationHandler != null && pendingDevice.deviceID != null) {
-                        Log.d(TAG, "ORCC: pendingDevice.deviceID = " + pendingDevice.deviceID + "('" + pendingDevice.name + "')");
-                        mNotificationHandler.showDeviceConnectNotification(
-                            pendingDevice.deviceID,
-                            pendingDevice.name
-                        );
-                    }
-                }
-            }
-
-            // Loop through devices.
+            // Loop through devices to get ignoredFolders per device.
             for (final Device device : getDevices(false)) {
                 String logIgnoredFolders = mGson.toJson(device.ignoredFolders);
                 if (!logIgnoredFolders.equals("[]")) {
                     LogV("ORCC: device[" + device.getDisplayName() + "].ignoredFolders = " + logIgnoredFolders);
                 }
-
-                // Check if folder approval notifications are pending for the device.
-                String logPendingFolders = mGson.toJson(device.pendingFolders);
-                if (!logPendingFolders.equals("[]")) {
-                    LogV("ORCC: device[" + device.getDisplayName() + "].pendingFolders = " + logPendingFolders);
-                }
-                if (device.pendingFolders != null) {
-                    for (final PendingFolder pendingFolder : device.pendingFolders) {
-                        if (mNotificationHandler != null && pendingFolder.id != null) {
-                            Log.d(TAG, "ORCC: pendingFolder.id = " + pendingFolder.id + "('" + pendingFolder.label + "')");
-                            Boolean isNewFolder = Stream.of(getFolders())
-                                    .noneMatch(f -> f.id.equals(pendingFolder.id));
-                            mNotificationHandler.showFolderShareNotification(
-                                device.deviceID,
-                                device.name,
-                                pendingFolder.id,
-                                pendingFolder.label,
-                                isNewFolder
-                            );
-                        }
-                    }
-                }
             }
         }
+
+        new GetRequest(mContext, mUrl, GetRequest.URI_PENDING_DEVICES, mApiKey, null, result -> {
+            if (mNotificationHandler == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_DEVICES, mNotificationHandler == null");
+                return;
+            }
+            if (result == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_DEVICES, result == null");
+                return;
+            }
+            JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+            if (jsonObject == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_DEVICES, jsonObject == null");
+                return;
+            }
+            Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+            for (Map.Entry<String, JsonElement> deviceEntry: entries) {
+                final String resultDeviceId = deviceEntry.getKey();
+                if (resultDeviceId == null) {
+                    continue;
+                }
+                final PendingDevice pendingDevice = mGson.fromJson(deviceEntry.getValue(), PendingDevice.class);
+                if (pendingDevice.time == null) {
+                    continue;
+                }
+                Log.d(TAG, "ORCC: resultDeviceId = " + resultDeviceId + "('" + pendingDevice.name + "')");
+                mNotificationHandler.showDeviceConnectNotification(
+                    resultDeviceId,
+                    pendingDevice.name
+                );
+            }
+        }, error -> {});
+        new GetRequest(mContext, mUrl, GetRequest.URI_PENDING_FOLDERS, mApiKey, null, result -> {
+            if (mNotificationHandler == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_FOLDERS, mNotificationHandler == null");
+                return;
+            }
+            if (result == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_FOLDERS, result == null");
+                return;
+            }
+            JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+            if (jsonObject == null) {
+                Log.e(TAG, "ORCC: URI_PENDING_FOLDERS, jsonObject == null");
+                return;
+            }
+            Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+            for (Map.Entry<String, JsonElement> folderEntry: entries) {
+                final String resultFolderId = folderEntry.getKey();
+                if (resultFolderId == null) {
+                    continue;
+                }
+                JsonObject jsonObjectOfferedBy = ((JsonObject) folderEntry.getValue().getAsJsonObject()).get("offeredBy").getAsJsonObject();
+                Set<Map.Entry<String, JsonElement>> offeredByEntries = jsonObjectOfferedBy.entrySet();
+                for (Map.Entry<String, JsonElement> offeredByEntry: offeredByEntries) {
+                    final String offeredByDeviceId = offeredByEntry.getKey();
+                    if (offeredByDeviceId == null) {
+                        continue;
+                    }
+                    final PendingFolder pendingFolder = mGson.fromJson(offeredByEntry.getValue(), PendingFolder.class);
+                    Log.d(TAG, "ORCC: resultFolderId = " + resultFolderId + "('" + pendingFolder.label + "')");
+                    Device matchingDevice = Stream.of(getDevices(false))
+                            .filter(d -> d.deviceID.equals(offeredByDeviceId))
+                            .findFirst()
+                            .get();
+                    Boolean isNewFolder = Stream.of(getFolders())
+                            .noneMatch(f -> f.id.equals(resultFolderId));
+                    mNotificationHandler.showFolderShareNotification(
+                        offeredByDeviceId,
+                        matchingDevice.getDisplayName(),
+                        resultFolderId,
+                        pendingFolder.label,
+                        isNewFolder
+                    );
+                }
+            }
+        }, error -> {});
 
         // Update cached device and folder information.
         final List<Folder> tmpFolders = getFolders();
@@ -351,18 +392,7 @@ public class RestApi {
              */
             RemoteIgnoredDevice remoteIgnoredDevice = new RemoteIgnoredDevice();
             remoteIgnoredDevice.deviceID = deviceId;
-            Iterator<PendingDevice> it = mConfig.pendingDevices.iterator();
-            while (it.hasNext()) {
-                PendingDevice pendingDevice = it.next();
-                if (deviceId.equals(pendingDevice.deviceID)) {
-                    // Move over information stored in the "pendingDevice" entry.
-                    remoteIgnoredDevice.address = pendingDevice.address;
-                    remoteIgnoredDevice.name = pendingDevice.name;
-                    remoteIgnoredDevice.time = pendingDevice.time;
-                    it.remove();
-                    break;
-                }
-            }
+            remoteIgnoredDevice.time = getLocalZonedDateTime();
             mConfig.remoteIgnoredDevices.add(remoteIgnoredDevice);
             sendConfig();
             Log.d(TAG, "Ignored device [" + deviceId + "]");
@@ -395,19 +425,8 @@ public class RestApi {
                      */
                     IgnoredFolder ignoredFolder = new IgnoredFolder();
                     ignoredFolder.id = folderId;
-                    Iterator<PendingFolder> it = device.pendingFolders.iterator();
-                    while (it.hasNext()) {
-                        PendingFolder pendingFolder = it.next();
-                        if (folderId.equals(pendingFolder.id)) {
-                            // Move over information stored in the "pendingFolder" entry.
-                            ignoredFolder.label = pendingFolder.label;
-                            ignoredFolder.time = pendingFolder.time;
-                            it.remove();
-                            break;
-                        }
-                    }
+                    ignoredFolder.time = getLocalZonedDateTime();
                     device.ignoredFolders.add(ignoredFolder);
-                    LogV("ignoreFolder: device.pendingFolders = " + mGson.toJson(device.pendingFolders));
                     LogV("ignoreFolder: device.ignoredFolders = " + mGson.toJson(device.ignoredFolders));
                     sendConfig();
                     Log.d(TAG, "Ignored folder [" + folderId + "] announced by device [" + deviceId + "]");
