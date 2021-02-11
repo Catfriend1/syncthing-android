@@ -2,10 +2,14 @@
 
 Enhanced
 --
+- Offer emergency config export if stuck (#747)
 
+Fixes
+--
+- Fix pending folder/device notifications (#743)
 
 Other issues
 --
 - G Play version
--+ The "sync on whitelisted WiFi SSID" feature is no longer available.
--+ If you got your phone updated to Android 11 you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
+-+ The "whitelisted WiFi SSID" feature is no longer available.
+-+ If you got your phone updated to Android 11 you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission. See GitHub for more info.
