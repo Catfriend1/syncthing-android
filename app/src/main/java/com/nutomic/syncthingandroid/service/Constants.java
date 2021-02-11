@@ -172,7 +172,7 @@ public class Constants {
     /**
      * File in the config folder that contains configuration.
      */
-    static final String CONFIG_FILE = "config.xml";
+    public static final String CONFIG_FILE = "config.xml";
 
     public static File getConfigFile(Context context) {
         return new File(context.getFilesDir(), CONFIG_FILE);
@@ -190,18 +190,18 @@ public class Constants {
     /**
      * Name of the public key file in the data directory.
      */
-    static final String PUBLIC_KEY_FILE = "cert.pem";
+    public static final String PUBLIC_KEY_FILE = "cert.pem";
 
-    static File getPublicKeyFile(Context context) {
+    public static File getPublicKeyFile(Context context) {
         return new File(context.getFilesDir(), PUBLIC_KEY_FILE);
     }
 
     /**
      * Name of the private key file in the data directory.
      */
-    static final String PRIVATE_KEY_FILE = "key.pem";
+    public static final String PRIVATE_KEY_FILE = "key.pem";
 
-    static File getPrivateKeyFile(Context context) {
+    public static File getPrivateKeyFile(Context context) {
         return new File(context.getFilesDir(), PRIVATE_KEY_FILE);
     }
 

@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     android:background="@color/bg_screen2">
 
+    <Button
+        android:id="@+id/btnConfigExport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/storage_permission_emergency_export"
+        app:drawableStartCompat="@drawable/ic_folder_send_only"
+        app:drawableLeftCompat="@drawable/ic_folder_send_only"
+        android:text="@string/storage_permission_emergency_export"
+        android:textSize="12sp"
+        android:visibility="gone" />
+        style="@style/Theme.Syncthing.GreyButton" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

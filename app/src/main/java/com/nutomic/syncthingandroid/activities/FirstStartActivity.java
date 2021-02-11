@@ -34,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -42,7 +43,11 @@ import com.nutomic.syncthingandroid.util.ConfigXml;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.CustomViewPager;
 
+import java.io.IOException;
+import java.io.File;
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.inject.Inject;
 
@@ -252,6 +257,10 @@ public class FirstStartActivity extends AppCompatActivity {
             // As the storage permission is a prerequisite to run syncthing, refuse to continue without it.
             Boolean storagePermissionsGranted = haveStoragePermission();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (storagePermissionsGranted && !haveAllFilesAccessPermission()) {
+                        Button btnConfigExport = (Button) findViewById(R.id.btnConfigExport);
+                        btnConfigExport.setVisibility(View.VISIBLE);
+                    }
                     storagePermissionsGranted = storagePermissionsGranted && haveAllFilesAccessPermission();
             }
             if (!storagePermissionsGranted) {
@@ -381,6 +390,40 @@ public class FirstStartActivity extends AppCompatActivity {
             View view = layoutInflater.inflate(mSlides[position].layout, container, false);
 
             /* Slide: storage permission */
+            Button btnConfigExport = (Button) view.findViewById(R.id.btnConfigExport);
+            if (btnConfigExport != null) {
+                btnConfigExport.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get app specific /Android/media directory.
+                        ArrayList<File> externalFilesDir = new ArrayList<>();
+                        externalFilesDir.addAll(Arrays.asList(getExternalMediaDirs()));
+                        if (externalFilesDir.size() > 0) {
+                            externalFilesDir.remove(externalFilesDir.get(0));
+                        }
+                        externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
+                        if (externalFilesDir.size() == 0) {
+                            Log.w(TAG, "Failed to export config. Could not determine app's private files directory on external storage.");
+                            Toast.makeText(FirstStartActivity.this,
+                                    getString(R.string.config_export_failed),
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        final String exportToMediaPath = externalFilesDir.get(0).getAbsolutePath();
+                        if (!exportConfig(exportToMediaPath)) {
+                            Toast.makeText(FirstStartActivity.this,
+                                    getString(R.string.config_export_failed),
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        Toast.makeText(FirstStartActivity.this,
+                                getString(R.string.config_export_successful,
+                                exportToMediaPath), Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
+            }
+
             Button btnGrantStoragePerm = (Button) view.findViewById(R.id.btnGrantStoragePerm);
             if (btnGrantStoragePerm != null) {
                 btnGrantStoragePerm.setOnClickListener(new View.OnClickListener() {
@@ -725,5 +768,26 @@ public class FirstStartActivity extends AppCompatActivity {
             Log.d(TAG, "Failed to parse existing config. Will show key generation slide ...");
         }
         return configParseable;
+    }
+
+    private boolean exportConfig(final String exportAbsolutePath) {
+        Boolean failSuccess = true;
+        Log.d(TAG, "exportConfig BEGIN");
+        final File exportPath = new File(exportAbsolutePath);
+
+        // Copy config, privateKey and/or publicKey to export path.
+        exportPath.mkdirs();
+        try {
+            Files.copy(Constants.getConfigFile(this),
+                    new File(exportPath, Constants.CONFIG_FILE));
+            Files.copy(Constants.getPrivateKeyFile(this),
+                    new File(exportPath, Constants.PRIVATE_KEY_FILE));
+            Files.copy(Constants.getPublicKeyFile(this),
+                    new File(exportPath, Constants.PUBLIC_KEY_FILE));
+        } catch (IOException e) {
+            Log.w(TAG, "Failed to export config", e);
+            failSuccess = false;
+        }
+        return failSuccess;
     }
 }
