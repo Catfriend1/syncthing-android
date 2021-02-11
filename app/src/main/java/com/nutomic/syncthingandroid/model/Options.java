@@ -69,6 +69,10 @@ public class Options {
     // See https://github.com/calmh/syncthing/commit/e57eec8660606fa65fd3080b9c5d98447f54abeb
     public boolean sendFullIndexOnUpgrade = false;
 
+    // Since v1.13.0
+    public int connectionLimitEnough = 0;
+    public int connectionLimitMax = 0;
+
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
