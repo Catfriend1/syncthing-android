@@ -468,6 +468,9 @@ public class Util {
      */
     public static String getLocalZonedDateTime() {
         // Example: "2021-02-11T22:11:29.356Z"
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return "2021-02-11T22:11:29.356Z";
+        }
         return ZonedDateTime.ofLocal(LocalDateTime.now(), ZoneId.of("UTC"), ZoneOffset.UTC)
                 .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
