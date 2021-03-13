@@ -10,7 +10,7 @@ LiberapayID: '1534877'
 
 AutoName: Syncthing-Fork
 Description: |-
-    This is a fork of [[com.nutomic.syncthingandroid]] that brings major
+    This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
     enhancements like:
     * Individual sync conditions can be applied per device and per folder
     * Recent changes UI, click to open files.
@@ -1297,6 +1297,180 @@ Builds:
       - PATH="$PWD/go/bin:$PATH" gradle buildNative
     ndk: r19c
 
+  - versionName: 1.8.0.0
+    versionCode: 1080000
+    commit: v1.8.0.0.1
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+      - echo '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r19c
+
+  - versionName: 1.8.0.1
+    versionCode: 1080001
+    commit: v1.8.0.1
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+      - echo '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r19c
+
+  - versionName: 1.8.0.2
+    versionCode: 1080002
+    commit: v1.8.0.2
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+      - echo '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r19c
+
+  - versionName: 1.8.0.3
+    versionCode: 1080003
+    commit: v1.8.0.3
+    submodules: true
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    build:
+      - wget -O go.tgz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+      - echo '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856  go.tgz'
+        | shasum -c -
+      - tar xf go.tgz
+      - PATH="$PWD/go/bin:$PATH" gradle buildNative
+    ndk: r19c
+
+  - versionName: 1.9.0.5
+    versionCode: 1090005
+    commit: v1.9.0.5
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r20b
+    preassemble:
+      - buildNative
+
+  - versionName: 1.10.0.0
+    versionCode: 1100000
+    commit: v1.10.0.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r20b
+    preassemble:
+      - buildNative
+
+  - versionName: 1.11.1.0
+    versionCode: 1110100
+    commit: v1.11.1.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r20b
+    preassemble:
+      - buildNative
+
+  - versionName: 1.12.0.1
+    versionCode: 1120001
+    commit: v1.12.0.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r20b
+    preassemble:
+      - buildNative
+
+  - versionName: 1.12.1.1
+    versionCode: 1120101
+    commit: v1.12.1.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r20b
+    preassemble:
+      - buildNative
+
+  - versionName: 1.13.1.1
+    versionCode: 1130101
+    commit: v1.13.1.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r21e
+    preassemble:
+      - buildNative
+
 MaintainerNotes: |-
     The submodule in syncthing/src/github.com/syncthing/syncthing must be
     pristine, as the version/release information is taken from git.
@@ -1307,5 +1481,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.7.0.0
-CurrentVersionCode: 1070000
+CurrentVersion: 1.13.1.1
+CurrentVersionCode: 1130101
