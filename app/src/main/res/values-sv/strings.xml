@@ -136,6 +136,8 @@
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Okänd</string>
 
+    <string name="device_last_seen_never">Aldrig</string>
+
     <!-- Title for current download rate -->
     <string name="download_title">Hämtar</string>
 
@@ -241,6 +243,9 @@
 
     <!-- Setting title -->
     <string name="name">Namn</string>
+
+    <!-- Setting title -->
+    <string name="folders">Mappar</string>
 
     <!-- Setting title -->
     <string name="addresses">Adresser</string>
