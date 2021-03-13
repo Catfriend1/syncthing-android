@@ -153,7 +153,8 @@ public class FileUtils {
         // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             Log.w(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
             if (volumeId.equals("primary")) {
-                return "/storage/emulated/0";
+                Log.d(TAG, "volumeId == primary");
+                return Environment.getExternalStorageDirectory().getAbsolutePath();
             }
             return "/storage/" + volumeId;
         // }
