@@ -438,9 +438,15 @@ public class ConfigXml {
     public List<Folder> getFolders() {
         String localDeviceID = getLocalDeviceIDfromPref();
         List<Folder> folders = new ArrayList<>();
-        NodeList nodeFolders = mConfig.getDocumentElement().getElementsByTagName("folder");
-        for (int i = 0; i < nodeFolders.getLength(); i++) {
-            Element r = (Element) nodeFolders.item(i);
+
+        // Prevent enumerating "<folder>" tags below "<default>" nodes by enumerating child nodes manually.
+        NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node node = childNodes.item(i);
+            if (!node.getNodeName().equals("folder")) {
+                continue;
+            }
+            Element r = (Element) node;
             Folder folder = new Folder();
             folder.id = getAttributeOrDefault(r, "id", "");
             folder.label = getAttributeOrDefault(r, "label", folder.label);
@@ -462,6 +468,7 @@ public class ConfigXml {
             folder.blockPullOrder = getContentOrDefault(r.getElementsByTagName("blockPullOrder").item(0), folder.blockPullOrder);
             folder.disableFsync = getContentOrDefault(r.getElementsByTagName("disableFsync").item(0), folder.disableFsync);
             folder.maxConcurrentWrites = getContentOrDefault(r.getElementsByTagName("maxConcurrentWrites").item(0), folder.maxConcurrentWrites);
+            folder.maxConflicts = getContentOrDefault(r.getElementsByTagName("maxConflicts").item(0), folder.maxConflicts);
             folder.copyRangeMethod = getContentOrDefault(r.getElementsByTagName("copyRangeMethod").item(0), folder.copyRangeMethod);
             folder.caseSensitiveFS = getContentOrDefault(r.getElementsByTagName("caseSensitiveFS").item(0), folder.caseSensitiveFS);
 
@@ -501,13 +508,17 @@ public class ConfigXml {
             <versioning type="trashcan">
                 <param key="cleanoutDays" val="90"></param>
                 <cleanupIntervalS>0</cleanupIntervalS>
+                <fsPath></fsPath>
+                <fsType>basic</fsType>
             </versioning>
             */
             folder.versioning = new Folder.Versioning();
             Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
             if (elementVersioning != null) {
                 folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
-                folder.versioning.cleanupIntervalS = getAttributeOrDefault(elementVersioning, "cleanupIntervalS", 0);
+                folder.versioning.cleanupIntervalS = getContentOrDefault(elementVersioning.getElementsByTagName("cleanupIntervalS").item(0), 0);
+                folder.versioning.fsPath = getContentOrDefault(elementVersioning.getElementsByTagName("fsPath").item(0), "");
+                folder.versioning.fsType = getContentOrDefault(elementVersioning.getElementsByTagName("fsType").item(0), "basic");
                 NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
                 for (int j = 0; j < nodeVersioningParam.getLength(); j++) {
                     Element elementVersioningParam = (Element) nodeVersioningParam.item(j);
@@ -568,6 +579,7 @@ public class ConfigXml {
                 setConfigElement(r, "blockPullOrder", folder.blockPullOrder);
                 setConfigElement(r, "disableFsync", Boolean.toString(folder.disableFsync));
                 setConfigElement(r, "maxConcurrentWrites", Integer.toString(folder.maxConcurrentWrites));
+                setConfigElement(r, "maxConflicts", Integer.toString(folder.maxConflicts));
                 setConfigElement(r, "copyRangeMethod", folder.copyRangeMethod);
                 setConfigElement(r, "caseSensitiveFS", Boolean.toString(folder.caseSensitiveFS));
 
@@ -624,7 +636,9 @@ public class ConfigXml {
                 elementVersioning = (Element) nodeVersioning;
                 if (!TextUtils.isEmpty(folder.versioning.type)) {
                     elementVersioning.setAttribute("type", folder.versioning.type);
-                    elementVersioning.setAttribute("cleanupIntervalS", Integer.toString(folder.versioning.cleanupIntervalS));
+                    setConfigElement(elementVersioning, "cleanupIntervalS", Integer.toString(folder.versioning.cleanupIntervalS));
+                    setConfigElement(elementVersioning, "fsPath", folder.versioning.fsPath);
+                    setConfigElement(elementVersioning, "fsType", folder.versioning.fsType);
                     for (Map.Entry<String, String> param : folder.versioning.params.entrySet()) {
                         Log.d(TAG, "updateFolder: nodeVersioning: Adding param key=" + param.getKey() + ", val=" + param.getValue());
                         Node nodeParam = mConfig.createElement("param");
@@ -738,57 +752,58 @@ public class ConfigXml {
         String localDeviceID = getLocalDeviceIDfromPref();
         List<Device> devices = new ArrayList<>();
 
-        // Prevent enumerating "<device>" tags below "<folder>" nodes by enumerating child nodes manually.
+        // Prevent enumerating "<device>" tags below "<defaults>", "<folder>" nodes by enumerating child nodes manually.
         NodeList childNodes = mConfig.getDocumentElement().getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node node = childNodes.item(i);
-            if (node.getNodeName().equals("device")) {
-                Element r = (Element) node;
-                Device device = new Device();
-                device.compression = getAttributeOrDefault(r, "compression", device.compression);
-                device.deviceID = getAttributeOrDefault(r, "id", "");
-                device.introducedBy = getAttributeOrDefault(r, "introducedBy", device.introducedBy);
-                device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
-                device.name = getAttributeOrDefault(r, "name", device.name);
-                device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
+            if (!node.getNodeName().equals("device")) {
+                continue;
+            }
+            Element r = (Element) node;
+            Device device = new Device();
+            device.compression = getAttributeOrDefault(r, "compression", device.compression);
+            device.deviceID = getAttributeOrDefault(r, "id", "");
+            device.introducedBy = getAttributeOrDefault(r, "introducedBy", device.introducedBy);
+            device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
+            device.name = getAttributeOrDefault(r, "name", device.name);
+            device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
 
-                // Addresses
-                /*
-                <device ...>
-                    <address>dynamic</address>
-                    <address>tcp4://192.168.1.67:2222</address>
-                </device>
-                */
-                device.addresses = new ArrayList<>();
-                NodeList nodeAddresses = r.getElementsByTagName("address");
-                for (int j = 0; j < nodeAddresses.getLength(); j++) {
-                    String address = getContentOrDefault(nodeAddresses.item(j), "");
-                    device.addresses.add(address);
-                    // LogV("getDevices: address=" + address);
-                }
+            // Addresses
+            /*
+            <device ...>
+                <address>dynamic</address>
+                <address>tcp4://192.168.1.67:2222</address>
+            </device>
+            */
+            device.addresses = new ArrayList<>();
+            NodeList nodeAddresses = r.getElementsByTagName("address");
+            for (int j = 0; j < nodeAddresses.getLength(); j++) {
+                String address = getContentOrDefault(nodeAddresses.item(j), "");
+                device.addresses.add(address);
+                // LogV("getDevices: address=" + address);
+            }
 
-                // ignoredFolders
-                device.ignoredFolders = new ArrayList<>();
-                NodeList nodeIgnoredFolders = r.getElementsByTagName("ignoredFolder");
-                for (int j = 0; j < nodeIgnoredFolders.getLength(); j++) {
-                    Element elementIgnoredFolder = (Element) nodeIgnoredFolders.item(j);
-                    IgnoredFolder ignoredFolder = new IgnoredFolder();
-                    ignoredFolder.id = getAttributeOrDefault(elementIgnoredFolder, "id", ignoredFolder.id);
-                    ignoredFolder.label = getAttributeOrDefault(elementIgnoredFolder, "label", ignoredFolder.label);
-                    ignoredFolder.time = getAttributeOrDefault(elementIgnoredFolder, "time", ignoredFolder.time);
+            // ignoredFolders
+            device.ignoredFolders = new ArrayList<>();
+            NodeList nodeIgnoredFolders = r.getElementsByTagName("ignoredFolder");
+            for (int j = 0; j < nodeIgnoredFolders.getLength(); j++) {
+                Element elementIgnoredFolder = (Element) nodeIgnoredFolders.item(j);
+                IgnoredFolder ignoredFolder = new IgnoredFolder();
+                ignoredFolder.id = getAttributeOrDefault(elementIgnoredFolder, "id", ignoredFolder.id);
+                ignoredFolder.label = getAttributeOrDefault(elementIgnoredFolder, "label", ignoredFolder.label);
+                ignoredFolder.time = getAttributeOrDefault(elementIgnoredFolder, "time", ignoredFolder.time);
 
-                    // LogV("getDevices: ignoredFolder=[id=" + ignoredFolder.id + ", label=" + ignoredFolder.label + ", time=" + ignoredFolder.time + "]");
-                    device.ignoredFolders.add(ignoredFolder);
-                }
+                // LogV("getDevices: ignoredFolder=[id=" + ignoredFolder.id + ", label=" + ignoredFolder.label + ", time=" + ignoredFolder.time + "]");
+                device.ignoredFolders.add(ignoredFolder);
+            }
 
-                // For testing purposes only.
-                // LogV("getDevices: device.name=" + device.name + "/" +"device.id=" + device.deviceID + "/" + "device.paused=" + device.paused);
+            // For testing purposes only.
+            // LogV("getDevices: device.name=" + device.name + "/" +"device.id=" + device.deviceID + "/" + "device.paused=" + device.paused);
 
-                // Exclude self if requested.
-                Boolean isLocalDevice = !TextUtils.isEmpty(device.deviceID) && device.deviceID.equals(localDeviceID);
-                if (includeLocal || !isLocalDevice) {
-                    devices.add(device);
-                }
+            // Exclude self if requested.
+            Boolean isLocalDevice = !TextUtils.isEmpty(device.deviceID) && device.deviceID.equals(localDeviceID);
+            if (includeLocal || !isLocalDevice) {
+                devices.add(device);
             }
         }
         Collections.sort(devices, DEVICES_COMPARATOR);
@@ -980,7 +995,6 @@ public class ConfigXml {
         // alwaysLocalNets
         options.overwriteRemoteDeviceNamesOnConnect = getContentOrDefault(elementOptions.getElementsByTagName("overwriteRemoteDeviceNamesOnConnect").item(0), options.overwriteRemoteDeviceNamesOnConnect);
         options.tempIndexMinBlocks = getContentOrDefault(elementOptions.getElementsByTagName("tempIndexMinBlocks").item(0), options.tempIndexMinBlocks);
-        options.defaultFolderPath = getContentOrDefault(elementOptions.getElementsByTagName("defaultFolderPath").item(0), "");
         options.setLowPriority = getContentOrDefault(elementOptions.getElementsByTagName("setLowPriority").item(0), options.setLowPriority);
         // minHomeDiskFree
         options.maxFolderConcurrency = getContentOrDefault(elementOptions.getElementsByTagName("maxFolderConcurrency").item(0), options.maxFolderConcurrency);
@@ -1110,6 +1124,8 @@ public class ConfigXml {
         folder.versioning.type = "trashcan";
         folder.versioning.params.put("cleanoutDays", Integer.toString(14));
         folder.versioning.cleanupIntervalS = 0;
+        folder.versioning.fsPath = "";
+        folder.versioning.fsType = "basic";
 
         // Add folder to config.
         LogV("addSyncthingCameraFolder: Adding folder to config ...");

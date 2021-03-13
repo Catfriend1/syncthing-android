@@ -695,6 +695,8 @@ public class FolderActivity extends SyncthingActivity {
         mFolder.versioning.type = "trashcan";
         mFolder.versioning.params.put("cleanoutDays", Integer.toString(14));
         mFolder.versioning.cleanupIntervalS = 0;
+        mFolder.versioning.fsPath = "";
+        mFolder.versioning.fsType = "basic";
     }
 
     private void addEmptyDeviceListView() {

@@ -79,6 +79,9 @@ public class Folder {
         public String type;
         public int cleanupIntervalS;
         public Map<String, String> params = new HashMap<>();
+        // Since v1.14.0
+        public String fsPath;
+        public String fsType;           // default: "basic"
     }
 
     public static class MinDiskFree {

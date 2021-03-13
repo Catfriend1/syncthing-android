@@ -1,12 +1,13 @@
-* Syncthing v1.13.1
+* Syncthing v1.14.0
+* Support new v1.14.x config format in the wrapper (#750)
 
 Enhanced
 --
-- Offer emergency config export if stuck (#747)
+
 
 Fixes
 --
-- Fix pending folder/device notifications (#743)
+- Fixed "maxConflicts" setting not preserved by wrapper (#750)
 
 Other issues
 --

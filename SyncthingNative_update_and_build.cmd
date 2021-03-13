@@ -9,7 +9,7 @@ REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
 SET USE_GO_DEV=0
-SET DESIRED_SUBMODULE_VERSION=v1.13.1
+SET DESIRED_SUBMODULE_VERSION=v1.14.0
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
@@ -64,9 +64,10 @@ SET RESULT=%ERRORLEVEL%
 IF "%USE_GO_DEV%" == "1" call :revertGoDev
 IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. & goto :eos
 REM
-echo [INFO] Reverting "go.mod" to checkout state ...
+echo [INFO] Reverting "go.mod", "go.sum" to checkout state ...
 cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
 git checkout -- go.mod
+git checkout -- go.sum
 cd /d "%SCRIPT_PATH%"
 REM
 echo [INFO] Checking if SyncthingNative was built successfully ...
