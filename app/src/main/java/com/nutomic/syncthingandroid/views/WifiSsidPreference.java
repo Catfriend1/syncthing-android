@@ -43,16 +43,16 @@ import java.util.TreeSet;
  * SSIDs are formatted according to the naming convention of WifiManager, i.e. they have the
  * surrounding double-quotes (") for UTF-8 names, or they are hex strings (if not quoted).
  */
-public class WifiSsidPreferenceBase extends MultiSelectListPreference {
+public class WifiSsidPreference extends MultiSelectListPreference {
 
-    protected static final String TAG = "WifiSsidPreference";
+    private static final String TAG = "WifiSsidPreference";
 
-    public WifiSsidPreferenceBase(Context context, AttributeSet attrs) {
+    public WifiSsidPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDefaultValue(new TreeSet<String>());
     }
 
-    public WifiSsidPreferenceBase(Context context) {
+    public WifiSsidPreference(Context context) {
         this(context, null);
     }
 
@@ -68,14 +68,10 @@ public class WifiSsidPreferenceBase extends MultiSelectListPreference {
     protected void showDialog(Bundle state) {
         SharedPreferences sharedPreferences = getSharedPreferences();
         Set<String> knownSsids;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            knownSsids = sharedPreferences.getStringSet(Constants.PREF_KNOWN_WIFI_SSIDS, new HashSet<>());
-            String currentWifiSsid = getCurrentWifiSsid();
-            if (!TextUtils.isEmpty(currentWifiSsid)) {
-                knownSsids.add(currentWifiSsid);
-            }
-        } else {
-            knownSsids = getConfiguredWifiSsidsAPI16to28();
+        knownSsids = sharedPreferences.getStringSet(Constants.PREF_KNOWN_WIFI_SSIDS, new HashSet<>());
+        String currentWifiSsid = getCurrentWifiSsid();
+        if (!TextUtils.isEmpty(currentWifiSsid)) {
+            knownSsids.add(currentWifiSsid);
         }
 
         if (!knownSsids.isEmpty()) {
@@ -158,51 +154,6 @@ public class WifiSsidPreferenceBase extends MultiSelectListPreference {
             result[i] = ((String) result[i]).replaceFirst("^\"", "").replaceFirst("\"$", "");
         }
         return result;
-    }
-
-    /**
-     * Load the configured WiFi networks, sort them by SSID.
-     *
-     * @return a sorted array of WiFi SSIDs, or an empty set, if data cannot be retrieved.
-     */
-    private Set<String> getConfiguredWifiSsidsAPI16to28() {
-        Set<String> retSsids = new HashSet<>();
-
-        WifiManager wifiManager = (WifiManager)
-                getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if (wifiManager == null) {
-            // WiFi is turned off or device doesn't have WiFi.
-            Log.w(TAG, "getConfiguredWifiSsidsAPI16to28: WiFi is turned off or device doesn't have WiFi.");
-            return retSsids;
-        }
-
-        List<WifiConfiguration> configuredNetworks = wifiManager_getConfiguredNetworks(wifiManager);
-        if (configuredNetworks == null) {
-            Log.i(TAG, "getConfiguredWifiSsidsAPI16to28: wifiManager returned configuredNetworks == null");
-            return retSsids;
-        }
-        Log.v(TAG, "getConfiguredWifiSsidsAPI16to28 != null");
-
-        WifiConfiguration[] result = configuredNetworks.toArray(new WifiConfiguration[configuredNetworks.size()]);
-        Arrays.sort(result, (lhs, rhs) -> {
-            // See #620: There may be null-SSIDs
-            String l = lhs.SSID != null ? lhs.SSID : "";
-            String r = rhs.SSID != null ? rhs.SSID : "";
-            return l.compareToIgnoreCase(r);
-        });
-
-        for (int i = 0; i < result.length; i++) {
-            // Exclude null SSIDs.
-            if (result[i].SSID != null) {
-                retSsids.add(result[i].SSID);
-            }
-        }
-        return retSsids;
-    }
-
-    // See buildType source folders, wifiManager.getConfiguredNetworks is valid for "debug, release". Not valid for "gplay".
-    private List<WifiConfiguration> wifiManager_getConfiguredNetworks(WifiManager wifiManager) {
-        return null;
     }
 
     private boolean haveLocationPermission() {
