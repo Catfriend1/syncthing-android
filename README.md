@@ -24,7 +24,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 - Android 8 to 11 support.
 
 # Privacy Policy
-See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/master/privacy-policy.md).
+See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
 
 # Goal of the forked version
 - Develop and try out enhancements together
