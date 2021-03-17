@@ -257,7 +257,6 @@
 
     <!-- Setting title -->
     <string name="directory">Hakemisto</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Tarkkaile muutoksia</string>
     <string name="folder_fileWatcherDescription">Pyytää käyttöjärjestelmää ilmoittamaan muutoksista tiedostoihin. Kerran tunnissa skannaus otetaan käyttöön, jos tämä on pois päältä.</string>

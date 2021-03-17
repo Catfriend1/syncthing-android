@@ -185,7 +185,6 @@
 
     <!-- Setting title -->
     <string name="directory">Katalog</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Håll utkik efter ändringar</string>
     <string name="folder_fileWatcherDescription">Frågar operativsystemet att meddela om ändringar i filer. Om inaktiverad faller tillbaka på återkommande skanningar varje timme.</string>

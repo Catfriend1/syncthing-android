@@ -146,7 +146,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <!-- Setting title -->
     <string name="directory">Pasta</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">observe as mudanças</string>
     <string name="folder_fileWatcherDescription">Pede ao sistema em operação para notificar sobre mudanças em arquivos. Se desabilitado cai para uma varredura periódica por hora.</string>

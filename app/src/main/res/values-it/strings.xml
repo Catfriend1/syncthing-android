@@ -258,7 +258,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Setting title -->
     <string name="directory">Cartella</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorare i cambiamenti</string>
     <string name="folder_fileWatcherDescription">Chiede al sistema operativo di notificare le modifiche ai file. Se disabilitato, ritorna a scansioni orarie periodiche.</string>

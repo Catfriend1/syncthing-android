@@ -185,7 +185,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
 
     <!-- Setting title -->
     <string name="directory">Katalog</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Kig efter ændringer</string>
     <string name="folder_fileWatcherDescription">Beder operationssystemet om at underrette omkring ændringer til filer. Hvis slået fra, vil den gå tilbage til pr. time scanning</string>

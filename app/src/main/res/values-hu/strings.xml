@@ -124,7 +124,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
 
     <!-- Setting title -->
     <string name="directory">Mappa</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Figyeli a változásokat</string>
     <string name="folder_fileWatcherDescription">Megkéri az operációs rendszert, hogy értesítsen a fájlok módosításairól. Kikapcsolt állapotban, visszatér az időszakos óránkénti ellenőrzésekhez.</string>

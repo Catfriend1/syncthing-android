@@ -148,7 +148,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
 
     <!-- Setting title -->
     <string name="directory">Map</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Controleren op wijzigingen</string>
     <string name="folder_fileWatcherDescription">Vraagt het besturingssysteem om meldingen over gewijzigde bestanden. Indien uitgeschakeld wordt elk uur gescand.</string>

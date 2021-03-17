@@ -241,7 +241,6 @@
 
     <!-- Setting title -->
     <string name="directory">ディレクトリー</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">変更点を確認する</string>
     <!-- Setting title -->

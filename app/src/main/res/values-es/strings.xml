@@ -260,7 +260,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Setting title -->
     <string name="directory">Directorio</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Vigila los cambios</string>
     <string name="folder_fileWatcherDescription">Le pide al sistema operativo notificar los cambios en los archivos. Si se desactiva, regresa a los escaneos periódicos por hora.</string>

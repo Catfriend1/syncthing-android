@@ -260,6 +260,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Setting title -->
     <string name="directory">Verzeichnis</string>
+    <string name="advanced_directory_selection">Erweiterte Verzeichnisauswahl</string>
 
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Auf Änderungen achten</string>
@@ -745,6 +746,12 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Activity title -->
     <string name="folder_picker_title">Verzeichnisauswahl</string>
+
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Erweiterte Speicherpfadübersicht</string>
+
+    <!-- Current path -->
+    <string name="current_path">Aktueller Pfad: %1$s</string>
 
     <!-- ListView empty text -->
     <string name="directory_empty">Verzeichnis ist leer</string>

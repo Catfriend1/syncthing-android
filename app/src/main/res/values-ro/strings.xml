@@ -235,7 +235,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Setting title -->
     <string name="directory">Director</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorizează schimbările</string>
     <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>

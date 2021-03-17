@@ -259,7 +259,6 @@
 
     <!-- Setting title -->
     <string name="directory">目录</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">监视更改</string>
     <string name="folder_fileWatcherDescription">请求操作系统通知文件的更改。如果禁用，则退回到定期每小时扫描。</string>

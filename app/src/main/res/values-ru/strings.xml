@@ -203,7 +203,6 @@
 
     <!-- Setting title -->
     <string name="directory">Папка</string>
-
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Следить за изменениями</string>
     <string name="folder_fileWatcherDescription">Запросить операционную систему сообщать об изменениях в файлах. Если отключено, сканирование будет происходить ежечасно.</string>
