@@ -113,8 +113,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Ingen kompatible filmanager app fundet </string>
-    <string name="suggest_file_manager_app_dialog_text">Vi anbefaler dig at installere filmanageren \'Simple File Manager\' fra F-Droid. Vil du gerne åbne dens butikside? </string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->

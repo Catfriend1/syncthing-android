@@ -170,8 +170,6 @@
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
-    <string name="suggest_file_manager_app_dialog_text">我们建议你安装来自F-Droid的开源文件管理软件“Simple file manager”。你想打开它的应用商店页面吗?</string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->

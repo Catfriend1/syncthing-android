@@ -171,7 +171,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Kein kompatibler Dateimanager gefunden</string>
-    <string name="suggest_file_manager_app_dialog_text">Wir empfehlen Dir, die Open-Source App \"Simple File Manager\" aus F-Droid zu installieren. Möchtest Du ihre Seite im App-Store aufrufen?</string>
+    <string name="suggest_file_manager_app_dialog_text">Wir empfehlen Dir, die Open-Source App \"Material Files\" zu installieren. Möchtest Du ihre Seite im App-Store aufrufen?</string>
 
     <!-- DeviceListFragment -->
 

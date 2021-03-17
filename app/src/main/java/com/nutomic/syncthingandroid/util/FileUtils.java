@@ -927,12 +927,13 @@ public class FileUtils {
         intent.setDataAndType(Uri.fromFile(new File(folderPath)), "resource/folder");
         intent.putExtra("org.openintents.extra.ABSOLUTE_PATH", folderPath);
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (intent.resolveActivity(pm) != null) {
+        try {
             // Launch file manager.
             context.startActivity(intent);
             return;
+        } catch (android.content.ActivityNotFoundException anfe) {
+            Log.w(TAG, "openFolder: No compatible file manager app not found (stage #1)");
         }
-        Log.w(TAG, "openFolder: No compatible file manager app not found (stage #1)");
 
         // Try to open the folder with "Root Explorer" if it is installed.
         intent = pm.getLaunchIntentForPackage("com.speedsoftware.rootexplorer");
@@ -950,22 +951,6 @@ public class FileUtils {
 
         // No compatible file manager app found.
         suggestFileManagerApp(context);
-
-        /**
-         * Fallback: Let the user choose from all Uri handling apps.
-         * This allows the use of third-party file manager apps which
-         * provide non-standardized Uri handlers.
-         */
-        /*
-        Log.v(TAG, "Fallback to application chooser to open folder.");
-        intent.setDataAndType(Uri.parse(folder.path), "application/*");
-        Intent chooserIntent = Intent.createChooser(intent, mContext.getString(R.string.open_file_manager));
-        if (chooserIntent != null) {
-            // Launch potential file manager app.
-            mContext.startActivity(chooserIntent);
-            return;
-        }
-        */
     }
 
     private static void suggestFileManagerApp(Context context) {
@@ -973,7 +958,7 @@ public class FileUtils {
                 .setTitle(R.string.suggest_file_manager_app_dialog_title)
                 .setMessage(R.string.suggest_file_manager_app_dialog_text)
                 .setPositiveButton(R.string.yes, (d, i) -> {
-                    final String appPackageName = "com.simplemobiletools.filemanager.pro";
+                    final String appPackageName = "me.zhanghai.android.files";
                     try {
                         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                     } catch (android.content.ActivityNotFoundException anfe) {

@@ -168,8 +168,6 @@
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Yhteensopivaa tiedostonhallintasovellusta ei löytynyt</string>
-    <string name="suggest_file_manager_app_dialog_text">Suosittelemme asentamaan avoimen lähdekoodin tiedostonhallintasovelluksen \'Simple File Manager\' F-Droidista. Haluaisitko avata kyseisen sovelluksen sivun sovelluskaupassa?</string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->

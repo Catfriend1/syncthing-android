@@ -156,8 +156,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nu a fost găsită nicio aplicație manager de fișiere compatibilă</string>
-    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația managerului de fișiere open-source „Simple File Manager” de la F-Droid. Doriți să deschideți pagina magazinului de aplicații?</string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->

@@ -111,8 +111,6 @@
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Ingen kompatibel filhanterarapp hittades</string>
-    <string name="suggest_file_manager_app_dialog_text">Vi rekommenderar att du installerar filhanterarappen \"Simple File Manager\" med öppen källkod från F-Droid. Vill du öppna dess appbutiksida?</string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->

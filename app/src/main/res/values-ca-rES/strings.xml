@@ -125,8 +125,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">No s\'ha trobat cap gestor de fitxers compatible</string>
-    <string name="suggest_file_manager_app_dialog_text">Us recomanem instal·lar el gestor de fitxers de codi obert \"Simple File Manager\" de F-Droid. Voleu obrir la pàgina de la botiga d\'aplicacions?</string>
-
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
