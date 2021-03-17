@@ -21,8 +21,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.dagger:dagger:2.29.1'
     implementation 'com.google.guava:guava:30.0-android'
-    implementation 'com.google.zxing:core:3.4.0'
-    implementation ('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+    // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation ('com.journeyapps:zxing-android-embedded:4.2.0') { transitive = false }
     implementation 'eu.chainfire:libsuperuser:1.1.0.202004101746'
     implementation 'org.mindrot:jbcrypt:0.4'
 }

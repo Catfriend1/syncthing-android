@@ -8,6 +8,8 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -43,6 +45,7 @@
         android:supportsRtl="true"
         android:installLocation="internalOnly"
         android:name=".SyncthingApp"
+        android:hardwareAccelerated="true"
         android:requestLegacyExternalStorage="true"
         android:preserveLegacyExternalStorage="true"
 
