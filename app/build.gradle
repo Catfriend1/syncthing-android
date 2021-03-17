@@ -104,8 +104,6 @@ android {
     }
 
     lintOptions {
-        // Gradle 5.6.1: Lint crashes while running pass "IconMissingDensityFolder".
-        disable "IconMissingDensityFolder"
         disable "UnsafeExperimentalUsageError", "UnsafeExperimentalUsageWarning"
         abortOnError true
     }
