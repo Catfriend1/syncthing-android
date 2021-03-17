@@ -263,6 +263,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Setting title -->
     <string name="directory">Directory</string>
+    <string name="advanced_directory_selection">Advanced Directory Selection</string>
 
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Watch for changes</string>
@@ -766,6 +767,12 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Activity title -->
     <string name="folder_picker_title">Folder Picker</string>
+
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Advanced storage path overview</string>
+
+    <!-- Current path -->
+    <string name="current_path">Current Path: %1$s</string>
 
     <!-- ListView empty text -->
     <string name="directory_empty">Directory is Empty</string>

@@ -61,6 +61,7 @@ public class FolderPickerActivity extends SyncthingActivity
 
     public static final int DIRECTORY_REQUEST_CODE = 234;
 
+    private TextView mCurrentPath;
     private ListView mListView;
     private FileAdapter mFilesAdapter;
     private RootsAdapter mRootsAdapter;
@@ -90,6 +91,7 @@ public class FolderPickerActivity extends SyncthingActivity
         ((SyncthingApp) getApplication()).component().inject(this);
 
         setContentView(R.layout.activity_folder_picker);
+        mCurrentPath = findViewById(R.id.currentPath);
         mListView = findViewById(android.R.id.list);
         mListView.setOnItemClickListener(this);
         mListView.setEmptyView(findViewById(android.R.id.empty));
@@ -129,7 +131,10 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS));
 
             // Add paths where we might have read-only access.
-            Collections.addAll(roots, new File("/storage/").listFiles());
+            File[] storageRootFiles = new File("/storage/").listFiles();
+            if (storageRootFiles != null) {
+                Collections.addAll(roots, storageRootFiles);
+            }
             roots.add(new File("/"));
         }
         // Remove any invalid directories.
@@ -227,11 +232,13 @@ public class FolderPickerActivity extends SyncthingActivity
      */
     private void displayFolder(File folder) {
         mLocation = folder;
+        mCurrentPath.setText(getString(R.string.current_path, mLocation.getAbsolutePath()));
         mFilesAdapter.clear();
         File[] contents = mLocation.listFiles();
         // In case we don't have read access to the folder, just display nothing.
-        if (contents == null)
+        if (contents == null) {
             contents = new File[]{};
+        }
 
         Arrays.sort(contents, (f1, f2) -> {
             if (f1.isDirectory() && f2.isFile())
@@ -325,6 +332,7 @@ public class FolderPickerActivity extends SyncthingActivity
      * contents of that folder.
      */
     private void displayRoot() {
+        mCurrentPath.setText(R.string.advanced_storage_path_overview);
         mFilesAdapter.clear();
         if (mRootsAdapter.getCount() == 1) {
             displayFolder(mRootsAdapter.getItem(0));

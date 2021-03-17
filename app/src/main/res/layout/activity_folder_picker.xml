@@ -9,6 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/currentPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            android:elevation="@dimen/toolbar_elevation"
+            android:theme="@style/ThemeOverlay.Syncthing.Toolbar"
+            android:hint="@string/directory"
+            android:text="@null" />
+
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"

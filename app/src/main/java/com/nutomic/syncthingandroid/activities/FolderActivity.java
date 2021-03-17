@@ -103,6 +103,7 @@ public class FolderActivity extends SyncthingActivity {
     private EditText mLabelView;
     private EditText mIdView;
     private TextView mPathView;
+    private View mSelectAdvancedDirectory;
     private TextView mAccessExplanationView;
     private TextView mFolderTypeView;
     private TextView mFolderTypeDescriptionView;
@@ -212,6 +213,7 @@ public class FolderActivity extends SyncthingActivity {
         mLabelView = findViewById(R.id.label);
         mIdView = findViewById(R.id.id);
         mPathView = findViewById(R.id.directoryTextView);
+        mSelectAdvancedDirectory = findViewById(R.id.selectAdvancedDirectory);
         mAccessExplanationView = findViewById(R.id.accessExplanationView);
         mFolderTypeView = findViewById(R.id.folderType);
         mFolderTypeDescriptionView = findViewById(R.id.folderTypeDescription);
@@ -230,6 +232,12 @@ public class FolderActivity extends SyncthingActivity {
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
         mEditIgnoreListContent = findViewById(R.id.edit_ignore_list_content);
+
+        // Android 11 disallows selecting the "Downloads" and the emulated storage root directory.
+        mSelectAdvancedDirectory.setVisibility(
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) ? View.VISIBLE : View.GONE
+        );
+        mSelectAdvancedDirectory.setOnClickListener(view -> onSelectAdvancedDirectoryClick());
 
         mPathView.setOnClickListener(view -> onPathViewClick());
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
@@ -292,6 +300,7 @@ public class FolderActivity extends SyncthingActivity {
             mIdView.setEnabled(false);
             mPathView.setFocusable(false);
             mPathView.setEnabled(false);
+            mSelectAdvancedDirectory.setVisibility(View.GONE);
         }
         checkWriteAndUpdateUI();
         updateViewsAndSetListeners();
@@ -357,6 +366,14 @@ public class FolderActivity extends SyncthingActivity {
             ),
             0
         );
+    }
+
+    /**
+     * Invoked after user clicked on the select advanced directory button.
+     */
+    private void onSelectAdvancedDirectoryClick() {
+        startActivityForResult(FolderPickerActivity.createIntent(this, mFolder.path, null),
+            FolderPickerActivity.DIRECTORY_REQUEST_CODE);
     }
 
     private void showFolderTypeDialog() {
@@ -597,7 +614,8 @@ public class FolderActivity extends SyncthingActivity {
             // Postpone sending the config changes using syncthing REST API.
             mFolderNeedsToUpdate = true;
         } else if (resultCode == Activity.RESULT_OK && requestCode == FolderPickerActivity.DIRECTORY_REQUEST_CODE) {
-            mFolder.path = data.getStringExtra(FolderPickerActivity.EXTRA_RESULT_DIRECTORY);
+            mFolder.path = FileUtils.cutTrailingSlash(data.getStringExtra(FolderPickerActivity.EXTRA_RESULT_DIRECTORY));
+            Log.v(TAG, "onActivityResult/DIRECTORY_REQUEST_CODE: Got directory path '" + mFolder.path + "'");
             checkWriteAndUpdateUI();
             // Postpone sending the config changes using syncthing REST API.
             mFolderNeedsToUpdate = true;

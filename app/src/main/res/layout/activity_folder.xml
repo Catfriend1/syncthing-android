@@ -46,15 +46,39 @@
                 android:inputType="textCapWords"
                 android:importantForAutofill="no" />
 
-            <TextView
-                android:id="@+id/directoryTextView"
-                style="@style/Widget.Syncthing.TextView.Label.Details"
+            <!-- Directory -->
+            <LinearLayout
+                android:id="@+id/showDirectoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/ic_folder_black_24dp"
-                app:drawableStartCompat="@drawable/ic_folder_black_24dp"
-                android:focusable="true"
-                android:hint="@string/directory"/>
+                android:background="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:nextFocusDown="@+id/devicesContainer" >
+
+                <TextView
+                    android:id="@+id/directoryTextView"
+                    style="@style/Widget.Syncthing.TextView.Label.Details.Field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:drawableLeftCompat="@drawable/ic_folder_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_folder_black_24dp"
+                    android:focusable="true"
+                    android:hint="@string/directory"/>
+
+                <ImageView
+                    android:id="@+id/selectAdvancedDirectory"
+                    style="?actionButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
+                    android:contentDescription="@string/advanced_directory_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_settings_black_24" />
+
+            </LinearLayout>
 
             <TextView
                 style="@style/Widget.Syncthing.TextView.Label.Details"
