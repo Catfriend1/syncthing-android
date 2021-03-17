@@ -1,11 +1,13 @@
-* Syncthing v1.15.0-rc.4
+* Syncthing v1.15.0-rc.5
 
 Enhanced
 --
+- Android 11: Offer advanced folder picker (#690)
 
 
 Fixes
 --
+- Stop qr scanner when app is backgrounded (#748)
 
 
 Other issues
