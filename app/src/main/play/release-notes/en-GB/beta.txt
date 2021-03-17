@@ -8,6 +8,7 @@ Enhanced
 Fixes
 --
 - Stop qr scanner when app is backgrounded (#748)
+- Android 11: Fix opening file manager app (#762)
 
 
 Other issues
