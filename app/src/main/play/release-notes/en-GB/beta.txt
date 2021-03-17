@@ -1,5 +1,4 @@
-* Syncthing v1.14.0
-* Support new v1.14.x config format in the wrapper (#750)
+* Syncthing v1.15.0-rc.4
 
 Enhanced
 --
@@ -7,8 +6,7 @@ Enhanced
 
 Fixes
 --
-- Fixed "maxConflicts" setting not preserved by wrapper (#750)
-- Fixed Work profile path bug (#733)
+
 
 Other issues
 --

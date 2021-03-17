@@ -12,7 +12,7 @@ SET GIT_BIN=
 FOR /F "tokens=*" %%A IN ('where git 2^> NUL:') DO SET GIT_BIN="%%A"
 IF NOT EXIST %GIT_BIN% echo [ERROR] GIT_BIN not found. & goto :pauseExit
 REM 
-call :runGit --no-pager diff master
+call :runGit --no-pager diff main
 REM 
 pause
 goto :eof
