@@ -9,8 +9,13 @@ This Privacy Policy implies that the developer would not be held responsible for
 
 ## Access and Permission
 
+### Camera permission
+The permission to access camera is used to scan QR codes in order to provide an easy method for entering device IDs. The app does not save any pictures or video in the process. The app will still work if the user denies the permission and enters the device ID manually.
+
+The permission to access camera is used to shoot photos with the "Syncthing Camera" feature. This is an optional feature, the app will still work if the user denies the permission and moves pictures into folders manually.
+
 ### Location permission
-You can choose if Syncthing-Fork is allowed to use Android's "location" permission. This is completely optional and not required to use the app. If the "location" permission is granted explicitly by the user, the app reads the current active WiFi connections SSID ("the WiFi network name") to give the user the benefit of performing file synchronization only on user-selected WiFi networks. It will save configured WiFi network names to the local phone's private app data storage to provide persistent configuration options for the user-configurable run conditions. The app will never determine or track the user's location.
+You can choose if Syncthing-Fork is allowed to use Android's "location" permission. This is completely optional and not required to use the app. For location data includes very sensitive personal information related to user privacy, the app does not store any location data. The permission to access location in the background is used only to check for an SSID of the currently active Wi-Fi. The sole purpose of this information is to limit synchronisation to user-configured Wi-Fi connections. At no point is this information used to determine the user's actual location nor is it ever shared with any 3rd party entities.
 
 
 ## Information Collection and Use
