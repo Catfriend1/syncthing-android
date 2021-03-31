@@ -186,10 +186,10 @@ public class ConfigXml {
             inputSource.setEncoding("UTF-8");
             DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbfactory.newDocumentBuilder();
-            LogV("Parsing config file '" + mConfigFile + "'");
+            // LogV("Parsing config file '" + mConfigFile + "'");
             mConfig = db.parse(inputSource);
             inputStream.close();
-            LogV("Successfully parsed config file");
+            // LogV("Successfully parsed config file");
         } catch (SAXException | ParserConfigurationException | IOException e) {
             Log.w(TAG, "Failed to parse config file '" + mConfigFile + "'", e);
             throw new OpenConfigException();
@@ -360,7 +360,6 @@ public class ConfigXml {
         /* Read existing config version */
         int iConfigVersion = getAttributeOrDefault(mConfig.getDocumentElement(), "version", 0);
         int iOldConfigVersion = iConfigVersion;
-        LogV("Found existing config version " + Integer.toString(iConfigVersion));
 
         /* Check if we have to do manual migration from version X to Y */
         if (iConfigVersion == 27) {
@@ -386,13 +385,13 @@ public class ConfigXml {
             iConfigVersion = 28;
         }
 
-        if (iConfigVersion != iOldConfigVersion) {
-            mConfig.getDocumentElement().setAttribute("version", Integer.toString(iConfigVersion));
-            Log.i(TAG, "New config version is " + Integer.toString(iConfigVersion));
-            return true;
-        } else {
+        if (iConfigVersion == iOldConfigVersion) {
             return false;
         }
+        mConfig.getDocumentElement().setAttribute("version", Integer.toString(iConfigVersion));
+        Log.i(TAG, "Old config version was " + Integer.toString(iOldConfigVersion) +
+                ", new config version is " + Integer.toString(iConfigVersion));
+        return true;
     }
 
     private Boolean getAttributeOrDefault(final Element element, String attribute, Boolean defaultValue) {
