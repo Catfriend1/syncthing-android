@@ -25,6 +25,15 @@ public class Constants {
     public static final String PREF_USE_WIFI_SSID_WHITELIST     = "use_wifi_whitelist";
     public static final String PREF_WIFI_SSID_WHITELIST         = "wifi_ssid_whitelist";
     public static final String PREF_POWER_SOURCE                = "power_source";
+
+    public final class PowerSource {
+        public static final String CHARGER_BATTERY              = "ac_and_battery_power";
+        public static final String CHARGER                      = "ac_power";
+        public static final String BATTERY                      = "battery_power";
+
+        private PowerSource() { }
+    }
+
     public static final String PREF_RESPECT_BATTERY_SAVING      = "respect_battery_saving";
     public static final String PREF_RESPECT_MASTER_SYNC         = "respect_master_sync";
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
@@ -76,6 +85,10 @@ public class Constants {
 
     public static String DYN_PREF_OBJECT_SYNC_ON_MOBILE_DATA(String objectPrefixAndId) {
         return objectPrefixAndId + "_" + PREF_RUN_ON_MOBILE_DATA;
+    }
+
+    public static String DYN_PREF_OBJECT_SYNC_ON_POWER_SOURCE(String objectPrefixAndId) {
+        return objectPrefixAndId + "_" + PREF_POWER_SOURCE;
     }
 
     /**

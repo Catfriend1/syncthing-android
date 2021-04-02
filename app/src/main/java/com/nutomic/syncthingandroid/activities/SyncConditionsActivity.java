@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SwitchCompat;
 import android.util.Log;
 import android.util.TypedValue;
@@ -20,6 +21,7 @@ import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -50,6 +52,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
     private ViewGroup mWifiSsidContainer;
     private SwitchCompat mSyncOnMeteredWifi;
     private SwitchCompat mSyncOnMobileData;
+    private AppCompatSpinner mSyncOnPowerSource;
 
     /**
      * Shared preferences contents for global conditions.
@@ -66,6 +69,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
     private String mPrefSelectedWhitelistSsid;
     private String mPrefSyncOnMeteredWifi;
     private String mPrefSyncOnMobileData;
+    private String mPrefSyncOnPowerSource;
 
     // UI information and state.
     private String mObjectReadableName;
@@ -101,6 +105,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
         mWifiSsidContainer = findViewById(R.id.wifiSsidContainer);
         mSyncOnMeteredWifi = findViewById(R.id.sync_on_metered_wifi_title);
         mSyncOnMobileData = findViewById(R.id.sync_on_mobile_data_title);
+        mSyncOnPowerSource = findViewById(R.id.sync_on_power_source_title);
 
         // Generate shared preferences names.
         mObjectPrefixAndId = intent.getStringExtra(EXTRA_OBJECT_PREFIX_AND_ID);
@@ -110,6 +115,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
         mPrefSelectedWhitelistSsid = Constants.DYN_PREF_OBJECT_SELECTED_WHITELIST_SSID(mObjectPrefixAndId);
         mPrefSyncOnMeteredWifi = Constants.DYN_PREF_OBJECT_SYNC_ON_METERED_WIFI(mObjectPrefixAndId);
         mPrefSyncOnMobileData = Constants.DYN_PREF_OBJECT_SYNC_ON_MOBILE_DATA(mObjectPrefixAndId);
+        mPrefSyncOnPowerSource = Constants.DYN_PREF_OBJECT_SYNC_ON_POWER_SOURCE(mObjectPrefixAndId);
 
         /**
          * Load global run conditions.
@@ -119,6 +125,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
         mGlobalWhitelistEnabled = mPreferences.getBoolean(Constants.PREF_USE_WIFI_SSID_WHITELIST, false);
         Boolean globalRunOnMeteredWifiEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_METERED_WIFI, false);
         Boolean globalRunOnMobileDataEnabled = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, false);
+        String globalRunOnPowerSource = mPreferences.getString(Constants.PREF_POWER_SOURCE, Constants.PowerSource.CHARGER_BATTERY);
 
         /**
          * Load custom object preferences. If unset, use global setting as default.
@@ -138,6 +145,11 @@ public class SyncConditionsActivity extends SyncthingActivity {
         mSyncOnMobileData.setChecked(globalRunOnMobileDataEnabled && mPreferences.getBoolean(mPrefSyncOnMobileData, globalRunOnMobileDataEnabled));
         mSyncOnMobileData.setEnabled(globalRunOnMobileDataEnabled);
         mSyncOnMobileData.setOnCheckedChangeListener(mCheckedListener);
+
+        Boolean globalRunOnAnyPowerSource = globalRunOnPowerSource.equals(Constants.PowerSource.CHARGER_BATTERY);
+        mSyncOnPowerSource.setSelection(Arrays.asList(getResources().getStringArray(R.array.power_source_values))
+                .indexOf(globalRunOnAnyPowerSource ? mPreferences.getString(mPrefSyncOnPowerSource,Constants.PowerSource.CHARGER_BATTERY) : globalRunOnPowerSource));
+        mSyncOnPowerSource.setEnabled(globalRunOnAnyPowerSource);
 
         // Read selected WiFi Ssid whitelist items.
         Set<String> selectedWhitelistedSsid = mPreferences.getStringSet(mPrefSelectedWhitelistSsid, globalWhitelistedSsid);
@@ -225,6 +237,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
             editor.putBoolean(mPrefSyncOnWhitelistedWifi, mSyncOnWhitelistedWifi.isChecked());
             editor.putBoolean(mPrefSyncOnMeteredWifi, mSyncOnMeteredWifi.isChecked());
             editor.putBoolean(mPrefSyncOnMobileData, mSyncOnMobileData.isChecked());
+            editor.putString(mPrefSyncOnPowerSource, getResources().getStringArray(R.array.power_source_values)[mSyncOnPowerSource.getSelectedItemPosition()]);
 
             // Save Selected WiFi Ssid's to mPrefSelectedWhitelistSsid.
             Set<String> selectedWhitelistedSsid = new HashSet<>();

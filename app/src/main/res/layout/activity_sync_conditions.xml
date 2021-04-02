@@ -171,6 +171,35 @@
 
             </LinearLayout>
 
+            <!-- Sync on power source -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/power_source_title"
+                    android:textSize="15sp"
+                    app:drawableLeftCompat="@drawable/ic_battery_lightning_black_24dp"
+                    app:drawableStartCompat="@drawable/ic_battery_lightning_black_24dp"
+                    android:focusable="false"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/sync_on_power_source_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:entries="@array/power_source_entries" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
