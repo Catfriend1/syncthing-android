@@ -68,7 +68,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     private SyncthingService.State mServiceState = SyncthingService.State.INIT;
     private final Handler mRestApiQueryHandler = new Handler();
     private Boolean mLastVisibleToUser = false;
-
+    private SegmentedButton btnForceStartStop;
     /**
      * Object that must be locked upon accessing the status holders.
      */
@@ -156,7 +156,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         mActivity = (MainActivity) getActivity();
 
         // Create button group.
-        SegmentedButton btnForceStartStop = (SegmentedButton) mActivity.findViewById(R.id.forceStartStop);
+        btnForceStartStop = (SegmentedButton) mActivity.findViewById(R.id.forceStartStop);
         btnForceStartStop.clearButtons();
         btnForceStartStop.addButtons(
                 getString(R.string.button_follow_run_conditions),
@@ -173,6 +173,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         // Restore last state of button group.
         int prefBtnStateForceStartStop = mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP);
         btnForceStartStop.setPushedButtonIndex(prefBtnStateForceStartStop);
+        mPreferences.registerOnSharedPreferenceChangeListener(mPrefListener);
     }
 
     @Override
@@ -190,6 +191,14 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private final SharedPreferences.OnSharedPreferenceChangeListener mPrefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String pref) {
+            if (pref.equals(Constants.PREF_BTNSTATE_FORCE_START_STOP))
+                btnForceStartStop.setPushedButtonIndex(mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP));
+        }
+    };
 
     private void updateStatus() {
         SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
