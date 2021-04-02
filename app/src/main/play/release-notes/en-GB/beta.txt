@@ -1,17 +1,18 @@
-* Syncthing v1.15.0-rc.5
+* Syncthing v1.15.0-rc.6
 
 Enhanced
 --
-- Android 11: Offer advanced folder picker (#690)
+- A11: Folder picker (#690)
+- Time schedule, per folder/device power source (thanks@Helium314 #666 #592)
 
 
 Fixes
 --
-- Stop qr scanner when app is backgrounded (#748)
-- Android 11: Fix opening file manager app (#762)
+- Stop qr scanner (#748)
+- A11: Fix opening file manager (#762)
 
 
-Other issues
+Others
 --
 - Play version
 -+ "whitelisted WiFi" feature no longer available
