@@ -522,8 +522,6 @@
     <string name="run_in_flight_mode_summary">启用这个选项会让Syncthing在你离线时也运行。如果您的设备在飞行模式下检测手动Wi-Fi连接有问题，请启用。</string>
 
     <string name="run_on_time_schedule_title">按照时间表运行</string>
-    <string name="run_on_time_schedule_summary">启用此选项将尝试每小时进行一次5分钟的同步。这可以节省大量的电池，但需要同步伙伴处于在线状态。请注意:这可能会在下一次计划的同步发生前留下不完整的临时文件。</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自动启动</string>
     <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing </string>

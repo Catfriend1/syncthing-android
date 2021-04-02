@@ -485,8 +485,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
 
     <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
-    <string name="run_on_time_schedule_summary">Activarea acestei opțiuni va încerca să sincronizeze în fiecare oră pe durata a 5 minute. Aceasta poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Vă rugăm să rețineți: acest lucru poate lăsa fișierele temporare incomplete până la următoarea sincronizare programată.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Pornire automată</string>
     <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>

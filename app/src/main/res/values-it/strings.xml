@@ -516,8 +516,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="run_in_flight_mode_summary">Abilitando questa opzione permetterai a Syncthing di funzionare anche quando sei offline. Da utilizzare se il tuo dispositivo ha problemi a rilevare le connessioni Wi-Fi in modalità aereo.</string>
 
     <string name="run_on_time_schedule_title">Esegui secondo programmazione</string>
-    <string name="run_on_time_schedule_summary">Abilitando questa opzione la sincronizzazione verrà eseguita ogni ora per 5 minuti. Permette di risparmiare molta batteria ma necessita che il ricevente sia online. Nota bene: potrebbe lasciare alcuni file non sincronizzati fino alla successiva esecuzione.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Avvio automatico</string>
     <string name="behaviour_autostart_summary">Esegui l\'app automaticamente quando viene avviato il dispositivo.</string>

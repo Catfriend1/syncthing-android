@@ -526,7 +526,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_in_flight_mode_summary">Durch Aktivieren der Option wird Syncthing auch dann laufen, wenn Du offline bist. Aktiviere dies, wenn dein Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
 
     <string name="run_on_time_schedule_title">Gemäß Zeitplan synchronisieren</string>
-    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für 5 Minuten zu synchronisieren. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
+    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für 5 Minuten zu synchronisieren, wenn die Laufkonditionen zutreffen und der letzte Sync nicht länger als 1 Stunde her war. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
 
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Autostart</string>
@@ -841,6 +841,12 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Sie haben \'Gemäß Zeitplan synchronisieren\' aktiviert, und die letzte Synchronisierung ist nicht länger als eine Stunde her.</string>
+    <string name="reason_not_within_time_frame_2">Sie haben \'Gemäß Zeitplan synchronisieren\' aktiviert, und die letzte Synchronisierung war vor %s.</string>
+    <string name="reason_not_within_time_frame_0_min">weniger als einer Minute</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d Minute</item>
+        <item quantity="other">%d Minuten</item>
+    </plurals>
     <string name="reason_not_charging">Telefon wird nicht aufgeladen</string>
     <string name="reason_not_on_battery_power">Telefon wird nicht batteriebetrieben</string>
     <string name="reason_not_while_power_saving">Syncthing läuft nicht, weil das Telefon im Energiesparmodus ist.</string>

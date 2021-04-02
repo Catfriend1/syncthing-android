@@ -522,8 +522,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="run_in_flight_mode_summary">Habilitar esta opción ocasionará que Syncthing se ejecute aún cuando estás fuera de línea. Actívela si su dispositivo tiene problemas para detectar conexiones Wifi manuales en modo avión.</string>
 
     <string name="run_on_time_schedule_title">Ejecutar según el horario</string>
-    <string name="run_on_time_schedule_summary">Al activar esta opción se intentará sincronizar cada hora durante 5 minutos. Esto puede ahorrar mucha batería, pero requiere que los compañeros de sincronización estén en línea. Tenga en cuenta que esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Iniciar automáticamente</string>
     <string name="behaviour_autostart_summary">Iniciar la aplicación automáticamente al arrancar el sistema operativo.</string>
