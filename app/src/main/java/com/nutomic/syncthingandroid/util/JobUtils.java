@@ -18,6 +18,10 @@ public class JobUtils {
 
     @TargetApi(21)
     public static void scheduleSyncTriggerServiceJob(Context context, int delayInSeconds) {
+        if (delayInSeconds < 0) {
+            delayInSeconds = 0;
+        }
+
         ComponentName serviceComponent = new ComponentName(context, SyncTriggerJobService.class);
         JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
 

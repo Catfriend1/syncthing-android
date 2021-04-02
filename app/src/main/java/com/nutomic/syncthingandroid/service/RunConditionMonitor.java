@@ -20,6 +20,7 @@ import android.os.Looper;
 import android.os.PowerManager;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import android.os.SystemClock;
 import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
@@ -102,9 +103,11 @@ public class RunConditionMonitor {
      * Only relevant if the user has enabled turning Syncthing on by
      * time schedule for a specific amount of time periodically.
      * Holds true if we are within a "SyncthingNative should run" time frame.
-     * Initial status true because we like to sync on app start, too.
+     * Initial status false because we check if the last sync was more than one hour ago on app start.
      */
-    private Boolean mTimeConditionMatch = true;
+    private Boolean mTimeConditionMatch = false;
+    // Avoid re-scheduling start if run conditions change while already running.
+    private Boolean mRunAllowedStopScheduled = false;
 
     @Inject
     SharedPreferences mPreferences;
@@ -173,10 +176,18 @@ public class RunConditionMonitor {
         updateShouldRunDecision();
 
         // Initially schedule the SyncTrigger job.
+        long lastSyncTimeSinceBootMillisecs = mPreferences.getLong(Constants.PREF_LAST_RUN_TIME, 0);
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        int elapsedSecondsSinceLastSync = (int) (elapsedRealtime - lastSyncTimeSinceBootMillisecs) / 1000;
+        Log.d(TAG, "JobPrepare: mTimeConditionMatch=" + mTimeConditionMatch.toString() +
+                ", elapsedRealtime=" + elapsedRealtime +
+                ", lastSyncTimeSinceBootMillisecs=" + lastSyncTimeSinceBootMillisecs +
+                ", elapsedSecondsSinceLastSync=" + elapsedSecondsSinceLastSync
+        );
         JobUtils.scheduleSyncTriggerServiceJob(context,
                 mTimeConditionMatch ?
                     Constants.TRIGGERED_SYNC_DURATION_SECS :
-                    Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
+                    Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS - elapsedSecondsSinceLastSync
         );
     }
 
@@ -235,6 +246,7 @@ public class RunConditionMonitor {
     private class SyncTriggerReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            mRunAllowedStopScheduled = false;
             boolean extraBeginActiveTimeWindow = intent.getBooleanExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, false);
             LogV("SyncTriggerReceiver: onReceive, extraBeginActiveTimeWindow=" + Boolean.toString(extraBeginActiveTimeWindow));
 
@@ -256,6 +268,12 @@ public class RunConditionMonitor {
             if (extraBeginActiveTimeWindow) {
                 // We should immediately start SyncthingNative for TRIGGERED_SYNC_DURATION_SECS.
                 mTimeConditionMatch = true;
+                JobUtils.cancelAllScheduledJobs(context);
+                JobUtils.scheduleSyncTriggerServiceJob(
+                        context,
+                        Constants.TRIGGERED_SYNC_DURATION_SECS
+                );
+                mRunAllowedStopScheduled = true;
             } else {
                 /**
                  * Toggle the "digital input" for this condition as the condition change is
@@ -274,11 +292,13 @@ public class RunConditionMonitor {
              * let the receiver fire and change to "SyncthingNative should run" after
              * WAIT_FOR_NEXT_SYNC_DELAY_SECS seconds elapsed.
              */
-            JobUtils.cancelAllScheduledJobs(context);
-            JobUtils.scheduleSyncTriggerServiceJob(
-                    context,
-                    mTimeConditionMatch ? Constants.TRIGGERED_SYNC_DURATION_SECS : Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
-            );
+            if (!mRunAllowedStopScheduled) {
+                JobUtils.cancelAllScheduledJobs(context);
+                JobUtils.scheduleSyncTriggerServiceJob(
+                        context,
+                        Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS
+                );
+            }
         }
     }
 
@@ -328,6 +348,20 @@ public class RunConditionMonitor {
                 mOnShouldRunChangedListener.onShouldRunDecisionChanged(newShouldRun);
                 lastDeterminedShouldRun = newShouldRun;
             }
+            if (newShouldRun &&
+                    !mRunAllowedStopScheduled &&
+                    mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false) &&
+                    mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP) == Constants.BTNSTATE_NO_FORCE_START_STOP) {
+                JobUtils.cancelAllScheduledJobs(mContext);
+                JobUtils.scheduleSyncTriggerServiceJob(
+                        mContext,
+                        Constants.TRIGGERED_SYNC_DURATION_SECS
+                );
+                mRunAllowedStopScheduled = true;
+            }
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putLong(Constants.PREF_LAST_RUN_TIME, SystemClock.elapsedRealtime());
+            editor.apply();
         }
     }
 
@@ -481,10 +515,20 @@ public class RunConditionMonitor {
         }
 
         // PREF_RUN_ON_TIME_SCHEDULE
+        if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000
+                || SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) < 0) {
+            mTimeConditionMatch = true;
+        }
         if (prefRunOnTimeSchedule && !mTimeConditionMatch) {
             // Currently, we aren't within a "SyncthingNative should run" time frame.
             LogV("decideShouldRun: PREF_RUN_ON_TIME_SCHEDULE && !mTimeConditionMatch");
-            mRunDecisionExplanation = res.getString(R.string.reason_not_within_time_frame);
+            int minutes = (int) (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0))/(60*1000);
+            String minutesText;
+            if (minutes == 0)
+                minutesText = res.getString(R.string.reason_not_within_time_frame_0_min);
+            else
+                minutesText = String.format(res.getQuantityString(R.plurals.reason_not_within_time_frame_minutes,minutes),minutes);
+            mRunDecisionExplanation = String.format(res.getString(R.string.reason_not_within_time_frame_2),minutesText);
             return false;
         }
 
