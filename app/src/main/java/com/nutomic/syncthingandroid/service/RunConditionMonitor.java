@@ -172,12 +172,25 @@ public class RunConditionMonitor {
         localBroadcastManager.registerReceiver(mUpdateShouldRunDecisionReceiver,
                 new IntentFilter(ACTION_UPDATE_SHOULDRUN_DECISION));
 
+        long lastSyncTimeSinceBootMillisecs = mPreferences.getLong(Constants.PREF_LAST_RUN_TIME, 0);
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        /**
+         * after a reboot lastSyncTimeSinceBootMillisecs might be larger than elapsedRealtime,
+         * since it is referring to the previous reboot
+         * in this case we set mPreferences.getLong(Constants.PREF_LAST_RUN_TIME, 0)
+         * to -WAIT_FOR_NEXT_SYNC_DELAY_SECS, so mTimeConditionMatch is guaranteed to be true
+         */
+        if (lastSyncTimeSinceBootMillisecs > elapsedRealtime) {
+            SharedPreferences.Editor editor = mPreferences.edit();
+            editor.putLong(Constants.PREF_LAST_RUN_TIME, -Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS);
+            editor.apply();
+            lastSyncTimeSinceBootMillisecs = 0;
+        }
+
         // Initially determine if syncthing should run under current circumstances.
         updateShouldRunDecision();
 
         // Initially schedule the SyncTrigger job.
-        long lastSyncTimeSinceBootMillisecs = mPreferences.getLong(Constants.PREF_LAST_RUN_TIME, 0);
-        long elapsedRealtime = SystemClock.elapsedRealtime();
         int elapsedSecondsSinceLastSync = (int) (elapsedRealtime - lastSyncTimeSinceBootMillisecs) / 1000;
         Log.d(TAG, "JobPrepare: mTimeConditionMatch=" + mTimeConditionMatch.toString() +
                 ", elapsedRealtime=" + elapsedRealtime +
@@ -187,6 +200,11 @@ public class RunConditionMonitor {
         JobUtils.scheduleSyncTriggerServiceJob(context,
                 mTimeConditionMatch ?
                     Constants.TRIGGERED_SYNC_DURATION_SECS :
+                       /**
+                        * if Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS - elapsedSecondsSinceLastSync is < 0,
+                        * mTimeConditionMatch is set to true during updateShouldRunDecision().
+                        * Thus the false case cannot be triggered if the delay for scheduleSyncTriggerServiceJob would be negative
+                        */
                     Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS - elapsedSecondsSinceLastSync
         );
     }
@@ -515,10 +533,9 @@ public class RunConditionMonitor {
         }
 
         // PREF_RUN_ON_TIME_SCHEDULE
-        if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000
-                || SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) < 0) {
+        // set mTimeConditionMatch to true if the last run was more than WAIT_FOR_NEXT_SYNC_DELAY_SECS ago
+        if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000)
             mTimeConditionMatch = true;
-        }
         if (prefRunOnTimeSchedule && !mTimeConditionMatch) {
             // Currently, we aren't within a "SyncthingNative should run" time frame.
             LogV("decideShouldRun: PREF_RUN_ON_TIME_SCHEDULE && !mTimeConditionMatch");
