@@ -78,6 +78,9 @@
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.RecentChangesActivity"
@@ -233,6 +236,24 @@
                  android:resource="@xml/file_paths">
              </meta-data>
          </provider>
+        <service
+            android:name=".service.QuickSettingsTileForce"
+            android:label="@string/qs_force_label"
+            android:icon="@drawable/ic_qs_force"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.QuickSettingsTileSchedule"
+            android:label="@string/qs_schedule_label"
+            android:icon="@drawable/ic_qs_schedule"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
