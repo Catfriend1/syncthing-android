@@ -3,7 +3,8 @@
 Enhanced
 --
 - A11: Folder picker (#690)
-- Time schedule, per folder/device power source (thanks@Helium314 #666 #592)
+- Time schedule, per folder/device power source (thanks to Helium314 #765 #766)
+- Quick setting tiles (thanks to Helium314 #768)
 
 
 Fixes
@@ -14,6 +15,4 @@ Fixes
 
 Others
 --
-- Play version
--+ "whitelisted WiFi" feature no longer available
--+ Android 11? you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission. See GitHub for more info.
+- If you have problems because of Android restrictions, see GitHub for more info on how to get a working install.
