@@ -1063,4 +1063,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="custom_sync_conditions_description">Du kannst Ausnahmen zu den übergeordneten Laufkonditionen festlegen.</string>
     <string name="custom_sync_conditions_dialog">Lege Sync-Bedingungen fest</string>
 
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">Erzwinge Start</string>
+    <string name="qs_forced_to_run">Start erzwungen</string>
+    <string name="qs_forced_to_stop">Stopp erzwungen</string>
+    <string name="qs_following_run_conditions">Befolgt Laufkonditionen</string>
+    <string name="qs_schedule_label">Laufe 5 Minuten lang</string>
+    <string name="qs_schedule_disabled">Zeitplan deaktiviert</string>
 </resources>
