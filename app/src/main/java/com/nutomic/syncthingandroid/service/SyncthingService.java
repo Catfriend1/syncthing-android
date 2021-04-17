@@ -590,7 +590,7 @@ public class SyncthingService extends Service {
          */
         if (mPollWebGuiAvailableTask == null) {
             mPollWebGuiAvailableTask = new PollWebGuiAvailableTask(
-                    this, getWebGuiUrl(), mConfig.getApiKey(), result -> {
+                    this, mConfig.getWebGuiUrl(), mConfig.getApiKey(), result -> {
                 Log.i(TAG, "Web GUI has come online at " + mConfig.getWebGuiUrl());
                 if (mRestApi != null) {
                     mRestApi.readConfigFromRestApi();
@@ -775,10 +775,6 @@ public class SyncthingService extends Service {
                 }
             }
         });
-    }
-
-    public URL getWebGuiUrl() {
-        return mConfig.getWebGuiUrl();
     }
 
     public State getCurrentState() {

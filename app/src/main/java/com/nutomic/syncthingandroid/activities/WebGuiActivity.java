@@ -106,7 +106,7 @@ public class WebGuiActivity extends SyncthingActivity
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             Uri uri = Uri.parse(url);
-            if (uri.getHost().equals(getService().getWebGuiUrl().getHost())) {
+            if (uri.getHost().equals(mConfig.getWebGuiUrl().getHost())) {
                 return false;
             } else {
                 if (!Util.isRunningOnTV(WebGuiActivity.this)) {
@@ -177,7 +177,7 @@ public class WebGuiActivity extends SyncthingActivity
             if (mWebView.getUrl() == null) {
                 mWebView.stopLoading();
                 setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
-                mWebView.loadUrl(getService().getWebGuiUrl().toString());
+                mWebView.loadUrl(mConfig.getWebGuiUrl().toString());
             }
         }
     }
