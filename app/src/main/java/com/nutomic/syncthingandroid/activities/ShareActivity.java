@@ -196,9 +196,18 @@ public class ShareActivity extends SyncthingActivity
         mShareTitle.setText(getResources().getQuantityString(R.plurals.file_name_title,
                 files.size() > 1 ? 2 : 1));
         mShareButton.setOnClickListener(view -> {
-            if (files.size() == 1)
+            if (files.size() == 1) {
                 files.entrySet().iterator().next().setValue(mShareName.getText().toString());
+            }
             Folder folder = (Folder) mFoldersSpinner.getSelectedItem();
+            if (folder == null) {
+                Log.e(TAG, "onCreate-OnClickListener: folder == null");
+                return;
+            }
+            if (folder.path == null) {
+                Log.e(TAG, "onCreate-OnClickListener: folder.path == null");
+                return;
+            }
             File directory = new File(folder.path, getSavedSubDirectory());
             CopyFilesTask mCopyFilesTask = new CopyFilesTask(this, files, folder, directory);
             mCopyFilesTask.execute();
