@@ -484,6 +484,10 @@ public class RestApi {
         synchronized (mConfigLock) {
             String urlProtocol = Constants.osSupportsTLS12() ? "https" : "http";
             try {
+                if (mConfig.gui.address == null) {
+                    Log.e(TAG, "getWebGuiUrl: mConfig.gui.address == null, returning 127.0.0.1:8384");
+                    return new URL(urlProtocol + "://127.0.0.1:8384");
+                }
                 return new URL(urlProtocol + "://" + mConfig.gui.address);
             } catch (MalformedURLException e) {
                 throw new RuntimeException("Failed to parse web interface URL", e);
