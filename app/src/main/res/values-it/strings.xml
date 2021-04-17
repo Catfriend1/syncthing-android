@@ -25,6 +25,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="storage_permission_title">Autorizzazione Memoria</string>
     <string name="storage_permission_desc">Syncthing deve accedere alla tua memoria per poter sincronizzare i file.</string>
     <string name="dialog_all_files_access_not_supported">Il tuo dispositivo non supporta l\'accesso a tutti i file</string>
+    <string name="storage_permission_emergency_export">Sei bloccato? Usa l\'esportazione di emergenza per la tua configurazione</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Ottimizzazione della batteria</string>
     <string name="ignore_doze_permission_os_notice">Su Android TV può accadere che l\'app venga terminata mentre è in esecuzione in background. Una soluzione è disponibile nella wiki a \'%1$s/%2$s\'.</string>
@@ -169,6 +171,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Non è stato trovato un file manager compatibile</string>
+    <string name="suggest_file_manager_app_dialog_text">Consigliamo di installare il file manager open-source \'Material Files\' da F-Droid. Vuoi aprire la sua pagina sull\'app store?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -256,6 +260,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Setting title -->
     <string name="directory">Cartella</string>
+    <string name="advanced_directory_selection">Selezione avanzata cartella</string>
+
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorare i cambiamenti</string>
     <string name="folder_fileWatcherDescription">Chiede al sistema operativo di notificare le modifiche ai file. Se disabilitato, ritorna a scansioni orarie periodiche.</string>
@@ -460,6 +466,10 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="preference_app_theme_title">Tema</string>
 
+    <string name="preference_app_theme_follow_system">Segui il sistema</string>
+    <string name="preference_app_theme_follow_light">Chiaro</string>
+    <string name="preference_app_theme_follow_dark">Scuro</string>
+
     <string name="category_behaviour">Comportamento</string>
 
     <string name="category_syncthing_options">Opzioni di Syncthing</string>
@@ -516,6 +526,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="run_in_flight_mode_summary">Abilitando questa opzione permetterai a Syncthing di funzionare anche quando sei offline. Da utilizzare se il tuo dispositivo ha problemi a rilevare le connessioni Wi-Fi in modalità aereo.</string>
 
     <string name="run_on_time_schedule_title">Esegui secondo programmazione</string>
+    <string name="run_on_time_schedule_summary">Abilitando questa opzione la sincronizzazione verrà eseguita per 5 minuti ogni ora se le condizioni di esecuzione sono soddisfatte e l\'ultima sincronizzazione è avvenuta più di 1 ora fa. Permette di risparmiare molta batteria ma necessita che il/ì ricevente/i sia online. Nota bene: potrebbe lasciare alcuni file temporanei non sincronizzati fino alla successiva sincronizzazione.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Avvio automatico</string>
     <string name="behaviour_autostart_summary">Esegui l\'app automaticamente quando viene avviato il dispositivo.</string>
@@ -739,6 +751,12 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Selezione Cartella</string>
 
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Panoramica avanzata del percorso di archiviazione</string>
+
+    <!-- Current path -->
+    <string name="current_path">Percorso attuale: %1$s</string>
+
     <!-- ListView empty text -->
     <string name="directory_empty">Cartella Vuota</string>
 
@@ -827,6 +845,12 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Hai abilitato \'Esegui secondo programmazione\' e l\'ultima sincronizzazione è stata meno di un\'ora fa.</string>
+    <string name="reason_not_within_time_frame_2">Hai abilitato \'Esegui secondo programmazione\' e l\'ultima sincronizzazione è stata %s fa.</string>
+    <string name="reason_not_within_time_frame_0_min">meno di un minuto</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minuti</item>
+    </plurals>
     <string name="reason_not_charging">Il cellulare non è in carica.</string>
     <string name="reason_not_on_battery_power">Il cellulare non è alimentato da batteria.</string>
     <string name="reason_not_while_power_saving">Syncthing non è in esecuzione perchè il cellulare in modalità di risparmio energia.</string>
@@ -948,6 +972,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="state_failed_items">Elementi Falliti (%1$d)</string>
     <string name="state_up_to_date">Sincronizzato</string>
     <string name="state_local_additions">Aggiunte Locali</string>
+    <string name="state_cleaning">Pulizia versioni in corso</string>
+    <string name="state_clean_waiting">In attesa di pulizia</string>
     <string name="state_scanning">Scansione in corso</string>
     <string name="state_scan_waiting">In attesa di Scansione</string>
     <string name="state_sync_waiting">In attesa di Sincronizzazione</string>
@@ -1041,4 +1067,11 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="custom_sync_conditions_description">Permette di definire delle eccezioni alle condizioni globali di esecuzione.</string>
     <string name="custom_sync_conditions_dialog">Definisci condizioni di sincronizzazione</string>
 
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">Forza esecuzione</string>
+    <string name="qs_forced_to_run">Esecuzione forzata</string>
+    <string name="qs_forced_to_stop">Esecuzione interrotta</string>
+    <string name="qs_following_run_conditions">Seguendo le condizioni di esecuzione</string>
+    <string name="qs_schedule_label">Esegui per 5 minuti</string>
+    <string name="qs_schedule_disabled">Programmazione disabilitata</string>
 </resources>

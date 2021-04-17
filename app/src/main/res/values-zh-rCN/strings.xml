@@ -170,6 +170,8 @@
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
+    <string name="suggest_file_manager_app_dialog_text">我们建议你安装开源文件管理器应用程序\'Material Files\'。你要打开其应用商店页面吗？</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -257,6 +259,8 @@
 
     <!-- Setting title -->
     <string name="directory">目录</string>
+    <string name="advanced_directory_selection">高级目录选择</string>
+
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">监视更改</string>
     <string name="folder_fileWatcherDescription">请求操作系统通知文件的更改。如果禁用，则退回到定期每小时扫描。</string>
@@ -522,6 +526,8 @@
     <string name="run_in_flight_mode_summary">启用这个选项会让Syncthing在你离线时也运行。如果您的设备在飞行模式下检测手动Wi-Fi连接有问题，请启用。</string>
 
     <string name="run_on_time_schedule_title">按照时间表运行</string>
+    <string name="run_on_time_schedule_summary">启用此选项将尝试同步5分钟，前提是满足运行条件，且距离最后一次同步超过1小时。这可以节省大量电池，但需要同步伙伴在线。请注意:这可能会留下不完整的临时文件，直到下一次计划的同步进行。</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自动启动</string>
     <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing </string>
@@ -743,6 +749,12 @@
     <!-- Activity title -->
     <string name="folder_picker_title">文件夹选择器</string>
 
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">高级存储路径选择</string>
+
+    <!-- Current path -->
+    <string name="current_path">当前路径：%1$s</string>
+
     <!-- ListView empty text -->
     <string name="directory_empty">目录为空</string>
 
@@ -828,6 +840,11 @@
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">您启用了“按照时间表运行”，最后一次同步是在不到一个小时前。</string>
+    <string name="reason_not_within_time_frame_2">你启用了“按照时间表运行”，最后一次同步是在 %s 分钟之前</string>
+    <string name="reason_not_within_time_frame_0_min">不到一分钟</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="other">%d 分钟</item>
+    </plurals>
     <string name="reason_not_charging">手机没有给电池充电。</string>
     <string name="reason_not_on_battery_power">手机未使用电池供电。</string>
     <string name="reason_not_while_power_saving">Syncthing没有运行，因为手机目前正在省电。</string>
@@ -1044,4 +1061,11 @@
     <string name="custom_sync_conditions_description">允许您指定全局运行条件的例外</string>
     <string name="custom_sync_conditions_dialog">指定同步规则</string>
 
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">强制运行</string>
+    <string name="qs_forced_to_run">被强制运行</string>
+    <string name="qs_forced_to_stop">被强制停止</string>
+    <string name="qs_following_run_conditions">遵循运行条件</string>
+    <string name="qs_schedule_label">运行 5 分钟</string>
+    <string name="qs_schedule_disabled">已停用计划表</string>
 </resources>
