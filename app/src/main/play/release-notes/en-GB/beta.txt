@@ -1,16 +1,13 @@
-* Syncthing v1.15.1
+* Syncthing v1.16.0-rc.2
 
 Enhanced
 --
-- A11: Folder picker (#690)
-- Time schedule, per folder/device power source (thanks to Helium314 #765 #766)
-- Quick setting tiles (thanks to Helium314 #768)
+-
 
 
 Fixes
 --
-- Stop qr scanner (#748)
-- A11: Fix opening file manager (#762)
+- Minor stability fixes (#776, #777, #778, #780)
 
 
 Others
