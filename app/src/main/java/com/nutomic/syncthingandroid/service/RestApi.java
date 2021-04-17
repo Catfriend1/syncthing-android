@@ -968,12 +968,15 @@ public class RestApi {
 
             for (int i = 0; i < jsonEvents.size(); i++) {
                 JsonElement json = jsonEvents.get(i);
-                Event event = mGson.fromJson(json, Event.class);
-
-                if (lastId < event.id)
-                    lastId = event.id;
-
-                listener.onEvent(event, json);
+                try {
+                    Event event = mGson.fromJson(json, Event.class);
+                    if (lastId < event.id) {
+                        lastId = event.id;
+                    }
+                    listener.onEvent(event, json);
+                } catch (com.google.gson.JsonSyntaxException ex) {
+                    Log.e(TAG, "getEvents: Skipping event due to JsonSyntaxException, raw=[" + json.toString() + "]");
+                }
             }
 
             listener.onDone(lastId);
