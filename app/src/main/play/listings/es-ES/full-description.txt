@@ -18,7 +18,7 @@ Objetivos de la bifurcación:
 * Hacer que las mejoras sean configurables desde la interfaz, los usuarios deberían poder activarlas y desactivarlas
 
 Comparación entre el original y la bifurcación cuando se escribió esto:
-* Ambos contienen el binario de syncthing construido a partir de la fuente oficial en GitHub:syncthing/syncthing
+* Both contain the syncthing binary built from the official source at GitHub
 * La funcionalidad y fiabilidad de la sincronización depende de la versión del submódulo binario syncthing.
 * La bifurcación y el original están en buenos términos y a veces integran mis mejoras.
 * La estrategia y frecuencia de lanzamientos son diferentes.

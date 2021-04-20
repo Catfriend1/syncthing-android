@@ -18,7 +18,7 @@ Goals of the fork:
 * Make enhancements configurable in the UI, users should be able to turn them on and off
 
 Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
+* Both contain the syncthing binary built from the official source at GitHub
 * Syncing functionality and reliability depends on the syncthing binary submodule version.
 * Fork gets along with upstream and sometimes they pick up my improvements.
 * Strategy and release frequency is different

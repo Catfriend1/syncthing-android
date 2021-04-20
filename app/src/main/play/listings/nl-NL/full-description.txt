@@ -18,7 +18,7 @@ Doel van de fork:
 * Verbeteringen configureerbaar maken, zoadat gebruikers ze makkelijk in en uit kunnen schakelen
 
 Vergelijking tussen upstream en de fork op het moment van schrijven:
-* Beiden bevatten het uitvoerbare syncthing-bestand, gebouwd met de officiële broncode op GitHub:syncthing/syncthing
+* Both contain the syncthing binary built from the official source at GitHub
 * Synchronisatiefunctionaliteit en -betrouwbaarheid is afhankelijk van de versie van de syncthing-submodule
 * De fork wordt geaccepteerd door upstream en soms worden mijn verbeteringen doorgevoerd
 * Strategie en moment van uitbrengen zijn verschillend

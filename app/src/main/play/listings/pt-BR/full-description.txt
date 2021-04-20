@@ -18,7 +18,7 @@ Objetivos do fork:
 * Aprimorar as configurações: os usuários devem poder ligar e desligar os recursos.
 
 Comparação entre o fork e o projeto original no momento que estou escrevendo isto:
-* Ambos contém os arquivos do syncthing construídos do repositório original no GitHub:syncthing/syncthing.
+* Both contain the syncthing binary built from the official source at GitHub
 * As funcionalidades e confiabilidade do syncthing depende da versão do submódulo do syncthing.
 * O fork se dá bem com o projeto original e às vezes eles pegam minhas melhorias.
 * Estratégia e frequência de lançamentos são diferentes.

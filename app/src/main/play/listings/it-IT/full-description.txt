@@ -18,7 +18,7 @@ Obiettivi del fork:
 * Fai miglioramenti configurabili nell'interfaccia utente, gli utenti dovrebbero essere in grado di accenderli e spegnerli
 
 Confronto fra la versione ufficiale e il fork al momento della stesura di questa documento:
-* Entrambi utilizzano il programma syncthing compilato dalla fonte ufficiale GitHub:syncthing/syncthing
+* Both contain the syncthing binary built from the official source at GitHub
 * La funzionalità e l'affidabilità della sincronizzazione dipende dalla versione di syncthing.
 * Il fork include i miglioramenti rilasciati per la versione ufficiale e a volte vengono integrati nella versione ufficiale i miglioramenti sviluppati per il fork.
 * La strategia e la frequenza di rilascio sono differenti

@@ -18,7 +18,7 @@ Ziele des Forks:
 * Verbesserungen in der Benutzeroberfläche einstellbar machen, damit Benutzer in der Lage sind, diese an- und abzuschalten.
 
 Upstream und Fork im Vergleich zum Zeitpunkt des Schreibens:
-* Beide enthalten das Syncthing-Binärmodul, dass aus dem offiziellen Quellcode von GitHub:syncthing/syncthing gebaut wurde
+* Beide enthalten die Synchronisations-Binärdatei, die aus dem offiziellen GitHub Sourcecode erstellt wurde
 * Synchronisations-Funktionalität und -Zuverlässigkeit hängt von der Version des Syncthing-Binärmoduls ab.
 * Der Fork arrangiert sich mit dem Upstream und manchmal nimmt er unsere Verbesserungen auf.
 * Strategie und Releasehäufigkeit unterscheidet sich

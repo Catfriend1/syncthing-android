@@ -18,7 +18,7 @@ Goals of the fork:
 * Lav forbedringer konfigurerbare i UI'en, brugere burde kunne slå dem til og fra   
 
 Comparison between upstream and fork at the time of writing this:
-* Begge indeholder syncthing binary built fra den officielle kilde på GitHub:syncthing/syncthing
+* Both contain the syncthing binary built from the official source at GitHub
 * Syncing functionality and reliability depends on the syncthing binary submodule version.
 * Fork gets along with upstream and sometimes they pick up my improvements.
 * Strategi og udgivelsesfrekvens er forskelligt

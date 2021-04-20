@@ -18,7 +18,7 @@ Syncthing-Fork for Android は Syncthing のラッパーで、Syncthing に内�
 * UIで機能拡張を設定可能にし、ユーザーはそれらをオン/オフできるようにする。
 
 これを書いている時点でのオリジナルとフォークの比較: 
-* どちらもGitHub:syncthing/syncthingにある公式ソースからビルドされたsyncthingバイナリを含んでいます。
+* Both contain the syncthing binary built from the official source at GitHub
 * 同期機能と信頼性は、Syncthing バイナリのサブモジュールのバージョンに依存します。
 * フォークは上流と仲良くしていて、たまに改善点を拾ってくれることもあります。
 * 戦略とリリース頻度が異なります。
