@@ -25,6 +25,8 @@
     <string name="storage_permission_title">ストレージアクセス許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
     <string name="dialog_all_files_access_not_supported">お使いのデバイスがすべてのファイルへのアクセスをサポートしていません</string>
+    <string name="storage_permission_emergency_export">動かなくなった？設定を緊急エクスポート</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">バッテリー最適化</string>
     <string name="toast_ignore_doze_permission_required">このアプリは「ドーズ」の省電力モードが解除されている場合のみ確実に動作します。</string>
@@ -404,6 +406,9 @@
     <string name="category_user_interface">ユーザーインタフェース</string>
 
     <string name="preference_app_theme_title">テーマ</string>
+
+    <string name="preference_app_theme_follow_light">ライト</string>
+    <string name="preference_app_theme_follow_dark">ダーク</string>
 
     <string name="category_behaviour">動作</string>
 
@@ -830,4 +835,4 @@
     <string name="custom_sync_conditions_title">カスタム同期条件</string>
     <string name="custom_sync_conditions_dialog">同期条件を指定する</string>
 
-</resources>
+    </resources>

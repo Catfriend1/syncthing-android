@@ -24,13 +24,22 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Доступ к файлам</string>
     <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
+    <string name="dialog_all_files_access_not_supported">Ваше устройство не поддерживает полный доступ к файлам.</string>
+    <string name="storage_permission_emergency_export">Ошибка? Экстренно экспортируйте вашу конфигурацию</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
+    <string name="ignore_doze_permission_os_notice">Известна проблема с Android TV, которая вызывает прекращение работы приложения в фоновом режиме. Решение доступно в вики: %1$s/%2$s.</string>
     <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
+    <string name="toast_ignore_doze_permission_required">Это приложение работает стабильно только если для него отключены настройки экономия энергии.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Доступ к местоположению</string>
+    <string name="location_permission_desc">Syncthing может быть настроено для работы с выбранными сетями Wi-Fi.
+Android требует разрешение доступа к геолокации, чтобы считывать название активной Wi-Fi сети. Если вы хотите использовать эту опцию, нажмите кнопку выше. Вы можете пропустить этот этап. Смотрите нашу политику конфиденциальности для подробной информации.</string>
+    <string name="location_permission_desc_api_29">Совет для Android 10+: \" Разрешить всегда\"</string>
+
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Генерация ключей</string>
     <string name="key_generation_success">Криптографические ключи для приватного обмена данными были успешно сгенерированы.</string>
@@ -58,9 +67,41 @@
 
 
 
+    <!-- PhotoShootActivity -->
+
+    <string name="photo_shoot_launcher_title">Sync. Камера</string>
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork Камера</string>
+
+    <string name="photo_shoot_intro_welcome_title">Добро пожаловать в Syncthing Камера</string>
+
     <string name="photo_shoot_intro_permission_title">Необходимые разрешения</string>
 
     <string name="photo_shoot_intro_no_camera">Извините, у текущего устройства нет камеры</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Для продолжения требуется доступ к файлам и камере.</string>
+
+    <string name="grant_storage_permission">Выдать разрешение доступа к файлам</string>
+
+    <string name="grant_camera_permission">Выдать разрешение доступа к камере</string>
+
+    <string name="photo_shoot_intro_permission_desc">Syncthing Камера требует вашего разрешения для создания фотографий и хранения их на вашем устройстве. Эта опция дополнительна. Чтобы использовать её, предоставьте доступ и нажмите \"Продолжить\". Будет настроена папка Syncthing Камеры, которую вы позже сможете синхронизировать с другими устройствами Syncthing.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Syncthing Камера</string>
+
+
+
+    <!-- MainActivity -->
+
+
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Пересканировать всё</string>
+
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">Открыть главное меню</string>
+    <string name="close_main_menu">Закрыть главное меню.</string>
 
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">Была встречена найденная ошибка, которая ещё не была решена. Больше информации в %1$s/%2$s. Пожалуйста, оставьте нам точное описание произошедшего перед этим.</string>
