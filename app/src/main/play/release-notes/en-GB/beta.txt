@@ -1,4 +1,4 @@
-* Syncthing v1.16.0-rc.2
+* Syncthing v1.16.0
 
 Enhanced
 --
