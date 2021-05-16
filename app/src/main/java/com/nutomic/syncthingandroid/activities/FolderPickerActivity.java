@@ -245,7 +245,7 @@ public class FolderPickerActivity extends SyncthingActivity
                 return -1;
             if (f1.isFile() && f2.isDirectory())
                 return 1;
-            return f1.getName().compareTo(f2.getName());
+            return f1.getName().compareToIgnoreCase(f2.getName());
         });
 
         for (File f : contents) {
