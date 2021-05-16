@@ -152,6 +152,11 @@ public class PhotoShootActivity extends AppCompatActivity {
         Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (pictureIntent.resolveActivity(getPackageManager()) == null) {
             Log.e(TAG, "This system does not support the ACTION_IMAGE_CAPTURE intent.");
+            Toast.makeText(
+                    PhotoShootActivity.this,
+                    "This system does not support the ACTION_IMAGE_CAPTURE intent.", Toast.LENGTH_LONG
+            ).show();
+            finish();
             return;
         }
 
