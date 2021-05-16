@@ -33,6 +33,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- MANAGE_EXTERNAL_STORAGE is required on Android 11 "R" -->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <!-- CHANGE_WIFI_MULTICAST_STATE is required for local discovery to work on Android 11 "R" -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
 
     <application
         android:allowBackup="false"
