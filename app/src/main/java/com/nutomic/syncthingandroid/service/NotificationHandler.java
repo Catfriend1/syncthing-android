@@ -60,6 +60,7 @@ public class NotificationHandler {
             mPersistentChannel.enableVibration(false);
             mPersistentChannel.setSound(null, null);
             mPersistentChannel.setShowBadge(false);
+            mPersistentChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_SECRET);
             mNotificationManager.createNotificationChannel(mPersistentChannel);
 
             mPersistentChannelWaiting = new NotificationChannel(
@@ -69,6 +70,7 @@ public class NotificationHandler {
             mPersistentChannelWaiting.enableVibration(false);
             mPersistentChannelWaiting.setSound(null, null);
             mPersistentChannelWaiting.setShowBadge(false);
+            mPersistentChannel.setLockscreenVisibility(NotificationCompat.VISIBILITY_SECRET);
             mNotificationManager.createNotificationChannel(mPersistentChannelWaiting);
 
             mInfoChannel = new NotificationChannel(
