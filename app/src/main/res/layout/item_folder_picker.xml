@@ -1,9 +1,0 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-    android:gravity="center_vertical"
-    android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
-    android:paddingRight="@dimen/abc_action_bar_content_inset_material"
-    android:minHeight="48dp" />

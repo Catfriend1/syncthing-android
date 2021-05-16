@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -272,7 +273,7 @@ public class FolderPickerActivity extends SyncthingActivity
     private class FileAdapter extends ArrayAdapter<File> {
 
         public FileAdapter(Context context) {
-            super(context, R.layout.item_folder_picker);
+            super(context, android.R.layout.simple_list_item_1);
         }
 
         @Override
@@ -282,11 +283,7 @@ public class FolderPickerActivity extends SyncthingActivity
             TextView title = convertView.findViewById(android.R.id.text1);
             File f = getItem(position);
             title.setText(f.getName());
-            int textColor = (f.isDirectory())
-                    ? android.R.color.primary_text_light
-                    : android.R.color.tertiary_text_light;
-            title.setTextColor(ContextCompat.getColor(getContext(), textColor));
-
+            title.setTypeface(title.getTypeface(), f.isFile() ? Typeface.ITALIC : Typeface.NORMAL);
             return convertView;
         }
     }
