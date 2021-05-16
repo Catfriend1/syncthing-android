@@ -21,7 +21,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 - UI explains why syncthing is running or not.
 - "Battery eater" problem is fixed.
 - Discover other Syncthing devices on the same network and easily add them.
-- Android 8 to 11 support.
+- Supports two-way synchronization on external sd cards since Android 11.
 
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).

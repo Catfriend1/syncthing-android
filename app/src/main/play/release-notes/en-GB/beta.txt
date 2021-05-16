@@ -2,14 +2,15 @@
 
 Enhanced
 --
--
+- Supports two-way synchronization on external sd cards since Android 11 (#787)
 
 
 Fixes
 --
+- Bring back wifi ssid based run condition (#794)
 - Minor stability fixes (#776, #777, #778, #780)
 
 
 Others
 --
-- If you have problems because of Android restrictions, see GitHub for more info on how to get a working install.
+-

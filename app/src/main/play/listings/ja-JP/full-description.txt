@@ -8,7 +8,7 @@
 * 同期が実行されているかどうかはUIで明確です。
 * バッテリー消費が多い問題を修正しました。
 * 同じネットワーク上の他の Syncthing デバイスを発見し、簡単に追加することができます。
-* Android 8、9、10に対応しています。
+* Supports two-way synchronization on external SD card since Android 11.
 
 Syncthing-Fork for Android は Syncthing のラッパーで、Syncthing に内蔵されている Web UI の代わりに Android UI を提供します。Syncthing は、プロプライエタリな同期サービスやクラウドサービスを、オープンで信頼性が高く、分散化されたものに置き換えます。あなたのデータはあなただけのものであり、どこに保存するか、第三者と共有するか、インターネットを介してどのように転送するかを選択する権利があります。
 

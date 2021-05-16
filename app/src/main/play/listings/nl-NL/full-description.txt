@@ -8,7 +8,7 @@ Dit is een fork van de Synthing-Android-wrapper voor Syncthing die vele verbeter
 * UI explains why syncthing is running or not.
 * Hoog accuverbruik is opgelost
 * Discover other Syncthing devices on the same network and easily add them.
-* Android 8, 9 and 10 support.
+* Supports two-way synchronization on external SD card since Android 11.
 
 Syncthing vervangt niet-vrije diensten door iets opens, betrouwbaars en gedecentraliseerds. Je gegevens behoren enkel jou toe en jij bepaalt waar ze worden opgeslagen, of ze gedeeld worden met een derde partij en hoe ze over het internet verzonden worden.
 

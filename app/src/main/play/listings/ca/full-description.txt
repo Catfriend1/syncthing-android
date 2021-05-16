@@ -8,7 +8,7 @@ Versió alternativa de l'embolcall Syncthing-Android per al Syncthing que incorp
 * UI explains why syncthing is running or not.
 * Arreglat el problema amb el consum de bateria.
 * Discover other Syncthing devices on the same network and easily add them.
-* Android 8, 9 and 10 support.
+* Supports two-way synchronization on external SD card since Android 11.
 
 El Syncthing-Fork per Android és un embolcall per al Syncthing que proporciona una interfície Android enlloc de la interfície web integrada amb el Syncthing's. El Syncthing substitueix els serveis propietaris de sincronització i d'emmagatzematge en el núvol per una alternativa oberta, confiable i descentralitzada. Les vostres dades són només vostres, i heu de poder triar on voleu que s'emmagatzemin, si es comparteixen amb tercers i com es transmeten per Internet.
 
