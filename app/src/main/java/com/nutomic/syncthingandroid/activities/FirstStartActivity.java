@@ -398,7 +398,7 @@ public class FirstStartActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Get app specific /Android/media directory.
-                        File externalFilesDir = FileUtils.getExternalFilesDir(FirstStartActivity.this, ExternalStorageDirType.MEDIA, null);
+                        File externalFilesDir = FileUtils.getExternalFilesDir(FirstStartActivity.this, ExternalStorageDirType.INT_MEDIA, null);
                         if (externalFilesDir == null) {
                             Log.w(TAG, "Failed to export config. Could not determine app's private files directory on external storage.");
                             Toast.makeText(FirstStartActivity.this,

@@ -17,6 +17,7 @@ import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
+import com.nutomic.syncthingandroid.util.FileUtils.ExternalStorageDirType;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
@@ -1104,8 +1105,8 @@ public class ConfigXml {
             return false;
         }
 
-        // Get app specific directory, e.g. "/storage/emulated/0/Android/data/[PACKAGE_NAME]/Pictures".
-        File storageDir = FileUtils.getExternalFilesDir(mContext, Environment.DIRECTORY_PICTURES);
+        // Get app specific directory, e.g. "/storage/emulated/0/Android/media/[PACKAGE_NAME]/Pictures".
+        File storageDir = FileUtils.getExternalFilesDir(mContext, ExternalStorageDirType.INT_MEDIA, Environment.DIRECTORY_PICTURES);
         if (storageDir == null) {
             Log.e(TAG, "addSyncthingCameraFolder: storageDir == null");
             return false;
@@ -1127,7 +1128,7 @@ public class ConfigXml {
         folder.versioning.fsType = "basic";
 
         // Add folder to config.
-        LogV("addSyncthingCameraFolder: Adding folder to config ...");
+        LogV("addSyncthingCameraFolder: Adding folder to config [" + folder.path + "]");
         addFolder(folder);
         return true;
     }
