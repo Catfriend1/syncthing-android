@@ -215,13 +215,16 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         }
         String finishedItemText = "\u21cc";
         switch (cachedFolderStatus.lastItemFinishedAction) {
-            case "update":
-                finishedItemText += " \u229b";
-                break;
             case "delete":
+                // (x)
                 finishedItemText += " \u2297";
                 break;
+            case "update":
+                // (*)
+                finishedItemText += " \u229b";
+                break;
             default:
+                // !?
                 finishedItemText += " \u2049";
         }
         finishedItemText += " " + Util.getPathEllipsis(cachedFolderStatus.lastItemFinishedItem);
