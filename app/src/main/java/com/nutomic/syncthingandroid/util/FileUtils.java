@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.nutomic.syncthingandroid.R;
 
@@ -939,7 +940,15 @@ public class FileUtils {
         String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileUri.toString());
         String mimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
         Log.v(TAG, "openFile: Detected mime type \'" + mimeType + "\' for file \'" + fullPathAndFilename + "\'");
-        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Intent intent;
+        switch(fileExtension) {
+            case "apk":
+                fileUri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", new File(fullPathAndFilename));
+                intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+                break;
+            default:
+                intent = new Intent(Intent.ACTION_VIEW);
+        }
         intent.setDataAndType(fileUri, mimeType);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         try {
