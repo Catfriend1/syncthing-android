@@ -180,7 +180,7 @@ public class FileUtils {
              * e.g. "/storage/abcd-efgh/Android/[PACKAGE_NAME]/files"
              */
             ArrayList<File> externalFilesDir = new ArrayList<>();
-            switch(extDirType ){
+            switch(extDirType){
                 case DATA:
                     externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));
                     externalFilesDir.remove(context.getExternalFilesDir(null));
