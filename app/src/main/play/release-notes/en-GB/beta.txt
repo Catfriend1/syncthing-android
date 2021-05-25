@@ -2,19 +2,14 @@
 
 Enhanced
 --
-- Support two-way synchronization on external sd cards (Android 11) (#787)
-- Hide notification from lock screen (#790)
+- Android 11: keep synced user data when app is uninstalled (#806)
 
 
 Fixes
 --
-- Bring back WiFi SSID based run condition (#794)
-- Minor stability fixes (#776, #777, #778, #780)
-- Minor theme and UI fixes (#793, #797)
-- Syncthing Camera compatibility (Android 11) (#798)
-- Local device discovery (Android 11) (#800)
+- Minor theme and UI fixes (#807, #811)
 
 
 Others
 --
--
+- Breaking change: Syncthing Camera folder is now /Android/media (#809)

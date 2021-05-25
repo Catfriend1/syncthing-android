@@ -6,7 +6,7 @@ cls
 REM
 REM Script Consts.
 SET CLEANUP_BEFORE_BUILD=1
-SET SKIP_RELEASE_BUILD=0
+SET SKIP_RELEASE_BUILD=1
 REM
 REM Runtime Variables.
 REM
@@ -49,9 +49,9 @@ REM
 :absLint
 REM
 echo [INFO] Running lint before building ...
-call gradlew --quiet lint
-SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew lint" exited with code #%RESULT%. & goto :eos
+IF "%SKIP_RELEASE_BUILD%" == "1" call gradlew --quiet lintDebug & SET RESULT=%ERRORLEVEL%
+IF NOT "%SKIP_RELEASE_BUILD%" == "1" call gradlew --quiet lint & SET RESULT=%ERRORLEVEL%
+IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint" exited with code #%RESULT%. & goto :eos
 REM
 call :buildApk debug
 REM
