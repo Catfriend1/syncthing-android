@@ -5,6 +5,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 
+import com.nutomic.syncthingandroid.util.FileUtils;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -242,7 +244,7 @@ public class Constants {
     }
 
     static File getLogFile(Context context) {
-        return new File(context.getExternalFilesDir(null), "syncthing.log");
+        return new File(FileUtils.getExternalFilesDir(context, null), "syncthing.log");
     }
 
     /**

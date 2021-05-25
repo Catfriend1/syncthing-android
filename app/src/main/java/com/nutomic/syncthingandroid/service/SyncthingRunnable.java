@@ -18,6 +18,7 @@ import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.BufferedReader;
@@ -455,7 +456,7 @@ public class SyncthingRunnable implements Runnable {
             int lineCount = lnr.getLineNumber();
             lnr.close();
 
-            File tempFile = new File(mContext.getExternalFilesDir(null), "syncthing.log.tmp");
+            File tempFile = new File(FileUtils.getExternalFilesDir(mContext, null), "syncthing.log.tmp");
 
             BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -481,9 +482,10 @@ public class SyncthingRunnable implements Runnable {
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
-        File externalFilesDir = mContext.getExternalFilesDir(null);
-        if (externalFilesDir != null)
+        File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
+        if (externalFilesDir != null) {
             targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
+        }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {

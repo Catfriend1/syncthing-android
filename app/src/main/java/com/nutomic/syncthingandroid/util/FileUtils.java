@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 import com.nutomic.syncthingandroid.R;
 
@@ -162,6 +163,41 @@ public class FileUtils {
         // return null;
     }
 
+    public static File getExternalFilesDir(Context context, String type) {
+        return getExternalFilesDir(context, ExternalStorageDirType.DATA, type);
+    }
+
+    public static File getExternalFilesDir(Context context, ExternalStorageDirType extDirType, String type) {
+        /**
+         * Determine the app's private data folder on external storage if present.
+         * e.g. "/storage/abcd-efgh/Android/data/[PACKAGE_NAME]/files"
+         * e.g. "/storage/abcd-efgh/Android/media/[PACKAGE_NAME]"
+         */
+        ArrayList<File> externalFilesDir = new ArrayList<>();
+        switch(extDirType){
+            case DATA:
+                // There is a bug on Huawei devices running Android 7, which returns the wrong external path.
+                // That's why we use ContextCompat here instead of context.
+                // See https://github.com/Catfriend1/syncthing-android/issues/541
+                // ... and: https://stackoverflow.com/questions/39895579/fileprovider-error-onhuawei-devices
+                externalFilesDir.addAll(Arrays.asList(ContextCompat.getExternalFilesDirs(context, null)));
+                externalFilesDir.remove(context.getExternalFilesDir(null));
+                break;
+            case MEDIA:
+                externalFilesDir.addAll(Arrays.asList(context.getExternalMediaDirs()));
+                if (externalFilesDir.size() > 0) {
+                    externalFilesDir.remove(externalFilesDir.get(0));
+                }
+                break;
+        }
+        externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
+        if (externalFilesDir.size() == 0) {
+            Log.w(TAG, "Could not determine app's private files directory on external storage.");
+            return null;
+        }
+        return externalFilesDir.get(0);
+    }
+
     /**
      * FileProvider does not support converting the absolute path from
      * getExternalFilesDir() to a "content://" Uri. As "file://" Uri
@@ -175,29 +211,13 @@ public class FileUtils {
     @TargetApi(21)
     public static android.net.Uri getExternalFilesDirUri(Context context, ExternalStorageDirType extDirType) {
         try {
-            /**
-             * Determine the app's private data folder on external storage if present.
-             * e.g. "/storage/abcd-efgh/Android/[PACKAGE_NAME]/files"
-             */
-            ArrayList<File> externalFilesDir = new ArrayList<>();
-            switch(extDirType){
-                case DATA:
-                    externalFilesDir.addAll(Arrays.asList(context.getExternalFilesDirs(null)));
-                    externalFilesDir.remove(context.getExternalFilesDir(null));
-                    break;
-                case MEDIA:
-                    externalFilesDir.addAll(Arrays.asList(context.getExternalMediaDirs()));
-                    if (externalFilesDir.size() > 0) {
-                        externalFilesDir.remove(externalFilesDir.get(0));
-                    }
-                    break;
-            }
-            externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
-            if (externalFilesDir.size() == 0) {
+            File externalFilesDir = getExternalFilesDir(context, extDirType, null);
+            if (externalFilesDir == null) {
                 Log.w(TAG, "Could not determine app's private files directory on external storage.");
                 return null;
             }
-            String absPath = externalFilesDir.get(0).getAbsolutePath();
+            String absPath = externalFilesDir.getAbsolutePath();
+
             // Log.v(TAG, "getExternalFilesDirUri: absPath=" + absPath);
             String[] segments = absPath.split("/");
             if (segments.length < 2) {

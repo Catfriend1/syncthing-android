@@ -26,6 +26,7 @@ import androidx.core.content.FileProvider;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.util.FileUtils;
 
 import java.io.IOException;
 import java.io.File;
@@ -192,8 +193,7 @@ public class PhotoShootActivity extends AppCompatActivity {
              new SimpleDateFormat("yyyyMMdd_HHmmss",
                           Locale.getDefault()).format(new Date());
         String imageFileName = "IMG_" + timeStamp + "_";
-        File storageDir =
-                    this.getExternalFilesDir(this, Environment.DIRECTORY_PICTURES);
+        File storageDir = FileUtils.getExternalFilesDir(this, Environment.DIRECTORY_PICTURES);
         if (storageDir == null) {
             Log.e(TAG, "createImageFile: storageDir == null");
             return null;
@@ -290,17 +290,5 @@ public class PhotoShootActivity extends AppCompatActivity {
     private void updateButtons() {
         mBtnGrantCameraPerm.setVisibility(haveCameraPermission() ? View.GONE : View.VISIBLE);
         mBtnGrantStoragePerm.setVisibility(haveStoragePermission() ? View.GONE : View.VISIBLE);
-    }
-
-    public static File getExternalFilesDir(Context context, String type) {
-    	// There is a bug on Huawei devices running Android 7, which returns the wrong external path.
-        // See https://github.com/Catfriend1/syncthing-android/issues/541
-    	// ... and: https://stackoverflow.com/questions/39895579/fileprovider-error-onhuawei-devices
-        File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, type);
-        if (externalFilesDirs.length > 0) {
-            return externalFilesDirs[0];
-        } else {
-            return null;
-        }
     }
 }

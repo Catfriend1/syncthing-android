@@ -40,6 +40,8 @@ import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable.ExecutableNotFoundException;
 import com.nutomic.syncthingandroid.util.ConfigXml;
+import com.nutomic.syncthingandroid.util.FileUtils;
+import com.nutomic.syncthingandroid.util.FileUtils.ExternalStorageDirType;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.CustomViewPager;
 
@@ -396,20 +398,15 @@ public class FirstStartActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Get app specific /Android/media directory.
-                        ArrayList<File> externalFilesDir = new ArrayList<>();
-                        externalFilesDir.addAll(Arrays.asList(getExternalMediaDirs()));
-                        if (externalFilesDir.size() > 0) {
-                            externalFilesDir.remove(externalFilesDir.get(0));
-                        }
-                        externalFilesDir.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
-                        if (externalFilesDir.size() == 0) {
+                        File externalFilesDir = FileUtils.getExternalFilesDir(FirstStartActivity.this, ExternalStorageDirType.MEDIA, null);
+                        if (externalFilesDir == null) {
                             Log.w(TAG, "Failed to export config. Could not determine app's private files directory on external storage.");
                             Toast.makeText(FirstStartActivity.this,
                                     getString(R.string.config_export_failed),
                                     Toast.LENGTH_LONG).show();
                             return;
                         }
-                        final String exportToMediaPath = externalFilesDir.get(0).getAbsolutePath();
+                        final String exportToMediaPath = externalFilesDir.getAbsolutePath();
                         if (!exportConfig(exportToMediaPath)) {
                             Toast.makeText(FirstStartActivity.this,
                                     getString(R.string.config_export_failed),
