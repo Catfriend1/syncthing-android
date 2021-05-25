@@ -177,12 +177,14 @@ public class FileUtils {
         ArrayList<File> externalFilesDir = new ArrayList<>();
         switch(extDirType){
             case DATA:
-                // There is a bug on Huawei devices running Android 7, which returns the wrong external path.
-                // That's why we use ContextCompat here instead of context.
-                // See https://github.com/Catfriend1/syncthing-android/issues/541
-                // ... and: https://stackoverflow.com/questions/39895579/fileprovider-error-onhuawei-devices
                 externalFilesDir.addAll(Arrays.asList(ContextCompat.getExternalFilesDirs(context, null)));
-                externalFilesDir.remove(context.getExternalFilesDir(null));
+                if (externalFilesDir.size() > 1) {
+                    // There is a bug on Huawei devices running Android 7, which returns the wrong external path.
+                    // That's why we use ContextCompat here instead of context.
+                    // See https://github.com/Catfriend1/syncthing-android/issues/541
+                    // ... and: https://stackoverflow.com/questions/39895579/fileprovider-error-onhuawei-devices
+                    externalFilesDir.remove(context.getExternalFilesDir(null));
+                }
                 break;
             case INT_MEDIA:
                 externalFilesDir.add(new File(Environment.getExternalStorageDirectory() + "/Android/media/" + context.getPackageName()));
