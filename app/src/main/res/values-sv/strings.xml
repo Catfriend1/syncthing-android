@@ -311,7 +311,6 @@
     <string name="modified_by_device">Enhet: %1$s</string>
     <string name="modification_time">Tid: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

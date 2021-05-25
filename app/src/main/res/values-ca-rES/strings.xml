@@ -323,7 +323,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="modified_by_device">Dispositiu: %1$s</string>
     <string name="modification_time">Temps: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -818,4 +817,4 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="custom_sync_conditions_title">Condicions d\'execució personalitzades</string>
     <string name="custom_sync_conditions_dialog">Especifica les condicions de sincronització</string>
 
-</resources>
+    </resources>

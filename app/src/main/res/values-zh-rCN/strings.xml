@@ -430,7 +430,6 @@
     <string name="modified_by_device">设备: %1$s</string>
     <string name="modification_time">时间: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

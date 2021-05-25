@@ -309,7 +309,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="modified_by_device">Enhed: %1$s</string>
     <string name="modification_time">Tid: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -777,4 +776,4 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="custom_sync_conditions_description">Tillader dig at specificere undtagelser til globale kørebetingelser. </string>
     <string name="custom_sync_conditions_dialog">Specificer synkroniseringsbetingelser </string>
 
-</resources>
+    </resources>

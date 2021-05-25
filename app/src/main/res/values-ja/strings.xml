@@ -375,7 +375,6 @@
     <string name="modified_by_device">デバイス： %1$s</string>
     <string name="modification_time">時間：%1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

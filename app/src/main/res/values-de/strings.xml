@@ -431,6 +431,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="modified_by_device">Gerät: %1$s</string>
     <string name="modification_time">Zeit: %1$s</string>
 
+    <string name="this_device">Dieses Gerät</string>
+
 
     <!-- WebGuiActivity -->
 

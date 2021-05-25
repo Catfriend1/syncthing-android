@@ -431,7 +431,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="modified_by_device">Dispositivo: %1$s</string>
     <string name="modification_time">Ora: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->

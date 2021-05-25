@@ -427,7 +427,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="modified_by_device">Dispositivo: %1$s</string>
     <string name="modification_time">Tiempo: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -1047,4 +1046,4 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="custom_sync_conditions_description">Le permite especificar excepciones a las condiciones globales de ejecución.</string>
     <string name="custom_sync_conditions_dialog">Especificar condiciones de sincronización</string>
 
-</resources>
+    </resources>

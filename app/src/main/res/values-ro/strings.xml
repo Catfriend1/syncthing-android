@@ -394,7 +394,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="modified_by_device">Dispozitiv: %1$s</string>
     <string name="modification_time">Timp: %1$s</string>
 
-
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -921,4 +920,4 @@ atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt ș
     <string name="custom_sync_conditions_description">Vă permite să specificați excepții de la condițiile de rulare globală.</string>
     <string name="custom_sync_conditions_dialog">Specificați condițiile de sincronizare</string>
 
-</resources>
+    </resources>

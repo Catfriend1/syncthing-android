@@ -8,7 +8,7 @@
 * UI解释了为什么同步正在运行或不运行。
 * 电池消耗问题已解决
 *发现同一网络上的其他Syncthing设备并轻松添加它们。
-* Supports two-way synchronization on external SD card since Android 11.
+* 自安卓 11系统起，支持支持外置SD卡双向同步
 
 Android的Syncthing-Fork是Syncthing的包装，它提供了Android UI而不是Syncthing的内置Web UI。 Syncthing以开放，可信赖和分散的方式取代了专有的同步和云服务。 您的数据仅是数据，如果与某些第三方共享，则应选择存储位置以及如何通过Internet传输。
 
@@ -18,7 +18,7 @@ Android的Syncthing-Fork是Syncthing的包装，它提供了Android UI而不是S
 *使增强功能在用户界面中可配置，用户应该能够打开和关闭它们
 
 在撰写本文时，上游和分支之间的比较：
-* Both contain the syncthing binary built from the official source at GitHub
+*两者都包含从 Github 官方来源构建而来的 syncthing 二进制文件
 *同步功能和可靠性取决于同步二进制子模块的版本。
 * Fork与上游相处，有时他们会接受我的改进。
 *策略和发布频率不同
