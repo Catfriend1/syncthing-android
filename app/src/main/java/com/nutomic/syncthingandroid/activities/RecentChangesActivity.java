@@ -54,6 +54,7 @@ public class RecentChangesActivity extends SyncthingActivity
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     private List<Device> mDevices;
+    private String mLocalDeviceId;
     private ChangeListAdapter mRecentChangeAdapter;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -178,6 +179,7 @@ public class RecentChangesActivity extends SyncthingActivity
             return;
         }
         mDevices = restApi.getDevices(true);
+        mLocalDeviceId = restApi.getLocalDevice().deviceID;
         LogV("Querying disk events");
         restApi.getDiskEvents(DISK_EVENT_LIMIT, this::onReceiveDiskEvents);
         if (ENABLE_TEST_DATA) {
@@ -208,7 +210,11 @@ public class RecentChangesActivity extends SyncthingActivity
                 if (!TextUtils.isEmpty(diskEvent.data.modifiedBy)) {
                     for (Device device : mDevices) {
                         if (diskEvent.data.modifiedBy.equals(device.deviceID.substring(0, diskEvent.data.modifiedBy.length()))) {
-                            diskEvent.data.modifiedBy = device.getDisplayName();
+                            if (device.deviceID.equals(mLocalDeviceId)) {
+                                diskEvent.data.modifiedBy = getString(R.string.this_device);
+                            } else {
+                                diskEvent.data.modifiedBy = device.getDisplayName();
+                            }
                             break;
                         }
                     }

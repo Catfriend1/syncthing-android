@@ -434,6 +434,8 @@ Please report any problems you encounter via Github.</string>
     <string name="modified_by_device">Device: %1$s</string>
     <string name="modification_time">Time: %1$s</string>
 
+    <string name="this_device">This device</string>
+
 
     <!-- WebGuiActivity -->
 
