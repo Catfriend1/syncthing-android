@@ -212,12 +212,18 @@ public class PhotoShootActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                                   Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        boolean takePhotoSucceeded = false;
         if (requestCode == REQUEST_CAPTURE_IMAGE) {
-            if (resultCode == Activity.RESULT_OK) {
+            try {
+                MediaStore.Images.Media.getBitmap(getContentResolver(), lastPhotoURI).getWidth();
                 Log.d(TAG, "User took a picture.");
                 lastPhotoURI = null;
-            } else if(resultCode == Activity.RESULT_CANCELED) {
-                Log.d(TAG, "User cancelled to take a picture.");
+                takePhotoSucceeded = true;
+            } catch (Exception e) {
+                Log.d(TAG, "User cancelled or failed to take a picture.");
+            }
+
+            if (!takePhotoSucceeded) {
                 if (lastPhotoURI != null) {
                     Log.v(TAG, "Deleting temporary file [" + lastPhotoURI.getPath() + "]");
                     try {
@@ -228,7 +234,11 @@ public class PhotoShootActivity extends AppCompatActivity {
                     }
                     lastPhotoURI = null;
                 }
+                Toast.makeText(this, R.string.photo_shoot_take_picture_failure, Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            Toast.makeText(this, R.string.photo_shoot_take_picture_success, Toast.LENGTH_SHORT).show();
             finish();
         }
     }
