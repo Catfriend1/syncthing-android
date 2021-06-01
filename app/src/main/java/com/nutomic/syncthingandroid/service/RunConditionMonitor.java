@@ -182,7 +182,7 @@ public class RunConditionMonitor {
          */
         if (lastSyncTimeSinceBootMillisecs > elapsedRealtime) {
             SharedPreferences.Editor editor = mPreferences.edit();
-            editor.putLong(Constants.PREF_LAST_RUN_TIME, -Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS);
+            editor.putLong(Constants.PREF_LAST_RUN_TIME, -Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000);
             editor.apply();
             lastSyncTimeSinceBootMillisecs = 0;
         }
