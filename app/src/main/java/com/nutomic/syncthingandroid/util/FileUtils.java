@@ -943,12 +943,12 @@ public class FileUtils {
         Intent intent;
         switch(fileExtension) {
             case "apk":
-                fileUri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", new File(fullPathAndFilename));
                 intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
                 break;
             default:
                 intent = new Intent(Intent.ACTION_VIEW);
         }
+        fileUri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", new File(fullPathAndFilename));
         intent.setDataAndType(fileUri, mimeType);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         try {
