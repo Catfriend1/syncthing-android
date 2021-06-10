@@ -7,7 +7,7 @@ Enhanced
 
 Fixes
 --
--
+- Fix opening file intents used in "Recent Changes" dialog (#816)
 
 
 Others
