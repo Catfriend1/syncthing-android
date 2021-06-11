@@ -8,6 +8,7 @@ Enhanced
 Fixes
 --
 - Fix opening file intents used in "Recent Changes" dialog (#816)
+- Clear prefs when importing backup from Syncthing app (#821)
 
 
 Others

@@ -1019,8 +1019,11 @@ public class SyncthingService extends Service {
                 Log.w(TAG, "importConfig: SharedPreferences file missing. This is expected if you migrate from the official app to the forked app.");
                 /**
                  * Don't fail as the file might be expectedly missing when users migrate
-                 * to the forked app.
+                 * to the forked app. Clear cached info like the local deviceID from prefs.
                  */
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.clear();
+                editor.commit();
             }
         } catch (IOException | ClassNotFoundException e) {
             Log.e(TAG, "importConfig: Failed to import SharedPreferences #1", e);
