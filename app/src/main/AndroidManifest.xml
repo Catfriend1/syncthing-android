@@ -175,6 +175,7 @@
         </activity>
         <activity android:name=".activities.SettingsActivity"
             android:label="@string/settings_title"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
