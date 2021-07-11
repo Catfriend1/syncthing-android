@@ -191,6 +191,8 @@ Please report any problems you encounter via Github.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">No devices configured.\nBegin by adding a device now.</string>
 
+    <string name="deviceEncryptionPasswordHint">If untrusted, enter encryption password</string>
+
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Up to Date</string>
 

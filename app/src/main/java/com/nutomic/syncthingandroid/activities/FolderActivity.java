@@ -140,6 +140,23 @@ public class FolderActivity extends SyncthingActivity {
         public void afterTextChanged(Editable s) {
             mFolder.label        = mLabelView.getText().toString().trim();
             mFolder.id           = mIdView.getText().toString();
+
+            // Loop through devices the folder is shared to and update encryptionPassword property.
+            for (int i = 0; i < mDevicesContainer.getChildCount(); i++) {
+                LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(i);
+
+                SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+                Device device = mFolder.getDevice(((Device) switchView.getTag()).deviceID);
+                if (device != null) {
+                    EditText encryptPassView = (EditText) deviceView.getChildAt(1);
+                    String newEncryptionPassword = encryptPassView.getText().toString();
+                    if (!device.encryptionPassword.equals(newEncryptionPassword)) {
+                        device.encryptionPassword = newEncryptionPassword;
+                        mFolderNeedsToUpdate = true;
+                    }
+                }
+            }
+
             // mPathView must not be handled here as it's handled by {@link onActivityResult}
             // mEditIgnoreListContent must not be handled here as it's written back when the dialog ends.
             mFolderNeedsToUpdate = true;
@@ -176,6 +193,18 @@ public class FolderActivity extends SyncthingActivity {
                     break;
                 case R.id.device_toggle:
                     Device device = (Device) view.getTag();
+
+                    // Loop through devices the folder is shared to and show/hide encryptionPassword UI.
+                    for (int i = 0; i < mDevicesContainer.getChildCount(); i++) {
+                        LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(i);
+                        SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+                        if (device == ((Device) switchView.getTag())) {
+                            EditText encryptPassView = (EditText) deviceView.getChildAt(1);
+                            encryptPassView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+                            break;
+                        }
+                    }
+
                     if (isChecked) {
                         mFolder.addDevice(device);
                     } else {
@@ -733,12 +762,23 @@ public class FolderActivity extends SyncthingActivity {
 
     private void addDeviceViewAndSetListener(Device device, LayoutInflater inflater) {
         inflater.inflate(R.layout.item_device_form, mDevicesContainer);
-        SwitchCompat deviceView = (SwitchCompat) mDevicesContainer.getChildAt(mDevicesContainer.getChildCount()-1);
-        deviceView.setOnCheckedChangeListener(null);
-        deviceView.setChecked(mFolder.getDevice(device.deviceID) != null);
-        deviceView.setText(device.getDisplayName());
-        deviceView.setTag(device);
-        deviceView.setOnCheckedChangeListener(mCheckedListener);
+        LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(mDevicesContainer.getChildCount()-1);
+
+        SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+        switchView.setOnCheckedChangeListener(null);
+        switchView.setChecked(mFolder.getDevice(device.deviceID) != null);
+        switchView.setText(device.getDisplayName());
+        switchView.setTag(device);
+        switchView.setOnCheckedChangeListener(mCheckedListener);
+
+        EditText encryptPassView = (EditText) deviceView.getChildAt(1);
+        encryptPassView.removeTextChangedListener(mTextWatcher);
+        if (mFolder.getDevice(device.deviceID) != null) {
+            encryptPassView.setText(mFolder.getDevice(device.deviceID).encryptionPassword);
+        } else {
+            encryptPassView.setVisibility(View.GONE);
+        }
+        encryptPassView.addTextChangedListener(mTextWatcher);
     }
 
     private void onSave() {
