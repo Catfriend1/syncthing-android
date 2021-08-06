@@ -101,7 +101,7 @@ def install_sdk_tools():
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the NDK if necessary.
-    sdk_tools_path = prerequisite_tools_dir + os.path.sep + 'tools'
+    sdk_tools_path = prerequisite_tools_dir + os.path.sep + 'cmdline-tools'
     if not os.path.isfile(sdk_tools_path + os.path.sep + "source.properties"):
         print("Extracting sdk-tools ...")
         # This will go to a subfolder "tools" in the current path.
@@ -110,13 +110,23 @@ def install_sdk_tools():
         zip.extractall(prerequisite_tools_dir)
         zip.close()
 
+    # Move contents of cmdline-tools one level deeper into cmdline-tools/latest
+    sdk_tools_latest_path = sdk_tools_path + os.path.sep + 'latest'
+    if os.path.isdir(sdk_tools_latest_path):
+        shutil.rmtree(sdk_tools_latest_path)
+    os.makedirs(sdk_tools_latest_path)
+    shutil.move(sdk_tools_path + os.path.sep + 'NOTICE.txt', sdk_tools_latest_path)
+    shutil.move(sdk_tools_path + os.path.sep + 'source.properties', sdk_tools_latest_path)
+    shutil.move(sdk_tools_path + os.path.sep + 'bin', sdk_tools_latest_path)
+    shutil.move(sdk_tools_path + os.path.sep + 'lib', sdk_tools_latest_path)
+
     # Linux only - Set executable permission on files.
     if platform.system() == 'Linux':
         print("Setting permissions on sdk-tools executables ...")
         change_permissions_recursive(sdk_tools_path, 0o755);
 
     # Add tools/bin to PATH.
-    sdk_tools_bin_path = sdk_tools_path + os.path.sep + 'bin'
+    sdk_tools_bin_path = sdk_tools_latest_path + os.path.sep + 'bin'
     print('Adding to PATH:', sdk_tools_bin_path)
     os.environ["PATH"] += os.pathsep + sdk_tools_bin_path
 
@@ -156,7 +166,7 @@ print('sdk_manager_bin=\'' + sdk_manager_bin + '\'')
 if sys.platform == 'win32':
     subprocess.check_call([sdk_manager_bin, '--update'])
     powershell_bin = which('powershell')
-    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 30;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'])
+    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 31;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'])
     subprocess.check_call([sdk_manager_bin, 'platforms;android-30'])
     subprocess.check_call([sdk_manager_bin, 'build-tools;30.0.2'])
 
