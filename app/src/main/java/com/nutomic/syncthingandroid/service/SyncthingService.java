@@ -1023,7 +1023,7 @@ public class SyncthingService extends Service {
                  */
                 SharedPreferences.Editor editor = mPreferences.edit();
                 editor.clear();
-                editor.commit();
+                editor.apply();
             }
         } catch (IOException | ClassNotFoundException e) {
             Log.e(TAG, "importConfig: Failed to import SharedPreferences #1", e);
