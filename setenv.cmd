@@ -1,7 +1,7 @@
 @echo off
 REM 
 where git 2> NUL: || call :addGitToPath
-SET PATH=C:\Program Files\Android\Android Studio\jre\bin;C:\Program Files\Java\jdk1.8.0_241\bin;"%GIT_INSTALL_DIR%\bin";"%GIT_INSTALL_DIR%\cmd";%PATH%
+SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin";"%GIT_INSTALL_DIR%\cmd";%PATH%
 REM 
 REM End of Script.
 REM 
