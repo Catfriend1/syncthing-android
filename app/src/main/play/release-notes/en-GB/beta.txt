@@ -1,4 +1,4 @@
-* Syncthing v1.18.0
+* Syncthing v1.18.1
 
 Enhanced
 --
@@ -7,11 +7,9 @@ Enhanced
 
 Fixes
 --
-- Fix opening file intents used in "Recent Changes" dialog (#816)
-- Clear prefs when importing backup from Syncthing app (#821)
-- Fix device orientation change in settings menus (#824 @vbh)
+-
 
 
 Others
 --
-- Breaking change: Syncthing Camera folder is now /Android/media (#809)
+-
