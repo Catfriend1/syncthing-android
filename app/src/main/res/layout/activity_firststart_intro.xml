@@ -6,9 +6,11 @@
     android:background="@color/bg_screen1">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
         android:background="@color/bg_screen1"
         android:gravity="center_horizontal"
         android:orientation="vertical">
@@ -34,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/ivIcon"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_syncthing_logo" />
@@ -54,19 +56,23 @@
 
         </RelativeLayout>
 
-        <TextView
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="@dimen/dots_margin_bottom"
-            android:layout_gravity="center_horizontal"
-            android:justificationMode="inter_word"
-            android:paddingLeft="@dimen/desc_padding"
-            android:paddingRight="@dimen/desc_padding"
-            android:text="@string/welcome_text"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_desc" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/dots_margin_bottom"
+                android:layout_gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                android:paddingLeft="@dimen/desc_padding"
+                android:paddingRight="@dimen/desc_padding"
+                android:text="@string/welcome_text"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/slide_desc" />
+        </ScrollView>
 
     </LinearLayout>
 </RelativeLayout>
