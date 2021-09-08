@@ -1,4 +1,4 @@
-* Syncthing v1.18.1
+* Syncthing v1.18.2
 
 Enhanced
 --
@@ -7,9 +7,9 @@ Enhanced
 
 Fixes
 --
--
+- ScrollView for text on first welcome page (#836) @yuhuitech
 
 
 Others
 --
--
+- Tweak wording of summary for some settings (#834) @dbr
