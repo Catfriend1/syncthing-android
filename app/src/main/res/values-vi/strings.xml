@@ -15,8 +15,104 @@
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Chào mừng đến với Syncthing cho Android</string>
 
+    <!-- Welcome wizard -->
+    <!-- Slide "Introduction" -->
+    <string name="introduction">Giới thiệu</string>
+    <string name="welcome_text">Syncthing là một ứng dụng đồng bộ hoá tệp mã nguồn mở.\n\
+Để chia sẻ dữ liệu với các thiết bị khác, bạn cần phải thêm các ID thiết bị độc nhất của chúng vào danh sách thiết bị. Sau đó bạn có thể chọn các thư mục mà bạn muốn chia sẻ với các thiết bị.\n\
+Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Quyền Bộ nhớ</string>
+    <string name="storage_permission_desc">Syncthing cần truy cập bộ nhớ của bạn để đồng bộ hoá tệp.</string>
+    <string name="dialog_all_files_access_not_supported">Thiết bị của bạn không hỗ trợ truy cập tất cả tệp</string>
+    <string name="storage_permission_emergency_export">Bị kẹt? Hãy xuất khẩn cấp thiết lập của bạn</string>
+
+    <!-- Slide "Ignore battery optimizations" -->
+    <string name="ignore_doze_permission_title">Tối ưu hóa pin</string>
+    <string name="ignore_doze_permission_os_notice">Các TV chạy Android được biết là đôi khi chúng dừng ứng dụng khi nó đang chạy trong nền. Có một giải pháp trên wiki tại \'%1$s/%2$s\'. </string>
+    <string name="ignore_doze_permission_desc">Android có thể sẽ dừng việc đồng bộ hoá sau một khoảng thòi gian. Để ngăn chặn việc này, hãy tắt tối ưu hoá pin. Một số thiết bị có thêm cả các ứng dụng dừng tiến trình được cài sẵn. Bạn cũng nên thêm Syncthing vào danh sách loại trừ của chúng.</string>
+    <string name="toast_ignore_doze_permission_required">Ứng dụng này chỉ hoạt động một cách đáng tin cậy nếu nó được loại trừ khỏi chế độ tiết kiệm pin.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Thiết bị của bạn không hỗ trợ tắt tối ưu hoá pin</string>
+
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Quyền Vị trí</string>
+    <string name="location_permission_desc">Syncthing có thể được thiết lập để hoạt động khi có các mạng Wi-Fi được chọn. Android yêu cầu ứng dụng phải có quyền vị trí để đọc tên mạng Wi-Fi đang hoạt động. Nếu bạn muốn sử dụng tính năng này, hãy nhấn nút ở trên. Bạn có thể bỏ qua bước này. Hãy xem chính sách riêng tư của chúng tôi để biết thêm chi tiết.</string>
+    <string name="location_permission_desc_api_29">Mẹo cho Android 10+: \"Cho phép mọi lúc\"</string>
+
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Tạo mã khóa</string>
+    <string name="key_generation_success">Các mã khóa để trao đổi dữ liệu riêng tư đã được tạo thành công.</string>
+
+    <!-- Generic texts used everywhere -->
+    <string name="back">Quay lại</string>
+    <string name="cont">Tiếp tục</string>
+    <string name="finish">Hoàn tất</string>
+    <string name="generic_example">Ví dụ</string>
     <string name="generic_error">Lỗi</string>
+    <string name="generic_help">Trợ giúp</string>
+    <string name="grant_permission">Cấp quyền</string>
+    <string name="permission_granted">Quyền đã được cấp</string>
+    <string name="reason">Lý do:</string>
+
+    <string name="accept">Chấp nhận</string>
+
     <string name="ignore">Bỏ qua</string>
+
+    <string name="page_x_of_y">Trang %1$s trong số %2$s</string>
+
+    <string name="main_menu">Menu chính</string>
+
+    <string name="refresh">Làm mới</string>
+
+
+
+    <!-- PhotoShootActivity -->
+
+    <string name="photo_shoot_launcher_title">Máy ảnh Sync.</string>
+
+    <string name="photo_shoot_activity_title">Máy ảnh Syncthing-Fork</string>
+
+    <string name="photo_shoot_intro_welcome_title">Chào mừng đến Máy ảnh Syncthing</string>
+
+    <string name="photo_shoot_intro_permission_title">Quyền bắt buộc</string>
+
+    <string name="photo_shoot_intro_no_camera">Xin lỗi, thiết bị này không có máy ảnh.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Chúng tôi yêu cầu quyền bộ nhớ và máy ảnh để tiếp tục.</string>
+
+    <string name="grant_storage_permission">Cấp quyền bộ nhớ</string>
+
+    <string name="grant_camera_permission">Cấp quyền máy ảnh</string>
+
+    <string name="photo_shoot_intro_permission_desc">Máy ảnh Syncthing yêu cầu sự đồng ý của bạn để chụp ảnh và lưu trữ chúng trên thiết bị. Tính năng này là không bắt buộc. Để sử dụng, hãy cấp các quyền và nhấn \"Tiếp tục\". Chúng tôi sẽ thiết lập một thư mục Máy ảnh Syncthing cho bạn, bạn có thể chia sẻ nó với các thiết bị Syncthing khác vào lúc sau.</string>
+
+    <string name="photo_shoot_take_picture_success">Lưu ảnh vào thư mục Máy ảnh Syncthing thành công.</string>
+
+    <string name="photo_shoot_take_picture_failure">Chụp ảnh thất bại hoặc bạn đã hủy.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Máy ảnh Syncthing</string>
+
+
+
+    <!-- MainActivity -->
+
+
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Quét lại tất cả</string>
+
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">Mở menu chính</string>
+    <string name="close_main_menu">Đóng menu chính</string>
+
+    <!-- Exception dialog message -->
+    <string name="exception_known_bug_notice">Một lỗi đã biết mà chưa được sửa đã xảy ra. Hãy xem %1$s/%2$s để biết thêm thông tin. Vui lòng mô tả chính xác cho chúng tôi những gì đã xảy ra trước đó.</string>
+
+    <!-- Title of the exit app when running as a service confirmation dialog -->
+    <string name="dialog_exit_while_running_as_service_title">Xác nhận thoát ứng dụng</string>
+    <string name="dialog_exit_while_running_as_service_message">Vì sự cân nhắc của bạn: Bạn đã thiết lập ứng dụng tự động khởi động khi khởi động thiết bị. Do đó nó giám sát các điều kiện chạy và đồng bộ tại bất kỳ lúc nào trong nền khi các điều kiện trùng khớp. Bạn chỉ nên thoát thủ công nếu bạn gặp vấn đề nghiêm trọng. Nếu không, hãy tắt \'Tự động khởi động khi khởi động thiết bị\' trong cài đặt. Bạn có muốn thoát ngay cho đến khi thiết bị khởi động lại không?</string>
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Thêm th.mục</string>
@@ -39,6 +135,10 @@
 
     <string name="toast_write_storage_permission_required">Ứng dụng này cần được phép chép vào ổ lưu trữ</string>
 
+    <string name="device_rejected">Thiết bị \"%1$s\" muốn kết nối</string>
+
+    <string name="folder_rejected">Thiết bị \"%1$s\" muốn chia sẻ thư mục \"%2$s\"</string>
+
     <!-- StateDialogActivity -->
 
 
@@ -54,10 +154,39 @@
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Không thấy th.mục nào</string>
 
+    <!-- Format string for folder file count -->
+    <plurals name="files">
+        <item quantity="other">%1$d/%2$d tệp</item>
+    </plurals>
+
+    <string name="override_changes">Ghi đè lên các thay đổi</string>
+
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên tất cả thiết bị khác đang chia sẻ thư mục này. Tiếp tục?</string>
+
+    <string name="revert_local_changes">Hoàn tác các thay đổi cục bộ</string>
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên thiết bị này trong thư mục này. Tiếp tục?</string>
+
+    <string name="open_file_manager">Mở trình quản lý tệp</string>
+    <string name="open_file_with">Mở tệp bằng</string>
+    <string name="open_file_no_compatible_app">Không tìm thấy ứng dụng nào để mở tệp này.</string>
+
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Không tìm thấy trình quản lý tệp tương thích nào</string>
+    <string name="suggest_file_manager_app_dialog_text">Chúng tôi khuyên bạn cài đặt ứng dụng quản lý tệp mã nguồn mở \'Material Files\'. Bạn có muốn mở trang cửa hàng ứng dụng của nó không?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Các thiết bị</string>
+
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Không có thiết bị nào được thiết lập. Nhấn để thêm thiết bị mới.</string>
+
+    <!-- Shown in ListView if no devices are configured -->
+    <string name="no_devices_configured">Không có thiết bị nào được thiết lập.\nHãy bắt đầu bằng cách thêm thiết bị mới ngay.</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Đã đồng bộ</string>
@@ -68,14 +197,39 @@
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Đã ngắt k.nối</string>
 
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">Tạm dừng</string>
+
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Không được sử dụng</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Không rõ</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Lần cuối thấy:\u0020%1$s</string>
+    <string name="device_last_seen_never">Không bao giờ</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Thư mục:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Tải xuống</string>
 
     <!-- Title for current upload rate -->
     <string name="upload_title">Tải lên</string>
+
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Trạng thái</string>
+
+    <string name="button_follow_run_conditions">LÀM THEO ĐIỀU KIỆN CHẠY</string>
+    <string name="button_force_start">BUỘC KHỞI ĐỘNG\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
+    <string name="button_force_stop">BUỘC DỪNG\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
+
+    <string name="syncthing_starting">Syncthing đang khởi động.</string>
+    <string name="syncthing_running">Syncthing đang chạy.</string>
+    <string name="syncthing_not_running">Syncthing đang không chạy.</string>
+    <string name="syncthing_has_crashed">Syncthing đã dừng đột ngột.</string>
 
     <!-- DrawerFragment -->
 
@@ -92,7 +246,12 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Máy chủ th.báo</string>
 
+    <!-- Title for uptime status -->
+    <string name="uptime">Thời gian hoạt động</string>
+
     <string name="restart">Kh.chạy lại</string>
+
+    <string name="dialog_confirm_restart">Bạn có muốn khởi động lại Syncthing không?</string>
 
     <!-- FolderActivity -->
 
@@ -101,7 +260,23 @@
     <string name="folder_id">ID thư mục</string>
 
     <!-- Setting title -->
+    <string name="folder_label">Nhãn thư mục</string>
+
+    <!-- Setting title -->
     <string name="directory">Thư mục</string>
+    <string name="advanced_directory_selection">Chọn thư mục nâng cao</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Theo dõi các thay đổi</string>
+    <string name="folder_fileWatcherDescription">Bảo hệ điều hành thông báo về các thay đổi với các tệp. Nếu tắt, sẽ quét định kỳ hàng giờ làm dự phòng.</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_ignore_delete_caption">Bỏ qua việc xóa</string>
+    <string name="folder_ignore_delete_description">Tùy chọn chuyên gia ảnh hưởng đến việc xử lý các cập nhật mục lục được nhận. Khi được đặt, các cập nhật có thuộc tính xóa bị bỏ qua. Hãy xem &folder_ignore_delete_docs_url;</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Tạm dừng thư mục</string>
+
     <!-- Setting title -->
     <string name="devices">Các th.bị</string>
 
@@ -126,17 +301,44 @@
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Không được để trống ID thư mục</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">Nhãn thư mục không được trống</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Không được để trống đường dẫn thư mục</string>
 
+    <string name="dialog_discard_changes">Bỏ các thay đổi của bạn?</string>
+
+    <!-- Summary shown if we only have readonly access to the folder path -->
+    <string name="folder_path_readonly">Phiên bản Android của bạn chỉ cấp quyền truy cập chỉ đọc vào thư mục đã chọn cho Syncthing.</string>
+
+    <!-- Summary shown if we only have readwrite access to the folder path -->
+    <string name="folder_path_readwrite">Phiên bản Android của bạn cấp quyền truy cập đọc và ghi vào thư mục đã chọn cho Syncthing.</string>
+
+    <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
+    <string name="toast_invalid_folder_selected">Xin lỗi. Thư mục được chọn không thể được sử dụng. Vui lòng chọn thư mục được đặt trong bộ nhớ trong hoặc ngoài.</string>
+
+    <string name="ignore_patterns">Mẫu bỏ qua</string>
     <!-- DeviceActivity -->
 
 
     <!-- Setting title -->
     <string name="device_id">ID thiết bị</string>
 
+    <!-- Status title -->
+    <string name="discovered_devices_title">Thiết bị đã phát hiện - Nhấn để chọn</string>
+
+    <!-- Status text -->
+    <string name="discovered_device_list_empty">Khám phá cục bộ đã không tìm thấy thiết bị nào trên mạng cục bộ. Hãy chạy ứng dụng này trên điện thoại thứ hai. Các tệp cài đặt cho máy tính có sẵn tại: %1$s</string>
+
+    <!-- Status text -->
+    <string name="local_discovery_disabled">Bạn đã tắt khám phá cục bộ trong \'Cài đặt\' > \'Tùy chọn Syncthing\' > \'Khám phá cục bộ\'. Hãy bật nó để tìm kiếm các thiết bị trên mạng cục bộ.</string>
+
     <!-- Setting title -->
     <string name="name">Tên</string>
+
+    <!-- Setting title -->
+    <string name="folders">Thư mục</string>
 
     <!-- Setting title -->
     <string name="addresses">Các địa chỉ</string>
@@ -157,6 +359,9 @@
     <!-- Setting title -->
     <string name="introducer">Thiết bị g.thiệu</string>
 
+    <!-- Setting title -->
+    <string name="pause_device">Tạm dừng thiết bị</string>
+
     <!-- ActionBar item -->
     <string name="delete_device">Xoá thiết bị</string>
 
@@ -174,11 +379,35 @@
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Không được để trống ID thiết bị</string>
 
+    <!-- Toast shown when trying to create a device with an empty ID -->
+    <string name="device_id_invalid">ID thiết bị không được định dạng đúng. Vui lòng thử lại và nhập ID đúng.</string>
+
+    <!-- Toast shown when trying to create a device with an empty name -->
+    <string name="device_name_required">Không được để trống tên thiết bị</string>
+
+    <!-- Toast shown when trying to create a device with invalid addresses -->
+    <string name="device_addresses_invalid">Địa chỉ thiết bị không được định dạng đúng. Vui lòng thử lại. Hãy đọc tài liệu của Syncthing để biết thêm thông tin.</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Quét mã QR</string>
 
+    <!-- Dialog message if no compatible barcode scanner app is installed -->
+    <string name="install_barcode_scanner_app_message">Việc này yêu cầu phải có ứng dụng quét mã vạch. Bạn có muốn cài đặt ứng dụng \'Binary Eye\' từ F-Droid không?</string>
+
+    <!-- Shown if no folders are configured -->
+    <string name="folders_list_empty">Không có thư mục nào được thiết lập. Nhấn để thêm thư mục mới.</string>
+
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Không nhận được quyền root</string>
+
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Mẹo vặt</string>
+
+    <string name="tip_write_to_sdcard_title">Vượt qua vấn đề ghi vào thẻ SD ngoài</string>
+    <string name="tip_write_to_sdcard_text">Nếu bạn thấy giao diện nói rằng \'Android chỉ cấp quyền truy cập chỉ đọc cho Syncthing\' đối với một thư mục cụ thể, hãy tạo thư mục mới bằng đường dẫn này để có quyền truy cập ghi:\n%1$s/YOUR_FOLDER_NAME\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục .../Android.</string>
 
     <!-- WebGuiActivity -->
 

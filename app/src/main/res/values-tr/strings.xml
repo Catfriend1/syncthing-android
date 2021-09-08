@@ -216,8 +216,6 @@
 
     <string name="use_root_title">Syncthing\'i Superuser/Ayrıcalıklı Kullanıcı olarak Çalıştır</string>
 
-    <string name="use_root_summary">Bu, Syncting ve aygıtınız ile sorunlara neden olabilecek kararsız bir özelliktir. Eğer sorun yaşarsanız, Syncthing\'i yeniden yüklemeniz gerekebilir.</string>
-
     <string name="device_name">Aygıt Adı</string>
 
     <string name="listen_address">Eşzamanlama Protokolü Dinleme/Bağlanma Adresleri</string>

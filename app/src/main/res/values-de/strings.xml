@@ -544,7 +544,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="launcher_show_camera_icon_title">Kamera-Symbol im Launcher anzeigen</string>
 
-    <string name="launcher_show_camera_icon_summary">Deaktivieren Sie diese Option, wenn Sie die Funktion \"Syncthing Kamera\" nicht verwenden möchten. Dies funktioniert nicht mit Launcher-Apps, die das Ausblenden von Symbolen nicht unterstützen.</string>
+    <string name="launcher_show_camera_icon_summary">Deaktivieren Sie diese Option, wenn Sie die Funktion \"Syncthing Kamera\" nicht verwenden möchten. Dies funktioniert nur mit Launcher-Apps, die das Ausblenden von Symbolen unterstützen.</string>
 
     <string name="toast_show_hide_launcher_icon_failed">Das Launcher-Symbol konnte nicht ein- oder ausgeblendet werden.</string>
 
@@ -876,7 +876,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing läuft nicht, weil der Name des aktuellen WLAN-Netzwerks nicht auf der weißen Liste steht.</string>
     <string name="reason_on_nonmetered_wifi">Syncthing darf bei nicht-getakteter WLAN-Verbindung laufen. Die aktive WLAN-Verbindung ist nicht-getaktet.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing läuft nicht, weil Du verboten hast, dass es bei getakteten WLAN-Verbindungen läuft.</string>
-    <string name="reason_location_unavailable">Du hast \'Starte in ausgewählten WLAN-Netzwerken\' in den Einstellungen aktiviert. Die Android-tandorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Schalte den Standort ein, erteile Standortberechtigung und verbinde WLAN erneut.</string>
+    <string name="reason_location_unavailable">Du hast \'Starte in ausgewählten WLAN-Netzwerken\' in den Einstellungen aktiviert. Die Android-Standorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Schalte den Standort ein, erteile Standortberechtigung und verbinde WLAN erneut.</string>
     <string name="reason_on_flight_mode">Syncthing läuft, weil Du erlaubt hast, dass es bei eingeschaltetem Flugzeugmodus läuft.</string>
     <string name="reason_broadcast_controlled">Syncthing hört auf Broadcasts, die von einer Drittanbieter-App oder über ADB gesendet werden. Du kannst zu den eingebauten Laufkonditionen zurück wechseln, indem Du unter \'Einstellungen\' > \'Experimentell\' > \'Dienstkontrolle über Broadcast\' deaktivierst.</string>
     <string name="reason_run_condition_monitor_not_instantiated">Laufkonditionen-Überwachung ist nicht instantiiert. Bitte starte die App neu und erstelle einen Fehlerbericht, wenn das Problem nach dem Neustart nicht verschwindet.</string>

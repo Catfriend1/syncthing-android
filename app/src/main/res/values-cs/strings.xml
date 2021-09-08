@@ -231,8 +231,6 @@
     <string name="respect_battery_saving_title">Dodržovat nastavení úspory baterie z Androidu</string>
     <string name="use_root_title">Spustit syncthing jako superuživatel</string>
 
-    <string name="use_root_summary">Toto je nestabilní funkce, které může způsobit problémy se Syncthing a s vaším zařízením. Pokud narazíte na problémy, může být třeba přeinstalovat Syncthing.</string>
-
     <string name="preference_language_title">Jazyk</string>
 
     <string name="preference_language_summary">Změnit jazyk aplikace</string>

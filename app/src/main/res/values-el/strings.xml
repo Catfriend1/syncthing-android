@@ -227,8 +227,6 @@
     <string name="respect_battery_saving_title">Υπακοή στη ρύθμιση εξοικονόμησης ενέργειας του Android</string>
     <string name="use_root_title">Εκτέλεση του Syncthing ως υπερχρήστης</string>
 
-    <string name="use_root_summary">Πρόκειται για μια πειραματική λειτουργία η οποία ενδέχεται να προκαλέσει προβλήματα στο Syncthing και τη συσκευή σας. Σε αυτή την περίπτωση, ίσως χρειαστεί να επανεγκαταστήσετε το Syncthing.</string>
-
     <string name="preference_language_title">Γλώσσα</string>
 
     <string name="preference_language_summary">Αλλαγή γλώσσας της εφαρμογής</string>

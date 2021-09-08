@@ -221,8 +221,6 @@
     <string name="respect_battery_saving_title">Ikuti pengaturan penghematan baterai Android</string>
     <string name="use_root_title">Jalankan Syncthing sebagai Superuser</string>
 
-    <string name="use_root_summary">Ini merupakan fitur belum stabik yang mungkin menyebabkan masalah pada Syncthing dan perangkat anda. Jika menemui masalah, anda mungkin harus memasang ulang Syncthing.</string>
-
     <string name="preference_language_title">Bahasa</string>
 
     <string name="preference_language_summary">Ganti bahasa dalam aplikasi</string>

@@ -273,8 +273,6 @@
     <string name="respect_battery_saving_title">遵守 Android 節省電池設定</string>
     <string name="use_root_title">以超級使用者執行 Syncthing</string>
 
-    <string name="use_root_summary">這是不穩定的功能，可能會對 Syncthing 與你的裝置造成問題。如果你遇到問題，你也許需要重新安裝 Syncthing。</string>
-
     <string name="preference_language_title">語言</string>
 
     <string name="preference_language_summary">選擇應用程式語言</string>

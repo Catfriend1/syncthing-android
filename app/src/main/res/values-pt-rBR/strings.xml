@@ -271,8 +271,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
     <string name="use_root_title">Executar como Superusuário</string>
 
-    <string name="use_root_summary">Este é um recurso instável que pode causar problemas com o Syncthing e seu dispositivo. Caso você encontre problemas, pode ser necessária a reinstalação do Syncthing.</string>
-
     <string name="preference_language_title">Idioma</string>
 
     <string name="preference_language_summary">Alterar o idioma do aplicativo</string>

@@ -226,8 +226,6 @@
     <string name="respect_battery_saving_title">안드로이드 배터리 절약 설정 우선</string>
     <string name="use_root_title">Syncthing을 Superuser로 실행</string>
 
-    <string name="use_root_summary">이 기능은 불안정하며 Syncthing과 기기에 문제를 일으킬 수 있습니다. 문제가 발생한 경우 Syncthing을 재설치 해야 할 수도 있습니다.</string>
-
     <string name="preference_language_title">언어</string>
 
     <string name="preference_language_summary">언어 변경하기</string>

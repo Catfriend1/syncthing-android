@@ -86,6 +86,10 @@
 
     <string name="photo_shoot_intro_permission_desc">Syncthing相机需要您的同意才能拍摄照片并存储在您的设备上。这个特性是可选的。要使用它，请授予权限并点击“继续”。我们将为您设置一个Syncthing相机文件夹，稍后你可以与其他Syncthing设备分享这个文件夹。</string>
 
+    <string name="photo_shoot_take_picture_success">成功将照片保存至 Syncthing 相机文件夹</string>
+
+    <string name="photo_shoot_take_picture_failure">拍照失败或你已取消操作</string>
+
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Synchting 相机</string>
 
@@ -430,6 +434,9 @@
     <string name="modified_by_device">设备: %1$s</string>
     <string name="modification_time">时间: %1$s</string>
 
+    <string name="this_device">这台设备</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -533,17 +540,11 @@
 
     <string name="use_root_title">Syncthing 运行于超级用户</string>
 
-    <string name="use_root_summary">该项功能不稳定，可能会导致您的设备和 Syncthing 出问题。如果遇到了问题，您可能要重新安装 Syncthing。</string>
-
     <string name="launcher_show_camera_icon_title">在启动器中显示相机图标</string>
-
-    <string name="launcher_show_camera_icon_summary">如果你不喜欢使用“Syncthing 相机”功能，请禁用此选项。这对不支持隐藏图标功能的启动器不起作用。</string>
 
     <string name="toast_show_hide_launcher_icon_failed">未能显示或隐藏启动器图标</string>
 
     <string name="expert_mode_title">专家模式</string>
-
-    <string name="expert_mode_summary">启用此选项将显示高级配置选项。你应该先看看Syncthing文档，确保你知道如何正确使用它们。不正确的设置可能导致电池耗尽，系统资源耗尽或不完整的同步。</string>
 
     <string name="preference_language_title">语言</string>
 

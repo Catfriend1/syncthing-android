@@ -18,15 +18,37 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
+    <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert.\n\
+Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..\n\
+S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
+
+    <!-- Slide "Storage Permission" -->
+    <string name="storage_permission_title">Permission de stockage</string>
+    <string name="storage_permission_desc">Syncthing a besoin d’accéder a vos données pour pouvoir synchroniser les fichiers.</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimisation de la batterie</string>
+    <string name="ignore_doze_permission_os_notice">Android TV\'s est connu pour fermer occasionnellement l\'appli quand elle tourne en arrière plan. Une solution est disponible sur le wiki : \'%1$s/%2$s\'.</string>
+    <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps.  Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches.  Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Permission de localisation</string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Génération de clef</string>
+    <!-- Generic texts used everywhere -->
+    <string name="back">Retour</string>
     <string name="cont">Continuer</string>
     <string name="finish">Terminé</string>
     <string name="generic_example">Exemple</string>
     <string name="generic_error">Erreur</string>
+    <string name="generic_help">Aide</string>
     <string name="ignore">Ignorer</string>
+
+    <string name="main_menu">Menu principal</string>
+
+    <string name="refresh">Actualiser</string>
+
+
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Ajouter un partage</string>
@@ -251,8 +273,6 @@
 
     <string name="respect_battery_saving_title">Sauvegarde batterie selon les réglages Android</string>
     <string name="use_root_title">Faire fonctionner syncthing en super-utilisateur</string>
-
-    <string name="use_root_summary">Ceci est une fonction instable qui peut causer des problèmes entre Syncthing et votre appareil. Si vous rencontrez des problèmes, vous devrez réinstaller Syncthing.</string>
 
     <string name="preference_language_title">Langue</string>
 

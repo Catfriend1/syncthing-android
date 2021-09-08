@@ -249,8 +249,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
 
-    <string name="use_root_summary">Ez egy kísérleti funkció, amely problémákat okozhat mind a Syncthing, mind az eszközöd számára. Ha ilyenbe ütközöl, előfordulhat, hogy újra kell telepítened az alkalmazást.</string>
-
     <string name="preference_language_title">Nyelv</string>
 
     <string name="preference_language_summary">Alkalmazás nyelvének megváltoztatása</string>

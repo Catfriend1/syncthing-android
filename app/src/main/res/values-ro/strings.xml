@@ -490,15 +490,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="use_root_title">Rulează ca root</string>
 
-    <string name="use_root_summary">Aceasta este o funcție instabilă care ar putea cauza probleme atăt Syncthing cât și dispozitivului dumneavoastră. Dacă vă confruntați cu probleme, v-a trebui să reinstalați Syncthing.</string>
-
-    <string name="launcher_show_camera_icon_summary">Dezactivați această opțiune dacă nu doriți să utilizați funcția „Syncthing Camera”. Aceasta nu funcționează cu aplicațiile Lansator care nu acceptă ascunderea pictogramelor.</string>
-
     <string name="toast_show_hide_launcher_icon_failed">Eroare la afișarea sau ascunderea pictogramei.</string>
 
     <string name="expert_mode_title">Modul expert</string>
-
-    <string name="expert_mode_summary">Activarea acestei opțiuni va afișa opțiuni de configurare avansate. Ar trebui să aruncați o privire mai întâi la manualul de utilizare Syncthing pentru a vă asigura că știți cum să le utilizați corect. Setările incorecte pot provoca descărcarea rapidă a bateriei, epuizarea resurselor sistemului sau sincronizarea incompletă.</string>
 
     <string name="preference_language_title">Limbă</string>
 

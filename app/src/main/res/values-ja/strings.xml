@@ -457,8 +457,6 @@
 
     <string name="use_root_title">スーパーユーザーとして実行</string>
 
-    <string name="use_root_summary">これは Syncthing とお使いのデバイスに問題が生じる可能性のある、安定していない機能です。問題が発生した場合は、Syncthing の再インストールが必要な場合があります。</string>
-
     <string name="launcher_show_camera_icon_title">ランチャーにカメラアイコンを表示</string>
 
     <string name="toast_show_hide_launcher_icon_failed">ランチャーアイコンの表示・非表示に失敗しました。</string>

@@ -381,8 +381,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
 
     <string name="use_root_title">Kør Syncthing som Superuser</string>
 
-    <string name="use_root_summary">Dette er en ustabil feature som kan forudsage problemer med Syncthing og din enhed. Hvis du støder på problemer, kan det være du er nødt til at geninstallere Syncthing.</string>
-
     <string name="preference_language_title">Sprog</string>
 
     <string name="preference_language_summary">Ændr app sproget</string>

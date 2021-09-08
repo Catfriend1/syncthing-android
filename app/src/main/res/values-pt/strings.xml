@@ -220,8 +220,6 @@
 
     <string name="use_root_title">Correr o Syncthing como superutilizador</string>
 
-    <string name="use_root_summary">Esta é uma funcionalidade instável que pode causar problemas com o Syncthing e com o seu dispositivo. Se encontrar problemas, pode ter de reinstalar o Syncthing.</string>
-
     <string name="device_name">Nome do dispositivo</string>
 
     <string name="listen_address">Endereços de escuta do protocolo de sincronização</string>

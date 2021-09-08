@@ -389,8 +389,6 @@
 
     <string name="use_root_title">Kör som superanvändare</string>
 
-    <string name="use_root_summary">Detta är en instabil funktion som kan orsaka problem med Syncthing och med din enhet enhet. Om du stöter på problem, kan du behöva installera om Syncthing.</string>
-
     <string name="preference_language_title">Språk</string>
 
     <string name="preference_language_summary">Ändra appens språk</string>

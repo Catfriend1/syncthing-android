@@ -527,17 +527,11 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
-    <string name="use_root_summary">Esta es una característica inestable que podría causar problemas con Syncthing y con tu dispositivo. Si aparecieran problemas podrías tener que reinstalar Syncthing.</string>
-
     <string name="launcher_show_camera_icon_title">Mostar el icono de la cámara en el lanzador.</string>
-
-    <string name="launcher_show_camera_icon_summary">Desactive esta opción si no desea usar la función \"Cámara Syncthing\". Esto no funciona con lanzadores que no admiten la ocultación de iconos.</string>
 
     <string name="toast_show_hide_launcher_icon_failed">Fallo al mostrar u ocultar el icono del lanzador.</string>
 
     <string name="expert_mode_title">Modo experto</string>
-
-    <string name="expert_mode_summary">Al activar esta opción se mostrarán las opciones de configuración avanzada. Debería echar un vistazo a la Documentación de Syncthing primero para asegurarse de que sabe cómo utilizarlas correctamente. Una configuración incorrecta puede provocar un consumo elevado de la batería, el agotamiento de los recursos del sistema o una sincronización incompleta.</string>
 
     <string name="preference_language_title">Idioma</string>
 

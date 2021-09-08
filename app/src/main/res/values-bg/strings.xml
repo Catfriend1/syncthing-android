@@ -218,8 +218,6 @@
 
     <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
 
-    <string name="use_root_summary">Може да предизвика разнообразни проблеми със Syncthing и като цяло с устройството. При възникване на проблем може да се наложи преинсталиране на Syncthing.</string>
-
     <string name="device_name">Име на устройството</string>
 
     <string name="listen_address">Адрес за слушане на синхронизиращия протокол</string>

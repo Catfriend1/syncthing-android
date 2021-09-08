@@ -408,8 +408,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="use_root_title">Executa el Syncthing com a Superusuari</string>
 
-    <string name="use_root_summary">Aquesta característica és inestable i podria causar problemes amb el Syncthing i amb el vostre dispositiu. Si us trobeu amb problemes, potser haureu de reinstal·lar el Syncthing.</string>
-
     <string name="expert_mode_title">Mode expert</string>
 
     <string name="preference_language_title">Idioma</string>

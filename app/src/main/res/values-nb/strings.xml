@@ -205,8 +205,6 @@
 
     <string name="use_root_title">Kjør Syncthing som superbruker</string>
 
-    <string name="use_root_summary">Dette er en ustabil funksjon som kan forårsake problemer med Syncthing og med din enhet. Hvis det oppstår problemer kan du bli nødt til å reinstallere Syncthing.</string>
-
     <string name="device_name">Enhetsnavn</string>
 
     <string name="listen_address">Lytteadresser for synkeprotokoll</string>

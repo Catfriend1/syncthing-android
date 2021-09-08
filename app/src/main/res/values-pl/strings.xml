@@ -259,8 +259,6 @@
     <string name="respect_battery_saving_title">Respektuj ustawienia oszczędzania energii Androida</string>
     <string name="use_root_title">Synchronizuje zawartość z uprawnieniami użytkownika Superuser</string>
 
-    <string name="use_root_summary">To jest niestabilna funkcja, która może sprawiać problemy z Syncthing i urządzeniami. W przypadku napotkania błędów możliwe, że niezbędne będzie przeinstalowanie programu. </string>
-
     <string name="preference_language_title">Język</string>
 
     <string name="preference_language_summary">Zmień język aplikacji</string>

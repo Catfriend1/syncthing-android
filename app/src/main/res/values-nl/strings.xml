@@ -273,8 +273,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="respect_battery_saving_title">Eerbiedig de batterijbesparingsinstellingen van Android</string>
     <string name="use_root_title">Syncthing uitvoeren als superuser</string>
 
-    <string name="use_root_summary">Dit is een onstabiele functie die problemen kan veroorzaken met Syncthing en je apparaat. Als je problemen zou tegenkomen is het mogelijk dat je Syncthing opnieuw moet installeren.</string>
-
     <string name="preference_language_title">Taal</string>
 
     <string name="preference_language_summary">Wijzig de taal van de app</string>

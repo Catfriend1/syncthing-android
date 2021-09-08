@@ -420,8 +420,6 @@ Android требует разрешение доступа к геолокаци
     <string name="behaviour_autostart_title">Автозапуск</string>
     <string name="use_root_title">Запуск Syncthing с рут-правами</string>
 
-    <string name="use_root_summary">Это нестабильная опция, которая может вызвать проблемы как с Syncthing так и с вашим устройством. Если вы столкнетесь с проблемами, переустановите Syncthing.</string>
-
     <string name="preference_language_title">Язык</string>
 
     <string name="preference_language_summary">Изменить язык приложения</string>
