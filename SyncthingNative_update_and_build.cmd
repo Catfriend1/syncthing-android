@@ -62,7 +62,7 @@ echo [INFO] Building submodule syncthing_%DESIRED_SUBMODULE_VERSION% ...
 call gradlew %GRADLEW_PARAMS% buildNative
 SET RESULT=%ERRORLEVEL%
 IF "%USE_GO_DEV%" == "1" call :revertGoDev
-IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. If you got ANDROID_SDK_MISSING error, run 'install_minimum_android_sdk_prerequisites.py' first. & goto :eos
+IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. If you got ANDROID_SDK_MISSING error, run 'python install_minimum_android_sdk_prerequisites.py' first. & goto :eos
 REM
 echo [INFO] Reverting "go.mod", "go.sum" to checkout state ...
 cd /d "%SCRIPT_PATH%syncthing\src\github.com\syncthing\syncthing"
