@@ -60,7 +60,7 @@ public class PhotoShootActivity extends AppCompatActivity {
         ((SyncthingApp) getApplication()).component().inject(this);
 
         // Check if required camera hardware is present.
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
             Toast.makeText(
                     PhotoShootActivity.this,
                     getString(R.string.photo_shoot_intro_no_camera), Toast.LENGTH_LONG
