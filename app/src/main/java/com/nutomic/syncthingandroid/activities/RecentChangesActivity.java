@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.activities;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -187,6 +188,7 @@ public class RecentChangesActivity extends SyncthingActivity
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void onReceiveDiskEvents(List<DiskEvent> diskEvents) {
         LogV("onReceiveDiskEvents");
         if (isFinishing()) {
