@@ -8,7 +8,7 @@ import platform
 #
 # Script Compatibility:
 # - Python 2.7.15
-# - Python 3.7.0
+# - Python 3.9.6
 #
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
