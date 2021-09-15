@@ -52,7 +52,10 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 ## Build instructions
 
 Make sure you clone the project with
-`git clone https://github.com/Catfriend1/syncthing-android.git --recursive`.
+
+```
+git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+```
 Alternatively, run `git submodule init && git submodule update` in the project folder.
 
 ### Build on Linux
