@@ -100,7 +100,7 @@ public class ChangeListAdapter extends RecyclerView.Adapter<ChangeListAdapter.Vi
         String path = getPathFromFullFN(diskEvent.data.path);
 
         // Decide which icon to show.
-        int drawableId = R.drawable.ic_help_outline_black_24dp;
+        int drawableId = R.drawable.baseline_help_outline_24;
         switch (diskEvent.data.type) {
             case "dir":
                 switch (diskEvent.data.action) {

@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/rescan_all"
-        android:icon="@drawable/ic_autorenew_white"
+        android:icon="@drawable/outline_autorenew_24"
         android:title="@string/activity_main_bottom_navigation_rescan_all"
         app:showAsAction="ifRoom|withText" />
 

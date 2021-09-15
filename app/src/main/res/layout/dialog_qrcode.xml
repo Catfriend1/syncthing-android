@@ -25,7 +25,7 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:clickable="true"
-                app:drawableEndCompat="@drawable/ic_content_copy_black_24dp"
+                app:drawableEndCompat="@drawable/baseline_content_copy_24"
                 android:focusable="true"
                 android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                app:drawableEndCompat="@drawable/ic_share_black_24dp"
+                app:drawableEndCompat="@drawable/baseline_share_24"
                 android:clickable="true"
                 android:focusable="true"
                 android:contentDescription="@string/share_title" />

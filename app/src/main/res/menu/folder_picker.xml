@@ -6,13 +6,13 @@
     <item
         android:id="@+id/select"
         android:title="@string/select_folder"
-        android:icon="@drawable/ic_done_white_24dp"
+        android:icon="@drawable/baseline_done_24"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/folder_go_up"
         android:title="@string/folder_go_up"
-        android:icon="@drawable/ic_arrow_upward_white_24"
+        android:icon="@drawable/baseline_arrow_upward_24"
         app:showAsAction="ifRoom" />
 
     <item

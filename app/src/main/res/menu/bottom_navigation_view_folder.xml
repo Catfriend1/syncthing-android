@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/bottom_navigation_item_rescan_all"
-        android:icon="@drawable/ic_autorenew_black_24dp"
+        android:icon="@drawable/outline_autorenew_24"
         android:title="@string/activity_main_bottom_navigation_rescan_all" />
 
 </menu>
