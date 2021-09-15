@@ -21,6 +21,7 @@
     <issue id="ScopedStorage" severity="ignore" />
     <!-- Ignore types in translations (not handled by us) -->
     <issue id="Typos">
+        <ignore path="src/main/res/values" />
         <ignore path="src/main/res/values-ar" />
         <ignore path="src/main/res/values-cs" />
         <ignore path="src/main/res/values-da" />
