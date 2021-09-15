@@ -17,6 +17,8 @@
     <issue id="ProtectedPermissions" severity="ignore" />
     <!-- Disabling battery optimizations is optional, so this warning doesn't apply to us -->
     <issue id="BatteryLife" severity="ignore" />
+    <!-- Disable warning about scoped storage gplay policies -->
+    <issue id="ScopedStorage" severity="ignore" />
     <!-- Ignore types in translations (not handled by us) -->
     <issue id="Typos">
         <ignore path="src/main/res/values-ar" />
