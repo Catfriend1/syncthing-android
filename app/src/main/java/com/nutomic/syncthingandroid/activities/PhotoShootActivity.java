@@ -177,10 +177,6 @@ public class PhotoShootActivity extends AppCompatActivity {
         if (photoFile != null) {
             Uri photoURI = FileProvider.getUriForFile(this, getPackageName() + ".provider", photoFile);
             pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
-                pictureIntent.setClipData(ClipData.newRawUri("", photoURI));
-                pictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            }
 
             Log.d(TAG, "Launching take picture intent ...");
             lastPhotoURI = photoURI;
