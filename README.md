@@ -36,18 +36,30 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 # Building
 
 ## Prerequisites
+
+If you miss any prerequisite, the shell scripts will abort with an error and tell you what you need to do. In case you like to dive into building directly, you can skip this section and jump directly to "Build instructions".
+
 - Android SDK
 `You can skip this if you are using Android Studio.`
 - Android NDK r22b
-`$ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.`
+```
+$ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
+```
 - Go 1.17
-`Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.`
+```
+Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.
+```
 - Python 3.9.6 64-Bit
-`Make sure, Python is installed and available on the PATH environment variable. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0'`
+```
+Make sure, Python is installed and available on the PATH environment variable. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0'
+```
 - Git (for Linux) or Git for Windows
-`Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.`
+```Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.
+```
 - Java Development Version 11
-`"java" should be on the PATH environment variable. Download 'jdk-11.0.11_windows-x64_bin.exe' from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.`
+```
+"java" should be on the PATH environment variable. Download 'jdk-11.0.11_windows-x64_bin.exe' from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.
+```
 
 ## Build instructions
 
