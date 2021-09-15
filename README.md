@@ -40,7 +40,10 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 If you miss any prerequisite, the shell scripts will abort with an error and tell you what you need to do. In case you like to dive into building directly, you can skip this section and jump directly to "Build instructions".
 
 - Android SDK
-`You can skip this if you are using Android Studio.`
+```
+# This command will help you install the minimum Android SDK components to build this project in case you don't use Android Studio.
+python install_minimum_android_sdk_prerequisites.py
+```
 - Android NDK r22b
 ```
 $ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
