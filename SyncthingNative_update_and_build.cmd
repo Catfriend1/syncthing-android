@@ -13,7 +13,7 @@ SET DESIRED_SUBMODULE_VERSION=v1.18.2
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
-SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
+IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
 echo [INFO] Checking prerequisites ...
 REM
