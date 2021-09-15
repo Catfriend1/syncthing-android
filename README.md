@@ -48,7 +48,7 @@ python install_minimum_android_sdk_prerequisites.py
 ```
 $ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
 ```
-- Go 1.17
+- Go 1.17.1
 ```
 Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.
 ```
