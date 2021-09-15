@@ -21,8 +21,8 @@ FOR /F "tokens=*" %%A IN ('where git 2^> NUL:') DO SET GIT_BIN="%%A"
 IF NOT DEFINED GIT_BIN echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
 IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
 REM
-where /q sed
-IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] sed.exe not found on PATH env var. & goto :eos
+where /q java
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] java.exe not found on PATH env var. Download 'https://www.oracle.com/java/technologies/downloads/#java11-windows' and run the installer' & goto :eos
 REM
 where /q python
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] python.exe not found on PATH env var. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0' & goto :eos
@@ -95,8 +95,7 @@ REM Syntax:
 REM 	call :applyGoDev
 REM
 echo [INFO] Using go-dev instead of go-stable for this build ...
-sed -e "s/GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'/GO_EXPECTED_SHASUM_WINDOWS = '2fff556d0adaa6fda8300b0751a91a593c359f27265bc0fc7594f9eba794f907'/g" "syncthing\build-syncthing.py" > "%TEMP%\build-syncthing.py.tmp"
-move /y "%TEMP%\build-syncthing.py.tmp" "syncthing\build-syncthing.py" 1> NUL:
+type "syncthing\build-syncthing.py" 2> NUL: | psreplace "GO_EXPECTED_SHASUM_WINDOWS = '2f4849b512fffb2cf2028608aa066cc1b79e730fd146c7b89015797162f08ec5'" "GO_EXPECTED_SHASUM_WINDOWS = '2fff556d0adaa6fda8300b0751a91a593c359f27265bc0fc7594f9eba794f907'" "syncthing\build-syncthing.py"
 REM
 goto :eof
 
