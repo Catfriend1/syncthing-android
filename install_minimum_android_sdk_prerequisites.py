@@ -8,7 +8,7 @@ import platform
 #
 # Script Compatibility:
 # - Python 2.7.15
-# - Python 3.7.0
+# - Python 3.9.6
 #
 # Run script from command line with:
 #   python install_minimum_android_sdk_prerequisites.py
@@ -129,14 +129,9 @@ def install_sdk_tools():
     sdk_tools_bin_path = sdk_tools_latest_path + os.path.sep + 'bin'
     print('Adding to PATH:', sdk_tools_bin_path)
     os.environ["PATH"] += os.pathsep + sdk_tools_bin_path
+    os.environ["ANDROID_HOME"] = os.path.realpath(prerequisite_tools_dir)
+    os.environ["ANDROID_SDK_ROOT"] = os.path.realpath(prerequisite_tools_dir)
 
-    print('')
-    print('-------------------------------------------------------------------------')
-    print('Adding user env variable:')
-    print('SET ANDROID_HOME="' + os.path.realpath(prerequisite_tools_dir) + '"')
-    print('-------------------------------------------------------------------------')
-    print('')
-    subprocess.check_call([which('setx'), 'ANDROID_HOME', os.path.realpath(prerequisite_tools_dir)])
 
 
 #
