@@ -108,7 +108,11 @@ public abstract class ApiRequest {
             if (errorListener != null) {
                 errorListener.onError(error);
             } else {
-                Log.w(TAG, "Request to " + uri + " failed, " + error.getMessage());
+                int statusCode = 0;
+                if (error.networkResponse != null) {
+                    statusCode = error.networkResponse.statusCode;
+                }
+                Log.w(TAG, "Request to " + uri + " failed, code=" + statusCode + ", msg=" + error.getMessage());
             }
         }) {
             @Override
