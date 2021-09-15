@@ -152,7 +152,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
         mSyncOnPowerSource.setEnabled(globalRunOnAnyPowerSource);
 
         // Read selected WiFi Ssid whitelist items.
-        Set<String> selectedWhitelistedSsid = mPreferences.getStringSet(mPrefSelectedWhitelistSsid, globalWhitelistedSsid);
+        Set<String> selectedWhitelistedSsid = new HashSet<String>(mPreferences.getStringSet(mPrefSelectedWhitelistSsid, globalWhitelistedSsid));
         // Removes any network that is no longer part of the global WiFi Ssid whitelist.
         selectedWhitelistedSsid.retainAll(globalWhitelistedSsid);
 
