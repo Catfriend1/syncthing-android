@@ -46,7 +46,8 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 `Make sure, Python is installed and available on the PATH environment variable. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0'`
 - Git (for Linux) or Git for Windows
 `Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.`
-- Java Development Version 11 (you might need to set `$JAVA_HOME` accordingly)
+- Java Development Version 11
+`"java" should be on the PATH environment variable. Download 'jdk-11.0.11_windows-x64_bin.exe' from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.`
 
 ## Build instructions
 
