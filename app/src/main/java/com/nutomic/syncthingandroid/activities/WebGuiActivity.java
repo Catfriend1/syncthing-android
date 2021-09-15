@@ -81,7 +81,7 @@ public class WebGuiActivity extends SyncthingActivity
                 }
                 // Use reflection to access the private mX509Certificate field of SslCertificate
                 SslCertificate sslCert = error.getCertificate();
-                Field f = sslCert.getClass().getDeclaredField("mX509Certificate");
+                @SuppressLint("PrivateApi") Field f = sslCert.getClass().getDeclaredField("mX509Certificate");
                 f.setAccessible(true);
                 X509Certificate cert = (X509Certificate) f.get(sslCert);
                 if (cert == null) {
