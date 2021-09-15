@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<media-capabilities xmlns:android="http://schemas.android.com/apk/res/android">
+    <format android:name="HEVC" supported="true"/>
+    <format android:name="HDR10" supported="true"/>
+    <format android:name="HDR10Plus" supported="true"/>
+</media-capabilities>

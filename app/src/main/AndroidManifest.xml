@@ -231,6 +231,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nutomic.syncthingandroid.activities.DeviceActivity" />
         </activity>
+        <property
+            android:name="android.media.PROPERTY_MEDIA_CAPABILITIES"
+            android:resource="@xml/media_capabilities" />
         <provider
              android:name="androidx.core.content.FileProvider"
              android:authorities="${applicationId}.provider"
