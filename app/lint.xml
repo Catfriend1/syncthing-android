@@ -19,6 +19,8 @@
     <issue id="BatteryLife" severity="ignore" />
     <!-- Disable warning about scoped storage gplay policies -->
     <issue id="ScopedStorage" severity="ignore" />
+    <!-- Disable notice about custom x509 certificate trust manager -->
+    <issue id="CustomX509TrustManager" severity="ignore" />
     <!-- Ignore types in translations (not handled by us) -->
     <issue id="Typos">
         <ignore path="src/main/res/values" />
