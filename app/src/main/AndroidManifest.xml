@@ -57,6 +57,7 @@
         <activity
                 android:name=".activities.FirstStartActivity"
                 android:label="@string/app_name"
+                android:exported="true"
                 android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,6 +73,7 @@
                 android:name=".activities.PhotoShootActivity"
                 android:icon="@mipmap/ic_launcher_photoshoot"
                 android:label="@string/photo_shoot_launcher_title"
+                android:exported="true"
                 android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,6 +83,7 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
+            android:exported="false"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
@@ -121,6 +124,7 @@
         <activity
             android:name=".activities.ShareActivity"
             android:label="@string/share_activity_title"
+            android:exported="true"
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:windowSoftInputMode="adjustResize">
@@ -137,6 +141,7 @@
         </activity>
         <activity
             android:name=".activities.LogActivity"
+            android:exported="false"
             android:parentActivityName=".activities.SettingsActivity">
             <intent-filter>
                 <action android:name=".activities.LogActivity" />
@@ -187,13 +192,17 @@
             android:label="SyncTriggerJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" >
        </service>
-        <receiver android:name=".receiver.BootReceiver">
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.AppConfigReceiver"
+        <receiver
+            android:name=".receiver.AppConfigReceiver"
+            android:exported="false"
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
@@ -248,6 +257,7 @@
             android:name=".service.QuickSettingsTileForce"
             android:label="@string/qs_force_label"
             android:icon="@drawable/ic_qs_force"
+            android:exported="false"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -257,6 +267,7 @@
             android:name=".service.QuickSettingsTileSchedule"
             android:label="@string/qs_schedule_label"
             android:icon="@drawable/ic_qs_schedule"
+            android:exported="false"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
