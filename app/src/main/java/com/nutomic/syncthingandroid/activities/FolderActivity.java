@@ -158,35 +158,30 @@ public class FolderActivity extends SyncthingActivity {
             new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-            switch (view.getId()) {
-                case R.id.fileWatcher:
-                    mFolder.fsWatcherEnabled = isChecked;
-                    mFolderNeedsToUpdate = true;
-                    break;
-                case R.id.folderPause:
-                    mFolder.paused = isChecked;
-                    mFolderNeedsToUpdate = true;
-                    break;
-                case R.id.customSyncConditionsSwitch:
-                    mCustomSyncConditionsDescription.setEnabled(isChecked);
-                    mCustomSyncConditionsDialog.setFocusable(isChecked);
-                    mCustomSyncConditionsDialog.setEnabled(isChecked);
-                    // This is needed to display the "discard changes dialog".
-                    mFolderNeedsToUpdate = true;
-                    break;
-                case R.id.device_toggle:
-                    Device device = (Device) view.getTag();
-                    if (isChecked) {
-                        mFolder.addDevice(device);
-                    } else {
-                        mFolder.removeDevice(device.deviceID);
-                    }
-                    mFolderNeedsToUpdate = true;
-                    break;
-                case R.id.ignoreDelete:
-                    mFolder.ignoreDelete = isChecked;
-                    mFolderNeedsToUpdate = true;
-                    break;
+            int id = view.getId();
+            if (id == R.id.fileWatcher) {
+                mFolder.fsWatcherEnabled = isChecked;
+                mFolderNeedsToUpdate = true;
+            } else if (id == R.id.folderPause) {
+                mFolder.paused = isChecked;
+                mFolderNeedsToUpdate = true;
+            } else if (id == R.id.customSyncConditionsSwitch) {
+                mCustomSyncConditionsDescription.setEnabled(isChecked);
+                mCustomSyncConditionsDialog.setFocusable(isChecked);
+                mCustomSyncConditionsDialog.setEnabled(isChecked);
+                // This is needed to display the "discard changes dialog".
+                mFolderNeedsToUpdate = true;
+            } else if (id == R.id.device_toggle) {
+                Device device = (Device) view.getTag();
+                if (isChecked) {
+                    mFolder.addDevice(device);
+                } else {
+                    mFolder.removeDevice(device.deviceID);
+                }
+                mFolderNeedsToUpdate = true;
+            } else if (id == R.id.ignoreDelete) {
+                mFolder.ignoreDelete = isChecked;
+                mFolderNeedsToUpdate = true;
             }
         }
     };
@@ -552,19 +547,18 @@ public class FolderActivity extends SyncthingActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.save:
-                onSave();
-                return true;
-            case R.id.remove:
-                showDeleteDialog();
-                return true;
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.save) {
+            onSave();
+            return true;
+        } else if (itemId == R.id.remove) {
+            showDeleteDialog();
+            return true;
+        } else if (itemId == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showDeleteDialog(){

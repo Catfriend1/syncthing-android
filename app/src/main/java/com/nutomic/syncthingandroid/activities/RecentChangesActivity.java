@@ -128,13 +128,11 @@ public class RecentChangesActivity extends SyncthingActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.refresh:
-                onTimerEvent();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.refresh) {
+            onTimerEvent();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

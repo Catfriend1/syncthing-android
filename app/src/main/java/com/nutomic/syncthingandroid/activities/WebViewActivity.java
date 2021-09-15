@@ -136,18 +136,16 @@ public class WebViewActivity extends SyncthingActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            case R.id.openBrowser:
-                // This can only be triggered on a non-TV device.
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webPageUrl)));
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        } else if (itemId == R.id.openBrowser) {// This can only be triggered on a non-TV device.
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webPageUrl)));
+            finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

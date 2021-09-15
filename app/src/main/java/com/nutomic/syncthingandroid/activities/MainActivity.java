@@ -432,10 +432,8 @@ public class MainActivity extends SyncthingActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.bottom_navigation_item_rescan_all:
-                            // rescanAll();
-                            break;
+                    if (item.getItemId() == R.id.bottom_navigation_item_rescan_all) {
+                        // rescanAll();
                     }
                     return true;
                 }

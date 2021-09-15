@@ -190,18 +190,17 @@ public class FolderListFragment extends ListFragment implements SyncthingService
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.add_folder:
-                Intent intent = new Intent(getActivity(), FolderActivity.class)
-                        .putExtra(FolderActivity.EXTRA_IS_CREATE, true);
-                startActivity(intent);
-                return true;
-            case R.id.rescan_all:
-                rescanAll();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.add_folder) {
+            Intent intent = new Intent(getActivity(), FolderActivity.class)
+                    .putExtra(FolderActivity.EXTRA_IS_CREATE, true);
+            startActivity(intent);
+            return true;
+        } else if (itemId == R.id.rescan_all) {
+            rescanAll();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void rescanAll() {

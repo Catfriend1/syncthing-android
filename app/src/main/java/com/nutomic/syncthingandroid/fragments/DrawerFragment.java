@@ -190,56 +190,49 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch (v.getId()) {
-            case R.id.drawerActionShowQrCode:
-                showQrCode();
-                break;
-            case R.id.drawerActionRecentChanges:
-                startActivity(new Intent(mActivity, RecentChangesActivity.class));
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionWebGui:
-                startActivity(new Intent(mActivity, WebGuiActivity.class));
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionImportExport:
-                intent = new Intent(mActivity, SettingsActivity.class);
-                intent.putExtra(SettingsActivity.EXTRA_OPEN_SUB_PREF_SCREEN, "category_import_export");
-                startActivity(intent);
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionRestart:
-                mActivity.showRestartDialog();
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionTipsAndTricks:
-                startActivity(new Intent(mActivity, TipsAndTricksActivity.class));
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionSettings:
-                startActivityForResult(new Intent(mActivity, SettingsActivity.class), SETTINGS_SCREEN_REQUEST);
-                mActivity.closeDrawer();
-                break;
-            case R.id.drawerActionExit:
-                if (sharedPreferences != null && sharedPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false)) {
-                    /**
-                     * App is running as a service. Show an explanation why exiting syncthing is an
-                     * extraordinary request, then ask the user to confirm.
-                     */
-                    AlertDialog mExitConfirmationDialog = new AlertDialog.Builder(mActivity)
-                            .setTitle(R.string.dialog_exit_while_running_as_service_title)
-                            .setMessage(R.string.dialog_exit_while_running_as_service_message)
-                            .setPositiveButton(R.string.yes, (d, i) -> {
-                                doExit();
-                            })
-                            .setNegativeButton(R.string.no, (d, i) -> {})
-                            .show();
-                } else {
-                    // App is not running as a service.
-                    doExit();
-                }
-                mActivity.closeDrawer();
-                break;
+        int id = v.getId();
+        if (id == R.id.drawerActionShowQrCode) {
+            showQrCode();
+        } else if (id == R.id.drawerActionRecentChanges) {
+            startActivity(new Intent(mActivity, RecentChangesActivity.class));
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionWebGui) {
+            startActivity(new Intent(mActivity, WebGuiActivity.class));
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionImportExport) {
+            intent = new Intent(mActivity, SettingsActivity.class);
+            intent.putExtra(SettingsActivity.EXTRA_OPEN_SUB_PREF_SCREEN, "category_import_export");
+            startActivity(intent);
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionRestart) {
+            mActivity.showRestartDialog();
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionTipsAndTricks) {
+            startActivity(new Intent(mActivity, TipsAndTricksActivity.class));
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionSettings) {
+            startActivityForResult(new Intent(mActivity, SettingsActivity.class), SETTINGS_SCREEN_REQUEST);
+            mActivity.closeDrawer();
+        } else if (id == R.id.drawerActionExit) {
+            if (sharedPreferences != null && sharedPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false)) {
+                /**
+                 * App is running as a service. Show an explanation why exiting syncthing is an
+                 * extraordinary request, then ask the user to confirm.
+                 */
+                AlertDialog mExitConfirmationDialog = new AlertDialog.Builder(mActivity)
+                        .setTitle(R.string.dialog_exit_while_running_as_service_title)
+                        .setMessage(R.string.dialog_exit_while_running_as_service_message)
+                        .setPositiveButton(R.string.yes, (d, i) -> {
+                            doExit();
+                        })
+                        .setNegativeButton(R.string.no, (d, i) -> {
+                        })
+                        .show();
+            } else {
+                // App is not running as a service.
+                doExit();
+            }
+            mActivity.closeDrawer();
         }
     }
 

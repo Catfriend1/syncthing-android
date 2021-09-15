@@ -210,15 +210,13 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.add_device:
-                Intent intent = new Intent(getActivity(), DeviceActivity.class)
-                        .putExtra(DeviceActivity.EXTRA_IS_CREATE, true);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.add_device) {
+            Intent intent = new Intent(getActivity(), DeviceActivity.class)
+                    .putExtra(DeviceActivity.EXTRA_IS_CREATE, true);
+            startActivity(intent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void LogV(String logMessage) {

@@ -202,18 +202,19 @@ public class SyncConditionsActivity extends SyncthingActivity {
             new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-            switch (view.getId()) {
-                case R.id.sync_on_wifi_title:
-                    mSyncOnWhitelistedWifi.setEnabled(mGlobalWhitelistEnabled && isChecked);
-                    // Fall-through to dependent options.
-                case R.id.sync_on_whitelisted_wifi_title:
-                    // Enable or disable WiFi Ssid switches according to parent switch.
-                    for (int i = 0; i < mWifiSsidContainer.getChildCount(); i++) {
-                        mWifiSsidContainer.getChildAt(i).setEnabled(mGlobalWhitelistEnabled && isChecked);
-                    }
-                    break;
-                default:
-                    break;
+            int id = view.getId();
+            if (id == R.id.sync_on_wifi_title) {
+                mSyncOnWhitelistedWifi.setEnabled(mGlobalWhitelistEnabled && isChecked);
+                // Fall-through to dependent options.
+
+                // Enable or disable WiFi Ssid switches according to parent switch.
+                for (int i = 0; i < mWifiSsidContainer.getChildCount(); i++) {
+                    mWifiSsidContainer.getChildAt(i).setEnabled(mGlobalWhitelistEnabled && isChecked);
+                }
+            } else if (id == R.id.sync_on_whitelisted_wifi_title) {// Enable or disable WiFi Ssid switches according to parent switch.
+                for (int i = 0; i < mWifiSsidContainer.getChildCount(); i++) {
+                    mWifiSsidContainer.getChildAt(i).setEnabled(mGlobalWhitelistEnabled && isChecked);
+                }
             }
             mUnsavedChanges = true;
         }

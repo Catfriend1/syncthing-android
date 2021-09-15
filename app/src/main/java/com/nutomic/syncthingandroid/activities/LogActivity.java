@@ -87,21 +87,19 @@ public class LogActivity extends SyncthingActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.switch_logs:
-                mSyncthingLog = !mSyncthingLog;
-                if (mSyncthingLog) {
-                    item.setTitle(R.string.view_android_log);
-                    setTitle(R.string.syncthing_log_title);
-                } else {
-                    item.setTitle(R.string.view_syncthing_log);
-                    setTitle(R.string.android_log_title);
-                }
-                updateLog();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.switch_logs) {
+            mSyncthingLog = !mSyncthingLog;
+            if (mSyncthingLog) {
+                item.setTitle(R.string.view_android_log);
+                setTitle(R.string.syncthing_log_title);
+            } else {
+                item.setTitle(R.string.view_syncthing_log);
+                setTitle(R.string.android_log_title);
+            }
+            updateLog();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void updateLog() {

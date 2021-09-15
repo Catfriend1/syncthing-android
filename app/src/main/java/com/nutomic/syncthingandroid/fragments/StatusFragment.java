@@ -183,13 +183,11 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.open_preferences:
-                startActivity(new Intent(getContext(), SettingsActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.open_preferences) {
+            startActivity(new Intent(getContext(), SettingsActivity.class));
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private final SharedPreferences.OnSharedPreferenceChangeListener mPrefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
