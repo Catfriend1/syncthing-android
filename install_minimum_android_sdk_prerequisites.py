@@ -7,7 +7,6 @@ import sys
 import platform
 #
 # Script Compatibility:
-# - Python 2.7.15
 # - Python 3.9.6
 #
 # Run script from command line with:
@@ -161,7 +160,7 @@ print('sdk_manager_bin=\'' + sdk_manager_bin + '\'')
 if sys.platform == 'win32':
     subprocess.check_call([sdk_manager_bin, '--update'])
     powershell_bin = which('powershell')
-    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 31;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'])
+    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 31;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
     subprocess.check_call([sdk_manager_bin, 'platforms;android-30'])
     subprocess.check_call([sdk_manager_bin, 'build-tools;30.0.2'])
 
