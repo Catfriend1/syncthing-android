@@ -57,7 +57,8 @@ Make sure, Go is installed and available on the PATH environment variable. If Go
 Make sure, Python is installed and available on the PATH environment variable. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0'
 ```
 - Git (for Linux) or Git for Windows
-```Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.
+```
+Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.
 ```
 - Java Development Version 11
 ```
