@@ -36,8 +36,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:drawableLeftCompat="@drawable/ic_cellphone_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_cellphone_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_id"
+                    app:drawableStartCompat="@drawable/ic_id"
                     android:contentDescription="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine"
@@ -52,7 +52,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
-                    app:srcCompat="@drawable/ic_qrcode_black_24dp_active" />
+                    app:srcCompat="@drawable/outline_qr_code_2_24" />
 
             </LinearLayout>
 
@@ -65,7 +65,7 @@
                 android:clickable="true"
                 app:drawableLeftCompat="@drawable/ic_device_hub_black_24dp_active"
                 app:drawableStartCompat="@drawable/ic_device_hub_black_24dp_active"
-                app:drawableEndCompat="@drawable/ic_refresh_black_24"
+                app:drawableEndCompat="@drawable/baseline_refresh_24"
                 android:focusable="true"
                 android:text="@string/discovered_devices_title"
                 android:visibility="gone" />
@@ -96,8 +96,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:drawableLeftCompat="@drawable/ic_cellphone_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_cellphone_black_24dp"
+                    app:drawableLeftCompat="@drawable/ic_id"
+                    app:drawableStartCompat="@drawable/ic_id"
                     android:hint="@string/device_id"
                     android:imeOptions="actionNext"
                     android:inputType="textNoSuggestions|textMultiLine" />
@@ -109,7 +109,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
                     android:contentDescription="@string/scan_qr_code_description"
-                    app:srcCompat="@drawable/ic_content_copy_black_24dp" />
+                    app:srcCompat="@drawable/baseline_content_copy_24" />
 
             </LinearLayout>
 
@@ -119,8 +119,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/ic_tag_text_outline_black_24dp_active"
-                app:drawableStartCompat="@drawable/ic_tag_text_outline_black_24dp_active"
+                app:drawableLeftCompat="@drawable/baseline_sort_by_alpha_24"
+                app:drawableStartCompat="@drawable/baseline_sort_by_alpha_24"
                 android:hint="@string/name"
                 android:imeOptions="actionNext"
                 android:inputType="textCapWords"
@@ -132,8 +132,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/ic_link_black_24dp_active"
-                app:drawableStartCompat="@drawable/ic_link_black_24dp_active"
+                app:drawableLeftCompat="@drawable/baseline_link_24"
+                app:drawableStartCompat="@drawable/baseline_link_24"
                 android:hint="@string/addresses"
                 android:imeOptions="actionDone"
                 android:inputType="textNoSuggestions"
@@ -200,8 +200,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                app:drawableLeftCompat="@drawable/ic_pause_circle_outline_black_24dp"
-                app:drawableStartCompat="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/baseline_pause_circle_outline_24"
+                app:drawableStartCompat="@drawable/baseline_pause_circle_outline_24"
                 android:text="@string/pause_device" />
 
             <!-- Custom sync conditions -->
@@ -219,8 +219,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
+                    app:drawableLeftCompat="@drawable/outline_autorenew_24"
+                    app:drawableStartCompat="@drawable/outline_autorenew_24"
                     android:text="@string/custom_sync_conditions_title" />
 
                 <TextView

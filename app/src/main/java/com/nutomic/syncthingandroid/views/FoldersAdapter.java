@@ -66,7 +66,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
 
         // Update folder icon.
-        int drawableId = R.drawable.ic_folder_black_24dp_active;
+        int drawableId = R.drawable.baseline_folder_24;
         switch (folder.type) {
             case Constants.FOLDER_TYPE_RECEIVE_ONLY:
                 drawableId = R.drawable.ic_folder_receive_only;

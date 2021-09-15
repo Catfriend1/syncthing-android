@@ -27,8 +27,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/ic_label_outline_black_24dp"
-                app:drawableStartCompat="@drawable/ic_label_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/baseline_sort_by_alpha_24"
+                app:drawableStartCompat="@drawable/baseline_sort_by_alpha_24"
                 android:hint="@string/folder_label"
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords|textNoSuggestions"
@@ -39,8 +39,8 @@
                 style="@style/Widget.Syncthing.TextView.Label.Details.Field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/ic_vpn_key_black_24dp"
-                app:drawableStartCompat="@drawable/ic_vpn_key_black_24dp"
+                app:drawableLeftCompat="@drawable/ic_id"
+                app:drawableStartCompat="@drawable/ic_id"
                 android:hint="@string/folder_id"
                 android:imeOptions="actionDone"
                 android:inputType="textCapWords"
@@ -61,8 +61,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:drawableLeftCompat="@drawable/ic_folder_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_folder_black_24dp"
+                    app:drawableLeftCompat="@drawable/baseline_folder_24"
+                    app:drawableStartCompat="@drawable/baseline_folder_24"
                     android:focusable="true"
                     android:hint="@string/directory"/>
 
@@ -76,7 +76,7 @@
                     android:contentDescription="@string/advanced_directory_selection"
                     android:clickable="true"
                     android:focusable="true"
-                    app:srcCompat="@drawable/ic_settings_black_24" />
+                    app:srcCompat="@drawable/baseline_settings_24" />
 
             </LinearLayout>
 
@@ -148,8 +148,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
-                app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
+                app:drawableLeftCompat="@drawable/outline_autorenew_24"
+                app:drawableStartCompat="@drawable/outline_autorenew_24"
                 android:text="@string/folder_fileWatcher" />
 
             <TextView
@@ -167,8 +167,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                app:drawableLeftCompat="@drawable/ic_pause_circle_outline_black_24dp"
-                app:drawableStartCompat="@drawable/ic_pause_circle_outline_black_24dp"
+                app:drawableLeftCompat="@drawable/baseline_pause_circle_outline_24"
+                app:drawableStartCompat="@drawable/baseline_pause_circle_outline_24"
                 android:text="@string/folder_pause" />
 
             <!-- Custom sync conditions -->
@@ -186,8 +186,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_autorenew_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_autorenew_black_24dp"
+                    app:drawableLeftCompat="@drawable/outline_autorenew_24"
+                    app:drawableStartCompat="@drawable/outline_autorenew_24"
                     android:text="@string/custom_sync_conditions_title" />
 
                 <TextView
@@ -235,8 +235,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_content_copy_black_24dp"
-                    app:drawableStartCompat="@drawable/ic_content_copy_black_24dp"
+                    app:drawableLeftCompat="@drawable/baseline_content_copy_24"
+                    app:drawableStartCompat="@drawable/baseline_content_copy_24"
                     android:text="@string/pull_order" />
 
                 <TextView
@@ -273,8 +273,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_history_black_24dp_active"
-                    app:drawableStartCompat="@drawable/ic_history_black_24dp_active"
+                    app:drawableLeftCompat="@drawable/outline_restore_24"
+                    app:drawableStartCompat="@drawable/outline_restore_24"
                     android:text="@string/file_versioning" />
 
                 <TextView
@@ -317,8 +317,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_delete_forever_black_24"
-                    app:drawableStartCompat="@drawable/ic_delete_forever_black_24"
+                    app:drawableLeftCompat="@drawable/baseline_delete_forever_24"
+                    app:drawableStartCompat="@drawable/baseline_delete_forever_24"
                     android:text="@string/folder_ignore_delete_caption" />
 
                 <TextView
