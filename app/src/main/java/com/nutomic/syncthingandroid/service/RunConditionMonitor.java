@@ -151,11 +151,9 @@ public class RunConditionMonitor {
         ReceiverManager.registerReceiver(mContext, new BatteryReceiver(), filter);
 
         // PowerSaveModeChangedReceiver
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ReceiverManager.registerReceiver(mContext,
-                    new PowerSaveModeChangedReceiver(),
-                    new IntentFilter(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED));
-        }
+        ReceiverManager.registerReceiver(mContext,
+                new PowerSaveModeChangedReceiver(),
+                new IntentFilter(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED));
 
         // SyncStatusObserver to monitor android's "AutoSync" quick toggle.
         mSyncStatusObserverHandle = ContentResolver.addStatusChangeListener(
@@ -558,12 +556,10 @@ public class RunConditionMonitor {
         }
 
         // Power saving
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (prefRespectPowerSaving && isPowerSaving()) {
-                LogV("decideShouldRun: prefRespectPowerSaving && isPowerSaving");
-                mRunDecisionExplanation = res.getString(R.string.reason_not_while_power_saving);
-                return false;
-            }
+        if (prefRespectPowerSaving && isPowerSaving()) {
+            LogV("decideShouldRun: prefRespectPowerSaving && isPowerSaving");
+            mRunDecisionExplanation = res.getString(R.string.reason_not_while_power_saving);
+            return false;
         }
 
         // Android global AutoSync setting.

@@ -494,9 +494,7 @@ public class SettingsActivity extends SyncthingActivity {
                 Log.w(TAG, "registerActionBar: toolbar == null");
                 return;
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                toolbar.setTouchscreenBlocksFocus(false);
-            }
+            toolbar.setTouchscreenBlocksFocus(false);
             syncthingActivity.setSupportActionBar(toolbar);
             syncthingActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

@@ -318,10 +318,7 @@ public class NotificationHandler {
                         new Intent(mContext, MainActivity.class),
                         PendingIntent.FLAG_UPDATE_CURRENT));
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            nb.setCategory(Notification.CATEGORY_ERROR);
-        }
+        nb.setCategory(Notification.CATEGORY_ERROR);
         mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
     }
 
