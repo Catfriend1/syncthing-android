@@ -39,9 +39,6 @@ public class FileUtils {
 
     private static final String TAG = "FileUtils";
 
-    // TargetApi(21)
-    private static final Boolean isCompatible = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP);
-
     private FileUtils() {
         // Private constructor to enforce Singleton pattern.
     }
@@ -57,7 +54,6 @@ public class FileUtils {
     }
 
     @Nullable
-    @TargetApi(21)
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
             DocumentsContract.getTreeDocumentId(safResultUri));
@@ -66,10 +62,6 @@ public class FileUtils {
 
     @Nullable
     public static String getAbsolutePathFromTreeUri(Context context, @Nullable final Uri treeUri) {
-        if (!isCompatible) {
-            Log.e(TAG, "getAbsolutePathFromTreeUri: called on unsupported API level");
-            return null;
-        }
         if (treeUri == null) {
             Log.w(TAG, "getAbsolutePathFromTreeUri: called with treeUri == null");
             return null;
@@ -105,12 +97,7 @@ public class FileUtils {
     }
 
     @SuppressLint("ObsoleteSdkInt")
-    @TargetApi(21)
     private static String getVolumePath(final String volumeId, Context context) {
-        if (!isCompatible) {
-            Log.e(TAG, "getVolumePath called on unsupported API level");
-            return null;
-        }
         try {
             if (HOME_VOLUME_NAME.equals(volumeId)) {
                 Log.v(TAG, "getVolumePath: isHomeVolume");
@@ -224,7 +211,6 @@ public class FileUtils {
      * API for getExternalFilesDirs(): 19+ (KITKAT+)
      * API for getExternalMediaDirs(): 21+ (LOLLIPOP+)
      */
-    @TargetApi(21)
     public static android.net.Uri getExternalFilesDirUri(Context context, ExternalStorageDirType extDirType) {
         try {
             File externalFilesDir = getExternalFilesDir(context, extDirType, null);
@@ -277,7 +263,6 @@ public class FileUtils {
         return android.net.Uri.parse("content://com.android.externalstorage.documents/document/primary%3A");
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private static String getVolumeIdFromTreeUri(final Uri treeUri) {
         final String docId = DocumentsContract.getTreeDocumentId(treeUri);
         final String[] split = docId.split(":");
@@ -288,7 +273,6 @@ public class FileUtils {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private static String getDocumentPathFromTreeUri(final Uri treeUri) {
         final String docId = DocumentsContract.getTreeDocumentId(treeUri);
         final String[] split = docId.split(":");
