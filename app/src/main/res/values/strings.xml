@@ -169,6 +169,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="revert_local_changes">Revert local changes</string>
 
+    <string name="delete_unexpected_items">Delete unexpected items</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">This will undo all changes made on this device within that folder. Proceed?</string>
 
@@ -190,6 +193,8 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">No devices configured.\nBegin by adding a device now.</string>
+
+    <string name="deviceEncryptionPasswordHint">If untrusted, enter encryption password</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Up to Date</string>
@@ -321,6 +326,8 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Sorry. The selected folder cannot be used. Please select a folder located on the internal or external storage.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Switching existing folders to \'Receive Encrypted\' is not supported.</string>
+
     <string name="ignore_patterns">Ignore Patterns</string>
     <!-- DeviceActivity -->
 
@@ -364,6 +371,11 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Setting title -->
     <string name="pause_device">Pause Device</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Untrusted Device</string>
+
+    <string name="untrusted_device_explanation">All folders shared with this device must be protected by a password, such that all sent data is unreadable without the given password.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Delete Device</string>
@@ -565,6 +577,7 @@ Please report any problems you encounter via Github.</string>
         <item>Send &amp; Receive</item>
         <item>Send Only</item>
         <item>Receive Only</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -1022,11 +1035,13 @@ Please report any problems you encounter via Github.</string>
     <string name="folder_type_sendreceive">Send &amp; Receive</string>
     <string name="folder_type_sendonly">Send Only</string>
     <string name="folder_type_receiveonly">Receive Only</string>
+    <string name="folder_type_receive_encrypted">Receive Encrypted</string>
 
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">The folder will both send changes to and receive changes from remote devices.</string>
     <string name="folder_type_sendonly_description">Files are protected from changes made on other devices, but changes made on this device will be sent to the rest of the cluster.</string>
     <string name="folder_type_receiveonly_description">Files are synchronized from the cluster, but any changes made locally will not be sent to other devices.</string>
+    <string name="folder_type_receive_encrypted_description">Stores and syncs only encrypted data. Folders on all connected devices need to be set up with the same password or be of type \'Receive Encrypted\' too.</string>
 
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">File Pull Order</string>

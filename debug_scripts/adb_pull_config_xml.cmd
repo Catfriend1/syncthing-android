@@ -11,7 +11,7 @@ REM
 :loopMe
 cls
 adb shell "su root cat /data/data/%PACKAGE_NAME%/files/config.xml" > "%SCRIPT_PATH%config.xml"
-IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml"
+IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml" | more
 echo.
 pause
 echo.
