@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -46,6 +47,9 @@ public class NotificationHandler {
     private String mLastNotificationText = null;
     private Boolean lastStartForegroundService = false;
     private Boolean appShutdownInProgress = false;
+
+    @TargetApi(23)
+    private int FLAG_IMMUTABLE = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) ? PendingIntent.FLAG_IMMUTABLE : 0;
 
     public NotificationHandler(Context context) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
@@ -203,7 +207,7 @@ public class NotificationHandler {
                 .setOngoing(true)
                 .setOnlyAlertOnce(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
-                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
         if (!appShutdownInProgress) {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
@@ -235,7 +239,7 @@ public class NotificationHandler {
                 .setContentTitle(mContext.getString(title, extraInfo))
                 .setContentText(mContext.getString(R.string.notification_crash_text, extraInfo))
                 .setSmallIcon(R.drawable.ic_stat_notify)
-                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE))
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, FLAG_IMMUTABLE))
                 .setAutoCancel(true)
                 .build();
         mNotificationManager.notify(ID_CRASH, n);
@@ -294,7 +298,7 @@ public class NotificationHandler {
                 .setContentTitle(mContext.getString(R.string.syncthing_terminated))
                 .setContentText(mContext.getString(R.string.toast_write_storage_permission_required))
                 .setSmallIcon(R.drawable.ic_stat_notify)
-                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE))
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, FLAG_IMMUTABLE))
                 .setAutoCancel(true)
                 .setOnlyAlertOnce(true)
                 .build();
@@ -316,7 +320,7 @@ public class NotificationHandler {
                 .setAutoCancel(true)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0,
                         new Intent(mContext, MainActivity.class),
-                        PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
+                        FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
 
         nb.setCategory(Notification.CATEGORY_ERROR);
         mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
@@ -338,7 +342,7 @@ public class NotificationHandler {
                 .putExtra(DeviceActivity.EXTRA_DEVICE_ID, deviceId)
                 .putExtra(DeviceActivity.EXTRA_DEVICE_NAME, deviceName);
         PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
-            intentAccept, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+            intentAccept, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Prepare "ignore" action.
         Intent intentIgnore = new Intent(mContext, SyncthingService.class)
@@ -346,7 +350,7 @@ public class NotificationHandler {
                 .putExtra(SyncthingService.EXTRA_DEVICE_ID, deviceId);
         intentIgnore.setAction(SyncthingService.ACTION_IGNORE_DEVICE);
         PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
-            intentIgnore, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+            intentIgnore, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Show notification.
         showConsentNotification(notificationId, title, piAccept, piIgnore);
@@ -377,7 +381,7 @@ public class NotificationHandler {
                 .putExtra(FolderActivity.EXTRA_FOLDER_ID, folderId)
                 .putExtra(FolderActivity.EXTRA_FOLDER_LABEL, folderLabel);
         PendingIntent piAccept = PendingIntent.getActivity(mContext, notificationId,
-            intentAccept, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+            intentAccept, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Prepare "ignore" action.
         Intent intentIgnore = new Intent(mContext, SyncthingService.class)
@@ -386,7 +390,7 @@ public class NotificationHandler {
                 .putExtra(SyncthingService.EXTRA_FOLDER_ID, folderId);
         intentIgnore.setAction(SyncthingService.ACTION_IGNORE_FOLDER);
         PendingIntent piIgnore = PendingIntent.getService(mContext, 0,
-            intentIgnore, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+            intentIgnore, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Show notification.
         showConsentNotification(notificationId, title, piAccept, piIgnore);
