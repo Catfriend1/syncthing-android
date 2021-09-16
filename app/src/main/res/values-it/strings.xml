@@ -556,6 +556,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
         <item>Invia &amp; Ricevi</item>
         <item>Invia solo</item>
         <item>Ricevi solo</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

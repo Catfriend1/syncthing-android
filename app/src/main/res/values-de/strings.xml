@@ -562,6 +562,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
         <item>Senden &amp; Empfangen</item>
         <item>Nur Senden</item>
         <item>Nur Empfangen</item>
+        <item>Verschlüsselt Empfangen</item>
     </string-array>
 
     <string-array name="pull_order_types">

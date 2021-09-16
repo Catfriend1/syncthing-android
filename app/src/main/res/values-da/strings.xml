@@ -391,6 +391,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
         <item>Send &amp; Modtag </item>
         <item>Send Kun</item>
         <item>Modtag Kun</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

@@ -543,6 +543,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
         <item>Enviar &amp; Recibir</item>
         <item>Solo Enviar</item>
         <item>Solo Recibir</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

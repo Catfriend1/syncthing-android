@@ -420,6 +420,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>Envia i rep</item>
         <item>Només envia</item>
         <item>Només rep</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

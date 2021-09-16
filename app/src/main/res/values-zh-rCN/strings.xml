@@ -556,6 +556,7 @@
         <item>发送与接收</item>
         <item>仅发送</item>
         <item>仅接收</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
