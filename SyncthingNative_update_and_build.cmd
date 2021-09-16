@@ -15,21 +15,22 @@ REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
+:checkPrerequisites
 echo [INFO] Checking prerequisites ...
 REM
 SET GIT_BIN=
 FOR /F "tokens=*" %%A IN ('where git 2^> NUL:') DO SET GIT_BIN="%%A"
-IF NOT DEFINED GIT_BIN echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
-IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & goto :eos
+IF NOT DEFINED GIT_BIN echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & pause & goto :checkPrerequisites
+IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & pause & goto :checkPrerequisites
 REM
 where /q java
-IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] java.exe not found on PATH env var. Download 'https://www.oracle.com/java/technologies/downloads/#java11-windows' and run the installer' & goto :eos
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] java.exe not found on PATH env var. Download 'https://www.oracle.com/java/technologies/downloads/#java11-windows' and run the installer' & pause & SET PATH=%PATH%;%CommonProgramFiles%\Oracle\Java\javapath\& goto :checkPrerequisites
 REM
 where /q python
-IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] python.exe not found on PATH env var. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0' & goto :eos
+IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] python.exe not found on PATH env var. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0' & pause & goto :checkPrerequisites
 REM
 gradlew 2>&1 | find "ANDROID_SDK_ROOT" >NUL: && (echo [WARN] gradlew FAILED: Env var ANDROID_SDK_ROOT not set. Trying to run 'python install_minimum_android_sdk_prerequisites.py' ... & call python install_minimum_android_sdk_prerequisites.py)
-gradlew 2>&1 | find "ANDROID_SDK_ROOT" >NUL: && (echo [ERROR] gradlew FAILED: Env var ANDROID_SDK_ROOT not set, run 'python install_minimum_android_sdk_prerequisites.py' first. & goto :eof)
+gradlew 2>&1 | find "ANDROID_SDK_ROOT" >NUL: && (echo [ERROR] gradlew FAILED: Env var ANDROID_SDK_ROOT not set, run 'python install_minimum_android_sdk_prerequisites.py' first. & pause & goto :checkPrerequisites)
 REM
 IF "%CLEAN_BEFORE_BUILD%" == "1" call :cleanBeforeBuild
 REM
