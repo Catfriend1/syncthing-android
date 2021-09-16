@@ -250,7 +250,7 @@ def install_ndk():
 
     # Proceed with extraction of the NDK if necessary.
     ndk_home_path = prerequisite_tools_dir + os.path.sep + 'android-ndk-' + NDK_VERSION
-    if not os.path.isfile(ndk_home_path + os.path.sep + "sysroot" + os.path.sep + "NOTICE"):
+    if not os.path.isfile(ndk_home_path + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-rXY" in the current path.
         zip = zipfile.ZipFile(zip_fullfn, 'r')
