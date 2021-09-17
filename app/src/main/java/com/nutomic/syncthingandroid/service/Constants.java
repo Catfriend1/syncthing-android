@@ -147,6 +147,7 @@ public class Constants {
     public static final String FOLDER_TYPE_SEND_ONLY            = "sendonly";
     public static final String FOLDER_TYPE_SEND_RECEIVE         = "sendreceive";
     public static final String FOLDER_TYPE_RECEIVE_ONLY         = "receiveonly";
+    public static final String FOLDER_TYPE_RECEIVE_ENCRYPTED    = "receiveencrypted";
 
     /**
      * Default listening ports.
