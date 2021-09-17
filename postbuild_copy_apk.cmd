@@ -20,8 +20,6 @@ REM SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
 REM 
 echo [INFO] *** postbuild_copy_apk BEGIN ***
 REM 
-where git 2> NUL: || call setenv.cmd
-REM 
 IF NOT DEFINED BUILD_FLAVOUR_GPLAY echo [ERROR] Env var BUILD_FLAVOUR_GPLAY not defined. & SET "BUILD_FLAVOUR_GPLAY=gplay"
 REM 
 REM Get "applicationId"
