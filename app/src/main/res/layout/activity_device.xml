@@ -204,6 +204,36 @@
                 app:drawableStartCompat="@drawable/baseline_pause_circle_outline_24"
                 android:text="@string/pause_device" />
 
+            <LinearLayout
+                android:id="@+id/deviceUntrustedContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/deviceUntrusted"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:drawableLeftCompat="@drawable/filled_lock_24"
+                    app:drawableStartCompat="@drawable/filled_lock_24"
+                    android:text="@string/untrusted_device" />
+
+                    <TextView
+                        android:id="@+id/deviceUntrustedExplanation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="-20dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:text="@string/untrusted_device_explanation"
+                        android:focusable="false"/>
+
+            </LinearLayout>
+
             <!-- Custom sync conditions -->
             <LinearLayout
                 android:id="@+id/customSyncConditionsContainer"

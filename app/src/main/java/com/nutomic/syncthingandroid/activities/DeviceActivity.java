@@ -105,6 +105,7 @@ public class DeviceActivity extends SyncthingActivity {
     private TextView mCompressionValueView;
     private SwitchCompat mIntroducerView;
     private SwitchCompat mDevicePaused;
+    private SwitchCompat mDeviceUntrusted;
     private SwitchCompat mCustomSyncConditionsSwitch;
     private TextView mCustomSyncConditionsDescription;
     private TextView mCustomSyncConditionsDialog;
@@ -186,6 +187,9 @@ public class DeviceActivity extends SyncthingActivity {
             } else if (id == R.id.devicePause) {
                 mDevice.paused = isChecked;
                 mDeviceNeedsToUpdate = true;
+            } else if (id == R.id.deviceUntrusted) {
+                mDevice.untrusted = isChecked;
+                mDeviceNeedsToUpdate = true;
             } else if (id == R.id.customSyncConditionsSwitch) {
                 mCustomSyncConditionsDescription.setEnabled(isChecked);
                 mCustomSyncConditionsDialog.setFocusable(isChecked);
@@ -226,6 +230,7 @@ public class DeviceActivity extends SyncthingActivity {
         mCompressionValueView = findViewById(R.id.compressionValue);
         mIntroducerView = findViewById(R.id.introducer);
         mDevicePaused = findViewById(R.id.devicePause);
+        mDeviceUntrusted = findViewById(R.id.deviceUntrusted);
         mCustomSyncConditionsSwitch = findViewById(R.id.customSyncConditionsSwitch);
         mCustomSyncConditionsDescription = findViewById(R.id.customSyncConditionsDescription);
         mCustomSyncConditionsDialog = findViewById(R.id.customSyncConditionsDialog);
@@ -385,6 +390,7 @@ public class DeviceActivity extends SyncthingActivity {
         mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(null);
         mDevicePaused.setOnCheckedChangeListener(null);
+        mDeviceUntrusted.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
 
         // Update views
@@ -395,6 +401,7 @@ public class DeviceActivity extends SyncthingActivity {
         mCompressionValueView.setText(Compression.fromValue(this, mDevice.compression).getTitle(this));
         mIntroducerView.setChecked(mDevice.introducer);
         mDevicePaused.setChecked(mDevice.paused);
+        mDeviceUntrusted.setChecked(mDevice.untrusted);
 
         // Update views - custom sync conditions.
         mCustomSyncConditionsSwitch.setChecked(false);
@@ -428,6 +435,7 @@ public class DeviceActivity extends SyncthingActivity {
         mAddressesView.addTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(mCheckedListener);
         mDevicePaused.setOnCheckedChangeListener(mCheckedListener);
+        mDeviceUntrusted.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);
     }
 
@@ -504,9 +512,6 @@ public class DeviceActivity extends SyncthingActivity {
         mDevice.deviceID = getIntent().getStringExtra(EXTRA_DEVICE_ID);
         mDevice.addresses = DYNAMIC_ADDRESS;
         mDevice.compression = METADATA.getValue(this);
-        mDevice.introducer = false;
-        mDevice.paused = false;
-        mDevice.introducedBy = "";
     }
 
     private void addEmptyFolderListView() {
