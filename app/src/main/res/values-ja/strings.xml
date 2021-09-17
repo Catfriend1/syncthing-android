@@ -473,6 +473,7 @@
         <item>送信と受信</item>
         <item>送信のみ</item>
         <item>受信のみ</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

@@ -504,6 +504,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
         <item>Trimitere și primire</item>
         <item>Doar trimitere</item>
         <item>Doar recepționare</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

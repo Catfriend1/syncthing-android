@@ -562,6 +562,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
         <item>Gửi &amp; Nhận</item>
         <item>Chỉ gửi</item>
         <item>Chỉ nhận</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">

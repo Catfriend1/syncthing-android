@@ -430,6 +430,7 @@ Android требует разрешение доступа к геолокаци
         <item>Отправка и получение</item>
         <item>Только отправка</item>
         <item>Только получение</item>
+        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
