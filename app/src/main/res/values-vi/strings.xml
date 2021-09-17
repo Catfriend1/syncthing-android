@@ -409,6 +409,35 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="tip_write_to_sdcard_title">Vượt qua vấn đề ghi vào thẻ SD ngoài</string>
     <string name="tip_write_to_sdcard_text">Nếu bạn thấy giao diện nói rằng \'Android chỉ cấp quyền truy cập chỉ đọc cho Syncthing\' đối với một thư mục cụ thể, hãy tạo thư mục mới bằng đường dẫn này để có quyền truy cập ghi:\n%1$s/YOUR_FOLDER_NAME\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục .../Android.</string>
 
+    <string name="tip_sync_on_local_network_title">Đồng bộ chỉ sử dụng mạng Wi-Fi cục bộ</string>
+    <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':\n- Bật NAT traversal\n- Khám phá toàn cầu\n- Bật vận chuyển\nChỉ để cho \'Khám phá cục bộ\' được bật.</string>
+
+    <string name="tip_custom_sync_conditions_title">Sử dụng các điều kiện đồng bộ tùy chỉnh cho mỗi thư mục/thiết bị</string>
+    <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên. </string>
+
+    <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính?</string>
+    <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' > \'Nâng cao\' > Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
+
+    <string name="tip_huawei_device_disconnected_title">Huawei: giải quyết vấn đề \'thiết bị đã ngắt kết nối\'</string>
+    <string name="tip_huawei_device_disconnected_text">Nếu máy tính của bạn liên tục báo cáo thiết bị Huawei của bạn là bị ngắt kết nối, hãy mở giao diện Syncthing của máy tính. Đi đến \'thiết bị trên mạng\', mở rộng mục của điện thoại, nhấn \'Chỉnh sửa\', chuyển sang \'Nâng cao\'. Đặt địa chỉ IP của điện thoại vào \'Địa chỉ\' như thế này:\ntcp4://%1$s, động\nĐã xác nhận là giải quyết được cho: Huawei P10</string>
+    <string name="tip_phone_ip_address_syntax">ĐỊA_CHỈ_IP_CỦA_ĐIỆN_THOẠI</string>
+
+    <string name="tip_xiaomi_autostart_title">Xiaomi: ứng dụng không khởi động khi khởi động thiết bị</string>
+    <string name="tip_xiaomi_autostart_text">MIUI của Xiaomi không cho phép các ứng dụng tự khởi động theo mặc định. Từ màn hình chính, hãy đi đến \'Cài đặt\' > \'Quyền\' > \'Tự động khởi động\' và bật thanh trượt \'Syncthing-Fork\'.</string>
+
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: ứng dụng cứ hiện màn hình chào mừng lên</string>
+    <string name="tip_xiaomi_battery_saver_text">Ứng dụng tiết kiệm pin của hệ thống MIUI của Xiaomi thu hồi quyền \'bỏ qua tối ưu hóa pin\' của ứng dụng mỗi khi khởi động lại thiết bị. Việc này làm cho ứng dụng hiện màn hình chào mừng và hỏi xin quyền bắt buộc đang bị thiếu này một lần nữa. Giải pháp: Từ màn hình chính, mở ngăn ứng dụng > Nhấn giữ \'Syncthing-Fork\' > \'Thông tin ứng dụng\' > \'Trình tiết kiệm pin\' và chọn \'Không hạn chế\' (MIUI 10.3.2.0+).</string>
+
+    <!-- RecentChangesActivity -->
+    <string name="no_recent_changes">Không có thay đổi gần đây.</string>
+
+    <string name="recent_changes_title">Thay đổi gần đây</string>
+    <string name="modified_by_device">Thiết bị: %1$s</string>
+    <string name="modification_time">Thời gian: %1$s</string>
+
+    <string name="this_device">Thiết bị này</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -418,18 +447,139 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="web_gui_loading">Đang chờ GUI</string>
 
 
+    <!-- WebViewActivity -->
+
+    <!-- Dialog title displayed when an invalid ssl certificate was found -->
+    <string name="security_notice">Thông báo bảo mật</string>
+
+    <!-- Dialog message if an invalid ssl certificate was detected -->
+    <string name="ssl_cert_invalid_text">Trang web tại %1$s có vẻ là có chứng chỉ không hợp lệ để mã hóa SSL. Tiếp tục?</string>
+
+    <!-- Text for WebViewActivity loading page -->
+    <string name="web_page_loading">Đang tải trang web:\n%1$s ...</string>
+
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">Mở trong trình duyệt</string>
+
     <!-- SettingsFragment -->
 
 
     <string name="settings_title">Cài đặt</string>
 
+    <string name="category_run_conditions">Điều kiện chạy</string>
+
+    <string name="category_user_interface">Giao diện người dùng</string>
+
+    <string name="preference_app_theme_title">Chủ đề</string>
+
+    <string name="preference_app_theme_follow_system">Theo hệ thống</string>
+    <string name="preference_app_theme_follow_light">Sáng</string>
+    <string name="preference_app_theme_follow_dark">Tối</string>
+
+    <string name="category_behaviour">Hành vi</string>
+
     <string name="category_syncthing_options">Tuỳ chọn Syncthing</string>
 
+    <string name="category_syncthing_options_summary">Menu này chỉ có sẵn nếu Syncthing đang chạy.</string>
+
+    <string name="category_backup">Nhập và Xuất</string>
+    <string name="category_debug">Xử lý sự cố</string>
     <string name="category_experimental">Thực nghiệm</string>
+
+    <!-- Preference screen - Run conditions -->
+    <string name="run_conditions_title">Điều kiện chạy</string>
+    <string name="run_conditions_summary">Sử dụng các tùy chọn sau để quyết định khi nào Syncthing sẽ chạy.</string>
+
+    <string name="run_on_mobile_data_title">Chạy khi có dữ liệu di động</string>
+    <string name="run_on_mobile_data_summary">Chạy khi thiết bị có kết nối qua mạng dữ liệu di động. Cảnh báo: Việc này có thể tiêu tốn rất nhiều dữ liệu trong gói dữ liệu của nhà mạng nếu bạn đồng bộ nhiều dữ liệu.</string>
+
+    <string name="run_on_roaming_title">Chạy khi chuyển vùng</string>
+    <string name="run_on_roaming_summary">Cho phép Syncthing sử dụng dữ liệu di động khi chuyển vùng. (!) Vui lòng gửi phản hồi lên GitHub về việc tùy chọn này có hoạt động đúng hay không.</string>
+
+    <string name="run_on_wifi_title">Chạy khi có Wi-Fi</string>
+    <string name="run_on_wifi_summary">Chạy khi thiết bị có kết nối đến mạng Wi-Fi hoặc có dây.</string>
+
+    <string name="run_on_metered_wifi_title">Chạy khi có Wi-Fi trả phí</string>
+    <string name="run_on_metered_wifi_summary">Chạy khi thiết bị có kết nối đến mạng Wi-Fi trả phí, vd: điểm phát sóng hoặc mạng được chia sẻ. Chú ý: Việc này có thể tiêu tốn phần lớn gói dữ liệu của bạn nếu bạn đồng bộ nhiều dữ liệu.</string>
+
+    <string name="run_on_whitelisted_wifi_title">Chạy khi có mạng Wi-Fi được chỉ định</string>
+    <string name="specify_wifi_ssid_whitelist">Chọn mạng Wi-Fi</string>
+    <string name="run_on_whitelisted_wifi_networks">Mạng Wi-Fi đã chọn: %1$s</string>
+    <string name="wifi_ssid_whitelist_empty">Không có mạng Wi-Fi nào được chỉ định. Nhấn để chỉ định mạng.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hãy bật WiFi để lựa chọn mạng.</string>
 
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Bạn cần phải cấp quyền VỊ TRÍ để sử dụng tính năng này.</string>
+
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Yêu cầu quyền</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Bắt đầu từ Android 8.1, quyền truy cập vị trí là bắt buộc để có thể đọc tên mạng Wi-Fi. Bạn chỉ có thể sử dụng tính năng này nếu bạn cấp quyền.</string>
+
+    <string name="power_source_title">Chạy khi thiết bị chạy bằng</string>
+
+    <string-array name="power_source_entries">
+        <item>AC và pin.</item>
+        <item>AC.</item>
+        <item>Pin.</item>
+    </string-array>
+
+    <string name="respect_battery_saving_title">Tôn trọng cài đặt tiết kiệm pin của Android</string>
+    <string name="respect_battery_saving_summary">Tắt Syncthing nếu tiết kiệm pin được bật.</string>
+
+    <string name="respect_master_sync_title">Tôn trọng cài đặt \'Tự động đồng bộ dữ liệu\' của Android</string>
+    <string name="respect_master_sync_summary">Tắt Syncthing khi ô cài đặt nhanh \'Tự động đồng bộ dữ liệu\' bị tắt.</string>
+
+    <string name="run_in_flight_mode_title">Chạy mà không có kết nối mạng</string>
+    <string name="run_in_flight_mode_summary">Việc bật tùy chọn này sẽ làm cho Syncthing chạy kể cả khi bạn đang ngoại tuyến. Hãy bật nếu thiết bị của bạn gặp vấn đề trong việc phát hiện kết nối Wi-Fi thủ công trong chế độ máy bay.</string>
+
+    <string name="run_on_time_schedule_title">Chạy theo lịch trình thời gian</string>
+    <string name="run_on_time_schedule_summary">Việc bật tùy chọn này sẽ cố gắng đồng bộ trong vòng 5 phút nếu các điều kiện chạy được đáp ứng và lần đồng bộ trước cách đây hơn 1 tiếng. Việc này có thể tiết kiệm nhiều pin nhưng yêu cầu các thiết bị đồng bộ khác phải trực tuyến. Vui lòng lưu ý: Việc này có thể để lại các tệp tạm không hoàn chỉnh cho đến khi lần đồng bộ được lên lịch tiếp theo diễn ra.</string>
+
+    <!-- Preferences - Behaviour -->
+    <string name="behaviour_autostart_title">Tự động khởi động</string>
+    <string name="behaviour_autostart_summary">Tự động khởi động ứng dụng khi khởi động hệ điều hành.</string>
+
     <string name="use_root_title">Chạy Syncthing với quyền Superuser</string>
+
+    <string name="use_root_summary">Việc chạy Syncthing với tư cách root cho phép nó ghi vào các thư mục mà Android thông thường giới hạn truy cập chỉ đọc. Hãy sử dụng tính năng này một cách thận trọng.</string>
+
+    <string name="launcher_show_camera_icon_title">Hiện biểu tượng máy ảnh trong launcher</string>
+
+    <string name="launcher_show_camera_icon_summary">Hãy tắt tùy chọn này nếu bạn không muốn sử dụng tính năng \'Máy ảnh Syncthing\'. Việc này chỉ có tác dụng đối với các ứng dụng launcher có hỗ trợ ẩn biểu tượng.</string>
+
+    <string name="toast_show_hide_launcher_icon_failed">Hiện hoặc ẩn biểu tượng launcher thất bại.</string>
+
+    <string name="expert_mode_title">Chế độ chuyên gia</string>
+
+    <string name="expert_mode_summary">Việc bật tùy chọn này sẽ hiện các tùy chọn thiết lập nâng cao. Bạn nên đọc Tài liệu Syncthing trước để chắc chắn là bạn biết cách sử dụng chúng đúng cách. Các cài đặt không đúng có thể sẽ gây ra hao pin, hết tài nguyên hệ thống hoặc đồng bộ hóa không hoàn thiện.</string>
+
+    <string name="preference_language_title">Ngôn ngữ</string>
+
+    <string name="preference_language_summary">Đổi ngôn ngữ ứng dụng</string>
+
+    <string name="pref_language_default">Ngôn ngữ mặc định</string>
+
+    <string-array name="folder_types">
+        <item>Gửi &amp; Nhận</item>
+        <item>Chỉ gửi</item>
+        <item>Chỉ nhận</item>
+    </string-array>
+
+    <string-array name="pull_order_types">
+        <item>Ngẫu nhiên</item>
+        <item>Bảng chữ cái</item>
+        <item>Nhỏ nhất trước</item>
+        <item>Lớn nhất trước</item>
+        <item>Cũ nhất trước</item>
+        <item>Mới nhất trước</item>
+    </string-array>
+
+    <string-array name="versioning_types">
+        <item>Không có</item>
+        <item>Thùng rác</item>
+        <item>Đơn giản</item>
+        <item>Chững lại</item>
+        <item>Ngoài</item>
+    </string-array>
 
     <string name="device_name">Tên thiết bị</string>
 
@@ -443,11 +593,77 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <string name="local_announce_enabled">Dò tìm cục bộ</string>
 
+    <string name="enable_nat_traversal">Bật NAT Traversal</string>
+
+    <string name="global_announce_server">Máy chủ khám phá toàn cầu</string>
+
+    <string name="enable_relaying">Bật vận chuyển</string>
+
     <string name="usage_reporting">Báo cáo sử dụng ẩn danh</string>
+
+    <string name="crash_reporting">Báo cáo dừng đột ngột ẩn danh</string>
+
+    <string name="webui_tcp_port_title">Cổng TCP giao diện web</string>
+
+    <string name="webui_remote_access_title">Truy cập giao diện web từ xa</string>
+
+    <string name="webui_remote_access_summary">Chỉ định để cho phép truy cập giao diện web từ một thiết bị khác. Nếu được bật, bạn có thể đăng nhập bằng người dùng \'syncthing\' và mã API làm mật khẩu. Mặc định: tắt (bảo mật nhất)</string>
+
+    <string name="webui_debugging_title">Gỡ lỗi giao diện web</string>
+
+    <string name="webui_debugging_summary">Bật để bắt đầu lập hồ sơ và có thể tải xuống gói hỗ trợ. Việc thay đổi tùy chọn này sẽ khởi động lại Syncthing ngay lập tức.</string>
+
+    <string name="download_support_bundle_title">Tải xuống gói hỗ trợ</string>
+
+    <!-- Summary shown when the user clicked the download support bundle button -->
+    <string name="download_support_bundle_in_progress">Đang chuẩn bị tải xuống gói hỗ trợ ...</string>
+
+    <!-- Toast after successful download of the support bundle -->
+    <string name="download_support_bundle_succeeded">Tải xuống gói hỗ trợ thành công vào %s.</string>
+
+    <!-- Toast after failed support bundle download -->
+    <string name="download_support_bundle_failed">Tải xuống gói hỗ trợ thất bại. Hãy kiểm tra nhật ký.</string>
+
+    <!-- Titles for the preference to undo ignored devices and folders -->
+    <string name="undo_ignored_devices_folders_title">Hoàn tác việc bỏ qua các thiết bị và thư mục</string>
+    <string name="undo_ignored_devices_folders_question">Việc này sẽ hoàn tác các quyết định bỏ qua thiết bị và thư mục trước đó. Tiếp tục?</string>
+    <string name="undo_ignored_devices_folders_done">Hoàn tác các quyết định thành công.</string>
 
     <string name="export_config">Xuất cấu hình</string>
 
+    <!-- Toast after entering an invalid tcp port -->
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Số cổng không hợp lệ. Vui lòng nhập cổng ở giữa %1$d và %2$d.</string>
+
+    <!-- Toast after entering invalid integer value -->
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Giá trị nhập không hợp lệ. Vui lòng nhập giá trị ở giữa %1$d và %2$d.</string>
+
+    <!-- Experimental options -->
+    <string name="use_proxy">Kết nối qua proxy</string>
+    <string name="do_not_use_proxy">Không có proxy nào được thiết lập.</string>
+
     <string name="keep_wakelock_while_binary_running">Giữ CPU thức khi Syncthing đang chạy</string>
+
+    <string name="keep_wakelock_while_binary_running_summary">Chỉ dành cho Android 5 hoặc thấp hơn. Hãy sử dụng cài đặt này nếu bạn bị ngắt kết nối không mong muốn khi hoạt động bằng pin. Việc này sẽ gây ra hao nhiều pin hơn.</string>
+
+    <string name="use_tor_title">Sử dụng Tor</string>
+
+    <string name="use_tor_summary">Buộc tất cả lưu lượng đi qua Tor để tăng tính riêng tư. Yêu cầu có Orbot. Tắt các tùy chọn proxy.</string>
+
+    <string name="socks_proxy_address_title">Proxy SOCKS5</string>
+    <!-- Toast after entering invalid socks proxy address -->
+    <string name="toast_invalid_socks_proxy_address">Đầu vào vi phạm cú pháp proxy \'socks5://[IP/TÊN MÁY CHỦ]:[CỔNG]\'</string>
+
+    <string name="http_proxy_address_title">Proxy HTTP(S)</string>
+    <!-- Toast after entering invalid http proxy address -->
+    <string name="toast_invalid_http_proxy_address">Đầu vào vi phạm cú pháp proxy \'http://[IP/TÊN MÁY CHỦ]:[CỔNG]\'</string>
+
+    <string name="broadcast_service_control_title">Điều khiển dịch vụ bằng truyền phát</string>
+
+    <string name="broadcast_service_control_summary">Mặc định: Tắt. Hãy bật tùy chọn này để bắt đầu và dừng dịch vụ bằng cách gửi truyền phát, vd: từ các ứng dụng tự động hóa của bên thứ ba. Lưu ý: Bạn phải khởi động lại ứng dụng theo cách thủ công sau khi thay đổi tùy chọn này.</string>
+
+    <string name="restart_on_wakeup_title">Khởi động lại khi đánh thức</string>
+
+    <string name="restart_on_wakeup_summary">Mặc định: Bật. Việc tắt tính năng này có thể gây ra việc quét thư mục và kết nối lại thiết bị bị hoãn lại để tiết kiệm pin.</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
@@ -457,19 +673,53 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Cấu hình đã được xuất vào %1$s</string>
+    <string name="config_export_failed">Xuất thiết lập thất bại, hãy kiểm tra đầu ra nhật ký.</string>
+
     <string name="import_config">Nhập cấu hình</string>
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Cấu hình đã được nhập</string>
     <string name="config_import_failed">Nhập c.hình th.bại, hãy chắc rằng các t.tin nằm trong %1$s</string>
 
+    <string name="dialog_settings_restart_app_title">Yêu cầu khởi động lại</string>
+
+    <string name="dialog_settings_restart_app_question">Việc thay đổi tùy chọn này yêu cầu khởi động lại ứng dụng ngay lập tức. Tất cả các thay đổi khác sẽ bị bỏ đi. Tiếp tục?</string>
+
+    <!-- Title for the preference to set STTRACE parameters -->
+    <string name="sttrace_title">Tùy chọn STTRACE</string>
+
+    <string name="environment_variables">Tham số môi trường</string>
+
+    <!-- Toast after entering invalid STTRACE params -->
+    <string name="toast_invalid_environment_variables">Giá trị không phải là xâu tham số môi trường hợp lệ</string>
+
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Cài lại CSDL</string>
 
     <!-- Syncthing was reset -->
+    <string name="st_reset_database_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
+      \nBạn có chắc bạn muốn xóa cơ sở dữ liệu của Syncthing không?
+</string>
+
+    <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Cài lại thành công CSDL của Syncthing</string>
 
+    <!-- Title for the preference to reset Syncthing indexes -->
+    <string name="st_reset_deltas_title">Đặt lại mục lục Delta</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
+      \nBạn có chắc bạn muốn xóa mục lục delta của Syncthing không?
+</string>
+
+    <!-- Syncthing was reset -->
+    <string name="st_reset_deltas_done">Đặt lại mục lục delta của Syncthing thành công</string>
+
     <string name="category_about">Thông tin về</string>
+
+    <string name="verbose_log_title">Nhật ký chi tiết</string>
+
+    <string name="verbose_log_summary">Việc bật tùy chọn này sẽ giúp tạo nhật ký gỡ lỗi rất chi tiết.</string>
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Mở lịch sử</string>
@@ -479,15 +729,39 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Báo cáo lỗi</string>
 
+    <!-- Summary for the issue tracker settings item -->
+    <string name="open_issue_tracker_summary">Mở trình theo dõi vấn đề của Syncthing-Fork tại %1$s</string>
+
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Phiên bản Syncthing</string>
+
+    <!-- Title of the preference showing this app's version name -->
+    <string name="app_version_title">Phiên bản Wrapper Syncthing-Fork</string>
+
+    <!-- Title of the preference showing the REST API key -->
+    <string name="syncthing_api_key">Mã API Syncthing (nhấn để sao chép)</string>
+
+    <!-- Shown when the API key is copied to the clipboard -->
+    <string name="api_key_copied_to_clipboard">Đã sao chép mã API Syncthing vào bộ nhớ tạm</string>
+
+    <!-- Title of the preference showing database size -->
+    <string name="syncthing_database_size">Kích cỡ cơ sở dữ liệu của Syncthing</string>
+
+    <!-- Title of the preference showing the OS open file limit -->
+    <string name="os_open_file_limit">Giới hạn mở tệp của Android</string>
 
     <!-- FolderPickerAcitivity -->
 
 
     <!-- Activity title -->
     <string name="folder_picker_title">Trình chọn th.mục</string>
+
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Tổng quan đường dẫn lưu trữ nâng cao</string>
+
+    <!-- Current path -->
+    <string name="current_path">Đường dẫn hiện tại: %1$s</string>
 
     <!-- ListView empty text -->
     <string name="directory_empty">Thư mục rỗng</string>
@@ -500,14 +774,116 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <string name="create_folder_failed">Tạo thư mục thất bại</string>
 
+    <!-- Menu item to go up to parent folder -->
+    <string name="folder_go_up">Đi lên</string>
+
+    <!-- LogActivity -->
+
+
+    <string name="syncthing_log_title">Nhật ký Syncthing</string>
+    <string name="android_log_title">Nhật ký Android</string>
+
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Xem lịch sử Android</string>
 
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Xem lịch sử Syncthing</string>
 
+    <string name="retrieving_logs">Đang lấy nhật ký...</string>
+
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Chia sẻ</string>
+
+    <!-- ShareActivity -->
+
+
+    <!-- Toast if user didn't complete the welcome wizard yet -->
+    <string name="complete_welcome_wizard_first">Trước tiên, hãy khởi động ứng dụng từ ngăn ứng dụng và hoàn thành trình hướng dẫn trước khi chia sẻ tệp.</string>
+
+    <!-- Title of the "share" activity -->
+    <string name="share_activity_title">Lưu vào Syncthing</string>
+
+    <!-- Title of the "save" button -->
+    <string name="save_title">Lưu</string>
+
+    <!-- Title of the "cancel" button -->
+    <string name="cancel_title">Hủy</string>
+
+    <!-- Title of the "save" button -->
+    <string name="folder_title">Thư mục</string>
+
+    <!-- New file name template -->
+    <string name="file_name_template">Tệp mới %1$s</string>
+
+    <!-- Nothing to share toast -->
+    <string name="nothing_share">Không có gì để chia sẻ</string>
+
+    <!-- Copy success toast partially -->
+    <plurals name="copy_success_partially">
+        <item quantity="other">Đã sao chép %1$d tệp vào thư mục \"%2$s\", %3$d đã tồn tại</item>
+    </plurals>
+
+    <!-- Copy success toast -->
+    <plurals name="copy_success">
+        <item quantity="other">Đã sao chép %1$d tệp vào thư mục \"%2$s\"</item>
+    </plurals>
+
+    <!-- Copy exception toast -->
+    <string name="copy_exception">Đã xảy ra lỗi khi chia sẻ, hãy kiểm tra nhật ký ứng dụng</string>
+
+    <!-- Copy progress dialog text -->
+    <string name="copy_progress">Đang chia sẻ tệp...</string>
+
+    <plurals name="file_name_title">
+        <item quantity="other">Danh sách tệp</item>
+    </plurals>
+
+    <!-- Sub Folder title -->
+    <string name="sub_folder">Thư mục con</string>
+
+    <!-- RunConditionMonitor -->
+
+    <string name="reason_force_start">Syncthing đang chạy vì bạn đã buộc nó khởi động mà không tính đến điều kiện chạy.</string>
+    <string name="reason_force_stop">Syncthing đang không chạy vì bạn đã buộc nó dừng mà không tính đến điều kiện chạy.</string>
+
+    <!-- Explanations why syncthing is running or not running -->
+    <string name="reason_not_within_time_frame">Bạn đã bật \'Chạy theo lịch trình thời gian\' và lần đồng bộ trước cách đây không quá một tiếng.</string>
+    <string name="reason_not_within_time_frame_2">Bạn đã bật \'Chạy theo lịch trình thời gian\' và lần đồng bộ trước cách đây %s.</string>
+    <string name="reason_not_within_time_frame_0_min">ít hơn một phút</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="other">%d phút</item>
+    </plurals>
+    <string name="reason_not_charging">Điện thoại đang không sạc.</string>
+    <string name="reason_not_on_battery_power">Điện thoại đang không chạy bằng pin.</string>
+    <string name="reason_not_while_power_saving">Syncthing đang không chạy vì điện thoại hiện đang tiết kiệm pin.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing đang không chạy vì Android đã tắt \'Tự động đồng bộ dữ liệu\'.</string>
+
+    <!-- ... Mobile data -->
+    <string name="reason_mobile_data_disallowed">Syncthing không được thiết lập để chạy khi có kết nối dữ liệu di động.</string>
+    <string name="reason_on_mobile_data">Syncthing được cho phép chạy khi có dữ liệu di động.</string>
+    <string name="reason_not_on_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động nhưng không có kết nối dữ liệu di động.</string>
+
+    <!-- ... Roaming -->
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động chuyển vùng và không chuyển vùng.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động không chuyển vùng. Kết nối đang hoạt động là không chuyển vùng.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing đang không chạy vì bạn đã không cho phép chạy khi có kết nối dữ liệu di động chuyển vùng.</string>
+
+    <string name="reason_wifi_disallowed">Syncthing không được cho phép chạy khi có WiFi hoặc mạng có dây.</string>
+    <string name="reason_on_wifi">Syncthing được cho phép chạy khi có WiFi và hiện tại đang có kết nối WIFi.</string>
+    <string name="reason_not_on_wifi">Syncthing được cho phép chạy khi có WiFi nhưng hiện tại không có kết nối WIFi hoặc điện thoại đang ở chế độ máy bay.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing được cho phép chạy khi có kết nối WiFi trả phí và không trả phí.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing được cho phép chạy khi có mạng WiFi hiện tại.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing đang không chạy vì tên mạng WiFi hiện tại không được cho phép.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing được cho phép chạy khi có kết nối WiFi không trả phí. Kết nối WiFi hiện tại là không trả phí.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing đang không chạy vì bạn đã không cho phép chạy khi có kết nối WiFi trả phí.</string>
+    <string name="reason_location_unavailable">Bạn đã bật \'Chạy khi có mạng WiFi được chọn\' trong cài đặt. Dịch vụ vị trí của Android hiện đang bị tắt. Theo như hạn chế của Android, Syncthing không thể xác định tên mạng WiFi hiện tại để quyết định xem có nên chạy hay không. Giải pháp: Bật vị trí, cấp quyền vị trí và kết nối lại với WiFi.</string>
+    <string name="reason_on_flight_mode">Syncthing đang chạy vì bạn đã cho phép chạy khi chế độ máy bay đang hoạt động.</string>
+    <string name="reason_broadcast_controlled">Syncthing đang lắng nghe truyền phát được một ứng dụng bên thứ ba hoặc ADB gửi đi. Bạn có thể chuyển lại về sử dụng điều kiện chạy được cài sẵn bằng cách tắt \'Cài đặt\' > \'Thử nghiệm\' > \'Điều khiển dịch vụ bằng truyền phát\'.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor không được khởi tạo. Vui lòng khởi động lại ứng dụng và tạo báo cáo lỗi nếu lỗi này không biến mất sau khi khởi động lại.</string>
+
+    <!-- Sync Conditions Dialog -->
+
+    <string name="custom_wifi_ssid_whitelist_empty">Không có SSID WiFi nào được cho phép. Vui lòng chỉ định trong cài đặt.</string>
 
     <!-- SyncthingService -->
 
@@ -516,8 +892,49 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing đang chạy</string>
+    <string name="syncthing_active_details">Syncthing đang chạy: %1$s</string>
+    <string name="no_remote_devices_connected">Không có thiết bị trên mạng nào được kết nối</string>
+
+    <plurals name="device_online_up_to_date">
+        <item quantity="other">%1$d thiết bị trực tuyến và đã cập nhật</item>
+    </plurals>
+
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="other">Đang đồng bộ: %1$d%% hoàn tất, %2$d thiết bị trực tuyến</item>
+    </plurals>
+
+    <string name="syncthing_disabled">Syncthing đang ngủ</string>
+
+    <string name="syncthing_terminated">Syncthing đã bị dừng</string>
+
+    <!-- Toast shown if syncthing failed to create or read the config -->
+    <string name="executable_not_found">Tệp thực thi cốt lõi \"%s\" bị thiếu. Hãy kiểm tra bản dựng và nhật ký đầu ra.</string>
+    <string name="config_create_failed">Tạo thiết lập thất bại. Hãy kiểm tra nhật ký đầu ra.</string>
+    <string name="config_read_failed">Đọc thiết lập thất bại. Hãy cân nhắc việc sao lưu dữ liệu từ các thư mục đồng bộ, rồi xóa dữ liệu ứng dụng ở cài đặt Android và khởi động lại ứng dụng.</string>
+
+    <!-- Toast shown if a config file crucial to operation is missing -->
+    <string name="config_file_missing">Một tệp thiết lập quan trọng để hoạt động bị thiếu</string>
+
+    <!-- Toast shown if a listening tcp port is unavailable -->
+    <string name="webui_tcp_port_unavailable">Cổng TCP %s của giao diện web đang bận. Bản sao thứ hai?</string>
+
+    <!-- Label of the default folder created of first start (camera folder). -->
+    <string name="default_android_camera_folder_label">Máy ảnh Android</string>
+
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-ảnh</string>
+
+    <string name="notification_crash_title">Syncthing đã dừng đột ngột (mã thoát %1$s)</string>
+
+    <string name="notification_crash_text">Nhấn để xem nhật ký (%1$s)</string>
+
+    <string name="notifications_persistent_channel">Syncthing đang hoạt động</string>
+    <string name="notification_persistent_waiting_channel">Đang giám sát điều kiện chạy</string>
+    <string name="notifications_other_channel">Thông báo khác</string>
+
+    <!-- EventProcessor -->
+    <string name="notification_out_of_disk_space">Thẻ SD đã đầy. Tệp %1$s</string>
+
 
     <!-- RestApi -->
 
@@ -551,12 +968,108 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
         <item>TiB/s</item>
     </string-array>
 
+    <!-- Possible folder states -->
+    <string name="state_failed_items">Mục thất bại (%1$d)</string>
+    <string name="state_up_to_date">Đã đồng bộ</string>
+    <string name="state_local_additions">Bổ sung cục bộ</string>
+    <string name="state_cleaning">Đang dọn dẹp các phiên bản</string>
+    <string name="state_clean_waiting">Đang đợi dọn dẹp</string>
     <string name="state_scanning">Đang quét</string>
+    <string name="state_scan_waiting">Đang đợi quét</string>
+    <string name="state_sync_waiting">Đang đợi đồng bộ</string>
+    <string name="state_sync_preparing">Đang chuẩn bị đồng bộ</string>
+    <string name="state_syncing_general">Đang đồng bộ</string>
     <string name="state_syncing">Đang đ.bộ (%1$d%%)</string>
     <string name="state_error">Lỗi</string>
+    <string name="state_error_message">Lỗi (%1$s)</string>
     <string name="state_unknown">Không rõ</string>
+    <string name="state_paused">Tạm dừng</string>
     <string name="status_outofsync">Mất đồng bộ</string>
+    <string name="state_unshared">Không được chia sẻ</string>
+
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
 
-    </resources>
+    <string name="appconfig_receiver_background_enabled">Việc dừng Syncthing không được hỗ trợ khi việc chạy trong nền được bật.</string>
+
+    <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
+    <string name="folder_type">Loại thư mục</string>
+
+    <!-- Displays the current folder type in the folder activity -->
+    <string name="folder_type_sendreceive">Gửi &amp; Nhận</string>
+    <string name="folder_type_sendonly">Chỉ gửi</string>
+    <string name="folder_type_receiveonly">Chỉ nhận</string>
+    <!-- Folder type dialog descriptions for folder types -->
+    <string name="folder_type_sendreceive_description">Thư mục sẽ gửi các thay đổi đến và nhận các thay đổi từ các thiết bị trên mạng.</string>
+    <string name="folder_type_sendonly_description">Các tệp được bảo vệ khỏi các thay đổi được tạo trên các thiết bị khác, nhưng các thay đổi được tạo trên thiết bị này sẽ được gửi đến phần còn lại của cụm.</string>
+    <string name="folder_type_receiveonly_description">Các tệp được đồng bộ từ cụm, nhưng các thay đổi được tạo cục bộ sẽ không được gửi đến các thiết bị khác.</string>
+    <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
+    <string name="pull_order">Thứ tự nhận tệp</string>
+
+    <!-- Displays the current pull order type in the Folder activity -->
+    <string name="pull_order_type_random">Ngẫu nhiên</string>
+    <string name="pull_order_type_alphabetic">Bảng chữ cái</string>
+    <string name="pull_order_type_smallestFirst">Nhỏ nhất trước</string>
+    <string name="pull_order_type_largestFirst">Lớn nhất trước</string>
+    <string name="pull_order_type_oldestFirst">Cũ nhất trước</string>
+    <string name="pull_order_type_newestFirst">Mới nhất trước</string>
+
+    <!-- Pull order dialog descriptions for pull order types -->
+    <string name="pull_order_type_random_description">Nhận tệp theo thứ tự ngẫu nhiên.</string>
+    <string name="pull_order_type_alphabetic_description">Nhận tệp theo thứ tự bảng chữ cái của tên tệp.</string>
+    <string name="pull_order_type_smallestFirst_description">Nhận tệp theo thứ tự của kích cỡ tệp. Nhỏ nhất trước.</string>
+    <string name="pull_order_type_largestFirst_description">Nhận tệp theo thứ tự của kích cỡ tệp. Lớn nhất trước.</string>
+    <string name="pull_order_type_oldestFirst_description">Nhận tệp theo thứ tự thời gian sửa đổi. Cũ nhất trước.</string>
+    <string name="pull_order_type_newestFirst_description">Nhận tệp theo thứ tự thời gian sửa đổi. Mới nhất trước.</string>
+
+    <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
+    <string name="maximum_age">Tuổi thọ tối đa</string>
+    <string name="clean_out_after">Dọn sau</string>
+    <string name="file_versioning">Tạo phiên bản tệp</string>
+    <string name="file_versioning_generic_description">Syncthing hỗ trợ lưu trữ phiên bản cũ của tệp khi nó bị xóa hoặc thay thế bằng phiên bản mới hơn từ cụm. Nhấn để xem các sự sắp đặt phiên bản có sẵn. Việc tạo phiên bản tệp được thiết lập cho mỗi thư mục, theo mỗi thiết bị. Sự sắp đặt đã chọn:</string>
+    <string name="none">Không có</string>
+    <string name="versions_path">Đường dẫn phiên bản</string>
+    <string name="command">Lệnh</string>
+
+    <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
+    <string name="keep_versions_description">Số phiên bản cũ được giữ, cho mỗi tệp.</string>
+    <string name="simple_file_versioning_description">Các tệp được di chuyển vào phiên bản được đánh dấu thời gian trong thư mục .stversions khi bị Syncthing thay thế hoặc xóa.</string>
+    <string name="trashcan_versioning_description">Các tệp được di chuyển vào thư mục .stversions khi bị Syncthing thay thế hoặc xóa.</string>
+    <string name="staggered_versioning_description">Các tệp được di chuyển vào phiên bản được đánh dấu thời gian khi bị Syncthing thay thế hoặc xóa. Các phiên bản bị tự động xóa nếu chúng cũ hơn tuổi thọ tối đa hoặc vượt quá số tệp được cho phép trong một khoảng thời gian.\n\nCác khoảng thời gian sau được sử dụng: trong giờ đầu tiên một phiên bản được giữ mỗi 30 giây, trong ngày đầu tiên một phiên bản được giữ mỗi tiếng, trong 30 ngày đầu tiên một phiên bản được giữ mỗi ngày, cho đến tuổi thọ tối đa một phiên bản được giữ mỗi tuần.</string>
+    <string name="maximum_age_description">Thời gian tối đa để giữ một phiên bản (tính bằng ngày, đặt là 0 để giữ các phiên bản mãi mãi).</string>
+    <string name="versions_path_description">Đường dẫn nơi các phiên bản nên được lưu trữ (để trống để dùng thư mục .stversions mặc định trong thư mục được chia sẻ).</string>
+    <string name="cleanout_after_description">Số ngày để giữ các tệp trong thùng rác. Không nghĩa là mãi mãi</string>
+    <string name="external_versioning_description">Tham số dòng lệnh đầu tiên là đường dẫn thư mục và tham số thứ hai là đường dẫn tương đối trong thư mục.</string>
+    <string name="no_versioning_description">Chọn kiểu tạo phiên bản để bật tạo phiên bản.</string>
+
+    <!-- Displays the current file versioning type in the Folder activity -->
+    <string name="type_simple">Kiểu: Đơn giản</string>
+    <string name="type_trashcan">Kiểu: Thùng rác</string>
+    <string name="type_staggered">Kiểu: Chững lại</string>
+    <string name="type_external">Kiểu: Ngoài</string>
+
+    <!-- Information displayed about the current file versioning configuration in the folder activity -->
+    <string name="trashcan_versioning_info">Dọn sau: %1$s</string>
+    <string name="staggered_versioning_info">Tuổi thọ tối đa: %1$d \nĐường dẫn phiên bản: %2$s</string>
+    <string name="external_versioning_info">Lệnh: %1$s</string>
+    <string name="simple_versioning_info">Giữ các phiên bản: %1$s</string>
+    <string name="show_device_id">Hiện ID thiết bị</string>
+
+    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Không thể truy cập ID thiết bị.</string>
+    <string name="browse">Duyệt</string>
+    <string name="no_sub_folder_is_selected">Không có thư mục con nào được chọn</string>
+    <string name="share_device_id_chooser">Chia sẻ ID thiết bị với</string>
+    <string name="run_on_whitelisted_wifi_summary">Bật danh sách cho phép để hạn chế đồng bộ chỉ xảy ra khi có các mạng WiFi được chỉ định.</string>
+    <string name="custom_sync_conditions_title">Điều kiện chạy tùy chỉnh</string>
+    <string name="custom_sync_conditions_description">Cho phép bạn chỉ định ngoại lệ cho điều kiện chạy toàn ứng dụng.</string>
+    <string name="custom_sync_conditions_dialog">Chỉ định điều kiện đồng bộ</string>
+
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">Buộc chạy</string>
+    <string name="qs_forced_to_run">Đã bị buộc chạy</string>
+    <string name="qs_forced_to_stop">Đã bị buộc dừng</string>
+    <string name="qs_following_run_conditions">Đang theo điều kiện chạy</string>
+    <string name="qs_schedule_label">Chạy 5 phút</string>
+    <string name="qs_schedule_disabled">Đã tắt lịch trình</string>
+</resources>

@@ -540,11 +540,17 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="use_root_title">Esegui Syncthing come Superutente</string>
 
+    <string name="use_root_summary">L\'esecuzione di Syncthing come root permette di scrivere le cartelle che normalmente Android blocca in sola lettura. Usa questa funzione con cautela.</string>
+
     <string name="launcher_show_camera_icon_title">Mostra icona fotocamera nel launcher</string>
+
+    <string name="launcher_show_camera_icon_summary">Disabilita questa opzione se non vuoi usare la funzione \'Fotocamera Syncthing\'. Funziona solo con i launcher che possono nascondere le icone.</string>
 
     <string name="toast_show_hide_launcher_icon_failed">Impossibile mostrare/nascondere l\'icona nel launcher.</string>
 
     <string name="expert_mode_title">Modalità esperto</string>
+
+    <string name="expert_mode_summary">Abilitando questa opzione verranno mostrate le opzioni di configurazione avanzate. Prima di cambiare qualcosa, consulta la documentazione di Syncthing per assicurarti di farlo correttamente. Impostazioni errate possono portare ad un consumo eccessivo di batteria, spreco di risorse di sistema o sincronizzazioni incomplete.</string>
 
     <string name="preference_language_title">Lingua</string>
 
@@ -556,7 +562,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
         <item>Invia &amp; Ricevi</item>
         <item>Invia solo</item>
         <item>Ricevi solo</item>
-        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -1000,12 +1005,10 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="folder_type_sendreceive">Invia &amp; Ricevi</string>
     <string name="folder_type_sendonly">Invia Soltanto</string>
     <string name="folder_type_receiveonly">Ricevi solo</string>
-
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La cartella invierà e riceverà cambiamenti con i dispositivi remoti.</string>
     <string name="folder_type_sendonly_description">I file sono protetti dalle modifiche fatte sugli altri dispositivi, ma i cambiamenti fatti su questo dispositivo verranno inviati al cluster.</string>
     <string name="folder_type_receiveonly_description">I file vengono sincronizzati dal cluster, ma nessuna modifica fatta in locale verrà inviata ad altri dispositivi.</string>
-
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordine Prelievo File</string>
 

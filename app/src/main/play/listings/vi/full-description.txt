@@ -1,38 +1,38 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+Đây là một fork của wrapper Syncthing-Android cho Syncthing mang đến các cải thiện lớn như:
+* Thư mục, thiết bị và tiến trình đồng bộ nói chung có thể được dễ dàng đọc từ giao diện.
+* "Máy ảnh Syncthing" - một tính năng không bắt buộc (với quyền sử dụng máy ảnh không bắt buộc) nơi mà bạn có thể chụp ảnh với bạn, cộng sự,... ở hai điện thoại thành một thư mục Syncthing được chia sẻ và riêng tư. Không dùng đám mây nào cả. - TÍNH NĂNG HIỆN ĐANG Ở GIAI ĐOẠN BETA -
+* "Đồng bộ mỗi giờ" để tiết kiệm nhiều pin hơn nữa
+* Điều kiện đồng bộ riêng lẻ có thể được áp dụng cho mỗi thiết bị và thư mục
+* Giao diện thay đổi gần đây, nhấn để mở tệp.
+* Các thay đổi với thiết lập thư mục và thiết bị có thể được tạo mà không quan trọng là Syncthing có đang chạy hay không
+* Giao diện giải thích tại sao Syncthing đang chạy hoặc không.
+* Vấn đề "ăn pin" đã được sửa.
+* Khám phá các thiết bị Syncthing khác trên cùng mạng và thêm chúng dễ dàng.
+* Hỗ trợ đồng bộ hóa hai chiều trên thẻ SD ngoài từ Android 11.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork cho Android là một wrapper cho Syncthing cung cấp giao diện Android thay vì giao diện web được cài sẵn của Syncthing. Syncthing thay thế các dịch vụ đám mây và đồng bộ độc quyền bằng một giải pháp phi tập trung, mở và đáng tin cậy. Dữ liệu của bạn sẽ luôn là của riêng bạn và bạn hoàn toàn có quyền lựa chọn nơi lưu trữ, có chia sẻ với bên thứ ba không và cách thức truyền tải dữ liệu qua mạng.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Mục tiêu của fork này:
+* Phát triển và thử các cải thiện cùng với cộng đồng.
+* Phát hành wrapper thường xuyên hơn để phát hiện và sửa lỗi do các thay đổi trong mô đun con syncthing gây ra
+* Làm cho các cải thiện có thể thiết lập được trong giao diện, người dùng nên có thể bật và tắt chúng
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+So sánh giữa dự án gốc và fork tại thời điểm viết:
+* Cả hai chứa tệp nhị phân syncthing được xây dựng từ mã nguồn chính thức tại GitHub
+* Chức năng và độ tin cậy của việc đồng bộ tùy thuộc vào phiên bản mô đun con tệp nhị phân syncthing.
+* Fork hòa hợp với dự án gốc và thỉnh thoảng họ chấp nhận các cải thiện của tôi.
+* Chiến thuật và tần suất phát hành là khác nhau
+* Chỉ có wrapper chứa giao diện Android được fork này giải quyết.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Trang web: https://github.com/Catfriend1/syncthing-android
 
 Mã nguồn: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Cách Syncthing ghi vào thẻ SD ngoài: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, câu hỏi thường gặp và bài viết hữu ích: https://github.com/Catfriend1/syncthing-android/wiki
 
 Các vấn đề: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+Vui lòng giúp đỡ việc
+Phiên dịch: https://www.transifex.com/projects/p/syncthing-android-1

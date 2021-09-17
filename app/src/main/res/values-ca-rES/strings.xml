@@ -420,7 +420,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>Envia i rep</item>
         <item>Només envia</item>
         <item>Només rep</item>
-        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -761,7 +760,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="folder_type_sendreceive">Envia i rep</string>
     <string name="folder_type_sendonly">Només envia</string>
     <string name="folder_type_receiveonly">Només rep</string>
-
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordre en què s\'estiren els fitxers</string>
 

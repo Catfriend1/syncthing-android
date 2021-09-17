@@ -473,7 +473,6 @@
         <item>送信と受信</item>
         <item>送信のみ</item>
         <item>受信のみ</item>
-        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -776,7 +775,6 @@
     <string name="folder_type_sendreceive">送信＆受信</string>
     <string name="folder_type_sendonly">送信のみ</string>
     <string name="folder_type_receiveonly">受信のみ</string>
-
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">ランダム</string>
     <string name="pull_order_type_alphabetic">アルファベット順</string>

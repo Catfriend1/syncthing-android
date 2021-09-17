@@ -1,1 +1,1 @@
-Wrapper for Syncthing - Open and decentralized file synchronization
+Wrapper cho Syncthing - Đồng bộ hoá tệp phi tập trung và mở

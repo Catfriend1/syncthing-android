@@ -543,7 +543,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
         <item>Enviar &amp; Recibir</item>
         <item>Solo Enviar</item>
         <item>Solo Recibir</item>
-        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -973,12 +972,10 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="folder_type_sendreceive">Enviar &amp; Recibir</string>
     <string name="folder_type_sendonly">Solamente enviar</string>
     <string name="folder_type_receiveonly">Solo Recibir</string>
-
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La carpeta enviará y recibirá cambios de los dispositivos remotos.</string>
     <string name="folder_type_sendonly_description">Los archivos están protegidos de los cambios realizados en otros dispositivos, pero los cambios realizados en este dispositivo se enviarán al resto del clúster.</string>
     <string name="folder_type_receiveonly_description">Los archivos se sincronizan desde el clúster, pero cualquier cambio realizado localmente no se enviará a otros dispositivos.</string>
-
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Orden de Obtención de los Archivos</string>
 

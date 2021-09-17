@@ -504,7 +504,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
         <item>Trimitere și primire</item>
         <item>Doar trimitere</item>
         <item>Doar recepționare</item>
-        <item>Receive Encrypted</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -846,12 +845,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="folder_type_sendreceive">Trimitere și primire</string>
     <string name="folder_type_sendonly">Doar trimitere</string>
     <string name="folder_type_receiveonly">Doar primire</string>
-
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">Dosarul va trimite și va recepționa modificări de la dispozitivele la distanță.</string>
     <string name="folder_type_sendonly_description">Fișierele sunt protejate de modificările făcute pe alte dispozitive, dar modificările făcute pe acest dispozitiv vor fi trimise restului clusterului.</string>
     <string name="folder_type_receiveonly_description">Fișierele sunt sincronizate din cluster, dar orice modificare făcută local nu va fi trimisă altor dispozitive.</string>
-
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordinea de preluare a fișierelor</string>
 
