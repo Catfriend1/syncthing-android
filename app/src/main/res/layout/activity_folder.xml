@@ -114,8 +114,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:checked="false"
-                    app:drawableLeftCompat="@drawable/ic_lock_black_24dp_active"
-                    app:drawableStartCompat="@drawable/ic_lock_black_24dp_active"
+                    app:drawableLeftCompat="@drawable/filled_lock_24"
+                    app:drawableStartCompat="@drawable/filled_lock_24"
                     android:text="@string/folder_type" />
 
                 <TextView
