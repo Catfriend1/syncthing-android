@@ -59,14 +59,21 @@ public class ConfigRouter {
         restApi.addFolder(folder);       // This will send the config afterwards.
     }
 
-    public void ignoreFolder(RestApi restApi, final String deviceId, final String folderId) {
+    public void ignoreFolder(RestApi restApi,
+                                    final String deviceId,
+                                    final String folderId,
+                                    final String folderLabel) {
         if (restApi == null || !restApi.isConfigLoaded()) {
             Log.e(TAG, "ignoreFolder failed, Syncthing is not running or REST API is not (yet) available.");
             return;
         }
 
         // Syncthing is running and REST API is available.
-        restApi.ignoreFolder(deviceId, folderId);       // This will send the config afterwards.
+        restApi.ignoreFolder(
+                deviceId,
+                folderId,
+                folderLabel
+        );       // This will send the config afterwards.
     }
 
     public void updateFolder(RestApi restApi, final Folder folder) {
@@ -178,14 +185,21 @@ public class ConfigRouter {
         restApi.removeDevice(deviceID);       // This will send the config afterwards.
     }
 
-    public void ignoreDevice(RestApi restApi, final String deviceID) {
+    public void ignoreDevice(RestApi restApi,
+                                    final String deviceID,
+                                    final String deviceName,
+                                    final String deviceAddress) {
         if (restApi == null || !restApi.isConfigLoaded()) {
             Log.e(TAG, "ignoreDevice failed, Syncthing is not running or REST API is not (yet) available.");
             return;
         }
 
         // Syncthing is running and REST API is available.
-        restApi.ignoreDevice(deviceID);       // This will send the config afterwards.
+        restApi.ignoreDevice(
+                deviceID,
+                deviceName,
+                deviceAddress
+        );       // This will send the config afterwards.
     }
 
     public Gui getGui(RestApi restApi) {
