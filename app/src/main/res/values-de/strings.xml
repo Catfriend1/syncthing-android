@@ -166,6 +166,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="revert_local_changes">Lokale Änderungen zurücksetzen</string>
 
+    <string name="delete_unexpected_items">Unerwartete Elemente löschen</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Dadurch werden alle in diesem Ordner auf diesem Gerät vorgenommenen Änderungen rückgängig gemacht. Fortfahren?</string>
 
@@ -187,6 +190,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Keine Geräte konfiguriert.\nBeginne jetzt mit dem Hinzufügen eines Geräts.</string>
+
+    <string name="deviceEncryptionPasswordHint">Wenn nicht vertraut, Passwort eingeben</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Aktuell</string>
@@ -318,6 +323,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Entschuldigung. Der ausgewählte Ordner kann nicht verwendet werden. Bitte wähle einen Ordner auf dem internen oder externen Speicher aus.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Bestehende Ordner auf \'Empfange verschlüsselt\' umschalten wird nicht unterstützt.</string>
+
     <string name="ignore_patterns">Ausschluss Muster</string>
     <!-- DeviceActivity -->
 
@@ -361,6 +368,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Setting title -->
     <string name="pause_device">Gerät pausieren</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Nicht vertraut</string>
+
+    <string name="untrusted_device_explanation">Alle Ordner, welche mit diesem Gerät geteilt werden, müssen von einem Passwort geschützt werden, so dass die gesendeten Daten ohne Kenntnis des Passworts nicht gelesen werden können.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Gerät löschen</string>
@@ -562,6 +574,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
         <item>Senden &amp; Empfangen</item>
         <item>Nur Senden</item>
         <item>Nur Empfangen</item>
+        <item>Empfange verschlüsselt</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -1001,10 +1014,14 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="folder_type_sendreceive">Senden &amp; Empfangen</string>
     <string name="folder_type_sendonly">Nur senden</string>
     <string name="folder_type_receiveonly">Nur Empfangen</string>
+    <string name="folder_type_receive_encrypted">Empfange verschlüsselt</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">Der Ordner wird Änderungen senden und ebenfalls Änderungen von anderen Geräten empfangen.</string>
     <string name="folder_type_sendonly_description">Dateien sind auf diesem Gerät schreibgeschützt. Auf diesem Gerät durchgeführte Veränderungen werden aber auf den Rest des Verbunds übertragen.</string>
     <string name="folder_type_receiveonly_description">Dateien werden vom Geräte-Verbund heruntergeladen, jedoch werden lokale Änderungen nicht an andere Geräte übertragen.</string>
+    <string name="folder_type_receive_encrypted_description">Speichert und synchronisiert nur verschlüsselte Daten. Ordner auf allen verbundenen Geräten müssen mit dem selben Passwort eingerichtet werden oder vom Typ \"Empfange verschlüsselt\" sein.</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Dateiübertragungsreihenfolge</string>
 
