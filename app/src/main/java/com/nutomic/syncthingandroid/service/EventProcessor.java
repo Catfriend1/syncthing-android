@@ -409,6 +409,11 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             return;
         }
 
+        if (folderType.equals(Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED)) {
+            // Skip notifying Android's MediaStore, MediaScanner.
+            return;
+        }
+
         switch (action) {
             case "delete":          // file deleted
                 Log.i(TAG, "onItemFinished: MediaStore, Deleting file: " + fullFilePath);
