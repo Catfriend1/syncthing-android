@@ -242,6 +242,8 @@ public class FolderActivity extends SyncthingActivity {
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
 
         findViewById(R.id.folderTypeContainer).setOnClickListener(v -> showFolderTypeDialog());
+        ViewGroup folderTypeContainer = findViewById(R.id.folderTypeContainer);
+        folderTypeContainer.setOnClickListener(v -> showFolderTypeDialog());
         mPullOrderContainer.setOnClickListener(v -> showPullOrderDialog());
         findViewById(R.id.versioningContainer).setOnClickListener(v -> showVersioningDialog());
 
@@ -301,6 +303,7 @@ public class FolderActivity extends SyncthingActivity {
             mPathView.setEnabled(false);
             mSelectAdvancedDirectory.setVisibility(View.GONE);
         }
+        folderTypeContainer.setEnabled(!mFolder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED));
         checkWriteAndUpdateUI();
         updateViewsAndSetListeners();
 
@@ -620,7 +623,14 @@ public class FolderActivity extends SyncthingActivity {
         } else if (resultCode == Activity.RESULT_OK && requestCode == FILE_VERSIONING_DIALOG_REQUEST) {
             updateVersioning(data.getExtras());
         } else if (resultCode == Activity.RESULT_OK && requestCode == FOLDER_TYPE_DIALOG_REQUEST) {
-            mFolder.type = data.getStringExtra(FolderTypeDialogActivity.EXTRA_RESULT_FOLDER_TYPE);
+            String newFolderType = data.getStringExtra(FolderTypeDialogActivity.EXTRA_RESULT_FOLDER_TYPE);
+            if (!mIsCreateMode && newFolderType.equals(Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED)) {
+                // Disallow switching existing folder's type to receiveEncrypted.
+                // SyncthingNative also does this. Posting a wrong config will result in http code 500.
+                Toast.makeText(this, R.string.folder_type_switch_to_receive_encrypted_not_allowed, Toast.LENGTH_LONG).show();
+                return;
+            }
+            mFolder.type = newFolderType;
             updateFolderTypeDescription();
             mFolderNeedsToUpdate = true;
         } else if (resultCode == Activity.RESULT_OK && requestCode == PULL_ORDER_DIALOG_REQUEST) {
@@ -705,7 +715,11 @@ public class FolderActivity extends SyncthingActivity {
             mFolder.label = mFolder.label.trim();
         }
         mFolder.paused = false;
-        mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;      // Default for {@link #checkWriteAndUpdateUI}.
+        if (getIntent().getBooleanExtra(EXTRA_RECEIVE_ENCRYPTED, false)) {
+            mFolder.type = Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED;
+        } else {
+            mFolder.type = Constants.FOLDER_TYPE_SEND_RECEIVE;      // Default for {@link #checkWriteAndUpdateUI}.
+        }
         mFolder.minDiskFree = new Folder.MinDiskFree();
         mFolder.versioning = new Folder.Versioning();
         mFolder.versioning.type = "trashcan";
@@ -924,6 +938,10 @@ public class FolderActivity extends SyncthingActivity {
             case Constants.FOLDER_TYPE_RECEIVE_ONLY:
                 setFolderTypeDescription(getString(R.string.folder_type_receiveonly),
                         getString(R.string.folder_type_receiveonly_description));
+                break;
+            case Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED:
+                setFolderTypeDescription(getString(R.string.folder_type_receive_encrypted),
+                        getString(R.string.folder_type_receive_encrypted_description));
                 break;
         }
 

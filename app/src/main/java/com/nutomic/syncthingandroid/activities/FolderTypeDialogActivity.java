@@ -25,7 +25,8 @@ public class FolderTypeDialogActivity extends ThemedAppCompatActivity {
     private static final List<String> mTypes = Arrays.asList(
         Constants.FOLDER_TYPE_SEND_RECEIVE,
         Constants.FOLDER_TYPE_SEND_ONLY,
-        Constants.FOLDER_TYPE_RECEIVE_ONLY
+        Constants.FOLDER_TYPE_RECEIVE_ONLY,
+        Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED
     );
 
     @Override
