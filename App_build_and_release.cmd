@@ -9,6 +9,7 @@ SET CLEANUP_BEFORE_BUILD=1
 SET SKIP_RELEASE_BUILD=1
 REM
 REM Runtime Variables.
+IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
 REM SET SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
@@ -20,6 +21,10 @@ SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
 REM
 SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin";%PATH%
+REM
+:checkPrerequisites
+echo [INFO] Checking prerequisites ...
+IF NOT EXIST %ANDROID_SDK_ROOT%\tools\bin\sdkmanager.bat (echo [WARN] Android SDK manager is missing. Trying to run 'python install_minimum_android_sdk_prerequisites.py' ... & call python install_minimum_android_sdk_prerequisites.py)
 REM
 echo [INFO] Checking if SyncthingNative was built before starting this script ...
 SET LIBCOUNT=
