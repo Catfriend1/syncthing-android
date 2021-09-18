@@ -47,7 +47,6 @@ public class Constants {
 
     // Preferences - Behaviour
     public static final String PREF_USE_ROOT                        = "use_root";
-    public static final String PREF_LAUNCHER_SHOW_CAMERA_ICON       = "launcher_show_camera_icon";
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";

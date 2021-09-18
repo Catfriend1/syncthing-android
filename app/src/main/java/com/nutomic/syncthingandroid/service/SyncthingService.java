@@ -988,10 +988,6 @@ public class SyncthingService extends Service {
                     for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
                         String prefKey = (String) e.getKey();
                         switch (prefKey) {
-                            // Preferences we explicitly require the user to set again manually after a config import.
-                            case Constants.PREF_LAUNCHER_SHOW_CAMERA_ICON:
-                                LogV("importConfig: Explicitly ignoring pref \"" + prefKey + "\".");
-                                break;
                             // Preferences that are no longer used and left-overs from previous versions of the app.
                             case "first_start":
                             case "advanced_folder_picker":

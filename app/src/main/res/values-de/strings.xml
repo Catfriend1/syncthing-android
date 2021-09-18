@@ -554,12 +554,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
 
-    <string name="launcher_show_camera_icon_title">Kamera-Symbol im Launcher anzeigen</string>
-
-    <string name="launcher_show_camera_icon_summary">Deaktivieren Sie diese Option, wenn Sie die Funktion \"Syncthing Kamera\" nicht verwenden möchten. Dies funktioniert nur mit Launcher-Apps, die das Ausblenden von Symbolen unterstützen.</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">Das Launcher-Symbol konnte nicht ein- oder ausgeblendet werden.</string>
-
     <string name="expert_mode_title">Expertenmodus</string>
 
     <string name="expert_mode_summary">Durch Aktivieren dieser Option werden erweiterte Konfigurationsoptionen angezeigt. Du solltest Dir zuerst die Syncthing-Dokumentation ansehen, um sicherzustellen, dass Du weißt, wie sie richtig verwendet werden. Falsche Einstellungen können zu hohem Batterieverbrauch, Erschöpfung der Systemressourcen oder unvollständiger Synchronisation führen.</string>

@@ -527,10 +527,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
-    <string name="launcher_show_camera_icon_title">Mostar el icono de la cámara en el lanzador.</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">Fallo al mostrar u ocultar el icono del lanzador.</string>
-
     <string name="expert_mode_title">Modo experto</string>
 
     <string name="preference_language_title">Idioma</string>

@@ -542,12 +542,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="use_root_summary">L\'esecuzione di Syncthing come root permette di scrivere le cartelle che normalmente Android blocca in sola lettura. Usa questa funzione con cautela.</string>
 
-    <string name="launcher_show_camera_icon_title">Mostra icona fotocamera nel launcher</string>
-
-    <string name="launcher_show_camera_icon_summary">Disabilita questa opzione se non vuoi usare la funzione \'Fotocamera Syncthing\'. Funziona solo con i launcher che possono nascondere le icone.</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">Impossibile mostrare/nascondere l\'icona nel launcher.</string>
-
     <string name="expert_mode_title">Modalità esperto</string>
 
     <string name="expert_mode_summary">Abilitando questa opzione verranno mostrate le opzioni di configurazione avanzate. Prima di cambiare qualcosa, consulta la documentazione di Syncthing per assicurarti di farlo correttamente. Impostazioni errate possono portare ad un consumo eccessivo di batteria, spreco di risorse di sistema o sincronizzazioni incomplete.</string>

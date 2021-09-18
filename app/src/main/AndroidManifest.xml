@@ -75,10 +75,6 @@
                 android:label="@string/photo_shoot_launcher_title"
                 android:exported="true"
                 android:launchMode="singleInstance">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.MainActivity"
@@ -257,7 +253,7 @@
             android:name=".service.QuickSettingsTileForce"
             android:label="@string/qs_force_label"
             android:icon="@drawable/ic_qs_force"
-            android:exported="false"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -267,7 +263,17 @@
             android:name=".service.QuickSettingsTileSchedule"
             android:label="@string/qs_schedule_label"
             android:icon="@drawable/ic_qs_schedule"
-            android:exported="false"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.QuickSettingsTileCamera"
+            android:label="@string/photo_shoot_activity_title"
+            android:icon="@drawable/ic_qs_camera"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />

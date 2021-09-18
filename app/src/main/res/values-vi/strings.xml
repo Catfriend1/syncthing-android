@@ -542,12 +542,6 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <string name="use_root_summary">Việc chạy Syncthing với tư cách root cho phép nó ghi vào các thư mục mà Android thông thường giới hạn truy cập chỉ đọc. Hãy sử dụng tính năng này một cách thận trọng.</string>
 
-    <string name="launcher_show_camera_icon_title">Hiện biểu tượng máy ảnh trong launcher</string>
-
-    <string name="launcher_show_camera_icon_summary">Hãy tắt tùy chọn này nếu bạn không muốn sử dụng tính năng \'Máy ảnh Syncthing\'. Việc này chỉ có tác dụng đối với các ứng dụng launcher có hỗ trợ ẩn biểu tượng.</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">Hiện hoặc ẩn biểu tượng launcher thất bại.</string>
-
     <string name="expert_mode_title">Chế độ chuyên gia</string>
 
     <string name="expert_mode_summary">Việc bật tùy chọn này sẽ hiện các tùy chọn thiết lập nâng cao. Bạn nên đọc Tài liệu Syncthing trước để chắc chắn là bạn biết cách sử dụng chúng đúng cách. Các cài đặt không đúng có thể sẽ gây ra hao pin, hết tài nguyên hệ thống hoặc đồng bộ hóa không hoàn thiện.</string>

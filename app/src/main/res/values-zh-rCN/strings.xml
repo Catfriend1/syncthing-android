@@ -542,12 +542,6 @@
 
     <string name="use_root_summary">以 root 权限运行 Syncthing 允许它写入 Android 通常限制为只读访问的文件夹。请谨慎使用此功能。</string>
 
-    <string name="launcher_show_camera_icon_title">在启动器中显示相机图标</string>
-
-    <string name="launcher_show_camera_icon_summary">如果您不喜欢使用“Syncthing 相机”功能，请禁用此选项。这只适用于支持隐藏图标的启动器。</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">未能显示或隐藏启动器图标</string>
-
     <string name="expert_mode_title">专家模式</string>
 
     <string name="expert_mode_summary">启用此选项将显示高级配置选项。你应该先看看 Syncthing 文档，以确保你知道如何正确使用它们。设置错误可能导致电池耗尽、系统资源耗尽或同步不完整。</string>

@@ -490,8 +490,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="use_root_title">Rulează ca root</string>
 
-    <string name="toast_show_hide_launcher_icon_failed">Eroare la afișarea sau ascunderea pictogramei.</string>
-
     <string name="expert_mode_title">Modul expert</string>
 
     <string name="preference_language_title">Limbă</string>

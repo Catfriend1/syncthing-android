@@ -557,12 +557,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature with caution.</string>
 
-    <string name="launcher_show_camera_icon_title">Show camera icon in launcher</string>
-
-    <string name="launcher_show_camera_icon_summary">Disable this option if you do not like to use the \'Syncthing Camera\' feature. This only works with launcher apps that support hiding icons.</string>
-
-    <string name="toast_show_hide_launcher_icon_failed">Failed to show or hide the launcher icon.</string>
-
     <string name="expert_mode_title">Expert mode</string>
 
     <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete synchronization.</string>
