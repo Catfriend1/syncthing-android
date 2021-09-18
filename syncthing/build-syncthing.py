@@ -11,7 +11,11 @@ import platform
 # - Python 3.9.6
 #
 
-SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
+PLATFORM_DIRS = {
+    'Windows': 'windows-x86_64',
+    'Linux': 'linux-x86_64',
+    'Darwin': 'darwin-x86-64',
+}
 
 # Leave empty to auto-detect version by 'git describe'.
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
@@ -21,9 +25,9 @@ GO_VERSION = '1.17.1'
 GO_EXPECTED_SHASUM_LINUX = 'dab7d9c34361dc21ec237d584590d72500652e7c909bf082758fb63064fca0ef'
 GO_EXPECTED_SHASUM_WINDOWS = '2f2d0a5d7c59fb38fcacaf1e272cf701bb8c050300ba8b609fc30d2c5800f02e'
 
-NDK_VERSION = 'r22b'
-NDK_EXPECTED_SHASUM_LINUX = '9ece64c7f19763dd67320d512794969930fce9dc'
-NDK_EXPECTED_SHASUM_WINDOWS = '96ba1a049303cf6bf3ee84cfd64d6bcd43486a50'
+NDK_VERSION = 'r23'
+NDK_EXPECTED_SHASUM_LINUX = '9bad35f442caeda747780ba1dd92f2d98609d9cd'
+NDK_EXPECTED_SHASUM_WINDOWS = '14af52e23af9f7a9e7576a17e1814701192745be'
 
 BUILD_TARGETS = [
     {
@@ -224,11 +228,11 @@ def install_ndk():
         os.makedirs(prerequisite_tools_dir)
 
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows-x86_64.zip'
+        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_WINDOWS
 
     else:
-        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux-x86_64.zip'
+        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux.zip'
         expected_shasum =   NDK_EXPECTED_SHASUM_LINUX
 
     zip_fullfn = prerequisite_tools_dir + os.path.sep + 'ndk_' + NDK_VERSION + '.zip';
@@ -267,62 +271,12 @@ def install_ndk():
     os.environ["ANDROID_NDK_HOME"] = ndk_home_path
 
 
-def artifact_patch_underaligned_tls(artifact_fullfn):
-    import struct
-
-    with open(artifact_fullfn, 'r+b') as f:
-        f.seek(0)
-        hdr = struct.unpack('16c', f.read(16))
-        if hdr[0] != b'\x7f' or hdr[1] != b'E' or hdr[2] != b'L' or hdr[3] != b'F':
-            print('artifact_patch_underaligned_tls: Not an ELF file')
-            return None
-
-        if hdr[4] == b'\x01':
-            # 32 bit code
-            f.seek(28)
-            offset = struct.unpack('<I', f.read(4))[0]
-            f.seek(42)
-            phsize = struct.unpack('<H', f.read(2))[0]
-            phnum = struct.unpack('<H', f.read(2))[0]
-            for i in range(0, phnum):
-                f.seek(offset + i * phsize)
-                t = struct.unpack('<I', f.read(4))[0]
-                if t == 7:
-                    f.seek(28 - 4, 1)
-                    align = struct.unpack('<I', f.read(4))[0]
-                    if (align < 32):
-                        print('artifact_patch_underaligned_tls: Patching underaligned TLS segment from ' + str(align) + ' to 32')
-                        f.seek(-4, 1)
-                        f.write(struct.pack('<I', 32))
-
-        elif hdr[4] == b'\x02':
-            # 64 bit code
-            f.seek(32)
-            offset = struct.unpack('<Q', f.read(8))[0]
-            f.seek(54)
-            phsize = struct.unpack('<H', f.read(2))[0]
-            phnum = struct.unpack('<H', f.read(2))[0]
-            for i in range(0, phnum):
-                f.seek(offset + i * phsize)
-                t = struct.unpack('<I', f.read(4))[0]
-                if t == 7:
-                    f.seek(48 - 4, 1)
-                    align = struct.unpack('<Q', f.read(8))[0]
-                    if (align < 64):
-                        print('artifact_patch_underaligned_tls: Patching underaligned TLS segment from ' + str(align) + ' to 64')
-                        f.seek(-8, 1)
-                        f.write(struct.pack('<H', 64))
-
-        else:
-            print('artifact_patch_underaligned_tls: Unknown ELF file class')
-
-
 #
 # BUILD SCRIPT MAIN.
 #
-if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
+if platform.system() not in PLATFORM_DIRS:
     fail('Unsupported python platform %s. Supported platforms: %s', platform.system(),
-         ', '.join(SUPPORTED_PYTHON_PLATFORMS))
+         ', '.join(PLATFORM_DIRS.keys()))
 
 module_dir = os.path.dirname(os.path.realpath(__file__))
 project_dir = os.path.realpath(os.path.join(module_dir, '..'))
@@ -396,7 +350,7 @@ for target in BUILD_TARGETS:
         'toolchains',
         'llvm',
         'prebuilt',
-        'windows-x86_64' if sys.platform == 'win32' else 'linux-x86_64',
+        PLATFORM_DIRS[platform.system()],
         'bin',
         target['clang'],
     )
@@ -417,13 +371,6 @@ for target in BUILD_TARGETS:
 
     # Determine path of source artifact
     source_artifact = os.path.join(syncthing_dir, 'syncthing')
-
-    # Patch artifact to work around golang bug.
-    # See issues:
-    # - https://github.com/Catfriend1/syncthing-android/issues/370
-    # - https://github.com/golang/go/issues/29674
-    if 'patch_underaligned_tls' in target:
-        artifact_patch_underaligned_tls(source_artifact)
 
     # Copy compiled binary to jniLibs folder
     target_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', target['jni_dir'])
