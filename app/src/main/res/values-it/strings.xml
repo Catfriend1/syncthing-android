@@ -166,6 +166,9 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="revert_local_changes">Ripristina modifiche locali</string>
 
+    <string name="delete_unexpected_items">Elimina elementi inattesi</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Annullerà tutte le modifiche fatte su questo dispositivo all\'interno della cartella. Vuoi procedere?</string>
 
@@ -187,6 +190,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Non ci sono dispositivi configurati.\nInizia aggiungendo un dispositivo ora.</string>
+
+    <string name="deviceEncryptionPasswordHint">Se non è affidabile, definisci una password di crittografia</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Sincronizzato</string>
@@ -318,6 +323,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Purtroppo non puoi usare la cartella selezionata. Scegli una cartella che si trova nella memoria interna o esterna.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Il passaggio delle cartelle già esistenti a \"Ricevi crittografato\" non è supportato.</string>
+
     <string name="ignore_patterns">Schemi Esclusione File</string>
     <!-- DeviceActivity -->
 
@@ -361,6 +368,11 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Setting title -->
     <string name="pause_device">Metti in pausa il dispositivo</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Dispositivo non fidato</string>
+
+    <string name="untrusted_device_explanation">Tutte le cartelle condivise con questo dispositivo devono essere protette da password, in modo che tutti i dati inviati saranno illeggibili senza la password definita.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Elimina Dispositivo</string>
@@ -1000,10 +1012,14 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="folder_type_sendreceive">Invia &amp; Ricevi</string>
     <string name="folder_type_sendonly">Invia Soltanto</string>
     <string name="folder_type_receiveonly">Ricevi solo</string>
+    <string name="folder_type_receive_encrypted">Ricevi crittografato</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La cartella invierà e riceverà cambiamenti con i dispositivi remoti.</string>
     <string name="folder_type_sendonly_description">I file sono protetti dalle modifiche fatte sugli altri dispositivi, ma i cambiamenti fatti su questo dispositivo verranno inviati al cluster.</string>
     <string name="folder_type_receiveonly_description">I file vengono sincronizzati dal cluster, ma nessuna modifica fatta in locale verrà inviata ad altri dispositivi.</string>
+    <string name="folder_type_receive_encrypted_description">Archivia e sincronizza solo i dati crittografati. Le cartelle su tutti dispositivi connessi devono essere configurate con la stessa password o essere di tipo \"Ricevi crittografato\".</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordine Prelievo File</string>
 

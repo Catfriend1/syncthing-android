@@ -3,8 +3,7 @@ title %~nx0
 cls
 cd /d "%~dps0"
 REM 
-REM SET FORCE_FLAG=-f
-SET FORCE_FLAG=
+SET FORCE_FLAG=-f
 REM 
 echo Pulling all reviewed translations ...
 tx pull -a --mode reviewed %FORCE_FLAG% -r "syncthing-android-1.stringsxml"

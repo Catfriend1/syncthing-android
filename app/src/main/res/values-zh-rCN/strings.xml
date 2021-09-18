@@ -165,6 +165,9 @@
 
     <string name="revert_local_changes">还原本地更改</string>
 
+    <string name="delete_unexpected_items">删除意外项目</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗?</string>
 
@@ -186,6 +189,8 @@
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">未配置设备。\n通过添加一台设备开始。</string>
+
+    <string name="deviceEncryptionPasswordHint">如果不受信任，请输入加密密码</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">最新</string>
@@ -317,6 +322,8 @@
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">当前路径不能使用，请重新选择</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">不支持将现有文件夹切换为“接收加密”。</string>
+
     <string name="ignore_patterns">忽略列表</string>
     <!-- DeviceActivity -->
 
@@ -360,6 +367,11 @@
 
     <!-- Setting title -->
     <string name="pause_device">暂停设备</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">不受信任的设备</string>
+
+    <string name="untrusted_device_explanation">与此设备共享的所有文件夹都必须有密码保护，这样的话，如果没有给定的密码，所有发送的数据都不可读。</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">删除设备</string>
@@ -992,10 +1004,14 @@
     <string name="folder_type_sendreceive">发送与接受</string>
     <string name="folder_type_sendonly">仅发送</string>
     <string name="folder_type_receiveonly">仅接收</string>
+    <string name="folder_type_receive_encrypted">接收加密的</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">该文件夹既向远程设备发送更改，又从远程设备接收更改。</string>
     <string name="folder_type_sendonly_description">文件受不受在其他设备上所做更改的影响，但在此设备上所做的更改将被发送到集群的其他部分。</string>
     <string name="folder_type_receiveonly_description">文件是从集群同步而来，但本地所做的任何更改都不会发送到其他设备。</string>
+    <string name="folder_type_receive_encrypted_description">只存储和同步加密数据。所有已连接设备上的文件夹需要设置相同的密码或是“接收加密”的文件夹。</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">文件拉取顺序</string>
 
