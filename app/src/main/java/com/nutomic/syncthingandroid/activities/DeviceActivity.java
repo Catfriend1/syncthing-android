@@ -37,6 +37,7 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.DiscoveredDevice;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.Options;
+import com.nutomic.syncthingandroid.model.SharedWithDevice;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -138,6 +139,13 @@ public class DeviceActivity extends SyncthingActivity {
         }
     };
 
+    private final TextWatcher mEncryptionPasswordTextWatcher = new TextWatcherAdapter() {
+        @Override
+        public void afterTextChanged(Editable s) {
+            mDeviceNeedsToUpdate = true;
+        }
+    };
+
     private final TextWatcher mIdTextWatcher = new TextWatcherAdapter() {
         @Override
         public void afterTextChanged(Editable s) {
@@ -175,11 +183,18 @@ public class DeviceActivity extends SyncthingActivity {
             int id = view.getId();
             if (id == R.id.folder_toggle) {
                 Folder folder = (Folder) view.getTag();
-                if (isChecked) {
-                    mDevice.addFolder(folder);
-                } else {
-                    mDevice.removeFolder(folder.id);
+
+                // Loop through folders the device is shared to and show/hide encryptionPassword UI.
+                for (int i = 0; i < mFoldersContainer.getChildCount(); i++) {
+                    LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(i);
+                    SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+                    if (folder == ((Folder) switchView.getTag())) {
+                        EditText encryptPassView = (EditText) folderView.getChildAt(1);
+                        encryptPassView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+                        break;
+                    }
                 }
+
                 mDeviceNeedsToUpdate = true;
             } else if (id == R.id.introducer) {
                 mDevice.introducer = isChecked;
@@ -531,8 +546,8 @@ public class DeviceActivity extends SyncthingActivity {
     private void addFolderViewAndSetListener(Folder folder, LayoutInflater inflater) {
         Boolean folderSharedWithDevice = false;
         if (mDevice.deviceID != null) {
-            List<Device> devices = folder.getDevices();
-            for (Device device : devices) {
+            List<SharedWithDevice> devices = folder.getSharedWithDevices();
+            for (SharedWithDevice device : devices) {
                 if (mDevice.deviceID.equals(device.deviceID)) {
                     folderSharedWithDevice = true;
                     break;
@@ -541,12 +556,22 @@ public class DeviceActivity extends SyncthingActivity {
         }
 
         inflater.inflate(R.layout.item_folder_form, mFoldersContainer);
-        SwitchCompat folderView = (SwitchCompat) mFoldersContainer.getChildAt(mFoldersContainer.getChildCount()-1);
-        folderView.setOnCheckedChangeListener(null);
-        folderView.setChecked(folderSharedWithDevice);
-        folderView.setText(folder.toString());
-        folderView.setTag(folder);
-        folderView.setOnCheckedChangeListener(mCheckedListener);
+        LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(mFoldersContainer.getChildCount()-1);
+        SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+        switchView.setOnCheckedChangeListener(null);
+        switchView.setChecked(folderSharedWithDevice);
+        switchView.setText(folder.toString());
+        switchView.setTag(folder);
+        switchView.setOnCheckedChangeListener(mCheckedListener);
+
+        EditText encryptPassView = (EditText) folderView.getChildAt(1);
+        encryptPassView.removeTextChangedListener(mEncryptionPasswordTextWatcher);
+        if (folderSharedWithDevice) {
+            encryptPassView.setText(folder.getDevice(mDevice.deviceID).encryptionPassword);
+        } else {
+            encryptPassView.setVisibility(View.GONE);
+        }
+        encryptPassView.addTextChangedListener(mEncryptionPasswordTextWatcher);
     }
 
     private void onSave() {
@@ -575,6 +600,28 @@ public class DeviceActivity extends SyncthingActivity {
             Toast.makeText(this, R.string.device_addresses_invalid, Toast.LENGTH_LONG)
                     .show();
             return;
+        }
+
+        // Loop through devices the folder is shared to and update encryptionPassword property.
+        for (int i = 0; i < mFoldersContainer.getChildCount(); i++) {
+            if (mFoldersContainer.getChildAt(i) instanceof TextView) {
+                continue;
+            }
+            LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(i);
+            SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+            Boolean folderSharedWithDevice = switchView.isChecked();
+            Folder folder = (Folder) switchView.getTag();
+            if (folder == null) {
+                continue;
+            }
+            EditText encryptPassView = (EditText) folderView.getChildAt(1);
+            if (folderSharedWithDevice) {
+                folder.addDevice(mDevice);
+                folder.getDevice(mDevice.deviceID).encryptionPassword = encryptPassView.getText().toString();
+            } else {
+                folder.removeDevice(mDevice.deviceID);
+            }
+            mConfig.updateFolder(getApi(), folder);
         }
 
         if (mIsCreateMode) {

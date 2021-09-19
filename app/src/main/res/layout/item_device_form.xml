@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.SwitchCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
-    android:id="@+id/device_toggle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/material_divider_inset"
-    android:layout_marginStart="@dimen/material_divider_inset"
-    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-    tools:ignore="RtlHardcoded,RtlSymmetry" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.SwitchCompat
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
+        android:id="@+id/device_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/material_divider_inset"
+        android:layout_marginStart="@dimen/material_divider_inset"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <EditText
+        style="@style/Widget.Syncthing.TextView.Label.Details.Field"
+        android:id="@+id/device_encryptionPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:hint="@string/deviceEncryptionPasswordHint"
+        android:inputType="textPassword|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+</LinearLayout>
