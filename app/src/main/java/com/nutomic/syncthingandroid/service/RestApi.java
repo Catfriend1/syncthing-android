@@ -919,9 +919,11 @@ public class RestApi {
         } else if (totalSyncCompletion > 100) {
             totalSyncCompletion = 100;
         }
+        /*
         LogV("getTotalSyncCompletion: totalSyncCompletion=" + Integer.toString(totalSyncCompletion) + "%, " +
                 "folders=" + Integer.toString(totalFolderCompletion) + "%, " +
                 "devices=" + Integer.toString(totalDeviceCompletion) + "%");
+        */
         return totalSyncCompletion;
     }
 
