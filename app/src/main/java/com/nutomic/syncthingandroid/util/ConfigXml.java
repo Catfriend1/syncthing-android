@@ -13,6 +13,7 @@ import com.nutomic.syncthingandroid.model.FolderIgnoreList;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.IgnoredFolder;
 import com.nutomic.syncthingandroid.model.Options;
+import com.nutomic.syncthingandroid.model.SharedWithDevice;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -479,13 +480,14 @@ public class ConfigXml {
             NodeList nodeDevices = r.getElementsByTagName("device");
             for (int j = 0; j < nodeDevices.getLength(); j++) {
                 Element elementDevice = (Element) nodeDevices.item(j);
-                Device device = new Device();
+                SharedWithDevice device = new SharedWithDevice();
                 device.deviceID = getAttributeOrDefault(elementDevice, "id", "");
 
                 // Exclude self.
                 if (!TextUtils.isEmpty(device.deviceID) && !device.deviceID.equals(localDeviceID)) {
                     device.introducedBy = getAttributeOrDefault(elementDevice, "introducedBy", device.introducedBy);
                     // LogV("getFolders: deviceID=" + device.deviceID + ", introducedBy=" + device.introducedBy);
+                    device.encryptionPassword = getContentOrDefault(elementDevice.getElementsByTagName("encryptionPassword").item(0), device.encryptionPassword);
                     folder.addDevice(device);
                 }
             }
@@ -595,14 +597,15 @@ public class ConfigXml {
                 }
 
                 // Pass 2: Add devices below that folder from the POJO model.
-                final List<Device> devices = folder.getDevices();
-                for (Device device : devices) {
+                final List<SharedWithDevice> devices = folder.getSharedWithDevices();
+                for (SharedWithDevice device : devices) {
                     Log.d(TAG, "updateFolder: nodeDevices: Adding deviceID=" + device.deviceID);
                     Node nodeDevice = mConfig.createElement("device");
                     r.appendChild(nodeDevice);
                     Element elementDevice = (Element) nodeDevice;
                     elementDevice.setAttribute("id", device.deviceID);
                     elementDevice.setAttribute("introducedBy", device.introducedBy);
+                    setConfigElement(elementDevice, "encryptionPassword", device.encryptionPassword);
                 }
 
                 // minDiskFree

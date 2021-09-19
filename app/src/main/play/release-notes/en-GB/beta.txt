@@ -2,14 +2,15 @@
 
 Enhanced
 --
--
+- UI for untrusted devices, encrypted folder sharing (#725)
+- Schedule a backup stop job when running on schedule (#837) @Helium314
 
 
 Fixes
 --
-- ScrollView for text on first welcome page (#836) @yuhuitech
+-
 
 
 Others
 --
-- Tweak wording of summary for some settings (#834) @dbr
+-

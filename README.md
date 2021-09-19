@@ -14,7 +14,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 # Major enhancements in this fork are:
 - Folder, device and overall sync progress can easily be read off the UI.
-- "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
+- "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved.
 - "Sync every hour" to save even more battery
 - Individual sync conditions can be applied per device and per folder (for expert users).
 - Recent changes UI, click to open files.
@@ -23,6 +23,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 - "Battery eater" problem is fixed.
 - Discover other Syncthing devices on the same network and easily add them.
 - Supports two-way synchronization on external sd cards since Android 11.
+- Supports encrypted folders on untrusted devices.
 
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).

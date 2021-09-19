@@ -37,26 +37,6 @@ public class Device {
     // private static final String TAG = "Device";
 
     /**
-     * Those properties are not present in Syncthing's config.
-     * They are required by:
-     * - device edit dialog         {@link DeviceActivity}
-     */
-    private transient List<Folder> folders = new ArrayList<>();
-
-    public void addFolder(final Folder folder) {
-        folders.add(deepCopy(folder, new TypeToken<Folder>(){}.getType()));
-    }
-
-    public void removeFolder(final String folderId) {
-        for (Iterator<Folder> it = folders.iterator(); it.hasNext();) {
-            String currentId = it.next().id;
-            if (currentId.equals(folderId)) {
-                it.remove();
-            }
-        }
-    }
-
-    /**
      * Relevant fields for Folder.List<Device> "shared-with-device" model,
      * handled by {@link ConfigRouter#updateFolder and ConfigXml#updateFolder}
      *  deviceID

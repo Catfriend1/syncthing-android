@@ -26,7 +26,7 @@ public class Folder {
     public String type = Constants.FOLDER_TYPE_SEND_RECEIVE;
     public boolean fsWatcherEnabled = true;
     public int fsWatcherDelayS = 10;
-    private List<Device> devices = new ArrayList<>();
+    private List<SharedWithDevice> devices = new ArrayList<>();
     /**
      * Folder rescan interval defaults to 3600s as it is the default in
      * syncthing when the file watcher is enabled and a new folder is created.
@@ -93,13 +93,24 @@ public class Folder {
         // Avoid {@link ConfigXml#updateDevice} creating two list entries with the same device ID.
         removeDevice(device.deviceID);
 
-        Device d = new Device();
+        SharedWithDevice d = new SharedWithDevice();
         d.deviceID = device.deviceID;
         d.introducedBy = device.introducedBy;
         devices.add(d);
     }
 
-    public List<Device> getDevices() {
+    public void addDevice(final SharedWithDevice sharedWithDevice) {
+        // Avoid {@link ConfigXml#updateDevice} creating two list entries with the same device ID.
+        removeDevice(sharedWithDevice.deviceID);
+
+        SharedWithDevice d = new SharedWithDevice();
+        d.deviceID = sharedWithDevice.deviceID;
+        d.encryptionPassword = sharedWithDevice.encryptionPassword;
+        d.introducedBy = sharedWithDevice.introducedBy;
+        devices.add(d);
+    }
+
+    public List<SharedWithDevice> getSharedWithDevices() {
         return devices;
     }
 
@@ -116,8 +127,8 @@ public class Folder {
         return devices.size();
     }
 
-    public Device getDevice(String deviceId) {
-        for (Device d : devices) {
+    public SharedWithDevice getDevice(String deviceId) {
+        for (SharedWithDevice d : devices) {
             if (d.deviceID.equals(deviceId)) {
                 return d;
             }
@@ -126,7 +137,7 @@ public class Folder {
     }
 
     public void removeDevice(String deviceId) {
-        for (Iterator<Device> it = devices.iterator(); it.hasNext();) {
+        for (Iterator<SharedWithDevice> it = devices.iterator(); it.hasNext();) {
             String currentId = it.next().deviceID;
             if (currentId.equals(deviceId)) {
                 it.remove();
