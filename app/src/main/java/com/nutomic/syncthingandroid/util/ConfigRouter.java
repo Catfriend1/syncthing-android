@@ -11,6 +11,7 @@ import com.nutomic.syncthingandroid.model.Options;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.util.ConfigXml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,6 +45,20 @@ public class ConfigRouter {
 
         // Syncthing is running and REST API is available.
         return restApi.getFolders();
+    }
+
+    public List<Folder> getSharedFolders(String deviceID) {
+        List<Folder> folders = getFolders(null);
+        List<Folder> sharedFolders = new ArrayList<>();
+
+        for (Folder folder : folders) {
+            if (folder.getDevice(deviceID) != null) {
+                // "device" is sharing "folder".
+                sharedFolders.add(folder);
+            }
+        }
+
+        return sharedFolders;
     }
 
     public void addFolder(RestApi restApi, Folder folder) {
@@ -140,20 +155,9 @@ public class ConfigRouter {
             // Syncthing is not running or REST API is not (yet) available.
             configXml.loadConfig();
             devices = configXml.getDevices(includeLocal);
-            folders = configXml.getFolders();
         } else {
             // Syncthing is running and REST API is available.
             devices = restApi.getDevices(includeLocal);
-            folders = restApi.getFolders();
-        }
-
-        for (Device device : devices) {
-            for (Folder folder : folders) {
-                if (folder.getDevice(device.deviceID) != null) {
-                    // "device" is sharing "folder".
-                    device.addFolder(folder);
-                }
-            }
         }
 
         return devices;

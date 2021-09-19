@@ -26,7 +26,10 @@ import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
+import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.Util;
+
+import java.util.List;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -46,6 +49,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
     private final Context mContext;
 
+    private ConfigRouter mConfigRouter;
     private RestApi mRestApi;
 
     public DevicesAdapter(Context context) {
@@ -53,7 +57,8 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         mContext = context;
     }
 
-    public void setRestApi(RestApi restApi) {
+    public void setRestApi(ConfigRouter configRouter, RestApi restApi) {
+        mConfigRouter = configRouter;
         mRestApi = restApi;
     }
 
@@ -85,13 +90,14 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                         mContext.getString(R.string.device_last_seen_never) : Util.formatDateTime(deviceLastSeen))
         );
 
-        if (device.getFolderCount() == 0) {
+        List<Folder> sharedFolders = mConfigRouter.getSharedFolders(device.deviceID);
+        if (sharedFolders.size() == 0) {
             binding.sharedFoldersTitle.setText(R.string.device_state_unused);
             binding.sharedFolders.setVisibility(GONE);
         } else {
             binding.sharedFoldersTitle.setText(R.string.shared_folders_title_colon);
             binding.sharedFolders.setVisibility(VISIBLE);
-            binding.sharedFolders.setText("\u2022 " + TextUtils.join("\n\u2022 ", device.getFolders()));
+            binding.sharedFolders.setText("\u2022 " + TextUtils.join("\n\u2022 ", sharedFolders));
         }
 
         if (device.paused) {
