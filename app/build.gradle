@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.github.ben-manes.versions'
-    id 'com.github.triplet.play' version '2.8.0'
+    id 'com.github.triplet.play' version '3.6.0'
 }
 
 dependencies {
@@ -79,15 +79,6 @@ android {
         }
     }
 
-    playConfigs {
-        release {
-            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
-        }
-        gplay {
-            serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -112,9 +103,9 @@ android {
 }
 
 play {
-    serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE") ?: 'keys.json')
+    serviceAccountCredentials = file(System.getenv("SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"))
     track = 'beta'
-    resolutionStrategy = 'ignore'
+    resolutionStrategy = com.github.triplet.gradle.androidpublisher.ResolutionStrategy.IGNORE
     defaultToAppBundles = true
 }
 
