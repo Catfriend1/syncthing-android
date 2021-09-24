@@ -20,7 +20,7 @@ REM SET PATH=%PATH%;"%GIT_INSTALL_DIR%\bin"
 REM 
 echo [INFO] *** postbuild_copy_apk BEGIN ***
 REM 
-IF NOT DEFINED BUILD_FLAVOUR_GPLAY echo [ERROR] Env var BUILD_FLAVOUR_GPLAY not defined. & SET "BUILD_FLAVOUR_GPLAY=gplay"
+IF NOT DEFINED BUILD_FLAVOUR_GPLAY echo [ERROR] Env var BUILD_FLAVOUR_GPLAY not defined. & SET "BUILD_FLAVOUR_GPLAY=release"
 REM 
 REM Get "applicationId"
 SET APPLICATION_ID=
@@ -70,9 +70,6 @@ REM Copy APK to be ready for upload to the GitHub release page.
 SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_github_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME%
 REM 
-SET APK_RELEASE_NEW_FILENAME=%APPLICATION_ID%_gplay_full_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
-IF NOT "%SKIP_RELEASE_BUILD%" == "1" call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\release\app-release.apk %SCRIPT_PATH%app\build\outputs\apk\release\%APK_RELEASE_NEW_FILENAME%
-REM 
 SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_light_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 IF NOT "%SKIP_RELEASE_BUILD%" == "1" call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME%
 REM 
@@ -80,7 +77,6 @@ REM Copy both APK to temporary storage location if the storage is available.
 IF EXIST %TEMP_OUTPUT_FOLDER%\ (
 	echo [INFO] Copying APK to [%TEMP_OUTPUT_FOLDER%] ...
 	copy /y %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
-	IF NOT "%SKIP_RELEASE_BUILD%" == "1" copy /y %SCRIPT_PATH%app\build\outputs\apk\release\%APK_RELEASE_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
 	IF NOT "%SKIP_RELEASE_BUILD%" == "1" copy /y %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME% %TEMP_OUTPUT_FOLDER%\ 2> NUL:
 )
 REM 
@@ -141,7 +137,6 @@ REM
 REM Package built APKs into ZIP.
 echo [INFO] Adding built APKs to source code ZIP ...
 %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GITHUB_NEW_FILENAME%
-IF NOT "%SKIP_RELEASE_BUILD%" == "1" %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_RELEASE_NEW_FILENAME%
 IF NOT "%SKIP_RELEASE_BUILD%" == "1" %TMP_DSC_SEVENZIP_EXE% -y -bso0 a %TMP_DSC_ZIPFILE_FULLFN% %TEMP_OUTPUT_FOLDER%\%APK_GPLAY_NEW_FILENAME%
 REM 
 goto :eof

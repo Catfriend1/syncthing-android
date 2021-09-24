@@ -11,11 +11,11 @@ REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
-REM SET SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE=%userprofile%\.android\play_key.json"
+REM SET ANDROID_PUBLISHER_CREDENTIALS=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
 SET SYNCTHING_RELEASE_KEY_ALIAS=Syncthing-Fork
-SET BUILD_FLAVOUR_GPLAY=gplay
-title %SYNCTHING_RELEASE_KEY_ALIAS% - Build Debug and Release APK
+SET BUILD_FLAVOUR_GPLAY=release
+title %SYNCTHING_RELEASE_KEY_ALIAS% - Build APK
 REM
 SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
@@ -37,7 +37,8 @@ REM
 echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" release.
 REM
 echo [INFO] Checking release prerequisites ...
-IF NOT EXIST "%SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE%" echo [ERROR] SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE env var not set or file does not exist. & goto :eos
+IF NOT DEFINED ANDROID_PUBLISHER_CREDENTIALS echo [ERROR] ANDROID_PUBLISHER_CREDENTIALS env var not set. & goto :eos
+IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [ERROR] ANDROID_PUBLISHER_CREDENTIALS file not found. Please retry. & goto :checkPrerequisites
 REM
 REM User has to enter the signing password if it is not filled in here.
 SET SIGNING_PASSWORD=
@@ -63,7 +64,6 @@ REM
 REM Check if we should skip the release build and just make a debug build.
 IF "%SKIP_RELEASE_BUILD%" == "1" goto :absPostBuildScript
 REM
-call :buildApk release
 call :buildApk %BUILD_FLAVOUR_GPLAY%
 REM
 IF "%CLEANUP_BEFORE_BUILD%" == "1" del /f "%SCRIPT_PATH%app\build\outputs\bundle\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.aab" 2> NUL:
