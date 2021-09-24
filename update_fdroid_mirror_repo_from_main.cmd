@@ -10,6 +10,7 @@ SET APP_BUILD_GRADLE=%~dps0app\build.gradle
 REM
 call :runGit fetch --all
 REM
+call :runGit remote remove upstream
 call :runGit remote add upstream git://github.com/Catfriend1/syncthing-android.git
 call :runGit pull upstream main
 REM
