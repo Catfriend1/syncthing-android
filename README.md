@@ -68,10 +68,6 @@ Make sure, git (or git.exe) is installed and available on the PATH environment v
 
 ## Build instructions
 
-```
-git clone https://github.com/Catfriend1/syncthing-android.git --recursive
-```
-
 Edit "App_build_and_release.cmd" and set "SKIP_RELEASE_BUILD=1" if you don't need to upload signed releases to Google Play. This will simplify things for you.
 
 ### Build on Linux
@@ -80,6 +76,10 @@ A Linux VM, for example running Debian, is recommended to build this.
 
 Build SyncthingNative and the Syncthing-Android wrapper using the following commands:
 ```
+apt-get -y install git openjdk-11-jdk
+mkdir -p /root/work
+git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+cd /root/work/syncthing-android
 ./gradlew buildNative
 ./gradlew lint assembleDebug
 ```
@@ -95,6 +95,7 @@ To clean up all files generated during build, use the following commands:
 ### Build on Windows
 
 ```
+git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 cd /d "YOUR_CLONED_GIT_ROOT"
 SyncthingNative_update_and_build
 App_build_and_release

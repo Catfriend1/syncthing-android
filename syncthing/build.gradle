@@ -1,7 +1,7 @@
 task buildNative(type: Exec) {
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
-    executable = 'python'
+    executable = 'python3'
     args = ['-u', './build-syncthing.py']
 }
 
