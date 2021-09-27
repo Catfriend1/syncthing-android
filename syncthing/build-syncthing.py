@@ -212,6 +212,9 @@ def install_go():
     os.environ["PATH"] += os.pathsep + go_bin_path
 
 
+def write_file(fullfn, text):
+    with open(fullfn, 'w') as hFile:
+        hFile.write(text + '\n')
 
 
 def install_ndk():
@@ -265,6 +268,18 @@ def install_ndk():
     if platform.system() == 'Linux':
         print("Setting permissions on NDK executables ...")
         change_permissions_recursive(ndk_home_path, 0o755);
+        #
+        # Fix NDK r23 bug with incomplete path and arguments when calling "clang".
+        ndk_bin_clang = os.path.join(
+            ndk_home_path,
+            'toolchains',
+            'llvm',
+            'prebuilt',
+            PLATFORM_DIRS[platform.system()],
+            'bin',
+            'clang'
+        )
+        write_file (ndk_bin_clang, '`dirname $0`/clang-12 "$@"')
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
