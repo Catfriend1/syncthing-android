@@ -1590,6 +1590,57 @@ Builds:
     preassemble:
       - buildNative
 
+  - versionName: 1.18.1.0
+    versionCode: 1180100
+    commit: 18489083dcda57477917320e94d4861cb1145bb9
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r21e
+    preassemble:
+      - buildNative
+
+  - versionName: 1.18.2.0
+    versionCode: 1180200
+    commit: 7510bd22fc2dfc8c3065a4ff84b113e888bb658d
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    ndk: r21e
+    preassemble:
+      - buildNative
+
+  - versionName: 1.18.2.1
+    versionCode: 1180201
+    commit: f13ae5bc835ed4e84b951eb9aa00ebc9690eb0ec
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    preassemble:
+      - buildNative
+
 MaintainerNotes: |-
     The submodule in syncthing/src/github.com/syncthing/syncthing must be
     pristine, as the version/release information is taken from git.
@@ -1600,5 +1651,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.18.0.0
-CurrentVersionCode: 1180000
+CurrentVersion: 1.18.2.1
+CurrentVersionCode: 1180201
