@@ -197,7 +197,7 @@
         </receiver>
         <receiver
             android:name=".receiver.AppConfigReceiver"
-            android:exported="false"
+            android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
