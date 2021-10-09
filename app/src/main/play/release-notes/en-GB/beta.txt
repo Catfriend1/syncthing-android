@@ -1,14 +1,13 @@
-* Syncthing v1.18.2
+* Syncthing v1.18.3
 
 Enhanced
 --
-- UI for untrusted devices, encrypted folder sharing (#725)
-- Schedule a backup stop job when running on schedule (#837) @Helium314
+-
 
 
 Fixes
 --
--
+- Fix broadcast control via START/STOP commands (#850)
 
 
 Others
