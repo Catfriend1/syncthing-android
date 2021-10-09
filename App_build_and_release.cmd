@@ -6,10 +6,11 @@ cls
 REM
 REM Script Consts.
 SET CLEANUP_BEFORE_BUILD=1
-SET SKIP_RELEASE_BUILD=1
 REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
+SET SKIP_RELEASE_BUILD=0
+IF NOT DEFINED ANDROID_PUBLISHER_CREDENTIALS echo [WARN] ANDROID_PUBLISHER_CREDENTIALS env var not set. We will skip the signed release build. & SET SKIP_RELEASE_BUILD=1
 REM
 REM SET ANDROID_PUBLISHER_CREDENTIALS=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
@@ -37,7 +38,6 @@ REM
 echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" release.
 REM
 echo [INFO] Checking release prerequisites ...
-IF NOT DEFINED ANDROID_PUBLISHER_CREDENTIALS echo [ERROR] ANDROID_PUBLISHER_CREDENTIALS env var not set. & goto :eos
 IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [ERROR] ANDROID_PUBLISHER_CREDENTIALS file not found. Please retry. & goto :checkPrerequisites
 REM
 REM User has to enter the signing password if it is not filled in here.

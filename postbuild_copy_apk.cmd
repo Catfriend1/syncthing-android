@@ -70,7 +70,7 @@ REM Copy APK to be ready for upload to the GitHub release page.
 SET APK_GITHUB_NEW_FILENAME=%APPLICATION_ID%_github_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\debug\app-debug.apk %SCRIPT_PATH%app\build\outputs\apk\debug\%APK_GITHUB_NEW_FILENAME%
 REM 
-SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_light_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
+SET APK_GPLAY_NEW_FILENAME=%APPLICATION_ID%_gplay_v%VERSION_NAME%_%COMMIT_SHORT_HASH%.apk
 IF NOT "%SKIP_RELEASE_BUILD%" == "1" call :copyIfExist %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\app-%BUILD_FLAVOUR_GPLAY%.apk %SCRIPT_PATH%app\build\outputs\apk\%BUILD_FLAVOUR_GPLAY%\%APK_GPLAY_NEW_FILENAME%
 REM 
 REM Copy both APK to temporary storage location if the storage is available.
