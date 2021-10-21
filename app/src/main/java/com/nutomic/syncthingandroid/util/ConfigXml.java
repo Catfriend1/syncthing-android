@@ -509,7 +509,7 @@ public class ConfigXml {
             <versioning></versioning>
             <versioning type="trashcan">
                 <param key="cleanoutDays" val="90"></param>
-                <cleanupIntervalS>0</cleanupIntervalS>
+                <cleanupIntervalS>3600</cleanupIntervalS>
                 <fsPath></fsPath>
                 <fsType>basic</fsType>
             </versioning>
@@ -518,7 +518,7 @@ public class ConfigXml {
             Element elementVersioning = (Element) r.getElementsByTagName("versioning").item(0);
             if (elementVersioning != null) {
                 folder.versioning.type = getAttributeOrDefault(elementVersioning, "type", "");
-                folder.versioning.cleanupIntervalS = getContentOrDefault(elementVersioning.getElementsByTagName("cleanupIntervalS").item(0), 0);
+                folder.versioning.cleanupIntervalS = getContentOrDefault(elementVersioning.getElementsByTagName("cleanupIntervalS").item(0), 3600);
                 folder.versioning.fsPath = getContentOrDefault(elementVersioning.getElementsByTagName("fsPath").item(0), "");
                 folder.versioning.fsType = getContentOrDefault(elementVersioning.getElementsByTagName("fsType").item(0), "basic");
                 NodeList nodeVersioningParam = elementVersioning.getElementsByTagName("param");
@@ -1116,7 +1116,7 @@ public class ConfigXml {
         folder.versioning = new Folder.Versioning();
         folder.versioning.type = "trashcan";
         folder.versioning.params.put("cleanoutDays", Integer.toString(14));
-        folder.versioning.cleanupIntervalS = 0;
+        folder.versioning.cleanupIntervalS = 3600;
         folder.versioning.fsPath = "";
         folder.versioning.fsType = "basic";
 
