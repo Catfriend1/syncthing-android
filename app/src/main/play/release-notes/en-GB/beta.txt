@@ -1,4 +1,4 @@
-* Syncthing v1.18.3
+* Syncthing v1.18.4
 
 Enhanced
 --
@@ -7,6 +7,7 @@ Enhanced
 
 Fixes
 --
+- Correct default of "cleanupIntervalS" folder/versioning element (#856)
 - Fix broadcast control via START/STOP commands (#850)
 
 
