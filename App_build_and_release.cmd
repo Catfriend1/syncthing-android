@@ -55,6 +55,8 @@ IF NOT DEFINED SIGNING_PASSWORD echo [ERROR] Signing password is required. Pleas
 REM
 :absLint
 REM
+copy /y "%SCRIPT_PATH%app\src\main\play\release-notes\en-GB\beta.txt" "%SCRIPT_PATH%app\src\main\play\release-notes\en-GB\default.txt" 
+REM
 echo [INFO] Running lint before building ...
 IF "%SKIP_RELEASE_BUILD%" == "1" call gradlew --quiet lintDebug & SET RESULT=%ERRORLEVEL%
 IF NOT "%SKIP_RELEASE_BUILD%" == "1" call gradlew --quiet lint & SET RESULT=%ERRORLEVEL%

@@ -1,0 +1,15 @@
+* Syncthing v1.18.5
+
+Enhanced
+--
+-
+
+
+Fixes
+--
+-
+
+
+Others
+--
+-
