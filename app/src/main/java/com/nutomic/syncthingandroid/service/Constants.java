@@ -244,7 +244,7 @@ public class Constants {
     }
 
     static File getLogFile(Context context) {
-        return new File(FileUtils.getExternalFilesDir(context, null), "syncthing.log");
+        return new File(context.getFilesDir(), "syncthing.log");
     }
 
     /**
