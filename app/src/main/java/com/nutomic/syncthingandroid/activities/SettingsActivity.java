@@ -25,6 +25,7 @@ import androidx.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -1069,6 +1070,10 @@ public class SettingsActivity extends SyncthingActivity {
             }
             Toast.makeText(syncthingActivity,
                 getString(R.string.config_imported_successful), Toast.LENGTH_LONG).show();
+
+            // Apply theme from restored config.
+            Integer prefAppTheme = Integer.parseInt(mPreferences.getString(Constants.PREF_APP_THEME, Constants.APP_THEME_FOLLOW_SYSTEM));
+            AppCompatDelegate.setDefaultNightMode(prefAppTheme);
 
             // We don't have to send the config via REST on leaving activity.
             mPendingConfig = false;
