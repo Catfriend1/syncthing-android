@@ -1,7 +1,7 @@
 package com.nutomic.syncthingandroid.model;
 
 import android.text.TextUtils;
-// import android.util.Log;
+import android.util.Log;
 
 import com.google.common.io.BaseEncoding;
 import com.google.common.reflect.TypeToken;
@@ -34,7 +34,7 @@ public class Device {
     // See https://github.com/syncthing/syncthing/pull/7055
     public boolean untrusted = false;
 
-    // private static final String TAG = "Device";
+    private static final String TAG = "Device";
 
     /**
      * Relevant fields for Folder.List<Device> "shared-with-device" model,
@@ -132,85 +132,130 @@ public class Device {
      * It catches the most common mistakes.
      */
     public Boolean checkDeviceAddresses() {
+        if (!testCheckDeviceAddress()) {
+            Log.e(TAG, "checkDeviceAddresses: testCheckDeviceAddress unit test failed");
+            return false;
+        }
         if (this.addresses == null) {
             return false;
         }
         for (String address : this.addresses) {
             // Log.v(TAG, "address=(" + address + ")");
-            if (address.equals("dynamic")) {
-                continue;
-            }
-
-            /**
-             * RegEx documentation:
-             *
-             * - Matching
-             *      tcp://127.0.0.1:4000
-             *      tcp4://127.0.0.1:4000
-             *      tcp6://127.0.0.1:4000
-             *      tcp4://127.0.0.1
-             *      tcp://[2001:db8::23:42]
-             *      tcp://[2001:db8::23:42]:12345
-             *      tcp://myserver
-             *      tcp://myserver:12345
-             *
-             * - Not-Matching
-             *      tcp8://127.0.0.1
-             *      udp4://127.0.0.1
-             */
-            if (!address.matches("^tcp([46])?://.*$")) {
-                // Log.v(TAG, "Invalid protocol.");
-                return false;
-            }
-
-            // Separate protocol from address and port.
-            String[] addressSplit = address.split("://");
-            if (addressSplit.length == 1) {
-                // There's only the protocol given, nothing more.
-                // Log.v(TAG, "There's only the protocol given, nothing more.");
-                return false;
-            }
-            else if (addressSplit.length == 2) {
-                // Check if the address ends with ":" or "]:"
-                if (addressSplit[addressSplit.length-1].endsWith(":") ||
-                        addressSplit[addressSplit.length-1].endsWith("]:")) {
-                    // The address ends with ":". Will match "tcp://myserver:"
-                    // Log.v(TAG, "address ends with \":\" or \"]:\". Will match \"tcp://myserver:\".");
-                    return false;
-                }
-
-                // Check if there's a "hostname:port" number given in the part after "://".
-                String[] hostnamePortSplit = addressSplit[addressSplit.length-1].split(":");
-                if (hostnamePortSplit.length > 1) {
-                    // Check if the hostname or IP address given before the port is empty.
-                    if (TextUtils.isEmpty(hostnamePortSplit[0])) {
-                        // Empty hostname or IP address before the port. Will match "tcp://:4000"
-                        // Log.v(TAG, "Empty hostname or IP address before the port.");
-                        return false;
-                    }
-
-                    // Check if there's a port number given in the last part.
-                    String potentialPort = hostnamePortSplit[hostnamePortSplit.length-1];
-                    if (!potentialPort.endsWith("]")) {
-                        // It's not the end of an IPv6 address and likely a port number.
-                        // Log.v(TAG, "... potentialPort=(" + potentialPort + ")");
-                        Integer port = 0;
-                        try {
-                            port = Integer.parseInt(potentialPort);
-                        } catch (Exception e) {
-                        }
-                        if (port < 1 || port > 65535) {
-                            // Invalid port number.
-                            // Log.v(TAG, "Invalid port number.");
-                            return false;
-                        }
-                    }
-                }
-            } else {
-                // Protocol is given more than one time. Will match "tcp://tcp://"
+            if (!checkDeviceAddress(address)) {
                 return false;
             }
         }
+        return true;
+    }
+
+    private Boolean checkDeviceAddress(String address) {
+        if (address.equals("dynamic")) {
+            return true;
+        }
+
+        if (!address.matches("^tcp([46])?://.*$") &&
+                !address.matches("^relay://.*$")) {
+            // Log.v(TAG, "Invalid protocol.");
+            return false;
+        }
+
+        // Separate protocol from address and port.
+        String[] addressSplit = address.split("://");
+        if (addressSplit.length == 1) {
+            // There's only the protocol given, nothing more.
+            // Log.v(TAG, "There's only the protocol given, nothing more.");
+            return false;
+        }
+        else if (addressSplit.length == 2) {
+            // Log.v(TAG, "strProtocol=" + addressSplit[0]);
+            if (addressSplit[0].matches("^tcp.*$")) {
+                return checkDeviceAddressTcp(addressSplit[1]);
+            } else if (addressSplit[0].matches("^relay.*$")) {
+                return checkDeviceAddressRelay(addressSplit[1]);
+            }
+        }
+
+        // Protocol is given more than one time. Will match "tcp://tcp://"
+        return false;
+    }
+
+    private Boolean checkDeviceAddressTcp(String address) {
+        // Check if the address ends with ":" or "]:"
+        if (address.endsWith(":") ||
+                address.endsWith("]:")) {
+            // The address ends with ":". Will match "tcp://myserver:"
+            // Log.v(TAG, "address ends with \":\" or \"]:\". Will match \"tcp://myserver:\".");
+            return false;
+        }
+
+        // Check if there's a "hostname:port" number given in the part after "://".
+        String[] hostnamePortSplit = address.split(":");
+        if (hostnamePortSplit.length > 1) {
+            // Check if the hostname or IP address given before the port is empty.
+            if (TextUtils.isEmpty(hostnamePortSplit[0])) {
+                // Empty hostname or IP address before the port. Will match "tcp://:4000"
+                // Log.v(TAG, "Empty hostname or IP address before the port.");
+                return false;
+            }
+
+            // Check if there's a port number given in the last part.
+            String potentialPort = hostnamePortSplit[hostnamePortSplit.length-1].split("/")[0];
+            if (!potentialPort.endsWith("]")) {
+                // It's not the end of an IPv6 address and likely a port number.
+                // Log.v(TAG, "... potentialPort=(" + potentialPort + ")");
+                Integer port = 0;
+                try {
+                    port = Integer.parseInt(potentialPort);
+                } catch (Exception e) {
+                }
+                if (port < 1 || port > 65535) {
+                    // Invalid port number.
+                    // Log.v(TAG, "Invalid port number.");
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private Boolean checkDeviceAddressRelay(String address) {
+        // Check if the address ends with ":" or "]:"
+        if (address.endsWith(":") ||
+                address.endsWith("]:")) {
+            // The address ends with ":". Will match "tcp://myserver:"
+            // Log.v(TAG, "address ends with \":\" or \"]:\". Will match \"relay://myserver:\".");
+            return false;
+        }
+
+        // Check if there's a "hostname:port" number given in the part after "://".
+        String[] hostnamePortSplit = address.split(":");
+        if (hostnamePortSplit.length > 1) {
+            // Check if the hostname or IP address given before the port is empty.
+            if (TextUtils.isEmpty(hostnamePortSplit[0])) {
+                // Empty hostname or IP address before the port. Will match "tcp://:4000"
+                // Log.v(TAG, "Empty hostname or IP address before the port.");
+                return false;
+            }
+
+            // Check if there's a port number given in the last part.
+            String potentialPort = hostnamePortSplit[1].split("/")[0];
+            if (!potentialPort.endsWith("]")) {
+                // It's not the end of an IPv6 address and likely a port number.
+                // Log.v(TAG, "... potentialPort=(" + potentialPort + ")");
+                Integer port = 0;
+                try {
+                    port = Integer.parseInt(potentialPort);
+                } catch (Exception e) {
+                }
+                if (port < 1 || port > 65535) {
+                    // Invalid port number.
+                    // Log.v(TAG, "Invalid port number.");
+                    return false;
+                }
+            }
+        }
+
         return true;
     }
 
@@ -223,4 +268,24 @@ public class Device {
         Gson gson = new Gson();
         return gson.fromJson(gson.toJson(object, type), type);
     }
+
+    private Boolean testCheckDeviceAddress() {
+        Boolean failSuccess = true;
+        failSuccess = failSuccess && checkDeviceAddress("tcp://127.0.0.1:4000");
+        failSuccess = failSuccess && checkDeviceAddress("tcp4://127.0.0.1:4000");
+        failSuccess = failSuccess && checkDeviceAddress("tcp6://127.0.0.1:4000");
+        failSuccess = failSuccess && checkDeviceAddress("tcp4://127.0.0.1");
+        failSuccess = failSuccess && checkDeviceAddress("tcp://[2001:db8::23:42]");
+        failSuccess = failSuccess && checkDeviceAddress("tcp://[2001:db8::23:42]:12345");
+        failSuccess = failSuccess && checkDeviceAddress("tcp://myserver");
+        failSuccess = failSuccess && checkDeviceAddress("tcp://myserver:12345");
+        failSuccess = failSuccess && checkDeviceAddress("relay://stlocal:22067/?id=ID-REDACTED&pingInterval=30s&networkTimeout=2m0s&sessionLimitBps=0&globalLimitBps=0&statusAddr=:22070&providedBy=REDACTED");
+        failSuccess = failSuccess && checkDeviceAddress("relay://stlocal:22067");
+        failSuccess = failSuccess && !checkDeviceAddress("tcp://myserver:");
+        failSuccess = failSuccess && !checkDeviceAddress("tcp8://127.0.0.1");
+        failSuccess = failSuccess && !checkDeviceAddress("udp4://127.0.0.1");
+        return failSuccess;
+    }
+
+
 }
