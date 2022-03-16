@@ -7,9 +7,7 @@ Enhanced
 
 Fixes
 --
--
-
-
-Others
---
--
+- Logs no longer written to external sdcard (#817)
+- Theme applied after config import (#852)
+- Accept custom device relay address (#882)
+- Improve charging status detection (#875)
