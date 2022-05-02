@@ -25,6 +25,9 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 - Supports two-way synchronization on external sd cards since Android 11.
 - Supports encrypted folders on untrusted devices.
 
+# About Play Store releases:
+- Syncthing-Fork releases on GPlay may - from time to time - not provide the full feature set of this app or just be outdated. This is caused by the store policies and has happened some times in the past. If you still like to download from there, here's the link: https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid
+
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
 
