@@ -86,6 +86,10 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="photo_shoot_intro_permission_desc">Cámara Syncthing requiere su consentimiento para tomar fotos y almacenarlas en su dispositivo. Esta función es opcional. Para utilizarla, conceda los permisos y pulse \"Continuar\". Configuraremos una carpeta de Cámara Syncthing para usted, que podrá compartir con otros dispositivos Syncthing más adelante.</string>
 
+    <string name="photo_shoot_take_picture_success">Foto guardada exitosamente a la carpeta Cámara Syncthing</string>
+
+    <string name="photo_shoot_take_picture_failure">No se ha podido tomar una foto o la ha cancelado.</string>
+
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Cámara Syncthing</string>
 
@@ -162,6 +166,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="revert_local_changes">Revertir cambios locales</string>
 
+    <string name="delete_unexpected_items">Eliminar elementos inesperados</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Esto deshará todos los cambios realizados en este dispositivo dentro de esa carpeta. ¿Proceder?</string>
 
@@ -171,6 +178,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">No se ha encontrado un gestor de archivos compatible</string>
+    <string name="suggest_file_manager_app_dialog_text">Le recomendamos instalar la aplicación de gestión de archivos de código abierto \"Material Files\". ¿Desea abrir su página de la tienda de aplicaciones?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -181,6 +190,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Ningún dispositivo configurado.\nInicie añadiendo uno ahora.</string>
+
+    <string name="deviceEncryptionPasswordHint">Si no es de confianza, introduzca la contraseña de cifrado</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Actualizado</string>
@@ -218,7 +229,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="button_follow_run_conditions">SEGUIR CONDICIONES DE EJECUCIÓN</string>
     <string name="button_force_start">INICIAR FORZOSAMENTE\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
-    <string name="button_force_stop">INICIAR FORZOSAMENTE\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
+    <string name="button_force_stop">DETENER FORZOSAMENTE\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
 
     <string name="syncthing_starting">Syncthing se está iniciando.</string>
     <string name="syncthing_running">Syncthing se está ejecutando.</string>
@@ -258,6 +269,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Setting title -->
     <string name="directory">Directorio</string>
+    <string name="advanced_directory_selection">Selección Avanzada de Directorios</string>
+
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Vigila los cambios</string>
     <string name="folder_fileWatcherDescription">Le pide al sistema operativo notificar los cambios en los archivos. Si se desactiva, regresa a los escaneos periódicos por hora.</string>
@@ -310,6 +323,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Lo lamentamos. La carpeta seleccionada no se puede utilizar. Por favor, seleccione una carpeta ubicada en el almacenamiento interno o externo.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Cambiar carpetas existentes a \"Recibir Encriptado\" no está soportado.</string>
+
     <string name="ignore_patterns">Ignorar Patrones</string>
     <!-- DeviceActivity -->
 
@@ -353,6 +368,11 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Setting title -->
     <string name="pause_device">Pausar Dispositivo</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Dispositivo No Confiable</string>
+
+    <string name="untrusted_device_explanation">Todas las carpetas compartidas con este dispositivo deben ser protegidas por una contraseña, de manera que todos los datos enviados sean ilegibles sin la contraseña dada.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Eliminar dispositivo</string>
@@ -426,6 +446,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="recent_changes_title">Cambios recientes</string>
     <string name="modified_by_device">Dispositivo: %1$s</string>
     <string name="modification_time">Tiempo: %1$s</string>
+
+    <string name="this_device">Este dispositivo</string>
+
 
     <!-- WebGuiActivity -->
 
@@ -521,13 +544,19 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="run_in_flight_mode_summary">Habilitar esta opción ocasionará que Syncthing se ejecute aún cuando estás fuera de línea. Actívela si su dispositivo tiene problemas para detectar conexiones Wifi manuales en modo avión.</string>
 
     <string name="run_on_time_schedule_title">Ejecutar según el horario</string>
+    <string name="run_on_time_schedule_summary">Al activar esta opción se intentará sincronizar durante 5 minutos si se cumplen las condiciones de ejecución y la última sincronización fue hace más de 1 hora. Esto puede ahorrar mucha batería, pero requiere que los socios de sincronización estén en línea. Tenga en cuenta: Esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Iniciar automáticamente</string>
     <string name="behaviour_autostart_summary">Iniciar la aplicación automáticamente al arrancar el sistema operativo.</string>
 
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
+    <string name="use_root_summary">Ejecutar Syncthing como root le permite escribir en las carpetas que Android normalmente restringe como de solo lectura. Utilice esta función con precaución.</string>
+
     <string name="expert_mode_title">Modo experto</string>
+
+    <string name="expert_mode_summary">Activar esta opción mostrará las opciones de configuración avanzadas. Debería echar un vistazo a la Documentación de Syncthing primero para asegurarse de que sabe cómo utilizarlas correctamente. Una configuración incorrecta puede provocar el consumo de la batería, agotamiento de los recursos del sistema o una sincronización incompleta.</string>
 
     <string name="preference_language_title">Idioma</string>
 
@@ -539,7 +568,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
         <item>Enviar &amp; Recibir</item>
         <item>Solo Enviar</item>
         <item>Solo Recibir</item>
-        <item>Receive Encrypted</item>
+        <item>Recibir Encriptado</item>
     </string-array>
 
     <string-array name="pull_order_types">
@@ -733,6 +762,12 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Activity title -->
     <string name="folder_picker_title">Seleccionador de carpetas</string>
 
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Resumen avanzado de la ruta de almacenamiento</string>
+
+    <!-- Current path -->
+    <string name="current_path">Ruta Actual: %1$s</string>
+
     <!-- ListView empty text -->
     <string name="directory_empty">El directorio esta vacío</string>
 
@@ -821,6 +856,12 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Has activado la opción \"Ejecutar según horario\" y la última sincronización no ha sido hace más de una hora.</string>
+    <string name="reason_not_within_time_frame_2">Usted activó \"Ejecutar según el horario\" y la última sincronización fue hace %s</string>
+    <string name="reason_not_within_time_frame_0_min">menos de un minuto</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
     <string name="reason_not_charging">El teléfono no se está cargando.</string>
     <string name="reason_not_on_battery_power">El teléfono no se está alimentando de la batería.</string>
     <string name="reason_not_while_power_saving">Syncthing no se está ejecutando porque el teléfono está ahorrando energía.</string>
@@ -969,10 +1010,14 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="folder_type_sendreceive">Enviar &amp; Recibir</string>
     <string name="folder_type_sendonly">Solamente enviar</string>
     <string name="folder_type_receiveonly">Solo Recibir</string>
+    <string name="folder_type_receive_encrypted">Recibir Encriptado</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La carpeta enviará y recibirá cambios de los dispositivos remotos.</string>
     <string name="folder_type_sendonly_description">Los archivos están protegidos de los cambios realizados en otros dispositivos, pero los cambios realizados en este dispositivo se enviarán al resto del clúster.</string>
     <string name="folder_type_receiveonly_description">Los archivos se sincronizan desde el clúster, pero cualquier cambio realizado localmente no se enviará a otros dispositivos.</string>
+    <string name="folder_type_receive_encrypted_description">Almacena y sincroniza solo datos encriptados. Las carpetas de todos los dispositivos conectados deben estar configuradas con la misma contraseña o ser también del tipo \"Recibir Encriptado\".</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Orden de Obtención de los Archivos</string>
 
@@ -1035,4 +1080,11 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="custom_sync_conditions_description">Le permite especificar excepciones a las condiciones globales de ejecución.</string>
     <string name="custom_sync_conditions_dialog">Especificar condiciones de sincronización</string>
 
-    </resources>
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">Ejecutar forzosamente</string>
+    <string name="qs_forced_to_run">Forzado a ejecutarse</string>
+    <string name="qs_forced_to_stop">Forzado a detenerse</string>
+    <string name="qs_following_run_conditions">Siguiendo las condiciones de ejecución</string>
+    <string name="qs_schedule_label">Ejecutar durante 5 minutos</string>
+    <string name="qs_schedule_disabled">Horario desactivado</string>
+</resources>

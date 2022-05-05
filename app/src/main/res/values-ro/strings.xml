@@ -24,6 +24,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permisiune de stocare</string>
     <string name="storage_permission_desc">Syncthing trebuie să acceseze spațiul de stocare pentru a realiza sincronizarea fișierelor.</string>
+    <string name="dialog_all_files_access_not_supported">Dispozitivul dvs. nu acceptă accesul la toate fișierele</string>
+    <string name="storage_permission_emergency_export">Blocat? Exportați de urgență configurația dvs.</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimizare baterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV este cunoscut pentru oprirea ocazională a aplicațiilor atunci când rulează în fundal. O soluție este disponibilă la \'%1$s/%2$s\'.</string>
@@ -63,6 +66,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
 
 
+    <!-- PhotoShootActivity -->
+
+    <string name="photo_shoot_launcher_title">Sync. Camera</string>
+
+    <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
+
     <string name="photo_shoot_intro_welcome_title">Bine ați venit la Syncthing Camera</string>
 
     <string name="photo_shoot_intro_permission_title">Permisiuni necesare</string>
@@ -77,9 +86,20 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="photo_shoot_intro_permission_desc">Syncthing Camera necesită consimțământul dvs. pentru a realiza fotografii și a le stoca pe dispozitiv. Această caracteristică este opțională. Pentru a o utiliza, acordați permisiunile și atingeți „Continuare”. Vom configura un dosar pentru Syncthing Camera pe care îl puteți partaja cu alte dispozitive Syncthing ulterior.</string>
 
+    <string name="photo_shoot_take_picture_success">Imaginea a fost salvată cu succes în dosarul Syncthing Camera.</string>
+
+    <string name="photo_shoot_take_picture_failure">Nu s-a putut face o fotografie sau ați anulat.</string>
+
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
 
+
+
+    <!-- MainActivity -->
+
+
+    <!-- Main bottom navigation view -->
+    <string name="activity_main_bottom_navigation_rescan_all">Rescanați toate</string>
 
 
     <!-- Main menu button -->
@@ -147,6 +167,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="revert_local_changes">Întoarceți modificările locale</string>
 
+    <string name="delete_unexpected_items">Ștergeți elementele neașteptate</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continuați?</string>
 
@@ -156,6 +179,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nu a fost găsită nicio aplicație manager de fișiere compatibilă</string>
+    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația open-source de gestionare a fișierelor „Material Files”. Doriți să deschideți pagina magazinului de aplicații?</string>
+
     <!-- DeviceListFragment -->
 
     <!-- Devices tab title -->
@@ -166,6 +191,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Nu sunt configurate dispozitive.\nÎncepeți prin adăugarea unui dispozitiv.</string>
+
+    <string name="deviceEncryptionPasswordHint">Dacă nu aveți încredere, introduceți parola de criptare</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Actualizat </string>
@@ -179,8 +206,18 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Întrerupt</string>
 
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Nefolosit</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Necunoscut</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Văzut ultima dată:\u0020 %1$s</string>
+    <string name="device_last_seen_never">Niciodată</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Dosare:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Descărcare </string>
@@ -233,6 +270,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Setting title -->
     <string name="directory">Director</string>
+    <string name="advanced_directory_selection">Selectare avansată a dosarului</string>
+
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorizează schimbările</string>
     <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>
@@ -285,6 +324,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Ne pare rău. Directorul selectat nu poate fi folosit. Vă rugăm să alegeți un director localizat pe stocarea internă sau externă.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Comutarea dosarelor existente la „Primește criptat” nu este acceptată.</string>
+
     <string name="ignore_patterns">Ignoră șabloane</string>
     <!-- DeviceActivity -->
 
@@ -303,6 +344,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Setting title -->
     <string name="name">Nume</string>
+
+    <!-- Setting title -->
+    <string name="folders">Dosare</string>
 
     <!-- Setting title -->
     <string name="addresses">Adresă</string>
@@ -325,6 +369,11 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Setting title -->
     <string name="pause_device">Întrerupe dispozitiv</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Dispozitiv nesigur</string>
+
+    <string name="untrusted_device_explanation">Toate dosarele partajate cu acest dispozitiv trebuie să fie protejate printr-o parolă, astfel încât toate datele trimise să nu poată fi citite fără parola dată.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Șterge dispozitiv</string>
@@ -357,6 +406,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Dialog message if no compatible barcode scanner app is installed -->
     <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Doriți să instalați aplicația „Binary Eye” din F-Droid?</string>
+
+    <!-- Shown if no folders are configured -->
+    <string name="folders_list_empty">Niciun dosar configurat. Atingeți pentru a adăuga un dosar nou.</string>
 
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Nu s-a obținut acces root</string>
@@ -394,6 +446,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="modified_by_device">Dispozitiv: %1$s</string>
     <string name="modification_time">Timp: %1$s</string>
 
+    <string name="this_device">Acest dispozitiv</string>
+
+
     <!-- WebGuiActivity -->
 
     <!-- Title of the web gui activity -->
@@ -427,6 +482,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="category_user_interface">Interfață utilizator</string>
 
     <string name="preference_app_theme_title">Temă</string>
+
+    <string name="preference_app_theme_follow_system">Urmărire sistem</string>
+    <string name="preference_app_theme_follow_light">Luminoasă</string>
+    <string name="preference_app_theme_follow_dark">Întunecată</string>
 
     <string name="category_behaviour">Comportament</string>
 
@@ -484,13 +543,19 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
 
     <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
+    <string name="run_on_time_schedule_summary">Prin activarea acestei opțiuni se va încerca sincronizarea pentru o durată de 5 minute dacă sunt îndeplinite condițiile de rulare și ultima sincronizare a avut loc acum mai mult de 1 oră. Acest lucru poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Vă rugăm să rețineți: acest lucru poate lăsa fișiere temporare incomplete în urmă până la următoarea sincronizare programată.</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Pornire automată</string>
     <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>
 
     <string name="use_root_title">Rulează ca root</string>
 
+    <string name="use_root_summary">Rularea Syncthing ca root îi permite să scrie în dosarele în care Android restricționează accesul doar citire. Utilizați această funcție cu precauție.</string>
+
     <string name="expert_mode_title">Modul expert</string>
+
+    <string name="expert_mode_summary">Activarea acestei opțiuni va afișa opțiuni de configurare avansate. Ar trebui să aruncați o privire mai întâi la Documentele Syncthing pentru a vă asigura că știți cum să le utilizați corect. Setările incorecte pot cauza descărcarea bateriei, epuizarea resurselor sistemului sau sincronizarea incompletă.</string>
 
     <string name="preference_language_title">Limbă</string>
 
@@ -543,6 +608,10 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="usage_reporting">Raport utilizare anonim</string>
 
     <string name="crash_reporting">Raportarea anonimă a problemelor</string>
+
+    <string name="webui_tcp_port_title">Port Web UI TCP</string>
+
+    <string name="webui_remote_access_title">Acces de la distanță Web UI</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
@@ -748,6 +817,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Ați activat „Executare conform graficului de timp”, iar ultima sincronizare nu a fost mai mult de o oră în urmă.</string>
+    <string name="reason_not_within_time_frame_0_min">mai puțin de un minut</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
     <string name="reason_not_charging">Telefonul nu se încarcă.</string>
     <string name="reason_not_on_battery_power">Telefonul nu rulează pe baterie.</string>
     <string name="reason_not_while_power_saving">Syncthing nu rulează deoarece telefonul este în modul de economisire în prezent.</string>

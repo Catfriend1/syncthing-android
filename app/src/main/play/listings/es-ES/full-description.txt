@@ -8,7 +8,7 @@ Esta es una bifurcación del wrapper para Syncthing, Syncthing-Android, que trae
 * Interfaz explica porque Syncthing se está ejecutando o no.
 * Se ha solucionado el problema de "drenaje de batería".
 * Descubre otros dispositivos Syncthing en la misma red y añádalos fácilmente.
-* Supports two-way synchronization on external SD card since Android 11.
+* Soporta la sincronización bidireccional con la tarjeta SD externa desde Android 11.
 
 Syncthing-Fork para Android es un wrapper para Syncthing que provee una interfaz de Android en vez de la interfaz web integrada de Syncthing. Syncthing reemplaza la sincronización privativa y servicios de nube con algo abierto, confiable y descentralizado. Sus datos son únicamente suyos y merece elegir donde se almacenan, si se comparten con terceros y como es transmitido por Internet.
 
@@ -18,7 +18,7 @@ Objetivos de la bifurcación:
 * Hacer que las mejoras sean configurables desde la interfaz, los usuarios deberían poder activarlas y desactivarlas
 
 Comparación entre el original y la bifurcación cuando se escribió esto:
-* Both contain the syncthing binary built from the official source at GitHub
+* Ambos contienen el binario de Syncthing compilado desde la fuente oficial en Github
 * La funcionalidad y fiabilidad de la sincronización depende de la versión del submódulo binario syncthing.
 * La bifurcación y el original están en buenos términos y a veces integran mis mejoras.
 * La estrategia y frecuencia de lanzamientos son diferentes.

@@ -166,6 +166,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <string name="revert_local_changes">Hoàn tác các thay đổi cục bộ</string>
 
+    <string name="delete_unexpected_items">Xoá các mục không mong đợi</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên thiết bị này trong thư mục này. Tiếp tục?</string>
 
@@ -187,6 +190,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Không có thiết bị nào được thiết lập.\nHãy bắt đầu bằng cách thêm thiết bị mới ngay.</string>
+
+    <string name="deviceEncryptionPasswordHint">Nếu chưa tin cậy, hãy nhập mật khẩu mã hoá</string>
 
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Đã đồng bộ</string>
@@ -318,6 +323,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Xin lỗi. Thư mục được chọn không thể được sử dụng. Vui lòng chọn thư mục được đặt trong bộ nhớ trong hoặc ngoài.</string>
 
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Việc chuyển các thư mục hiện có sang \'Nhận dữ liệu mã hoá\' không được hỗ trợ.</string>
+
     <string name="ignore_patterns">Mẫu bỏ qua</string>
     <!-- DeviceActivity -->
 
@@ -361,6 +368,11 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Setting title -->
     <string name="pause_device">Tạm dừng thiết bị</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Thiết bị chưa tin cậy</string>
+
+    <string name="untrusted_device_explanation">Tất cả thư mục được chia sẻ với thiết bị này phải được bảo vệ bằng mật khẩu, sao cho tất cả dữ liệu đã gửi không thể đọc được mà không có mật khẩu.</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Xoá thiết bị</string>
@@ -994,10 +1006,14 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="folder_type_sendreceive">Gửi &amp; Nhận</string>
     <string name="folder_type_sendonly">Chỉ gửi</string>
     <string name="folder_type_receiveonly">Chỉ nhận</string>
+    <string name="folder_type_receive_encrypted">Nhận dữ liệu mã hoá</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">Thư mục sẽ gửi các thay đổi đến và nhận các thay đổi từ các thiết bị trên mạng.</string>
     <string name="folder_type_sendonly_description">Các tệp được bảo vệ khỏi các thay đổi được tạo trên các thiết bị khác, nhưng các thay đổi được tạo trên thiết bị này sẽ được gửi đến phần còn lại của cụm.</string>
     <string name="folder_type_receiveonly_description">Các tệp được đồng bộ từ cụm, nhưng các thay đổi được tạo cục bộ sẽ không được gửi đến các thiết bị khác.</string>
+    <string name="folder_type_receive_encrypted_description">Chỉ lưu trữ và đồng bộ dữ liệu đã mã hoá. Các thư mục trên tất cả thiết bị đã kết nối cần phải được thiết lập bằng cùng mật khẩu hoặc cũng thuộc loại \'Nhận dữ liệu mã hoá\'.</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Thứ tự nhận tệp</string>
 
