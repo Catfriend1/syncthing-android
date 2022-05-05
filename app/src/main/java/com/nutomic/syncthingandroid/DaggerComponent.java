@@ -20,7 +20,6 @@ import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
 import com.nutomic.syncthingandroid.service.SyncthingService;
-import com.nutomic.syncthingandroid.util.Languages;
 
 import javax.inject.Singleton;
 
@@ -37,7 +36,6 @@ public interface DaggerComponent {
     void inject(FolderActivity activity);
     void inject(FolderListFragment fragment);
     void inject(FolderPickerActivity activity);
-    void inject(Languages languages);
     void inject(MainActivity activity);
     void inject(NotificationHandler notificationHandler);
     void inject(PhotoShootActivity photoShootActivity);

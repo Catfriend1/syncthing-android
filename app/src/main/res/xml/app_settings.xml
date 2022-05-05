@@ -122,13 +122,6 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
-        <!-- Language -->
-        <ListPreference
-            android:key="pref_current_language"
-            android:title="@string/preference_language_title"
-            android:summary="@string/preference_language_summary"
-            android:singleLineTitle="false" />
-
     </PreferenceScreen>
 
     <PreferenceScreen

@@ -54,7 +54,6 @@ import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
 import com.nutomic.syncthingandroid.util.FileUtils;
-import com.nutomic.syncthingandroid.util.Languages;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
@@ -173,9 +172,6 @@ public class SettingsActivity extends SyncthingActivity {
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
 
-        /* User Interface */
-        private Languages          mLanguages;
-
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
         private CheckBoxPreference mUseRoot;
@@ -262,17 +258,7 @@ public class SettingsActivity extends SyncthingActivity {
 
             addPreferencesFromResource(R.xml.app_settings);
             mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-
-            ListPreference languagePref = (ListPreference) findPreference(Languages.PREFERENCE_LANGUAGE);
             PreferenceScreen categoryUserInterface = (PreferenceScreen) findPreference("category_user_interface");
-            if (Build.VERSION.SDK_INT >= 24) {
-                categoryUserInterface.removePreference(languagePref);
-            } else {
-                mLanguages = new Languages(getActivity());
-                languagePref.setDefaultValue(mLanguages.USE_SYSTEM_DEFAULT);
-                languagePref.setEntries(mLanguages.getAllNames());
-                languagePref.setEntryValues(mLanguages.getSupportedLocales());
-            }
             PreferenceScreen screen = getPreferenceScreen();
 
             /* Run conditions */
@@ -605,9 +591,6 @@ public class SettingsActivity extends SyncthingActivity {
                                 .show();
                     }
                     break;
-                case Languages.PREFERENCE_LANGUAGE:
-                    mLanguages.forceChangeLanguage(getActivity(), (String) o);
-                    return false;
             }
             return true;
         }
