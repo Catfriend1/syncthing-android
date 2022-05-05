@@ -1,4 +1,4 @@
-* Syncthing v1.19.1
+* Syncthing v1.20.1
 
 Enhanced
 --
@@ -7,7 +7,4 @@ Enhanced
 
 Fixes
 --
-- Logs no longer written to external sdcard (#817)
-- Theme applied after config import (#852)
-- Accept custom device relay address (#882)
-- Improve charging status detection (#875)
+- Removed in-app language switch option
