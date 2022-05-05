@@ -113,7 +113,7 @@ public class Device {
                 // Fall-Through
             case 52:
                 try {
-                    BaseEncoding.base32().decode(deviceID + "====");
+                    byte[] decodedStr = BaseEncoding.base32().decode(deviceID + "====");
                     return true;
                 } catch (IllegalArgumentException e) {
                     // Log.w(TAG, "checkDeviceID: deviceID=(" + deviceID + "): invalid character, base32 decode failed");

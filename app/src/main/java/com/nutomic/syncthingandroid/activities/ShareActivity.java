@@ -60,7 +60,7 @@ import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEG
  * Shares incoming files to syncthing folders.
  * <p>
  * {@link #getDisplayNameForUri} and {@link #getDisplayNameFromContentResolver} are taken from
- * ownCloud Android {@see https://github.com/owncloud/android/blob/79664304fdb762b2e04f1ac505f50d0923ddd212/src/com/owncloud/android/utils/UriUtils.java#L193}
+ * ownCloud Android {@see https://github.com/owncloud/android/blob/master/owncloudApp/src/main/java/com/owncloud/android/utils/UriUtils.java}
  */
 public class ShareActivity extends SyncthingActivity
         implements SyncthingService.OnServiceStateChangeListener {
@@ -337,19 +337,28 @@ public class ShareActivity extends SyncthingActivity
                 displayNameColumn = MediaStore.Files.FileColumns.DISPLAY_NAME;
             }
 
-            Cursor cursor = getContentResolver().query(
-                    uri,
-                    new String[]{displayNameColumn},
-                    null,
-                    null,
-                    null
-            );
-            if (cursor != null) {
-                cursor.moveToFirst();
-                displayName = cursor.getString(cursor.getColumnIndex(displayNameColumn));
-            }
-            if (cursor != null) {
-                cursor.close();
+            Cursor cursor = null;
+            try {
+                cursor = getContentResolver().query(
+                        uri,
+                        new String[]{displayNameColumn},
+                        null,
+                        null,
+                        null
+                );
+                if (cursor != null) {
+                    cursor.moveToFirst();
+                    displayName = cursor.getString(cursor.getColumnIndexOrThrow(displayNameColumn));
+                }
+
+            } catch (Exception e) {
+                Log.e(TAG, "Could not retrieve display name for " + uri.toString());
+                // nothing else, displayName keeps null
+
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
             }
         }
         return displayName;
