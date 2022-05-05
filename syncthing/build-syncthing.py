@@ -25,16 +25,16 @@ GO_VERSION = '1.17.1'
 GO_EXPECTED_SHASUM_LINUX = 'dab7d9c34361dc21ec237d584590d72500652e7c909bf082758fb63064fca0ef'
 GO_EXPECTED_SHASUM_WINDOWS = '2f2d0a5d7c59fb38fcacaf1e272cf701bb8c050300ba8b609fc30d2c5800f02e'
 
-NDK_VERSION = 'r23'
-NDK_EXPECTED_SHASUM_LINUX = '9bad35f442caeda747780ba1dd92f2d98609d9cd'
-NDK_EXPECTED_SHASUM_WINDOWS = '14af52e23af9f7a9e7576a17e1814701192745be'
+NDK_VERSION = 'r24'
+NDK_EXPECTED_SHASUM_LINUX = 'eceb18f147282eb93615eff1ad84a9d3962fbb31'
+NDK_EXPECTED_SHASUM_WINDOWS = '75f9c281c64762d18c84da465f486c60def47829'
 
 BUILD_TARGETS = [
     {
         'arch': 'arm',
         'goarch': 'arm',
         'jni_dir': 'armeabi',
-        'clang': 'armv7a-linux-androideabi16-clang',
+        'clang': 'armv7a-linux-androideabi19-clang',
     },
     {
         'arch': 'arm64',
@@ -46,7 +46,7 @@ BUILD_TARGETS = [
         'arch': 'x86',
         'goarch': '386',
         'jni_dir': 'x86',
-        'clang': 'i686-linux-android16-clang',
+        'clang': 'i686-linux-android19-clang',
     }
 ]
 

@@ -36,7 +36,7 @@ android {
     // Changes to these values need to be reflected in `.travis.yml`
     compileSdkVersion 30
     buildToolsVersion '30.0.2'
-    ndkVersion = '23.0.7599858'
+    ndkVersion = '24.0.8215888'
 
     buildFeatures.dataBinding = true
 
