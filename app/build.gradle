@@ -97,6 +97,12 @@ android {
         disable "UnsafeExperimentalUsageError", "UnsafeExperimentalUsageWarning"
         abortOnError true
     }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
 }
 
 play {
