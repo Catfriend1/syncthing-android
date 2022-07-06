@@ -161,7 +161,7 @@ if sys.platform == 'win32':
     subprocess.check_call([sdk_manager_bin, '--update'])
     powershell_bin = which('powershell')
     subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 32;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
-    subprocess.check_call([sdk_manager_bin, 'platforms;android-31'])
-    subprocess.check_call([sdk_manager_bin, 'build-tools;31.0.0'])
+    subprocess.check_call([sdk_manager_bin, 'platforms;android-32'])
+    subprocess.check_call([sdk_manager_bin, 'build-tools;32.0.0'])
 
 print('Done.')
