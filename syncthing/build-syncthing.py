@@ -279,7 +279,7 @@ def install_ndk():
             'bin',
             'clang'
         )
-        write_file (ndk_bin_clang, '`dirname $0`/clang-12 "$@"')
+        write_file (ndk_bin_clang, '`dirname $0`/clang-14 "$@"')
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
