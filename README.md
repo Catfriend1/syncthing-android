@@ -81,6 +81,7 @@ Build SyncthingNative and the Syncthing-Android wrapper using the following comm
 ```
 apt-get -y install git openjdk-11-jdk
 mkdir -p /root/work
+cd /root/work
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 cd /root/work/syncthing-android
 ./gradlew buildNative
