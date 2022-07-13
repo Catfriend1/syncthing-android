@@ -416,6 +416,10 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
         switch (action) {
             case "delete":          // file deleted
+                if (new File(fullFilePath).exists()) {
+                    Log.i(TAG, "onItemFinished: MediaStore, Skip file deletion because file exists: " + fullFilePath);
+                    break;
+                }
                 Log.i(TAG, "onItemFinished: MediaStore, Deleting file: " + fullFilePath);
                 Uri contentUri = MediaStore.Files.getContentUri("external");
                 ContentResolver resolver = mContext.getContentResolver();
