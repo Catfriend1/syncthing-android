@@ -40,6 +40,7 @@ public class Constants {
     public static final String PREF_RESPECT_MASTER_SYNC         = "respect_master_sync";
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
     public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
+    public static final String PREF_SYNC_DURATION_MINUTES       = "sync_duration_minutes";
 
     // Preferences - User Interface
     public static final String PREF_APP_THEME                   = "app_theme";
@@ -177,7 +178,6 @@ public class Constants {
      * parameters are effective.
      */
     public static final int WAIT_FOR_NEXT_SYNC_DELAY_SECS       = isRunningOnEmulator() ? 20 : 3600;        // "off" state duration
-    public static final int TRIGGERED_SYNC_DURATION_SECS        = isRunningOnEmulator() ? 10 : 300;         // "on" state duration
 
     /**
      * Directory where config is exported to and imported from.

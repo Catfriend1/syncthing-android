@@ -548,7 +548,10 @@ Please report any problems you encounter via Github.</string>
     <string name="run_in_flight_mode_summary">Enabling this option will cause Syncthing to run even when you\'re offline. Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
 
     <string name="run_on_time_schedule_title">Run according to time schedule</string>
-    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for the duration of 5 minutes if run conditions are fulfilled and the last sync was more than 1 hour ago. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
+    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for a configured duration if run conditions are fulfilled and the last sync was more than 1 hour ago. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
+
+    <string name="sync_duration_minutes_title">Duration of the sync cycle</string>
+    <string name="sync_duration_minutes_summary">%1$s minutes</string>
 
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Autostart</string>

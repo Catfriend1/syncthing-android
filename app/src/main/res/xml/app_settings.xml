@@ -99,6 +99,14 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <EditTextPreference
+            android:key="sync_duration_minutes"
+            android:title="@string/sync_duration_minutes_title"
+            android:summary="@string/sync_duration_minutes_summary"
+            android:singleLineTitle="false"
+            android:inputType="number"
+            android:defaultValue="5" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

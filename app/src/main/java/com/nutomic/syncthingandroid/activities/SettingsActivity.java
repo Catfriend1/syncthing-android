@@ -171,6 +171,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mUseWifiWhitelist;
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
+        private EditTextPreference mSyncDurationMinutes;
 
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
@@ -278,6 +279,8 @@ public class SettingsActivity extends SyncthingActivity {
                     (ListPreference) findPreference(Constants.PREF_POWER_SOURCE);
             mRunInFlightMode =
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
+            mSyncDurationMinutes =
+                    (EditTextPreference) findPreference(Constants.PREF_SYNC_DURATION_MINUTES);
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
@@ -290,6 +293,10 @@ public class SettingsActivity extends SyncthingActivity {
             screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
                 getString(R.string.wifi_ssid_whitelist_empty) :
                 getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
+            );
+
+            mSyncDurationMinutes.setSummary(
+                    getString(R.string.sync_duration_minutes_summary, mSyncDurationMinutes.getText())
             );
 
             mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
@@ -571,6 +578,9 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case Constants.PREF_RUN_ON_MOBILE_DATA:
                     mRunOnRoaming.setEnabled((Boolean) o);
+                    break;
+                case Constants.PREF_SYNC_DURATION_MINUTES:
+                    mSyncDurationMinutes.setSummary(getString(R.string.sync_duration_minutes_summary, o.toString()));
                     break;
             }
             mPendingRunConditions = true;
