@@ -721,7 +721,7 @@ public class RunConditionMonitor {
     /**
      * Functions for run condition information retrieval.
      */
-    @TargetApi(17)
+    // @TargetApi(17)
     private boolean isCharging_API17() {
         Intent intent = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
@@ -730,7 +730,7 @@ public class RunConditionMonitor {
             plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS;
     }
 
-    @TargetApi(21)
+    // @TargetApi(21)
     private boolean isPowerSaving() {
         PowerManager powerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         if (powerManager == null) {

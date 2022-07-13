@@ -16,7 +16,7 @@ import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEG
  * SyncTriggerJobService to be scheduled by the JobScheduler.
  * See {@link JobUtils#scheduleSyncTriggerServiceJob} for more details.
  */
-@RequiresApi(21)
+// @RequiresApi(21)
 public class SyncTriggerJobService extends JobService {
     private static final String TAG = "SyncTriggerJobService";
 

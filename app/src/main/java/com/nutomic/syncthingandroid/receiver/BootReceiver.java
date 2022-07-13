@@ -83,7 +83,7 @@ public class BootReceiver extends BroadcastReceiver {
         return sp.getBoolean(Constants.PREF_USE_ROOT, false);
     }
 
-    @TargetApi(17)
+    // @TargetApi(17)
     /**
      * Prerequisistes:
      * - android.permission.WRITE_SETTINGS
