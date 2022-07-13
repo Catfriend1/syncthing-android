@@ -253,9 +253,13 @@ public class Constants {
     public static Boolean isRunningOnEmulator() {
         return !TextUtils.isEmpty(Build.MANUFACTURER) &&
                 !TextUtils.isEmpty(Build.MODEL) &&
-                Build.MANUFACTURER.equals("Google") && (
-                        Build.MODEL.equals("Android SDK built for x86") ||
-                        Build.MODEL.equals("sdk_gphone_x86_arm")
+                        (
+                            Build.MANUFACTURER.equals("Google") ||
+                            Build.MANUFACTURER.equals("unknown")
+                        ) && (
+                                Build.MODEL.equals("Android SDK built for x86") ||
+                                Build.MODEL.equals("sdk_gphone_x86_arm"
+                        )
                 );
     }
 
