@@ -97,4 +97,8 @@
     </issue>
     <!-- Ignore long vector paths -->
     <issue id="VectorPath" severity="ignore" />
+    <!-- Skip proceed onReceivedSslError -->
+    <issue id="WebViewClientOnReceivedSslError" severity="ignore">
+        <ignore path="src/main/java/com/nutomic/syncthingandroid/activities/WebViewActivity.java" />
+    </issue>
 </lint>
