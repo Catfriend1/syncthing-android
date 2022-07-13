@@ -198,7 +198,6 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Đang đ.bộ (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Đã ngắt k.nối</string>
 
@@ -544,8 +543,6 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="run_in_flight_mode_summary">Việc bật tùy chọn này sẽ làm cho Syncthing chạy kể cả khi bạn đang ngoại tuyến. Hãy bật nếu thiết bị của bạn gặp vấn đề trong việc phát hiện kết nối Wi-Fi thủ công trong chế độ máy bay.</string>
 
     <string name="run_on_time_schedule_title">Chạy theo lịch trình thời gian</string>
-    <string name="run_on_time_schedule_summary">Việc bật tùy chọn này sẽ cố gắng đồng bộ trong vòng 5 phút nếu các điều kiện chạy được đáp ứng và lần đồng bộ trước cách đây hơn 1 tiếng. Việc này có thể tiết kiệm nhiều pin nhưng yêu cầu các thiết bị đồng bộ khác phải trực tuyến. Vui lòng lưu ý: Việc này có thể để lại các tệp tạm không hoàn chỉnh cho đến khi lần đồng bộ được lên lịch tiếp theo diễn ra.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Tự động khởi động</string>
     <string name="behaviour_autostart_summary">Tự động khởi động ứng dụng khi khởi động hệ điều hành.</string>

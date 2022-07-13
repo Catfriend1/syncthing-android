@@ -110,6 +110,10 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <string name="toast_write_storage_permission_required">A permissão de escrita em armazenamento é obrigatória para este aplicativo</string>
 
+    <string name="device_rejected">O dispositivo \"%1$s\" quer conectar</string>
+
+    <string name="folder_rejected">O dispositivo \"%1$s\" quer compartilhar a pasta \"%2$s\"</string>
+
     <!-- StateDialogActivity -->
 
 
@@ -128,6 +132,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d/%2$dArquivo</item>
+        <item quantity="many">%1$d/%2$dArquivos</item>
         <item quantity="other">%1$d/%2$dArquivos</item>
     </plurals>
 
@@ -145,6 +150,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="open_file_with">Abrir arquivo com</string>
     <string name="open_file_no_compatible_app">Não foi encontrado nenhum aplicativo para abrir o arquivo.</string>
 
+    <!-- Suggest File Manager App Dialog -->
+    <string name="suggest_file_manager_app_dialog_title">Nenhum gerenciador de arquivos encontrado</string>
     <string name="suggest_file_manager_app_dialog_text">Recomendamos que você instale o gerenciador de arquivos de código-fonte aberto \'Material Files\'. Você gostaria de abrir sua página de loja de aplicativos?</string>
 
     <!-- DeviceListFragment -->
@@ -165,7 +172,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronizando (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
 
@@ -439,8 +445,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
     <string name="run_in_flight_mode_summary">Ativar esta opção fará com que o Syncthing seja executado mesmo quando você estiver offline. Ative se o seu dispositivo tiver problemas para detectar conexões Wi-Fi manuais durante o modo de voo.</string>
 
-    <string name="run_on_time_schedule_summary">Ativar essa opção fará com que o Syncthing sincronize por 5 minutos se as condições de execução forem atendidas e a última sincronização tiver ocorrido há mais de 1 hora. Isso pode economizar muita bateria, mas exige que os parceiros de sincronização estejam online. Observação: isso pode deixar arquivos temporários incompletos para trás até que a próxima sincronização agendada ocorra.</string>
-
     <string name="use_root_title">Executar como Superusuário</string>
 
     <string name="expert_mode_title">Modo especialista</string>
@@ -630,12 +634,14 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d arquivo copiado para a pasta \"%2$s\", %3$d já existem</item>
+        <item quantity="many">%1$d arquivos copiados para a pasta \"%2$s\", %3$d já existem</item>
         <item quantity="other">%1$d arquivos copiados para a pasta \"%2$s\", %3$d já existem</item>
     </plurals>
 
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d arquivo copiado para a pasta \"%2$s\"</item>
+        <item quantity="many">%1$d arquivos copiados para a pasta \"%2$s\"</item>
         <item quantity="other">%1$d arquivos copiados para a pasta \"%2$s\"</item>
     </plurals>
 
@@ -647,6 +653,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <plurals name="file_name_title">
         <item quantity="one">Nome do Arquivo</item>
+        <item quantity="many">Lista de Arquivos</item>
         <item quantity="other">Lista de Arquivos</item>
     </plurals>
 
@@ -656,6 +663,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="reason_not_within_time_frame_0_min">menos de um minuto</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minutos</item>
         <item quantity="other">%d minutos</item>
     </plurals>
     <string name="reason_on_mobile_data">O Syncthing está autorizado a executar nos dados móveis.</string>

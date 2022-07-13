@@ -185,7 +185,6 @@ Android требует разрешение доступа к геолокаци
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Синхронизация (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Отсоединено</string>
 

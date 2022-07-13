@@ -135,7 +135,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronitzant (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconnectat</string>
 

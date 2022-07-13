@@ -198,6 +198,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synchronisiere (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Synchronisiere (%1$d%%, %2$s)</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Getrennt</string>
@@ -544,7 +545,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="run_in_flight_mode_summary">Durch Aktivieren der Option wird Syncthing auch dann laufen, wenn Du offline bist. Aktiviere dies, wenn dein Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
 
     <string name="run_on_time_schedule_title">Gemäß Zeitplan synchronisieren</string>
-    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für 5 Minuten zu synchronisieren, wenn die Laufkonditionen zutreffen und der letzte Sync nicht länger als 1 Stunde her war. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
+    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für eine konfigurierte Dauer zu synchronisieren, wenn die Laufkonditionen zutreffen und der letzte Sync nicht länger als 1 Stunde her war. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
+
+    <string name="sync_duration_minutes_title">Dauer des Sync-Zyklus</string>
+    <string name="sync_duration_minutes_summary">%1$s Minuten</string>
 
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Autostart</string>

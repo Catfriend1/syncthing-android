@@ -156,6 +156,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d/%2$d Archivo</item>
+        <item quantity="many">%1$d/%2$d Archivos</item>
         <item quantity="other">%1$d/%2$d Archivos</item>
     </plurals>
 
@@ -198,7 +199,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronizando (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
 
@@ -544,8 +544,6 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="run_in_flight_mode_summary">Habilitar esta opción ocasionará que Syncthing se ejecute aún cuando estás fuera de línea. Actívela si su dispositivo tiene problemas para detectar conexiones Wifi manuales en modo avión.</string>
 
     <string name="run_on_time_schedule_title">Ejecutar según el horario</string>
-    <string name="run_on_time_schedule_summary">Al activar esta opción se intentará sincronizar durante 5 minutos si se cumplen las condiciones de ejecución y la última sincronización fue hace más de 1 hora. Esto puede ahorrar mucha batería, pero requiere que los socios de sincronización estén en línea. Tenga en cuenta: Esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Iniciar automáticamente</string>
     <string name="behaviour_autostart_summary">Iniciar la aplicación automáticamente al arrancar el sistema operativo.</string>
@@ -826,12 +824,14 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d archivo copiado en la carpeta \"%2$s\", %3$d ya existe</item>
+        <item quantity="many">%1$d archivos copiados en la carpeta \"%2$s\", %3$d ya existe</item>
         <item quantity="other">%1$d archivos copiados en la carpeta \"%2$s\", %3$d ya existe</item>
     </plurals>
 
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d archivo copiado en la carpeta \"%2$s\"</item>
+        <item quantity="many">%1$d archivos copiados en la carpeta \"%2$s\"</item>
         <item quantity="other">%1$d archivos copiados en la carpeta \"%2$s\"</item>
     </plurals>
 
@@ -843,6 +843,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <plurals name="file_name_title">
         <item quantity="one">Nombre del archivo</item>
+        <item quantity="many">Lista de Archivos</item>
         <item quantity="other">Lista de Archivos</item>
     </plurals>
 
@@ -860,6 +861,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="reason_not_within_time_frame_0_min">menos de un minuto</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minutos</item>
         <item quantity="other">%d minutos</item>
     </plurals>
     <string name="reason_not_charging">El teléfono no se está cargando.</string>
@@ -906,11 +908,13 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d dispositivo en línea y actualizado</item>
+        <item quantity="many">%1$d dispositivos en línea y actualizados</item>
         <item quantity="other">%1$d dispositivos en línea y actualizados</item>
     </plurals>
 
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">Sincronizando: %1$d%% completado, %2$d dispositivo en línea</item>
+        <item quantity="many">Sincronizando: %1$d%% completado, %2$d dispositivos en línea</item>
         <item quantity="other">Sincronizando: %1$d%% completado, %2$d dispositivos en línea</item>
     </plurals>
 

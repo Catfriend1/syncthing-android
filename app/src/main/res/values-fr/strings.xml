@@ -89,6 +89,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d Fichier</item>
+        <item quantity="many">%1$d / %2$d Fichiers</item>
         <item quantity="other">%1$d / %2$d Fichiers</item>
     </plurals>
 
@@ -103,7 +104,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synchronisation (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Déconnecté</string>
 
@@ -448,12 +448,14 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d fichier copié vers partage \"%2$s\", %3$d existe déjà</item>
+        <item quantity="many">%1$d fichiers copiés vers partage \"%2$s\", %3$d existent déjà</item>
         <item quantity="other">%1$d fichiers copiés vers partage \"%2$s\", %3$d existent déjà</item>
     </plurals>
 
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d fichier copié vers partage \"%2$s\"</item>
+        <item quantity="many">%1$d fichiers copiés vers partage \"%2$s\"</item>
         <item quantity="other">%1$d fichiers copiés vers partage \"%2$s\"</item>
     </plurals>
 
@@ -465,6 +467,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
 
     <plurals name="file_name_title">
         <item quantity="one">Nom du fichier</item>
+        <item quantity="many">Liste des fichiers</item>
         <item quantity="other">Liste des fichiers</item>
     </plurals>
 

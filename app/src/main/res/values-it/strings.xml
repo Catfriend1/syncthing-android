@@ -156,6 +156,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d File</item>
+        <item quantity="many">%1$d / %2$d File</item>
         <item quantity="other">%1$d / %2$d File</item>
     </plurals>
 
@@ -198,7 +199,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronizzazione (%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnesso</string>
 
@@ -544,8 +544,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="run_in_flight_mode_summary">Abilitando questa opzione permetterai a Syncthing di funzionare anche quando sei offline. Da utilizzare se il tuo dispositivo ha problemi a rilevare le connessioni Wi-Fi in modalità aereo.</string>
 
     <string name="run_on_time_schedule_title">Esegui secondo programmazione</string>
-    <string name="run_on_time_schedule_summary">Abilitando questa opzione la sincronizzazione verrà eseguita per 5 minuti ogni ora se le condizioni di esecuzione sono soddisfatte e l\'ultima sincronizzazione è avvenuta più di 1 ora fa. Permette di risparmiare molta batteria ma necessita che il/ì ricevente/i sia online. Nota bene: potrebbe lasciare alcuni file temporanei non sincronizzati fino alla successiva sincronizzazione.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Avvio automatico</string>
     <string name="behaviour_autostart_summary">Esegui l\'app automaticamente quando viene avviato il dispositivo.</string>
@@ -828,12 +826,14 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d file copiato nella cartella \"%2$s\", %3$d esistono già</item>
+        <item quantity="many">%1$d file copiati nella cartella \"%2$s\", %3$d esistono già</item>
         <item quantity="other">%1$d file copiati nella cartella \"%2$s\", %3$d esistono già</item>
     </plurals>
 
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d file copiato nella cartella \"%2$s\"</item>
+        <item quantity="many">%1$d file copiati nella cartella \"%2$s\"</item>
         <item quantity="other">%1$d file copiati nella cartella \"%2$s\"</item>
     </plurals>
 
@@ -845,6 +845,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <plurals name="file_name_title">
         <item quantity="one">Nome File</item>
+        <item quantity="many">Lista File</item>
         <item quantity="other">Lista File</item>
     </plurals>
 
@@ -862,6 +863,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="reason_not_within_time_frame_0_min">meno di un minuto</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minuti</item>
         <item quantity="other">%d minuti</item>
     </plurals>
     <string name="reason_not_charging">Il cellulare non è in carica.</string>
@@ -908,11 +910,13 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d dispositivo online e sincronizzato</item>
+        <item quantity="many">%1$d dispositivi online e sincronizzati</item>
         <item quantity="other">%1$d dispositivi online e sincronizzati</item>
     </plurals>
 
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">Sincronizzazione: %1$d%% completato, %2$d dispositivo online </item>
+        <item quantity="many">Sincronizzazione: %1$d%% completato, %2$d dispositivi online </item>
         <item quantity="other">Sincronizzazione: %1$d%% completato, %2$d dispositivi online </item>
     </plurals>
 

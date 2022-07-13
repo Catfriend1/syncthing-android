@@ -199,7 +199,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Se sincronizează(%1$d%%)</string>
-
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Deconectat</string>
 
@@ -543,8 +542,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
 
     <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
-    <string name="run_on_time_schedule_summary">Prin activarea acestei opțiuni se va încerca sincronizarea pentru o durată de 5 minute dacă sunt îndeplinite condițiile de rulare și ultima sincronizare a avut loc acum mai mult de 1 oră. Acest lucru poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Vă rugăm să rețineți: acest lucru poate lăsa fișiere temporare incomplete în urmă până la următoarea sincronizare programată.</string>
-
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Pornire automată</string>
     <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>
