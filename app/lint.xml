@@ -95,4 +95,6 @@
         <ignore path="src/main/res/layout/fragment_staggered_versioning.xml" />
         <ignore path="src/main/res/layout/fragment_trashcan_versioning.xml" />
     </issue>
+    <!-- Ignore long vector paths -->
+    <issue id="VectorPath" severity="ignore" />
 </lint>
