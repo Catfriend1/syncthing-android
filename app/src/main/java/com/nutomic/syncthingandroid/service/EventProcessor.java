@@ -327,6 +327,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         mRestApi.setRemoteCompletionInfo(
             (String) eventData.get("device"),          // deviceId
             (String) eventData.get("folder"),          // folderId
+            (Double) eventData.get("needBytes"),
             (Double) eventData.get("completion")
         );
     }

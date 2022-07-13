@@ -845,6 +845,11 @@ public class RestApi {
         return mRemoteCompletion.getDeviceCompletion(deviceId);
     }
 
+    public final double getRemoteDeviceNeedBytes(
+            final String deviceId) {
+        return mRemoteCompletion.getDeviceNeedBytes(deviceId);
+    }
+
     public final Connection getTotalConnectionStatistic() {
         if (!mPreviousConnections.isPresent()) {
             return new Connection();
@@ -1057,6 +1062,7 @@ public class RestApi {
 
     public void setRemoteCompletionInfo(final String deviceId,
                                             final String folderId,
+                                            final Double needBytes,
                                             final Double completion) {
         final Folder folder = getFolderByID(folderId);
         if (folder == null) {
@@ -1075,8 +1081,10 @@ public class RestApi {
             LogV("setRemoteCompletionInfo: Paused folder \"" + folderId + "\" - got " +
                     remoteCompletionInfo.completion + "%, passing on 100%");
             remoteCompletionInfo.completion = 100;
+            remoteCompletionInfo.needBytes = 0;
         } else {
             remoteCompletionInfo.completion = completion;
+            remoteCompletionInfo.needBytes = needBytes;
         }
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();

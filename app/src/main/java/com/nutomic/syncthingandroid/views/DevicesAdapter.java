@@ -120,6 +120,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
         final Connection conn = mRestApi.getRemoteDeviceStatus(device.deviceID);
         final int completion = mRestApi.getRemoteDeviceCompletion(device.deviceID);
+        final double needBytes = mRestApi.getRemoteDeviceNeedBytes(device.deviceID);
 
         if (conn.connected) {
             binding.status.setVisibility(VISIBLE);
@@ -154,7 +155,12 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                 }
             } else {
                 binding.progressBar.setProgress(completion);
-                binding.status.setText(mContext.getString(R.string.device_syncing, completion));
+                binding.status.setText(
+                        mContext.getString(R.string.device_syncing_percent_bytes,
+                                completion,
+                                Util.readableFileSize(getContext(), needBytes)
+                        )
+                );
                 binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
             }
             return;

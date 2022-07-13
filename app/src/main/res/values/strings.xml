@@ -201,6 +201,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Syncing (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Syncing (%1$d%%, %2$s)</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnected</string>

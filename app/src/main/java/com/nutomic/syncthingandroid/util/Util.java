@@ -64,7 +64,7 @@ public class Util {
      * <p>
      * Based on http://stackoverflow.com/a/5599842
      */
-    public static String readableFileSize(Context context, long bytes) {
+    public static String readableFileSize(Context context, double bytes) {
         final String[] units = context.getResources().getStringArray(R.array.file_size_units);
         if (bytes <= 0) return "0 " + units[0];
         int digitGroups = (int) (Math.log10(bytes) / Math.log10(1024));

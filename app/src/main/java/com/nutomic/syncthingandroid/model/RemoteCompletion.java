@@ -226,6 +226,24 @@ public class RemoteCompletion {
         }
     }
 
+    public double getDeviceNeedBytes(String deviceId) {
+        synchronized(mDeviceFolderMapLock) {
+            if (!mDeviceFolderMap.containsKey(deviceId)) {
+                LogV("getDeviceNeedBytes: Cache miss for deviceId=[" + deviceId + "]");
+                return 0;
+            }
+
+            double sumNeedBytes = 0;
+            HashMap<String, RemoteCompletionInfo> folderMap = mDeviceFolderMap.get(deviceId).getValue();
+            if (folderMap != null) {
+                for (Map.Entry<String, RemoteCompletionInfo> folder : folderMap.entrySet()) {
+                    sumNeedBytes += folder.getValue().needBytes;
+                }
+            }
+            return sumNeedBytes;
+        }
+    }
+
     /**
      * Set completionInfo within the completion[deviceId][folderId] model.
      */

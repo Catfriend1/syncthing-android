@@ -7,4 +7,5 @@ package com.nutomic.syncthingandroid.model;
  */
 public class RemoteCompletionInfo {
     public double completion = 100;
+    public double needBytes = 0;
 }
