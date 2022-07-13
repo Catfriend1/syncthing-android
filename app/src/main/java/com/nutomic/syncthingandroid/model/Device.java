@@ -154,7 +154,8 @@ public class Device {
         }
 
         if (!address.matches("^tcp([46])?://.*$") &&
-                !address.matches("^relay://.*$")) {
+                !address.matches("^relay://.*$") &&
+                !address.matches("^quic://.*$")) {
             // Log.v(TAG, "Invalid protocol.");
             return false;
         }
@@ -172,6 +173,8 @@ public class Device {
                 return checkDeviceAddressTcp(addressSplit[1]);
             } else if (addressSplit[0].matches("^relay.*$")) {
                 return checkDeviceAddressRelay(addressSplit[1]);
+            } else if (addressSplit[0].matches("^quic.*$")) {
+                return checkDeviceAddressTcp(addressSplit[1]);
             }
         }
 
@@ -223,7 +226,7 @@ public class Device {
         // Check if the address ends with ":" or "]:"
         if (address.endsWith(":") ||
                 address.endsWith("]:")) {
-            // The address ends with ":". Will match "tcp://myserver:"
+            // The address ends with ":". Will match "relay://myserver:"
             // Log.v(TAG, "address ends with \":\" or \"]:\". Will match \"relay://myserver:\".");
             return false;
         }
@@ -233,7 +236,7 @@ public class Device {
         if (hostnamePortSplit.length > 1) {
             // Check if the hostname or IP address given before the port is empty.
             if (TextUtils.isEmpty(hostnamePortSplit[0])) {
-                // Empty hostname or IP address before the port. Will match "tcp://:4000"
+                // Empty hostname or IP address before the port. Will match "relay://:4000"
                 // Log.v(TAG, "Empty hostname or IP address before the port.");
                 return false;
             }
@@ -271,6 +274,8 @@ public class Device {
 
     private Boolean testCheckDeviceAddress() {
         Boolean failSuccess = true;
+
+        // Positive Syntax
         failSuccess = failSuccess && checkDeviceAddress("tcp://127.0.0.1:4000");
         failSuccess = failSuccess && checkDeviceAddress("tcp4://127.0.0.1:4000");
         failSuccess = failSuccess && checkDeviceAddress("tcp6://127.0.0.1:4000");
@@ -281,6 +286,10 @@ public class Device {
         failSuccess = failSuccess && checkDeviceAddress("tcp://myserver:12345");
         failSuccess = failSuccess && checkDeviceAddress("relay://stlocal:22067/?id=ID-REDACTED&pingInterval=30s&networkTimeout=2m0s&sessionLimitBps=0&globalLimitBps=0&statusAddr=:22070&providedBy=REDACTED");
         failSuccess = failSuccess && checkDeviceAddress("relay://stlocal:22067");
+        failSuccess = failSuccess && checkDeviceAddress("quic://127.0.0.1");
+        failSuccess = failSuccess && checkDeviceAddress("quic://127.0.0.1:24000");
+
+        // Negative Syntax
         failSuccess = failSuccess && !checkDeviceAddress("tcp://myserver:");
         failSuccess = failSuccess && !checkDeviceAddress("tcp8://127.0.0.1");
         failSuccess = failSuccess && !checkDeviceAddress("udp4://127.0.0.1");
