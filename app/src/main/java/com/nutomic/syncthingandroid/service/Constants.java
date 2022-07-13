@@ -42,11 +42,11 @@ public class Constants {
     public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
 
     // Preferences - User Interface
-    public static final String PREF_APP_THEME                       = "app_theme";
-    public static final String PREF_EXPERT_MODE                     = "expert_mode";
+    public static final String PREF_APP_THEME                   = "app_theme";
+    public static final String PREF_EXPERT_MODE                 = "expert_mode";
 
     // Preferences - Behaviour
-    public static final String PREF_USE_ROOT                        = "use_root";
+    public static final String PREF_USE_ROOT                    = "use_root";
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
