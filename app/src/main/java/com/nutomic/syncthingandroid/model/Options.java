@@ -27,7 +27,6 @@ public class Options {
     public String urURL = "https://data.syncthing.net/newdata";
     public boolean urPostInsecurely = false;
     public int urInitialDelayS = 1800;
-    public boolean restartOnWakeup = true;
     public int autoUpgradeIntervalH = 0;            // Normally "12" but makes no sense on Android.
     public boolean upgradeToPreReleases = false;
     public int keepTemporariesH = 24;

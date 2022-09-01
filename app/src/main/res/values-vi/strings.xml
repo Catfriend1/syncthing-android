@@ -198,6 +198,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Đang đ.bộ (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Đang đồng bộ (%1$d%%, %2$s)</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Đã ngắt k.nối</string>
 
@@ -543,6 +545,11 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="run_in_flight_mode_summary">Việc bật tùy chọn này sẽ làm cho Syncthing chạy kể cả khi bạn đang ngoại tuyến. Hãy bật nếu thiết bị của bạn gặp vấn đề trong việc phát hiện kết nối Wi-Fi thủ công trong chế độ máy bay.</string>
 
     <string name="run_on_time_schedule_title">Chạy theo lịch trình thời gian</string>
+    <string name="run_on_time_schedule_summary">Việc bật tuỳ chọn này sẽ cố gắng đồng bộ trong khoảng thời gian được đặt nếu điều kiện chạy được đáp ứng và lần đồng bộ trước cách đây hơn 1 tiếng. Việc này có thể tiết kiệm nhiều pin nhưng bắt buộc các thiết bị đồng bộ khác phải có mạng. Vui lòng lưu ý: Việc này có thể để lại các tệp tạm không hoàn chỉnh cho đến lần đồng bộ tiếp theo.</string>
+
+    <string name="sync_duration_minutes_title">Thời gian chu kỳ đồng bộ</string>
+    <string name="sync_duration_minutes_summary">%1$s phút</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Tự động khởi động</string>
     <string name="behaviour_autostart_summary">Tự động khởi động ứng dụng khi khởi động hệ điều hành.</string>
@@ -664,10 +671,6 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="broadcast_service_control_title">Điều khiển dịch vụ bằng truyền phát</string>
 
     <string name="broadcast_service_control_summary">Mặc định: Tắt. Hãy bật tùy chọn này để bắt đầu và dừng dịch vụ bằng cách gửi truyền phát, vd: từ các ứng dụng tự động hóa của bên thứ ba. Lưu ý: Bạn phải khởi động lại ứng dụng theo cách thủ công sau khi thay đổi tùy chọn này.</string>
-
-    <string name="restart_on_wakeup_title">Khởi động lại khi đánh thức</string>
-
-    <string name="restart_on_wakeup_summary">Mặc định: Bật. Việc tắt tính năng này có thể gây ra việc quét thư mục và kết nối lại thiết bị bị hoãn lại để tiết kiệm pin.</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>

@@ -487,10 +487,6 @@ Android требует разрешение доступа к геолокаци
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="restart_on_wakeup_title">Перезапуск при пробуждении</string>
-
-    <string name="restart_on_wakeup_summary">По умолчанию: Включено. Выключение данной функции может вызывать задержки сканирования папок и переподключения устройства для экономии заряда батареи.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию? Существующие файлы будут перезаписаны.\n\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
 

@@ -468,10 +468,6 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="restart_on_wakeup_title">Starta om på Vakna upp</string>
-
-    <string name="restart_on_wakeup_summary">Standard: Aktiverad. Om du inaktiverar den här funktionen kan det resultera i försenade mappsökningar och återkopplingar av enheter för att spara batteri.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
 

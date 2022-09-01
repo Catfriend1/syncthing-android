@@ -642,10 +642,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activați această opțiune pentru a porni și opri serviciul prin trimiterea de mesaje Broadcast, de ex. din aplicații terțe de automatizare. Notă: trebuie să reporniți aplicația manual după modificarea acestei opțiuni.</string>
 
-    <string name="restart_on_wakeup_title">Repornire la trezire</string>
-
-    <string name="restart_on_wakeup_summary">Implicit: Activat. Dezactivarea acestei caracteristici ar putea duce la amânarea scanării directoarelor și a conectării dispozitivelor pentru a putea micșora consumul bateriei.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Chiar doriți să exportați configurația? Fișierele existente vor fi suprascrise.\n\nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
 

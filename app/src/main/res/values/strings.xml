@@ -679,10 +679,6 @@ Please report any problems you encounter via Github.</string>
 
     <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
 
-    <string name="restart_on_wakeup_title">Restart on Wakeup</string>
-
-    <string name="restart_on_wakeup_summary">Default: Enabled. Disabling this feature may result in folder scans and device reconnects being delayed to save battery.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Do you really want to export your configuration? Existing files will be overwritten.\n\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
 

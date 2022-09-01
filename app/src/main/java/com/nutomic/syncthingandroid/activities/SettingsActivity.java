@@ -190,7 +190,6 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mGlobalAnnounceServers;
         private EditTextPreference mWebUITcpPort;
         private CheckBoxPreference mWebUIRemoteAccess;
-        private CheckBoxPreference mRestartOnWakeup;
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
         private CheckBoxPreference mWebUIDebugging;
@@ -326,7 +325,6 @@ public class SettingsActivity extends SyncthingActivity {
             mWebUITcpPort           = (EditTextPreference) findPreference(KEY_WEBUI_TCP_PORT);
             mWebUIRemoteAccess      = (CheckBoxPreference) findPreference(KEY_WEBUI_REMOTE_ACCESS);
             mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
-            mRestartOnWakeup        = (CheckBoxPreference) findPreference("restartOnWakeup");
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
             mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
             mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
@@ -523,7 +521,6 @@ public class SettingsActivity extends SyncthingActivity {
                 mGlobalAnnounceEnabled.setChecked(mOptions.globalAnnounceEnabled);
                 mRelaysEnabled.setChecked(mOptions.relaysEnabled);
                 mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
-                mRestartOnWakeup.setChecked(mOptions.restartOnWakeup);
                 mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
                 mCrashReportingEnabled.setChecked(mOptions.crashReportingEnabled);
             }
@@ -683,9 +680,6 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case KEY_WEBUI_REMOTE_ACCESS:
                     mGui.address = ((boolean) o ? BIND_ALL : BIND_LOCALHOST) + ":" + mWebUITcpPort.getSummary();
-                    break;
-                case "restartOnWakeup":
-                    mOptions.restartOnWakeup = (boolean) o;
                     break;
                 case "urAccepted":
                     mRestApi.setUsageReporting((boolean) o);

@@ -199,6 +199,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronizzazione (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Sincronizzazione (%1$d%%, %2$s)</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnesso</string>
 
@@ -544,6 +546,11 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="run_in_flight_mode_summary">Abilitando questa opzione permetterai a Syncthing di funzionare anche quando sei offline. Da utilizzare se il tuo dispositivo ha problemi a rilevare le connessioni Wi-Fi in modalità aereo.</string>
 
     <string name="run_on_time_schedule_title">Esegui secondo programmazione</string>
+    <string name="run_on_time_schedule_summary">Abilitando questa opzione la sincronizzazione verrà eseguita per la durata desiderata le condizioni di esecuzione sono soddisfatte e l\'ultima sincronizzazione è avvenuta più di 1 ora fa. Può risparmiare molta batteria ma necessita che il/ì ricevente/i sia online. Nota bene: potrebbe lasciare alcuni file temporanei non sincronizzati fino alla successiva sincronizzazione.</string>
+
+    <string name="sync_duration_minutes_title">Durata del ciclo di sincronizzazione</string>
+    <string name="sync_duration_minutes_summary">%1$s minuti</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Avvio automatico</string>
     <string name="behaviour_autostart_summary">Esegui l\'app automaticamente quando viene avviato il dispositivo.</string>
@@ -665,10 +672,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
 
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilita questa opzione per avviare e interrompere il servizio inviando dei broadcast, come ad esempio utilizzando app di automazione. Nota: dovrai riavviare il servizio manualmente dopo aver cambiato questa opzione.</string>
-
-    <string name="restart_on_wakeup_title">Riavvio alla Riattivazione</string>
-
-    <string name="restart_on_wakeup_summary">Predefinito: Abilitato. La disattivazione di questa funzione può comportare il rallentamento delle scansioni delle cartelle e il ricollegamento dei dispositivi per risparmiare la batteria.</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Vuoi veramente esportare la tua configurazione? I files esistenti verranno sovrascritti.n\nATTENZIONE! Le altre applicazioni potrebbero non essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>

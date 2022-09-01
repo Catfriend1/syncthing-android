@@ -197,6 +197,8 @@
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">正在同步 (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">正在同步 （%1$d%%，%2$s）</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">连接断开</string>
 
@@ -543,6 +545,11 @@
     <string name="run_in_flight_mode_summary">启用这个选项会让Syncthing在你离线时也运行。如果您的设备在飞行模式下检测手动Wi-Fi连接有问题，请启用。</string>
 
     <string name="run_on_time_schedule_title">按照时间表运行</string>
+    <string name="run_on_time_schedule_summary">启用此选项将尝试以配置的持续时间进行同步，前提是满足运行条件和上一次同步超过1小时。这可以节省很多电量，但需要同步伙伴在线。请注意：这可能会在下一次计划的同步发生前留下不完整的临时文件。</string>
+
+    <string name="sync_duration_minutes_title">同步周期的持续时间</string>
+    <string name="sync_duration_minutes_summary">%1$s分钟</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自动启动</string>
     <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing </string>
@@ -664,10 +671,6 @@
     <string name="broadcast_service_control_title">通过广播控制服务</string>
 
     <string name="broadcast_service_control_summary">默认值:禁用。使用此选项可以通过发送广播来启动和停止服务，例如从第三方自动化应用程序。注意:更改此选项后，您必须手动重启应用程序。</string>
-
-    <string name="restart_on_wakeup_title">唤醒时重启</string>
-
-    <string name="restart_on_wakeup_summary">默认值:启用。禁用此功能可能会导致文件夹扫描和设备重新连接被延迟以节省电池。</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">您确定要导出您的配置？若您之前导出过配置，则文件会被当前导出的配置所覆盖。\n\n 警告！其他应用程序可以从您导出的配置文件中获取到您的密钥，并且可以通过它来下载或者修改您的同步文件。</string>

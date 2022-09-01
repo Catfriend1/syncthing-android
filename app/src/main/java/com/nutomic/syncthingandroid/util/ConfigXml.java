@@ -975,7 +975,6 @@ public class ConfigXml {
         options.urURL = getContentOrDefault(elementOptions.getElementsByTagName("urURL").item(0), options.urURL);
         options.urPostInsecurely = getContentOrDefault(elementOptions.getElementsByTagName("urPostInsecurely").item(0), options.urPostInsecurely);
         options.urInitialDelayS = getContentOrDefault(elementOptions.getElementsByTagName("urInitialDelayS").item(0), options.urInitialDelayS);
-        options.restartOnWakeup = getContentOrDefault(elementOptions.getElementsByTagName("restartOnWakeup").item(0), options.restartOnWakeup);
         options.autoUpgradeIntervalH = getContentOrDefault(elementOptions.getElementsByTagName("autoUpgradeIntervalH").item(0), options.autoUpgradeIntervalH);
         options.upgradeToPreReleases = getContentOrDefault(elementOptions.getElementsByTagName("upgradeToPreReleases").item(0), options.upgradeToPreReleases);
         options.keepTemporariesH = getContentOrDefault(elementOptions.getElementsByTagName("keepTemporariesH").item(0), options.keepTemporariesH);

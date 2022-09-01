@@ -532,8 +532,6 @@
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
     <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
 
-    <string name="restart_on_wakeup_title">ウェイクアップ時の再起動</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
 

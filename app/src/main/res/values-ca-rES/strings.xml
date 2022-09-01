@@ -506,10 +506,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
 
     <string name="broadcast_service_control_title">Control del Servei per Difusió</string>
 
-    <string name="restart_on_wakeup_title">Reinicia en despertar-se</string>
-
-    <string name="restart_on_wakeup_summary">Per defecte: Activat. Si es desactiva pot provocar retards en la comprovació de carpetes i reconnexions del dispositiu per estalviar bateria.</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Realment voleu exportar la configuració? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
 

@@ -240,13 +240,6 @@
             android:singleLineTitle="false" />
 
         <CheckBoxPreference
-            android:key="restartOnWakeup"
-            android:title="@string/restart_on_wakeup_title"
-            android:summary="@string/restart_on_wakeup_summary"
-            android:singleLineTitle="false"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
             android:key="urAccepted"
             android:title="@string/usage_reporting"
             android:singleLineTitle="false"

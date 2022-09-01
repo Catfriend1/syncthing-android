@@ -460,10 +460,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Input overtræder proxy syntaks \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
-    <string name="restart_on_wakeup_title">Genstart ved tænding</string>
-
-    <string name="restart_on_wakeup_summary">Default: Slået til. At slå denne funktion fra kunne resultere i at mapper bliver skannet og enheder bliver genforbundet for at spare på batteriet. </string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt.\n\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
 
