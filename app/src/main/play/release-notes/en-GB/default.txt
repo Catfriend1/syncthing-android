@@ -1,12 +1,10 @@
-* Syncthing v1.20.3
+* Syncthing v1.21.0
 
 Enhanced
 --
-- Show remaining bytes for devices (#897)
-- Allow to configure sync duration when on schedule (#679)
+-
 
 
 Fixes
 --
-- Support for quic:// URIs in device dialog (#893)
-- Prevent MediaStore from deleting files during case-only renames
+-
