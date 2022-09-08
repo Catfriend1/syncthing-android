@@ -472,6 +472,8 @@ public class ConfigXml {
             folder.maxConflicts = getContentOrDefault(r.getElementsByTagName("maxConflicts").item(0), folder.maxConflicts);
             folder.copyRangeMethod = getContentOrDefault(r.getElementsByTagName("copyRangeMethod").item(0), folder.copyRangeMethod);
             folder.caseSensitiveFS = getContentOrDefault(r.getElementsByTagName("caseSensitiveFS").item(0), folder.caseSensitiveFS);
+            folder.scanOwnership = getContentOrDefault(r.getElementsByTagName("scanOwnership").item(0), folder.scanOwnership);
+            folder.syncOwnership = getContentOrDefault(r.getElementsByTagName("syncOwnership").item(0), folder.syncOwnership);
 
             // Devices
             /*
@@ -584,6 +586,8 @@ public class ConfigXml {
                 setConfigElement(r, "maxConflicts", Integer.toString(folder.maxConflicts));
                 setConfigElement(r, "copyRangeMethod", folder.copyRangeMethod);
                 setConfigElement(r, "caseSensitiveFS", Boolean.toString(folder.caseSensitiveFS));
+                setConfigElement(r, "scanOwnership", Boolean.toString(folder.scanOwnership));
+                setConfigElement(r, "syncOwnership", Boolean.toString(folder.syncOwnership));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.

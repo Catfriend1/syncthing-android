@@ -72,6 +72,10 @@ public class Folder {
     // see https://github.com/syncthing/syncthing/commit/932d8c69de9e34824ecc4d5de0a482dfdb71936e
     public Boolean caseSensitiveFS = false;
 
+    // Since v1.21.0
+    public Boolean scanOwnership = false;
+    public Boolean syncOwnership = false;
+
     // Folder Status
     public String invalid;
 
