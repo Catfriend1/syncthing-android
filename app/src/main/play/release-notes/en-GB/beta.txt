@@ -2,7 +2,7 @@
 
 Enhanced
 --
--
+- App is removed from recents after exit
 
 
 Fixes
