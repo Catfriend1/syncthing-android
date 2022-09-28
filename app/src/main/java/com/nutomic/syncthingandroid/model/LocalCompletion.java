@@ -155,6 +155,9 @@ public class LocalCompletion {
             } else {
                 cachedFolderStatus.completion = (int) Math.floor(((double) folderStatus.inSyncBytes / folderStatus.globalBytes) * 100);
             }
+            if (folderStatus.state.equals("idle")) {
+                cachedFolderStatus.completion = 100;
+            }
             if (ENABLE_DEBUG_LOG) {
                 Log.d(TAG, "setFolderStatus: folderId=\"" + folderId + "\"" +
                         ", state=\"" + folderStatus.state + "\"" +
