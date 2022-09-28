@@ -156,8 +156,8 @@ public class SyncthingRunnable implements Runnable {
              * Since gradle 4.6, wakelock tags have to obey "app:component" naming convention.
              */
             wakeLock = pm.newWakeLock(
-                PowerManager.PARTIAL_WAKE_LOCK,
-                mContext.getString(R.string.app_name) + ":" + TAG
+                    PowerManager.PARTIAL_WAKE_LOCK,
+                    mContext.getString(R.string.app_name) + ":" + TAG
             );
         }
 
