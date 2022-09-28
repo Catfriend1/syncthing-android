@@ -2,9 +2,10 @@
 
 Enhanced
 --
+- Show pending bytes of disconnected devices (#916)
 - App is removed from recents after exit
 
 
 Fixes
 --
--
+- Fix total completion percentage (#915)
