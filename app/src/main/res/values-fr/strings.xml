@@ -106,7 +106,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="device_syncing">Synchronisation (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Déconnecté</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">En pause</string>
 
@@ -509,19 +508,11 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>o</item>
-        <item>Ko</item>
-        <item>Mo</item>
-        <item>Go</item>
-        <item>To</item>
     </string-array>
 
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>Octets/s</item>
-        <item>Ko/s</item>
-        <item>Mo/s</item>
-        <item>Go/s</item>
-        <item>To/s</item>
     </string-array>
 
     <string name="state_up_to_date">à jour</string>
