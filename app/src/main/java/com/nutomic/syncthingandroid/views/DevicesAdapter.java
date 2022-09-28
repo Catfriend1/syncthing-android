@@ -170,7 +170,15 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         binding.progressBar.setVisibility(GONE);
         rateInOutView.setVisibility(GONE);
         binding.status.setVisibility(VISIBLE);
-        binding.status.setText(R.string.device_disconnected);
+        if (needBytes == 0) {
+            binding.status.setText(R.string.device_disconnected);
+        } else {
+            binding.status.setText(
+                    mContext.getString(R.string.device_disconnected_not_synced,
+                            Util.readableFileSize(getContext(), needBytes)
+                    )
+            );
+        }
         binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
         return;
     }
