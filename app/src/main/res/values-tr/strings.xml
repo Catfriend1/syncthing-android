@@ -67,7 +67,6 @@
     <string name="device_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Bağlantı kesik</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Bilinmiyor</string>
 

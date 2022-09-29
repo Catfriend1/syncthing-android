@@ -80,7 +80,6 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="device_syncing">Szinkronizálás (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Kapcsolat bontva</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Szünteteltetve</string>
 

@@ -64,7 +64,6 @@
     <string name="device_syncing">Synkroniserer (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Fråkopla</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Ukjend</string>
 

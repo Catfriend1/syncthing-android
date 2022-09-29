@@ -73,7 +73,6 @@
     <string name="device_syncing">Sinkronisasi (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Terputus</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Unduhan</string>
 

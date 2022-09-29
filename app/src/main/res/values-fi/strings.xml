@@ -186,7 +186,6 @@
     <string name="device_syncing">Synkronoidaan (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Ei yhteyttä</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Tauolla</string>
 

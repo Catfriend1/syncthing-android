@@ -174,7 +174,6 @@
     <string name="device_syncing">同期中 (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">切断中</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">ポーズ（一時停止）</string>
 

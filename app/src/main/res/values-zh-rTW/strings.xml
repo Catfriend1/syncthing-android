@@ -121,7 +121,6 @@
     <string name="device_syncing">正在同步 (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">斷線</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">未知</string>
 

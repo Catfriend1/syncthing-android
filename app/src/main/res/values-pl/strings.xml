@@ -108,7 +108,6 @@
     <string name="device_syncing">Synchronizowanie (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Rozłączony</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Nieznany</string>
 

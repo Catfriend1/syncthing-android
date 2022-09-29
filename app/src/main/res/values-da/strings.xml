@@ -128,7 +128,6 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="device_syncing">Synkroniserer (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Forbindelse afbrudt</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">På pause</string>
 

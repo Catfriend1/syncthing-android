@@ -203,7 +203,6 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnesso</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">In pausa</string>
 

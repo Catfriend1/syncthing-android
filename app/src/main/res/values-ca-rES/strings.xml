@@ -137,7 +137,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="device_syncing">Sincronitzant (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconnectat</string>
-
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">En pausa</string>
 
