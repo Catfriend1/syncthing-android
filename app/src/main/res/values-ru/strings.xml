@@ -187,6 +187,7 @@ Android требует разрешение доступа к геолокаци
     <string name="device_syncing">Синхронизация (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Отсоединено</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Остановлено</string>
 
@@ -668,11 +669,19 @@ Android требует разрешение доступа к геолокаци
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>Б</item>
+        <item>КБ</item>
+        <item>МБ</item>
+        <item>ГБ</item>
+        <item>ТБ</item>
     </string-array>
 
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>б/с</item>
+        <item>Кб/с</item>
+        <item>Мб/с</item>
+        <item>Гб/с</item>
+        <item>Тб/с</item>
     </string-array>
 
     <string name="state_up_to_date">уточненный</string>

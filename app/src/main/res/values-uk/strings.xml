@@ -51,6 +51,7 @@
     <string name="device_syncing">Синхронізуються (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Від\'єднано</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Невідомо</string>
 

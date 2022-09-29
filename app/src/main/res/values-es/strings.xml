@@ -203,6 +203,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausado</string>
 
@@ -970,11 +971,19 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
+        <item>KiB</item>
+        <item>MiB</item>
+        <item>GiB</item>
+        <item>TiB</item>
     </string-array>
 
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
+        <item>KiB/s</item>
+        <item>MiB/s</item>
+        <item>GiB/s</item>
+        <item>TiB/s</item>
     </string-array>
 
     <!-- Possible folder states -->
