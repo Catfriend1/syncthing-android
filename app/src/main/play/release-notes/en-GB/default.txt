@@ -4,6 +4,7 @@ Enhanced
 --
 - Show pending bytes of disconnected devices (#916)
 - App is removed from recents after exit
+- Route network request to specific network (#914)
 
 
 Fixes
