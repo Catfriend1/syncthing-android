@@ -1,0 +1,2 @@
+https://docs.transifex.com/projects/adding-and-removing-project-languages/#removing-project-languages
+	https://www.transifex.com/catfriend1/syncthing-android-1/languages/
