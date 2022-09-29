@@ -62,6 +62,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -358,7 +359,7 @@ public class RestApi {
                     LogV("ORCC: /rest/db/completion: folder=" + folder.id +
                             ", device=" + device.deviceID +
                             ", completion=" + completionInfo.completion +
-                            ", needBytes=" + String.format("%.0f", completionInfo.needBytes) +
+                            ", needBytes=" + String.format(Locale.getDefault(), "%.0f", completionInfo.needBytes) +
                             ", remoteState=" + completionInfo.remoteState);
                     RemoteCompletionInfo remoteCompletionInfo = new RemoteCompletionInfo();
                     remoteCompletionInfo.completion = completionInfo.completion;
