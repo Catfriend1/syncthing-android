@@ -42,7 +42,7 @@ android {
     defaultConfig {
         applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode ourVersionCode
         versionName ourVersionName
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
