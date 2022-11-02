@@ -73,8 +73,12 @@ public class Folder {
     public Boolean caseSensitiveFS = false;
 
     // Since v1.21.0
-    public Boolean scanOwnership = false;
     public Boolean syncOwnership = false;
+    public Boolean sendOwnership = false;
+
+    // Since v1.22.0
+    public Boolean syncXattrs = false;
+    public Boolean sendXattrs = false;
 
     // Folder Status
     public String invalid;
