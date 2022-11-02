@@ -93,7 +93,7 @@ android {
     }
 
     lintOptions {
-        disable "UnsafeExperimentalUsageError", "UnsafeExperimentalUsageWarning", "ExpiringTargetSdkVersion"
+        disable "UnsafeExperimentalUsageError", "UnsafeExperimentalUsageWarning", "ExpiringTargetSdkVersion", "ExpiredTargetSdkVersion"
         abortOnError true
     }
 
