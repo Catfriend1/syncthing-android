@@ -523,6 +523,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Bitte WLAN aktivieren, um eines zu wählen.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Bitte schalte den Standort ein, um Netzwerke zu wählen.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Bitte gewähre die Standort-Berechtigung, um diese Funktion nutzen zu können.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Berechtigung benötigt</string>
@@ -558,6 +560,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="use_root_title">Syncthing mit Superuser Rechten ausführen</string>
 
     <string name="use_root_summary">Wenn Syncthing unter dem Root-Benutzer ausgeführt wird, hat es Schreibzugriff auf Ordner, die Android normalerweise auf schreibgeschützten Zugriff beschränkt. Verwende diese Funktion mit Bedacht.</string>
+
+    <string name="bind_network_title">An aktives Netzwerk binden</string>
+    <string name="bind_network_summary">Erzwingt die Verwendung von WLAN, auch wenn keine Internetverbindung besteht. Wenn deaktiviert, kann Syncthing in diesem Fall mobile Daten verwenden.</string>
 
     <string name="expert_mode_title">Expertenmodus</string>
 
@@ -724,6 +729,11 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="verbose_log_title">Ausführliches Log</string>
 
     <string name="verbose_log_summary">Aktivieren dieser Option wird sehr detaillierte Logs zur Fehlersuche liefern.</string>
+
+    <string name="log_to_file_title">Schreibe Logdatei</string>
+
+    <string name="log_to_file_summary">Die Ausgabe von SyncthingNative wird in eine Datei geschrieben.</string>
+
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Log öffnen</string>

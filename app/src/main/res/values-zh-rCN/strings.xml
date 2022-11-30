@@ -201,6 +201,8 @@
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">连接断开</string>
+    <string name="device_disconnected_not_synced">已断开（%1$s 项任务未同步）</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">已暂停</string>
 
