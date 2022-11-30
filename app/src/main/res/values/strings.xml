@@ -562,6 +562,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature with caution.</string>
 
+    <string name="bind_network_title">Bind to active network</string>
+    <string name="bind_network_summary">Force to use WiFi even if there is no internet connection. If disabled, Syncthing may use mobile data in this case.</string>
+
     <string name="expert_mode_title">Expert mode</string>
 
     <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete synchronization.</string>

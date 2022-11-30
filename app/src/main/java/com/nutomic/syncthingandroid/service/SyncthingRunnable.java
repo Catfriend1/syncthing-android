@@ -136,23 +136,33 @@ public class SyncthingRunnable implements Runnable {
      */
     private void bindNetwork() {
         clearBindNetwork();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            boolean runOnWifi = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
-            boolean runOnMobileData = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, true);
-            if ((runOnWifi && !runOnMobileData) || (!runOnWifi && runOnMobileData)) {
-                ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-                Network network = cm.getActiveNetwork();
-                cm.bindProcessToNetwork(network);
-            }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        boolean bindNetwork = mPreferences.getBoolean(Constants.PREF_BIND_NETWORK, true);
+        if (!bindNetwork) {
+            return;
+        }
+        boolean runOnWifi = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
+        boolean runOnMobileData = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, true);
+        if ((runOnWifi && !runOnMobileData) || (!runOnWifi && runOnMobileData)) {
+            ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            Network network = cm.getActiveNetwork();
+            cm.bindProcessToNetwork(network);
         }
     }
 
     private void clearBindNetwork() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (cm.getBoundNetworkForProcess() != null) {
-                cm.bindProcessToNetwork(null);
-            }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        boolean bindNetwork = mPreferences.getBoolean(Constants.PREF_BIND_NETWORK, true);
+        if (!bindNetwork) {
+            return;
+        }
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm.getBoundNetworkForProcess() != null) {
+            cm.bindProcessToNetwork(null);
         }
     }
 
