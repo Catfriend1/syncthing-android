@@ -55,8 +55,10 @@ public class Util {
                 context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText(context.getString(R.string.device_id), id);
         clipboard.setPrimaryClip(clip);
-        Toast.makeText(context, R.string.device_id_copied_to_clipboard, Toast.LENGTH_SHORT)
-                .show();
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            Toast.makeText(context, R.string.device_id_copied_to_clipboard, Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     /**
