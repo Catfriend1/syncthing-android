@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
+import android.location.LocationManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -92,7 +93,11 @@ public class WifiSsidPreference extends MultiSelectListPreference {
             setValues(selectedSsids); // the currently selected values (without meanwhile deleted networks)
             super.showDialog(state);
         } else {
-            Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_wifi_turn_on_wifi, Toast.LENGTH_LONG).show();
+            if (isLocationEnabled()) {
+                Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_wifi_turn_on_wifi, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getContext(), R.string.sync_only_wifi_ssids_wifi_turn_on_location, Toast.LENGTH_LONG).show();
+            }
         }
 
         if (!haveLocationPermission()) {
@@ -164,6 +169,25 @@ public class WifiSsidPreference extends MultiSelectListPreference {
                     Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED;
         }
         return coarseLocationGranted && backgroundLocationGranted;
+    }
+
+    private boolean isLocationEnabled() {
+        LocationManager lm = (LocationManager) getContext().getApplicationContext()
+                .getSystemService(Context.LOCATION_SERVICE);
+        boolean gpsEnabled = false;
+        boolean networkEnabled = false;
+
+        try {
+            gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch(Exception ex) {
+        }
+
+        try {
+            networkEnabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch(Exception ex) {
+        }
+
+        return (gpsEnabled || networkEnabled);
     }
 
     private void requestLocationPermission(Activity activity) {

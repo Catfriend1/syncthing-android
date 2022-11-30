@@ -526,6 +526,8 @@ Please report any problems you encounter via Github.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Please turn on Wi-Fi to select networks.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Please turn on location to select networks.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">You need to grant LOCATION permission to use this feature.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission required</string>
