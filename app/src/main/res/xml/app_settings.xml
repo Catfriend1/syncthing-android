@@ -315,6 +315,14 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- Verbose log -->
+        <CheckBoxPreference
+            android:key="log_to_file"
+            android:title="@string/log_to_file_title"
+            android:summary="@string/log_to_file_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="false" />
+
         <!-- Open Android or SyncthingNative log -->
         <Preference
             android:title="@string/open_log"

@@ -58,6 +58,7 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
+    private Boolean LOG_TO_FILE = false;
     private static final int LOG_FILE_MAX_LINES = 10;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
@@ -89,6 +90,7 @@ public class SyncthingRunnable implements Runnable {
     public SyncthingRunnable(Context context, Command command) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
+        LOG_TO_FILE = mPreferences.getBoolean(Constants.PREF_LOG_TO_FILE, false);
         mContext = context;
         // Example: mSyncthingBinary="/data/app/com.github.catfriend1.syncthingandroid.debug-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/libsyncthingnative.so"
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
@@ -242,8 +244,8 @@ public class SyncthingRunnable implements Runnable {
                         br.close();
                 }
             } else {
-                lInfo = log(process.getInputStream(), Log.INFO, true);
-                lWarn = log(process.getErrorStream(), Log.WARN, true);
+                lInfo = log(process.getInputStream(), Log.INFO, LOG_TO_FILE);
+                lWarn = log(process.getErrorStream(), Log.WARN, LOG_TO_FILE);
             }
 
             niceSyncthing();

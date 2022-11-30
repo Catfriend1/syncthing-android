@@ -739,6 +739,11 @@ Please report any problems you encounter via Github.</string>
 
     <string name="verbose_log_summary">Enabling this option will help to generate debug logs at a very detailed level.</string>
 
+    <string name="log_to_file_title">Log to file</string>
+
+    <string name="log_to_file_summary">The output of SyncthingNative will be written to file.</string>
+
+
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Open Log</string>
 
