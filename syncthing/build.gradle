@@ -1,8 +1,11 @@
-task buildNative(type: Exec) {
+plugins {
+    id 'ru.vyarus.use-python' version '3.0.0'
+}
+
+task buildNative(type: PythonTask) {
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
-    executable = 'python'
-    args = ['-u', './build-syncthing.py']
+    command = "-u ./build-syncthing.py"
 }
 
 /**
