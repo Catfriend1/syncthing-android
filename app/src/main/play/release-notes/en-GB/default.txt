@@ -1,10 +1,11 @@
-* Syncthing v1.22.2-rc.3
+* Syncthing v1.22.2
 
 Enhanced
 --
--
+- Add pref "log to file" (#945)
+- Hint if location services are off during wifi selection dialog (#924)
 
 
 Fixes
 --
--
+- Fix sync cycle set to empty (#937)
