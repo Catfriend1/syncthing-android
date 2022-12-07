@@ -35,7 +35,7 @@ def ourVersionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionW
 android {
     compileSdkVersion 33
     buildToolsVersion '33.0.0'
-    ndkVersion = '25.1.8937393'
+    ndkVersion = "${ndkVersionShared}"
 
     namespace = 'com.nutomic.syncthingandroid'
     buildFeatures.dataBinding = true

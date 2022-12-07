@@ -1,6 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext {
+        // Cannot be called "ndkVersion" as that leads to naming collision
+        ndkVersionShared = '25.1.8937393'
+    }
     repositories {
         google()
         jcenter()
