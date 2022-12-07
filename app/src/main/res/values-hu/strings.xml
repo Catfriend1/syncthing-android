@@ -525,6 +525,8 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">A hálózatok kiválasztásához kapcsolja be a helymeghatározást.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">A funkció használatához engedélyezni kell a hozzáférést a földrajzi helyhez</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
@@ -560,6 +562,9 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
 
     <string name="use_root_summary">A Syncthing root felhasználóként történő futtatása lehetővé teszi, hogy írjon az Android által általában olvasásra korlátozott mappákba. Körültekintően használja ezt a funkciót.</string>
+
+    <string name="bind_network_title">Kötés az aktív hálózathoz</string>
+    <string name="bind_network_summary">Kényszeríti a WiFi használatát akkor is, ha nincs internetkapcsolat. Ha kikapcsolja, a Syncthing ebben az esetben mobiladatokat használhat.</string>
 
     <string name="expert_mode_title">Szakértői mód</string>
 
@@ -730,6 +735,11 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="verbose_log_title">Bővebb napló</string>
 
     <string name="verbose_log_summary">Az opció engedélyezése segít a hibakeresési naplók nagyon részletes szintű létrehozásában.</string>
+
+    <string name="log_to_file_title">Naplózás fájlba</string>
+
+    <string name="log_to_file_summary">A SyncthingNative kimenete kiíródik a fájlba.</string>
+
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Napló megnyitása</string>

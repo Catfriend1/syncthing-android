@@ -523,6 +523,8 @@
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">请开启定位来选择网络</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">您需要允许 Syncthing 获得定位权限以使用此功能</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
@@ -558,6 +560,9 @@
     <string name="use_root_title">Syncthing 运行于超级用户</string>
 
     <string name="use_root_summary">以 root 权限运行 Syncthing 允许它写入 Android 通常限制为只读访问的文件夹。请谨慎使用此功能。</string>
+
+    <string name="bind_network_title">绑定到活跃网络</string>
+    <string name="bind_network_summary">如果没有互联网连接便强制使用 WIFI。如果禁用，Syncthing 在这种情况下可能会使用移动数据。</string>
 
     <string name="expert_mode_title">专家模式</string>
 
@@ -726,6 +731,11 @@
     <string name="verbose_log_title">详细日志</string>
 
     <string name="verbose_log_summary">启用此选项有助于生成在极其详细的调试日志。</string>
+
+    <string name="log_to_file_title">记录到文件</string>
+
+    <string name="log_to_file_summary">SyncthingNative 输出会写入文件。</string>
+
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">打开日志</string>
