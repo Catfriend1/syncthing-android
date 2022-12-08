@@ -235,6 +235,18 @@ public class FirstStartActivity extends AppCompatActivity {
         outState.putBoolean("mNextButton", mNextButton.getVisibility() == View.VISIBLE);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mNextButton == null || mViewPager == null) {
+            return;
+        }
+        if (mViewPager.getCurrentItem() == mSlidePosStoragePermission ||
+                mViewPager.getCurrentItem() == mSlidePosIgnoreDozePermission) {
+            mNextButton.performClick();
+        }
+    }
+
     public void onBtnBackClick() {
         int current = getItem(-1);
         if (current >= 0) {
@@ -572,7 +584,6 @@ public class FirstStartActivity extends AppCompatActivity {
                     Toast.makeText(this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "User granted WRITE_EXTERNAL_STORAGE permission.");
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                        requestAllFilesAccessPermission();
                         mNextButton.requestFocus();
                         return;
                     }
@@ -655,6 +666,7 @@ public class FirstStartActivity extends AppCompatActivity {
             Button nextButton = (Button) firstStartActivity.findViewById(R.id.btn_next);
             nextButton.setVisibility(View.VISIBLE);
             nextButton.requestFocus();
+            nextButton.performClick();
         }
     }
 
