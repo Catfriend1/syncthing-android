@@ -232,8 +232,19 @@ public class Constants {
     /**
      * Name of the public HTTPS CA file in the data directory.
      */
+    public static final String HTTPS_CERT_FILE = "https-cert.pem";
+
     public static File getHttpsCertFile(Context context) {
-        return new File(context.getFilesDir(), "https-cert.pem");
+        return new File(context.getFilesDir(), HTTPS_CERT_FILE);
+    }
+
+    /**
+     * Name of the HTTPS CA key file in the data directory.
+     */
+    public static final String HTTPS_KEY_FILE = "https-key.pem";
+
+    public static File getHttpsKeyFile(Context context) {
+        return new File(context.getFilesDir(), HTTPS_KEY_FILE);
     }
 
     /**
