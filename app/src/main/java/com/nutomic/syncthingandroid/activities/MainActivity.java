@@ -55,6 +55,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 import com.nutomic.syncthingandroid.service.SyncthingServiceBinder;
+import com.nutomic.syncthingandroid.util.PermissionUtil;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.util.Date;
@@ -333,8 +334,7 @@ public class MainActivity extends SyncthingActivity
     @Override
     public void onResume() {
         // Check if storage permission has been revoked at runtime.
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-            PackageManager.PERMISSION_GRANTED)) {
+        if (!PermissionUtil.haveStoragePermission(this)) {
             startActivity(new Intent(this, FirstStartActivity.class));
             this.finish();
             super.onResume();
