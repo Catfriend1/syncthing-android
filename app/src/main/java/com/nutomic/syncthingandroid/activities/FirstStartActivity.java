@@ -59,6 +59,7 @@ public class FirstStartActivity extends AppCompatActivity {
     private static final int REQUEST_COARSE_LOCATION = 141;
     private static final int REQUEST_BACKGROUND_LOCATION = 142;
     private static final int REQUEST_FINE_LOCATION = 144;
+    private static final int REQUEST_NOTIFICATION = 145;
     private static final int REQUEST_WRITE_STORAGE = 143;
 
     private static class Slide {
@@ -397,6 +398,7 @@ public class FirstStartActivity extends AppCompatActivity {
                 btnGrantStoragePerm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        requestNotificationPermission();
                         PermissionUtil.requestStoragePermission(FirstStartActivity.this, REQUEST_WRITE_STORAGE);
                     }
                 });
@@ -529,6 +531,15 @@ public class FirstStartActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                 REQUEST_COARSE_LOCATION);
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return;
+        }
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                REQUEST_NOTIFICATION);
     }
 
     @Override
