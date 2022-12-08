@@ -25,7 +25,6 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="storage_permission_title">Permisiune de stocare</string>
     <string name="storage_permission_desc">Syncthing trebuie să acceseze spațiul de stocare pentru a realiza sincronizarea fișierelor.</string>
     <string name="dialog_all_files_access_not_supported">Dispozitivul dvs. nu acceptă accesul la toate fișierele</string>
-    <string name="storage_permission_emergency_export">Blocat? Exportați de urgență configurația dvs.</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimizare baterie</string>

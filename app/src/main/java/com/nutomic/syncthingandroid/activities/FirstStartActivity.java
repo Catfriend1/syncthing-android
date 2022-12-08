@@ -390,35 +390,6 @@ public class FirstStartActivity extends AppCompatActivity {
             View view = layoutInflater.inflate(mSlides[position].layout, container, false);
 
             /* Slide: storage permission */
-            Button btnConfigExport = (Button) view.findViewById(R.id.btnConfigExport);
-            if (btnConfigExport != null) {
-                btnConfigExport.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Get app specific /Android/media directory.
-                        File externalFilesDir = FileUtils.getExternalFilesDir(FirstStartActivity.this, ExternalStorageDirType.INT_MEDIA, null);
-                        if (externalFilesDir == null) {
-                            Log.w(TAG, "Failed to export config. Could not determine app's private files directory on external storage.");
-                            Toast.makeText(FirstStartActivity.this,
-                                    getString(R.string.config_export_failed),
-                                    Toast.LENGTH_LONG).show();
-                            return;
-                        }
-                        final String exportToMediaPath = externalFilesDir.getAbsolutePath();
-                        if (!exportConfig(exportToMediaPath)) {
-                            Toast.makeText(FirstStartActivity.this,
-                                    getString(R.string.config_export_failed),
-                                    Toast.LENGTH_LONG).show();
-                            return;
-                        }
-                        Toast.makeText(FirstStartActivity.this,
-                                getString(R.string.config_export_successful,
-                                exportToMediaPath), Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                });
-            }
-
             Button btnGrantStoragePerm = (Button) view.findViewById(R.id.btnGrantStoragePerm);
             if (btnGrantStoragePerm != null) {
                 btnGrantStoragePerm.setOnClickListener(new View.OnClickListener() {
@@ -765,24 +736,4 @@ public class FirstStartActivity extends AppCompatActivity {
         return configParseable;
     }
 
-    private boolean exportConfig(final String exportAbsolutePath) {
-        Boolean failSuccess = true;
-        Log.d(TAG, "exportConfig BEGIN");
-        final File exportPath = new File(exportAbsolutePath);
-
-        // Copy config, privateKey and/or publicKey to export path.
-        exportPath.mkdirs();
-        try {
-            Files.copy(Constants.getConfigFile(this),
-                    new File(exportPath, Constants.CONFIG_FILE));
-            Files.copy(Constants.getPrivateKeyFile(this),
-                    new File(exportPath, Constants.PRIVATE_KEY_FILE));
-            Files.copy(Constants.getPublicKeyFile(this),
-                    new File(exportPath, Constants.PUBLIC_KEY_FILE));
-        } catch (IOException e) {
-            Log.w(TAG, "Failed to export config", e);
-            failSuccess = false;
-        }
-        return failSuccess;
-    }
 }

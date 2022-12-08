@@ -25,7 +25,6 @@ Kérjük, hogy a Githubon keresztül jelezzen minden felmerülő problémát.</s
     <string name="storage_permission_title">Tárolási engedély</string>
     <string name="storage_permission_desc">A fájlszinkronizáláshoz a Syncthingnek hozzá kell férnie a tárolóhoz.</string>
     <string name="dialog_all_files_access_not_supported">Az eszköz nem támogatja az összes fájl elérését</string>
-    <string name="storage_permission_emergency_export">Elakadt? Vészhelyzetben exportálja a konfigurációt</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akkumulátor optimalizáció</string>

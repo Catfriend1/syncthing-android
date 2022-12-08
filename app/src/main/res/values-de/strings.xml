@@ -25,7 +25,6 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="storage_permission_title">Speicher-Berechtigung</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
     <string name="dialog_all_files_access_not_supported">Dein Gerät unterstützt den vollwertigen Dateizugriff nicht</string>
-    <string name="storage_permission_emergency_export">Klemmt? Notfall Konfigurationsexport</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akku-Optimierung</string>

@@ -25,7 +25,6 @@
     <string name="storage_permission_title">ストレージアクセス許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
     <string name="dialog_all_files_access_not_supported">お使いのデバイスがすべてのファイルへのアクセスをサポートしていません</string>
-    <string name="storage_permission_emergency_export">動かなくなった？設定を緊急エクスポート</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">バッテリー最適化</string>

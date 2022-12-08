@@ -25,7 +25,6 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="storage_permission_title">Permissão de Armazenamento</string>
     <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>
     <string name="dialog_all_files_access_not_supported">Seu dispositivo não suporta o acesso a todos os arquivos</string>
-    <string name="storage_permission_emergency_export">Emperrado? Exporte sua configuração de emergência</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Otimização de bateria</string>
