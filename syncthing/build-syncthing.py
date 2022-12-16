@@ -14,7 +14,7 @@ import platform
 PLATFORM_DIRS = {
     'Windows': 'windows-x86_64',
     'Linux': 'linux-x86_64',
-    'Darwin': 'darwin-x86-64',
+    'Darwin': 'darwin-x86_64',
 }
 
 # Leave empty to auto-detect version by 'git describe'.
