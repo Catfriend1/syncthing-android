@@ -1,17 +1,13 @@
-* Syncthing v1.22.2
+* Syncthing v1.23.0
 
 Enhanced
 --
-- Add pref "log to file" (#945)
-- Hint if location services are off during wifi selection dialog (#924)
-- Support app settings backup to g-drive
-- Backup/restore https cert (#948)
-
+-
 
 Fixes
 --
-- Fix sync cycle set to empty (#937)
+-
 
 Other
 --
-- Target API level 33 (#918)
+-
