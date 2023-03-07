@@ -43,7 +43,7 @@ def calcAndPrintCertHash(apk_fullfn, apk_build_type):
 
     keytool_bin = which("keytool")
     if not keytool_bin:
-        keytool_bin = os.environ.get('ProgramFiles') + os.path.sep + 'Android' + os.path.sep + 'Android Studio' + os.path.sep + 'jre' + os.path.sep + 'bin' + os.path.sep + 'keytool.exe'
+        keytool_bin = os.environ.get('ProgramFiles') + os.path.sep + 'Android' + os.path.sep + 'Android Studio' + os.path.sep + 'jbr' + os.path.sep + 'bin' + os.path.sep + 'keytool.exe'
     try:
         if (platform.system() == "Windows"):
             shell_result = subprocess.check_output(keytool_bin + ' -printcert -jarfile "' + apk_fullfn + '"')
