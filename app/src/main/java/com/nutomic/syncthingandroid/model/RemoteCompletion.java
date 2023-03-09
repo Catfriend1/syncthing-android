@@ -146,9 +146,10 @@ public class RemoteCompletion {
             int folderCount = 0;
             double sumCompletion = 0;
             for (Map.Entry<Connection, HashMap<String, RemoteCompletionInfo>> device : mDeviceFolderMap.values()) {
-                if (device.getKey().connected) {
-                    connectedDeviceCount++;
+                if (!device.getKey().connected) {
+                    continue;
                 }
+                connectedDeviceCount++;
 
                 //                                                 HashMap   RemoteCompletionInfo
                 for (RemoteCompletionInfo completionInfo : device.getValue().values())
