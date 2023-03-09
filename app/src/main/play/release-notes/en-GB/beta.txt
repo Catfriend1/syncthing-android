@@ -6,7 +6,7 @@ Enhanced
 
 Fixes
 --
--
+Do not account total percentage completion for disconnected devices (#913)
 
 Other
 --
