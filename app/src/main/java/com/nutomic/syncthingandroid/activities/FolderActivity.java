@@ -31,6 +31,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.documentfile.provider.DocumentFile;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.gson.Gson;
 import com.nutomic.syncthingandroid.R;
@@ -65,6 +66,9 @@ import static android.view.Gravity.CENTER_VERTICAL;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
+
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED;
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW;
 
 /**
  * Shows folder details and allows changing them.
@@ -827,6 +831,13 @@ public class FolderActivity extends SyncthingActivity {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
             preCreateFolderMarker(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
+
+            // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
+            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(getApplication().getApplicationContext());
+            Intent intent = new Intent(ACTION_SYNC_TRIGGER_FIRED);
+            intent.putExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
+            localBroadcastManager.sendBroadcast(intent);
+
             setResult(AppCompatActivity.RESULT_OK);
             finish();
             return;
