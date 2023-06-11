@@ -29,6 +29,7 @@ public class Device {
     public boolean introducer = false;
     public boolean paused = false;
     public List<IgnoredFolder> ignoredFolders;
+    public boolean autoAcceptFolders = false;
 
     // Since v1.12.0
     // See https://github.com/syncthing/syncthing/pull/7055

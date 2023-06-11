@@ -777,6 +777,7 @@ public class ConfigXml {
             device.introducedBy = getAttributeOrDefault(r, "introducedBy", device.introducedBy);
             device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
             device.name = getAttributeOrDefault(r, "name", device.name);
+            device.autoAcceptFolders = getContentOrDefault(r.getElementsByTagName("autoAcceptFolders").item(0), device.autoAcceptFolders);
             device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
             device.untrusted = getContentOrDefault(r.getElementsByTagName("untrusted").item(0), device.untrusted);
 
@@ -865,6 +866,7 @@ public class ConfigXml {
                     r.setAttribute("introducer", Boolean.toString(device.introducer));
                     r.setAttribute("name", device.name);
 
+                    setConfigElement(r, "autoAcceptFolders", Boolean.toString(device.autoAcceptFolders));
                     setConfigElement(r, "paused", Boolean.toString(device.paused));
                     setConfigElement(r, "untrusted", Boolean.toString(device.untrusted));
 

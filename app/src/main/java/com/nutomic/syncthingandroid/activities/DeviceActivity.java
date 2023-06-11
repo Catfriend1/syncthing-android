@@ -105,6 +105,7 @@ public class DeviceActivity extends SyncthingActivity {
     private View mCompressionContainer;
     private TextView mCompressionValueView;
     private SwitchCompat mIntroducerView;
+    private SwitchCompat mAutoAcceptFolders;
     private SwitchCompat mDevicePaused;
     private SwitchCompat mDeviceUntrusted;
     private SwitchCompat mCustomSyncConditionsSwitch;
@@ -199,6 +200,9 @@ public class DeviceActivity extends SyncthingActivity {
             } else if (id == R.id.introducer) {
                 mDevice.introducer = isChecked;
                 mDeviceNeedsToUpdate = true;
+            } else if (id == R.id.autoAcceptFolders) {
+                mDevice.autoAcceptFolders = isChecked;
+                mDeviceNeedsToUpdate = true;
             } else if (id == R.id.devicePause) {
                 mDevice.paused = isChecked;
                 mDeviceNeedsToUpdate = true;
@@ -244,6 +248,7 @@ public class DeviceActivity extends SyncthingActivity {
         mCompressionContainer = findViewById(R.id.compressionContainer);
         mCompressionValueView = findViewById(R.id.compressionValue);
         mIntroducerView = findViewById(R.id.introducer);
+        mAutoAcceptFolders = findViewById(R.id.autoAcceptFolders);
         mDevicePaused = findViewById(R.id.devicePause);
         mDeviceUntrusted = findViewById(R.id.deviceUntrusted);
         mCustomSyncConditionsSwitch = findViewById(R.id.customSyncConditionsSwitch);
@@ -404,6 +409,7 @@ public class DeviceActivity extends SyncthingActivity {
         mNameView.removeTextChangedListener(mNameTextWatcher);
         mAddressesView.removeTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(null);
+        mAutoAcceptFolders.setOnCheckedChangeListener(null);
         mDevicePaused.setOnCheckedChangeListener(null);
         mDeviceUntrusted.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
@@ -415,6 +421,7 @@ public class DeviceActivity extends SyncthingActivity {
         mAddressesView.setText(displayableAddresses());
         mCompressionValueView.setText(Compression.fromValue(this, mDevice.compression).getTitle(this));
         mIntroducerView.setChecked(mDevice.introducer);
+        mAutoAcceptFolders.setChecked(mDevice.autoAcceptFolders);
         mDevicePaused.setChecked(mDevice.paused);
         mDeviceUntrusted.setChecked(mDevice.untrusted);
 
@@ -449,6 +456,7 @@ public class DeviceActivity extends SyncthingActivity {
         mNameView.addTextChangedListener(mNameTextWatcher);
         mAddressesView.addTextChangedListener(mAddressesTextWatcher);
         mIntroducerView.setOnCheckedChangeListener(mCheckedListener);
+        mAutoAcceptFolders.setOnCheckedChangeListener(mCheckedListener);
         mDevicePaused.setOnCheckedChangeListener(mCheckedListener);
         mDeviceUntrusted.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);

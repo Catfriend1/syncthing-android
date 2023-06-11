@@ -195,6 +195,16 @@
                 android:text="@string/introducer" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/autoAcceptFolders"
+                style="@style/Widget.Syncthing.TextView.Label.Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:drawableLeftCompat="@drawable/baseline_auto_fix_high_24"
+                app:drawableStartCompat="@drawable/baseline_auto_fix_high_24"
+                android:text="@string/autoAcceptFolders" />
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/devicePause"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"

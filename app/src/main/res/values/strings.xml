@@ -371,6 +371,9 @@ Please report any problems you encounter via Github.</string>
     <string name="introducer">Introducer</string>
 
     <!-- Setting title -->
+    <string name="autoAcceptFolders">Auto Accept</string>
+
+    <!-- Setting title -->
     <string name="pause_device">Pause Device</string>
 
     <!-- Setting title -->
