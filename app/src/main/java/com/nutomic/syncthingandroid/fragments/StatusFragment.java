@@ -193,7 +193,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     private final SharedPreferences.OnSharedPreferenceChangeListener mPrefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String pref) {
-            if (pref.equals(Constants.PREF_BTNSTATE_FORCE_START_STOP))
+            if (pref != null && pref.equals(Constants.PREF_BTNSTATE_FORCE_START_STOP))
                 btnForceStartStop.setPushedButtonIndex(mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP));
         }
     };
