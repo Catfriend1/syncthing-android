@@ -1152,7 +1152,7 @@ public class ConfigXml {
         folder.setAttribute("id", mContext.getString(R.string.default_folder_id, defaultFolderId));
         folder.setAttribute("path", Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
-        folder.setAttribute("type", Constants.FOLDER_TYPE_SEND_ONLY);
+        folder.setAttribute("type", Constants.FOLDER_TYPE_SEND_RECEIVE);
         folder.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
         folder.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
         return true;
