@@ -284,6 +284,14 @@
         android:key="category_import_export"
         android:title="@string/category_backup">
 
+        <EditTextPreference
+            android:key="backup_folder_name"
+            android:title="@string/backup_folder_name"
+            android:summary="@null"
+            android:persistent="true"
+            android:defaultValue="syncthing"
+            android:inputType="textNoSuggestions" />
+
         <Preference
             android:key="export_config"
             android:persistent="false"

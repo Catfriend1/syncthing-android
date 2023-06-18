@@ -651,6 +651,8 @@ Please report any problems you encounter via Github.</string>
     <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue?</string>
     <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
+    <string name="backup_folder_name">Backup folder name</string>
+
     <string name="export_config">Export Configuration</string>
 
     <!-- Toast after entering an invalid tcp port -->

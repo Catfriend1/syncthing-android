@@ -2,7 +2,6 @@ package com.nutomic.syncthingandroid.service;
 
 import android.content.Context;
 import android.os.Build;
-import android.os.Environment;
 import android.text.TextUtils;
 
 import com.nutomic.syncthingandroid.util.FileUtils;
@@ -49,6 +48,9 @@ public class Constants {
     // Preferences - Behaviour
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_BIND_NETWORK                = "bind_network";
+
+    // Preferences - Import and Export
+    public static final String PREF_BACKUP_FOLDER_NAME          = "backup_folder_name";
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
@@ -180,13 +182,6 @@ public class Constants {
      * parameters are effective.
      */
     public static final int WAIT_FOR_NEXT_SYNC_DELAY_SECS       = isRunningOnEmulator() ? 20 : 3600;        // "off" state duration
-
-    /**
-     * Directory where config is exported to and imported from.
-     */
-    public static final String EXPORT_PATH = Environment.getExternalStorageDirectory() + "/backups/syncthing";
-
-    public static final File EXPORT_PATH_OBJ = new File(EXPORT_PATH);
 
     /**
      * File in the config folder that contains configuration.
