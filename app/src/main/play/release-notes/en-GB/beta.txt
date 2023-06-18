@@ -2,7 +2,8 @@
 
 Enhanced
 --
--
+- Configurable backup folder name (#992)
+- Default folder is sendReceive
 
 Fixes
 --
