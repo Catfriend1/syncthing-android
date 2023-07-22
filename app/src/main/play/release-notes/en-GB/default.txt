@@ -10,4 +10,5 @@ Fixes
 
 Other
 --
--
+- Workaround .stversions cleanup timer not firing: Force cleanup on startup (#1001)
+
