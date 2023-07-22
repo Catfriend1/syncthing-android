@@ -3,8 +3,11 @@ package com.nutomic.syncthingandroid.service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import androidx.preference.PreferenceManager;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+
+import androidx.preference.PreferenceManager;
 
 import com.annimon.stream.Stream;
 import com.google.common.base.Objects;
@@ -152,6 +155,8 @@ public class RestApi {
     private int mLastOnlineDeviceCount = 0;
     private int mLastTotalSyncCompletion = -1;
 
+    private Boolean hasShutdown = false;
+
     private Gson mGson;
 
     @Inject NotificationHandler mNotificationHandler;
@@ -221,6 +226,21 @@ public class RestApi {
             LogV("Reading config from REST completed. Syncthing version is " + mVersion);
             // Tell SyncthingService it can transition to State.ACTIVE.
             mOnApiAvailableListener.onApiAvailable();
+
+            // Temporarily lower cleanupIntervalS for every folder to force cleanup after startup.
+            // https://github.com/Catfriend1/syncthing-android/issues/990
+            setVersioningCleanupIntervalS(2);
+            final Handler resetCleanupIntervalHandler = new Handler(Looper.getMainLooper());
+            resetCleanupIntervalHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (hasShutdown) {
+                        LogV("Skipping setVersioningCleanupIntervalS(3600) due to hasShutdown == true");
+                        return;
+                    }
+                    setVersioningCleanupIntervalS(3600);
+                }
+            }, 10000);
         }
     }
 
@@ -557,6 +577,7 @@ public class RestApi {
      * This will cause SyncthingNative to exit and not restart.
      */
     public void shutdown() {
+        hasShutdown = true;
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_SHUTDOWN, mApiKey,
                 null, null, null);
     }
@@ -1295,6 +1316,17 @@ public class RestApi {
                 LogV("applyCustomRunConditions: No action was necessary.");
             }
         }
+    }
+
+    private void setVersioningCleanupIntervalS (Integer cleanupIntervalS) {
+        synchronized (mConfigLock) {
+            for (Folder folder : mConfig.folders) {
+                folder.versioning.cleanupIntervalS = cleanupIntervalS;
+            }
+            LogV("Set VersioningCleanupIntervalS to " + cleanupIntervalS);
+            sendConfig();
+        }
+        return;
     }
 
     private void onTotalSyncCompletionChange() {
