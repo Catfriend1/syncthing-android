@@ -1,9 +1,8 @@
-* Syncthing v1.23.5
+* Syncthing v1.23.6
 
 Enhanced
 --
-- Configurable backup folder name (#992)
-- Default folder is sendReceive
+-
 
 Fixes
 --
