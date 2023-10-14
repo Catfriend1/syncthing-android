@@ -1,0 +1,1 @@
+%LocalAppData%\go-build

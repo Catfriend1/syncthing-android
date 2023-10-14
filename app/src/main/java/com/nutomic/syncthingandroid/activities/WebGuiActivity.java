@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.ArrayMap;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.webkit.HttpAuthHandler;
@@ -43,7 +44,11 @@ import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * Holds a WebView that shows the web ui of the local syncthing instance.
@@ -97,10 +102,6 @@ public class WebGuiActivity extends SyncthingActivity
                 Log.w(TAG, e);
                 handler.cancel();
             }
-        }
-
-        public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
-            handler.proceed(mConfig.getUserName(), mConfig.getApiKey());
         }
 
         @Override
@@ -177,7 +178,11 @@ public class WebGuiActivity extends SyncthingActivity
             if (mWebView.getUrl() == null) {
                 mWebView.stopLoading();
                 setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
-                mWebView.loadUrl(mConfig.getWebGuiUrl().toString());
+                String credentials = mConfig.getUserName() + ":" + mConfig.getApiKey();
+                String b64Credentials = Base64.encodeToString(credentials.getBytes(UTF_8), Base64.NO_WRAP);
+                Map<String,String> headers = new HashMap<>();
+                headers.put("Authorization", "Basic " + b64Credentials);
+                mWebView.loadUrl(mConfig.getWebGuiUrl().toString(), headers);
             }
         }
     }
