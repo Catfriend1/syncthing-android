@@ -212,7 +212,11 @@ public class NotificationHandler {
         if (!appShutdownInProgress) {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
-                service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                    service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+                } else {
+                    service.startForeground(idToShow, builder.build());
+                }
             } else {
                 Log.v(TAG, "Updating notification");
                 mNotificationManager.notify(idToShow, builder.build());
