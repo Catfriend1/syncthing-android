@@ -2,12 +2,15 @@
 
 Enhanced
 --
--
+- Show sync cycle duration on qs tile (#1013)
 
 Fixes
 --
--
+- Disallow too high number of minutes for sync cycle (#1014)
+- Persist device allowNetwork
+- Persist device numConnections
 
 Other
 --
--
+- Support Android 14
+- Support HTML login form (Web UI)
