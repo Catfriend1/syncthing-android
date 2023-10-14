@@ -13,7 +13,6 @@ build/
 .gradle/
 
 # Local configuration file (sdk path, etc)
-syncthingandroid.lnk
 local.properties
 project.properties
 
