@@ -178,14 +178,6 @@ public class SyncthingRunnable implements Runnable {
         // Trim Syncthing log.
         trimLogFile();
 
-        // Make sure Syncthing is executable
-        exitCode = Util.runShellCommand("chmod 500 " + mSyncthingBinary.getPath(), false);
-        if (exitCode == 1) {
-            LogV("chmod SyncthingNative exited with code 1 [permission denied]. This is expected on Android 5+.");
-        } else if (exitCode > 1) {
-            Log.w(TAG, "chmod SyncthingNative failed with exit code " + Integer.toString(exitCode));
-        }
-
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
          * Only valid on Android 5 or lower.

@@ -16,10 +16,11 @@ import platform
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
 # Version numbers and URLs taken from
-## https://developer.android.com/studio/index.html#command-tools
-ANDROID_SDK_TOOLS_VERSION = '8512546'
-ANDROID_SDK_TOOLS_SHASUM_LINUX = '2ccbda4302db862a28ada25aa7425d99dce9462046003c1714b059b5c47970d8'
-ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '9cea28ab5d8c2f4b607f91f1475c4f352f42702c42f53eee1e331d9e36eea572'
+## https://developer.android.com/studio
+ANDROID_SDK_TOOLS_VERSION = '10406996'
+ANDROID_SDK_TOOLS_SHASUM_LINUX = '8919e8752979db73d8321e9babe2caedcc393750817c1a5f56c128ec442fb540'
+ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '9b782a54d246ba5d207110fddd1a35a91087a8aaf4057e9df697b1cbc0ef60fc'
+ANDROID_SDK_VERSION = '34'
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -161,7 +162,7 @@ if sys.platform == 'win32':
     subprocess.check_call([sdk_manager_bin, '--update'])
     powershell_bin = which('powershell')
     subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 32;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
-    subprocess.check_call([sdk_manager_bin, 'platforms;android-33'])
-    subprocess.check_call([sdk_manager_bin, 'build-tools;33.0.0'])
+    subprocess.check_call([sdk_manager_bin, 'platforms;android-' + ANDROID_SDK_VERSION])
+    subprocess.check_call([sdk_manager_bin, 'build-tools;' + ANDROID_SDK_VERSION + '.0.0'])
 
 print('Done.')

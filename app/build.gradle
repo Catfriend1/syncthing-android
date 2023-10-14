@@ -33,8 +33,8 @@ def ourVersionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatc
 def ourVersionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion '33.0.0'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
     ndkVersion = "${ndkVersionShared}"
 
     namespace = 'com.nutomic.syncthingandroid'
@@ -43,7 +43,7 @@ android {
     defaultConfig {
         applicationId "com.github.catfriend1.syncthingandroid"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode ourVersionCode
         versionName ourVersionName
         testApplicationId 'com.github.catfriend1.syncthingandroid.test'
@@ -93,15 +93,15 @@ android {
         }
     }
 
-    lintOptions {
-        disable "UnsafeExperimentalUsageError", "UnsafeExperimentalUsageWarning", "ExpiringTargetSdkVersion", "ExpiredTargetSdkVersion"
-        abortOnError true
-    }
 
     packagingOptions {
         jniLibs {
             useLegacyPackaging = true
         }
+    }
+    lint {
+        abortOnError true
+        disable 'UnsafeExperimentalUsageError', 'UnsafeExperimentalUsageWarning', 'ExpiringTargetSdkVersion', 'ExpiredTargetSdkVersion'
     }
 }
 
