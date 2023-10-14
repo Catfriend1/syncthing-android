@@ -1120,5 +1120,6 @@ Please report any problems you encounter via Github.</string>
     <string name="qs_forced_to_stop">Forced to stop</string>
     <string name="qs_following_run_conditions">Following run conditions</string>
     <string name="qs_schedule_label">Run for 5 minutes</string>
+    <string name="qs_schedule_label_minutes">Run for %1$d minutes</string>
     <string name="qs_schedule_disabled">Schedule disabled</string>
 </resources>

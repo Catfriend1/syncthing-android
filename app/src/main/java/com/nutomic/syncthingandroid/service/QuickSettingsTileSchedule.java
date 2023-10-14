@@ -56,7 +56,10 @@ public class QuickSettingsTileSchedule extends TileService {
             }
 
             tile.setState(Tile.STATE_ACTIVE);
-            tile.setLabel(res.getString(R.string.qs_schedule_label));
+            tile.setLabel(res.getString(
+                    R.string.qs_schedule_label_minutes,
+                    Integer.parseInt(mPreferences.getString(Constants.PREF_SYNC_DURATION_MINUTES, "5"))
+            ));
             tile.updateTile();
         }
         super.onStartListening();
