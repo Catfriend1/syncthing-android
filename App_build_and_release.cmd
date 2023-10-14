@@ -21,10 +21,14 @@ REM
 SET GIT_INSTALL_DIR=%ProgramFiles%\Git
 SET GIT_BIN="%GIT_INSTALL_DIR%\bin\git.exe"
 REM
-SET PATH=C:\Program Files\Android\Android Studio\jre\bin;"%GIT_INSTALL_DIR%\bin";%PATH%
+SET JAVA_HOME=%ProgramFiles%\Android\Android Studio\jbr
+SET PATH=%JAVA_HOME%\bin;"%GIT_INSTALL_DIR%\bin";%PATH%
 REM
 :checkPrerequisites
 echo [INFO] Checking prerequisites ...
+REM
+where java 2>&1 >NUL: || (echo [ERROR] Java is missing. Check env. & goto :eof)
+REM
 IF NOT EXIST %ANDROID_SDK_ROOT%\tools\bin\sdkmanager.bat (echo [WARN] Android SDK manager is missing. Trying to run 'python install_minimum_android_sdk_prerequisites.py' ... & call python install_minimum_android_sdk_prerequisites.py)
 REM
 echo [INFO] Checking if SyncthingNative was built before starting this script ...
