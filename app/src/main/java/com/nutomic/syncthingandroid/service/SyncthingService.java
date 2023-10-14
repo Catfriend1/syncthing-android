@@ -15,7 +15,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.android.PRNGFixes;
 import com.annimon.stream.Stream;
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
@@ -246,7 +245,6 @@ public class SyncthingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        PRNGFixes.apply();
         ((SyncthingApp) getApplication()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         LogV("onCreate");
