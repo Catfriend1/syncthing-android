@@ -18,7 +18,7 @@ REM
 cls
 adb root
 IF "%USE_ROOT%" == "1" adb shell ls -a -l "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
-adb push "%SCRIPT_PATH%config.xml" "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
+adb push "%SCRIPT_PATH%config-frozen.xml" "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
 IF "%USE_ROOT%" == "1" adb shell chmod 0600 "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
 IF "%USE_ROOT%" == "1" adb shell chown %PACKAGE_UID%:%PACKAGE_UID% "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
 IF "%USE_ROOT%" == "1" adb shell ls -a -l "%DATA_ROOT%/%PACKAGE_NAME%/files/config.xml"
