@@ -35,6 +35,9 @@ public class Device {
     // See https://github.com/syncthing/syncthing/pull/7055
     public boolean untrusted = false;
 
+    // Since v1.25.0
+    public Integer numConnections = 0;
+
     private static final String TAG = "Device";
 
     /**

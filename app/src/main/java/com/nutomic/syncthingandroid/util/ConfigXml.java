@@ -800,6 +800,7 @@ public class ConfigXml {
             device.autoAcceptFolders = getContentOrDefault(r.getElementsByTagName("autoAcceptFolders").item(0), device.autoAcceptFolders);
             device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
             device.untrusted = getContentOrDefault(r.getElementsByTagName("untrusted").item(0), device.untrusted);
+            device.numConnections = getContentOrDefault(r.getElementsByTagName("numConnections").item(0), device.numConnections);
 
             // Addresses
             /*
@@ -889,6 +890,7 @@ public class ConfigXml {
                     setConfigElement(r, "autoAcceptFolders", Boolean.toString(device.autoAcceptFolders));
                     setConfigElement(r, "paused", Boolean.toString(device.paused));
                     setConfigElement(r, "untrusted", Boolean.toString(device.untrusted));
+                    setConfigElement(r, "numConnections", Integer.toString(device.numConnections));
 
                     // Addresses
                     // Pass 1: Remove all addresses in XML.
