@@ -23,6 +23,7 @@ public class Device {
     public String deviceID;
     public String name = "";
     public List<String> addresses;
+    public List<String> allowedNetworks;
     public String compression = "metadata";
     public String certName;
     public String introducedBy = "";

@@ -15,7 +15,7 @@ REM
 cls
 adb shell "su root cat %DATA_ROOT%/%PACKAGE_NAME%/files/config.xml" > "%SCRIPT_PATH%config.xml"
 call :psConvertFileFromCRLFtoLF "%SCRIPT_PATH%config.xml"
-IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml" | more
+IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml" | findstr /c:"<device id=" /c:"<allowedNetwork>"  | findstr /v /c:"<device id=""""" | ..\psreplace ".*label=" "" | ..\psreplace "path=.*" ""
 echo.
 pause
 echo.
