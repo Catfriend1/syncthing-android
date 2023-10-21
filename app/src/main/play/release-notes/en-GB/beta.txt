@@ -2,6 +2,7 @@
 
 Enhanced
 --
+- Allow username and password change (#1019)
 - Show sync cycle duration on qs tile (#1013)
 
 Fixes
