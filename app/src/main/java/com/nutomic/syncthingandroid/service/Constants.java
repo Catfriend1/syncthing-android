@@ -49,6 +49,10 @@ public class Constants {
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_BIND_NETWORK                = "bind_network";
 
+    // Preferences - Syncthing Options
+    public static final String PREF_WEBUI_USERNAME              = "webui_username";
+    public static final String PREF_WEBUI_PASSWORD              = "webui_password";
+
     // Preferences - Import and Export
     public static final String PREF_BACKUP_FOLDER_NAME          = "backup_folder_name";
 

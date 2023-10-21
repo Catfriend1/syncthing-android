@@ -178,7 +178,7 @@ public class WebGuiActivity extends SyncthingActivity
             if (mWebView.getUrl() == null) {
                 mWebView.stopLoading();
                 setWebViewProxy(mWebView.getContext().getApplicationContext(), "", 0, "localhost|0.0.0.0|127.*|[::1]");
-                String credentials = mConfig.getUserName() + ":" + mConfig.getApiKey();
+                String credentials = mConfig.getWebUIUsername() + ":" + mConfig.getWebUIPassword();
                 String b64Credentials = Base64.encodeToString(credentials.getBytes(UTF_8), Base64.NO_WRAP);
                 Map<String,String> headers = new HashMap<>();
                 headers.put("Authorization", "Basic " + b64Credentials);

@@ -629,6 +629,10 @@ Please report any problems you encounter via Github.</string>
 
     <string name="webui_remote_access_title">Web UI remote access</string>
 
+    <string name="webui_username_title">Web UI Username</string>
+
+    <string name="webui_password_title">Web UI Password</string>
+
     <string name="webui_remote_access_summary">Specify to permit accessing the Web UI from another device. If enabled, you are able to logon with user \'syncthing\' and API key as password. Default: disabled (most secure)</string>
 
     <string name="webui_debugging_title">WebUI Debugging</string>
