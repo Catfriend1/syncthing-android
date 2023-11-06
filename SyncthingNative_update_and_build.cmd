@@ -9,11 +9,12 @@ REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
 SET USE_GO_DEV=0
-SET DESIRED_SUBMODULE_VERSION=v1.26.0-rc.1
+SET DESIRED_SUBMODULE_VERSION=v1.26.0
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
+IF NOT DEFINED JAVA_HOME SET JAVA_HOME=%ProgramFiles%\Android\Android Studio\jbr
 REM
 :checkPrerequisites
 echo [INFO] Checking prerequisites ...
@@ -24,7 +25,7 @@ IF NOT DEFINED GIT_BIN echo [ERROR] git not found. Install "Git for Windows" fir
 IF NOT EXIST %GIT_BIN% echo [ERROR] git not found. Install "Git for Windows" first and put it to the PATH env var. & pause & goto :checkPrerequisites
 REM
 where /q java
-IF NOT "%ERRORLEVEL%" == "0" SET PATH=%PATH%;%CommonProgramFiles%\Oracle\Java\javapath\
+IF NOT "%ERRORLEVEL%" == "0" SET PATH=%PATH%;%JAVA_HOME%\bin
 where /q java
 IF NOT "%ERRORLEVEL%" == "0" echo [ERROR] java.exe not found on PATH env var. Download 'https://www.oracle.com/java/technologies/downloads/#java11-windows' and run the installer & pause & goto :checkPrerequisites
 REM
