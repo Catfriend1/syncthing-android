@@ -137,3 +137,7 @@ task postBuildScript(type: Exec) {
     executable = 'python'
     args = ['-u', './postbuild.py']
 }
+
+project.afterEvaluate {
+    project.getTasks().getByName("mergeDebugJniLibFolders").dependsOn(":syncthing:buildNative")
+}

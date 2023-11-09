@@ -13,7 +13,6 @@ task buildNative(type: PythonTask) {
  */
 task cleanNative(type: Delete) {
     delete "$projectDir/../app/src/main/jniLibs/"
-    delete "android-ndk-r18"
     delete "gobuild"
     delete "go"
     delete "mingit"
