@@ -11,9 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
-    <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert.\n\
-Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..\n\
-S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
+    <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert. Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..
+\n
+\nS\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permission de stockage</string>
     <string name="storage_permission_desc">Syncthing a besoin d’accéder a vos données pour pouvoir synchroniser les fichiers.</string>
@@ -43,7 +43,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envoyer ID appareil à</string>
     <string name="usage_reporting_dialog_title">Autoriser l\'envoi anonyme de rapports d\'utilisation \?</string>
-    <string name="usage_reporting_dialog_description">Le rapport crypté des usages est envoyé tous les jours. Il est utilisé pour recueillir les types de plates-formes, la tailles des partages et les versions d\'applications. Si le type de données envoyées dans les rapports est modifié, vous verrez à nouveau cette boite de dialogue.\n\nL\'agrégation des statistiques est publique, et disponible sur https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Le rapport crypté des usages est envoyé tous les jours. Il est utilisé pour recueillir les types de plates-formes, la tailles des partages et les versions d\'applications. Si le type de données envoyées dans les rapports est modifié, vous verrez à nouveau cette boite de dialogue.
+\n
+\nL\'agrégation des statistiques est publique, et disponible sur https://data.syncthing.net.</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="open_website">Ouvrir le site WEB</string>
@@ -214,7 +216,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.\n\n ATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.
+\n
+\nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
@@ -232,16 +236,14 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="st_reset_database_title">Remise à zéro de la base de données</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
-        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?
-    </string>
+\nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Réinitialisation réussie de la base de données Syncthing</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Réinitialiser les index delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
-        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?
-    </string>
+\nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>
     <string name="category_about">A propos</string>
@@ -371,7 +373,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="keep_versions_description">Nombre d\'anciennes version à conserver, par fichier.</string>
     <string name="simple_file_versioning_description">Les fichiers sont transférés, avec ajout de la date, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
     <string name="trashcan_versioning_description">Les fichiers sont déplacés vers le répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
-    <string name="staggered_versioning_description">Les fichiers sont transférés, avec ajout de la date de version, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing. Les versions sont automatiquement supprimées si elles sont antérieures à l\'ancienneté maximum ou dépassent le nombre de fichiers autorisés dans un intervalle. \ N \ nLes intervalles suivants sont utilisés: pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
+    <string name="staggered_versioning_description">Les fichiers sont transférés, avec ajout de la date de version, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing. Les versions sont automatiquement supprimées si elles sont antérieures à l\'ancienneté maximum ou dépassent le nombre de fichiers autorisés dans un intervalle.
+\n
+\nLes intervalles suivants sont utilisés: pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
     <string name="maximum_age_description">Durée maximum de conservation des versions (en jour, mettre 0 pour conserver sans limite)</string>
     <string name="versions_path_description">Emplacement où les versions seront stockées (laisser vide pour utiliser le répertoire par défaut .stversions dans le partage).</string>
     <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité.</string>
@@ -384,7 +388,8 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="type_external">Type: Externe</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Nettoyer après: %1$s</string>
-    <string name="staggered_versioning_info">Age maximum: %1$d \nEmplacement des versions: %2$s</string>
+    <string name="staggered_versioning_info">Age maximum: %1$d
+\nEmplacement des versions: %2$s</string>
     <string name="external_versioning_info">Commande: %1$s</string>
     <string name="simple_versioning_info">Versions à conserver: %1$s</string>
     <string name="show_device_id">Afficher l\'ID de l\'appareil</string>

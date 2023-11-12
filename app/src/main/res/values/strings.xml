@@ -18,8 +18,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
-    <string name="welcome_text">Syncthing is an open-source file synchronization application. To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.\n\
-Please report any problems you encounter via Github.</string>
+    <string name="welcome_text">Syncthing is an open-source file synchronization application. To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.
+\n
+\nPlease report any problems you encounter via Github.</string>
 
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Storage Permission</string>
@@ -123,7 +124,9 @@ Please report any problems you encounter via Github.</string>
 
     <string name="usage_reporting_dialog_title">Allow Anonymous Usage Reporting\?</string>
 
-    <string name="usage_reporting_dialog_description">The encrypted usage report is sent daily. It is used to track common platforms, folder sizes and app versions. If the reported data set is changed you will be prompted with this dialog again.\n\nThe aggregated statistics are publicly available at https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">The encrypted usage report is sent daily. It is used to track common platforms, folder sizes and app versions. If the reported data set is changed you will be prompted with this dialog again.
+\n
+\nThe aggregated statistics are publicly available at https://data.syncthing.net.</string>
 
     <string name="yes">Yes</string>
 
@@ -191,7 +194,8 @@ Please report any problems you encounter via Github.</string>
     <string name="devices_list_empty">No devices configured. Tap to add a new device.</string>
 
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">No devices configured.\nBegin by adding a device now.</string>
+    <string name="no_devices_configured">No devices configured.
+\nBegin by adding a device now.</string>
 
     <string name="deviceEncryptionPasswordHint">If untrusted, enter encryption password</string>
 
@@ -232,8 +236,10 @@ Please report any problems you encounter via Github.</string>
     <string name="status_fragment_title">Status</string>
 
     <string name="button_follow_run_conditions">FOLLOW RUN CONDITIONS</string>
-    <string name="button_force_start">FORCE START\nIGNORE RUN CONDITIONS</string>
-    <string name="button_force_stop">FORCE STOP\nIGNORE RUN CONDITIONS</string>
+    <string name="button_force_start">FORCE START
+\nIGNORE RUN CONDITIONS</string>
+    <string name="button_force_stop">FORCE STOP
+\nIGNORE RUN CONDITIONS</string>
 
     <string name="syncthing_starting">Syncthing is starting.</string>
     <string name="syncthing_running">Syncthing is running.</string>
@@ -426,10 +432,16 @@ Please report any problems you encounter via Github.</string>
     <string name="tips_and_tricks_title">Tips &amp; Tricks</string>
 
     <string name="tip_write_to_sdcard_title">Write to external sdcard workaround</string>
-    <string name="tip_write_to_sdcard_text">If you see the UI stating that \'Android only grants syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:\n%1$s/YOUR_FOLDER_NAME\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the .../Android folder.</string>
+    <string name="tip_write_to_sdcard_text">If you see the UI stating that \'Android only grants syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:
+\n%1$s/YOUR_FOLDER_NAME
+\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the .../Android folder.</string>
 
     <string name="tip_sync_on_local_network_title">Sync only using the local WiFi network</string>
-    <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local WiFi network or reachable via WiFi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':\n- Enable NAT traversal\n- Global Discovery\n- Enable Relaying\nOnly leave \'Local discovery\' enabled.</string>
+    <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local WiFi network or reachable via WiFi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':
+\n- Enable NAT traversal
+\n- Global Discovery
+\n- Enable Relaying
+\nOnly leave \'Local discovery\' enabled.</string>
 
     <string name="tip_custom_sync_conditions_title">Use per folder/device custom sync conditions</string>
     <string name="tip_custom_sync_conditions_text">This feature will still be improved in future releases. For now, we didn\'t want to break existing configs and app behaviour. That\'s why custom sync conditions for a certain network type can only be set if you enable syncing on the network in the global run conditions first.</string>
@@ -438,7 +450,9 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_ignore_delete_text">If you\'d like to have all pictures made on your phone backed up to a computer, share the \'Camera\' folder with the computer. Open Syncthing on the computer, add the folder and go to \'Actions\' &gt; \'Advanced\' &gt; \'Camera\' folder. Enable \'Ignore Delete\' and click \'Save\'. You can now delete pictures from your camera folder on the phone and they will stay backed up on the computer.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: \'device disconnected\' workaround</string>
-    <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:
+\ntcp4://%1$s, dynamic
+\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: app does not start on boot</string>
@@ -475,7 +489,8 @@ Please report any problems you encounter via Github.</string>
     <string name="ssl_cert_invalid_text">Website at %1$s appears to have an invalid certificate for SSL encryption. Proceed\?</string>
 
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Loading webpage:\n%1$s ...</string>
+    <string name="web_page_loading">Loading webpage:
+\n%1$s ...</string>
 
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Open in browser</string>
@@ -694,7 +709,9 @@ Please report any problems you encounter via Github.</string>
     <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
 
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.\n\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
+    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.
+\n
+\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
 
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Do you really want to import a new configuration\? Existing files will be overwritten.</string>
@@ -726,8 +743,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">This action should only be performed based on a recommendation from our support team.
-        \nAre you sure you want to clear Syncthing\'s database\?
-    </string>
+\nAre you sure you want to clear Syncthing\'s database\?</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Successfully reset Syncthing\'s database</string>
@@ -737,8 +753,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
-        \nAre you sure you want to clear Syncthing\'s delta indexes\?
-    </string>
+\nAre you sure you want to clear Syncthing\'s delta indexes\?</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Successfully reset Syncthing\'s delta indexes</string>
@@ -1088,7 +1103,9 @@ Please report any problems you encounter via Github.</string>
     <string name="keep_versions_description">The number of old versions to keep, per file.</string>
     <string name="simple_file_versioning_description">Files are moved to date stamped versions in a .stversions directory when replaced or deleted by Syncthing.</string>
     <string name="trashcan_versioning_description">Files are moved to .stversions directory when replaced or deleted by Syncthing.</string>
-    <string name="staggered_versioning_description">Files are moved to date stamped versions in a .stversions directory when replaced or deleted by Syncthing. Versions are automatically deleted if they are older than the maximum age or exceed the number of files allowed in an interval.\n\nThe following intervals are used: for the first hour a version is kept every 30 seconds, for the first day a version is kept every hour, for the first 30 days a version is kept every day, until the maximum age a version is kept every week.</string>
+    <string name="staggered_versioning_description">Files are moved to date stamped versions in a .stversions directory when replaced or deleted by Syncthing. Versions are automatically deleted if they are older than the maximum age or exceed the number of files allowed in an interval.
+\n
+\nThe following intervals are used: for the first hour a version is kept every 30 seconds, for the first day a version is kept every hour, for the first 30 days a version is kept every day, until the maximum age a version is kept every week.</string>
     <string name="maximum_age_description">The maximum time to keep a version (in days, set to 0 to keep versions forever).</string>
     <string name="versions_path_description">Path where versions should be stored (leave empty for the default .stversions directory in the shared folder).</string>
     <string name="cleanout_after_description">The number of days to keep files in the trash can. Zero means forever</string>
@@ -1103,7 +1120,8 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Cleanout after: %1$s</string>
-    <string name="staggered_versioning_info">Maximum Age: %1$d \nVersions Path: %2$s</string>
+    <string name="staggered_versioning_info">Maximum Age: %1$d
+\nVersions Path: %2$s</string>
     <string name="external_versioning_info">Command: %1$s</string>
     <string name="simple_versioning_info">Keep versions: %1$s</string>
     <string name="show_device_id">Show device ID</string>

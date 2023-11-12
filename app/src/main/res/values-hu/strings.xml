@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Bevezető</string>
-    <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás. Az adatok más eszközökkel való megosztásához hozzá kell adnia azok egyedi eszközazonosítóját az eszközlistához. Ezután kiválaszthatja, hogy melyik mappát melyik eszközzel kívánja megosztani.\n\
-Kérjük, hogy a Githubon keresztül jelezzen minden felmerülő problémát.</string>
+    <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás. Az adatok más eszközökkel való megosztásához hozzá kell adnia azok egyedi eszközazonosítóját az eszközlistához. Ezután kiválaszthatja, hogy melyik mappát melyik eszközzel kívánja megosztani.
+\n
+\nKérjük, hogy a Githubon keresztül jelezzen minden felmerülő problémát.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Tárolási engedély</string>
     <string name="storage_permission_desc">A fájlszinkronizáláshoz a Syncthingnek hozzá kell férnie a tárolóhoz.</string>
@@ -118,7 +119,8 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nincs konfigurált eszköz. Koppintson a gombra új eszköz hozzáadásához.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Nincs konfigurált eszköz. \nKezdje egy eszköz hozzáadásával most.</string>
+    <string name="no_devices_configured">Nincs konfigurált eszköz.
+\nKezdje egy eszköz hozzáadásával most.</string>
     <string name="deviceEncryptionPasswordHint">Ha nem megbízható, írja be a titkosítási jelszót.</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Friss</string>
@@ -146,8 +148,10 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- StatusFragment -->
     <string name="status_fragment_title">Állapot</string>
     <string name="button_follow_run_conditions">FUTTATÁSI FELTÉTELEK BETARTÁSA</string>
-    <string name="button_force_start">ERŐSZAKOS START\nFUTÁSI FELTÉTELEK KIKAPCSOLÁSA</string>
-    <string name="button_force_stop">ERŐSZAKOS STOP\nFUTÁSI FELTÉTELEK KIKAPCSOLÁSA</string>
+    <string name="button_force_start">ERŐSZAKOS START
+\nFUTÁSI FELTÉTELEK KIKAPCSOLÁSA</string>
+    <string name="button_force_stop">ERŐSZAKOS STOP
+\nFUTÁSI FELTÉTELEK KIKAPCSOLÁSA</string>
     <string name="syncthing_starting">A Syncthing elindul.</string>
     <string name="syncthing_running">A szinkronizálás fut.</string>
     <string name="syncthing_not_running">A Syncthing nem fut.</string>
@@ -271,15 +275,23 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Tippek és trükkök</string>
     <string name="tip_write_to_sdcard_title">Külső SDcard-ra való írás megoldása</string>
-    <string name="tip_write_to_sdcard_text">Ha a felhasználói felület azt jelzi, hogy \"Az Android csak olvasási hozzáférést biztosít a szinkronizáláshoz\" egy bizonyos mappához, hozzon létre egy új mappát az alábbi elérési útvonalon, hogy írási hozzáférést kapjon:\n%1$s/MAPPA_NEVE\nLegyen óvatos: Ezt a mappát az Android törölni fogja, ha eltávolítja ezt az alkalmazást. Az alkalmazás eltávolítása előtt helyezze át az adatokat egy biztonságos helyre a .../Android mappán kívülre.</string>
+    <string name="tip_write_to_sdcard_text">Ha a felhasználói felület azt jelzi, hogy \"Az Android csak olvasási hozzáférést biztosít a szinkronizáláshoz\" egy bizonyos mappához, hozzon létre egy új mappát az alábbi elérési útvonalon, hogy írási hozzáférést kapjon:
+\n%1$s/MAPPA_NEVE
+\nLegyen óvatos: Ezt a mappát az Android törölni fogja, ha eltávolítja ezt az alkalmazást. Az alkalmazás eltávolítása előtt helyezze át az adatokat egy biztonságos helyre a .../Android mappán kívülre.</string>
     <string name="tip_sync_on_local_network_title">Szinkronizálás csak a helyi WiFi hálózaton</string>
-    <string name="tip_sync_on_local_network_text">Ha csak olyan eszközökkel szeretne szinkronizálni, amelyek a helyi WiFi hálózaton vagy WiFi hotspoton keresztül elérhetőek, csökkentheti az akkumulátor-használatot és elkerülheti a véletlen szinkronizálást mobiladatokon keresztül, ha kikapcsolja a következő beállításokat a \"Beállítások/Szinkronizálási beállítások\" alatt:\n- NAT áthaladás engedélyezése\n- Globális felfedezés\n- Továbbítás engedélyezése\nCsak a \"Helyi felfedezés\" opciót hagyja engedélyezve.</string>
+    <string name="tip_sync_on_local_network_text">Ha csak olyan eszközökkel szeretne szinkronizálni, amelyek a helyi WiFi hálózaton vagy WiFi hotspoton keresztül elérhetőek, csökkentheti az akkumulátor-használatot és elkerülheti a véletlen szinkronizálást mobiladatokon keresztül, ha kikapcsolja a következő beállításokat a \"Beállítások/Szinkronizálási beállítások\" alatt:
+\n- NAT áthaladás engedélyezése
+\n- Globális felfedezés
+\n- Továbbítás engedélyezése
+\nCsak a \"Helyi felfedezés\" opciót hagyja engedélyezve.</string>
     <string name="tip_custom_sync_conditions_title">Mappánként/eszközönként egyéni szinkronizálási feltételek használata</string>
     <string name="tip_custom_sync_conditions_text">Ezt a funkciót a jövőbeni kiadásokban még javítani fogják. Egyelőre nem akartuk tönkretenni a meglévő konfigurációkat és az alkalmazás viselkedését. Ezért az egyéni szinkronizálási feltételek egy adott hálózattípushoz csak akkor állíthatók be, ha a globális futtatási feltételekben először engedélyezi a hálózaton történő szinkronizálást.</string>
     <string name="tip_ignore_delete_title">Képek biztonsági mentése a telefonról a számítógépre\?</string>
     <string name="tip_ignore_delete_text">Ha szeretné, hogy a telefonon készült képekről biztonsági másolat készüljön a számítógépre, ossza meg a \"Kamera\" mappát a számítógéppel. Nyissa meg a Syncthinget a számítógépen, adja hozzá a mappát, és lépjen a \'Műveletek\' &gt; \'Speciális\' &gt; \'Kamera\' mappa menüpontra. Kapcsolja be a \'Törlés figyelmen kívül hagyása\' opciót, és kattintson a \'Mentés\' gombra. Most már törölhet képeket a telefonon lévő kamera mappából, és azok a számítógépen mentve maradnak.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: \"eszköz lekapcsolva\" megoldása</string>
-    <string name="tip_huawei_device_disconnected_text">Ha az asztali számítógép folyamatosan leválasztottnak jelzi a Huawei készüléket, nyissa meg az asztali számítógép Syncthing felhasználói felületét. Menjen a \'távoli eszközök\' menüpontra, bontsa ki a telefon bejegyzését, kattintson a \'Szerkesztés\' gombra, majd váltson a \'Speciális\' menüpontra. Írja be a telefon IP-címét a \'Címek\' mezőbe, így:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">Ha az asztali számítógép folyamatosan leválasztottnak jelzi a Huawei készüléket, nyissa meg az asztali számítógép Syncthing felhasználói felületét. Menjen a \'távoli eszközök\' menüpontra, bontsa ki a telefon bejegyzését, kattintson a \'Szerkesztés\' gombra, majd váltson a \'Speciális\' menüpontra. Írja be a telefon IP-címét a \'Címek\' mezőbe, így:
+\ntcp4://%1$s, dynamic
+\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: az alkalmazás nem indul el a rendszerindításkor</string>
     <string name="tip_xiaomi_autostart_text">A Xiaomi MIUI alapértelmezés szerint tiltja az alkalmazások önálló indítását. A kezdőképernyőről lépjen a \'Beállítások\' &gt; \'Engedélyek\' &gt; \'Automatikus indítás\' menüpontra, és kapcsolja be a \'Syncthing-Fork\' csúszkát.</string>
@@ -302,7 +314,8 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Úgy tűnik, hogy a %1$s webhelyen érvénytelen tanúsítvány van az SSL-titkosításhoz. Folytassuk\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Weblap betöltése:\n%1$s...</string>
+    <string name="web_page_loading">Weblap betöltése:
+\n%1$s...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Megnyitás böngészőben</string>
     <!-- SettingsFragment -->
@@ -459,14 +472,14 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="st_reset_database_title">Adatbázis törlése</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
- \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát\?</string>
+\nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">A Syncthing adatbázisának törlése megtörtént</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Különbségi indexek visszaállítása</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
- \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit\?</string>
+\nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">A Syncthing különbségi indexei sikeresen visszaállítva</string>
     <string name="category_about">Névjegy</string>
@@ -715,7 +728,9 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="keep_versions_description">Fájlonként megtartandó korábbi verziók száma</string>
     <string name="simple_file_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok a .stversions könyvtárba kerülnek.</string>
     <string name="trashcan_versioning_description">Fájlok cseréje vagy törlése esetén a fájlok az .stversions könyvtárba kerülnek.</string>
-    <string name="staggered_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok az .stversions könyvtárba kerülnek. A verziók automatikusan törlődnek, amikor koruk eléri a megadott értéket, vagy a verziók száma meghaladja az intervallumon belül meghatározott maximális darabszámot.\n\nA következő intervallumok használatosak: az első órában 30 másodpercenként készül új verzió, az első nap óránként egy, az első 30 napban pedig napi egy verzió lesz megtartva. A maximális kort elérő fájlok hetente tárolódnak.</string>
+    <string name="staggered_versioning_description">Fájlok cseréje vagy törlése esetén az időpecséttel ellátott változatok az .stversions könyvtárba kerülnek. A verziók automatikusan törlődnek, amikor koruk eléri a megadott értéket, vagy a verziók száma meghaladja az intervallumon belül meghatározott maximális darabszámot.
+\n
+\nA következő intervallumok használatosak: az első órában 30 másodpercenként készül új verzió, az első nap óránként egy, az első 30 napban pedig napi egy verzió lesz megtartva. A maximális kort elérő fájlok hetente tárolódnak.</string>
     <string name="maximum_age_description">Egy verzió megtartásának maximális ideje (napokban, 0 esetén a verziók korlátlan ideig megmaradnak)</string>
     <string name="versions_path_description">Régebbi verziók tárolásának útvonala (üresen hagyott érték esetén a megosztott mappán belüli alapértelmezett .stversions lesz felhasználva)</string>
     <string name="cleanout_after_description">Fájlok megőrzésének ideje a lomtárban. Nulla esetén nincs törlés.</string>
@@ -728,7 +743,8 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="type_external">Típus: Külső</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Takarítás ennyi idő után: %1$s</string>
-    <string name="staggered_versioning_info">Maximális kor: %1$d\nVerziók útvonala: %2$s</string>
+    <string name="staggered_versioning_info">Maximális kor: %1$d
+\nVerziók útvonala: %2$s</string>
     <string name="external_versioning_info">Parancs: %1$s</string>
     <string name="simple_versioning_info">Verziók megtartása: %1$s</string>
     <string name="show_device_id">Eszközazonosító megjelenítése</string>

@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Вступление</string>
-    <string name="welcome_text">Syncthing — это приложение для синхронизации файлов с открытым исходным кодом. Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.\n\
-Пожалуйста, сообщайте о возникших проблемах через GitHub.</string>
+    <string name="welcome_text">Syncthing — это приложение для синхронизации файлов с открытым исходным кодом. Для того чтобы синхронизировать данные с другими устройствами, вам необходимо добавить их уникальные идентификаторы в список устройств. Затем вы сможете выбрать, какие папки с какими устройствами синхронизировать.
+\n
+\nПожалуйста, сообщайте о возникших проблемах через GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Доступ к файлам</string>
     <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
@@ -20,7 +21,9 @@
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
     <string name="ignore_doze_permission_os_notice">Известна проблема с Android TV, которая вызывает прекращение работы приложения в фоновом режиме. Решение доступно в вики: %1$s/%2$s.</string>
-    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.\n\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
+    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.
+\n
+\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
     <string name="toast_ignore_doze_permission_required">Это приложение работает стабильно только если для него отключены настройки экономия энергии.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
     <!-- Slide "Location Permission" -->
@@ -75,7 +78,9 @@ Android требует разрешение доступа к геолокаци
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Отправить ID устройства</string>
     <string name="usage_reporting_dialog_title">Разрешить отправлять анонимную статистику\?</string>
-    <string name="usage_reporting_dialog_description">Зашифрованный ежедневный отчет отправлен. Используется для отслеживания платформ, размеров папок и версий программы. Если отправляемые данные изменятся, то это диалог появится вновь. \n\nОбобщенная статистика доступна на https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Зашифрованный ежедневный отчет отправлен. Используется для отслеживания платформ, размеров папок и версий программы. Если отправляемые данные изменятся, то это диалог появится вновь.
+\n
+\nОбобщенная статистика доступна на https://data.syncthing.net.</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="open_website">Открыть сайт</string>
@@ -112,7 +117,8 @@ Android требует разрешение доступа к геолокаци
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Устройства не заданы. Нажмите для добавления нового.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Устройства не заданы.\nНачните работу, добавив новое</string>
+    <string name="no_devices_configured">Устройства не заданы.
+\nНачните работу, добавив новое</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Обновлено</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -315,7 +321,9 @@ Android требует разрешение доступа к геолокаци
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию\? Существующие файлы будут перезаписаны.\n\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
+    <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию\? Существующие файлы будут перезаписаны.
+\n
+\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию\? Существующие файлы будут перезаписаны.</string>
     <!-- Toast shown after config was exported -->
@@ -333,16 +341,14 @@ Android требует разрешение доступа к геолокаци
     <string name="st_reset_database_title">Сбросить базу данных</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Это действие должно выполняться только по рекомендации нашей поддержки.
-        \nВы уверены что хотите очистить базу данных Syncthing\?
-    </string>
+\nВы уверены что хотите очистить базу данных Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">База данных Syncthing успешно сброшена</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Сбросить изменения индексов</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
-\nAre you sure you want to clear Syncthing\'s delta indexes\?
- </string>
+\nAre you sure you want to clear Syncthing\'s delta indexes\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Изменения индексов Syncthing успешно сброшены</string>
     <string name="category_about">О программе</string>
@@ -492,7 +498,9 @@ Android требует разрешение доступа к геолокаци
     <string name="keep_versions_description">Количество хранимых версий файла.</string>
     <string name="simple_file_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions.</string>
     <string name="trashcan_versioning_description">Когда Syncthing изменяет или удаляет файлы, они помещаются в папку .stversions.</string>
-    <string name="staggered_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions. Версии удаляются автоматически, если они существуют дольше максимального срока или превышают разрешённое количество файлов за интервал.\n\nИспользуются следующие интервалы: в первый час версия меняется каждые 30 секунд, в первый день - каждый час, первые 30 дней - каждый день, после, до максимального срока - каждую неделю.</string>
+    <string name="staggered_versioning_description">Когда Syncthing изменяет или удаляет файлы, их версии с таймштампами помещаются в папку .stversions. Версии удаляются автоматически, если они существуют дольше максимального срока или превышают разрешённое количество файлов за интервал.
+\n
+\nИспользуются следующие интервалы: в первый час версия меняется каждые 30 секунд, в первый день - каждый час, первые 30 дней - каждый день, после, до максимального срока - каждую неделю.</string>
     <string name="maximum_age_description">Максимальный срок хранения версии (в днях, 0 значит вечное хранение).</string>
     <string name="versions_path_description">Путь, в котором нужно хранить версии (оставьте пустым для папки по умолчанию .stversions внутри общей папки).</string>
     <string name="cleanout_after_description">Количество дней хранения файлов в корзине. Ноль значит навсегда</string>
@@ -505,7 +513,8 @@ Android требует разрешение доступа к геолокаци
     <string name="type_external">Тип: Внешнее</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Очистка после: %1$s</string>
-    <string name="staggered_versioning_info">Максимальный срок: %1$d \nПуть к версиям: %2$s</string>
+    <string name="staggered_versioning_info">Максимальный срок: %1$d
+\nПуть к версиям: %2$s</string>
     <string name="external_versioning_info">Команда: %1$s</string>
     <string name="simple_versioning_info">Количество хранимых версий: %1$s</string>
     <string name="show_device_id">Показать ID устройства</string>

@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducción</string>
-    <string name="welcome_text">Syncthing es una aplicación de sincronización de archivos de código abierto. Para compartir datos con otros dispositivos, es necesario añadir sus ID único de dispositivo a la lista de dispositivos. Después puede seleccionar qué carpetas compartir con qué dispositivos.\n\
-Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
+    <string name="welcome_text">Syncthing es una aplicación de sincronización de archivos de código abierto. Para compartir datos con otros dispositivos, es necesario añadir sus ID único de dispositivo a la lista de dispositivos. Después puede seleccionar qué carpetas compartir con qué dispositivos.
+\n
+\nPor favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permiso de Almacenamiento</string>
     <string name="storage_permission_desc">Syncthing necesita acceder a su almacenamiento para realizar la sincronización de archivos.</string>
@@ -77,7 +78,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar el ID del dispositivo a</string>
     <string name="usage_reporting_dialog_title">¿Permitir informes anónimos de uso\?</string>
-    <string name="usage_reporting_dialog_description">El informe cifrado de uso se manda a diario. Se utiliza para monitorizar las plataformas más comunes, el tamaño de las carpetas y las versiones de la aplicación. Si se modifica el conjunto de datos del informe se te presentará de nuevo este mensaje.\n\nLas estadísticas globales están disponibles públicamente en https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">El informe cifrado de uso se manda a diario. Se utiliza para monitorizar las plataformas más comunes, el tamaño de las carpetas y las versiones de la aplicación. Si se modifica el conjunto de datos del informe se te presentará de nuevo este mensaje.
+\n
+\nLas estadísticas globales están disponibles públicamente en https://data.syncthing.net.</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
     <string name="open_website">Sitio abierto</string>
@@ -117,7 +120,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Ningún dispositivo configurado. Pulse para añadir uno nuevo.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Ningún dispositivo configurado.\nInicie añadiendo uno ahora.</string>
+    <string name="no_devices_configured">Ningún dispositivo configurado.
+\nInicie añadiendo uno ahora.</string>
     <string name="deviceEncryptionPasswordHint">Si no es de confianza, introduzca la contraseña de cifrado</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Actualizado</string>
@@ -145,8 +149,10 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Estado</string>
     <string name="button_follow_run_conditions">SEGUIR CONDICIONES DE EJECUCIÓN</string>
-    <string name="button_force_start">INICIAR FORZOSAMENTE\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
-    <string name="button_force_stop">DETENER FORZOSAMENTE\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
+    <string name="button_force_start">INICIAR FORZOSAMENTE
+\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
+    <string name="button_force_stop">DETENER FORZOSAMENTE
+\nIGNORAR CONDICIONES DE EJECUCIÓN</string>
     <string name="syncthing_starting">Syncthing se está iniciando.</string>
     <string name="syncthing_running">Syncthing se está ejecutando.</string>
     <string name="syncthing_not_running">Syncthing no se está ejecutando</string>
@@ -270,15 +276,23 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Consejos &amp; Trucos</string>
     <string name="tip_write_to_sdcard_title">Solución alterna de escribir a la tarjeta SD externa</string>
-    <string name="tip_write_to_sdcard_text">Si ves que la interfaz de usuario indica que \"Android solo le otorga a Syncthing acceso de solo lectura\" para una determinada carpeta, cree una nueva carpeta utilizando esta ruta para obtener acceso de escritura:\n%1$s/YOUR_FOLDER_NAME\nTenga cuidado: Esta carpeta va a ser eliminada por Android si desinstala esta aplicación. Antes de desinstalar la aplicación, mueva los datos a un lugar seguro fuera de la carpeta .../Android.</string>
+    <string name="tip_write_to_sdcard_text">Si ves que la interfaz de usuario indica que \"Android solo le otorga a Syncthing acceso de solo lectura\" para una determinada carpeta, cree una nueva carpeta utilizando esta ruta para obtener acceso de escritura:
+\n%1$s/YOUR_FOLDER_NAME
+\nTenga cuidado: Esta carpeta va a ser eliminada por Android si desinstala esta aplicación. Antes de desinstalar la aplicación, mueva los datos a un lugar seguro fuera de la carpeta .../Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizar solo mediante la red Wifi local</string>
-    <string name="tip_sync_on_local_network_text">Si desea sincronizar solo con los dispositivos que se encuentran en la red WiFf local o accesibles a través de un hotspot de Wifi, puede reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\":\n- Permitir NAT Traversal\n- Descubrimiento Global\n- Habilitar la Retransmisión\nSolo deje activado el \"Descubrimiento Local\".</string>
+    <string name="tip_sync_on_local_network_text">Si desea sincronizar solo con los dispositivos que se encuentran en la red WiFf local o accesibles a través de un hotspot de Wifi, puede reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\":
+\n- Permitir NAT Traversal
+\n- Descubrimiento Global
+\n- Habilitar la Retransmisión
+\nSolo deje activado el \"Descubrimiento Local\".</string>
     <string name="tip_custom_sync_conditions_title">Utilizar condiciones de sincronización personalizadas por carpeta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones personalizadas de sincronización para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
     <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador\?</string>
     <string name="tip_ignore_delete_text">Si desea tener una copia de seguridad de todas las fotos hechas en su teléfono en un ordenador, comparta la carpeta \"Cámara\" con el ordenador. Abra Syncthing en el ordenador, añada la carpeta y vaya a \"Acciones\" &gt; \"Avanzado\" &gt; Carpeta \"Cámara\". Habilite la opción \"Ignorar la eliminación\" y haga clic en \"Guardar\". Ahora puede eliminar las fotos de la carpeta de la cámara en el teléfono y se mantendrá la copia de seguridad en el ordenador.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: solución alternativa a \"dispositivo desconectado\"</string>
-    <string name="tip_huawei_device_disconnected_text">Si su ordenador informa constantemente a su dispositivo Huawei como desconectado, abra la interfaz de usuario de Syncthing de su escritorio. Vaya a \"dispositivos remotos\", expanda la entrada del teléfono, haga clic en \"Editar\" y cambie a \"Avanzado\". Ponga la dirección IP de su teléfono en \"Direcciones\" así:\ntcp4://%1$s, dynamic\nConfirmado que funciona para: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">Si su ordenador informa constantemente a su dispositivo Huawei como desconectado, abra la interfaz de usuario de Syncthing de su escritorio. Vaya a \"dispositivos remotos\", expanda la entrada del teléfono, haga clic en \"Editar\" y cambie a \"Avanzado\". Ponga la dirección IP de su teléfono en \"Direcciones\" así:
+\ntcp4://%1$s, dynamic
+\nConfirmado que funciona para: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: la aplicación no se inicia al arrancar el sistema</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI no permite que las aplicaciones se inicien solas por defecto. Desde la pantalla de inicio, vaya a \"Ajustes\" &gt; \"Permisos\" &gt; \"Autoinicio\" y active el control deslizante de \"Syncthing-Fork\".</string>
@@ -301,7 +315,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">El sitio web en %1$s parece tener un certificado inválido para el cifrado SSL. ¿Proceder\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Cargando página web:\n%1$s ...</string>
+    <string name="web_page_loading">Cargando página web:
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Abrir en navegador</string>
     <!-- SettingsFragment -->
@@ -435,7 +450,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
     <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para iniciar y detener el servicio mediante el envío de transmisiones, por ejemplo, desde aplicaciones de automatización de terceros. Nota: Tiene que reiniciar la aplicación manualmente después de cambiar esta opción.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.\n\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.
+\n
+\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración\? Se sobrescribirán los archivos existentes.</string>
     <!-- Toast shown after config was exported -->
@@ -718,7 +735,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="keep_versions_description">Número de versiones antiguas para conservar por archivo.</string>
     <string name="simple_file_versioning_description">Los archivos se mueven a versiones fechadas en un directorio .stversions cuando son reemplazados o eliminados por Syncthing.</string>
     <string name="trashcan_versioning_description">Los archiovs se mueven al directorio .stversions cuando son reemplazados o eliminados por Syncthing.</string>
-    <string name="staggered_versioning_description">Los archivos se mueven a versiones fechadas en un directorio .stversions cuando son reemplazados o eliminados por Syncthing. Las versiones se eliminan automáticamente si son más antiguas que la edad máxima o exceden el número de archivos permitidos en un intervalo.\n\nSe utilizan los siguientes intervalos: durante primera hora se mantiene una versión cada 30 segundos, durante el primer día se mantiene una versión cada hora, durante los primeros 30 días se mantiene una versión cada día, hasta que la edad máxima por versión se mantenga cada semana.</string>
+    <string name="staggered_versioning_description">Los archivos se mueven a versiones fechadas en un directorio .stversions cuando son reemplazados o eliminados por Syncthing. Las versiones se eliminan automáticamente si son más antiguas que la edad máxima o exceden el número de archivos permitidos en un intervalo.
+\n
+\nSe utilizan los siguientes intervalos: durante primera hora se mantiene una versión cada 30 segundos, durante el primer día se mantiene una versión cada hora, durante los primeros 30 días se mantiene una versión cada día, hasta que la edad máxima por versión se mantenga cada semana.</string>
     <string name="maximum_age_description">El tiempo máximo de conservación de una versión (en días, ingrese 0 para conservar las versiones para siempre).</string>
     <string name="versions_path_description">Ruta donde se deben almacenar las versiones (dejar vacío para usar el directorio .stversions predeterminado en la carpeta compartida).</string>
     <string name="cleanout_after_description">El número de días para guardar los archivos en la papelera. Cero significa para siempre</string>
@@ -731,7 +750,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="type_external">Tipo: Externo</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Limpiar después de: %1$s</string>
-    <string name="staggered_versioning_info">Antigüedad Máxima: %1$d \nRuta de Versiones: %2$s</string>
+    <string name="staggered_versioning_info">Antigüedad Máxima: %1$d
+\nRuta de Versiones: %2$s</string>
     <string name="external_versioning_info">Comando: %1$s</string>
     <string name="simple_versioning_info">Conservar versiones: %1$s</string>
     <string name="show_device_id">Mostrar ID del dispositivo</string>

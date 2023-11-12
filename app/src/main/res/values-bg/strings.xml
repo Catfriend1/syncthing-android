@@ -20,7 +20,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Изпращане на идентификатора чрез</string>
     <string name="usage_reporting_dialog_title">Разреши анонимно докладване за употребата на програмата\?</string>
-    <string name="usage_reporting_dialog_description">Криптираният доклад се изпраща ежедневно. Използва се, за отичане на ползваните платформи, размер на папки и версии на приложението. Ако събираните данни се променят, ще бъдете информиран с подобен на този диалог.\n\nОбобщената статистика ще намерите на https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Криптираният доклад се изпраща ежедневно. Използва се, за отичане на ползваните платформи, размер на папки и версии на приложението. Ако събираните данни се променят, ще бъдете информиран с подобен на този диалог.
+\n
+\nОбобщената статистика ще намерите на https://data.syncthing.net.</string>
     <string name="yes">Да</string>
     <string name="no">Не</string>
     <string name="open_website">Отвори уеб сайта</string>
@@ -147,7 +149,9 @@
     <string name="export_config">Изнасяне на настройките</string>
     <string name="use_tor_title">Ползване на Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени\? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
+    <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени\? Съществуващите файлове ще бъдат презаписани.
+\n
+\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки\? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->

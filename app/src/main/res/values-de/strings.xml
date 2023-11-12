@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Einführung</string>
-    <string name="welcome_text">Syncthing ist eine quelloffene Software zur Dateisynchronisierung. Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zur Geräteliste hinzufügen. Danach können Sie festlegen, welche Ordner mit welchen Geräten geteilt werden.\n\
-Bitte melden Sie auftretende Probleme via GitHub.</string>
+    <string name="welcome_text">Syncthing ist eine quelloffene Software zur Dateisynchronisierung. Um Daten mit anderen Geräten zu teilen, müssen Sie deren eindeutige Geräte IDs zur Geräteliste hinzufügen. Danach können Sie festlegen, welche Ordner mit welchen Geräten geteilt werden.
+\n
+\nBitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Speicher-Berechtigung</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
@@ -116,7 +117,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Keine Geräte konfiguriert. Tippe zum Hinzufügen eines neuen Geräts.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Keine Geräte konfiguriert.\nBeginne jetzt mit dem Hinzufügen eines Geräts.</string>
+    <string name="no_devices_configured">Keine Geräte konfiguriert.
+\nBeginne jetzt mit dem Hinzufügen eines Geräts.</string>
     <string name="deviceEncryptionPasswordHint">Wenn nicht vertraut, Passwort eingeben</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Aktuell</string>
@@ -144,8 +146,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
     <string name="button_follow_run_conditions">Befolge Laufkonditionen</string>
-    <string name="button_force_start">Start erzwingen\nLaufkonditionen ignorieren</string>
-    <string name="button_force_stop">Stopp erzwingen\nLaufkonditionen ignorieren</string>
+    <string name="button_force_start">Start erzwingen
+\nLaufkonditionen ignorieren</string>
+    <string name="button_force_stop">Stopp erzwingen
+\nLaufkonditionen ignorieren</string>
     <string name="syncthing_starting">Syncthing wird gestartet.</string>
     <string name="syncthing_running">Syncthing läuft.</string>
     <string name="syncthing_not_running">Syncthing läuft nicht.</string>
@@ -269,15 +273,23 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Tipps &amp; Tricks</string>
     <string name="tip_write_to_sdcard_title">Workaround zum Schreiben auf Speicherkarte</string>
-    <string name="tip_write_to_sdcard_text">Wenn Du die Meldung \"Android erlaubt nur schreibgeschützten Zugriff\" für einen bestimmten Ordner erhältst, erstelle einen neuen Ordner und benutze diesen Pfad, um Schreibzugriff zu erhalten:\n%1$s/DEIN_ORDNER_NAME\nSei vorsichtig: Dieser Ordner wird von Android gelöscht, sobald du die App deinstallierst. Verschiebe die Daten an einen sicheren Ort außerhalb des .../Android Ordners, bevor du die App deinstallierst.</string>
+    <string name="tip_write_to_sdcard_text">Wenn Du die Meldung \"Android erlaubt nur schreibgeschützten Zugriff\" für einen bestimmten Ordner erhältst, erstelle einen neuen Ordner und benutze diesen Pfad, um Schreibzugriff zu erhalten:
+\n%1$s/DEIN_ORDNER_NAME
+\nSei vorsichtig: Dieser Ordner wird von Android gelöscht, sobald du die App deinstallierst. Verschiebe die Daten an einen sicheren Ort außerhalb des .../Android Ordners, bevor du die App deinstallierst.</string>
     <string name="tip_sync_on_local_network_title">Nur über lokales WLAN-Netzwerk syncen</string>
-    <string name="tip_sync_on_local_network_text">Wenn Du beabsichtigst, nur mit Geräten zu syncen, die am lokalen WLAN-Netzwerk angeschlossen oder Teil eines Hotspot-WLAN sind, kannst du den Batterieverbrauch reduzieren und versehentliches Syncen über mobile Daten verhindern, indem Du die folgenden Optionen unter \"Einstellungen/Syncthing-Optionen\" abschaltest:\n- NAT-Durchdringung\n- Globale Gerätesuche\n- Weiterleitung aktivieren\nLasse nur die \"Lokale Gerätesuche\" eingeschaltet.</string>
+    <string name="tip_sync_on_local_network_text">Wenn Du beabsichtigst, nur mit Geräten zu syncen, die am lokalen WLAN-Netzwerk angeschlossen oder Teil eines Hotspot-WLAN sind, kannst du den Batterieverbrauch reduzieren und versehentliches Syncen über mobile Daten verhindern, indem Du die folgenden Optionen unter \"Einstellungen/Syncthing-Optionen\" abschaltest:
+\n- NAT-Durchdringung
+\n- Globale Gerätesuche
+\n- Weiterleitung aktivieren
+\nLasse nur die \"Lokale Gerätesuche\" eingeschaltet.</string>
     <string name="tip_custom_sync_conditions_title">Sync-Bedingungen pro Ordner/Gerät festlegen</string>
     <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Für den Moment wollten wir das App-Verhalten nicht \"umstürzen\", um bestehende Konfigurationen nicht zu \"brechen\". Deshalb können die \"individuellen Sync-Bedingungen\" für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Laufkonditionen aktiviert wurde.</string>
     <string name="tip_ignore_delete_title">Bilder vom Telefon auf den Computer sichern\?</string>
     <string name="tip_ignore_delete_text">Wenn Du alle vom Telefon gemachten Bilder auf einen Computer sichern möchtest, teile den Ordner \'Kamera\' mit dem Computer. Öffne Syncthing auf dem Computer, füge den Ordner hinzu und gehe zu \'Aktionen\' &gt; \'Erweitert\' &gt; \'Kamera\' Ordner. Aktiviere \'Ignore Delete\' und klicke \'Speichern\'. Du kannst nun Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: Workaround für \"Gerät getrennt\"</string>
-    <string name="tip_huawei_device_disconnected_text">Falls der Computer das Huawei-Gerät permanent als \"getrennt\" meldet, öffne die Syncthing-Oberfläche auf dem Computer. Gehe zu \"Externe Geräte\", klappe den Eintrag des Mobilgeräts aus, klicke \"Bearbeiten\", wechsle zu \"Erweitert\". Trage die IP-Adresse deines Mobilgeräts in \"Adressen\" wie folgt ein:\ntcp4://%1$s, dynamic\nFunktioniert sicher auf: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">Falls der Computer das Huawei-Gerät permanent als \"getrennt\" meldet, öffne die Syncthing-Oberfläche auf dem Computer. Gehe zu \"Externe Geräte\", klappe den Eintrag des Mobilgeräts aus, klicke \"Bearbeiten\", wechsle zu \"Erweitert\". Trage die IP-Adresse deines Mobilgeräts in \"Adressen\" wie folgt ein:
+\ntcp4://%1$s, dynamic
+\nFunktioniert sicher auf: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: App startet nicht beim Hochfahren</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI verbietet standardmäßig den Apps, sich selbst zu starten. Von Deinem Startbildschirm beginnend: Wähle \"Einstellungen\" &gt; \"Rechte\" &gt; \"Autostart\" und aktiviere den \"Syncthing-Fork\" Schieberegler.</string>
@@ -300,7 +312,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Die Webseite \"%1$s\" scheint ein ungültiges SSL-Zertifikat zur Verschlüsselung aufzuweisen. Fortfahren\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Lade Webseite:\n%1$s...</string>
+    <string name="web_page_loading">Lade Webseite:
+\n%1$s...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">In Browser öffnen</string>
     <!-- SettingsFragment -->
@@ -434,7 +447,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
     <string name="broadcast_service_control_summary">Standard: Deaktiviert. Aktiviere diese Option, um den Dienst durch Broadcasts z. B. mit Drittanbieter Automatisierungsapps zu starten und zu stoppen. Hinweis: Nach dem Ändern dieser Option musst du die App manuell neu starten.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden\? Vorhandene Dateien werden überschrieben.\n\nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
+    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden\? Vorhandene Dateien werden überschrieben.
+\n
+\nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden\? Die vorhandene Konfiguration wird überschrieben.</string>
     <!-- Toast shown after config was exported -->
@@ -454,13 +469,15 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Datenbank zurücksetzen</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_database_question">Diese Aktion sollte nur auf Empfehlung des Support-Teams ausgeführt werden. \nSind Sie sicher, dass Sie die Syncthing Datenbank leeren möchten\?</string>
+    <string name="st_reset_database_question">Diese Aktion sollte nur auf Empfehlung des Support-Teams ausgeführt werden.
+\nSind Sie sicher, dass Sie die Syncthing Datenbank leeren möchten\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Datenbank erfolgreich zurückgesetzt</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Änderungsindex zurücksetzen</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_deltas_question">Diese Aktion sollte nur auf Empfehlung des Support-Teams ausgeführt werden. \nSind Sie sicher, dass Sie den Syncthing-Änderungsindex zurück setzen möchten\?</string>
+    <string name="st_reset_deltas_question">Diese Aktion sollte nur auf Empfehlung des Support-Teams ausgeführt werden.
+\nSind Sie sicher, dass Sie den Syncthing-Änderungsindex zurück setzen möchten\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Syncthing-Änderungsindex erfolgreich zurückgesetzt</string>
     <string name="category_about">Über</string>
@@ -709,7 +726,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="keep_versions_description">Anzahl der alten Versionen, die von jeder Datei behalten werden sollen.</string>
     <string name="simple_file_versioning_description">Dateien werden mit einem Datumsstempel im Namen versehen und in ein .stversions-Verzeichnis verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden.</string>
     <string name="trashcan_versioning_description">Dateien werden in das .stversions-Verzeichnis verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden.</string>
-    <string name="staggered_versioning_description">Dateien werden mit einem Datumsstempel im Namen versehen und in ein .stversions-Verzeichnis verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden. Alte Dateiversionen werden automatisch gelöscht, wenn sie älter als das angegebene Höchstalter sind oder die angegebene Höchstzahl an Dateien erreicht ist.\n\nEs wird in folgenden Abständen versioniert: In der ersten Stunde wird alle 30 Sekunden eine Version behalten, am ersten Tag eine jede Stunde, in den ersten 30 Tagen eine jeden Tag. Danach wird bis zum angegebenen Höchstalter eine Version pro Woche behalten.</string>
+    <string name="staggered_versioning_description">Dateien werden mit einem Datumsstempel im Namen versehen und in ein .stversions-Verzeichnis verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden. Alte Dateiversionen werden automatisch gelöscht, wenn sie älter als das angegebene Höchstalter sind oder die angegebene Höchstzahl an Dateien erreicht ist.
+\n
+\nEs wird in folgenden Abständen versioniert: In der ersten Stunde wird alle 30 Sekunden eine Version behalten, am ersten Tag eine jede Stunde, in den ersten 30 Tagen eine jeden Tag. Danach wird bis zum angegebenen Höchstalter eine Version pro Woche behalten.</string>
     <string name="maximum_age_description">Die längste Zeit, die alte Versionen vorgehalten werden (in Tagen, 0 um alte Versionen für immer zu behalten).</string>
     <string name="versions_path_description">Pfad, in dem Versionen gespeichert werden sollen (leer lassen, wenn das Standard-.stversions-Verzeichnis im geteilten Ordner verwendet werden soll).</string>
     <string name="cleanout_after_description">Dauer in Tagen für welche die Dateien aufgehoben werden sollen. 0 bedeutet für immer.</string>
@@ -722,7 +741,8 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="type_external">Typ: Extern</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Aufräumen nach: %1$s</string>
-    <string name="staggered_versioning_info">Maximales Alter: %1$d \nVersionspfad: %2$s</string>
+    <string name="staggered_versioning_info">Maximales Alter: %1$d
+\nVersionspfad: %2$s</string>
     <string name="external_versioning_info">Befehl: %1$s</string>
     <string name="simple_versioning_info">Behalte Versionen: %1$s</string>
     <string name="show_device_id">Zeige Geräte-ID</string>

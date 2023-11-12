@@ -22,7 +22,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Poslat ID přístroje přes</string>
     <string name="usage_reporting_dialog_title">Povolit anonymní hlášení o používání\?</string>
-    <string name="usage_reporting_dialog_description">Zašifrované hlášení o používání je odesíláno denně. Je použito k zjišťování obvyklých platforem, velikosti adresářů a verzi aplikace. Pokud se změní množství odesílaných detailů, budete znovu upozorněni tímto dialogem.\n\nSouhrnné statistiky jsou veřejně dostupné na https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Zašifrované hlášení o používání je odesíláno denně. Je použito k zjišťování obvyklých platforem, velikosti adresářů a verzi aplikace. Pokud se změní množství odesílaných detailů, budete znovu upozorněni tímto dialogem.
+\n
+\nSouhrnné statistiky jsou veřejně dostupné na https://data.syncthing.net.</string>
     <string name="yes">Ano</string>
     <string name="no">Ne</string>
     <string name="open_website">Otevřít webovou stránku</string>
@@ -169,7 +171,9 @@
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
     <string name="use_tor_title">Použít Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci\? Existující soubory budou přepsány.\n\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
+    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci\? Existující soubory budou přepsány.
+\n
+\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravud chcete importovat novou konfiguraci\? Existující soubory budou přepsány.</string>
     <!-- Toast shown after config was exported -->
@@ -311,7 +315,9 @@
     <string name="keep_versions_description">Počet udržovaných starších verzí souboru.</string>
     <string name="simple_file_versioning_description">Po nahrazení nebo smazání aplikací Syncthing jsou soubory přesunuty do verzí označených daty ve složce .stversions.</string>
     <string name="trashcan_versioning_description">Po nahrazení nebo smazání aplikací Syncthing jsou soubory přesunuty do složky .stversions.</string>
-    <string name="staggered_versioning_description">Po nahrazení nebo smazání aplikací Syncthing jsou soubory přesunuty do verzí označených daty ve složce .stversions. Verze jsou automaticky smazány, pokud jsou starší než maximální časový limit nebo překročí počet souborů povolených pro interval.\n\nJsou použity následující intervaly: za první hodinu jsou ponechány verze pro každých 30 sekund, za první den jsou ponechány verze pro každou hodinu, za prvních 30 dní jsou ponechány verze pro každý den a do nejvyššího nastaveného stáří jsou ponechány verze pro každý týden.</string>
+    <string name="staggered_versioning_description">Po nahrazení nebo smazání aplikací Syncthing jsou soubory přesunuty do verzí označených daty ve složce .stversions. Verze jsou automaticky smazány, pokud jsou starší než maximální časový limit nebo překročí počet souborů povolených pro interval.
+\n
+\nJsou použity následující intervaly: za první hodinu jsou ponechány verze pro každých 30 sekund, za první den jsou ponechány verze pro každou hodinu, za prvních 30 dní jsou ponechány verze pro každý den a do nejvyššího nastaveného stáří jsou ponechány verze pro každý týden.</string>
     <string name="maximum_age_description">Maximální doba pro zachování verze (dny, zapsáním hodnoty 0 bude ponecháno navždy).</string>
     <string name="versions_path_description">Cesta pro ukládání verzí (ponechte prázdné pro výchozí adresář .stversions ve sdíleném adresáři).</string>
     <string name="cleanout_after_description">Počet dní, po který budou soubory uchovány v koši. Nula znamená navždy.</string>
@@ -324,7 +330,8 @@
     <string name="type_external">Typ: Externí</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Vyčistit po: %1$s</string>
-    <string name="staggered_versioning_info">Maximální stáří: %1$d \nCesta k verzím: %2$s</string>
+    <string name="staggered_versioning_info">Maximální stáří: %1$d
+\nCesta k verzím: %2$s</string>
     <string name="external_versioning_info">Příkaz: %1$s</string>
     <string name="simple_versioning_info">Udržovat verze: %1$s</string>
     <string name="show_device_id">Ukázat ID zařízení</string>

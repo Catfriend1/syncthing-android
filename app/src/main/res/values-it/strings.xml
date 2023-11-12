@@ -77,7 +77,9 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Invia ID Dispositivo a</string>
     <string name="usage_reporting_dialog_title">Abilitare Statistiche Anonime di Utilizzo\?</string>
-    <string name="usage_reporting_dialog_description">Quotidianamente il software invia le statistiche di utilizzo in forma criptata. Questi dati riguardano i sistemi operativi utilizzati, le dimensioni delle cartelle e le versioni del software. Se i dati riportati sono cambiati, verrà mostrata di nuovo questa finestra di dialogo.\n\nDati statistici in forma aggregata sono disponibili pubblicamente su https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Quotidianamente il software invia le statistiche di utilizzo in forma criptata. Questi dati riguardano i sistemi operativi utilizzati, le dimensioni delle cartelle e le versioni del software. Se i dati riportati sono cambiati, verrà mostrata di nuovo questa finestra di dialogo.
+\n
+\nDati statistici in forma aggregata sono disponibili pubblicamente su https://data.syncthing.net.</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="open_website">Apri sito</string>
@@ -117,7 +119,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Non ci sono dispositivi configurati. Tocca per aggiungere un nuovo dispositivo.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Non ci sono dispositivi configurati.\nInizia aggiungendo un dispositivo ora.</string>
+    <string name="no_devices_configured">Non ci sono dispositivi configurati.
+\nInizia aggiungendo un dispositivo ora.</string>
     <string name="deviceEncryptionPasswordHint">Se non è affidabile, definisci una password di crittografia</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Sincronizzato</string>
@@ -145,8 +148,10 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Stato</string>
     <string name="button_follow_run_conditions">SEGUI CONDIZIONI DI ESECUZIONE</string>
-    <string name="button_force_start">FORZA AVVIO\nIGNORA CONDIZIONI DI ESECUZIONE</string>
-    <string name="button_force_stop">FORZA ARRESTO\nIGNORA CONDIZIONI DI ESECUZIONE</string>
+    <string name="button_force_start">FORZA AVVIO
+\nIGNORA CONDIZIONI DI ESECUZIONE</string>
+    <string name="button_force_stop">FORZA ARRESTO
+\nIGNORA CONDIZIONI DI ESECUZIONE</string>
     <string name="syncthing_starting">Syncthing è in avvio.</string>
     <string name="syncthing_running">Syncthing è in esecuzione.</string>
     <string name="syncthing_not_running">Syncthing non è in esecuzione</string>
@@ -270,15 +275,23 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Consigli &amp; Suggerimenti</string>
     <string name="tip_write_to_sdcard_title">Soluzione alternativa per scrivere sulla memoria esterna</string>
-    <string name="tip_write_to_sdcard_text">Se vedi l\'interfaccia utente che indica che \"Android concede solo la sincronizzazione dell\'accesso in sola lettura\" a una determinata cartella, crea una nuova cartella usando questo percorso per ottenere l\'accesso in scrittura:\n%1$s/YOUR_FOLDER_NAME\nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella ... /Android.</string>
+    <string name="tip_write_to_sdcard_text">Se vedi l\'interfaccia utente che indica che \"Android concede solo la sincronizzazione dell\'accesso in sola lettura\" a una determinata cartella, crea una nuova cartella usando questo percorso per ottenere l\'accesso in scrittura:
+\n%1$s/YOUR_FOLDER_NAME
+\nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella ... /Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizza solo usando la rete WiFi locale</string>
-    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \"Impostazioni/Impostazioni Syncthing\':\n- Abilita NAT traversal\n- Individuazione Globale\n- Abilita Reindirizzamento\nLascia abilitato solo \'Individuazione Locale\'.</string>
+    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \"Impostazioni/Impostazioni Syncthing\':
+\n- Abilita NAT traversal
+\n- Individuazione Globale
+\n- Abilita Reindirizzamento
+\nLascia abilitato solo \'Individuazione Locale\'.</string>
     <string name="tip_custom_sync_conditions_title">Usa condizioni di sincronizzazione personalizzate per cartella/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Questa funzione verrà migliorata in versioni future. Per ora non abbiamo voluto alterare le configurazioni esistenti e il comportamento dell\'app. Per questo motivo le condizioni di sincronizzazione personalizzate per un tipo di rete possono essere attivate solo se attivi la sincronizzazione su questa rete nelle condizioni generali di esecuzione.</string>
     <string name="tip_ignore_delete_title">Vuoi salvare le foto dal cellulare al computer\?</string>
     <string name="tip_ignore_delete_text">Se vuoi che tutte le foto fatte dal tuo cellulare siano salvate su un computer, condividi la cartella \'Camera\' con il computer. Apri Syncthing sul computer, aggiungi la cartella e vai a \'Azioni\' &gt; \'Avanzato\' &gt; Cartella \'Camera\'. Abilita \'Ignore Delete\' e clicca \'Salva\'. Ora potrai eliminare foto dal tuo cellulare, lasciandole salvate sul computer.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: soluzione alternativa a \'dispositivo disconnesso\'</string>
-    <string name="tip_huawei_device_disconnected_text">Se il tuo computer riporta che il tuo dispositivo si disconnette in continuazione, apri l\'interfaccia di Syncthing dal computer, vai su \'Dispositivo Remoti\', espandi la voce del cellulare, clicca su \'Modifica\' e vai alla scheda \'Avanzato\'. Inserisci l\'IP del dispositivo in \'Indirizzi\' così:\ntcp4://%1$s, dynamic\n. È stato testato con successo su Huawei P10.</string>
+    <string name="tip_huawei_device_disconnected_text">Se il tuo computer riporta che il tuo dispositivo si disconnette in continuazione, apri l\'interfaccia di Syncthing dal computer, vai su \'Dispositivo Remoti\', espandi la voce del cellulare, clicca su \'Modifica\' e vai alla scheda \'Avanzato\'. Inserisci l\'IP del dispositivo in \'Indirizzi\' così:
+\ntcp4://%1$s, dynamic
+\nÈ stato testato con successo su Huawei P10.</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: l\'app non parte all\'avvio del dispositivo</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI impedisce in maniera predefinita che le app si avviino automaticamente. Dalla schermata home, vai in \'Impostazioni\'&gt;\'Permessi\'&gt;\'Avvio automatico\' e attiva l\'opzione per \'Syncthing-Fork\'.</string>
@@ -301,7 +314,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Il sito %1$s sembra avere un certificato SSL non valido. Vuoi precedere\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Caricamento pagina web:\n%1$s...</string>
+    <string name="web_page_loading">Caricamento pagina web:
+\n%1$s...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Apri nel browser</string>
     <!-- SettingsFragment -->
@@ -435,7 +449,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilita questa opzione per avviare e interrompere il servizio inviando dei broadcast, come ad esempio utilizzando app di automazione. Nota: dovrai riavviare il servizio manualmente dopo aver cambiato questa opzione.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vuoi veramente esportare la tua configurazione\? I files esistenti verranno sovrascritti.n\nATTENZIONE! Le altre applicazioni potrebbero non essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
+    <string name="dialog_confirm_export">Vuoi veramente esportare la tua configurazione\? I files esistenti verranno sovrascritti.n
+\nATTENZIONE! Le altre applicazioni potrebbero non essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Vuoi realmente importare una nuova configurazione\? I files esistenti verranno sovrascritti.</string>
     <!-- Toast shown after config was exported -->
@@ -456,16 +471,14 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="st_reset_database_title">Reset del Database</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Questa azione dovrebbe essere eseguita solo sulla base di una raccomandazione del nostro team di supporto.
-        \nSei sicuro di voler cancellare il database di Syncthing\?
-    </string>
+\nSei sicuro di voler cancellare il database di Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Reset del database di Syncthing riuscito</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Reimposta gli indici Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Questa azione dovrebbe essere eseguita solo sulla base di una raccomandazione del nostro team di supporto.
-        \nSei sicuro di voler cancellare gli indici delta di Syncthing\?
-    </string>
+\nSei sicuro di voler cancellare gli indici delta di Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Ripristinati con successo gli indici delta di Syncthing</string>
     <string name="category_about">Info</string>
@@ -720,7 +733,9 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="keep_versions_description">Il numero di vecchie versioni di mantenere, per ogni file.</string>
     <string name="simple_file_versioning_description">I file vengono spostati con la data di versione in una cartella .stversions quando sostituiti o eliminati da Syncthing.</string>
     <string name="trashcan_versioning_description">I file vengono spostati in una cartella .stversions quando sostituiti o eliminati da Syncthing.</string>
-    <string name="staggered_versioning_description">I file vengono spostati con la data di versione in una cartella .stversions quando sostituiti o eliminati da Syncthing. Le versioni vengono automaticamente eliminate se sono di età superiore all\'età massima o superano il numero di file consentiti in un intervallo.\n\nI seguenti intervalli sono utilizzati: Per la prima ora una versione viene mantenuta ogni 30 secondi, per il primo giorno una versione viene mantenuta ogni ora, per i primi 30 giorni una versione viene mantenuta ogni giorno, fino all\'età massima una versione è mantenuto ogni settimana.</string>
+    <string name="staggered_versioning_description">I file vengono spostati con la data di versione in una cartella .stversions quando sostituiti o eliminati da Syncthing. Le versioni vengono automaticamente eliminate se sono di età superiore all\'età massima o superano il numero di file consentiti in un intervallo.
+\n
+\nI seguenti intervalli sono utilizzati: Per la prima ora una versione viene mantenuta ogni 30 secondi, per il primo giorno una versione viene mantenuta ogni ora, per i primi 30 giorni una versione viene mantenuta ogni giorno, fino all\'età massima una versione è mantenuto ogni settimana.</string>
     <string name="maximum_age_description">Il tempo massimo di mantenimento di una versione (in giorni, imposta su 0 per mantenere le versioni per sempre).</string>
     <string name="versions_path_description">Percorso in cui devono essere conservate le versioni (lasciare vuoto per la directory di default .stversions nella cartella condivisa).</string>
     <string name="cleanout_after_description">Il numero di giorni di mantenimento dei file nel cestino. Zero significa per sempre</string>
@@ -733,7 +748,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="type_external">Tipo: Esterno</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Ripulire dopo: %1$s</string>
-    <string name="staggered_versioning_info">Età Massima: %1$d \nPercorso Versioni: %2$s</string>
+    <string name="staggered_versioning_info">Età Massima: %1$d
+\nPercorso Versioni: %2$s</string>
     <string name="external_versioning_info">Comando: %1$s</string>
     <string name="simple_versioning_info">Mantenere versioni: %1$s</string>
     <string name="show_device_id">Mostra ID dispositivo</string>

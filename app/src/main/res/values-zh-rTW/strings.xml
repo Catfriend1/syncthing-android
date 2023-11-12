@@ -49,7 +49,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">傳送裝置識別碼給</string>
     <string name="usage_reporting_dialog_title">允許匿名使用報告？</string>
-    <string name="usage_reporting_dialog_description">每天會傳送被加密的使用報告。它被來用在追蹤常用的平台、資料夾大小及應用程式版本。如果回報的資料集被修改，你將會再收到這個提示。\n\n匯集的統計資料會公開在 https://data.syncthing.net。</string>
+    <string name="usage_reporting_dialog_description">每天會傳送被加密的使用報告。它被來用在追蹤常用的平台、資料夾大小及應用程式版本。如果回報的資料集被修改，你將會再收到這個提示。
+\n
+\n匯集的統計資料會公開在 https://data.syncthing.net。</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="open_website">打開網站</string>
@@ -196,7 +198,9 @@
     <string name="keep_wakelock_while_binary_running">當 Syncthing 正在執行時，保持 CPU 清醒</string>
     <string name="use_tor_title">使用 Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">你確認要匯出你的設定？已存在的檔案將會被覆蓋。\n\n警告！其他的應用程式也許能從備份位置讀取私鑰，並且利用它來下載、修改同步的檔案。</string>
+    <string name="dialog_confirm_export">你確認要匯出你的設定？已存在的檔案將會被覆蓋。
+\n
+\n警告！其他的應用程式也許能從備份位置讀取私鑰，並且利用它來下載、修改同步的檔案。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">你確認要匯入新的設定？已存在的檔案將會被覆蓋。</string>
     <!-- Toast shown after config was exported -->
@@ -332,7 +336,9 @@
     <string name="keep_versions_description">每個檔案要保留的舊版本數量。</string>
     <string name="simple_file_versioning_description">當檔案被 Syncthing 取代或刪除時，它們將被移至 .stversions 資料夾並加上日期戳記。</string>
     <string name="trashcan_versioning_description">當檔案被 Syncthing 取代或刪除時，檔案將被移至 .stversions 資料夾。</string>
-    <string name="staggered_versioning_description">當檔案被 Syncthing 取代或刪除時，它們將被移至 .stversions 資料夾並添加日期戳記。當檔案歷史版本的存留時間大於設定的最大值，或是其數量在一段時間內超出允許值時，則會被刪除。\n\n使用下列的間隔：在第一個小時內每 30 秒保留一個版本，在第一天內每小時保留一個版本，在第 30 天內每一天保留一個版本，在達到最長保留時間前每一星期保留一個版本。</string>
+    <string name="staggered_versioning_description">當檔案被 Syncthing 取代或刪除時，它們將被移至 .stversions 資料夾並添加日期戳記。當檔案歷史版本的存留時間大於設定的最大值，或是其數量在一段時間內超出允許值時，則會被刪除。
+\n
+\n使用下列的間隔：在第一個小時內每 30 秒保留一個版本，在第一天內每小時保留一個版本，在第 30 天內每一天保留一個版本，在達到最長保留時間前每一星期保留一個版本。</string>
     <string name="maximum_age_description">一個版本被保留的最長時間 (單位為天，若設定為 0 則表示永遠保留)。</string>
     <string name="versions_path_description">儲存歷史版本的路徑（若為空，則預設使用資料夾中的 .stversions 資料夾）。</string>
     <string name="cleanout_after_description">檔案在垃圾筒中保留的天數。零表示永遠地保留。</string>
@@ -345,7 +351,8 @@
     <string name="type_external">類型：外部的</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">整理後：%1$s</string>
-    <string name="staggered_versioning_info">最長保留時間：%1$d\n版本控制路徑：%2$s</string>
+    <string name="staggered_versioning_info">最長保留時間：%1$d
+\n版本控制路徑：%2$s</string>
     <string name="external_versioning_info">指令：%1$s</string>
     <string name="simple_versioning_info">保留版本：%1$s</string>
     <string name="show_device_id">顯示裝置識別碼</string>

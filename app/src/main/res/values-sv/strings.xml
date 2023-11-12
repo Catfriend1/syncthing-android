@@ -47,7 +47,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Skicka enhets-ID till</string>
     <string name="usage_reporting_dialog_title">Tillåt anonym användningsrapportering\?</string>
-    <string name="usage_reporting_dialog_description">Den krypterade användningsrapporten skickas dagligen. Den används för att spåra vanliga plattformar, mappstorlekar och appversioner. Om uppsättningen av de rapporterade uppgifterna ändras kommer du att bli tillfrågad med den här dialogrutan igen.\n\nDen aggregerade statistiken är offentligt tillgänglig på https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Den krypterade användningsrapporten skickas dagligen. Den används för att spåra vanliga plattformar, mappstorlekar och appversioner. Om uppsättningen av de rapporterade uppgifterna ändras kommer du att bli tillfrågad med den här dialogrutan igen.
+\n
+\nDen aggregerade statistiken är offentligt tillgänglig på https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="open_website">Öppna hemsida</string>
@@ -214,7 +216,8 @@
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Säkerhetsmeddelande</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Läser in webbplats:\n%1$s ...</string>
+    <string name="web_page_loading">Läser in webbplats:
+\n%1$s ...</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Inställningar</string>
     <string name="category_run_conditions">Körvillkor</string>
@@ -310,7 +313,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration\? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
+    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration\? Befintliga filer kommer att skrivas över.
+\n
+\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration\? Befintliga filer kommer att skrivas över.</string>
     <!-- Toast shown after config was exported -->
@@ -329,16 +334,14 @@
     <string name="st_reset_database_title">Återställ databas</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
-        \nÄr du säker på att du vill rensa Syncthings databas\?
-    </string>
+\nÄr du säker på att du vill rensa Syncthings databas\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthings databas återställdes</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Återställ deltaindex</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
-        \nÄr du säker på att du vill rensa Syncthings deltaindex\?
-    </string>
+\nÄr du säker på att du vill rensa Syncthings deltaindex\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Syncthings deltaindex återställdes</string>
     <string name="category_about">Om</string>
@@ -501,7 +504,9 @@
     <string name="keep_versions_description">Antalet gamla versioner som ska behållas, per fil.</string>
     <string name="simple_file_versioning_description">Filer flyttas till datumstämplade versioner i en .stversions-katalog när de ersätts eller tas bort av Syncthing.</string>
     <string name="trashcan_versioning_description">Filer flyttas till .stversions-katalogen när de ersätts eller tas bort av Syncthing.</string>
-    <string name="staggered_versioning_description">Filer flyttas till datumstämplade versioner i en .stversions-katalog när de ersätts eller tas bort av Syncthing. Versioner tas bort automatiskt om de är äldre än den maximala åldern eller överstiger antalet tillåtna filer i ett intervall.\n\nFör följande intervall används: För den första timmen hålls en version var 30: e sekund, för första dagen hålls en version varje timme, för de första 30 dagarna hålls en version varje dag, tills den maximala åldern hålls en version varje vecka.</string>
+    <string name="staggered_versioning_description">Filer flyttas till datumstämplade versioner i en .stversions-katalog när de ersätts eller tas bort av Syncthing. Versioner tas bort automatiskt om de är äldre än den maximala åldern eller överstiger antalet tillåtna filer i ett intervall.
+\n
+\nFör följande intervall används: För den första timmen hålls en version var 30: e sekund, för första dagen hålls en version varje timme, för de första 30 dagarna hålls en version varje dag, tills den maximala åldern hålls en version varje vecka.</string>
     <string name="maximum_age_description">Den maximala tiden för att hålla en version (i dagar, sätt till 0 för att hålla versioner för evigt).</string>
     <string name="versions_path_description">Sökväg där versioner ska lagras (lämna tom för standard .stversions-katalogen i den delade mappen).</string>
     <string name="cleanout_after_description">Antalet dagar att behålla filer i papperskorgen. Noll betyder för evigt</string>
@@ -514,7 +519,8 @@
     <string name="type_external">Typ: Extern</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Rensa upp efter: %1$s</string>
-    <string name="staggered_versioning_info">Maximal ålder: %1$d \nVersioner sökväg: %2$s</string>
+    <string name="staggered_versioning_info">Maximal ålder: %1$d
+\nVersioner sökväg: %2$s</string>
     <string name="external_versioning_info">Kommando: %1$s</string>
     <string name="simple_versioning_info">Behåll versioner: %1$s</string>
     <string name="show_device_id">Visa enhetens ID</string>

@@ -11,7 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Johdanto</string>
-    <string name="welcome_text">Syncthing on avoimen lähdekoodin tiedostojensynkronointisovellus. Jakaaksesi tiedostoja muiden laitteiden kanssa tarvitset niiden uniikit laitetunnukset laitelistaasi. Myöhemmin voit valita, mitä kansioita jaat millekin laitteille.\n\</string>
+    <string name="welcome_text">Syncthing on avoimen lähdekoodin tiedostojensynkronointisovellus. Jakaaksesi tiedostoja muiden laitteiden kanssa tarvitset niiden uniikit laitetunnukset laitelistaasi. Myöhemmin voit valita, mitä kansioita jaat millekin laitteille.
+\n
+\n</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Tallennustilan käyttöoikeus</string>
     <string name="storage_permission_desc">Syncthing tarvitsee pääsyn tallennustilaasi synkronoidakseen.</string>
@@ -74,7 +76,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Jaa laitetunnus</string>
     <string name="usage_reporting_dialog_title">Salli anonyymi käytön seuranta\?</string>
-    <string name="usage_reporting_dialog_description">Salatut käyttötiedot lähetetään päivittäin. Niitä käytetään seuraamaan yleisiä alustoja, kansioiden kokoja ja sovellusten versioita. Jos ilmoitettu tietosisältö muuttuu, sinulta kysytään lupa uudelleen.\n\nKoostetut tilastot ovat julkisesti saatavilla osoitteessa https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Salatut käyttötiedot lähetetään päivittäin. Niitä käytetään seuraamaan yleisiä alustoja, kansioiden kokoja ja sovellusten versioita. Jos ilmoitettu tietosisältö muuttuu, sinulta kysytään lupa uudelleen.
+\n
+\nKoostetut tilastot ovat julkisesti saatavilla osoitteessa https://data.syncthing.net.</string>
     <string name="yes">Kyllä</string>
     <string name="no">Ei</string>
     <string name="open_website">Avaa verkkosivu</string>
@@ -111,7 +115,8 @@
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Ei asetettuja laitteita. Napauta lisätäksesi uuden laitteen.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Ei laitteita asetettuna.\nAloita lisäämällä laite.</string>
+    <string name="no_devices_configured">Ei laitteita asetettuna.
+\nAloita lisäämällä laite.</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Ajan tasalla</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -136,8 +141,10 @@
     <!-- StatusFragment -->
     <string name="status_fragment_title">Tila</string>
     <string name="button_follow_run_conditions">NOUDATA KÄYNTIEHTOJA</string>
-    <string name="button_force_start">PAKOTA KÄYNNISTYMINEN\nOHITA KÄYNTIEHDOT</string>
-    <string name="button_force_stop">PAKOTA PYSÄYTTÄMINEN\nOHITA KÄYNTIEHDOT</string>
+    <string name="button_force_start">PAKOTA KÄYNNISTYMINEN
+\nOHITA KÄYNTIEHDOT</string>
+    <string name="button_force_stop">PAKOTA PYSÄYTTÄMINEN
+\nOHITA KÄYNTIEHDOT</string>
     <string name="syncthing_starting">Syncthing on käynnistymässä.</string>
     <string name="syncthing_running">Syncthing on käynnissä.</string>
     <string name="syncthing_not_running">Syncthing ei ole käynnissä.</string>
@@ -229,7 +236,11 @@
     <string name="scan_qr_code_description">Lue QR-koodi</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Pääkäyttäjän oikeuksien saaminen epäonnistui</string>
-    <string name="tip_sync_on_local_network_text">Jos haluaisit synkronoida vain laitteiden kanssa, jotka ovat paikallisessa WiFi-verkossa tai saatavilla WiFi-tukiaseman kautta, voit alentaa akun käyttöä ja välttää vahingossa mobiilidatalla synkronoinnin ottamalla pois käytöstä seuraavat asetukset kohdassa \'Asetukset/Syncthing-asetukset\':\n- Aktivoi osoitteenmuunnoksen kierto\n- Globaali etsintä\n- Aktivoi yhteyden välitys\nJätä vain \'Paikallinen etsintä\' käyttöön.</string>
+    <string name="tip_sync_on_local_network_text">Jos haluaisit synkronoida vain laitteiden kanssa, jotka ovat paikallisessa WiFi-verkossa tai saatavilla WiFi-tukiaseman kautta, voit alentaa akun käyttöä ja välttää vahingossa mobiilidatalla synkronoinnin ottamalla pois käytöstä seuraavat asetukset kohdassa \'Asetukset/Syncthing-asetukset\':
+\n- Aktivoi osoitteenmuunnoksen kierto
+\n- Globaali etsintä
+\n- Aktivoi yhteyden välitys
+\nJätä vain \'Paikallinen etsintä\' käyttöön.</string>
     <string name="tip_custom_sync_conditions_text">Tätä ominaisuutta parannetaan vielä tulevissa sovellusversioissa. Toistaiseksi emme halunneet rikkoa olemassa olevia asetuksia ja sovelluksen käyttäytymistä. Tästä syystä räätälöidyt käyntiehdot tietylle verkkotyypille voidaan asettaa vain, jos otat ensin käyttöön verkossa synkronoinnin globaaleista käyntiehdoista.</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI estää oletuksena sovellusten käynnistymisen itsestään. Mene kotinäytöltä \'Asetukset\' &gt; \'Käyttöoikeudet\' &gt; \'Autostart\' ja kytke päälle \'Syncthing-Fork\':n valitsin.</string>
     <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI:n virransäästöjärjestelmäsovellus poistaa jokaisen uudelleenkäynnistyksen yhteydessä sovelluksen oikeuden ohittaa akun käytön optimointi. Tämä aiheuttaa sovelluksen näkymisen alkutervehdysruudulla ja puuttuvan käyttöoikeuden kysymisen uudestaan. Ratkaisu: avaaa kotinäytöllä sovellusvalitsin &gt; paina pitkään \'Syncthing-Fork\' &gt; \'Sovellustiedot\' &gt; \'Virransäästö\' ja valitse \'Ei rajoituksia\' (MIUI 10.3.2.0+).</string>
@@ -285,7 +296,9 @@
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
     <string name="broadcast_service_control_title">Palvelun hallinta lähetetyillä komennoilla (Broadcasts)</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi\? Vanhat tiedostot ylikirjoitetaan.\n\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
+    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi\? Vanhat tiedostot ylikirjoitetaan.
+\n
+\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset\? Vanhat tiedostot ylikirjoitetaan.</string>
     <!-- Toast shown after config was exported -->

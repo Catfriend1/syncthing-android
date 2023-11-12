@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introductie</string>
-    <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing. Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.\n\
-Als je problemen tegenkomt, meld ze dan via GitHub.</string>
+    <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing. Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.
+\n
+\nAls je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
@@ -43,7 +44,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Apparaat-ID versturen naar</string>
     <string name="usage_reporting_dialog_title">Anoniem gebruiksrapportage toestaan\?</string>
-    <string name="usage_reporting_dialog_description">Het versleuteld gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zal je deze dialoog opnieuw te zien krijgen.\n\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Het versleuteld gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zal je deze dialoog opnieuw te zien krijgen.
+\n
+\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="open_website">Website openen</string>
@@ -213,7 +216,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren\? Bestaande bestanden worden overschreven.\n\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
+    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren\? Bestaande bestanden worden overschreven.
+\n
+\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren\? Bestaande bestanden zullen worden overschreven.</string>
     <!-- Toast shown after config was exported -->
@@ -231,16 +236,14 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="st_reset_database_title">Database opnieuw instellen</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
-\nBen je zeker dat je de database van Syncthing wil wissen\?
-</string>
+\nBen je zeker dat je de database van Syncthing wil wissen\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Opnieuw instellen van Syncthing-database geslaagd</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Delta-indexen opnieuw instellen</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
-\nBen je zeker dat je de delta-indexen van Syncthing wil wissen\?
-</string>
+\nBen je zeker dat je de delta-indexen van Syncthing wil wissen\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Delta-indexen van Syncthing opnieuw ingesteld</string>
     <string name="category_about">Over</string>
@@ -364,7 +367,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="keep_versions_description">Het aantal verouderde versies dat bijgehouden moet worden, per bestand.</string>
     <string name="simple_file_versioning_description">Bestanden worden met een tijdsstempel verplaatst naar de map .stversions indien vervangen of verwijderd door Syncthing.</string>
     <string name="trashcan_versioning_description">Bestanden worden verplaatst naar de map .stversions indien vervangen of verwijderd door Syncthing.</string>
-    <string name="staggered_versioning_description">Bestanden worden met een tijdsstempel verplaatst naar de map .stversions indien vervangen of verwijderd door Syncthing. Deze versies worden verwijderd indien ze ouder zijn dan de maximumleeftijd, of indien ze het aantal bestanden toegestaan in een interval overschrijden.\n\nDe volgende intervallen worden gebruikt: het eerste uur wordt elke 30 seconden een versie bijgehouden, de eerste dag elk uur, de eerste 30 dagen elke dag, en tot de maximumleeftijd een versie elke week.</string>
+    <string name="staggered_versioning_description">Bestanden worden met een tijdsstempel verplaatst naar de map .stversions indien vervangen of verwijderd door Syncthing. Deze versies worden verwijderd indien ze ouder zijn dan de maximumleeftijd, of indien ze het aantal bestanden toegestaan in een interval overschrijden.
+\n
+\nDe volgende intervallen worden gebruikt: het eerste uur wordt elke 30 seconden een versie bijgehouden, de eerste dag elk uur, de eerste 30 dagen elke dag, en tot de maximumleeftijd een versie elke week.</string>
     <string name="maximum_age_description">Maximale duur waarvoor een versie bijgehouden dient te worden (in dagen, stel dit in op 0 om versies voorgoed bij te houden).</string>
     <string name="versions_path_description">Pad waar versies moeten worden opgeslagen (laat dit leeg om de standaardmap \'.stversions\' in de gedeelde map te gebruiken).</string>
     <string name="cleanout_after_description">Het aantal dagen dat bestanden in de prullenbak bijgehouden dienen te worden. Nul betekent voorgoed</string>
@@ -377,7 +382,8 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="type_external">Type: extern</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Legen na: %1$s</string>
-    <string name="staggered_versioning_info">Maximumleeftijd: %1$d \nVersiepad: %2$s</string>
+    <string name="staggered_versioning_info">Maximumleeftijd: %1$d
+\nVersiepad: %2$s</string>
     <string name="external_versioning_info">Opdracht: %1$s</string>
     <string name="simple_versioning_info">Versies behouden: %1$s</string>
     <string name="show_device_id">Apparaat-ID weergeven</string>

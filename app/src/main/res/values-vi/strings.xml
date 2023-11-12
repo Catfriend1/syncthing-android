@@ -11,9 +11,11 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Giới thiệu</string>
-    <string name="welcome_text">Syncthing là một ứng dụng đồng bộ hoá tệp mã nguồn mở.\n\
-Để chia sẻ dữ liệu với các thiết bị khác, bạn cần phải thêm các ID thiết bị độc nhất của chúng vào danh sách thiết bị. Sau đó bạn có thể chọn các thư mục mà bạn muốn chia sẻ với các thiết bị.\n\
-Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
+    <string name="welcome_text">Syncthing là một ứng dụng đồng bộ hoá tệp mã nguồn mở.
+\n
+\nĐể chia sẻ dữ liệu với các thiết bị khác, bạn cần phải thêm các ID thiết bị độc nhất của chúng vào danh sách thiết bị. Sau đó bạn có thể chọn các thư mục mà bạn muốn chia sẻ với các thiết bị.
+\n
+\nVui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Quyền Bộ nhớ</string>
     <string name="storage_permission_desc">Syncthing cần truy cập bộ nhớ của bạn để đồng bộ hoá tệp.</string>
@@ -78,7 +80,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Gửi ID thiết bị đến</string>
     <string name="usage_reporting_dialog_title">Cho phép báo cáo sử dụng ẩn danh\?</string>
-    <string name="usage_reporting_dialog_description">Báo cáo s.dụng đã mã hoá sẽ được gửi đi hằng ngày. Nó được dùng để theo dõi các HĐH thông dụng, kích cỡ th.mục và ph.bản ứng dụng. Nếu bộ d.liệu báo cáo có th.đổi gì, bạn sẽ được nhắc lại bằng h.thoại này.\n\nThống kê t.hợp được đăng công khai tại https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Báo cáo s.dụng đã mã hoá sẽ được gửi đi hằng ngày. Nó được dùng để theo dõi các HĐH thông dụng, kích cỡ th.mục và ph.bản ứng dụng. Nếu bộ d.liệu báo cáo có th.đổi gì, bạn sẽ được nhắc lại bằng h.thoại này.
+\n
+\nThống kê t.hợp được đăng công khai tại https://data.syncthing.net.</string>
     <string name="yes">Có</string>
     <string name="no">Không</string>
     <string name="open_website">Mở trang web</string>
@@ -116,7 +120,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Không có thiết bị nào được thiết lập. Nhấn để thêm thiết bị mới.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Không có thiết bị nào được thiết lập.\nHãy bắt đầu bằng cách thêm thiết bị mới ngay.</string>
+    <string name="no_devices_configured">Không có thiết bị nào được thiết lập.
+\nHãy bắt đầu bằng cách thêm thiết bị mới ngay.</string>
     <string name="deviceEncryptionPasswordHint">Nếu chưa tin cậy, hãy nhập mật khẩu mã hoá</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Đã đồng bộ</string>
@@ -143,8 +148,10 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Trạng thái</string>
     <string name="button_follow_run_conditions">LÀM THEO ĐIỀU KIỆN CHẠY</string>
-    <string name="button_force_start">BUỘC KHỞI ĐỘNG\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
-    <string name="button_force_stop">BUỘC DỪNG\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
+    <string name="button_force_start">BUỘC KHỞI ĐỘNG
+\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
+    <string name="button_force_stop">BUỘC DỪNG
+\nBỎ QUA ĐIỀU KIỆN CHẠY</string>
     <string name="syncthing_starting">Syncthing đang khởi động.</string>
     <string name="syncthing_running">Syncthing đang chạy.</string>
     <string name="syncthing_not_running">Syncthing đang không chạy.</string>
@@ -268,15 +275,23 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Mẹo vặt</string>
     <string name="tip_write_to_sdcard_title">Vượt qua vấn đề ghi vào thẻ SD ngoài</string>
-    <string name="tip_write_to_sdcard_text">Nếu bạn thấy giao diện nói rằng \'Android chỉ cấp quyền truy cập chỉ đọc cho Syncthing\' đối với một thư mục cụ thể, hãy tạo thư mục mới bằng đường dẫn này để có quyền truy cập ghi:\n%1$s/YOUR_FOLDER_NAME\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục .../Android.</string>
+    <string name="tip_write_to_sdcard_text">Nếu bạn thấy giao diện nói rằng \'Android chỉ cấp quyền truy cập chỉ đọc cho Syncthing\' đối với một thư mục cụ thể, hãy tạo thư mục mới bằng đường dẫn này để có quyền truy cập ghi:
+\n%1$s/YOUR_FOLDER_NAME
+\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục .../Android.</string>
     <string name="tip_sync_on_local_network_title">Đồng bộ chỉ sử dụng mạng Wi-Fi cục bộ</string>
-    <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':\n- Bật NAT traversal\n- Khám phá toàn cầu\n- Bật vận chuyển\nChỉ để cho \'Khám phá cục bộ\' được bật.</string>
+    <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':
+\n- Bật NAT traversal
+\n- Khám phá toàn cầu
+\n- Bật vận chuyển
+\nChỉ để cho \'Khám phá cục bộ\' được bật.</string>
     <string name="tip_custom_sync_conditions_title">Sử dụng các điều kiện đồng bộ tùy chỉnh cho mỗi thư mục/thiết bị</string>
     <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên.</string>
     <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính\?</string>
     <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' &gt; \'Nâng cao\' &gt; Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: giải quyết vấn đề \'thiết bị đã ngắt kết nối\'</string>
-    <string name="tip_huawei_device_disconnected_text">Nếu máy tính của bạn liên tục báo cáo thiết bị Huawei của bạn là bị ngắt kết nối, hãy mở giao diện Syncthing của máy tính. Đi đến \'thiết bị trên mạng\', mở rộng mục của điện thoại, nhấn \'Chỉnh sửa\', chuyển sang \'Nâng cao\'. Đặt địa chỉ IP của điện thoại vào \'Địa chỉ\' như thế này:\ntcp4://%1$s, động\nĐã xác nhận là giải quyết được cho: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">Nếu máy tính của bạn liên tục báo cáo thiết bị Huawei của bạn là bị ngắt kết nối, hãy mở giao diện Syncthing của máy tính. Đi đến \'thiết bị trên mạng\', mở rộng mục của điện thoại, nhấn \'Chỉnh sửa\', chuyển sang \'Nâng cao\'. Đặt địa chỉ IP của điện thoại vào \'Địa chỉ\' như thế này:
+\ntcp4://%1$s, động
+\nĐã xác nhận là giải quyết được cho: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">ĐỊA_CHỈ_IP_CỦA_ĐIỆN_THOẠI</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: ứng dụng không khởi động khi khởi động thiết bị</string>
     <string name="tip_xiaomi_autostart_text">MIUI của Xiaomi không cho phép các ứng dụng tự khởi động theo mặc định. Từ màn hình chính, hãy đi đến \'Cài đặt\' &gt; \'Quyền\' &gt; \'Tự động khởi động\' và bật thanh trượt \'Syncthing-Fork\'.</string>
@@ -299,7 +314,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Trang web tại %1$s có vẻ là có chứng chỉ không hợp lệ để mã hóa SSL. Tiếp tục\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Đang tải trang web:\n%1$s ...</string>
+    <string name="web_page_loading">Đang tải trang web:
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Mở trong trình duyệt</string>
     <!-- SettingsFragment -->
@@ -430,7 +446,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="broadcast_service_control_title">Điều khiển dịch vụ bằng truyền phát</string>
     <string name="broadcast_service_control_summary">Mặc định: Tắt. Hãy bật tùy chọn này để bắt đầu và dừng dịch vụ bằng cách gửi truyền phát, vd: từ các ứng dụng tự động hóa của bên thứ ba. Lưu ý: Bạn phải khởi động lại ứng dụng theo cách thủ công sau khi thay đổi tùy chọn này.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình\? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
+    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình\? Các tập tin hiện thời sẽ bị ghi đè.
+\n
+\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới\? Các tập tin hiện tại sẽ bị chép đè lên.</string>
     <!-- Toast shown after config was exported -->
@@ -451,16 +469,14 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="st_reset_database_title">Cài lại CSDL</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
-      \nBạn có chắc bạn muốn xóa cơ sở dữ liệu của Syncthing không\?
-</string>
+\nBạn có chắc bạn muốn xóa cơ sở dữ liệu của Syncthing không\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Cài lại thành công CSDL của Syncthing</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Đặt lại mục lục Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
-      \nBạn có chắc bạn muốn xóa mục lục delta của Syncthing không\?
-</string>
+\nBạn có chắc bạn muốn xóa mục lục delta của Syncthing không\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Đặt lại mục lục delta của Syncthing thành công</string>
     <string name="category_about">Thông tin về</string>
@@ -701,7 +717,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="keep_versions_description">Số phiên bản cũ được giữ, cho mỗi tệp.</string>
     <string name="simple_file_versioning_description">Các tệp được di chuyển vào phiên bản được đánh dấu thời gian trong thư mục .stversions khi bị Syncthing thay thế hoặc xóa.</string>
     <string name="trashcan_versioning_description">Các tệp được di chuyển vào thư mục .stversions khi bị Syncthing thay thế hoặc xóa.</string>
-    <string name="staggered_versioning_description">Các tệp được di chuyển vào phiên bản được đánh dấu thời gian khi bị Syncthing thay thế hoặc xóa. Các phiên bản bị tự động xóa nếu chúng cũ hơn tuổi thọ tối đa hoặc vượt quá số tệp được cho phép trong một khoảng thời gian.\n\nCác khoảng thời gian sau được sử dụng: trong giờ đầu tiên một phiên bản được giữ mỗi 30 giây, trong ngày đầu tiên một phiên bản được giữ mỗi tiếng, trong 30 ngày đầu tiên một phiên bản được giữ mỗi ngày, cho đến tuổi thọ tối đa một phiên bản được giữ mỗi tuần.</string>
+    <string name="staggered_versioning_description">Các tệp được di chuyển vào phiên bản được đánh dấu thời gian khi bị Syncthing thay thế hoặc xóa. Các phiên bản bị tự động xóa nếu chúng cũ hơn tuổi thọ tối đa hoặc vượt quá số tệp được cho phép trong một khoảng thời gian.
+\n
+\nCác khoảng thời gian sau được sử dụng: trong giờ đầu tiên một phiên bản được giữ mỗi 30 giây, trong ngày đầu tiên một phiên bản được giữ mỗi tiếng, trong 30 ngày đầu tiên một phiên bản được giữ mỗi ngày, cho đến tuổi thọ tối đa một phiên bản được giữ mỗi tuần.</string>
     <string name="maximum_age_description">Thời gian tối đa để giữ một phiên bản (tính bằng ngày, đặt là 0 để giữ các phiên bản mãi mãi).</string>
     <string name="versions_path_description">Đường dẫn nơi các phiên bản nên được lưu trữ (để trống để dùng thư mục .stversions mặc định trong thư mục được chia sẻ).</string>
     <string name="cleanout_after_description">Số ngày để giữ các tệp trong thùng rác. Không nghĩa là mãi mãi</string>
@@ -714,7 +732,8 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="type_external">Kiểu: Ngoài</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Dọn sau: %1$s</string>
-    <string name="staggered_versioning_info">Tuổi thọ tối đa: %1$d \nĐường dẫn phiên bản: %2$s</string>
+    <string name="staggered_versioning_info">Tuổi thọ tối đa: %1$d
+\nĐường dẫn phiên bản: %2$s</string>
     <string name="external_versioning_info">Lệnh: %1$s</string>
     <string name="simple_versioning_info">Giữ các phiên bản: %1$s</string>
     <string name="show_device_id">Hiện ID thiết bị</string>

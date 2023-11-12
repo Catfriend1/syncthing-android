@@ -11,9 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducció</string>
-    <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert.\n\
-Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.\n\
-Ens podeu informar dels problemes que trobeu a través de Github.</string>
+    <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert. Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.
+\n
+\nEns podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permís d\'emmagatzematge</string>
     <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>
@@ -57,7 +57,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envia ID del dispositiu a</string>
     <string name="usage_reporting_dialog_title">Permeteu els informes d\'ús anònims\?</string>
-    <string name="usage_reporting_dialog_description">L\'informe d\'ús s\'envia de manera xifrada cada dia. L\'utilitzem per fer un seguiment de les plataformes més comuns, la mida de les carpetes i les versions de l\'aplicació. Si mai canviem el contingut dels informes us tornarem a mostrar aquest missatge.\n\nLes estadístiques globals estan disponibles públicament a https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">L\'informe d\'ús s\'envia de manera xifrada cada dia. L\'utilitzem per fer un seguiment de les plataformes més comuns, la mida de les carpetes i les versions de l\'aplicació. Si mai canviem el contingut dels informes us tornarem a mostrar aquest missatge.
+\n
+\nLes estadístiques globals estan disponibles públicament a https://data.syncthing.net.</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
     <string name="open_website">Obre la pàgina web</string>
@@ -226,7 +228,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Sembla que la pàgina web %1$s té un certificat que no és vàlid per xifrar amb SSL. Voleu continuar\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Carregant pàgina web:\n%1$s ...</string>
+    <string name="web_page_loading">Carregant pàgina web:
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Obre al navegador</string>
     <!-- SettingsFragment -->
@@ -336,7 +339,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="toast_invalid_http_proxy_address">No compleix la sintaxi de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Control del Servei per Difusió</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Realment voleu exportar la configuració\? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
+    <string name="dialog_confirm_export">Realment voleu exportar la configuració\? Es sobreescriuran els fitxers existents.
+\n
+\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Realment voleu importar una nova configuració\? Es sobreescriuran els fitxers existents.</string>
     <!-- Toast shown after config was exported -->
@@ -356,16 +361,14 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="st_reset_database_title">Reinicia la base de dades</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
-        \nSegur que voleu esborrar la base de dades del Syncthing\?
-</string>
+\nSegur que voleu esborrar la base de dades del Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">La base de dades del Syncthing s\'ha reiniciat amb èxit</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Reinicia els Índexs Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
-        \nSegur que voleu esborrar els índex delta del Syncthing\?
-</string>
+\nSegur que voleu esborrar els índex delta del Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">S\'han reiniciat correctament els índexs delta del Syncthing</string>
     <string name="category_about">Quant a</string>
@@ -534,7 +537,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="keep_versions_description">Nombre de versions antigues a conservar de cada fitxer.</string>
     <string name="simple_file_versioning_description">Els fitxers substituïts o esborrats pel Syncthing es mouen a una carpeta .stversions com a versions amb la data afegida.</string>
     <string name="trashcan_versioning_description">Els fitxers substituïts o esborrats pel Syncthing es mouen a la carpeta .stversions.</string>
-    <string name="staggered_versioning_description">Els fitxers substituïts o esborrats pel Syncthing es mouen a una carpeta .stversions com a versions amb la data afegida. Les versions s\'esborren automàticament si superen l\'antiguitat màxima o el nombre de fitxers permesos en un interval.\n\nS\'utilitzen els següents intervals: la primera hora es manté una versió cada 30 segons, el primer dia es manté una versió cada hora, els primers 30 dies es manté una versió cada dia, i fins a l\'antiguitat màxima es manté una versió cada setmana.</string>
+    <string name="staggered_versioning_description">Els fitxers substituïts o esborrats pel Syncthing es mouen a una carpeta .stversions com a versions amb la data afegida. Les versions s\'esborren automàticament si superen l\'antiguitat màxima o el nombre de fitxers permesos en un interval.
+\n
+\nS\'utilitzen els següents intervals: la primera hora es manté una versió cada 30 segons, el primer dia es manté una versió cada hora, els primers 30 dies es manté una versió cada dia, i fins a l\'antiguitat màxima es manté una versió cada setmana.</string>
     <string name="maximum_age_description">El temps màxim que es conservarà una versió (en dies, indiqueu 0 per mantenir-les per sempre).</string>
     <string name="versions_path_description">Camí on voleu que es desin les versions (deixeu-ho en blanc per utilitzar el directori .stversions dins de la capeta compartida).</string>
     <string name="cleanout_after_description">Nombre de dies que cal mantenir els fitxers a la paperera. Zero significa per sempre</string>
@@ -547,7 +552,8 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="type_external">Tipus: Extern</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Neteja després de: %1$s</string>
-    <string name="staggered_versioning_info">Antiguitat Màxima: %1$d \nCamí de les Versions: %2$s</string>
+    <string name="staggered_versioning_info">Antiguitat Màxima: %1$d
+\nCamí de les Versions: %2$s</string>
     <string name="external_versioning_info">Ordre: %1$s</string>
     <string name="simple_versioning_info">Versions a conservar: %1$s</string>
     <string name="show_device_id">Mostra la ID del dispositiu</string>

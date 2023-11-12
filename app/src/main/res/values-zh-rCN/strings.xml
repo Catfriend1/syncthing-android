@@ -77,7 +77,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">发送设备标识至</string>
     <string name="usage_reporting_dialog_title">允许发送匿名使用报告吗</string>
-    <string name="usage_reporting_dialog_description">每天发送加密过的使用情况报告。它被用来跟踪在何种平台、文件夹大小和应用程序的版本。如果报告所需收集的数据有改变，您将会再次看到本提醒对话框。\n\n汇总统计数据公开于 https://data.syncthing.net</string>
+    <string name="usage_reporting_dialog_description">每天发送加密过的使用情况报告。它被用来跟踪在何种平台、文件夹大小和应用程序的版本。如果报告所需收集的数据有改变，您将会再次看到本提醒对话框。
+\n
+\n汇总统计数据公开于 https://data.syncthing.net</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="open_website">打开主页</string>
@@ -115,7 +117,8 @@
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">未配置设备。点击添加一台新设备。</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">未配置设备。\n通过添加一台设备开始。</string>
+    <string name="no_devices_configured">未配置设备。
+\n通过添加一台设备开始。</string>
     <string name="deviceEncryptionPasswordHint">如果不受信任，请输入加密密码</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">最新</string>
@@ -143,8 +146,10 @@
     <!-- StatusFragment -->
     <string name="status_fragment_title">状态</string>
     <string name="button_follow_run_conditions">遵循运行条件</string>
-    <string name="button_force_start">强制启动\n无视运行条件</string>
-    <string name="button_force_stop">强制停止\n无视运行条件</string>
+    <string name="button_force_start">强制启动
+\n无视运行条件</string>
+    <string name="button_force_stop">强制停止
+\n无视运行条件</string>
     <string name="syncthing_starting">正在启动 Syncthing</string>
     <string name="syncthing_running">Syncthing 正在运行</string>
     <string name="syncthing_not_running">Syncthing 已停止运行</string>
@@ -268,15 +273,23 @@
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">提示&amp;技巧</string>
     <string name="tip_write_to_sdcard_title">写入外部sd卡临时解决方法</string>
-    <string name="tip_write_to_sdcard_text">如果你看到用户界面声称‘Android只授予syncthing对某个文件夹的只读访问权限’，用这个路径创建一个新的文件夹来获得写入访问权限::\n%1$s/YOUR_FOLDER_NAME\n小心: 如果你卸载本应用程序，这个文件夹将会被Android清除。因此在卸载应用程序前，建议把数据移动到…/Android 文件夹之外的一个安全地点。</string>
+    <string name="tip_write_to_sdcard_text">如果你看到用户界面声称‘Android只授予syncthing对某个文件夹的只读访问权限’，用这个路径创建一个新的文件夹来获得写入访问权限::
+\n%1$s/YOUR_FOLDER_NAME
+\n小心: 如果你卸载本应用程序，这个文件夹将会被Android清除。因此在卸载应用程序前，建议把数据移动到…/Android 文件夹之外的一个安全地点。</string>
     <string name="tip_sync_on_local_network_title">仅用本地WiFi网络进行同步</string>
-    <string name="tip_sync_on_local_network_text">如果你只想与位于本地WiFi网络或者通过WiFi热点可以连接到的设备同步，你可以通过关闭“设置/Syncthing选项”下的这些选项来降低电池的用量，避免意外的移动数据同步。这些选项是: \n-启用NAT遍历\n-全局发现\n-启用中继\n只启用“本地发现”。</string>
+    <string name="tip_sync_on_local_network_text">如果你只想与位于本地WiFi网络或者通过WiFi热点可以连接到的设备同步，你可以通过关闭“设置/Syncthing选项”下的这些选项来降低电池的用量，避免意外的移动数据同步。这些选项是:
+\n-启用NAT遍历
+\n-全局发现
+\n-启用中继
+\n只启用“本地发现”。</string>
     <string name="tip_custom_sync_conditions_title">使用每个文件夹/每台设备自定义同步条件</string>
     <string name="tip_custom_sync_conditions_text">这个特性仍将在未来的版本中得以改进。目前，我们不想破坏现有的配置和应用程序行为。这就是为什么只有首先在全局运行条件中启用该网络上的同步后，你才能为特定网络类型设置自定义同步条件。</string>
     <string name="tip_ignore_delete_title">把照片从手机备份到电脑？</string>
     <string name="tip_ignore_delete_text">如果你想把手机上拍的所有照片都备份到电脑上，请与电脑共享“相机”文件夹。在电脑上打开Syncthing，添加文件夹，进入“操作”&gt;“高级”&gt;“相机”文件夹。启用“忽略删除”并点击“保存”。你现在可以从手机上的相机文件夹中删除这些照片，它们会一直留在电脑上。</string>
     <string name="tip_huawei_device_disconnected_title">华为: \'设备断连\'临时解决方法</string>
-    <string name="tip_huawei_device_disconnected_text">如果你的桌面经常报告你的华为设备断开连接，打开你桌面的Syncthing用户界面。进入“远程设备”，展开手机的条目，点击“编辑”，切换到“高级”。像这样把你的手机IP地址放入“地址”中:\ntcp4://%1$s, dynamic\n 确认此法对Huawei P10有效</string>
+    <string name="tip_huawei_device_disconnected_text">如果你的桌面经常报告你的华为设备断开连接，打开你桌面的Syncthing用户界面。进入“远程设备”，展开手机的条目，点击“编辑”，切换到“高级”。像这样把你的手机IP地址放入“地址”中:
+\ntcp4://%1$s, dynamic
+\n确认此法对Huawei P10有效</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">小米：app不会自动启动</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 &gt; 权限 &gt; 应用自启动”允许 Syncthing 自启动</string>
@@ -299,7 +312,8 @@
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">位于%1$s的网站似乎有一个无效的SSL加密证书。继续吗？</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">正在载入: \n%1$s ...</string>
+    <string name="web_page_loading">正在载入:
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">在浏览器中打开</string>
     <!-- SettingsFragment -->
@@ -434,7 +448,9 @@
     <string name="broadcast_service_control_title">通过广播控制服务</string>
     <string name="broadcast_service_control_summary">默认值:禁用。使用此选项可以通过发送广播来启动和停止服务，例如从第三方自动化应用程序。注意:更改此选项后，您必须手动重启应用程序。</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">您确定要导出您的配置？若您之前导出过配置，则文件会被当前导出的配置所覆盖。\n\n 警告！其他应用程序可以从您导出的配置文件中获取到您的密钥，并且可以通过它来下载或者修改您的同步文件。</string>
+    <string name="dialog_confirm_export">您确定要导出您的配置？若您之前导出过配置，则文件会被当前导出的配置所覆盖。
+\n
+\n警告！其他应用程序可以从您导出的配置文件中获取到您的密钥，并且可以通过它来下载或者修改您的同步文件。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">您确定要导入新配置？会覆盖现有配置。</string>
     <!-- Toast shown after config was exported -->
@@ -720,7 +736,8 @@
     <string name="type_external">类型：外部</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">在该时间后清除：%1$s</string>
-    <string name="staggered_versioning_info">最长保留时间：%1$d \n历史版本路径：%2$s</string>
+    <string name="staggered_versioning_info">最长保留时间：%1$d
+\n历史版本路径：%2$s</string>
     <string name="external_versioning_info">命令：%1$s</string>
     <string name="simple_versioning_info">保留版本数量：%1$s</string>
     <string name="show_device_id">显示设备 ID</string>

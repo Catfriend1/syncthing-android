@@ -21,7 +21,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Αποστολή ID συσκευής στο</string>
     <string name="usage_reporting_dialog_title">Να επιτραπεί η ανώνυμη αναφορά δεδομένων χρήσης;</string>
-    <string name="usage_reporting_dialog_description">Η κρυπτογραφημένη αναφορά χρήσης αποστέλλεται καθημερινά. Χρησιμοποιείται για την καταγραφή πλατφορμών, μεγεθών φακέλων και εκδόσεων της εφαρμογής. Αν υπάρξει κάποια μεταβολή στο σύνολο δεδομένων που συλλέγονται, θα ειδοποιηθείτε και πάλι με αυτό το παράθυρο.\n\nΤα ομαδοποιημένα στατιστικά στοιχεία είναι ελεύθερα προσβάσιμα στο https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Η κρυπτογραφημένη αναφορά χρήσης αποστέλλεται καθημερινά. Χρησιμοποιείται για την καταγραφή πλατφορμών, μεγεθών φακέλων και εκδόσεων της εφαρμογής. Αν υπάρξει κάποια μεταβολή στο σύνολο δεδομένων που συλλέγονται, θα ειδοποιηθείτε και πάλι με αυτό το παράθυρο.
+\n
+\nΤα ομαδοποιημένα στατιστικά στοιχεία είναι ελεύθερα προσβάσιμα στο https://data.syncthing.net.</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
     <string name="open_website">Άνοιγμα ιστοσελίδας</string>
@@ -166,7 +168,9 @@
     <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
     <string name="use_tor_title">Χρήση του Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Σίγουρα επιθυμείτε να εξάγετε τις ρυθμίσεις σας; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.\n\nΠΡΟΣΟΧΗ! Οι άλλες εφαρμογές ενδέχεται να μπορούν να διαβάσουν το ιδιωτικό κλειδί από την τοποθεσία του αντιγράφου ασφαλείας και να το χρησιμοποιήσουν για τη λήψη/τροποποίηση των συγχρονισμένων αρχείων.</string>
+    <string name="dialog_confirm_export">Σίγουρα επιθυμείτε να εξάγετε τις ρυθμίσεις σας; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.
+\n
+\nΠΡΟΣΟΧΗ! Οι άλλες εφαρμογές ενδέχεται να μπορούν να διαβάσουν το ιδιωτικό κλειδί από την τοποθεσία του αντιγράφου ασφαλείας και να το χρησιμοποιήσουν για τη λήψη/τροποποίηση των συγχρονισμένων αρχείων.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Σίγουρα επιθυμείτε να εισάγετε τις νέες ρυθμίσεις; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.</string>
     <!-- Toast shown after config was exported -->
@@ -301,7 +305,9 @@
     <string name="keep_versions_description">Πλήθος εκδόσεων ανά αρχείο προς τήρηση.</string>
     <string name="simple_file_versioning_description">Τα αρχεία αποθηκεύονται ως χρονοσημασμένες εκδόσεις στον κατάλογο .stversions όταν αντικαθίστανται ή διαγράφονται από το Syncthing.</string>
     <string name="trashcan_versioning_description">Τα αρχεία μετακινούνται στον κατάλογο .stversions όταν αντικαθίστανται ή διαγράφονται από το Syncthing.</string>
-    <string name="staggered_versioning_description">Τα αρχεία αποθηκεύονται ως χρονοσημασμένες εκδόσεις στον κατάλογο .stversions όταν αντικαθίστανται ή διαγράφονται από το Syncthing. Οι εκδόσεις διαγράφονται αυτόματα αν ξεπεράσουν τη μέγιστη ηλικία ή το καθορισμένο πλήθος αρχείων ανά χρονικό διάστημα.\n\nΧρησιμοποιούνται τα εξής χρονικά διαστήματα: την πρώτη ώρα τηρείται μια έκδοση ανά 30 δευτερόλεπτα, την πρώτη μέρα μια ανά ώρα, τις πρώτες 30 ημέρες μια ανά ημέρα και μετά μια έκδοση ανά εβδομάδα μέχρι τη μέγιστη ηλικία.</string>
+    <string name="staggered_versioning_description">Τα αρχεία αποθηκεύονται ως χρονοσημασμένες εκδόσεις στον κατάλογο .stversions όταν αντικαθίστανται ή διαγράφονται από το Syncthing. Οι εκδόσεις διαγράφονται αυτόματα αν ξεπεράσουν τη μέγιστη ηλικία ή το καθορισμένο πλήθος αρχείων ανά χρονικό διάστημα.
+\n
+\nΧρησιμοποιούνται τα εξής χρονικά διαστήματα: την πρώτη ώρα τηρείται μια έκδοση ανά 30 δευτερόλεπτα, την πρώτη μέρα μια ανά ώρα, τις πρώτες 30 ημέρες μια ανά ημέρα και μετά μια έκδοση ανά εβδομάδα μέχρι τη μέγιστη ηλικία.</string>
     <string name="maximum_age_description">Το μέγιστο χρονικό διάστημα, σε ημέρες, για το οποίο θα διατηρείται μια έκδοση (με το 0 θα διατηρείται για πάντα).</string>
     <string name="versions_path_description">Διαδρομή στην οποία θα τηρούνται οι εκδόσεις (αφήστε το κενό για χρήση του προεπιλεγμένου καταλόγου .stversions στον κοινόχρηστο φάκελο).</string>
     <string name="cleanout_after_description">Αριθμός ημερών για τις οποίες θα διατηρούνται τα αρχεία στον κάδο ανακύκλωσης. Με το μηδέν θα διατηρούνται για πάντα.</string>
@@ -314,7 +320,8 @@
     <string name="type_external">Τύπος: εξωτερική</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Εκκαθάριση μετά από: %1$s</string>
-    <string name="staggered_versioning_info">Μέγιστη ηλικία: %1$d\nΦάκελος τήρησης εκδόσεων: %2$s</string>
+    <string name="staggered_versioning_info">Μέγιστη ηλικία: %1$d
+\nΦάκελος τήρησης εκδόσεων: %2$s</string>
     <string name="external_versioning_info">Εντολή: %1$s</string>
     <string name="simple_versioning_info">Εκδόσεις προς τήρηση: %1$s</string>
     <string name="show_device_id">Εμφάνιση ID συσκευής</string>

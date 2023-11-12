@@ -21,7 +21,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">다음으로 기기 ID 보내기</string>
     <string name="usage_reporting_dialog_title">익명 사용 보고서 전송을 허용하시겠습니까\?</string>
-    <string name="usage_reporting_dialog_description">암호화된 사용 리포트를 매일 보냅니다. 이것은 일반적 플랫폼, 폴더 크기, 앱의 버전을 추적하는데 사용됩니다. 보고된 데이터 설정이 변경된 경우 이 대화 상자가 다시 표시됩니다.\n\n수집된 통계는 https://data.syncthing.net에서 공개되고 있습니다.</string>
+    <string name="usage_reporting_dialog_description">암호화된 사용 리포트를 매일 보냅니다. 이것은 일반적 플랫폼, 폴더 크기, 앱의 버전을 추적하는데 사용됩니다. 보고된 데이터 설정이 변경된 경우 이 대화 상자가 다시 표시됩니다.
+\n
+\n수집된 통계는 https://data.syncthing.net에서 공개되고 있습니다.</string>
     <string name="yes">예</string>
     <string name="no">아니오</string>
     <string name="open_website">웹사이트 열기</string>
@@ -165,7 +167,9 @@
     <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
     <string name="use_tor_title">Tor 사용</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.\n\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
+    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.
+\n
+\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">새로운 설정을 불러오시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.`</string>
     <!-- Toast shown after config was exported -->
@@ -299,7 +303,9 @@
     <string name="keep_versions_description">파일 당 보존 할 이전 버전 수.</string>
     <string name="simple_file_versioning_description">파일은 Syncthing에 의해 대체되거나 삭제 될 때 .stversions 디렉토리의 날짜 스탬프 버전으로 이동됩니다.</string>
     <string name="trashcan_versioning_description">파일은 Syncthing에 의해 대체되거나 삭제 될 때 .stversions 디렉토리로 이동됩니다.</string>
-    <string name="staggered_versioning_description">파일은 Syncthing에 의해 대체되거나 삭제 될 때 .stversions 디렉토리의 날짜 스탬프 버전으로 이동 됩니다. 버전이 최대 사용 기간보다 오래되었거나 해당 기간에 허용 된 파일 수를 초과하면 버전이 자동으로 삭제됩니다. \n\n다음 간격이 사용됩니다. 처음 1 시간 동안 버전이 매 30 초마다 유지됩니다. 버전은 매 시간 유지됩니다. 처음 30 일 동안은 버전이 매일 보관되고 최대 버전은 버전으로 유지됩니다. 매주 마다 보관됩니다.</string>
+    <string name="staggered_versioning_description">파일은 Syncthing에 의해 대체되거나 삭제 될 때 .stversions 디렉토리의 날짜 스탬프 버전으로 이동 됩니다. 버전이 최대 사용 기간보다 오래되었거나 해당 기간에 허용 된 파일 수를 초과하면 버전이 자동으로 삭제됩니다.
+\n
+\n다음 간격이 사용됩니다. 처음 1 시간 동안 버전이 매 30 초마다 유지됩니다. 버전은 매 시간 유지됩니다. 처음 30 일 동안은 버전이 매일 보관되고 최대 버전은 버전으로 유지됩니다. 매주 마다 보관됩니다.</string>
     <string name="maximum_age_description">버전을 보관할 수 있는 최대 시간 (일 단위로 영원히 버전을 유지하려면 0으로 설정).</string>
     <string name="versions_path_description">버전을 저장해야하는 경로 (공유 폴더의 기본 .stversions 디렉토리는 비워 두십시오).</string>
     <string name="cleanout_after_description">휴지통에 보관할 일 수. 제로는 무한을 의미합니다.</string>
@@ -312,7 +318,8 @@
     <string name="type_external">유형 : 외부</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">다음 기간 후 제거: %1$s</string>
-    <string name="staggered_versioning_info">최대 저장 기간: %1$d \n버전을 저장할 경로: %2$s</string>
+    <string name="staggered_versioning_info">최대 저장 기간: %1$d
+\n버전을 저장할 경로: %2$s</string>
     <string name="external_versioning_info">명령: %1$s</string>
     <string name="simple_versioning_info">버전 보호: %1$s</string>
     <string name="show_device_id">기기 ID 보기</string>

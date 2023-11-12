@@ -17,7 +17,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar ID del dispositivo</string>
     <string name="usage_reporting_dialog_title">¿Permitir reportes de uso anónimos\?</string>
-    <string name="usage_reporting_dialog_description">El reporte de uso encriptado es enviado diariamente. Es usado para rastrear plataformas comunes, tamaño de carpetas y versiones de la aplicación. Si se cambia el conjunto de datos reportados, se le presentará este diálogo de nuevo.\n\nLas estadísticas agregadas se encuentran disponibles públicamente en https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">El reporte de uso encriptado es enviado diariamente. Es usado para rastrear plataformas comunes, tamaño de carpetas y versiones de la aplicación. Si se cambia el conjunto de datos reportados, se le presentará este diálogo de nuevo.
+\n
+\nLas estadísticas agregadas se encuentran disponibles públicamente en https://data.syncthing.net.</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="open_website">Abrir Sitio web</string>
@@ -133,7 +135,9 @@
     <string name="export_config">Exportar Configuración</string>
     <string name="keep_wakelock_while_binary_running">Mantener el CPU encendido mientras Syncthing está en ejecución</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quiere exportar su configuración\? Los archivos existentes se sobreescribirán.\n\n¡ADVERTENCIA! Otras aplicaciones pudieran leer la llave privada desde la ubicación del respaldo y usarla para descargar/modificar los archivos sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quiere exportar su configuración\? Los archivos existentes se sobreescribirán.
+\n
+\n¡ADVERTENCIA! Otras aplicaciones pudieran leer la llave privada desde la ubicación del respaldo y usarla para descargar/modificar los archivos sincronizados.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">¿Realmente quiere importar una nueva configuración\? Los archivos existentes se sobreescribirán.</string>
     <!-- Toast shown after config was exported -->

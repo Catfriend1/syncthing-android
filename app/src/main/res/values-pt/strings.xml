@@ -20,7 +20,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar ID do dispositivo para</string>
     <string name="usage_reporting_dialog_title">Permitir relatórios anónimos de utilização\?</string>
-    <string name="usage_reporting_dialog_description">O relatório de utilização cifrado é enviado diariamente. É usado para rastrear plataformas comuns, tamanhos de pastas e versões da aplicação. Se o conjunto de dados do relatório for alterado, este diálogo será apresentado novamente.\n\nAs estatísticas agregadas estão disponíveis publicamente em</string>
+    <string name="usage_reporting_dialog_description">O relatório de utilização cifrado é enviado diariamente. É usado para rastrear plataformas comuns, tamanhos de pastas e versões da aplicação. Se o conjunto de dados do relatório for alterado, este diálogo será apresentado novamente.
+\n
+\nAs estatísticas agregadas estão disponíveis publicamente em</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="open_website">Abrir Website</string>
@@ -150,7 +152,9 @@
     <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
     <string name="use_tor_title">Utilizar o Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Tem a certeza de que quer exportar a sua configuração\? Ficheiros existentes serão sobrescritos.\n\nAVISO! Outras aplicações poderão ler a chave privada da localização da cópia de segurança e utilizá-la para descarregar/modificar os ficheiros sincronizados.</string>
+    <string name="dialog_confirm_export">Tem a certeza de que quer exportar a sua configuração\? Ficheiros existentes serão sobrescritos.
+\n
+\nAVISO! Outras aplicações poderão ler a chave privada da localização da cópia de segurança e utilizá-la para descarregar/modificar os ficheiros sincronizados.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Quer mesmo importar a sua configuração\? Os ficheiros existentes vão ser sobrepostos.</string>
     <!-- Toast shown after config was exported -->

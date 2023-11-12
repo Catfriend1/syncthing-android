@@ -16,7 +16,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Zdielať ID Zariadenia s použitím</string>
     <string name="usage_reporting_dialog_title">Povoliť anonymné hlásenia o používaní\?</string>
-    <string name="usage_reporting_dialog_description">Šifrované dáta o používaní sú zasielané denne. Sú používané na získavanie štatistík o platformách, veľkostiach zdielaných adresárov a verziách aplikácie. Ak sa rozsah zbieraných údajov v budúcnosti zmení, budete na zmenu upozornený opätovným zobrazením tohoto dialógu.\n\nSúhrn získaných štatistýk je verejne dostupný na https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">Šifrované dáta o používaní sú zasielané denne. Sú používané na získavanie štatistík o platformách, veľkostiach zdielaných adresárov a verziách aplikácie. Ak sa rozsah zbieraných údajov v budúcnosti zmení, budete na zmenu upozornený opätovným zobrazením tohoto dialógu.
+\n
+\nSúhrn získaných štatistýk je verejne dostupný na https://data.syncthing.net.</string>
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
     <string name="open_website">Otvoriť Webovú Stránku</string>

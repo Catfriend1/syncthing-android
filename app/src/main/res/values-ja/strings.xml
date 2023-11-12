@@ -68,7 +68,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">デバイス ID を送信…</string>
     <string name="usage_reporting_dialog_title">匿名での使用状況レポートを許可しますか\?</string>
-    <string name="usage_reporting_dialog_description">使用状況レポートは暗号化されて毎日送信されます。この情報はプラットフォーム、フォルダーのサイズ、アプリケーションのバージョンを調査するために使われます。送信するデータセットが変更された場合、このダイアログで再度確認が求められます。\n\n集計結果は https://data.syncthing.net で公開されています。</string>
+    <string name="usage_reporting_dialog_description">使用状況レポートは暗号化されて毎日送信されます。この情報はプラットフォーム、フォルダーのサイズ、アプリケーションのバージョンを調査するために使われます。送信するデータセットが変更された場合、このダイアログで再度確認が求められます。
+\n
+\n集計結果は https://data.syncthing.net で公開されています。</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
     <string name="open_website">Web サイトを開く</string>
@@ -102,7 +104,8 @@
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">デバイスが設定されていません。タップして新しいデバイスを追加して下さい</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">デバイスが追加されていません。\n今すぐデバイスを追加して開始します。</string>
+    <string name="no_devices_configured">デバイスが追加されていません。
+\n今すぐデバイスを追加して開始します。</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">最新</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -127,8 +130,10 @@
     <!-- StatusFragment -->
     <string name="status_fragment_title">ステータス</string>
     <string name="button_follow_run_conditions">実行条件に従う</string>
-    <string name="button_force_start">強制開始\n実行条件を無視</string>
-    <string name="button_force_stop">強制停止\n実行条件を無視</string>
+    <string name="button_force_start">強制開始
+\n実行条件を無視</string>
+    <string name="button_force_stop">強制停止
+\n実行条件を無視</string>
     <string name="syncthing_starting">Syncthing が開始しています</string>
     <string name="syncthing_running">Syncthing は実行中です</string>
     <string name="syncthing_not_running">Syncthing は実行していません</string>
@@ -252,7 +257,8 @@
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">セキュリティに関するお知らせ</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">ウェブページの読み込み中\n %1$s ...</string>
+    <string name="web_page_loading">ウェブページの読み込み中
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">ブラウザで開く</string>
     <!-- SettingsFragment -->
@@ -347,7 +353,9 @@
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
     <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか\? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
+    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか\? 既存のファイルは上書きされます。
+\n
+\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか\? 既存のファイルは上書きされます。</string>
     <!-- Toast shown after config was exported -->
@@ -537,7 +545,9 @@
     <string name="keep_versions_description">ファイルごとの古いバージョンを保持する日数</string>
     <string name="simple_file_versioning_description">Syncthingによって置き換えられたり削除されたファイルは、タイムスタンプ付きのファイル名で .stversions ディレクトリに移動します。</string>
     <string name="trashcan_versioning_description">Syncthingによって置き換えられたり削除されたファイルは、.stversions ディレクトリに移動します。</string>
-    <string name="staggered_versioning_description">Syncthing によって置き換えられたり削除されたりすると、ファイルは .stversions ディレクトリの日付スタンプ付きバージョンに移動されます。 バージョンが最大有効期限を超えているか、その期間に許可されたファイルの数を超えた場合、バージョンは自動的に削除されます。\n\n次の期間が使用されます: 最初の 1 時間はバージョンが 30 秒ごとに保持され、最初の 1 日はバージョンが 1 時間ごとに保持され、最初の 30 日はバージョンが毎日保持され、最大有効期限までバージョンは毎週保持されます。</string>
+    <string name="staggered_versioning_description">Syncthing によって置き換えられたり削除されたりすると、ファイルは .stversions ディレクトリの日付スタンプ付きバージョンに移動されます。 バージョンが最大有効期限を超えているか、その期間に許可されたファイルの数を超えた場合、バージョンは自動的に削除されます。
+\n
+\n次の期間が使用されます: 最初の 1 時間はバージョンが 30 秒ごとに保持され、最初の 1 日はバージョンが 1 時間ごとに保持され、最初の 30 日はバージョンが毎日保持され、最大有効期限までバージョンは毎週保持されます。</string>
     <string name="maximum_age_description">古いバージョンを保持する最大日数 (0で無期限)</string>
     <string name="versions_path_description">古いバージョンを保存するパス (空欄の場合、デフォルトで共有フォルダー内の .stversions ディレクトリ)</string>
     <string name="cleanout_after_description">ゴミ箱でファイルを保持する日数 (0で無期限)</string>
@@ -550,7 +560,8 @@
     <string name="type_external">タイプ: 外部</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">以下の期間後に完全に削除: %1$s</string>
-    <string name="staggered_versioning_info">最大保存期間: %1$d \nバージョンパス: %2$s</string>
+    <string name="staggered_versioning_info">最大保存期間: %1$d
+\nバージョンパス: %2$s</string>
     <string name="external_versioning_info">コマンド: %1$s</string>
     <string name="simple_versioning_info">保持するバージョン数: %1$s</string>
     <string name="show_device_id">デバイス ID を表示</string>

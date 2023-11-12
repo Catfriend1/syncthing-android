@@ -19,7 +19,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Kirim ID Perangkat ke</string>
     <string name="usage_reporting_dialog_title">Perbolehkan Pelaporan Penggunaan Anonim\?</string>
-    <string name="usage_reporting_dialog_description">Laporan penggunaan terenkripsi dikirim harian. Digunakan untuk melihat jenis platform, ukuran folder dan versi aplikasi. Jika data yang terkirim berubah maka akan muncul dialog ini kembali.\n\nAgregat statistik dipublikasikan di https://data.syncthing.net</string>
+    <string name="usage_reporting_dialog_description">Laporan penggunaan terenkripsi dikirim harian. Digunakan untuk melihat jenis platform, ukuran folder dan versi aplikasi. Jika data yang terkirim berubah maka akan muncul dialog ini kembali.
+\n
+\nAgregat statistik dipublikasikan di https://data.syncthing.net</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="open_website">Buka Situs</string>
@@ -154,7 +156,9 @@
     <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>
     <string name="use_tor_title">Gunakan Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Anda yakin ingin mengekspor konfigurasi\? Berkas yang ada akan ditimpa.\n\nPERINGATAN| Aplikasi lain mungkin bisa membaca kunci privat dari lokasi backup dan menggunakannya untuk mengunduh/mengubah berkas terselaraskan.</string>
+    <string name="dialog_confirm_export">Anda yakin ingin mengekspor konfigurasi\? Berkas yang ada akan ditimpa.
+\n
+\nPERINGATAN| Aplikasi lain mungkin bisa membaca kunci privat dari lokasi backup dan menggunakannya untuk mengunduh/mengubah berkas terselaraskan.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Anda yakin ingin mengimpor konfigurasi baru\? Berkas yang ada akan ditimpa.</string>
     <!-- Toast shown after config was exported -->

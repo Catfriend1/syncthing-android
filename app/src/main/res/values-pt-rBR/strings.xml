@@ -11,8 +11,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introdução</string>
-    <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus ID\'s exclusivos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos.\n\
-Por favor, relate quaisquer problemas que você encontrar através do Github.</string>
+    <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus ID\'s exclusivos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos.
+\n
+\nPor favor, relate quaisquer problemas que você encontrar através do Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permissão de Armazenamento</string>
     <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>
@@ -73,7 +74,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar ID do dispositivo para</string>
     <string name="usage_reporting_dialog_title">Permitir relatório anônimo de uso\?</string>
-    <string name="usage_reporting_dialog_description">O relatório de uso é criptografado e enviado diariamente. É utilizado para rastrear plataformas, tamanhos de arquivos e versões da aplicação. Caso o formato dos dados seja alterado, esta caixa de diálogo te avisará.\n\nAs estatísticas agregadas estão disponíveis publicamente em https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">O relatório de uso é criptografado e enviado diariamente. É utilizado para rastrear plataformas, tamanhos de arquivos e versões da aplicação. Caso o formato dos dados seja alterado, esta caixa de diálogo te avisará.
+\n
+\nAs estatísticas agregadas estão disponíveis publicamente em https://data.syncthing.net.</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="open_website">Abrir site</string>
@@ -113,7 +116,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nenhum dispositivo configurado. Toque para adicionar um novo dispositivo.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Nenhum dispositivo configurado.\nComece a adicionar um dispositivo agora.</string>
+    <string name="no_devices_configured">Nenhum dispositivo configurado.
+\nComece a adicionar um dispositivo agora.</string>
     <string name="deviceEncryptionPasswordHint">Se não for confiável, insira a senha de criptografia</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Atualizado</string>
@@ -141,8 +145,10 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- StatusFragment -->
     <string name="status_fragment_title">Situação</string>
     <string name="button_follow_run_conditions">SEGUIR CONDIÇÕES DE EXECUÇÃO</string>
-    <string name="button_force_start">FORÇAR INÍCIO\nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
-    <string name="button_force_stop">FORÇAR PARADA\nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
+    <string name="button_force_start">FORÇAR INÍCIO
+\nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
+    <string name="button_force_stop">FORÇAR PARADA
+\nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
     <string name="syncthing_starting">O Synthing está iniciando.</string>
     <string name="syncthing_running">O Syncthing está em execução.</string>
     <string name="syncthing_not_running">O Syncthing não está em execução.</string>
@@ -251,7 +257,11 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Dicas e truques</string>
     <string name="tip_sync_on_local_network_title">Sincronizar apenas usando a rede WiFi local</string>
-    <string name="tip_sync_on_local_network_text">Se você deseja sincronizar apenas com dispositivos localizados na rede Wi-Fi local ou acessíveis via hotspot Wi-Fi, você pode reduzir o uso da bateria e evitar a sincronização acidental por dados móveis desativando as seguintes opções em \'Configurações/Opções de sincronização\': \n- Habilitar travessia de NAT\n- Descoberta Global\n- Habilitar Relaying\nApenas deixe \'Descoberta local\' habilitada.</string>
+    <string name="tip_sync_on_local_network_text">Se você deseja sincronizar apenas com dispositivos localizados na rede Wi-Fi local ou acessíveis via hotspot Wi-Fi, você pode reduzir o uso da bateria e evitar a sincronização acidental por dados móveis desativando as seguintes opções em \'Configurações/Opções de sincronização\':
+\n- Habilitar travessia de NAT
+\n- Descoberta Global
+\n- Habilitar Relaying
+\nApenas deixe \'Descoberta local\' habilitada.</string>
     <string name="tip_custom_sync_conditions_title">Usar condições personalizadas de sincronização por pasta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esse recurso será melhorada em versões futuras. Por enquanto, nós não queríamos quebrar configurações existentes e o comportamento do app. É por isso que condições de sincronização personalizadas para um certo tipo de rede só podem ser definidas se você ativar primeiro a sincronização na rede nas condições execução global.</string>
     <string name="tip_ignore_delete_title">Fazer backups das fotos do celular para o computador\?</string>
@@ -274,7 +284,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">O site em %1$s parece ter um certificado inválido para criptografia SSL. Proceder\?</string>
     <!-- Text for WebViewActivity loading page -->
-    <string name="web_page_loading">Carregando site:\n%1$s ...</string>
+    <string name="web_page_loading">Carregando site:
+\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Abrir no navegador</string>
     <!-- SettingsFragment -->
@@ -369,7 +380,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="toast_invalid_http_proxy_address">Entrada viola sintaxe do proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_summary">Padrão: Desativado. Ative esta opção para iniciar e parar o serviço enviando broadcasts, por exemplo. de aplicativos de automação de terceiros. Nota: Você precisa reiniciar o aplicativo manualmente após alterar esta opção.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Quer mesmo exportar a configuração\? Arquivos existentes serão sobrescritos.\n\nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
+    <string name="dialog_confirm_export">Quer mesmo exportar a configuração\? Arquivos existentes serão sobrescritos.
+\n
+\nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração\? Arquivos existentes serão sobrescritos.</string>
     <!-- Toast shown after config was exported -->
@@ -594,7 +607,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="type_external">Tipo: Externo</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Limpar após: %1$s</string>
-    <string name="staggered_versioning_info">Idade máxima: %1$d \nCaminho do versionamento: %2$s</string>
+    <string name="staggered_versioning_info">Idade máxima: %1$d
+\nCaminho do versionamento: %2$s</string>
     <string name="external_versioning_info">Comando: %1$s</string>
     <string name="simple_versioning_info">Manter versões: %1$s</string>
     <string name="show_device_id">Mostrar ID</string>
