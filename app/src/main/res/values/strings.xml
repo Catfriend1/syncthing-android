@@ -145,7 +145,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes&#8230;</string>
+    <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes…</string>
 
     <!-- FolderListFragment -->
 
