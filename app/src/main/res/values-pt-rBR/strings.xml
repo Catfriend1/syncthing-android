@@ -110,7 +110,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositivos</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nenhum dispositivo configurado. Toque para adicionar um novo dispositivo.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Nenhum dispositivo configurado.\nComece a adicionar um dispositivo agora.</string>
@@ -583,7 +583,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="simple_file_versioning_description">Os arquivos são renomeados com suas datas e movidos para o diretório .stversions quando substituídos ou apagados pelo Syncthing.</string>
     <string name="trashcan_versioning_description">Os arquivos são movidos para o diretório .stversions quando substituídos ou apagados pelo Syncthing.</string>
     <string name="maximum_age_description">O número máximo de dias em que uma versão é guardada. (Use 0 para manter para sempre).</string>
-    <string name="versions_path_description">Caminho do diretório onde as versões são salvas (deixe em branco para que seja o diretório padrão .stversions dentro da pasta compartilhada). </string>
+    <string name="versions_path_description">Caminho do diretório onde as versões são salvas (deixe em branco para que seja o diretório padrão .stversions dentro da pasta compartilhada).</string>
     <string name="cleanout_after_description">O número de dias em que são mantidos os arquivos da lixeira. Zero significa para sempre.</string>
     <string name="external_versioning_description">O primeiro argumento da linha de comando é o caminho da pasta e o segundo é o caminho relativo à pasta.</string>
     <string name="no_versioning_description">Escolha um tipo de versionamento para habilitá-lo.</string>

@@ -65,7 +65,7 @@
     <!-- Setting title -->
     <string name="devices">Einingar</string>
     <!-- Setting title -->
-    <string name="keep_versions">Behald versjonar </string>
+    <string name="keep_versions">Behald versjonar</string>
     <!-- Setting title -->
     <string name="delete_folder">Slett mappe</string>
     <!-- Title for FolderSettingsFragment in create mode -->

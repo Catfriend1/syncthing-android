@@ -139,7 +139,7 @@
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Очистити базу даних</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_database_done">База даних  Syncthing успішно очищена</string>
+    <string name="st_reset_database_done">База даних Syncthing успішно очищена</string>
     <string name="category_about">Про додаток</string>
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Відкрити журнал</string>

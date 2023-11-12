@@ -187,7 +187,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Devices</string>
 
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">No devices configured. Tap to add a new device.</string>
 
     <!-- Shown in ListView if no devices are configured -->

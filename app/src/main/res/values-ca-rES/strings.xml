@@ -345,7 +345,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="import_config">Importa la configuració</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">S\'ha importat la configuració</string>
-    <string name="config_import_failed">Ha fallat la importació de la configuració, verifiqueu que els fitxers siguin a  %1$s</string>
+    <string name="config_import_failed">Ha fallat la importació de la configuració, verifiqueu que els fitxers siguin a %1$s</string>
     <string name="dialog_settings_restart_app_title">Cal reiniciar</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opcions de STTRACE</string>

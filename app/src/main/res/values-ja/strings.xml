@@ -99,7 +99,7 @@
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">デバイス</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">デバイスが設定されていません。タップして新しいデバイスを追加して下さい</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">デバイスが追加されていません。\n今すぐデバイスを追加して開始します。</string>

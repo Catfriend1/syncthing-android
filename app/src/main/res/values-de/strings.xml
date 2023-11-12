@@ -113,7 +113,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Geräte</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Keine Geräte konfiguriert. Tippe zum Hinzufügen eines neuen Geräts.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Keine Geräte konfiguriert.\nBeginne jetzt mit dem Hinzufügen eines Geräts.</string>
@@ -275,7 +275,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="tip_custom_sync_conditions_title">Sync-Bedingungen pro Ordner/Gerät festlegen</string>
     <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Für den Moment wollten wir das App-Verhalten nicht \"umstürzen\", um bestehende Konfigurationen nicht zu \"brechen\". Deshalb können die \"individuellen Sync-Bedingungen\" für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Laufkonditionen aktiviert wurde.</string>
     <string name="tip_ignore_delete_title">Bilder vom Telefon auf den Computer sichern\?</string>
-    <string name="tip_ignore_delete_text">Wenn Du alle vom Telefon gemachten Bilder auf einen Computer sichern möchtest, teile den Ordner \'Kamera\' mit dem Computer. Öffne Syncthing auf dem Computer, füge den Ordner hinzu und gehe zu \'Aktionen\'  &gt; \'Erweitert\' &gt; \'Kamera\' Ordner. Aktiviere \'Ignore Delete\' und klicke \'Speichern\'. Du kannst nun Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
+    <string name="tip_ignore_delete_text">Wenn Du alle vom Telefon gemachten Bilder auf einen Computer sichern möchtest, teile den Ordner \'Kamera\' mit dem Computer. Öffne Syncthing auf dem Computer, füge den Ordner hinzu und gehe zu \'Aktionen\' &gt; \'Erweitert\' &gt; \'Kamera\' Ordner. Aktiviere \'Ignore Delete\' und klicke \'Speichern\'. Du kannst nun Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: Workaround für \"Gerät getrennt\"</string>
     <string name="tip_huawei_device_disconnected_text">Falls der Computer das Huawei-Gerät permanent als \"getrennt\" meldet, öffne die Syncthing-Oberfläche auf dem Computer. Gehe zu \"Externe Geräte\", klappe den Eintrag des Mobilgeräts aus, klicke \"Bearbeiten\", wechsle zu \"Erweitert\". Trage die IP-Adresse deines Mobilgeräts in \"Adressen\" wie folgt ein:\ntcp4://%1$s, dynamic\nFunktioniert sicher auf: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>

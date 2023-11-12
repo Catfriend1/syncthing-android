@@ -90,7 +90,7 @@
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Urządzenia</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nie skonfigurowano żadnych urządzeń. Dotknij tutaj, aby dodać nowe urządzenie.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Brak skonfigurowanych urządzeń.\nZacznij od dodania pierwszego urządzenia.</string>
@@ -408,10 +408,10 @@
     <string name="versions_path">Ścieżka wersji</string>
     <string name="command">Polecenie</string>
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
-    <string name="keep_versions_description">Ilość  wersji do trzymania per plik</string>
+    <string name="keep_versions_description">Ilość wersji do trzymania per plik</string>
     <string name="simple_file_versioning_description">Pliki są przenoszone do oznaczonych datą wersji w folderze .stversions przy modyfikacji lub usuwaniu przez Syncthing</string>
     <string name="trashcan_versioning_description">Pliki przenoszone są do folderu .stversions, gdy są zmieniane lub usuwane przez Syncthing</string>
-    <string name="staggered_versioning_description">Pliki są przenoszone do folderu .stversions, oraz dodawana jest do nich data. Dzieje się to kiedy pliki są zmieniane lub usuwane przez Syncthing. Wersje są automatycznie usuwane jeśli są starsze niż maksymalny wiek, lub przekraczają ilość plików dopuszczalną w interwale.\n\nNastępujące interwaly są używane: przez pierwszą godzinę, wersja jest zapisywana przez każde 30 sekund, przez pierwszy dzień wersja jest trzymana co godzinę, przez pierwsze 30 dni wersja jest trzymana z każdego dnia, dopóki maksymalny wiek nie zostanie osiągnięty (sprawdzane co tydzień) </string>
+    <string name="staggered_versioning_description">Pliki są przenoszone do folderu .stversions, oraz dodawana jest do nich data. Dzieje się to kiedy pliki są zmieniane lub usuwane przez Syncthing. Wersje są automatycznie usuwane jeśli są starsze niż maksymalny wiek, lub przekraczają ilość plików dopuszczalną w interwale.\n\nNastępujące interwaly są używane: przez pierwszą godzinę, wersja jest zapisywana przez każde 30 sekund, przez pierwszy dzień wersja jest trzymana co godzinę, przez pierwsze 30 dni wersja jest trzymana z każdego dnia, dopóki maksymalny wiek nie zostanie osiągnięty (sprawdzane co tydzień)</string>
     <string name="maximum_age_description">Maksymalny czas trzymania wersji (w dniach, ustaw 0 by trzymać je wiecznie)</string>
     <string name="versions_path_description">Ścieżka, gdzie mają być przetrzymywane wersje (pozostaw puste, dla domyślnego folderu .stversions wewnątrz dzielonego)</string>
     <string name="cleanout_after_description">Ilość dni, przez które mają być trzymane pliki w śmietniku. Zero oznacza, że nie będą w ogóle usuwane.</string>

@@ -108,7 +108,7 @@
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Laitteet</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Ei asetettuja laitteita. Napauta lisätäksesi uuden laitteen.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Ei laitteita asetettuna.\nAloita lisäämällä laite.</string>
@@ -365,7 +365,7 @@
     <string name="reason_wifi_disallowed">Synthingin käyttöä ei ole sallittu WiFi- tai ethernet-verkoissa.</string>
     <string name="reason_on_wifi">Syncthingin käyttö on sallittu WiFi-verkoissa ja WiFi on tällä hetkellä yhdistettynä.</string>
     <string name="reason_not_on_wifi">Syncthingin käyttö on sallittu WiFi-verkoissa mutta WiFi ei ole tällä hetkellä yhdistettynä tai puhelin on lentotilassa.</string>
-    <string name="reason_on_metered_nonmetered_wifi">Syncthingin käyttö on sallittu käytön mukaan laskutettavilla ja kiinteähintaisilla WiFi-verkkoyhteyksillä. </string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthingin käyttö on sallittu käytön mukaan laskutettavilla ja kiinteähintaisilla WiFi-verkkoyhteyksillä.</string>
     <string name="reason_on_whitelisted_wifi">Syncthingin käyttö on sallittu yhdistetyssä WiFi-verkossa.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing ei ole käynnissä, koska yhdistetyn WiFi-verkon nimi ei ole sallittujen listalla.</string>
     <string name="reason_on_nonmetered_wifi">Syncthingin käyttö on sallittu WiFi-yhteyksillä, jotka eivät ole käytön mukaan laskutettavia. Aktiivinen yhteys ei ole käytön mukaan laskutettava.</string>

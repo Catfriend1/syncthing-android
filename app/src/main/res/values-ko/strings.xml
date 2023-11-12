@@ -95,7 +95,7 @@
     <!-- Setting title -->
     <string name="device_id">기기 ID</string>
     <!-- Setting title -->
-    <string name="name">이름 </string>
+    <string name="name">이름</string>
     <!-- Setting title -->
     <string name="addresses">주소</string>
     <!-- Setting title -->
@@ -134,7 +134,7 @@
     <string name="settings_title">설정</string>
     <string name="category_run_conditions">작동 상태</string>
     <string name="category_behaviour">동작</string>
-    <string name="category_syncthing_options">Syncthing 옵션 </string>
+    <string name="category_syncthing_options">Syncthing 옵션</string>
     <string name="category_experimental">실험적인 기능</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">작동 상태</string>
@@ -160,7 +160,7 @@
     <string name="enable_nat_traversal">NAT Traversal 활성화</string>
     <string name="global_announce_server">글로벌 탐색 서버</string>
     <string name="enable_relaying">Relaying 활성화</string>
-    <string name="usage_reporting">익명 사용 기록 </string>
+    <string name="usage_reporting">익명 사용 기록</string>
     <string name="export_config">설정 내보내기</string>
     <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
     <string name="use_tor_title">Tor 사용</string>

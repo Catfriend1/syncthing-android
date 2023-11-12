@@ -112,7 +112,7 @@
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">设备</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">未配置设备。点击添加一台新设备。</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">未配置设备。\n通过添加一台设备开始。</string>
@@ -259,7 +259,7 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">扫描二维码</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">这需要一个条形码扫描器应用程序。你想安装来自F-Droid的应用程序“Binary Eye”吗\? </string>
+    <string name="install_barcode_scanner_app_message">这需要一个条形码扫描器应用程序。你想安装来自F-Droid的应用程序“Binary Eye”吗\?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">未配置文件夹。点击添加一个新文件夹。</string>
     <!-- Toast show if we could not get root permissions -->
@@ -355,7 +355,7 @@
     <string name="sync_duration_minutes_summary">%1$s分钟</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自动启动</string>
-    <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing </string>
+    <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing</string>
     <string name="use_root_title">Syncthing 运行于超级用户</string>
     <string name="use_root_summary">以 root 权限运行 Syncthing 允许它写入 Android 通常限制为只读访问的文件夹。请谨慎使用此功能。</string>
     <string name="bind_network_title">绑定到活跃网络</string>
@@ -427,7 +427,7 @@
     <string name="use_tor_summary">强制所有的流量经由 Tor 代理，需要 Orbot，以及禁用其它代理选项。</string>
     <string name="socks_proxy_address_title">SOCKS5 代理</string>
     <!-- Toast after entering invalid socks proxy address -->
-    <string name="toast_invalid_socks_proxy_address">输入违反代理语法 \'socks5://[IP/HOSTNAME]:[PORT]\' </string>
+    <string name="toast_invalid_socks_proxy_address">输入违反代理语法 \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="http_proxy_address_title">HTTP(S) 代理</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">输入违反代理语法 \'http://[IP/HOSTNAME]:[PORT]\'</string>
@@ -445,7 +445,7 @@
     <string name="config_imported_successful">设置已导入</string>
     <string name="config_import_failed">设置导入失败，请确保文件位于 %1$s</string>
     <string name="dialog_settings_restart_app_title">要求重启程序</string>
-    <string name="dialog_settings_restart_app_question">修改当前设置项需要重启 Syncthing .  其它所有的修改项将不被保存，是否继续？</string>
+    <string name="dialog_settings_restart_app_question">修改当前设置项需要重启 Syncthing. 其它所有的修改项将不被保存，是否继续？</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 选项</string>
     <string name="environment_variables">环境变量</string>

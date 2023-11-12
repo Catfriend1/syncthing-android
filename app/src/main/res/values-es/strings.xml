@@ -114,7 +114,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositivos</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Ningún dispositivo configurado. Pulse para añadir uno nuevo.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Ningún dispositivo configurado.\nInicie añadiendo uno ahora.</string>
@@ -126,7 +126,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="device_syncing_percent_bytes">Sincronizando (%1$d%%, %2$s)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
-    <string name="device_disconnected_not_synced">Desconectado (%1$s pendiente) </string>
+    <string name="device_disconnected_not_synced">Desconectado (%1$s pendiente)</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausado</string>
     <!-- Indicates that devices does not share any folders -->
@@ -215,7 +215,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Status title -->
     <string name="discovered_devices_title">Dispositivos descubiertos - Pulse para seleccionar</string>
     <!-- Status text -->
-    <string name="discovered_device_list_empty">El descubrimiento local no ha encontrado ningún dispositivo en la red local. Ejecute esta aplicación en un segundo teléfono. Los archivos de instalación para ordenadores están disponibles en:  %1$s</string>
+    <string name="discovered_device_list_empty">El descubrimiento local no ha encontrado ningún dispositivo en la red local. Ejecute esta aplicación en un segundo teléfono. Los archivos de instalación para ordenadores están disponibles en: %1$s</string>
     <!-- Status text -->
     <string name="local_discovery_disabled">Ha desactivado el descubrimiento local en \"Configuración\" &gt; \"Opciones de Syncthing\" &gt; \"Descubrimiento Local\". Actívelo para buscar dispositivos en la red local.</string>
     <!-- Setting title -->
@@ -274,7 +274,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="tip_sync_on_local_network_title">Sincronizar solo mediante la red Wifi local</string>
     <string name="tip_sync_on_local_network_text">Si desea sincronizar solo con los dispositivos que se encuentran en la red WiFf local o accesibles a través de un hotspot de Wifi, puede reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\":\n- Permitir NAT Traversal\n- Descubrimiento Global\n- Habilitar la Retransmisión\nSolo deje activado el \"Descubrimiento Local\".</string>
     <string name="tip_custom_sync_conditions_title">Utilizar condiciones de sincronización personalizadas por carpeta/dispositivo</string>
-    <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones  personalizadas de sincronización para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
+    <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones personalizadas de sincronización para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
     <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador\?</string>
     <string name="tip_ignore_delete_text">Si desea tener una copia de seguridad de todas las fotos hechas en su teléfono en un ordenador, comparta la carpeta \"Cámara\" con el ordenador. Abra Syncthing en el ordenador, añada la carpeta y vaya a \"Acciones\" &gt; \"Avanzado\" &gt; Carpeta \"Cámara\". Habilite la opción \"Ignorar la eliminación\" y haga clic en \"Guardar\". Ahora puede eliminar las fotos de la carpeta de la cámara en el teléfono y se mantendrá la copia de seguridad en el ordenador.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: solución alternativa a \"dispositivo desconectado\"</string>
@@ -741,7 +741,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="no_sub_folder_is_selected">Ninguna subcarpeta seleccionada</string>
     <string name="share_device_id_chooser">Compartir ID del dispositivo con</string>
     <string name="run_on_whitelisted_wifi_summary">Activar la lista blanca para restringir la sincronización a las redes Wifi especificadas.</string>
-    <string name="custom_sync_conditions_title">Condiciones personalizadas de sincronización </string>
+    <string name="custom_sync_conditions_title">Condiciones personalizadas de sincronización</string>
     <string name="custom_sync_conditions_description">Le permite especificar excepciones a las condiciones globales de ejecución.</string>
     <string name="custom_sync_conditions_dialog">Especificar condiciones de sincronización</string>
     <!-- Quick Setting icon names and labels -->

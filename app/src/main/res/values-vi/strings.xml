@@ -20,7 +20,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="dialog_all_files_access_not_supported">Thiết bị của bạn không hỗ trợ truy cập tất cả tệp</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Tối ưu hóa pin</string>
-    <string name="ignore_doze_permission_os_notice">Các TV chạy Android được biết là đôi khi chúng dừng ứng dụng khi nó đang chạy trong nền. Có một giải pháp trên wiki tại \'%1$s/%2$s\'. </string>
+    <string name="ignore_doze_permission_os_notice">Các TV chạy Android được biết là đôi khi chúng dừng ứng dụng khi nó đang chạy trong nền. Có một giải pháp trên wiki tại \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android có thể sẽ dừng việc đồng bộ hoá sau một khoảng thòi gian. Để ngăn chặn việc này, hãy tắt tối ưu hoá pin. Một số thiết bị có thêm cả các ứng dụng dừng tiến trình được cài sẵn. Bạn cũng nên thêm Syncthing vào danh sách loại trừ của chúng.</string>
     <string name="toast_ignore_doze_permission_required">Ứng dụng này chỉ hoạt động một cách đáng tin cậy nếu nó được loại trừ khỏi chế độ tiết kiệm pin.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Thiết bị của bạn không hỗ trợ tắt tối ưu hoá pin</string>
@@ -113,7 +113,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Các thiết bị</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Không có thiết bị nào được thiết lập. Nhấn để thêm thiết bị mới.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Không có thiết bị nào được thiết lập.\nHãy bắt đầu bằng cách thêm thiết bị mới ngay.</string>
@@ -272,7 +272,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="tip_sync_on_local_network_title">Đồng bộ chỉ sử dụng mạng Wi-Fi cục bộ</string>
     <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':\n- Bật NAT traversal\n- Khám phá toàn cầu\n- Bật vận chuyển\nChỉ để cho \'Khám phá cục bộ\' được bật.</string>
     <string name="tip_custom_sync_conditions_title">Sử dụng các điều kiện đồng bộ tùy chỉnh cho mỗi thư mục/thiết bị</string>
-    <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên. </string>
+    <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên.</string>
     <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính\?</string>
     <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' &gt; \'Nâng cao\' &gt; Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: giải quyết vấn đề \'thiết bị đã ngắt kết nối\'</string>

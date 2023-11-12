@@ -115,7 +115,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Eszközök</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nincs konfigurált eszköz. Koppintson a gombra új eszköz hozzáadásához.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Nincs konfigurált eszköz. \nKezdje egy eszköz hozzáadásával most.</string>
@@ -332,7 +332,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="run_on_metered_wifi_summary">Akkor is futtatható, ha a készülék díjköteles Wi-Fi hálózathoz, pl. hotspothoz vagy csatolt hálózathoz csatlakozik. Figyelem! A fizetett adatcsomag nagy részét felemésztheti, ha sok adatot szinkronizál.</string>
     <string name="run_on_whitelisted_wifi_title">Futtatás a megadott Wi-Fi hálózatokon</string>
     <string name="specify_wifi_ssid_whitelist">Wi-Fi hálózatok kiválasztása</string>
-    <string name="run_on_whitelisted_wifi_networks">Kiválasztott Wi-Fi hálózatok:  %1$s</string>
+    <string name="run_on_whitelisted_wifi_networks">Kiválasztott Wi-Fi hálózatok: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">Nincsenek Wi-Fi hálózatok megadva. Kattintson a hálózat megadásához.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Hálózat választásához kapcsold be a WiFit.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">A hálózatok kiválasztásához kapcsolja be a helymeghatározást.</string>
@@ -438,7 +438,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt\? A már létező fájlok felül lesznek írva.
 
-VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják  szinkronizált fájljaidat.</string>
+VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
@@ -745,7 +745,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="qs_force_label">Erőltetett futás</string>
     <string name="qs_forced_to_run">Kényszerített futás</string>
     <string name="qs_forced_to_stop">Megállásra kényszerítve</string>
-    <string name="qs_following_run_conditions">A futási feltételek betartása </string>
+    <string name="qs_following_run_conditions">A futási feltételek betartása</string>
     <string name="qs_schedule_label">Futtatás 5 percig</string>
     <string name="qs_schedule_disabled">Ütemezés letiltva</string>
 </resources>

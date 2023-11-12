@@ -20,7 +20,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimisation de la batterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV\'s est connu pour fermer occasionnellement l\'appli quand elle tourne en arrière plan. Une solution est disponible sur le wiki : \'%1$s/%2$s\'.</string>
-    <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps.  Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches.  Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
+    <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps. Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches. Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permission de localisation</string>

@@ -114,13 +114,13 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispozitive</string>
-    <!-- Shown if no devices are configured in add folder dialog  -->
+    <!-- Shown if no devices are configured in add folder dialog -->
     <string name="devices_list_empty">Nu sunt configurate dispozitive. Atingeți pentru a adăuga un dispozitiv nou.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Nu sunt configurate dispozitive.\nÎncepeți prin adăugarea unui dispozitiv.</string>
     <string name="deviceEncryptionPasswordHint">Dacă nu aveți încredere, introduceți parola de criptare</string>
     <!-- Indicates that a folder is fully synced to the local device -->
-    <string name="device_up_to_date">Actualizat </string>
+    <string name="device_up_to_date">Actualizat</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Se sincronizează(%1$d%%)</string>
     <string name="device_syncing_percent_bytes">Se sincronizează(%1$d%%, %2$s)</string>
@@ -139,7 +139,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">"Dosare: "</string>
     <!-- Title for current download rate -->
-    <string name="download_title">Descărcare </string>
+    <string name="download_title">Descărcare</string>
     <!-- Title for current upload rate -->
     <string name="upload_title">Încarcă</string>
     <!-- StatusFragment -->
@@ -162,7 +162,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="announce_server">Server anunțuri</string>
     <!-- Title for uptime status -->
     <string name="uptime">Durata funcționării</string>
-    <string name="restart">Repornire </string>
+    <string name="restart">Repornire</string>
     <string name="dialog_confirm_restart">Doriți să reporniți Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
@@ -278,9 +278,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer\?</string>
     <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” &gt; „Avansat” &gt; „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
     <string name="tip_huawei_device_disconnected_title">Soluție pentru Huawei: „dispozitiv deconectat”</string>
-    <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este  deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:\ntcp4://%1$s, dinamic\nA fost confirmată funcționarea pentru: Huawei P10</string>
+    <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:\ntcp4://%1$s, dinamic\nA fost confirmată funcționarea pentru: Huawei P10</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: aplicația nu rulează de la pornire</string>
-    <string name="tip_xiaomi_autostart_text">MIUI  de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” &gt; \"Aplicații\" &gt; „Permisiuni” &gt; „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
+    <string name="tip_xiaomi_autostart_text">MIUI de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” &gt; \"Aplicații\" &gt; „Permisiuni” &gt; „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplicația arată în mod repetat ecranul de bun venit</string>
     <string name="tip_xiaomi_battery_saver_text">Aplicația de sistem pentru economisirea bateriei instalată în MIUI de la Xiaomi revocă permisiunea aplicației „ignoră optimizarea bateriei” la fiecare repornire a telefonului. Acest lucru face ca aplicația să afișeze ecranul de bun venit și să solicite din nou permisiunea obligatorie care lipsește. Soluție: din ecranul de pornire, deschideți sertarul aplicațiilor &gt; apăsați lung „Syncthing-Fork” &gt; „Informații aplicație” &gt; „Economisire baterie” și selectați „Nicio restricție” (MIUI 10.3.2.0+).</string>
     <!-- RecentChangesActivity -->
