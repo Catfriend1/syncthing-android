@@ -341,7 +341,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="discovered_device_list_empty">El descubrimiento local no ha encontrado ningún dispositivo en la red local. Ejecute esta aplicación en un segundo teléfono. Los archivos de instalación para ordenadores están disponibles en:  %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">Ha desactivado el descubrimiento local en \"Configuración\" > \"Opciones de Syncthing\" > \"Descubrimiento Local\". Actívelo para buscar dispositivos en la red local.</string>
+    <string name="local_discovery_disabled">Ha desactivado el descubrimiento local en \"Configuración\" &gt; \"Opciones de Syncthing\" &gt; \"Descubrimiento Local\". Actívelo para buscar dispositivos en la red local.</string>
 
     <!-- Setting title -->
     <string name="name">Nombre</string>
@@ -430,17 +430,17 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones  personalizadas de sincronización para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
 
     <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador?</string>
-    <string name="tip_ignore_delete_text">Si desea tener una copia de seguridad de todas las fotos hechas en su teléfono en un ordenador, comparta la carpeta \"Cámara\" con el ordenador. Abra Syncthing en el ordenador, añada la carpeta y vaya a \"Acciones\" > \"Avanzado\" > Carpeta \"Cámara\". Habilite la opción \"Ignorar la eliminación\" y haga clic en \"Guardar\". Ahora puede eliminar las fotos de la carpeta de la cámara en el teléfono y se mantendrá la copia de seguridad en el ordenador.</string>
+    <string name="tip_ignore_delete_text">Si desea tener una copia de seguridad de todas las fotos hechas en su teléfono en un ordenador, comparta la carpeta \"Cámara\" con el ordenador. Abra Syncthing en el ordenador, añada la carpeta y vaya a \"Acciones\" &gt; \"Avanzado\" &gt; Carpeta \"Cámara\". Habilite la opción \"Ignorar la eliminación\" y haga clic en \"Guardar\". Ahora puede eliminar las fotos de la carpeta de la cámara en el teléfono y se mantendrá la copia de seguridad en el ordenador.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: solución alternativa a \"dispositivo desconectado\"</string>
     <string name="tip_huawei_device_disconnected_text">Si su ordenador informa constantemente a su dispositivo Huawei como desconectado, abra la interfaz de usuario de Syncthing de su escritorio. Vaya a \"dispositivos remotos\", expanda la entrada del teléfono, haga clic en \"Editar\" y cambie a \"Avanzado\". Ponga la dirección IP de su teléfono en \"Direcciones\" así:\ntcp4://%1$s, dynamic\nConfirmado que funciona para: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: la aplicación no se inicia al arrancar el sistema</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI no permite que las aplicaciones se inicien solas por defecto. Desde la pantalla de inicio, vaya a \"Ajustes\" > \"Permisos\" > \"Autoinicio\" y active el control deslizante de \"Syncthing-Fork\".</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI no permite que las aplicaciones se inicien solas por defecto. Desde la pantalla de inicio, vaya a \"Ajustes\" &gt; \"Permisos\" &gt; \"Autoinicio\" y active el control deslizante de \"Syncthing-Fork\".</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: la aplicación muestra repetidamente la pantalla de bienvenida</string>
-    <string name="tip_xiaomi_battery_saver_text">La aplicación de ahorro de batería del sistema de Xiaomi MIUI revoca el permiso de \"ignorar la optimización de la batería\" de la aplicación en cada reinicio del teléfono. Esto hace que la aplicación muestre la pantalla de bienvenida y pida de nuevo el permiso obligatorio faltante. Solución: Desde la pantalla de inicio, abra el cajón de aplicaciones > Mantenga pulsado \"Syncthing-Fork\" > \"Información de la aplicación\" > \"Ahorro de batería\" y selecciona \"Sin restricciones\" (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">La aplicación de ahorro de batería del sistema de Xiaomi MIUI revoca el permiso de \"ignorar la optimización de la batería\" de la aplicación en cada reinicio del teléfono. Esto hace que la aplicación muestre la pantalla de bienvenida y pida de nuevo el permiso obligatorio faltante. Solución: Desde la pantalla de inicio, abra el cajón de aplicaciones &gt; Mantenga pulsado \"Syncthing-Fork\" &gt; \"Información de la aplicación\" &gt; \"Ahorro de batería\" y selecciona \"Sin restricciones\" (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">No hay cambios recientes.</string>
@@ -902,7 +902,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing no se está ejecutando porque usted le ha prohibido ejecutarse en conexiones Wifi de uso medido.</string>
     <string name="reason_location_unavailable">Ha activado \"Ejecutar en redes Wifi seleccionadas\" en los ajustes. Los servicios de localización de Android están actualmente desactivados. Según las restricciones de Android, Syncthing no puede determinar el nombre de la red Wifi actual para decidir si debe ejecutarse. Solución: Active la ubicación, conceda el permiso de ubicación y vuelva a conectar el Wifi.</string>
     <string name="reason_on_flight_mode">Syncthing se está ejecutando porque le ha permitido hacerlo cuando el modo avión está activado.</string>
-    <string name="reason_broadcast_controlled">Syncthing está escuchando las transmisiones enviadas por una aplicación de terceros o ADB. Puede volver a utilizar las condiciones de ejecución integradas desactivando \"Ajustes\" > \"Experimental\" > \"Control de Servicios mediante Transmisión\".</string>
+    <string name="reason_broadcast_controlled">Syncthing está escuchando las transmisiones enviadas por una aplicación de terceros o ADB. Puede volver a utilizar las condiciones de ejecución integradas desactivando \"Ajustes\" &gt; \"Experimental\" &gt; \"Control de Servicios mediante Transmisión\".</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor no está instanciado. Por favor, reinicie la aplicación y presente un informe de error si este error no desaparece después del reinicio.</string>
 
     <!-- Sync Conditions Dialog -->

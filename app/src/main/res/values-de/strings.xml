@@ -142,7 +142,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
 
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Geheimschlüssel werden generiert. Dies kann einige Minuten dauern&#8230;</string>
+    <string name="web_gui_creating_key">Geheimschlüssel werden generiert. Dies kann einige Minuten dauern…</string>
 
     <!-- FolderListFragment -->
 
@@ -340,7 +340,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="discovered_device_list_empty">Die lokale Geräteerkennung hat im lokalen Netzwerk keine Geräte gefunden. Starte dieses App auf einem zweiten Telefon. Installationsdateien für Computer stehen unter %1$s zur Verfügung.</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">Du hast die lokale Geräteerkennung unter \'Einstellungen\' > \'Syncthing-Optionen\' > \'Lokale Gerätesuche\' deaktiviert. Aktiviere sie, um im lokalen Netzwerk nach Geräten zu suchen.</string>
+    <string name="local_discovery_disabled">Du hast die lokale Geräteerkennung unter \'Einstellungen\' &gt; \'Syncthing-Optionen\' &gt; \'Lokale Gerätesuche\' deaktiviert. Aktiviere sie, um im lokalen Netzwerk nach Geräten zu suchen.</string>
 
     <!-- Setting title -->
     <string name="name">Name</string>
@@ -429,17 +429,17 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Für den Moment wollten wir das App-Verhalten nicht \"umstürzen\", um bestehende Konfigurationen nicht zu \"brechen\". Deshalb können die \"individuellen Sync-Bedingungen\" für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Laufkonditionen aktiviert wurde.</string>
 
     <string name="tip_ignore_delete_title">Bilder vom Telefon auf den Computer sichern?</string>
-    <string name="tip_ignore_delete_text">Wenn Du alle vom Telefon gemachten Bilder auf einen Computer sichern möchtest, teile den Ordner \'Kamera\' mit dem Computer. Öffne Syncthing auf dem Computer, füge den Ordner hinzu und gehe zu \'Aktionen\'  > \'Erweitert\' > \'Kamera\' Ordner. Aktiviere \'Ignore Delete\' und klicke \'Speichern\'. Du kannst nun Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
+    <string name="tip_ignore_delete_text">Wenn Du alle vom Telefon gemachten Bilder auf einen Computer sichern möchtest, teile den Ordner \'Kamera\' mit dem Computer. Öffne Syncthing auf dem Computer, füge den Ordner hinzu und gehe zu \'Aktionen\'  &gt; \'Erweitert\' &gt; \'Kamera\' Ordner. Aktiviere \'Ignore Delete\' und klicke \'Speichern\'. Du kannst nun Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: Workaround für \"Gerät getrennt\"</string>
     <string name="tip_huawei_device_disconnected_text">Falls der Computer das Huawei-Gerät permanent als \"getrennt\" meldet, öffne die Syncthing-Oberfläche auf dem Computer. Gehe zu \"Externe Geräte\", klappe den Eintrag des Mobilgeräts aus, klicke \"Bearbeiten\", wechsle zu \"Erweitert\". Trage die IP-Adresse deines Mobilgeräts in \"Adressen\" wie folgt ein:\ntcp4://%1$s, dynamic\nFunktioniert sicher auf: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: App startet nicht beim Hochfahren</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI verbietet standardmäßig den Apps, sich selbst zu starten. Von Deinem Startbildschirm beginnend: Wähle \"Einstellungen\" > \"Rechte\" > \"Autostart\" und aktiviere den \"Syncthing-Fork\" Schieberegler.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI verbietet standardmäßig den Apps, sich selbst zu starten. Von Deinem Startbildschirm beginnend: Wähle \"Einstellungen\" &gt; \"Rechte\" &gt; \"Autostart\" und aktiviere den \"Syncthing-Fork\" Schieberegler.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: App zeigt wiederholt Begrüßungsbildschirm</string>
-    <string name="tip_xiaomi_battery_saver_text">Die Xiaomi MIUI System App für Batteriesparen widerruft bei jedem Geräteneustart die Berechtigung zum \"Ignorieren der Batterieoptimierung\". Dies führt dazu, dass die App den Begrüßungsbildschirm anzeigt und erneut nach der fehlenden, notwendigen Berechtigung fragt. Lösung: Öffnen Sie auf dem Startbildschirm die App-Übersicht > Drücken Sie lange auf \'Syncthing-Fork\' > \'App-Informationen > \'Batteriesparen\' und wählen Sie \'Uneingeschränkt\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Die Xiaomi MIUI System App für Batteriesparen widerruft bei jedem Geräteneustart die Berechtigung zum \"Ignorieren der Batterieoptimierung\". Dies führt dazu, dass die App den Begrüßungsbildschirm anzeigt und erneut nach der fehlenden, notwendigen Berechtigung fragt. Lösung: Öffnen Sie auf dem Startbildschirm die App-Übersicht &gt; Drücken Sie lange auf \'Syncthing-Fork\' &gt; \'App-Informationen &gt; \'Batteriesparen\' und wählen Sie \'Uneingeschränkt\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Es gibt keine kürzlichen Änderungen.</string>
@@ -895,7 +895,7 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing läuft nicht, weil Du verboten hast, dass es bei getakteten WLAN-Verbindungen läuft.</string>
     <string name="reason_location_unavailable">Du hast \'Starte in ausgewählten WLAN-Netzwerken\' in den Einstellungen aktiviert. Die Android-Standorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Schalte den Standort ein, erteile Standortberechtigung und verbinde WLAN erneut.</string>
     <string name="reason_on_flight_mode">Syncthing läuft, weil Du erlaubt hast, dass es bei eingeschaltetem Flugzeugmodus läuft.</string>
-    <string name="reason_broadcast_controlled">Syncthing hört auf Broadcasts, die von einer Drittanbieter-App oder über ADB gesendet werden. Du kannst zu den eingebauten Laufkonditionen zurück wechseln, indem Du unter \'Einstellungen\' > \'Experimentell\' > \'Dienstkontrolle über Broadcast\' deaktivierst.</string>
+    <string name="reason_broadcast_controlled">Syncthing hört auf Broadcasts, die von einer Drittanbieter-App oder über ADB gesendet werden. Du kannst zu den eingebauten Laufkonditionen zurück wechseln, indem Du unter \'Einstellungen\' &gt; \'Experimentell\' &gt; \'Dienstkontrolle über Broadcast\' deaktivierst.</string>
     <string name="reason_run_condition_monitor_not_instantiated">Laufkonditionen-Überwachung ist nicht instantiiert. Bitte starte die App neu und erstelle einen Fehlerbericht, wenn das Problem nach dem Neustart nicht verschwindet.</string>
 
     <!-- Sync Conditions Dialog -->

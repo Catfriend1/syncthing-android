@@ -341,7 +341,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="discovered_device_list_empty">L\'individuazione locale non ha trovato dispositivi nella rete locale. Avvia questa app su un altro cellulare. I file per l\'installazione su computer sono disponibili a: %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">Hai disabilitato l\'individuazione locale in \'Impostazioni\'>\'Impostazioni Syncthing\'>\'Individuazione locale\'. Abilitala per trovare dispositivi nella rete locale.</string>
+    <string name="local_discovery_disabled">Hai disabilitato l\'individuazione locale in \'Impostazioni\'&gt;\'Impostazioni Syncthing\'&gt;\'Individuazione locale\'. Abilitala per trovare dispositivi nella rete locale.</string>
 
     <!-- Setting title -->
     <string name="name">Nome</string>
@@ -430,17 +430,17 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="tip_custom_sync_conditions_text">Questa funzione verrà migliorata in versioni future. Per ora non abbiamo voluto alterare le configurazioni esistenti e il comportamento dell\'app. Per questo motivo le condizioni di sincronizzazione personalizzate per un tipo di rete possono essere attivate solo se attivi la sincronizzazione su questa rete nelle condizioni generali di esecuzione.</string>
 
     <string name="tip_ignore_delete_title">Vuoi salvare le foto dal cellulare al computer?</string>
-    <string name="tip_ignore_delete_text">Se vuoi che tutte le foto fatte dal tuo cellulare siano salvate su un computer, condividi la cartella \'Camera\' con il computer. Apri Syncthing sul computer, aggiungi la cartella e vai a \'Azioni\' > \'Avanzato\' > Cartella \'Camera\'. Abilita \'Ignore Delete\' e clicca \'Salva\'. Ora potrai eliminare foto dal tuo cellulare, lasciandole salvate sul computer.</string>
+    <string name="tip_ignore_delete_text">Se vuoi che tutte le foto fatte dal tuo cellulare siano salvate su un computer, condividi la cartella \'Camera\' con il computer. Apri Syncthing sul computer, aggiungi la cartella e vai a \'Azioni\' &gt; \'Avanzato\' &gt; Cartella \'Camera\'. Abilita \'Ignore Delete\' e clicca \'Salva\'. Ora potrai eliminare foto dal tuo cellulare, lasciandole salvate sul computer.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: soluzione alternativa a \'dispositivo disconnesso\'</string>
     <string name="tip_huawei_device_disconnected_text">Se il tuo computer riporta che il tuo dispositivo si disconnette in continuazione, apri l\'interfaccia di Syncthing dal computer, vai su \'Dispositivo Remoti\', espandi la voce del cellulare, clicca su \'Modifica\' e vai alla scheda \'Avanzato\'. Inserisci l\'IP del dispositivo in \'Indirizzi\' così:\ntcp4://%1$s, dynamic\n. È stato testato con successo su Huawei P10.</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: l\'app non parte all\'avvio del dispositivo</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI impedisce in maniera predefinita che le app si avviino automaticamente. Dalla schermata home, vai in \'Impostazioni\'>\'Permessi\'>\'Avvio automatico\' e attiva l\'opzione per \'Syncthing-Fork\'.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI impedisce in maniera predefinita che le app si avviino automaticamente. Dalla schermata home, vai in \'Impostazioni\'&gt;\'Permessi\'&gt;\'Avvio automatico\' e attiva l\'opzione per \'Syncthing-Fork\'.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: l\'app mostra continuamente la schermata di benvenuto</string>
-    <string name="tip_xiaomi_battery_saver_text">L\'app di sistema di risparmio batteria di Xiaomi MIUI revoca l\'autorizzazione \"ignora ottimizzazione batteria\" su ogni riavvio del telefono. Questo fa sì che l\'app mostri la schermata di benvenuto e richieda nuovamente l\'autorizzazione obbligatoria mancante. Soluzione: dalla schermata principale, aprire il cassetto delle app> Premere a lungo \'Syncthing-Fork\'> \'Informazioni app\'> \'Risparmio batteria\' e selezionare \'Nessuna restrizione\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">L\'app di sistema di risparmio batteria di Xiaomi MIUI revoca l\'autorizzazione \"ignora ottimizzazione batteria\" su ogni riavvio del telefono. Questo fa sì che l\'app mostri la schermata di benvenuto e richieda nuovamente l\'autorizzazione obbligatoria mancante. Soluzione: dalla schermata principale, aprire il cassetto delle app&gt; Premere a lungo \'Syncthing-Fork\'&gt; \'Informazioni app\'&gt; \'Risparmio batteria\' e selezionare \'Nessuna restrizione\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Non ci sono cambiamenti recenti.</string>
@@ -904,7 +904,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing non è in esecuzione perché non lo hai permesso quando sei connesso a WiFi a consumo.</string>
     <string name="reason_location_unavailable">Hai abilitato Esegui su reti Wi-Fi selezionate\' nelle impostazioni. I servizi di localizzazione di Android sono disattivatik. A causa di alcune restrizioni di Android, Syncthing non può rilevare il nome della rete WiFi connessa per capire se può avviarsi. Soluzione: Abilita la posizione, concedi i permessi di posizione e riconnettiti alla rete WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing è in esecuzione perché lo hai permesso quando la modalità aereo è attiva.</string>
-    <string name="reason_broadcast_controlled">Syncthing è in ascolto per broadcast inviati da app di terze parti o ADB. Puoi ripristinare le condizioni di esecuzione predefinite andando in \'Impostazioni\' > \'Sperimentale\'>  e disabilitando \'Controlla servizio con Broadcast\'.</string>
+    <string name="reason_broadcast_controlled">Syncthing è in ascolto per broadcast inviati da app di terze parti o ADB. Puoi ripristinare le condizioni di esecuzione predefinite andando in \'Impostazioni\' &gt; \'Sperimentale\'&gt;  e disabilitando \'Controlla servizio con Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor non è inizializzato. Sei pregato di riavviare l\'app e di segnalare il bug se l\'errore non scompare dopo il riavvio.</string>
 
     <!-- Sync Conditions Dialog -->

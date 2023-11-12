@@ -301,7 +301,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="tip_phone_ip_address_syntax">TELEFON_IP_ADRESSE</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: app starter ikke ved systemstart </string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI tillader ikke apps til at starte på deres egne default. Fra hjemmeskærmen, gå til \'Settings\' > \'Permissions\' > \'Autostart\' og slå \'Syncthing-Fork\' til.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI tillader ikke apps til at starte på deres egne default. Fra hjemmeskærmen, gå til \'Settings\' &gt; \'Permissions\' &gt; \'Autostart\' og slå \'Syncthing-Fork\' til.</string>
 
     <string name="recent_changes_title">Nylige ændringer</string>
     <string name="modified_by_device">Enhed: %1$s</string>

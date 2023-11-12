@@ -341,7 +341,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="discovered_device_list_empty">Descoperirea locală nu a găsit niciun dispozitiv în rețeaua locală. Rulați această aplicație pe un al doilea telefon. Fișierele de instalare pentru computere sunt disponibile la: %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">Ați dezactivat descoperirea locală în „Setări”> „Opțiuni de sincronizare”> „Descoperire locală”. Activați pentru a permite căutarea dispozitivelor în rețeaua locală.</string>
+    <string name="local_discovery_disabled">Ați dezactivat descoperirea locală în „Setări”&gt; „Opțiuni de sincronizare”&gt; „Descoperire locală”. Activați pentru a permite căutarea dispozitivelor în rețeaua locală.</string>
 
     <!-- Setting title -->
     <string name="name">Nume</string>
@@ -430,15 +430,15 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="tip_custom_sync_conditions_text">Această caracteristică va fi îmbunătățită în versiunile viitoare. Deocamdată, nu am dorit să modificăm configurațiile existente și comportamentul aplicației. De aceea, condițiile de sincronizare personalizate pentru un anumit tip de rețea pot fi setate numai dacă activați mai întâi sincronizarea în rețea în condițiile de rulare globală.</string>
 
     <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer?</string>
-    <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” > „Avansat” > „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
+    <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” &gt; „Avansat” &gt; „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
 
     <string name="tip_huawei_device_disconnected_title">Soluție pentru Huawei: „dispozitiv deconectat”</string>
     <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este  deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:\ntcp4://%1$s, dinamic\nA fost confirmată funcționarea pentru: Huawei P10</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: aplicația nu rulează de la pornire</string>
-    <string name="tip_xiaomi_autostart_text">MIUI  de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” > \"Aplicații\" > „Permisiuni” > „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
+    <string name="tip_xiaomi_autostart_text">MIUI  de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” &gt; \"Aplicații\" &gt; „Permisiuni” &gt; „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplicația arată în mod repetat ecranul de bun venit</string>
-    <string name="tip_xiaomi_battery_saver_text">Aplicația de sistem pentru economisirea bateriei instalată în MIUI de la Xiaomi revocă permisiunea aplicației „ignoră optimizarea bateriei” la fiecare repornire a telefonului. Acest lucru face ca aplicația să afișeze ecranul de bun venit și să solicite din nou permisiunea obligatorie care lipsește. Soluție: din ecranul de pornire, deschideți sertarul aplicațiilor > apăsați lung „Syncthing-Fork” > „Informații aplicație” > „Economisire baterie” și selectați „Nicio restricție” (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Aplicația de sistem pentru economisirea bateriei instalată în MIUI de la Xiaomi revocă permisiunea aplicației „ignoră optimizarea bateriei” la fiecare repornire a telefonului. Acest lucru face ca aplicația să afișeze ecranul de bun venit și să solicite din nou permisiunea obligatorie care lipsește. Soluție: din ecranul de pornire, deschideți sertarul aplicațiilor &gt; apăsați lung „Syncthing-Fork” &gt; „Informații aplicație” &gt; „Economisire baterie” și selectați „Nicio restricție” (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Nu există modificări recente.</string>

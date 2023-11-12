@@ -338,7 +338,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="discovered_device_list_empty">Khám phá cục bộ đã không tìm thấy thiết bị nào trên mạng cục bộ. Hãy chạy ứng dụng này trên điện thoại thứ hai. Các tệp cài đặt cho máy tính có sẵn tại: %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">Bạn đã tắt khám phá cục bộ trong \'Cài đặt\' > \'Tùy chọn Syncthing\' > \'Khám phá cục bộ\'. Hãy bật nó để tìm kiếm các thiết bị trên mạng cục bộ.</string>
+    <string name="local_discovery_disabled">Bạn đã tắt khám phá cục bộ trong \'Cài đặt\' &gt; \'Tùy chọn Syncthing\' &gt; \'Khám phá cục bộ\'. Hãy bật nó để tìm kiếm các thiết bị trên mạng cục bộ.</string>
 
     <!-- Setting title -->
     <string name="name">Tên</string>
@@ -427,17 +427,17 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên. </string>
 
     <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính?</string>
-    <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' > \'Nâng cao\' > Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
+    <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' &gt; \'Nâng cao\' &gt; Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: giải quyết vấn đề \'thiết bị đã ngắt kết nối\'</string>
     <string name="tip_huawei_device_disconnected_text">Nếu máy tính của bạn liên tục báo cáo thiết bị Huawei của bạn là bị ngắt kết nối, hãy mở giao diện Syncthing của máy tính. Đi đến \'thiết bị trên mạng\', mở rộng mục của điện thoại, nhấn \'Chỉnh sửa\', chuyển sang \'Nâng cao\'. Đặt địa chỉ IP của điện thoại vào \'Địa chỉ\' như thế này:\ntcp4://%1$s, động\nĐã xác nhận là giải quyết được cho: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">ĐỊA_CHỈ_IP_CỦA_ĐIỆN_THOẠI</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: ứng dụng không khởi động khi khởi động thiết bị</string>
-    <string name="tip_xiaomi_autostart_text">MIUI của Xiaomi không cho phép các ứng dụng tự khởi động theo mặc định. Từ màn hình chính, hãy đi đến \'Cài đặt\' > \'Quyền\' > \'Tự động khởi động\' và bật thanh trượt \'Syncthing-Fork\'.</string>
+    <string name="tip_xiaomi_autostart_text">MIUI của Xiaomi không cho phép các ứng dụng tự khởi động theo mặc định. Từ màn hình chính, hãy đi đến \'Cài đặt\' &gt; \'Quyền\' &gt; \'Tự động khởi động\' và bật thanh trượt \'Syncthing-Fork\'.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: ứng dụng cứ hiện màn hình chào mừng lên</string>
-    <string name="tip_xiaomi_battery_saver_text">Ứng dụng tiết kiệm pin của hệ thống MIUI của Xiaomi thu hồi quyền \'bỏ qua tối ưu hóa pin\' của ứng dụng mỗi khi khởi động lại thiết bị. Việc này làm cho ứng dụng hiện màn hình chào mừng và hỏi xin quyền bắt buộc đang bị thiếu này một lần nữa. Giải pháp: Từ màn hình chính, mở ngăn ứng dụng > Nhấn giữ \'Syncthing-Fork\' > \'Thông tin ứng dụng\' > \'Trình tiết kiệm pin\' và chọn \'Không hạn chế\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Ứng dụng tiết kiệm pin của hệ thống MIUI của Xiaomi thu hồi quyền \'bỏ qua tối ưu hóa pin\' của ứng dụng mỗi khi khởi động lại thiết bị. Việc này làm cho ứng dụng hiện màn hình chào mừng và hỏi xin quyền bắt buộc đang bị thiếu này một lần nữa. Giải pháp: Từ màn hình chính, mở ngăn ứng dụng &gt; Nhấn giữ \'Syncthing-Fork\' &gt; \'Thông tin ứng dụng\' &gt; \'Trình tiết kiệm pin\' và chọn \'Không hạn chế\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Không có thay đổi gần đây.</string>
@@ -883,7 +883,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing đang không chạy vì bạn đã không cho phép chạy khi có kết nối WiFi trả phí.</string>
     <string name="reason_location_unavailable">Bạn đã bật \'Chạy khi có mạng WiFi được chọn\' trong cài đặt. Dịch vụ vị trí của Android hiện đang bị tắt. Theo như hạn chế của Android, Syncthing không thể xác định tên mạng WiFi hiện tại để quyết định xem có nên chạy hay không. Giải pháp: Bật vị trí, cấp quyền vị trí và kết nối lại với WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing đang chạy vì bạn đã cho phép chạy khi chế độ máy bay đang hoạt động.</string>
-    <string name="reason_broadcast_controlled">Syncthing đang lắng nghe truyền phát được một ứng dụng bên thứ ba hoặc ADB gửi đi. Bạn có thể chuyển lại về sử dụng điều kiện chạy được cài sẵn bằng cách tắt \'Cài đặt\' > \'Thử nghiệm\' > \'Điều khiển dịch vụ bằng truyền phát\'.</string>
+    <string name="reason_broadcast_controlled">Syncthing đang lắng nghe truyền phát được một ứng dụng bên thứ ba hoặc ADB gửi đi. Bạn có thể chuyển lại về sử dụng điều kiện chạy được cài sẵn bằng cách tắt \'Cài đặt\' &gt; \'Thử nghiệm\' &gt; \'Điều khiển dịch vụ bằng truyền phát\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor không được khởi tạo. Vui lòng khởi động lại ứng dụng và tạo báo cáo lỗi nếu lỗi này không biến mất sau khi khởi động lại.</string>
 
     <!-- Sync Conditions Dialog -->

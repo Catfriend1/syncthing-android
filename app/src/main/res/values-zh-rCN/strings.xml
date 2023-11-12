@@ -339,7 +339,7 @@
     <string name="discovered_device_list_empty">本地发现没有在本地网络上找到任何设备。在另一部手机上运行这个应用程序。计算机的安装文件可从以下网址获得:%1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">您已经在“设置”>“同步选项”>“本地发现”中禁用了本地发现。启用选项以搜索本地网络上的设备。</string>
+    <string name="local_discovery_disabled">您已经在“设置”&gt;“同步选项”&gt;“本地发现”中禁用了本地发现。启用选项以搜索本地网络上的设备。</string>
 
     <!-- Setting title -->
     <string name="name">名称</string>
@@ -428,17 +428,17 @@
     <string name="tip_custom_sync_conditions_text">这个特性仍将在未来的版本中得以改进。目前，我们不想破坏现有的配置和应用程序行为。这就是为什么只有首先在全局运行条件中启用该网络上的同步后，你才能为特定网络类型设置自定义同步条件。</string>
 
     <string name="tip_ignore_delete_title">把照片从手机备份到电脑？</string>
-    <string name="tip_ignore_delete_text">如果你想把手机上拍的所有照片都备份到电脑上，请与电脑共享“相机”文件夹。在电脑上打开Syncthing，添加文件夹，进入“操作”>“高级”>“相机”文件夹。启用“忽略删除”并点击“保存”。你现在可以从手机上的相机文件夹中删除这些照片，它们会一直留在电脑上。</string>
+    <string name="tip_ignore_delete_text">如果你想把手机上拍的所有照片都备份到电脑上，请与电脑共享“相机”文件夹。在电脑上打开Syncthing，添加文件夹，进入“操作”&gt;“高级”&gt;“相机”文件夹。启用“忽略删除”并点击“保存”。你现在可以从手机上的相机文件夹中删除这些照片，它们会一直留在电脑上。</string>
 
     <string name="tip_huawei_device_disconnected_title">华为: \'设备断连\'临时解决方法</string>
     <string name="tip_huawei_device_disconnected_text">如果你的桌面经常报告你的华为设备断开连接，打开你桌面的Syncthing用户界面。进入“远程设备”，展开手机的条目，点击“编辑”，切换到“高级”。像这样把你的手机IP地址放入“地址”中:\ntcp4://%1$s, dynamic\n 确认此法对Huawei P10有效</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">小米：app不会自动启动</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 > 权限 > 应用自启动”允许 Syncthing 自启动</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 &gt; 权限 &gt; 应用自启动”允许 Syncthing 自启动</string>
 
     <string name="tip_xiaomi_battery_saver_title">小米: 应用反复显示欢迎屏幕</string>
-    <string name="tip_xiaomi_battery_saver_text">小米MIUI的电池保护系统应用会在每次重启手机时撤销该应用的“忽略电池优化”权限。这将导致应用程序显示欢迎界面，并再次请求丢失的强制权限。解决方案: 从主屏打开应用抽屉>，长按“Syncthing-Fork”> “应用信息“>”电池保护\"，选择“无限制” (MIUI 10.3.2.0+)</string>
+    <string name="tip_xiaomi_battery_saver_text">小米MIUI的电池保护系统应用会在每次重启手机时撤销该应用的“忽略电池优化”权限。这将导致应用程序显示欢迎界面，并再次请求丢失的强制权限。解决方案: 从主屏打开应用抽屉&gt;，长按“Syncthing-Fork”&gt; “应用信息“&gt;”电池保护\"，选择“无限制” (MIUI 10.3.2.0+)</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">无近期更改</string>
@@ -893,7 +893,7 @@
     <string name="reason_not_nonmetered_wifi">Syncthing没有运行，因为你不允许它在计量WiFi连接上运行。</string>
     <string name="reason_location_unavailable">你在设置中启用了“在选定的WiFi网络上运行”。Android定位服务目前处于关闭状态。根据Android的限制，Syncthing无法通过确定当前的WiFi网络名称来决定是否运行。解决方案: 打开位置，授予位置权限并重新连接WiFi。</string>
     <string name="reason_on_flight_mode">允许 Syncthing 在飞行模式下运行</string>
-    <string name="reason_broadcast_controlled">Syncthing正监听第三方应用程序或ADB发送的广播。通过禁用“设置”>“实验性”>“广播服务控制”，您可以切换回使用内置运行条件。</string>
+    <string name="reason_broadcast_controlled">Syncthing正监听第三方应用程序或ADB发送的广播。通过禁用“设置”&gt;“实验性”&gt;“广播服务控制”，您可以切换回使用内置运行条件。</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor没有实例化。如果这个错误在重启后没有消失，请重新启动应用程序并提交一个错误报告</string>
 
     <!-- Sync Conditions Dialog -->

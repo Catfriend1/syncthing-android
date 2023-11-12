@@ -342,7 +342,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="discovered_device_list_empty">A keresés nem talált egyetlen eszközt sem a helyi hálózaton. Futtassa ezt az alkalmazást egy másik telefonon. A számítógépekhez szükséges telepítési fájlok a következő címen érhetők el: %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">A helyi felderítést letiltotta a \'Beállítások\' > \'Szinkronizálási beállítások\' > \'Helyi felderítés\' menüpontban. Engedélyezze a helyi hálózaton lévő eszközök keresését.</string>
+    <string name="local_discovery_disabled">A helyi felderítést letiltotta a \'Beállítások\' &gt; \'Szinkronizálási beállítások\' &gt; \'Helyi felderítés\' menüpontban. Engedélyezze a helyi hálózaton lévő eszközök keresését.</string>
 
     <!-- Setting title -->
     <string name="name">Név</string>
@@ -431,17 +431,17 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="tip_custom_sync_conditions_text">Ezt a funkciót a jövőbeni kiadásokban még javítani fogják. Egyelőre nem akartuk tönkretenni a meglévő konfigurációkat és az alkalmazás viselkedését. Ezért az egyéni szinkronizálási feltételek egy adott hálózattípushoz csak akkor állíthatók be, ha a globális futtatási feltételekben először engedélyezi a hálózaton történő szinkronizálást.</string>
 
     <string name="tip_ignore_delete_title">Képek biztonsági mentése a telefonról a számítógépre?</string>
-    <string name="tip_ignore_delete_text">Ha szeretné, hogy a telefonon készült képekről biztonsági másolat készüljön a számítógépre, ossza meg a \"Kamera\" mappát a számítógéppel. Nyissa meg a Syncthinget a számítógépen, adja hozzá a mappát, és lépjen a \'Műveletek\' > \'Speciális\' > \'Kamera\' mappa menüpontra. Kapcsolja be a \'Törlés figyelmen kívül hagyása\' opciót, és kattintson a \'Mentés\' gombra. Most már törölhet képeket a telefonon lévő kamera mappából, és azok a számítógépen mentve maradnak.</string>
+    <string name="tip_ignore_delete_text">Ha szeretné, hogy a telefonon készült képekről biztonsági másolat készüljön a számítógépre, ossza meg a \"Kamera\" mappát a számítógéppel. Nyissa meg a Syncthinget a számítógépen, adja hozzá a mappát, és lépjen a \'Műveletek\' &gt; \'Speciális\' &gt; \'Kamera\' mappa menüpontra. Kapcsolja be a \'Törlés figyelmen kívül hagyása\' opciót, és kattintson a \'Mentés\' gombra. Most már törölhet képeket a telefonon lévő kamera mappából, és azok a számítógépen mentve maradnak.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: \"eszköz lekapcsolva\" megoldása</string>
     <string name="tip_huawei_device_disconnected_text">Ha az asztali számítógép folyamatosan leválasztottnak jelzi a Huawei készüléket, nyissa meg az asztali számítógép Syncthing felhasználói felületét. Menjen a \'távoli eszközök\' menüpontra, bontsa ki a telefon bejegyzését, kattintson a \'Szerkesztés\' gombra, majd váltson a \'Speciális\' menüpontra. Írja be a telefon IP-címét a \'Címek\' mezőbe, így:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: az alkalmazás nem indul el a rendszerindításkor</string>
-    <string name="tip_xiaomi_autostart_text">A Xiaomi MIUI alapértelmezés szerint tiltja az alkalmazások önálló indítását. A kezdőképernyőről lépjen a \'Beállítások\' > \'Engedélyek\' > \'Automatikus indítás\' menüpontra, és kapcsolja be a \'Syncthing-Fork\' csúszkát.</string>
+    <string name="tip_xiaomi_autostart_text">A Xiaomi MIUI alapértelmezés szerint tiltja az alkalmazások önálló indítását. A kezdőképernyőről lépjen a \'Beállítások\' &gt; \'Engedélyek\' &gt; \'Automatikus indítás\' menüpontra, és kapcsolja be a \'Syncthing-Fork\' csúszkát.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: az alkalmazás ismételten üdvözlő képernyőt mutat</string>
-    <string name="tip_xiaomi_battery_saver_text">A Xiaomi MIUI akkumulátorkímélő rendszeralkalmazás minden egyes telefon újraindításakor visszavonja az alkalmazás \"akkumulátor-optimalizálás figyelmen kívül hagyása\" engedélyét. Ennek hatására az alkalmazás megjeleníti az üdvözlő képernyőt, és újra kéri a hiányzó kötelező engedélyt. Megoldás: A kezdőképernyőről nyissa meg az alkalmazásfiókot > nyomja meg hosszan a \'Syncthing-Fork\' > \'App info\' > \'Battery saver\'-t és válassza a \'No restrictions\' lehetőséget (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">A Xiaomi MIUI akkumulátorkímélő rendszeralkalmazás minden egyes telefon újraindításakor visszavonja az alkalmazás \"akkumulátor-optimalizálás figyelmen kívül hagyása\" engedélyét. Ennek hatására az alkalmazás megjeleníti az üdvözlő képernyőt, és újra kéri a hiányzó kötelező engedélyt. Megoldás: A kezdőképernyőről nyissa meg az alkalmazásfiókot &gt; nyomja meg hosszan a \'Syncthing-Fork\' &gt; \'App info\' &gt; \'Battery saver\'-t és válassza a \'No restrictions\' lehetőséget (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">A közelmúltban nem történt változás.</string>
@@ -901,7 +901,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="reason_not_nonmetered_wifi">A szinkronizálás nem fut, mivel letiltotta, hogy számlázott WiFi-kapcsolatokon fusson.</string>
     <string name="reason_location_unavailable">A beállításokban engedélyezte a \"Futtatás a kiválasztott WiFi hálózatokon\" opciót. Az Android helymeghatározó szolgáltatásai jelenleg ki vannak kapcsolva. Az Android korlátozásai szerint a Syncthing nem tudja meghatározni az aktuális WiFi hálózat nevét annak eldöntéséhez, hogy fusson-e. Megoldás: Kapcsolja be a helymeghatározást, adja meg a helymeghatározási engedélyt, és csatlakoztassa újra a WiFi-t.</string>
     <string name="reason_on_flight_mode">A Syncthing fut, mivel engedélyezte, hogy fusson, amikor a repülési üzemmód aktív.</string>
-    <string name="reason_broadcast_controlled">A Syncthing egy harmadik féltől származó alkalmazás vagy az ADB által küldött adásokat hallgatja. Visszakapcsolhat a beépített futtatási feltételek használatára a \'Beállítások\' > \'Kísérleti\' > \'Szolgáltatásvezérlés műsorszórással\' letiltásával.</string>
+    <string name="reason_broadcast_controlled">A Syncthing egy harmadik féltől származó alkalmazás vagy az ADB által küldött adásokat hallgatja. Visszakapcsolhat a beépített futtatási feltételek használatára a \'Beállítások\' &gt; \'Kísérleti\' &gt; \'Szolgáltatásvezérlés műsorszórással\' letiltásával.</string>
     <string name="reason_run_condition_monitor_not_instantiated">A RunConditionMonitor nincs létrehozva. Kérjük, indítsa újra az alkalmazást, és küldjön hibajelentést, ha a hiba nem szűnik meg az újraindítás után.</string>
 
     <!-- Sync Conditions Dialog -->

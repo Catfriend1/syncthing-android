@@ -343,7 +343,7 @@ Please report any problems you encounter via Github.</string>
     <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network. Run this app on a second phone. Installation files for computers are available at: %1$s</string>
 
     <!-- Status text -->
-    <string name="local_discovery_disabled">You have disabled local discovery in \'Settings\' > \'Syncthing Options\' > \'Local Discovery\'. Enable it to search for devices on the local network.</string>
+    <string name="local_discovery_disabled">You have disabled local discovery in \'Settings\' &gt; \'Syncthing Options\' &gt; \'Local Discovery\'. Enable it to search for devices on the local network.</string>
 
     <!-- Setting title -->
     <string name="name">Name</string>
@@ -435,17 +435,17 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_custom_sync_conditions_text">This feature will still be improved in future releases. For now, we didn\'t want to break existing configs and app behaviour. That\'s why custom sync conditions for a certain network type can only be set if you enable syncing on the network in the global run conditions first.</string>
 
     <string name="tip_ignore_delete_title">Backup pictures from phone to computer?</string>
-    <string name="tip_ignore_delete_text">If you\'d like to have all pictures made on your phone backed up to a computer, share the \'Camera\' folder with the computer. Open Syncthing on the computer, add the folder and go to \'Actions\' > \'Advanced\' > \'Camera\' folder. Enable \'Ignore Delete\' and click \'Save\'. You can now delete pictures from your camera folder on the phone and they will stay backed up on the computer.</string>
+    <string name="tip_ignore_delete_text">If you\'d like to have all pictures made on your phone backed up to a computer, share the \'Camera\' folder with the computer. Open Syncthing on the computer, add the folder and go to \'Actions\' &gt; \'Advanced\' &gt; \'Camera\' folder. Enable \'Ignore Delete\' and click \'Save\'. You can now delete pictures from your camera folder on the phone and they will stay backed up on the computer.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: \'device disconnected\' workaround</string>
     <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: app does not start on boot</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' > \'Permissions\' > \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' &gt; \'Permissions\' &gt; \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: app repeatedly shows welcome screen</string>
-    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. Solution: From home screen, open the app drawer > Long press \'Syncthing-Fork\' > \'App info\' > \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. Solution: From home screen, open the app drawer &gt; Long press \'Syncthing-Fork\' &gt; \'App info\' &gt; \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">There are no recent changes.</string>
@@ -925,7 +925,7 @@ Please report any problems you encounter via Github.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
     <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on, grant location permission and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
-    <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' > \'Experimental\' > \'Service Control by Broadcast\'.</string>
+    <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' &gt; \'Experimental\' &gt; \'Service Control by Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>
 
     <!-- Sync Conditions Dialog -->

@@ -358,9 +358,9 @@
 
     <string name="tip_custom_sync_conditions_text">Tätä ominaisuutta parannetaan vielä tulevissa sovellusversioissa. Toistaiseksi emme halunneet rikkoa olemassa olevia asetuksia ja sovelluksen käyttäytymistä. Tästä syystä räätälöidyt käyntiehdot tietylle verkkotyypille voidaan asettaa vain, jos otat ensin käyttöön verkossa synkronoinnin globaaleista käyntiehdoista.</string>
 
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI estää oletuksena sovellusten käynnistymisen itsestään. Mene kotinäytöltä \'Asetukset\' > \'Käyttöoikeudet\' > \'Autostart\' ja kytke päälle \'Syncthing-Fork\':n valitsin.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI estää oletuksena sovellusten käynnistymisen itsestään. Mene kotinäytöltä \'Asetukset\' &gt; \'Käyttöoikeudet\' &gt; \'Autostart\' ja kytke päälle \'Syncthing-Fork\':n valitsin.</string>
 
-    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI:n virransäästöjärjestelmäsovellus poistaa jokaisen uudelleenkäynnistyksen yhteydessä sovelluksen oikeuden ohittaa akun käytön optimointi. Tämä aiheuttaa sovelluksen näkymisen alkutervehdysruudulla ja puuttuvan käyttöoikeuden kysymisen uudestaan. Ratkaisu: avaaa kotinäytöllä sovellusvalitsin > paina pitkään \'Syncthing-Fork\' > \'Sovellustiedot\' > \'Virransäästö\' ja valitse \'Ei rajoituksia\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI:n virransäästöjärjestelmäsovellus poistaa jokaisen uudelleenkäynnistyksen yhteydessä sovelluksen oikeuden ohittaa akun käytön optimointi. Tämä aiheuttaa sovelluksen näkymisen alkutervehdysruudulla ja puuttuvan käyttöoikeuden kysymisen uudestaan. Ratkaisu: avaaa kotinäytöllä sovellusvalitsin &gt; paina pitkään \'Syncthing-Fork\' &gt; \'Sovellustiedot\' &gt; \'Virransäästö\' ja valitse \'Ei rajoituksia\' (MIUI 10.3.2.0+).</string>
 
     <!-- WebGuiActivity -->
 
@@ -579,7 +579,7 @@
     <string name="reason_not_nonmetered_wifi">Syncthing ei ole käynnissä, koska se on estetty käytön mukaan laskutettavilla WiFi-verkkoyhteyksillä.</string>
     <string name="reason_location_unavailable">Valitsit \'Käytä valituissa WiFi-verkoissa\' asetuksissa. Androidin sijaintipalvelut ovat pois päältä. Androidin rajotteiden mukaisesti Syncthing ei voi selvittää nykyisen WiFi-verkon nimeä päätelläkseen pitäisikö sen olla käytössä. Ratkaisu: Laita sijainti päälle, salli sijainnin käyttöoikeus ja yhdistä uudelleen WiFi-verkkoon.</string>
     <string name="reason_on_flight_mode">Syncthing on käynnissä, koska sallit sen käytön lentotilassa.</string>
-    <string name="reason_broadcast_controlled">Syncthing kuuntelee kolmannen osapuolen sovelluksen tai ADB lähettämiä komentoja. Voit ottaa sisäänrakennetut käyntiehdot uudestaan käyttöön poistamalla valinnan \'Asetukset\' > \'Kokeellinen\' > \'Palvelun hallinta lähetetyillä komennoilla (Broadcasts)\'</string>
+    <string name="reason_broadcast_controlled">Syncthing kuuntelee kolmannen osapuolen sovelluksen tai ADB lähettämiä komentoja. Voit ottaa sisäänrakennetut käyntiehdot uudestaan käyttöön poistamalla valinnan \'Asetukset\' &gt; \'Kokeellinen\' &gt; \'Palvelun hallinta lähetetyillä komennoilla (Broadcasts)\'</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor ei ole alustettu. Ole hyvä ja käynnistä sovellus uudelleen ja tee bugiraportti, jos tämä virhe ei katoa uudelleenkäynnistyksen jälkeen.</string>
 
     <!-- SyncthingService -->

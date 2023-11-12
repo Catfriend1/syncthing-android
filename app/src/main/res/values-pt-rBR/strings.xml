@@ -398,7 +398,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <string name="tip_ignore_delete_title">Fazer backups das fotos do celular para o computador?</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: o app não inicia na inicialização</string>
-    <string name="tip_xiaomi_battery_saver_text">O aplicativo do sistema de economia de bateria da Xiaomi MIUI revoga a permissão \'ignorar otimização da bateria\' do aplicativo em cada reinicialização do telefone. Isso faz com que o aplicativo mostre a tela de boas-vindas e peça novamente a permissão obrigatória ausente. Solução: na tela inicial, abra a gaveta de aplicativos> Pressione e segure \'Syncthing-Fork\' > \'Informações do aplicativo\' > \'Economia de bateria\' e selecione \'Sem restrições\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">O aplicativo do sistema de economia de bateria da Xiaomi MIUI revoga a permissão \'ignorar otimização da bateria\' do aplicativo em cada reinicialização do telefone. Isso faz com que o aplicativo mostre a tela de boas-vindas e peça novamente a permissão obrigatória ausente. Solução: na tela inicial, abra a gaveta de aplicativos&gt; Pressione e segure \'Syncthing-Fork\' &gt; \'Informações do aplicativo\' &gt; \'Economia de bateria\' e selecione \'Sem restrições\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Não há mudanças recentes</string>
