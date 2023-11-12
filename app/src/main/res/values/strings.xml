@@ -11,7 +11,6 @@
 
     <!-- FirstStartActivity -->
 
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Welcome to Syncthing for Android</string>
 
@@ -64,43 +63,27 @@
 
     <string name="refresh">Refresh</string>
 
-
-
     <!-- PhotoShootActivity -->
 
     <string name="photo_shoot_launcher_title">Sync. Camera</string>
-
     <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
-
     <string name="photo_shoot_intro_welcome_title">Welcome to Syncthing Camera</string>
-
     <string name="photo_shoot_intro_permission_title">Required permissions</string>
-
     <string name="photo_shoot_intro_no_camera">Sorry, this device doesn\'t have a camera.</string>
-
     <string name="photo_shoot_intro_missing_permissions">We require storage and camera permission to continue.</string>
-
     <string name="grant_storage_permission">Grant storage permission</string>
-
     <string name="grant_camera_permission">Grant camera permission</string>
-
     <string name="photo_shoot_intro_permission_desc">Syncthing Camera requires your consent to shoot pictures and store them on your device. This feature is optional. To use it, grant permissions and tap \"Continue\". We will setup a Syncthing Camera folder for you which you can share with other Syncthing devices later.</string>
-
     <string name="photo_shoot_take_picture_success">Successfully saved picture to the Syncthing Camera folder.</string>
-
     <string name="photo_shoot_take_picture_failure">Failed to take a picture or you\'ve cancelled.</string>
 
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
 
-
-
     <!-- MainActivity -->
-
 
     <!-- Main bottom navigation view -->
     <string name="activity_main_bottom_navigation_rescan_all">Rescan All</string>
-
 
     <!-- Main menu button -->
     <string name="open_main_menu">Open Main Menu</string>
@@ -123,7 +106,6 @@
     <string name="send_device_id_to">Send Device ID to</string>
 
     <string name="usage_reporting_dialog_title">Allow Anonymous Usage Reporting\?</string>
-
     <string name="usage_reporting_dialog_description">The encrypted usage report is sent daily. It is used to track common platforms, folder sizes and app versions. If the reported data set is changed you will be prompted with this dialog again.
 \n
 \nThe aggregated statistics are publicly available at https://data.syncthing.net.</string>
@@ -145,13 +127,11 @@
 
     <!-- StateDialogActivity -->
 
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Generating secure keys. This may take a few minutes…</string>
 
     <!-- FolderListFragment -->
-
 
     <string name="folders_fragment_title">Folders</string>
 
@@ -172,7 +152,6 @@
     <string name="revert_local_changes">Revert local changes</string>
 
     <string name="delete_unexpected_items">Delete unexpected items</string>
-
 
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">This will undo all changes made on this device within that folder. Proceed\?</string>
@@ -233,6 +212,7 @@
     <string name="upload_title">Upload</string>
 
     <!-- StatusFragment -->
+
     <string name="status_fragment_title">Status</string>
 
     <string name="button_follow_run_conditions">FOLLOW RUN CONDITIONS</string>
@@ -248,28 +228,21 @@
 
     <!-- DrawerFragment -->
 
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">"Download: "</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Upload: "</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM Usage</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Configured Announce Server</string>
-
     <!-- Title for uptime status -->
     <string name="uptime">Uptime</string>
-
     <string name="restart">Restart</string>
 
     <string name="dialog_confirm_restart">Do you want to restart Syncthing\?</string>
 
     <!-- FolderActivity -->
-
 
     <!-- Setting title -->
     <string name="folder_id">Folder ID</string>
@@ -336,8 +309,8 @@
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Switching existing folders to \'Receive Encrypted\' is not supported.</string>
 
     <string name="ignore_patterns">Ignore Patterns</string>
-    <!-- DeviceActivity -->
 
+    <!-- DeviceActivity -->
 
     <!-- Setting title -->
     <string name="device_id">Device ID</string>
@@ -384,7 +357,6 @@
 
     <!-- Setting title -->
     <string name="untrusted_device">Untrusted Device</string>
-
     <string name="untrusted_device_explanation">All folders shared with this device must be protected by a password, such that all sent data is unreadable without the given password.</string>
 
     <!-- ActionBar item -->
@@ -427,7 +399,6 @@
 
     <!-- TipsAndTricks activity -->
 
-
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Tips &amp; Tricks</string>
 
@@ -462,14 +433,13 @@
     <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. Solution: From home screen, open the app drawer &gt; Long press \'Syncthing-Fork\' &gt; \'App info\' &gt; \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
-    <string name="no_recent_changes">There are no recent changes.</string>
 
+    <string name="no_recent_changes">There are no recent changes.</string>
     <string name="recent_changes_title">Recent changes</string>
     <string name="modified_by_device">Device: %1$s</string>
     <string name="modification_time">Time: %1$s</string>
 
     <string name="this_device">This device</string>
-
 
     <!-- WebGuiActivity -->
 
@@ -478,7 +448,6 @@
 
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Waiting for GUI</string>
-
 
     <!-- WebViewActivity -->
 
@@ -497,7 +466,6 @@
 
     <!-- SettingsFragment -->
 
-
     <string name="settings_title">Settings</string>
 
     <string name="category_run_conditions">Run Conditions</string>
@@ -505,15 +473,12 @@
     <string name="category_user_interface">User Interface</string>
 
     <string name="preference_app_theme_title">Theme</string>
-
     <string name="preference_app_theme_follow_system">Follow system</string>
     <string name="preference_app_theme_follow_light">Light</string>
     <string name="preference_app_theme_follow_dark">Dark</string>
 
     <string name="category_behaviour">Behaviour</string>
-
     <string name="category_syncthing_options">Syncthing Options</string>
-
     <string name="category_syncthing_options_summary">This menu is only available if Syncthing is running.</string>
 
     <string name="category_backup">Import and Export</string>
@@ -574,11 +539,11 @@
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
 
     <!-- Preferences - Behaviour -->
+
     <string name="behaviour_autostart_title">Autostart</string>
     <string name="behaviour_autostart_summary">Start app automatically on operating system startup.</string>
 
     <string name="use_root_title">Run Syncthing as Superuser</string>
-
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature with caution.</string>
 
     <string name="bind_network_title">Bind to active network</string>
@@ -589,7 +554,6 @@
     <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete synchronization.</string>
 
     <string name="preference_language_title">Language</string>
-
     <string name="preference_language_summary">Change the app language</string>
 
     <string name="pref_language_default">Default Language</string>
@@ -685,11 +649,9 @@
     <string name="do_not_use_proxy">No proxy configured.</string>
 
     <string name="keep_wakelock_while_binary_running">Keep the CPU awake while Syncthing is running</string>
-
     <string name="keep_wakelock_while_binary_running_summary">Only for Android 5 or lower. Use this setting if you experience unexpected disconnects while operating on battery. This will result in increased battery consumption.</string>
 
     <string name="use_tor_title">Use Tor</string>
-
     <string name="use_tor_summary">Force all traffic through Tor for increased privacy. Requires Orbot. Disables proxy options.</string>
 
     <string name="socks_proxy_address_title">SOCKS5 proxy</string>
@@ -705,7 +667,6 @@
     <string name="toast_invalid_http_proxy_address">Input violates proxy syntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
     <string name="broadcast_service_control_title">Service Control by Broadcast</string>
-
     <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
 
     <!-- Dialog shown before config export -->
@@ -727,7 +688,6 @@
     <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
-
     <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
@@ -740,34 +700,27 @@
 
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Reset Database</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">This action should only be performed based on a recommendation from our support team.
 \nAre you sure you want to clear Syncthing\'s database\?</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Successfully reset Syncthing\'s database</string>
 
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Reset Delta Indexes</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
 \nAre you sure you want to clear Syncthing\'s delta indexes\?</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Successfully reset Syncthing\'s delta indexes</string>
 
     <string name="category_about">About</string>
 
     <string name="verbose_log_title">Verbose log</string>
-
     <string name="verbose_log_summary">Enabling this option will help to generate debug logs at a very detailed level.</string>
 
     <string name="log_to_file_title">Log to file</string>
-
     <string name="log_to_file_summary">The output of SyncthingNative will be written to file.</string>
-
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Open Log</string>
@@ -789,7 +742,6 @@
     <!-- URL of the Syncthing project homepage -->
     <string name="url_syncthing_homepage" translatable="false">https://syncthing.net</string>
 
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Version</string>
@@ -810,7 +762,6 @@
     <string name="os_open_file_limit">Android Open File Limit</string>
 
     <!-- FolderPickerAcitivity -->
-
 
     <!-- Activity title -->
     <string name="folder_picker_title">Folder Picker</string>
@@ -837,7 +788,6 @@
 
     <!-- LogActivity -->
 
-
     <string name="syncthing_log_title">Syncthing Log</string>
     <string name="android_log_title">Android Log</string>
 
@@ -853,7 +803,6 @@
     <string name="share_title">Share</string>
 
     <!-- ShareActivity -->
-
 
     <!-- Toast if user didn't complete the welcome wizard yet -->
     <string name="complete_welcome_wizard_first">First, launch the app from the app drawer and complete the welcome wizard before sharing files.</string>
@@ -989,7 +938,6 @@
     <string name="default_folder_id">%1$s-photos</string>
 
     <string name="notification_crash_title">Syncthing has crashed (exit code %1$s)</string>
-
     <string name="notification_crash_text">Click for logs (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing active</string>
@@ -999,9 +947,7 @@
     <!-- EventProcessor -->
     <string name="notification_out_of_disk_space">The SDcard is full. File %1$s</string>
 
-
     <!-- RestApi -->
-
 
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Restart Needed</string>
