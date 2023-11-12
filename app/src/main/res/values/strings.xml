@@ -742,7 +742,6 @@
     <!-- URL of the Syncthing project homepage -->
     <string name="url_syncthing_homepage" translatable="false">https://syncthing.net</string>
 
-    <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Version</string>
 
