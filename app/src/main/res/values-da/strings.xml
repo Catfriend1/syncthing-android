@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE resources [
-    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
 
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -767,4 +767,4 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="custom_sync_conditions_description">Tillader dig at specificere undtagelser til globale kørebetingelser. </string>
     <string name="custom_sync_conditions_dialog">Specificer synkroniseringsbetingelser </string>
 
-    </resources>
+</resources>

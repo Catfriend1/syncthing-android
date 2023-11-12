@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE resources [
-    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
 
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -645,4 +645,4 @@
     <string name="no_sub_folder_is_selected">Żaden podfolder nie został wybrany</string>
     <string name="share_device_id_chooser">Udostępnij ID urządzenia</string>
     <string name="qs_schedule_label">Uruchom na 5 minut</string>
-    </resources>
+</resources>

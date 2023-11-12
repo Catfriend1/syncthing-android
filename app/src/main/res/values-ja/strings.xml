@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE resources [
-    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
 
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -823,4 +823,4 @@
     <string name="custom_sync_conditions_title">カスタム同期条件</string>
     <string name="custom_sync_conditions_dialog">同期条件を指定する</string>
 
-    </resources>
+</resources>

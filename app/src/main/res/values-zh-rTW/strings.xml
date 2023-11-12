@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE resources [
-    <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
+<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
 
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -530,4 +530,4 @@
     <string name="no_sub_folder_is_selected">無子資料夾被選擇</string>
     <string name="share_device_id_chooser">分享裝置識別代碼</string>
     <string name="custom_sync_conditions_title">自訂同步條件</string>
-    </resources>
+</resources>
