@@ -56,7 +56,7 @@
     </issue>
     <!-- Ignore lint on ... not being replaced by the ellipsis character -->
     <issue id="TypographyEllipsis" severity="ignore" />
-    <!-- Don't fail lint on translation errors, they have to be resolved on transifex -->
+    <!-- Don't fail lint on translation errors, they have to be resolved on Weblate -->
     <issue id="MissingQuantity" severity="warning">
         <ignore path="src/main/res/values-fr" />
     </issue>

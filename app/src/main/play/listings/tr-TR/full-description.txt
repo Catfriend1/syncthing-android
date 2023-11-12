@@ -35,4 +35,4 @@ Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/
 Sorunlar için: https://github.com/Catfriend1/syncthing-android/issues
 
 Please help with the
-Translation: https://www.transifex.com/projects/p/syncthing-android-1
+Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
