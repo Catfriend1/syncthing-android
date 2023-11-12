@@ -2,34 +2,23 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="cont">استمرار</string>
     <string name="generic_error">خطأ</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">إضافة مجلد</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">مشاركة معرف الجهاز</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">مشاركة معرف الجهاز إلى</string>
-
     <string name="yes">نعم</string>
-
     <string name="no">لا</string>
-
     <string name="open_website">فتح موقع الويب</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">غير معروف</string>
-
     <!-- Setting title -->
     <string name="name">الاسم</string>
-
     <string name="state_error">خطأ</string>
     <string name="state_unknown">غير معروف</string>
 </resources>

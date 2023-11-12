@@ -2,19 +2,12 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">En öppen, pålitlig och decentraliserad filsynkroniserings applikation.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Välkommen till Syncthing för Android</string>
-
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduktion</string>
@@ -25,13 +18,11 @@
     <string name="ignore_doze_permission_title">Batterioptimering</string>
     <string name="toast_ignore_doze_permission_required">Den här appen fungerar bara tillförlitligt om den är undantagen från\" doze\"-energisparläge.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Din enhet har inte stöd för att inaktivera batterioptimeringar</string>
-
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Plats tillstånd</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Nyckelgenerering</string>
     <string name="key_generation_success">Säkra nycklar för privat datautbyte har genererats.</string>
-
     <!-- Generic texts used everywhere -->
     <string name="back">Tillbaka</string>
     <string name="cont">Fortsätt</string>
@@ -42,364 +33,237 @@
     <string name="grant_permission">Bevilja tillstånd</string>
     <string name="permission_granted">Beviljat tillstånd</string>
     <string name="reason">Orsak:</string>
-
     <string name="accept">Acceptera</string>
-
     <string name="ignore">Ignorera</string>
-
     <string name="page_x_of_y">Sida %1$s av %2$s</string>
-
     <string name="main_menu">Huvudmeny</string>
-
     <string name="refresh">Uppdatera</string>
-
-
-
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Bekräfta att avsluta appen</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lägg till mapp</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Dela enhets-ID</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Skicka enhets-ID till</string>
-
     <string name="usage_reporting_dialog_title">Tillåt anonym användningsrapportering?</string>
-
     <string name="usage_reporting_dialog_description">Den krypterade användningsrapporten skickas dagligen. Den används för att spåra vanliga plattformar, mappstorlekar och appversioner. Om uppsättningen av de rapporterade uppgifterna ändras kommer du att bli tillfrågad med den här dialogrutan igen.\n\nDen aggregerade statistiken är offentligt tillgänglig på https://data.syncthing.net.</string>
-
     <string name="yes">Ja</string>
-
     <string name="no">Nej</string>
-
     <string name="open_website">Öppna hemsida</string>
-
     <string name="toast_write_storage_permission_required">Skrivlagringstillstånd krävs för denna applikation</string>
-
     <string name="device_rejected">Enhet \"%1$s\" vill ansluta</string>
-
     <string name="folder_rejected">Enhet \"%1$s\" vill dela mapp \"%2$s\"</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Genererar säkra nycklar. Detta kan ta några minuter.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Mappar</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Inga mappar hittade</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d fil</item>
         <item quantity="other">%1$d / %2$d filer</item>
     </plurals>
-
     <string name="override_changes">Åsidosätt ändringar</string>
-
     <string name="open_file_manager">Öppna filhanteraren</string>
     <string name="open_file_with">Öppna fil med</string>
     <string name="open_file_no_compatible_app">Ingen app hittades för att öppna filen.</string>
-
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Ingen kompatibel filhanterarapp hittades</string>
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Enheter</string>
-
     <!-- Shown if no devices are configured in add folder dialog  -->
     <string name="devices_list_empty">Inga enheter konfigurerade. Tryck här för att lägga till en ny enhet.</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Uppdaterad</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synkroniserar (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Frånkopplad</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausad</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Okänd</string>
-
     <string name="device_last_seen_never">Aldrig</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Hämtar</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Skickar</string>
-
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
-
     <string name="syncthing_starting">Syncthing startar.</string>
     <string name="syncthing_running">Syncthing körs.</string>
     <string name="syncthing_not_running">Syncthing körs inte.</string>
     <string name="syncthing_has_crashed">Syncthing har kraschat.</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Hämtar:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Skickar:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM användning</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Annonseringsserver</string>
-
     <!-- Title for uptime status -->
     <string name="uptime">Drifttid</string>
-
     <string name="restart">Starta om</string>
-
     <string name="dialog_confirm_restart">Vill du starta om Syncthing?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">Mapp-ID</string>
-
     <!-- Setting title -->
     <string name="folder_label">Mapp-etikett</string>
-
     <!-- Setting title -->
     <string name="directory">Katalog</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Håll utkik efter ändringar</string>
     <string name="folder_fileWatcherDescription">Frågar operativsystemet att meddela om ändringar i filer. Om inaktiverad faller tillbaka på återkommande skanningar varje timme.</string>
-
     <!-- Setting title -->
     <string name="folder_pause">Pausa mapp</string>
-
     <!-- Setting title -->
     <string name="devices">Enheter</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Bevara versioner</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Ta bort mapp</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Skapa mapp</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Redigera mapp</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Skapa</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Vill du verkligen ta bort denna mapp från Syncthing?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mapp-ID får inte vara tom</string>
-
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Mappetiketten får inte vara tom</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Mapp-sökvägen får inte vara tom</string>
-
     <string name="dialog_discard_changes">Kassera dina ändringar?</string>
-
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Din Android-version ger Syncthing endast skrivskyddad åtkomst till den valda mappen.</string>
-
     <!-- Summary shown if we only have readwrite access to the folder path -->
     <string name="folder_path_readwrite">Din Android-version ger Syncthing läs- och skrivåtkomst till den valda mappen.</string>
-
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Tyvärr. Den valda mappen kan inte användas. Välj en mapp som finns på intern eller extern lagring.</string>
-
     <string name="ignore_patterns">Ignorera mönster</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Enhets-ID</string>
-
     <!-- Setting title -->
     <string name="name">Namn</string>
-
     <!-- Setting title -->
     <string name="folders">Mappar</string>
-
     <!-- Setting title -->
     <string name="addresses">Adresser</string>
-
     <!-- Setting title -->
     <string name="current_address">Aktuell adress</string>
-
     <!-- Setting title -->
     <string name="compression">Komprimering</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Aldrig</item>
         <item>Metadata</item>
         <item>Alltid</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Introduktör</string>
-
     <!-- Setting title -->
     <string name="pause_device">Pausa enhet</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Ta bort enhet</string>
-
     <string name="add_device">Lägg till enhet</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Lägg till</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Redigera enhet</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Vill du verkligen ta bort den här enheten?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enhetens ID får inte vara tom</string>
-
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">Enhetsnamn får inte vara tomt</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Skanna QR-kod</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Fick inte root behörigheter</string>
-
     <!-- TipsAndTricks activity -->
-
-
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Tips &amp; tricks</string>
-
     <string name="tip_write_to_sdcard_title">Skriv till extert SD-kort-lösning</string>
     <string name="tip_sync_on_local_network_title">Synkronisera endast med det lokala Wi-Fi-nätverket</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: \"enheten frånkopplad\"-lösning</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
-
     <string name="tip_xiaomi_autostart_title">Xiaomi: appen startar inte vid start</string>
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">Det finns inga nya förändringar.</string>
-
     <string name="recent_changes_title">Nya förändringar</string>
     <string name="modified_by_device">Enhet: %1$s</string>
     <string name="modification_time">Tid: %1$s</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Webbgränssnitt</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Väntar på gränssnitt</string>
-
-
     <!-- WebViewActivity -->
-
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Säkerhetsmeddelande</string>
-
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Läser in webbplats:\n%1$s ...</string>
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Inställningar</string>
-
     <string name="category_run_conditions">Körvillkor</string>
-
     <string name="category_user_interface">Användargränssnitt</string>
-
     <string name="preference_app_theme_title">Tema</string>
-
     <string name="category_behaviour">Beteende</string>
-
     <string name="category_syncthing_options">Syncthing alternativ</string>
-
     <string name="category_backup">Import och export</string>
     <string name="category_debug">Felsök</string>
     <string name="category_experimental">Experimentell</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Körvillkor</string>
     <string name="run_conditions_summary">Använd följande alternativ för att bestämma när Syncthing körs.</string>
-
     <string name="run_on_mobile_data_title">Kör på mobildata</string>
     <string name="run_on_wifi_title">Kör på Wi-Fi</string>
     <string name="run_on_wifi_summary">Kör när enheten är ansluten till ett Wi-Fi- eller ethernet-nätverk.</string>
-
     <string name="run_on_metered_wifi_title">Kör på uppmätt Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_title">Kör på angivna Wi-Fi-nätverk</string>
     <string name="specify_wifi_ssid_whitelist">Välj Wi-Fi-nätverk</string>
     <string name="run_on_whitelisted_wifi_networks">Valda Wi-Fi-nätverk: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">Inga Wi-Fi-nätverk specificerade. Klicka för att ange nätverk.</string>
-
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
-
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
-
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
-
     <string name="power_source_title">Kör när enheten drivs av</string>
-
     <string-array name="power_source_entries">
         <item>Växelström och batterikraft.</item>
         <item>Växelström.</item>
         <item>Batterikraft.</item>
     </string-array>
-
     <string name="respect_battery_saving_title">Respektera Android-batterisparinställning</string>
     <string name="respect_battery_saving_summary">Inaktivera Syncthing om batteribesparing är aktiv.</string>
-
     <string name="run_in_flight_mode_title">Kör utan nätverksanslutning</string>
     <string name="run_in_flight_mode_summary">Om du aktiverar det här alternativet kommer synkronisering att köras även när du är frånkopplad. Aktivera om enheten har problem med att upptäcka manuella Wi-Fi-anslutningar under flygläge.</string>
-
     <string name="run_on_time_schedule_title">Kör enligt tidsschema</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Starta automatiskt</string>
     <string name="behaviour_autostart_summary">Starta appen automatiskt med operativsystemet.</string>
-
     <string name="use_root_title">Kör som superanvändare</string>
-
     <string name="preference_language_title">Språk</string>
-
     <string name="preference_language_summary">Ändra appens språk</string>
-
     <string name="pref_language_default">Standardspråk</string>
-
     <string-array name="folder_types">
         <item>Skicka &amp; ta emot</item>
         <item>Skicka endast</item>
         <item>Ta emot endast</item>
         <item>Receive Encrypted</item>
     </string-array>
-
     <string-array name="pull_order_types">
         <item>Slumpmässig</item>
         <item>Alfabetisk</item>
@@ -408,7 +272,6 @@
         <item>Äldsta först</item>
         <item>Nyaste först</item>
     </string-array>
-
     <string-array name="versioning_types">
         <item>Ingen</item>
         <item>Papperskorg</item>
@@ -416,205 +279,138 @@
         <item>Förskutna</item>
         <item>Extern</item>
     </string-array>
-
     <string name="device_name">Enhetens namn</string>
-
     <string name="listen_address">Synkroniseringsprotokollets lyssnaradresser</string>
-
     <string name="max_recv_kbps">Inkommande hastighetsgräns (KiB/s)</string>
-
     <string name="max_send_kbps">Utgående hastighetsgräns (KiB/s)</string>
-
     <string name="global_announce_enabled">Global annonsering</string>
-
     <string name="local_announce_enabled">Lokal annonsering</string>
-
     <string name="enable_nat_traversal">Aktivera NAT traversering</string>
-
     <string name="global_announce_server">Globala annonseringsservrar</string>
-
     <string name="enable_relaying">Aktivera reläa</string>
-
     <string name="usage_reporting">Anonym användningsrapportering</string>
-
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Ångra ignorerande enheter och mappar</string>
     <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta?</string>
     <string name="undo_ignored_devices_folders_done">Ångrat beslut.</string>
-
     <string name="export_config">Exportera konfiguration</string>
-
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Inmatningsvärdet är inte giltigt. Ange ett värde mellan%1$d och %2$d.</string>
-
     <!-- Experimental options -->
     <string name="use_proxy">Anslut via en proxy</string>
     <string name="do_not_use_proxy">Ingen proxy konfigurerad.</string>
-
     <string name="keep_wakelock_while_binary_running">Håll CPU:n vaken medan Syncthing körs</string>
-
     <string name="keep_wakelock_while_binary_running_summary">Endast för Android 5 eller lägre. Använd den här inställningen om du upplever oväntade urkopplingar när du använder batteriet. Detta kommer att resultera i ökad batteriförbrukning.</string>
-
     <string name="use_tor_title">Använd Tor</string>
-
     <string name="use_tor_summary">Tvinga all trafik genom Tor för ökad integritet. Kräver Orbot. Inaktiverar proxyalternativ.</string>
-
     <string name="socks_proxy_address_title">SOCKS5-proxy</string>
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">Inmatning bryter mot proxysyntaxen \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-
     <string name="http_proxy_address_title">HTTP(S)-proxy</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfiguration exporterades till %1$s</string>
     <string name="import_config">Importera konfiguration</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen importerades</string>
     <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
-
     <string name="dialog_settings_restart_app_title">Omstart krävs</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE-alternativ</string>
-
     <string name="environment_variables">Miljövariabler</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">Värdet är inte en giltig miljövariabel sträng</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Återställ databas</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
         \nÄr du säker på att du vill rensa Syncthings databas?
     </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthings databas återställdes</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Återställ deltaindex</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
         \nÄr du säker på att du vill rensa Syncthings deltaindex?
     </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Syncthings deltaindex återställdes</string>
-
     <string name="category_about">Om</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Öppna logg</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Öppna loggfönstret för Syncthing och Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Rapportera problem</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing version</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Mappväljare</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Katalogen är tom</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Skapa ny mapp</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Välj mapp</string>
-
     <string name="create_folder_failed">Det gick inte att skapa mapp</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Syncthing-logg</string>
     <string name="android_log_title">Android-logg</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Visa Android-logg</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Visa Syncthing-logg</string>
-
     <string name="retrieving_logs">Hämtar loggar...</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Dela</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Spara till Syncthing</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">Spara</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">Avbryt</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">Mapp</string>
-
     <!-- New file name template -->
     <string name="file_name_template">Ny fil %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">Inget att dela</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d fil kopierad till mapp \"%2$s\", %3$d finns redan</item>
         <item quantity="other">%1$d filer kopierade till mapp \"%2$s\", %3$d finns redan</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d fil kopierad till mapp \"%2$s\"</item>
         <item quantity="other">%1$d filer kopierade till mapp \"%2$s\"</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">Det uppstod ett fel under delning, kontrollera applikationsloggar </string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Delar filer...</string>
-
     <plurals name="file_name_title">
         <item quantity="one">Filnamn</item>
         <item quantity="other">Fillista</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">Undermapp</string>
-
     <string name="reason_not_charging">Telefonen laddas inte.</string>
     <string name="reason_not_on_battery_power">Telefonen körs inte på batteriet.</string>
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
-
     <!-- ... Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing är inte konfigurerad för att köras på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_not_on_mobile_data">Syncthing får köras på mobildataanslutning men mobildata är inte anslutet.</string>
-
     <string name="reason_wifi_disallowed">Syncthing är inte tillåten att köra på Wi-Fi.</string>
     <string name="reason_on_wifi">Syncthing är tillåtet att köra på Wi-Fi och Wi-Fi är för närvarande ansluten.</string>
     <string name="reason_not_on_wifi">Syncthing får köras på Wi-Fi men Wi-Fi är inte ansluten eller telefonen är i flygläge.</string>
@@ -624,49 +420,33 @@
     <string name="reason_not_nonmetered_wifi">Syncthing körs inte eftersom du inte tillät det att köras på uppmätta Wi-Fi-anslutningar.</string>
     <string name="reason_on_flight_mode">Syncthing körs som du tillät att den ska köras när flygläget är aktivt.</string>
     <!-- Sync Conditions Dialog -->
-
     <string name="custom_wifi_ssid_whitelist_empty">Ingen Wi-Fi-SSID är vitlistad. Ange några i inställningarna.</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Avsluta</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing körs</string>
     <string name="syncthing_disabled">Syncthing sover</string>
-
     <string name="syncthing_terminated">Syncthing avslutades</string>
-
     <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s foton</string>
-
     <string name="notification_crash_title">Syncthing har kraschat %1$s</string>
-
     <string name="notification_crash_text">Klicka för att visa loggar (%1$s)</string>
-
     <string name="notifications_persistent_channel">Syncthing är aktiv</string>
     <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>
     <string name="notifications_other_channel">Andra aviseringar</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Omstart behövs</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Klicka här för att starta om Syncthing nu</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Enhets-ID kopierad till urklipp</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -675,7 +455,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -684,7 +463,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Skannar</string>
     <string name="state_syncing_general">Synkroniserar</string>
     <string name="state_syncing">Synkroniserar (%1$d%%)</string>
@@ -695,12 +473,9 @@
     <string name="status_outofsync">Osynkroniserad</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">Det går inte att stoppa Syncthing när körning i bakgrunden är aktiverad.</string>
-
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Mapptyp</string>
-
     <!-- Displays the current folder type in the folder activity -->
     <string name="folder_type_sendreceive">Skicka &amp; ta emot</string>
     <string name="folder_type_sendonly">Skicka endast</string>
@@ -708,7 +483,6 @@
     <string name="folder_type_receiveonly_description">Filer synkroniseras från klustret, men eventuella ändringar som görs lokalt kommer inte att skickas till andra enheter.</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Filhämtningsordning</string>
-
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">Slumpmässig</string>
     <string name="pull_order_type_alphabetic">Alfabetisk</string>
@@ -716,7 +490,6 @@
     <string name="pull_order_type_largestFirst">Största först</string>
     <string name="pull_order_type_oldestFirst">Äldsta först</string>
     <string name="pull_order_type_newestFirst">Nyaste först</string>
-
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximal ålder</string>
     <string name="clean_out_after">Rensa upp efter</string>
@@ -724,7 +497,6 @@
     <string name="none">Inga</string>
     <string name="versions_path">Versioner sökväg</string>
     <string name="command">Kommando</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">Antalet gamla versioner som ska behållas, per fil.</string>
     <string name="simple_file_versioning_description">Filer flyttas till datumstämplade versioner i en .stversions-katalog när de ersätts eller tas bort av Syncthing.</string>
@@ -735,20 +507,17 @@
     <string name="cleanout_after_description">Antalet dagar att behålla filer i papperskorgen. Noll betyder för evigt</string>
     <string name="external_versioning_description">Den första kommandoradsparametern är mappsökvägen och den andra parametern är den relativa sökvägen i mappen.</string>
     <string name="no_versioning_description">Välj en versioner-typ för att aktivera versionshantering.</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Typ: Enkel</string>
     <string name="type_trashcan">Typ: Papperskorg</string>
     <string name="type_staggered">Typ: Förskjutna</string>
     <string name="type_external">Typ: Extern</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Rensa upp efter: %1$s</string>
     <string name="staggered_versioning_info">Maximal ålder: %1$d \nVersioner sökväg: %2$s</string>
     <string name="external_versioning_info">Kommando: %1$s</string>
     <string name="simple_versioning_info">Behåll versioner: %1$s</string>
     <string name="show_device_id">Visa enhetens ID</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Det gick inte att komma åt enhetens ID.</string>
     <string name="browse">Bläddra</string>

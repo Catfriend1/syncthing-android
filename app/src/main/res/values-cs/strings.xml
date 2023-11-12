@@ -2,64 +2,39 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Otevřená, důvěryhodná a decentralizovaná aplikace pro sdílení souborů.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Vítejte v Syncthing pro Android</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimalizace využití baterie</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Vaše zařízení nepodporuje vypnutí optimalizací baterie</string>
-
     <string name="cont">Pokračovat</string>
     <string name="finish">Dokončit</string>
     <string name="generic_error">Chyba</string>
     <string name="ignore">Ignorovat</string>
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Přidat adresář</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Sdílet ID přístroje</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Poslat ID přístroje přes</string>
-
     <string name="usage_reporting_dialog_title">Povolit anonymní hlášení o používání?</string>
-
     <string name="usage_reporting_dialog_description">Zašifrované hlášení o používání je odesíláno denně. Je použito k zjišťování obvyklých platforem, velikosti adresářů a verzi aplikace. Pokud se změní množství odesílaných detailů, budete znovu upozorněni tímto dialogem.\n\nSouhrnné statistiky jsou veřejně dostupné na https://data.syncthing.net.</string>
-
     <string name="yes">Ano</string>
-
     <string name="no">Ne</string>
-
     <string name="open_website">Otevřít webovou stránku</string>
-
     <string name="toast_write_storage_permission_required">Tato aplikace vyžaduje oprávnění pro zápis do úložiště</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Generování bezpečnostních klíčů. Toto může trvat pár minut.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Adresáře</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Nenalezeny žádné adresáře</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d soubor</item>
@@ -67,174 +42,112 @@
         <item quantity="many">%1$d / %2$d souborů</item>
         <item quantity="other">%1$d / %2$d souborů</item>
     </plurals>
-
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Přístroje</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Aktuální</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synchronizuje se (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Odpojen</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Neznámý</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Rychlost stahování</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Rychlost odesílání</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Rychlost stahování:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Rychlost odesílání:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Využití RAM</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Globální oznamování</string>
-
     <string name="restart">Restart</string>
-
     <string name="dialog_confirm_restart">Opravdu chcete restartovat Syncthing?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">ID adresáře</string>
-
     <!-- Setting title -->
     <string name="folder_label">Popis Adresáře</string>
-
     <!-- Setting title -->
     <string name="directory">Adresář</string>
     <!-- Setting title -->
     <string name="devices">Přístroje</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Ponechat verze</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Smazat adresář</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Přidat adresář</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Upravit adresář</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Přidat</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Opravdu chcete odebrat tento adresář ze Syncthing?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">ID adresáře nesmí být prázdné</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Cesta k adresáři nesmí být prázdná</string>
-
     <string name="dialog_discard_changes">Zrušit změny?</string>
-
     <string name="ignore_patterns">Ignorované vzory</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">ID přístroje</string>
-
     <!-- Setting title -->
     <string name="name">Jméno</string>
-
     <!-- Setting title -->
     <string name="addresses">Adresy</string>
-
     <!-- Setting title -->
     <string name="current_address">Aktuální adresa</string>
-
     <!-- Setting title -->
     <string name="compression">Komprese</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Vypnuta</item>
         <item>Metadata</item>
         <item>Všechno</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Zavaděč</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Smazat přístroj</string>
-
     <string name="add_device">Přidat přístroj</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Přidat</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Upravit přístroj</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Opravdu chcete odebrat tento přístroj?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID přístroje nesmí být prázdné</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Načíst QR kód</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Práva uživatele root nejsou dostupná</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Syncthing GUI</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Čeká se na Syncthing GUI</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Nastavení</string>
-
     <string name="category_run_conditions">Podmínky spuštění</string>
-
     <string name="category_behaviour">Chování</string>
-
     <string name="category_syncthing_options">Nastavení Syncthing</string>
-
     <string name="category_experimental">Experimentální</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Podmínky spuštění</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Pro výběr sítí prosím zapněte WiFi.</string>
-
     <string name="respect_battery_saving_title">Dodržovat nastavení úspory baterie z Androidu</string>
     <string name="use_root_title">Spustit syncthing jako superuživatel</string>
-
     <string name="preference_language_title">Jazyk</string>
-
     <string name="preference_language_summary">Změnit jazyk aplikace</string>
-
     <string name="pref_language_default">Výchozí jazyk</string>
-
     <string-array name="versioning_types">
         <item>Žádné</item>
         <item>Odpadkový koš</item>
@@ -242,127 +155,80 @@
         <item>Postupné</item>
         <item>Externí</item>
     </string-array>
-
     <string name="device_name">Jméno přístroje</string>
-
     <string name="listen_address">Adresy naslouchání protokolu synchronizace</string>
-
     <string name="max_recv_kbps">Omezení příchozí rychlosti (KiB/s)</string>
-
     <string name="max_send_kbps">Omezení odchozí rychlosti (KiB/s)</string>
-
     <string name="global_announce_enabled">Globální oznamování</string>
-
     <string name="local_announce_enabled">Místní oznamování</string>
-
     <string name="enable_nat_traversal">Povolit NAT traversal</string>
-
     <string name="global_announce_server">Servery globálního oznamování</string>
-
     <string name="enable_relaying">Povolit relaying</string>
-
     <string name="usage_reporting">Anonymní hlášení o používání</string>
-
     <string name="export_config">Zálohovat nastavení</string>
-
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
-
     <string name="use_tor_title">Použít Tor</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány.\n\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravud chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Nastavení bylo zálohováno do %1$s</string>
     <string name="import_config">Nahrát nastavení</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Nastavení bylo nahráno</string>
     <string name="config_import_failed">Nahrání nastavení selhalo, ujistěte se, že soubory jsou v %1$s</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Možnosti STTRACE</string>
-
     <string name="environment_variables">Proměnné prostředí</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">Hodnota není platným řetězcem proměnné prostředí</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Resetovat databázi</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Databáze aplikace Syncthing úspěšně resetována</string>
-
     <string name="category_about">O aplikaci</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Otevřít log</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Otevřít okno logu pro Syncthing a Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Nahlásit chybu</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Verze Syncthing</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Výběr adresáře</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Adresář je prázdný</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Vytvořit nový adresář</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Vybrat adresář</string>
-
     <string name="create_folder_failed">Vytvoření adresáře selhalo</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Log Syncthing</string>
     <string name="android_log_title">Log Android</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Zobrazit log pro Android</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Zobrazit log pro Syncthing</string>
-
     <string name="retrieving_logs">Získávám logy...</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Sdílet</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Uložit do Syncthing</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">Uložit</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">Zrušit</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">Složka</string>
-
     <!-- New file name template -->
     <string name="file_name_template">Nový souboru %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">Nic ke sdílení</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d soubor zkopírován do složky \"%2$s\", %3$d už existuje</item>
@@ -370,7 +236,6 @@
         <item quantity="many">%1$d souborů zkopírováno do složky \"%2$s\", %3$d už existuje</item>
         <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\", %3$d už existuje</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d soubor zkopírován do složky \"%2$s\"</item>
@@ -378,52 +243,37 @@
         <item quantity="many">%1$d souborů zkopírováno do složky \"%2$s\"</item>
         <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\"</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy</string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Sdílení souborů...</string>
-
     <plurals name="file_name_title">
         <item quantity="one">Název souboru</item>
         <item quantity="few">Názvy souborů</item>
         <item quantity="many">Seznam souborů</item>
         <item quantity="other">Seznam souborů</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">Podsložka</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Ukončit</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing běží</string>
     <string name="config_create_failed">Vytváření konfiguračního souboru selhalo</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto</string>
-
     <string name="notification_crash_title">Syncthing spadl %1$s</string>
-
     <string name="notifications_other_channel">Ostatní upozornění</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Je potřeba restartovat</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Tapnout sem pro restart aplikace Syncthing</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID přístroje bylo zkopírováno schránky</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -432,7 +282,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -441,7 +290,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_up_to_date">Aktuální</string>
     <string name="state_scanning">Skenování</string>
     <string name="state_syncing">Synchronizuje se (%1$d%%)</string>
@@ -450,9 +298,7 @@
     <string name="status_outofsync">Nesesynchronizováno</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">Syncthing nelze zastavit když je povolený běh na pozadí.</string>
-
     <string name="folder_type_sendonly">Pouze Odesílat</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximální stáří</string>
@@ -461,7 +307,6 @@
     <string name="none">Žádný</string>
     <string name="versions_path">Cesta k verzím</string>
     <string name="command">Příkaz</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">Počet udržovaných starších verzí souboru.</string>
     <string name="simple_file_versioning_description">Po nahrazení nebo smazání aplikací Syncthing jsou soubory přesunuty do verzí označených daty ve složce .stversions.</string>
@@ -472,20 +317,17 @@
     <string name="cleanout_after_description">Počet dní, po který budou soubory uchovány v koši. Nula znamená navždy.</string>
     <string name="external_versioning_description">První parametr příkazové řádky je cesta k adresáři, druhý je relativní cesta v témže adresáři.</string>
     <string name="no_versioning_description">Pro povolení verzování vyberte jeho typ</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Typ: Jednoduché</string>
     <string name="type_trashcan">Typ: Koš</string>
     <string name="type_staggered">Typ: Postupné</string>
     <string name="type_external">Typ: Externí</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Vyčistit po: %1$s</string>
     <string name="staggered_versioning_info">Maximální stáří: %1$d \nCesta k verzím: %2$s</string>
     <string name="external_versioning_info">Příkaz: %1$s</string>
     <string name="simple_versioning_info">Udržovat verze: %1$s</string>
     <string name="show_device_id">Ukázat ID zařízení</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Nemůžu přistoupit k ID zařízení.</string>
     <string name="browse">Procházet</string>

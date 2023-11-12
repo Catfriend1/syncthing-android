@@ -2,330 +2,207 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Отворено и заслужаващо доверие приложение за децентрализирано синхронизиране на файлове.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Добре дошли в Syncthing за Android</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Пестене на батерия</string>
     <string name="cont">Напред</string>
     <string name="generic_error">Грешка</string>
     <string name="ignore">Игнориране</string>
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Добави папка</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Сподели идентификатора</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Изпращане на идентификатора чрез</string>
-
     <string name="usage_reporting_dialog_title">Разреши анонимно докладване за употребата на програмата?</string>
-
     <string name="usage_reporting_dialog_description">Криптираният доклад се изпраща ежедневно. Използва се, за отичане на ползваните платформи, размер на папки и версии на приложението. Ако събираните данни се променят, ще бъдете информиран с подобен на този диалог.\n\nОбобщената статистика ще намерите на https://data.syncthing.net.</string>
-
     <string name="yes">Да</string>
-
     <string name="no">Не</string>
-
     <string name="open_website">Отвори уеб сайта</string>
-
     <string name="toast_write_storage_permission_required">Приложението изисква права за записване в хранилището на данни</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Генериране на ключове за сигурност. Може да отнеме няколко минути.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Папки</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Не са открити папки</string>
-
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Устройства</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Синхронизирано</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Синхронизиране (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Не е свързано</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Неясно</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Сваляне</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Качване</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Сваляне:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Качване:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM в употреба</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Сървър за откриване на устройства</string>
-
     <string name="restart">Рестартиране</string>
-
     <string name="dialog_confirm_restart">Желаете ли Syncthing да бъде рестартиран?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">Идентификатор на папката</string>
-
     <!-- Setting title -->
     <string name="folder_label">Етикет на папката</string>
-
     <!-- Setting title -->
     <string name="directory">Директория</string>
     <!-- Setting title -->
     <string name="devices">Устройства</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Запазвай последните</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Изтриване на папката</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Създаване на папка</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Редактиране на папка</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Създай</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Наистина ли желаете папката да бъде изтрита?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Наложително е да въведете идентификатор на папката</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Наложително е да въведете път до папката</string>
-
     <string name="dialog_discard_changes">Отказвате ли се от направените промени?</string>
-
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Идентификатор на устройството</string>
-
     <!-- Setting title -->
     <string name="name">Име</string>
-
     <!-- Setting title -->
     <string name="addresses">Адреси</string>
-
     <!-- Setting title -->
     <string name="current_address">Текущ адрес</string>
-
     <!-- Setting title -->
     <string name="compression">Компресиране</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Изключено</item>
         <item>Само мета информацията</item>
         <item>Всички данни</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Може да предлага други устройства</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Изтриване на устройството</string>
-
     <string name="add_device">Добави устройство</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Добави</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Редактиране на устройство</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Наистина ли желаете устройството да бъде изтрито?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Наложително е да въведете идентификатор на устройството</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Сканиране на QR код</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Придобиването на Root разрешение се провали</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Уеб интерфейс</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Изчакване на потребителския интерфейс</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Настройки</string>
-
     <string name="category_run_conditions">Условия на работа</string>
-
     <string name="category_behaviour">Поведение</string>
-
     <string name="category_syncthing_options">Настройки на Syncthing</string>
-
     <string name="category_experimental">Експериментални</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Условия на работа</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежа, моля включете WiFi</string>
-
     <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
-
     <string name="device_name">Име на устройството</string>
-
     <string name="listen_address">Адрес за слушане на синхронизиращия протокол</string>
-
     <string name="max_recv_kbps">Лимит на скоростта за сваляне (KiB/s)</string>
-
     <string name="max_send_kbps">Лимит на скоростта за качване (KiB/s)</string>
-
     <string name="global_announce_enabled">Глобално откриване</string>
-
     <string name="local_announce_enabled">Локално откриване</string>
-
     <string name="enable_nat_traversal">Разрешава NAT traversal</string>
-
     <string name="global_announce_server">Сървъри за глобално откриване</string>
-
     <string name="enable_relaying">Разрешава препращане</string>
-
     <string name="usage_reporting"> Анонимен доклад за ползване на програмата</string>
-
     <string name="export_config">Изнасяне на настройките</string>
-
     <string name="use_tor_title">Ползване на Tor</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Настройките са изнесени в %1$s</string>
     <string name="import_config">Внасяне на настройки</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Настройките са внесени</string>
     <string name="config_import_failed">Внасянето на настройките се провали. Уверете се, че файловете са в %1$s</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Нулиране на базата данни</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Базата данни на Syncthing е нулирана успешно</string>
-
     <string name="category_about">За програмата</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Отвори журнала</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Отваря журнала на Syncthing и Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Съобщете за проблем</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Версия на Syncthing</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Избор на папка</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Директорията е празна</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Създай папка</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Избери папката</string>
-
     <string name="create_folder_failed">Създаването на нова папка се провали</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Към журнала на Android</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Към журнала на Syncthing</string>
-
     <string name="retrieving_logs">Извличане на журналите...</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Сподели</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Изход</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing работи</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-снимки</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Изисква се рестартиране</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Натиснете за рестартиране на Syncthing</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Идентификаторът на устройството е копиран в клипборда</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -334,7 +211,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -343,7 +219,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Сканиране</string>
     <string name="state_syncing">Синхронизиране (%1$d%%)</string>
     <string name="state_error">Грешка</string>
@@ -351,6 +226,5 @@
     <string name="status_outofsync">Несинхронизирано</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="file_versioning">Версии на файловете</string>
 </resources>

@@ -2,26 +2,18 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Una aplicació de sincronització de fitxers oberta, confiable i descentralitzada.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Benvinguts al Syncthing per Android</string>
-
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducció</string>
     <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert.\n\
 Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.\n\
 Ens podeu informar dels problemes que trobeu a través de Github.</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permís d\'emmagatzematge</string>
     <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>
@@ -29,14 +21,12 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="ignore_doze_permission_title">Optimització de bateria</string>
     <string name="toast_ignore_doze_permission_required">Aquesta aplicació només pot funcionar de maner fiable si està eximida del mode d\'estalvi d\'energia \"doze\"</string>
     <string name="dialog_disable_battery_optimizations_not_supported">El teu dispositiu no permet desactivar les optimitzacions de bateria</string>
-
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permís d\'ubicació</string>
     <string name="location_permission_desc">Podeu configurar el Syncthing perquè funcioni amb les xarxes Wi-Fi que seleccioneu. L\'Android requereix que les aplicacions tinguin permís d\'ubicació per poder cercar el nom de les xarxes Wi-Fi actives. Si voleu utilitzar aquesta característica, premeu el botó de la part superior. Podeu ometre aquest pas. Vegeu la nostra política de privacitat per més detalls.</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generació de Claus</string>
     <string name="key_generation_success">S\'han generat amb èxit les claus segures per a l\'intercanvi privat de dades</string>
-
     <!-- Generic texts used everywhere -->
     <string name="back">Torna</string>
     <string name="cont">Continua</string>
@@ -47,380 +37,249 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="grant_permission">Concedeix permís</string>
     <string name="permission_granted">Permís concedit</string>
     <string name="reason">Raó:</string>
-
     <string name="accept">Accepta</string>
-
     <string name="ignore">Ignora</string>
-
     <string name="page_x_of_y">Pàgina %1$s de %2$s</string>
-
     <string name="main_menu">Menú principal</string>
-
     <string name="refresh">Actualitza</string>
-
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">Obre el Menú Principal</string>
     <string name="close_main_menu">Tanca el Menú Principal</string>
-
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">S\'ha trobat un error conegut que encara no està resolt. Vegeu %1$s/%2$s per més informació. Siusplau doneu una descripció precisa del que ha passat amb antelació.</string>
-
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirmeu sortir de l\'aplicació</string>
     <string name="dialog_exit_while_running_as_service_message">Per la vostra consideració: Heu configurat l\'aplicació perquè s\'iniciï automàticament durant l\'arrencada. Per tant es comproven les condicions d\'execució i es sincronitza en qualsevol moment que les condicions s\'acompleixen. Només hauríeu de tancar manualment si us trobeu amb problemes greus. Altrament, desactiveu \"Inicia automàticament durant l\'arrencada\" a la configuració. Voleu tancar ara fins que el dispositiu es reiniciï?</string>
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Afegeix una carpeta</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Comparteix ID del dispositiu</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envia ID del dispositiu a</string>
-
     <string name="usage_reporting_dialog_title">Permeteu els informes d\'ús anònims?</string>
-
     <string name="usage_reporting_dialog_description">L\'informe d\'ús s\'envia de manera xifrada cada dia. L\'utilitzem per fer un seguiment de les plataformes més comuns, la mida de les carpetes i les versions de l\'aplicació. Si mai canviem el contingut dels informes us tornarem a mostrar aquest missatge.\n\nLes estadístiques globals estan disponibles públicament a https://data.syncthing.net.</string>
-
     <string name="yes">Sí</string>
-
     <string name="no">No</string>
-
     <string name="open_website">Obre la pàgina web</string>
-
     <string name="toast_write_storage_permission_required">Aquesta aplicació requereix el permís d\'escriptura a l\'emmagatzematge</string>
-
     <string name="device_rejected">El dispositiu \"%1$s\" es vol connectar</string>
-
     <string name="folder_rejected">El dispositiu \"%1$s\" vol compartir la carpeta \"%2$s\"</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Generant claus segures. Pot trigar uns minuts.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Carpetes</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">No s\'han trobat carpetes</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d Fitxer</item>
         <item quantity="other">%1$d / %2$d Fitxers</item>
     </plurals>
-
     <string name="override_changes">Anul·la els canvis</string>
-
     <string name="open_file_manager">Obre l\'administrador d\'arxius</string>
     <string name="open_file_with">Obre el fitxer amb</string>
     <string name="open_file_no_compatible_app">No s\'ha trobat cap aplicació per obrir el fitxer</string>
-
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">No s\'ha trobat cap gestor de fitxers compatible</string>
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositius</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Actualitzat</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronitzant (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconnectat</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">En pausa</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Desconegut</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Descàrrega</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Pujada</string>
-
     <!-- StatusFragment -->
     <string name="status_fragment_title">Estat</string>
-
     <string name="syncthing_starting">El Syncthing s\'està iniciant.</string>
     <string name="syncthing_running">El Syncthing està en funcionament.</string>
     <string name="syncthing_not_running">El Syncthing no està en funcionament.</string>
     <string name="syncthing_has_crashed">El Syncthinc s\'ha tancat inesperadament.</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Descàrrega:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Pujada:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Ús de RAM</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Servidor d\'Anunci</string>
-
     <!-- Title for uptime status -->
     <string name="uptime">Temps actiu</string>
-
     <string name="restart">Reinicia</string>
-
     <string name="dialog_confirm_restart">Voleu reiniciar el Syncthing?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">ID de la carpeta</string>
-
     <!-- Setting title -->
     <string name="folder_label">Etiqueta de la carpeta</string>
-
     <!-- Setting title -->
     <string name="directory">Directori</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Vigila els canvis</string>
     <string name="folder_fileWatcherDescription">Demana al sistema que notifiqui dels canvis als fitxers. Si es desactiva es faran comprovacions cada hora.</string>
-
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignora els Esborrats</string>
     <!-- Setting title -->
     <string name="folder_pause">Posa la carpeta en pausa</string>
-
     <!-- Setting title -->
     <string name="devices">Dispositius</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Conserva versions</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Esborra la carpeta</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Crea una carpeta</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Edita la carpeta</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Crea</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Realment voleu eliminar aquesta carpeta del Syncthing?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">L\'ID de la carpeta no pot ser buit</string>
-
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">L\'etiqueta de la carpeta no pot ser buida</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">El camí de la carpeta no pot ser buit</string>
-
     <string name="dialog_discard_changes">Voleu descartar els canvis?</string>
-
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">La vostra versió d\'Android només permet accés de lectura al Syncthing per la carpeta seleccionada</string>
-
     <!-- Summary shown if we only have readwrite access to the folder path -->
     <string name="folder_path_readwrite">La vostra versió d\'Android permet accés de lectura i escriptura al Syncthing per la carpeta seleccionada</string>
-
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Ho sentim. La capeta seleccionada no es pot utilitzar. Trieu una carpeta de l\'emmagatzematge intern o extern.</string>
-
     <string name="ignore_patterns">Patrons a ignorar</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">ID del dispositiu</string>
-
     <!-- Status title -->
     <string name="discovered_devices_title">Dispositius descoberts - Toqueu per seleccionar</string>
-
     <!-- Setting title -->
     <string name="name">Nom</string>
-
     <!-- Setting title -->
     <string name="addresses">Adreces</string>
-
     <!-- Setting title -->
     <string name="current_address">Adreça actual</string>
-
     <!-- Setting title -->
     <string name="compression">Compressió</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Mai</item>
         <item>Metadades</item>
         <item>Sempre</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Introductor</string>
-
     <!-- Setting title -->
     <string name="pause_device">Posa el dispositiu en pausa</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Esborra el dispositiu</string>
-
     <string name="add_device">Afegeix un dispositiu</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Afegeix</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Edita el dispositiu</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Realment voleu eliminar aquest dispositiu?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">L\'ID del dispositiu no pot ser buit</string>
-
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">El nom del dispositiu no pot ser buit</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Escaneja el codi QR</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">No s\'han obtingut permisos de superusuari</string>
-
     <!-- TipsAndTricks activity -->
-
-
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Consells i trucs</string>
-
     <string name="tip_write_to_sdcard_title">Solució alternativa per escriure a la targeta SD externa</string>
     <string name="tip_sync_on_local_network_title">Sincronitza només utilitzant la xarxa WiFi local</string>
     <string name="tip_custom_sync_conditions_title">Utilitza condicions de sincronització per carpeta/dispositiu</string>
     <string name="tip_huawei_device_disconnected_title">Solució alternativa per \'dispositiu desconnectat\' amb Huawei</string>
     <string name="tip_phone_ip_address_syntax">ADREÇA_IP_TELÈFON</string>
-
     <string name="tip_xiaomi_autostart_title">Xiaomi: l\'aplicació no s\'inicia durant l\'arrencada</string>
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">No hi ha cap canvi recent.</string>
-
     <string name="recent_changes_title">Canvis recents</string>
     <string name="modified_by_device">Dispositiu: %1$s</string>
     <string name="modification_time">Temps: %1$s</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interfície web</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Esperant interfície gràfica</string>
-
-
     <!-- WebViewActivity -->
-
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Avís de Seguretat</string>
-
     <!-- Dialog message if an invalid ssl certificate was detected -->
     <string name="ssl_cert_invalid_text">Sembla que la pàgina web %1$s té un certificat que no és vàlid per xifrar amb SSL. Voleu continuar?</string>
-
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Carregant pàgina web:\n%1$s ...</string>
-
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Obre al navegador</string>
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Configuració</string>
-
     <string name="category_run_conditions">Condicions d\'execució</string>
-
     <string name="category_behaviour">Comportament</string>
-
     <string name="category_syncthing_options">Opcions del Syncthing</string>
-
     <string name="category_syncthing_options_summary">Aquest menú només està disponible si el Syncthing s\'està executant.</string>
-
     <string name="category_backup">Importa i Exporta</string>
     <string name="category_debug">Resolució de problemes</string>
     <string name="category_experimental">Experimental</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condicions d\'execució</string>
     <string name="run_conditions_summary">Utilitzeu les següents opcions per decidir quan s\'executarà el Syncthing.</string>
-
     <string name="run_on_mobile_data_title">Executa amb dades mòbils</string>
     <string name="run_on_mobile_data_summary">Executa quan el dispositiu es connecti a través de la xarxa de dades mòbils. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
-
     <string name="run_on_wifi_title">Executa amb Wi-Fi</string>
     <string name="run_on_metered_wifi_title">Executa amb Wi-Fi mesurada</string>
     <string name="run_on_metered_wifi_summary">Executa quan el dispositiu estigui connectat a una xarxa Wi-Fi mesurada, com ara una zona amb cobertura o un ancoratge. Advertència: Si sincronitzeu gran quantitat de dades podríeu consumir un volum important del pla de dades del vostre operador mòbil.</string>
-
     <string name="run_on_whitelisted_wifi_title">Executa amb les xarxes Wi-Fi especificades</string>
     <string name="specify_wifi_ssid_whitelist">Selecciona les xarxes Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_networks">Xarxes Wi-Fi seleccionades: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">No s\'ha triat cap xarxa Wi-Fi. Feu clic per triar les xarxes.</string>
-
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Enceneu el WiFi per seleccionar xarxes.</string>
-
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Heu de proporcionar el permís d\'UBICACIÓ per poder fer això.</string>
-
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de l\'Android 8.1, cal tenir accés a la ubicació per poder llegir el nom de la WiFi. Només ho podreu fer si concediu aquest permís.</string>
-
     <string name="power_source_title">Executa quan el dispositiu estigui encès</string>
-
     <string-array name="power_source_entries">
         <item>Connectat a la corrent i amb bateria</item>
         <item>Connectat a la corrent</item>
         <item>Amb bateria</item>
     </string-array>
-
     <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
     <string name="respect_battery_saving_summary">Desactiva el Syncthing durant el mode d\'estalvi de bateria.</string>
-
     <string name="respect_master_sync_title">Respecta l\'ajustament de l\'Android d\'\'Auto-sincronitzar dades\'</string>
     <string name="respect_master_sync_summary">Desactiva el Syncthing quan l\'ajustament ràpid d\'\'Auto-sincronitzar dades\' estigui apagat.</string>
-
     <string name="run_in_flight_mode_title">Executa sense connexió a la xarxa</string>
     <string name="run_on_time_schedule_title">Executa segons un horari</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Inici automàtic</string>
     <string name="behaviour_autostart_summary">Inicia l\'aplicació automàticament durant l\'arrencada del sistema operatiu</string>
-
     <string name="use_root_title">Executa el Syncthing com a Superusuari</string>
-
     <string name="expert_mode_title">Mode expert</string>
-
     <string name="preference_language_title">Idioma</string>
-
     <string name="preference_language_summary">Canvieu l\'idioma de l\'aplicació</string>
-
     <string name="pref_language_default">Idioma per defecte</string>
-
     <string-array name="folder_types">
         <item>Envia i rep</item>
         <item>Només envia</item>
         <item>Només rep</item>
         <item>Receive Encrypted</item>
     </string-array>
-
     <string-array name="pull_order_types">
         <item>Aleatori</item>
         <item>Alfabètic</item>
@@ -429,7 +288,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>Primer el més antic</item>
         <item>Primer el més nou</item>
     </string-array>
-
     <string-array name="versioning_types">
         <item>Cap</item>
         <item>Paperera</item>
@@ -437,284 +295,188 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>Escalonat</item>
         <item>Extern</item>
     </string-array>
-
     <string name="device_name">Nom del dispositiu</string>
-
     <string name="listen_address">Adreces d\'escolta del protocol de sincronització</string>
-
     <string name="max_recv_kbps">Límit de transferència entrant (KiB/s)</string>
-
     <string name="max_send_kbps">Límit de transferència sortint (KiB/s)</string>
-
     <string name="global_announce_enabled">Descoberta Global</string>
-
     <string name="local_announce_enabled">Descoberta Local</string>
-
     <string name="enable_nat_traversal">Permet recorregut NAT</string>
-
     <string name="global_announce_server">Servidors per Descoberta Global</string>
-
     <string name="enable_relaying">Permet la retransmissió</string>
-
     <string name="usage_reporting">Informes d\'ús anònims</string>
-
     <string name="webui_tcp_port_title">Port TCP de la intefície web</string>
-
     <string name="webui_remote_access_title">Accés remot a la interfície web</string>
-
     <string name="webui_debugging_title">Depuració de la interfície web</string>
-
     <string name="download_support_bundle_title">Descarrega el Paquet de Suport</string>
-
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Preparant descàrrega del Paquet de Suport</string>
-
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Paquet de Suport descarregat correctament a %s.</string>
-
     <!-- Toast after failed support bundle download -->
     <string name="download_support_bundle_failed">Ha fallat la descàrrega del Paquet de Suport. Comproveu els registres.</string>
-
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Desfés ignorant els dispositius i carpetes</string>
     <string name="undo_ignored_devices_folders_question">Això desfarà les decisions anteriors d\'ignorar els dispositius i carpetes. Voleu continuar?</string>
     <string name="undo_ignored_devices_folders_done">S\'han desfet les decisions correctament</string>
-
     <string name="export_config">Exporta la configuració</string>
-
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Valor no vàlid. Introduïu un valor entre %1$d i %2$d.</string>
-
     <!-- Experimental options -->
     <string name="use_proxy">Connecta emprant un proxy</string>
     <string name="do_not_use_proxy">No s\'ha configurat cap proxy.</string>
-
     <string name="keep_wakelock_while_binary_running">Mantingues activa la CPU mentre s\'executi el Syncthing</string>
-
     <string name="use_tor_title">Utilitza Tor</string>
-
     <string name="use_tor_summary">Força la connexió a través de Tor per millorar la privacitat. Requereix Orbot. Desactiva les opcions del proxy.</string>
-
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">No compleix la sintaxi de proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-
     <string name="http_proxy_address_title">Proxy HTTP(S)</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">No compleix la sintaxi de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
-
     <string name="broadcast_service_control_title">Control del Servei per Difusió</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Realment voleu exportar la configuració? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Realment voleu importar una nova configuració? Es sobreescriuran els fitxers existents.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">S\'ha exportat la configuració a %1$s</string>
     <string name="config_export_failed">Ha fallat la exportació de la configuració, comproveu el fitxer de registre.</string>
-
     <string name="import_config">Importa la configuració</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">S\'ha importat la configuració</string>
     <string name="config_import_failed">Ha fallat la importació de la configuració, verifiqueu que els fitxers siguin a  %1$s</string>
-
     <string name="dialog_settings_restart_app_title">Cal reiniciar</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opcions de STTRACE</string>
-
     <string name="environment_variables">Variables d\'entorn</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">Aquest valor no és una cadena de variable d\'entorn vàlida</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Reinicia la base de dades</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
         \nSegur que voleu esborrar la base de dades del Syncthing?
 </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">La base de dades del Syncthing s\'ha reiniciat amb èxit</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Reinicia els Índexs Delta</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
         \nSegur que voleu esborrar els índex delta del Syncthing?
 </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">S\'han reiniciat correctament els índexs delta del Syncthing</string>
-
     <string name="category_about">Quant a</string>
-
     <string name="verbose_log_title">Registre detallat</string>
-
     <string name="verbose_log_summary">Si activeu aquesta opció generareu registres molt detallats.</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Obre el registre</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Obre la finestra de registre del Syncthing i de l\'Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Informeu d\'un problema</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versió del Syncthing</string>
-
     <!-- Title of the preference showing this app's version name -->
     <string name="app_version_title">Versió de l\'embolcall del Syncthing-Fork</string>
-
     <!-- Title of the preference showing the REST API key -->
     <string name="syncthing_api_key">Clau d\'API del Syncthing (feu clic per copiar)</string>
-
     <!-- Shown when the API key is copied to the clipboard -->
     <string name="api_key_copied_to_clipboard">Clau d\'API del Syncthing copiada al porta-retalls</string>
-
     <!-- Title of the preference showing database size -->
     <string name="syncthing_database_size">Mida de la Base de dades del Syncthing</string>
-
     <!-- Title of the preference showing the OS open file limit -->
     <string name="os_open_file_limit">Límit de Fitxers Oberts de l\'Android</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Selector de carpetes</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">El directori és buit</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Crea una carpeta nova</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Selecciona la carpeta</string>
-
     <string name="create_folder_failed">No s\'ha pogut crear la carpeta</string>
-
     <!-- Menu item to go up to parent folder -->
     <string name="folder_go_up">Puja</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Registre del Syncthing</string>
     <string name="android_log_title">Registre de l\'Android</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Mostra el registre de l\'Android</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Mostra el registre del Syncthing</string>
-
     <string name="retrieving_logs">Obtenint registres...</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Comparteix</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Desa al Syncthing</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">Desa</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">Cancel·la</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">Carpeta</string>
-
     <!-- New file name template -->
     <string name="file_name_template">Nou fitxer %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">Res a compartir</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d fitxer copiat a la carpeta \"%2$s\", %3$d ja existeix</item>
         <item quantity="other">%1$d fitxers copiats a la carpeta \"%2$s\", %3$d ja existeix</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d fitxer copiat a la carpeta \"%2$s\"</item>
         <item quantity="other">%1$d fitxers copiats a la carpeta \"%2$s\"</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">S\'ha produït un error en compartir, comproveu els registres</string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Compartint fitxers…</string>
-
     <plurals name="file_name_title">
         <item quantity="one">Nom del fitxer</item>
         <item quantity="other">Llista de fitxers</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">Subcarpeta</string>
-
     <string name="reason_not_charging">El telèfon no s\'està carregant.</string>
     <string name="reason_not_on_battery_power">El telèfon no està connectat a la corrent.</string>
     <string name="reason_not_while_power_saving">El Syncthing no està funcionant perquè el telèfon està en mode d\'estalvi d\'energia.</string>
     <string name="reason_not_while_auto_sync_data_disabled">El Syncthing no està funcionant perquè l\'Android té la funció \'Sincronització automàtica de dades\' desactivada.</string>
-
     <string name="reason_on_mobile_data">El Syncthing està funcionant perquè les dades mòbils estan actives.</string>
     <string name="reason_not_on_mobile_data">El Syncthing pot funcionar amb connexions de dades mòbils però les dades mòbils no estan connectades.</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Surt</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">El Syncthing s\'està executant</string>
     <string name="syncthing_disabled">El Syncthing està adormit</string>
-
     <string name="syncthing_terminated">El Syncthing s\'ha aturat</string>
-
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">Falta l\'executable essencial \"%s\". Comproveu el fitxer de registre.</string>
     <string name="config_create_failed">No s\'ha pogut crear el fitxer de configuració</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Falta un fitxer de configuració esencial per al funcionament</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>
-
     <string name="notification_crash_title">El Syncthing s\'ha bloquejat %1$s</string>
-
     <string name="notifications_persistent_channel">El Syncthing està actiu</string>
     <string name="notification_persistent_waiting_channel">Vigilant les condicions d\'execució</string>
     <string name="notifications_other_channel">Altres notificacions</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Cal reiniciar</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Feu clic aquí per reiniciar el Syncthing ara</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">S\'ha copiat la ID del dispositiu al porta-retalls</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -723,7 +485,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -732,7 +493,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Escanejant</string>
     <string name="state_syncing_general">Sincronitzant</string>
     <string name="state_syncing">Sincronitzant (%1$d%%)</string>
@@ -742,22 +502,17 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="state_paused">En pausa</string>
     <string name="status_outofsync">No sincronitzat</string>
     <string name="state_unshared">No compartit</string>
-
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">No es permet aturar el Syncthing mentre s\'està executant en segon pla.</string>
-
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipus de carpeta</string>
-
     <!-- Displays the current folder type in the folder activity -->
     <string name="folder_type_sendreceive">Envia i rep</string>
     <string name="folder_type_sendonly">Només envia</string>
     <string name="folder_type_receiveonly">Només rep</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordre en què s\'estiren els fitxers</string>
-
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">Aleatori</string>
     <string name="pull_order_type_alphabetic">Alfabètic</string>
@@ -765,7 +520,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="pull_order_type_largestFirst">Primer els més grans</string>
     <string name="pull_order_type_oldestFirst">Primer els més antics</string>
     <string name="pull_order_type_newestFirst">Primer els més nous</string>
-
     <!-- Pull order dialog descriptions for pull order types -->
     <string name="pull_order_type_random_description">Estira els fitxers en ordre aleatori.</string>
     <string name="pull_order_type_alphabetic_description">Estira els fitxers ordenats alfabèticament pel nom.</string>
@@ -776,7 +530,6 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="none">Cap</string>
     <string name="versions_path">Camí de les versions</string>
     <string name="command">Ordre</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">Nombre de versions antigues a conservar de cada fitxer.</string>
     <string name="simple_file_versioning_description">Els fitxers substituïts o esborrats pel Syncthing es mouen a una carpeta .stversions com a versions amb la data afegida.</string>
@@ -787,20 +540,17 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="cleanout_after_description">Nombre de dies que cal mantenir els fitxers a la paperera. Zero significa per sempre</string>
     <string name="external_versioning_description">El primer paràmetre de la línia de comandes és el camí de la carpeta i el segon paràmetre és el camí relatiu dins de la carpeta.</string>
     <string name="no_versioning_description">Seleccioneu un tipus de gestió de versions per activar-lo.</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Tipus: Simple</string>
     <string name="type_trashcan">Tipus: Paperera</string>
     <string name="type_staggered">Tipus: Escalonat</string>
     <string name="type_external">Tipus: Extern</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Neteja després de: %1$s</string>
     <string name="staggered_versioning_info">Antiguitat Màxima: %1$d \nCamí de les Versions: %2$s</string>
     <string name="external_versioning_info">Ordre: %1$s</string>
     <string name="simple_versioning_info">Versions a conservar: %1$s</string>
     <string name="show_device_id">Mostra la ID del dispositiu</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">No s\'ha pogut tenir accés a la ID del dispositiu.</string>
     <string name="browse">Navega</string>
@@ -808,5 +558,4 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="share_device_id_chooser">Comparteix la ID del dispositiu amb</string>
     <string name="custom_sync_conditions_title">Condicions d\'execució personalitzades</string>
     <string name="custom_sync_conditions_dialog">Especifica les condicions de sincronització</string>
-
 </resources>

@@ -2,328 +2,206 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Açık, güvenilir ve merkezi olmayan bir dosya eşzamanlama uygulaması.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Android için Syncthing\'e Hoş Geldiniz</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batarya İyileştirme</string>
     <string name="cont">Devam et</string>
     <string name="generic_error">Hata</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Klasör Ekleme</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Aygıt ID Paylaş</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">İle Aygıt ID Gönder</string>
-
     <string name="usage_reporting_dialog_title">Anonim kullanımın raporlanmasına izin veriyor musun ?</string>
-
     <string name="usage_reporting_dialog_description">Şifrelenmiş kullanım raporu günlük olarak yollanır. Bu rapor kullanıcı platformları, klasör büyüklükleri ve uygulama sürüm bilgilerini takip etmek için kullanılır. Raporlanan veri kümesi değişirse, bu pencere aracılığıyla yeniden bilgilendirileceksiniz.\n\nBiriken istatistiklere https://data.syncthing.net adresinden halka açık olarak erişilebilinir.</string>
-
     <string name="yes">Evet</string>
-
     <string name="no">Hayır</string>
-
     <string name="open_website">Web sitesini aç</string>
-
     <string name="toast_write_storage_permission_required">Bu uygulama için belleğe yazma yetkisi gerekmektedir.</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Güvenli anahtarlar üretiliyor. Birkaç dakika zaman alabilir.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Klasörler</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Klasör bulunamadı</string>
-
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Aygıtlar</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Güncel</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Bağlantı kesik</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Bilinmiyor</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">İndirme</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Yükleme</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">İndirme:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Yükleme:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM Kullanımı</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Bildirim Sunucusu</string>
-
     <string name="restart">Yeniden başlat</string>
-
     <string name="dialog_confirm_restart">Syncthing\'i yeniden başlatmak istiyor musun?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">Klasör ID</string>
-
     <!-- Setting title -->
     <string name="folder_label">Klasör Etiketi</string>
-
     <!-- Setting title -->
     <string name="directory">Dizin</string>
     <!-- Setting title -->
     <string name="devices">Aygıtlar</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Sürümleri Sakla</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Klasör Sil</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Klasör Oluştur</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Klasör Düzenleme</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Oluştur</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Bu klasörü Syncthing\'den silmek istediğine emin misin?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Klasör ID\'si boş bırakılamaz</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Klasör yolu boş olmamalı</string>
-
     <string name="dialog_discard_changes">Değişiklikleri göz ardı et?</string>
-
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Aygıt ID</string>
-
     <!-- Setting title -->
     <string name="name">Adı</string>
-
     <!-- Setting title -->
     <string name="addresses">Adresler</string>
-
     <!-- Setting title -->
     <string name="current_address">Geçerli Adres</string>
-
     <!-- Setting title -->
     <string name="compression">Sıkıştırma</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Asla</item>
         <item>Üstveri</item>
         <item>Her zaman</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Tanıtıcı</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Aygıt Sil</string>
-
     <string name="add_device">Aygıt Ekleme</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Ekle</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Aygıt Düzenleme</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Bu aygıtı silmek istediğinden emin misin?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Aygıt ID boş olmamalı</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR Kodu Tara</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Kök yetkileri alınamadı.</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Web Arayüzü</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Arayüz Bekleniyor</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Ayarlar</string>
-
     <string name="category_run_conditions">Çalışma Koşulları</string>
-
     <string name="category_behaviour">Davranış</string>
-
     <string name="category_syncthing_options">Syncthing Seçenekleri</string>
-
     <string name="category_experimental">Deneysel</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Çalışma Koşulları</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Ağ seçmek için lütfen kablosuz bağlantınızı açın.</string>
-
     <string name="use_root_title">Syncthing\'i Superuser/Ayrıcalıklı Kullanıcı olarak Çalıştır</string>
-
     <string name="device_name">Aygıt Adı</string>
-
     <string name="listen_address">Eşzamanlama Protokolü Dinleme/Bağlanma Adresleri</string>
-
     <string name="max_recv_kbps">Gelen Hız Sınırı (KiB/s)</string>
-
     <string name="max_send_kbps">Giden Hız Sınırı (KiB/s)</string>
-
     <string name="global_announce_enabled">Küresel Bulunabilirlik</string>
-
     <string name="local_announce_enabled">Yerel Bulunabilirlik</string>
-
     <string name="enable_nat_traversal">NAT Çaprazlamasını Etkinleştir</string>
-
     <string name="global_announce_server">Küresel Bulunabilirlik Sunucuları</string>
-
     <string name="usage_reporting">Anonim Kullanım Raporlama</string>
-
     <string name="export_config">Yapılandırmayı Dışa Aktar</string>
-
     <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
-
     <string name="use_tor_title">Tor kullan</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Yeni yapılandırmayı gerçekten içe aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Yapılandırma şurada dışa aktarıldı: %1$s</string>
     <string name="import_config">Yapılandırmayı İçe Aktar</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Yapılandırma içe aktarıldı</string>
     <string name="config_import_failed">Yapılandırma içe aktarılamadı, dosyaların %1$s içinde olduğundan emin olun</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Veritabanını Sıfırla</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthing\'in veritabanı başarıyla sıfırlandı.</string>
-
     <string name="category_about">Hakkında</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Günlüğü Aç</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Syncthing ve Android günlük kayıtları penceresini aç</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Hata Bildir</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing Sürümü</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Klasör Seçici</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Dizin Boş</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Yeni Klasör Oluştur</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Klasör Seç</string>
-
     <string name="create_folder_failed">Klasör oluşturulamadı</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Android Günlüğünü Göster</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Syncthing Günlük Kayıtlarını Göster</string>
-
     <string name="retrieving_logs">Günlükler alınıyor...</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Paylaş</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Çık</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing çalışıyor</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotograflar</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Yeniden Başlatma Gerekli</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Şimdi Syncthing\'i yeniden başlatmak için tıkla</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Aygıt ID panoya kopyalandı</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -332,7 +210,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -341,7 +218,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Taranıyor</string>
     <string name="state_syncing">Eşzamanlama gerçekleştiriliyor (%1$d%%)</string>
     <string name="state_error">Hata</string>
@@ -349,8 +225,6 @@
     <string name="status_outofsync">Eşzamanlama Dışı</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">Arka planda çalışma etkinken Syncthing\'i durdurma desteklenmiyor.</string>
-
     <string name="file_versioning">Dosya Sürümlendirme</string>
 </resources>

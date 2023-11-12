@@ -2,26 +2,18 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Une application ouverte, fiable et décentralisée pour synchroniser des fichiers.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Bienvenue dans Syncthing pour Android</string>
-
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
     <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert.\n\
 Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..\n\
 S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permission de stockage</string>
     <string name="storage_permission_desc">Syncthing a besoin d’accéder a vos données pour pouvoir synchroniser les fichiers.</string>
@@ -30,7 +22,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="ignore_doze_permission_os_notice">Android TV\'s est connu pour fermer occasionnellement l\'appli quand elle tourne en arrière plan. Une solution est disponible sur le wiki : \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps.  Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches.  Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
-
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permission de localisation</string>
     <!-- Slide "Key Generation" -->
@@ -43,242 +34,153 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="generic_error">Erreur</string>
     <string name="generic_help">Aide</string>
     <string name="ignore">Ignorer</string>
-
     <string name="main_menu">Menu principal</string>
-
     <string name="refresh">Actualiser</string>
-
-
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Ajouter un partage</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Partager ID appareil</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envoyer ID appareil à</string>
-
     <string name="usage_reporting_dialog_title">Autoriser l\'envoi anonyme de rapports d\'utilisation ?</string>
-
     <string name="usage_reporting_dialog_description">Le rapport crypté des usages est envoyé tous les jours. Il est utilisé pour recueillir les types de plates-formes, la tailles des partages et les versions d\'applications. Si le type de données envoyées dans les rapports est modifié, vous verrez à nouveau cette boite de dialogue.\n\nL\'agrégation des statistiques est publique, et disponible sur https://data.syncthing.net.</string>
-
     <string name="yes">Oui</string>
-
     <string name="no">Non</string>
-
     <string name="open_website">Ouvrir le site WEB</string>
-
     <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application.</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Partages</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Aucun partage trouvé</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d Fichier</item>
         <item quantity="many">%1$d / %2$d Fichiers</item>
         <item quantity="other">%1$d / %2$d Fichiers</item>
     </plurals>
-
     <string name="open_file_manager">Ouvrir le gestionnaire de fichiers</string>
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Appareils</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Synchronisé</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synchronisation (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Déconnecté</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">En pause</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Inconnu</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Réception</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Emission</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Réception:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Émission:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilisation de la RAM</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Serveur d\'annonce</string>
-
     <string name="restart">Redémarrer</string>
-
     <string name="dialog_confirm_restart">Voulez-vous redémarrer Syncthing ?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">ID du partage</string>
-
     <!-- Setting title -->
     <string name="folder_label">Nom local du partage</string>
-
     <!-- Setting title -->
     <string name="directory">Répertoire</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Surveiller les changements</string>
     <string name="folder_fileWatcherDescription">Demande au système d\'exploitation de signaler les modifications apportées aux fichiers. Si désactivé, revient aux analyses horaires périodiques.</string>
-
     <!-- Setting title -->
     <string name="folder_pause">Mettre le partage en pause</string>
-
     <!-- Setting title -->
     <string name="devices">Appareils</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Conserver les versions</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Supprimer le partage</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Création d\'un partage</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Modification du partage</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Créer</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Voulez-vous vraiment enlever ce partage de Syncthing ?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">L\'ID du partage ne doit pas être vide</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Le chemin du répertoire ne doit pas être vide</string>
-
     <string name="dialog_discard_changes">Annuler vos modifications ?</string>
-
     <string name="ignore_patterns">Ignorer les exclusions</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Mon ID</string>
-
     <!-- Setting title -->
     <string name="name">Nom convivial optionnel</string>
-
     <!-- Setting title -->
     <string name="addresses">Adresses</string>
-
     <!-- Setting title -->
     <string name="current_address">Adresse actuelle</string>
-
     <!-- Setting title -->
     <string name="compression">Compression</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Jamais</item>
         <item>Metadonnées</item>
         <item>Toujours</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Initiateur</string>
-
     <!-- Setting title -->
     <string name="pause_device">Mettre l\'appareil en pause</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Supprimer l\'appareil</string>
-
     <string name="add_device">Ajout d\'un appareil</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Ajouter</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Modification de l\'appareil</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Voulez-vous vraiment enlever cet appareil ?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">L\'ID d\'appareil ne peut pas être vide</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanner un QR Code</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Échec d\'obtention des droits root (superviseur).</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interface WEB</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">En attente de l\'interface WEB</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Paramètres</string>
-
     <string name="category_run_conditions">Conditions d\'exécution</string>
-
     <string name="category_behaviour">Comportement</string>
-
     <string name="category_syncthing_options">Options Syncthing</string>
-
     <string name="category_experimental">Expérimental</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Conditions d\'exécution</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le WiFi pour sélectionner un réseau</string>
-
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Vous devez accorder la permission LOCALISATION pour utiliser cette fonctionnalité.</string>
-
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission requise</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">À partir d\'Android 8.1, l\'accès à la localisation est nécessaire pour pouvoir lire le nom du WiFi. Vous pouvez utiliser cette fonctionnalité uniquement si vous accordez cette autorisation.</string>
-
     <string name="respect_battery_saving_title">Sauvegarde batterie selon les réglages Android</string>
     <string name="use_root_title">Faire fonctionner syncthing en super-utilisateur</string>
-
     <string name="preference_language_title">Langue</string>
-
     <string name="preference_language_summary">Changer la langue de l\'application</string>
-
     <string name="pref_language_default">Langue par défaut</string>
-
     <string-array name="versioning_types">
         <item>Aucun</item>
         <item>Corbeille</item>
@@ -286,225 +188,151 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
         <item>Décalé</item>
         <item>Externe</item>
     </string-array>
-
     <string name="device_name">Nom de l\'appareil</string>
-
     <string name="listen_address">Adresse d\'écoute pour la synchro</string>
-
     <string name="max_recv_kbps">Limite du débit de réception (Ko/s)</string>
-
     <string name="max_send_kbps">Limite du débit d\'émission (Ko/s)</string>
-
     <string name="global_announce_enabled">Recherche globale</string>
-
     <string name="local_announce_enabled">Recherche locale</string>
-
     <string name="enable_nat_traversal">Activer transfert d\'adresses (NAT)</string>
-
     <string name="global_announce_server">Serveurs de découverte globale</string>
-
     <string name="enable_relaying">Activer le relayage</string>
-
     <string name="usage_reporting">Rapports anonymes d\'utilisation</string>
-
     <string name="export_config">Exporter la configuration</string>
-
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">La valeur entrée ne convient pas. SVP, entrez une valeur comprise entre %1$det %2$d.</string>
-
     <!-- Experimental options -->
     <string name="use_proxy">Se connecter via un proxy</string>
     <string name="do_not_use_proxy">Aucun proxy configuré</string>
-
     <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
-
     <string name="use_tor_title">Utiliser Tor</string>
-
     <string name="use_tor_summary">Forcer tout le trafic à travers Tor mieux préserver sa vie privée. Nécessite Orbot. Désactive les options de proxy.</string>
-
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-
     <string name="http_proxy_address_title">Proxy HTTP(S)</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés.\n\n ATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
     <string name="import_config">Importer la configuration</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">La configuration a été importée</string>
     <string name="config_import_failed">Echec de l\'import de la configuration, assurez-vous que les fichiers sont dans %1$s</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Options STTRACE</string>
-
     <string name="environment_variables">Variables d\'environnement</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">La valeur n\'est pas une chaîne de variable d\'environnement valide</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Remise à zéro de la base de données</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
         \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
     </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Réinitialisation réussie de la base de données Syncthing</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Réinitialiser les index delta</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
         \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
     </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>
-
     <string name="category_about">A propos</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Ouvrir le journal</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Ouvre la fenêtre du journal de Syncthing et Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Signaler un problème</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Version de Syncthing</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Sélection du répertoire</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Le répertoire est vide</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Créer un nouveau partage</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Choisir ce répertoire</string>
-
     <string name="create_folder_failed">Échec de création du partage</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Journal Syncthing</string>
     <string name="android_log_title">Journal Android</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Voir le journal Android</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Voir le journal Syncthing</string>
-
     <string name="retrieving_logs">Récupération des journaux....</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Partage</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Enregistrer dans Syncthing</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">Sauvegarder</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">Annuler</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">Partage</string>
-
     <!-- New file name template -->
     <string name="file_name_template">Nouveau fichier %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">Rien à partager</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d fichier copié vers partage \"%2$s\", %3$d existe déjà</item>
         <item quantity="many">%1$d fichiers copiés vers partage \"%2$s\", %3$d existent déjà</item>
         <item quantity="other">%1$d fichiers copiés vers partage \"%2$s\", %3$d existent déjà</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d fichier copié vers partage \"%2$s\"</item>
         <item quantity="many">%1$d fichiers copiés vers partage \"%2$s\"</item>
         <item quantity="other">%1$d fichiers copiés vers partage \"%2$s\"</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">Il s\'est produit une erreur pendant le partage, vérifiez les journaux de l\'application</string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Partager des fichiers...</string>
-
     <plurals name="file_name_title">
         <item quantity="one">Nom du fichier</item>
         <item quantity="many">Liste des fichiers</item>
         <item quantity="other">Liste des fichiers</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">Sous-répertoire</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Quitter</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing fonctionne</string>
     <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
-
     <string name="config_create_failed">Echec de création du fichier de configuration</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Caméra</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
-
     <string name="notification_crash_title">Syncthing s\'est planté %1$s</string>
-
     <string name="notifications_persistent_channel">Syncthing en marche</string>
     <string name="notification_persistent_waiting_channel">Surveillance des conditions de fonctionnement</string>
     <string name="notifications_other_channel">Autres notifications</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Redémarrage requis</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Cliquez ici pour redémarrer Syncthing</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">L\'ID d\'appareil est copié dans le bloc-notes</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>o</item>
@@ -513,7 +341,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
         <item>Go</item>
         <item>To</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>Octets/s</item>
@@ -522,7 +349,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
         <item>Go/s</item>
         <item>To/s</item>
     </string-array>
-
     <string name="state_up_to_date">à jour</string>
     <string name="state_scanning">Analyse en cours</string>
     <string name="state_syncing">Synchronisation (%1$d%%)</string>
@@ -532,9 +358,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="status_outofsync">Désynchronisé</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">L\'arrêt de Syncthing n\'est pas supporté quand le fonctionnement en tâche de fond est activé.</string>
-
     <string name="folder_type_sendonly">Envoyer uniquement</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Age maximum</string>
@@ -543,7 +367,6 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="none">Aucun</string>
     <string name="versions_path">Emplacement des versions</string>
     <string name="command">Commande</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">Nombre d\'anciennes version à conserver, par fichier.</string>
     <string name="simple_file_versioning_description">Les fichiers sont transférés, avec ajout de la date, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
@@ -554,20 +377,17 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité.</string>
     <string name="external_versioning_description">Le premier paramètre de ligne de commande est le chemin du répertoire partagé, et le second est le chemin relatif dans le répertoire.</string>
     <string name="no_versioning_description">Choisir un type d\'archivage pour activer l\'archivage.</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Type: Simple</string>
     <string name="type_trashcan">Type: Corbeille</string>
     <string name="type_staggered">Type: Décalé</string>
     <string name="type_external">Type: Externe</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Nettoyer après: %1$s</string>
     <string name="staggered_versioning_info">Age maximum: %1$d \nEmplacement des versions: %2$s</string>
     <string name="external_versioning_info">Commande: %1$s</string>
     <string name="simple_versioning_info">Versions à conserver: %1$s</string>
     <string name="show_device_id">Afficher l\'ID de l\'appareil</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Impossible d\'accéder à l\'ID de l\'appareil.</string>
     <string name="browse">Parcourir</string>

@@ -2,313 +2,196 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">En åpen, pålitelig og desentralisert filsynkroniseringsapplikasjon.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Velkommen til Syncthing for Android</string>
-
     <string name="generic_error">Feil</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Legg til Mappe</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Del Enhets-ID</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Send Enhets-ID til</string>
-
     <string name="usage_reporting_dialog_title">Tillat anonym rapportering av bruk?</string>
-
     <string name="usage_reporting_dialog_description">Den krypterte rapporten over bruk sendes daglig. Den brukes til å spore felles plattformer, mappestørrelser og versjoner av appen. Hvis datasettet endres vil du bli vist denne dialogen på nytt.\n\nDen aggregerte statistikken er offentlig tilgjengelig på https://data.syncthing.net.</string>
-
     <string name="yes">Ja</string>
-
     <string name="no">Nei</string>
-
     <string name="open_website">Åpne nettsted</string>
-
     <string name="toast_write_storage_permission_required">Skriverettigheter til lagringsenheten kreves av denne appen</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Genererer sikre nøkler. Dette kan ta noen minutter.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Mapper</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Ingen mapper funnet</string>
-
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Enheter</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Oppdatert</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synkroniserer (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Frakoblet</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Ukjent</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Nedlasting</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Opplasting</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Nedlasting:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Opplasting:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-forbruk</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Søketjener</string>
-
     <string name="restart">Omstart</string>
-
     <string name="dialog_confirm_restart">Vil du starte Syncthing på nytt?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">Mappe-ID</string>
-
     <!-- Setting title -->
     <string name="folder_label">Mappenavn</string>
-
     <!-- Setting title -->
     <string name="directory">Katalog</string>
     <!-- Setting title -->
     <string name="devices">Enheter</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Behold versjoner</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Slett Mappe</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Opprett Mappe</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Rediger Mappe</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Opprett</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Vil du virkelig fjerne denne mappen fra Syncthing?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mappe-ID kan ikke være tom</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Mappestien kan ikke være tom</string>
-
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Enhets-ID</string>
-
     <!-- Setting title -->
     <string name="name">Navn</string>
-
     <!-- Setting title -->
     <string name="addresses">Adresser</string>
-
     <!-- Setting title -->
     <string name="current_address">Nåværende Adresser</string>
-
     <!-- Setting title -->
     <string name="compression">Komprimering</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Aldri</item>
         <item>Metadata</item>
         <item>Alltid</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Innføring</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Slett Enhet</string>
-
     <string name="add_device">Legg Til Enhet</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Legg til</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Rediger Enhet</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Ønsker du å fjerne denne enheten?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enhets-ID kan ikke være tom</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Skann QR-kode</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Fikk ikke root-rettigheter</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Webgrensesnitt</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Venter på GUI</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Innstillinger</string>
-
     <string name="category_syncthing_options">Valg for Syncthing</string>
-
     <string name="category_experimental">Eksperimentelt</string>
-
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vennligst skru på WiFi for å velge nettverk.</string>
-
     <string name="use_root_title">Kjør Syncthing som superbruker</string>
-
     <string name="device_name">Enhetsnavn</string>
-
     <string name="listen_address">Lytteadresser for synkeprotokoll</string>
-
     <string name="max_recv_kbps">Grense for innkommende trafikk (KiB/s)</string>
-
     <string name="max_send_kbps">Grense for utgående trafikk (KiB/s)</string>
-
     <string name="global_announce_enabled">Global søking</string>
-
     <string name="local_announce_enabled">Lokal søking</string>
-
     <string name="enable_nat_traversal">Slå på NAT traversering</string>
-
     <string name="enable_relaying">Aktiver relésending</string>
-
     <string name="usage_reporting">Anonym bruksrapportering</string>
-
     <string name="export_config">Eksporter innstillinger</string>
-
     <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger? Eksisterende filer vil bli skrevet over.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Innstillingene ble eksportert til %1$s</string>
     <string name="import_config">Importer instillinger</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Instillingene ble importert</string>
     <string name="config_import_failed">Import av innstillinger mislyktes, sørg for at filene er i %1$s</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Nullstill database</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Nullstilling av Syncthings database var vellykket</string>
-
     <string name="category_about">Om</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Åpne logg</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Åpne loggvinduet for Syncthing og Android</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Rapporter Problem</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing-versjon</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Mappe-velger</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Katalogen er tom</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Opprett ny Mappe</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Velg Mappe</string>
-
     <string name="create_folder_failed">Feil ved opprettelse av mappe</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Vis Android-logg</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Vis Syncthing-logg</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Del</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Avslutt</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing kjører</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Omstart Nødvendig</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Trykk her for å omstarte Syncthing nå</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Enhets-ID kopiert til utklippstavle</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -317,7 +200,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -326,7 +208,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Skanner</string>
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>
     <string name="state_error">Feil</string>
@@ -334,8 +215,6 @@
     <string name="status_outofsync">Ikke synkronisert</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">Du kan ikke stoppe Syncthing når «kjør i bakgrunnen» er skrudd på.</string>
-
     <string name="file_versioning">Versjonering av filer</string>
 </resources>

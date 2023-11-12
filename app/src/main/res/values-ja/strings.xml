@@ -2,43 +2,31 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">オープンで、信頼できる、分散型ファイル同期アプリケーション。</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Syncthing for Android にようこそ</string>
-
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">はじめに</string>
     <string name="welcome_text">Syncthingはオープンソースのファイル同期アプリケーションです。他のデバイスとデータを共有するには、デバイスリストにデバイスIDを追加します。その後、どのデバイスとどのフォルダを共有するかを選択することができます。
 何か問題があればGithub経由で報告してください。</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">ストレージアクセス許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
     <string name="dialog_all_files_access_not_supported">お使いのデバイスがすべてのファイルへのアクセスをサポートしていません</string>
-
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">バッテリー最適化</string>
     <string name="toast_ignore_doze_permission_required">このアプリは「ドーズ」の省電力モードが解除されている場合のみ確実に動作します。</string>
     <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
-
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">ロケーション（位置情報）アクセスの許可</string>
     <string name="location_permission_desc_api_29">Android 10+のヒント：\"常に許可する\"</string>
-
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">鍵の生成</string>
     <string name="key_generation_success">プライベートデータ交換のための安全な鍵の生成に成功しました。</string>
-
     <!-- Generic texts used everywhere -->
     <string name="back">戻る</string>
     <string name="cont">続行</string>
@@ -49,426 +37,276 @@
     <string name="grant_permission">許可を与える</string>
     <string name="permission_granted">権限の許可</string>
     <string name="reason">理由：</string>
-
     <string name="accept">受付</string>
-
     <string name="ignore">無視</string>
-
     <string name="page_x_of_y">ページ %1$s / %2$s</string>
-
     <string name="main_menu">メインメニュー</string>
-
     <string name="refresh">再表示</string>
-
-
-
     <!-- PhotoShootActivity -->
-
     <string name="photo_shoot_launcher_title">カメラを同期する</string>
-
     <string name="photo_shoot_activity_title">Syncthing-Fork カメラ</string>
-
     <string name="photo_shoot_intro_welcome_title">Syncthing Cameraにようこそ</string>
-
     <string name="photo_shoot_intro_permission_title">権限が必要です</string>
-
     <string name="photo_shoot_intro_no_camera">このデバイスにはカメラはありません。</string>
-
     <string name="photo_shoot_intro_missing_permissions">続けるにはストレージとカメラの権限が必要です。</string>
-
     <string name="grant_storage_permission">ストレージアクセスを許可して下さい。</string>
-
     <string name="grant_camera_permission">カメラアクセスを許可して下さい。</string>
-
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Syncthing カメラ</string>
-
-
-
     <!-- MainActivity -->
-
-
     <!-- Main bottom navigation view -->
     <string name="activity_main_bottom_navigation_rescan_all">すべてを再スキャンする</string>
-
-
     <!-- Main menu button -->
     <string name="open_main_menu">メインメニューを開く</string>
     <string name="close_main_menu">メインメニューを閉じる</string>
-
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">アプリ終了を確認する</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">フォルダーを追加</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">デバイス ID を共有</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">デバイス ID を送信…</string>
-
     <string name="usage_reporting_dialog_title">匿名での使用状況レポートを許可しますか?</string>
-
     <string name="usage_reporting_dialog_description">使用状況レポートは暗号化されて毎日送信されます。この情報はプラットフォーム、フォルダーのサイズ、アプリケーションのバージョンを調査するために使われます。送信するデータセットが変更された場合、このダイアログで再度確認が求められます。\n\n集計結果は https://data.syncthing.net で公開されています。</string>
-
     <string name="yes">はい</string>
-
     <string name="no">いいえ</string>
-
     <string name="open_website">Web サイトを開く</string>
-
     <string name="toast_write_storage_permission_required">このアプリはストレージの書き込みアクセス許可が必要です</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">セキュア鍵を生成しています。しばらくお待ちください。</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">フォルダー</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">フォルダーがありません</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="other">%1$d / %2$d ファイル</item>
     </plurals>
-
     <string name="override_changes">上書き変更</string>
-
     <!-- Override Changes Confirmation Dialog -->
     <string name="override_changes_question">これにより、このフォルダを共有している他のデバイスで行われた変更がすべて元に戻されます。続けますか？</string>
-
     <string name="revert_local_changes">ローカルの変更を元に戻す</string>
-
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">これにより、このデバイスで行われたそのフォルダ内のすべての変更が元に戻されます。続けますか？</string>
-
     <string name="open_file_manager">ファイルマネージャーを開く</string>
     <string name="open_file_with">手段を指定してファイルを開く</string>
     <string name="open_file_no_compatible_app">このファイルを開くアプリがありません。</string>
-
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">互換性のあるファイルマネージャーが見つかりません</string>
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">デバイス</string>
-
     <!-- Shown if no devices are configured in add folder dialog  -->
     <string name="devices_list_empty">デバイスが設定されていません。タップして新しいデバイスを追加して下さい</string>
-
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">デバイスが追加されていません。\n今すぐデバイスを追加して開始します。</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">最新</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">同期中 (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">切断中</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">ポーズ（一時停止）</string>
-
     <!-- Indicates that devices does not share any folders -->
     <string name="device_state_unused">未使用</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">不明</string>
-
     <!-- Last seen title -->
     <string name="device_last_seen">最後に見たもの:　%1$s</string>
     <string name="device_last_seen_never">二度としない</string>
-
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">フォルダ:\u0020</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">ダウンロード</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">アップロード</string>
-
     <!-- StatusFragment -->
     <string name="status_fragment_title">ステータス</string>
-
     <string name="button_follow_run_conditions">実行条件に従う</string>
     <string name="button_force_start">強制開始\n実行条件を無視</string>
     <string name="button_force_stop">強制停止\n実行条件を無視</string>
-
     <string name="syncthing_starting">Syncthing が開始しています</string>
     <string name="syncthing_running">Syncthing は実行中です</string>
     <string name="syncthing_not_running">Syncthing は実行していません</string>
     <string name="syncthing_has_crashed">Syncthing がクラッシュしました</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">ダウンロード:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">アップロード:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">メモリ使用量</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">アナウンスサーバー</string>
-
     <!-- Title for uptime status -->
     <string name="uptime">稼働時間</string>
-
     <string name="restart">再起動</string>
-
     <string name="dialog_confirm_restart">Syncthing を再起動しますか?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">フォルダー ID</string>
-
     <!-- Setting title -->
     <string name="folder_label">フォルダー ラベル</string>
-
     <!-- Setting title -->
     <string name="directory">ディレクトリー</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">変更点を確認する</string>
     <!-- Setting title -->
     <string name="devices">デバイス</string>
-
     <!-- Setting title -->
     <string name="keep_versions">保持するバージョン数</string>
-
     <!-- Setting title -->
     <string name="delete_folder">フォルダーを削除</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">フォルダーを作成</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">フォルダーを編集</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">作成</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Syncthing からフォルダーを削除してもよろしいですか?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">フォルダー ID は空にできません</string>
-
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">フォルダのラベルは空であってはなりません。</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">フォルダーのパスは空にできません</string>
-
     <string name="dialog_discard_changes">変更を破棄しますか?</string>
-
     <string name="ignore_patterns">無視するパターン</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">デバイス ID</string>
-
     <!-- Status title -->
     <string name="discovered_devices_title">発見されたデバイス - タップして選択</string>
-
     <!-- Setting title -->
     <string name="name">名前</string>
-
     <!-- Setting title -->
     <string name="folders">フォルダー</string>
-
     <!-- Setting title -->
     <string name="addresses">アドレス</string>
-
     <!-- Setting title -->
     <string name="current_address">現在のアドレス</string>
-
     <!-- Setting title -->
     <string name="compression">圧縮</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>オフ</item>
         <item>メタデータのみ</item>
         <item>全てのデータ</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">紹介者デバイス</string>
-
     <!-- Setting title -->
     <string name="pause_device">デバイスをポーズ</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">デバイスを削除</string>
-
     <string name="add_device">デバイスを追加</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">追加</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">デバイスを編集</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">このデバイスを削除してもよろしいですか?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">デバイス ID は空にできません</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_invalid">デバイスIDが正しく記載されていません。再試行して、正しいIDを入力してください。</string>
-
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">デバイス名は空に出来ません。</string>
-
     <!-- Toast shown when trying to create a device with invalid addresses -->
     <string name="device_addresses_invalid">デバイスアドレスが正しくフォーマットされていません。再試行してください。詳細は Syncthing のドキュメントを参照してください。</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR コードをスキャン</string>
-
     <!-- Dialog message if no compatible barcode scanner app is installed -->
     <string name="install_barcode_scanner_app_message">バーコードスキャナアプリが必要です。F-Droid からアプリ「Binary Eye」をインストールしてみませんか？</string>
-
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">フォルダが設定されていません。タップして新しいフォルダを追加して下さい。。</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">root アクセス許可を取得できませんでした</string>
-
     <!-- TipsAndTricks activity -->
-
-
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">チップス＆トリック</string>
-
     <string name="tip_write_to_sdcard_title">外部SDカードへの書き込みの回避策</string>
     <string name="tip_sync_on_local_network_title">ローカルWiFiネットワークを使用してのみ同期する</string>
     <string name="tip_custom_sync_conditions_title">フォルダ/デバイスごとにカスタム同期条件を使用</string>
     <string name="tip_ignore_delete_title">携帯電話からパソコンに写真をバックアップしますか？</string>
     <string name="tip_huawei_device_disconnected_title">Huawei：「デバイス切断」回避策</string>
     <string name="tip_phone_ip_address_syntax">スマートフォンのIPアドレス</string>
-
     <string name="tip_xiaomi_autostart_title">Xiaomi: アプリはスマホ起動時に開始しません。</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: アプリが繰り返しウェルカム画面を表示する。</string>
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">最近の変更はありません。</string>
-
     <string name="recent_changes_title">最新の変更点</string>
     <string name="modified_by_device">デバイス： %1$s</string>
     <string name="modification_time">時間：%1$s</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Web GUI</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">GUI を待機中</string>
-
-
     <!-- WebViewActivity -->
-
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">セキュリティに関するお知らせ</string>
-
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">ウェブページの読み込み中\n %1$s ...</string>
-
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">ブラウザで開く</string>
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">設定</string>
-
     <string name="category_run_conditions">実行条件</string>
-
     <string name="category_user_interface">ユーザーインタフェース</string>
-
     <string name="preference_app_theme_title">テーマ</string>
-
     <string name="preference_app_theme_follow_light">ライト</string>
     <string name="preference_app_theme_follow_dark">ダーク</string>
-
     <string name="category_behaviour">動作</string>
-
     <string name="category_syncthing_options">同期オプション</string>
-
     <string name="category_syncthing_options_summary">このメニューは、Syncthing が起動している場合にのみ表示されます。</string>
-
     <string name="category_backup">インポートとエクスポート</string>
     <string name="category_debug">トラブルシューティング</string>
     <string name="category_experimental">実験的</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">実行条件</string>
     <string name="run_on_mobile_data_title">モバイルデータ上での実行</string>
     <string name="run_on_roaming_title">ローミング中に実行する</string>
     <string name="run_on_wifi_title">Wi-Fi上での実行</string>
     <string name="run_on_wifi_summary">デバイスがWi-Fiまたはイーサネットネットワークに接続されているときに実行します。</string>
-
     <string name="run_on_metered_wifi_title">従量制のWi-Fiで実行</string>
     <string name="run_on_whitelisted_wifi_title">指定されたWi-Fiネットワーク上での実行</string>
     <string name="specify_wifi_ssid_whitelist">Wi-Fiネットワークを選択</string>
     <string name="run_on_whitelisted_wifi_networks">選択されたWi-Fiネットワーク： %1$s</string>
     <string name="wifi_ssid_whitelist_empty">Wi-Fiネットワークが指定されていません。クリックしてネットワークを指定して下さい。</string>
-
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">ネットワークを選択するために Wi-Fi をオンにしてください。</string>
-
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">この機能を使用するには、位置情報取得許可を与える必要があります。</string>
-
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">許可が必要</string>
     <string name="power_source_title">デバイスの電源が次のものである場合に実行</string>
-
     <string-array name="power_source_entries">
         <item>ACとバッテリー電源。</item>
         <item>AC電源</item>
         <item>バッテリー電源</item>
     </string-array>
-
     <string name="respect_battery_saving_title">Android の節電設定に従う</string>
     <string name="respect_battery_saving_summary">バッテリー節約が有効な場合は、Syncthingを無効にします。</string>
-
     <string name="respect_master_sync_title">Androidの「自動同期データ」の設定を優先します。</string>
     <string name="run_in_flight_mode_title">ネットワーク接続なしで実行</string>
     <string name="run_on_time_schedule_title">タイムスケジュールに合わせて実行する。</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自動起動</string>
     <string name="behaviour_autostart_summary">OS起動時に自動的にアプリを起動します。</string>
-
     <string name="use_root_title">スーパーユーザーとして実行</string>
-
     <string name="expert_mode_title">エキスパートモード</string>
-
     <string name="preference_language_title">言語</string>
-
     <string name="preference_language_summary">アプリの言語を変更します</string>
-
     <string name="pref_language_default">デフォルトの言語</string>
-
     <string-array name="folder_types">
         <item>送信と受信</item>
         <item>送信のみ</item>
         <item>受信のみ</item>
         <item>Receive Encrypted</item>
     </string-array>
-
     <string-array name="pull_order_types">
         <item>ランダム</item>
         <item>アルファベット順</item>
@@ -477,7 +315,6 @@
         <item>古い順</item>
         <item>新しい順</item>
     </string-array>
-
     <string-array name="versioning_types">
         <item>なし</item>
         <item>ゴミ箱</item>
@@ -485,249 +322,162 @@
         <item>ジグザグ</item>
         <item>外部</item>
     </string-array>
-
     <string name="device_name">デバイス名</string>
-
     <string name="listen_address">同期プロトコルの待ち受けアドレス</string>
-
     <string name="max_recv_kbps">下り帯域制限 (KiB/秒)</string>
-
     <string name="max_send_kbps">上り帯域制限 (KiB/秒)</string>
-
     <string name="global_announce_enabled">グローバル探索</string>
-
     <string name="local_announce_enabled">ローカル探索</string>
-
     <string name="enable_nat_traversal">NAT トラバーサルを有効にする</string>
-
     <string name="global_announce_server">グローバル探索サーバー</string>
-
     <string name="enable_relaying">リレーを有効にする</string>
-
     <string name="usage_reporting">匿名での使用状況レポート</string>
-
     <string name="crash_reporting">匿名でのクラッシュレポート</string>
-
     <string name="webui_tcp_port_title">Web UIのTCPポート</string>
-
     <string name="webui_remote_access_title">Web UIリモートアクセス</string>
-
     <string name="webui_debugging_title">WebUI デバッグ</string>
-
     <string name="undo_ignored_devices_folders_done">決定の取り消しに成功しました。</string>
-
     <string name="export_config">設定のエクスポート</string>
-
     <!-- Experimental options -->
     <string name="use_proxy">プロキシ経由で接続</string>
     <string name="do_not_use_proxy">プロキシー設定なし</string>
-
     <string name="keep_wakelock_while_binary_running">実行中は CPU をオンのままにする</string>
-
     <string name="use_tor_title">Tor を使用する</string>
-
     <string name="socks_proxy_address_title">SOCKS5 プロキシ</string>
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
     <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか? 既存のファイルは上書きされます。</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">設定を %1$s にエクスポートしました</string>
     <string name="config_export_failed">設定情報のエクスポートに失敗しました。logcatの出力を確認して下さい。</string>
-
     <string name="import_config">設定のインポート</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">設定をインポートしました</string>
     <string name="config_import_failed">設定のインポートに失敗しました。%1$s にファイルがあるか確認してください</string>
-
     <string name="dialog_settings_restart_app_title">再起動が必要</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE オプション</string>
-
     <string name="environment_variables">環境変数</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">値は有効な環境変数文字列ではありません</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">データベースをリセットする</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">正常に Syncthing のデータベースをリセットしました</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">デルタインデックスをリセット</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Syncthing のデルタインデックスのリセットに成功しました。</string>
-
     <string name="category_about">アプリについて</string>
-
     <string name="verbose_log_title">詳細ログ</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">ログを開く</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Syncthing と Android のログウインドウを開く</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">問題を報告</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Syncthing バージョン</string>
-
     <!-- Title of the preference showing this app's version name -->
     <string name="app_version_title">Syncthing-Fork ラッパー バージョン</string>
-
     <!-- Title of the preference showing the REST API key -->
     <string name="syncthing_api_key">Syncthing API キー (クリックでコピー)</string>
-
     <!-- Shown when the API key is copied to the clipboard -->
     <string name="api_key_copied_to_clipboard">Syncthing APIキーがクリップボードにコピーされました</string>
-
     <!-- Title of the preference showing database size -->
     <string name="syncthing_database_size">Syncthing データベースサイズ</string>
-
     <!-- Title of the preference showing the OS open file limit -->
     <string name="os_open_file_limit">Androidファイルオープン制限</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">フォルダーを選択</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">ディレクトリーは空です</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">新しいフォルダーを作成</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">フォルダーを選択</string>
-
     <string name="create_folder_failed">フォルダーの作成に失敗しました</string>
-
     <!-- Menu item to go up to parent folder -->
     <string name="folder_go_up">上にあがる</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Syncthingログ</string>
     <string name="android_log_title">Androidログ</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Android ログを表示</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Syncthing ログを表示</string>
-
     <string name="retrieving_logs">ログの取得中…</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">共有</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Syncthing に保存</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">保存</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">キャンセル</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">フォルダー</string>
-
     <!-- New file name template -->
     <string name="file_name_template">新しいファイル %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">共有するものはありません</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="other">%1$d ファイルをフォルダー \"%2$s\" にコピーしました。 %3$d すでに存在します</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="other">%1$d ファイルをフォルダー \"%2$s\" にコピーしました</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">共有中にエラーが発生しました。アプリケーションログを確認してください</string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">ファイルを共有中…</string>
-
     <plurals name="file_name_title">
         <item quantity="other">ファイルリスト</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">サブフォルダー</string>
-
     <string name="reason_not_charging">携帯電話が充電されていません。</string>
     <string name="reason_not_on_battery_power">携帯電話はバッテリー駆動していません。</string>
     <string name="reason_on_mobile_data">Syncthingはモバイルデータでの動作が許可されています。</string>
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">終了</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing は実行中です</string>
     <string name="syncthing_active_details">Syncthing 実行中： %1$s</string>
     <string name="no_remote_devices_connected">リモートデバイスが接続されていません</string>
-
     <plurals name="device_online_up_to_date">
         <item quantity="other">%1$d：デバイスオンライン＆最新状態</item>
     </plurals>
-
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="other">Syncing:　%1$d%% 完了、%2$d デバイスオンライン</item>
     </plurals>
-
     <string name="syncthing_disabled">Syncthing スリープ中</string>
-
     <string name="syncthing_terminated">Syncthing は終了しました。</string>
-
     <string name="config_create_failed">設定ファイルの作成に失敗しました</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android カメラ</string>
-
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-写真</string>
-
     <string name="notification_crash_title">Syncthing がクラッシュしました %1$s</string>
-
     <string name="notifications_persistent_channel">Syncthing アクティブ</string>
     <string name="notifications_other_channel">他の通知</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">再起動が必要です</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">今すぐ Syncthing を再起動する</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">デバイス ID をクリップボードにコピーしました</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -736,7 +486,6 @@
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -745,7 +494,6 @@
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_up_to_date">最新化</string>
     <string name="state_scanning">スキャン中</string>
     <string name="state_syncing_general">同期中</string>
@@ -757,12 +505,9 @@
     <string name="status_outofsync">未同期</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">バックグラウンドでの実行が有効になっている場合、Syncthing の停止はサポートされていません。</string>
-
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">フォルダタイプ</string>
-
     <!-- Displays the current folder type in the folder activity -->
     <string name="folder_type_sendreceive">送信＆受信</string>
     <string name="folder_type_sendonly">送信のみ</string>
@@ -774,7 +519,6 @@
     <string name="pull_order_type_largestFirst">大きい順</string>
     <string name="pull_order_type_oldestFirst">古い順</string>
     <string name="pull_order_type_newestFirst">新しい順</string>
-
     <!-- Pull order dialog descriptions for pull order types -->
     <string name="pull_order_type_random_description">ランダムな順にファイルを取得する。</string>
     <string name="pull_order_type_alphabetic_description">ファイル名順に取得する。</string>
@@ -782,7 +526,6 @@
     <string name="pull_order_type_largestFirst_description">ファイルが大きい順に取得する。</string>
     <string name="pull_order_type_oldestFirst_description">修正時間が古い順にファイルを取得する。</string>
     <string name="pull_order_type_newestFirst_description">修正時間が新しい順にファイルを取得する。</string>
-
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">最大保存日数</string>
     <string name="clean_out_after">以下の期間後に完全に削除</string>
@@ -790,7 +533,6 @@
     <string name="none">なし</string>
     <string name="versions_path">古いバージョンを保存するパス</string>
     <string name="command">コマンド</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">ファイルごとの古いバージョンを保持する日数</string>
     <string name="simple_file_versioning_description">Syncthingによって置き換えられたり削除されたファイルは、タイムスタンプ付きのファイル名で .stversions ディレクトリに移動します。</string>
@@ -801,20 +543,17 @@
     <string name="cleanout_after_description">ゴミ箱でファイルを保持する日数 (0で無期限)</string>
     <string name="external_versioning_description">最初のコマンドラインパラメータはフォルダのパスで、2 番目のパラメータはフォルダ内の相対パスです。</string>
     <string name="no_versioning_description">バージョン管理を有効にするにはバージョン管理タイプを選択してください。</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">タイプ: シンプル</string>
     <string name="type_trashcan">タイプ: ゴミ箱</string>
     <string name="type_staggered">タイプ: ジグザグ</string>
     <string name="type_external">タイプ: 外部</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">以下の期間後に完全に削除: %1$s</string>
     <string name="staggered_versioning_info">最大保存期間: %1$d \nバージョンパス: %2$s</string>
     <string name="external_versioning_info">コマンド: %1$s</string>
     <string name="simple_versioning_info">保持するバージョン数: %1$s</string>
     <string name="show_device_id">デバイス ID を表示</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">デバイス ID にアクセスできません。</string>
     <string name="browse">閲覧</string>
@@ -822,5 +561,4 @@
     <string name="share_device_id_chooser">次とデバイス ID を共有</string>
     <string name="custom_sync_conditions_title">カスタム同期条件</string>
     <string name="custom_sync_conditions_dialog">同期条件を指定する</string>
-
 </resources>

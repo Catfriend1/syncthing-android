@@ -2,38 +2,28 @@
 <!DOCTYPE resources [
 <!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
 ]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Syncthing-Fork</string>
-
     <string name="app_description">Een open, betrouwbare en gedecentraliseerde applicatie voor bestandssynchronisatie.</string>
-
     <!-- FirstStartActivity -->
-
-
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Welkom bij Syncthing voor Android</string>
-
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introductie</string>
     <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing. Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.\n\
 Als je problemen tegenkomt, meld ze dan via GitHub.</string>
-
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Batterijoptimalisatie</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Je apparaat biedt geen ondersteuning voor het uitschakelen van batterijoptimalisatie</string>
-
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Locatiemachtiging</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Sleutelgeneratie</string>
     <string name="key_generation_success">Veilige sleutels voor uitwisselen van privégegevens zijn gegenereerd.</string>
-
     <!-- Generic texts used everywhere -->
     <string name="back">Terug</string>
     <string name="cont">Doorgaan</string>
@@ -44,239 +34,152 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="grant_permission">Machtiging verlene</string>
     <string name="permission_granted">Machtiging verleend</string>
     <string name="reason">Reden:</string>
-
     <string name="accept">Accepteren</string>
-
     <string name="ignore">Negeren</string>
-
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Map toevoegen</string>
-
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Apparaat-ID delen</string>
-
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Apparaat-ID versturen naar</string>
-
     <string name="usage_reporting_dialog_title">Anoniem gebruiksrapportage toestaan?</string>
-
     <string name="usage_reporting_dialog_description">Het versleuteld gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zal je deze dialoog opnieuw te zien krijgen.\n\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
-
     <string name="yes">Ja</string>
-
     <string name="no">Nee</string>
-
     <string name="open_website">Website openen</string>
-
     <string name="toast_write_storage_permission_required">Schrijftoegang is vereist voor deze applicatie</string>
-
     <!-- StateDialogActivity -->
-
-
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Bezig met aanmaken van veilige sleutels. Dit kan enkele minuten duren.</string>
-
     <!-- FolderListFragment -->
-
-
     <string name="folders_fragment_title">Mappen</string>
-
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Geen mappen gevonden</string>
-
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d bestand</item>
         <item quantity="other">%1$d / %2$d bestanden</item>
     </plurals>
-
     <string name="open_file_manager">Bestandsbeheerder openen</string>
     <!-- DeviceListFragment -->
-
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Apparaten</string>
-
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Bijgewerkt</string>
-
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Bezig met synchroniseren (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Niet verbonden</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Gepauzeerd</string>
-
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Onbekend</string>
-
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
-
     <!-- Title for current upload rate -->
     <string name="upload_title">Upload</string>
-
     <!-- DrawerFragment -->
-
-
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">Downloaden:\u0020</string>
-
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">Upload:\u0020</string>
-
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-gebrui</string>
-
     <!-- Title for announce server status -->
     <string name="announce_server">Mededelingsserver</string>
-
     <string name="restart">Herstarten</string>
-
     <string name="dialog_confirm_restart">Wil je Syncthing herstarten?</string>
-
     <!-- FolderActivity -->
-
-
     <!-- Setting title -->
     <string name="folder_id">Map-ID</string>
-
     <!-- Setting title -->
     <string name="folder_label">Maplabel</string>
-
     <!-- Setting title -->
     <string name="directory">Map</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Controleren op wijzigingen</string>
     <string name="folder_fileWatcherDescription">Vraagt het besturingssysteem om meldingen over gewijzigde bestanden. Indien uitgeschakeld wordt elk uur gescand.</string>
-
     <!-- Setting title -->
     <string name="folder_pause">Map pauzeren</string>
-
     <!-- Setting title -->
     <string name="devices">Apparaten</string>
-
     <!-- Setting title -->
     <string name="keep_versions">Versies behouden</string>
-
     <!-- Setting title -->
     <string name="delete_folder">Map verwijderen</string>
-
     <!-- Title for FolderSettingsFragment in create mode -->
     <string name="create_folder">Map aanmaken</string>
-
     <!-- Title for FolderSettingsFragment in edit mode -->
     <string name="edit_folder">Map bewerken</string>
-
     <!-- Menu item to confirm folder creation -->
     <string name="create">Creëren</string>
-
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">Weet je zeker dat je deze map van Syncthing wil verwijderen?</string>
-
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">De map-ID mag niet leeg zijn</string>
-
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Het mappad mag niet leeg zijn</string>
-
     <string name="dialog_discard_changes">Wijzigingen verwerpen?</string>
-
     <string name="ignore_patterns">Patronen negeren</string>
     <!-- DeviceActivity -->
-
-
     <!-- Setting title -->
     <string name="device_id">Apparaat-ID</string>
-
     <!-- Setting title -->
     <string name="name">Naam</string>
-
     <!-- Setting title -->
     <string name="addresses">Adres</string>
-
     <!-- Setting title -->
     <string name="current_address">Huidig adres</string>
-
     <!-- Setting title -->
     <string name="compression">Compressie</string>
-
     <!-- Strings representing compression options -->
     <string-array name="compress_entries">
         <item>Nooit</item>
         <item>Alleen metadata</item>
         <item>Altijd</item>
     </string-array>
-
     <!-- Setting title -->
     <string name="introducer">Introduceerder</string>
-
     <!-- Setting title -->
     <string name="pause_device">Apparaat pauzeren</string>
-
     <!-- ActionBar item -->
     <string name="delete_device">Apparaat verwijderen</string>
-
     <string name="add_device">Apparaat toevoegen</string>
-
     <!-- Menu item to confirm adding a device -->
     <string name="add">Toevoegen</string>
-
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Apparaat bewerken</string>
-
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Weet je zeker dat je dit apparaat wil verwijderen?</string>
-
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">De apparaat-ID kan niet leeg zijn</string>
-
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR-code scannen</string>
-
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Geen roottoegang</string>
-
     <!-- WebGuiActivity -->
-
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Web-interface</string>
-
     <!-- Text for WebGuiActivity loading view -->
     <string name="web_gui_loading">Wachten op interface</string>
-
-
     <!-- SettingsFragment -->
-
-
     <string name="settings_title">Instellingen</string>
-
     <string name="category_run_conditions">Uitvoervoorwaarden</string>
-
     <string name="category_behaviour">Gedrag</string>
-
     <string name="category_syncthing_options">Syncthing-opties</string>
-
     <string name="category_experimental">Experimenteel</string>
-
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Uitvoervoorwaarden</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Schakel wifi in om netwerken te selecteren.</string>
-
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Geef de LOCATIE-toestemming om deze functie te gebruiken.</string>
-
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Toestemming vereist</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Vanaf Android 8.1 wordt toegang tot de locatie vereist om de naam van het wifinetwerk te kunnen lezen. Deze functie kan enkel gebruikt worden als je deze toestemming geeft.</string>
-
     <string name="respect_battery_saving_title">Eerbiedig de batterijbesparingsinstellingen van Android</string>
     <string name="use_root_title">Syncthing uitvoeren als superuser</string>
-
     <string name="preference_language_title">Taal</string>
-
     <string name="preference_language_summary">Wijzig de taal van de app</string>
-
     <string name="pref_language_default">Standaardtaal</string>
-
     <string-array name="versioning_types">
         <item>Geen</item>
         <item>Prullenbak</item>
@@ -284,219 +187,146 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
         <item>Gespreid</item>
         <item>Extern</item>
     </string-array>
-
     <string name="device_name">Apparaatnaam</string>
-
     <string name="listen_address">Luisteradressen voor synchronisatieprotocol</string>
-
     <string name="max_recv_kbps">Inkomende snelheidslimiet (KiB/s)</string>
-
     <string name="max_send_kbps">Uitgaande snelheidslimiet (KiB/s)</string>
-
     <string name="global_announce_enabled">Globale ontdekking</string>
-
     <string name="local_announce_enabled">Lokale ontdekking</string>
-
     <string name="enable_nat_traversal">NAT-traversal inschakelen</string>
-
     <string name="global_announce_server">Globale ontdekkingsservers</string>
-
     <string name="enable_relaying">Relayen inschakelen</string>
-
     <string name="usage_reporting">Anoniem gebruiksrapportage</string>
-
     <string name="export_config">Configuratie exporteren</string>
-
     <!-- Toast after entering invalid integer value -->
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Ongeldige waarde ingevoerd. Voer een waarde in tussen %1$d en %2$d.</string>
-
     <!-- Experimental options -->
     <string name="use_proxy">Verbinden via een proxy</string>
     <string name="do_not_use_proxy">Geen proxy ingesteld.</string>
-
     <string name="keep_wakelock_while_binary_running">Laat de CPU niet slapen wanneer Syncthing wordt uitgevoerd</string>
-
     <string name="use_tor_title">Gebruik Tor</string>
-
     <string name="use_tor_summary">Dwing alle verkeer door Tor voor verhoogde privacy. Schakelt proxyopties uit.</string>
-
     <string name="socks_proxy_address_title">SOCKS5-proxy</string>
     <!-- Toast after entering invalid socks proxy address -->
     <string name="toast_invalid_socks_proxy_address">Invoer is geen correcte proxysyntax \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
-
     <string name="http_proxy_address_title">HTTP(S)-proxy</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
-
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Wil je je configuratie echt exporteren? Bestaande bestanden worden overschreven.\n\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
-
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren? Bestaande bestanden zullen worden overschreven.</string>
-
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Configuratie is geëxporteerd naar %1$s</string>
     <string name="import_config">Configuratie importeren</string>
-
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuratie geïmporteerd</string>
     <string name="config_import_failed">Importeren van configuratie mislukt, zorg dat de bestanden zich in %1$s bevinden</string>
-
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE-opties</string>
-
     <string name="environment_variables">Omgevingsvariabelen</string>
-
     <!-- Toast after entering invalid STTRACE params -->
     <string name="toast_invalid_environment_variables">Waarde is geen geldige omgevingsvariabele</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Database opnieuw instellen</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
 \nBen je zeker dat je de database van Syncthing wil wissen?
 </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Opnieuw instellen van Syncthing-database geslaagd</string>
-
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Delta-indexen opnieuw instellen</string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
 \nBen je zeker dat je de delta-indexen van Syncthing wil wissen?
 </string>
-
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Delta-indexen van Syncthing opnieuw ingesteld</string>
-
     <string name="category_about">Over</string>
-
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Log openen</string>
-
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Open het Syncthing- en Android-logvenster</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Probleem rapporteren</string>
-
     <!-- Menu item to donate -->
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Synthing-versie</string>
-
     <!-- FolderPickerAcitivity -->
-
-
     <!-- Activity title -->
     <string name="folder_picker_title">Mapkiezer</string>
-
     <!-- ListView empty text -->
     <string name="directory_empty">Map is leeg</string>
-
     <!-- Menu item to create folder on the file system -->
     <string name="create_fs_folder">Nieuwe map creeëren</string>
-
     <!-- Menu item to select the current folder -->
     <string name="select_folder">Map selecteren</string>
-
     <string name="create_folder_failed">Aanmaken van map mislukt</string>
-
     <!-- LogActivity -->
-
-
     <string name="syncthing_log_title">Syncthing-log</string>
     <string name="android_log_title">Android-log</string>
-
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Bekijk Android-log</string>
-
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Bekijk Syncthing-log</string>
-
     <string name="retrieving_logs">Logs worden opgehaald…</string>
-
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Delen</string>
-
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Opslaan in Syncthing</string>
-
     <!-- Title of the "save" button -->
     <string name="save_title">Opslaan</string>
-
     <!-- Title of the "cancel" button -->
     <string name="cancel_title">Annuleren</string>
-
     <!-- Title of the "save" button -->
     <string name="folder_title">Map</string>
-
     <!-- New file name template -->
     <string name="file_name_template">Nieuw bestand %1$s</string>
-
     <!-- Nothing to share toast -->
     <string name="nothing_share">Niets te delen</string>
-
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
         <item quantity="one">%1$d bestand gekopieerd naar map \"%2$s\", %3$d bestaat al</item>
         <item quantity="other">%1$d bestanden gekopieerd naar map \"%2$s\", %3$d bestaat al</item>
     </plurals>
-
     <!-- Copy success toast -->
     <plurals name="copy_success">
         <item quantity="one">%1$d bestand gekopieerd naar map \"%2$s\"</item>
         <item quantity="other">%1$d bestanden gekopieerd naar map \"%2$s\"</item>
     </plurals>
-
     <!-- Copy exception toast -->
     <string name="copy_exception">Er is een fout opgetreden bij het delen, controleer de toepassingslogs</string>
-
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Bestanden delen…</string>
-
     <plurals name="file_name_title">
         <item quantity="one">Bestandsnaam</item>
         <item quantity="other">Bestandenlijst</item>
     </plurals>
-
     <!-- Sub Folder title -->
     <string name="sub_folder">Onderliggende map</string>
-
     <!-- SyncthingService -->
-
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Afsluiten</string>
-
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing draait</string>
     <string name="syncthing_terminated">Syncthing is beëindigd</string>
-
     <string name="config_create_failed">Aanmaken van configuratiebestand mislukt</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto\'s</string>
-
     <string name="notification_crash_title">Syncthing is gecrasht %1$s</string>
-
     <string name="notifications_persistent_channel">Syncthing is actief</string>
     <string name="notification_persistent_waiting_channel">Uitvoervoorwaarden controleren</string>
     <string name="notifications_other_channel">Overige meldingen</string>
-
     <!-- RestApi -->
-
-
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Herstart vereist</string>
-
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Klik hier om Syncthing nu te herstarten</string>
-
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Apparaat-ID gekopieerd naar klembord</string>
-
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string-array name="file_size_units">
         <item>B</item>
@@ -505,7 +335,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
         <item>GiB</item>
         <item>TiB</item>
     </string-array>
-
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string-array name="transfer_rate_units">
         <item>B/s</item>
@@ -514,7 +343,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
         <item>GiB/s</item>
         <item>TiB/s</item>
     </string-array>
-
     <string name="state_scanning">Bezig met scannen</string>
     <string name="state_syncing">Bezig met synchroniseren (%1$d%%)</string>
     <string name="state_error">Fout</string>
@@ -523,9 +351,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="status_outofsync">Niet gesynchroniseerd</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-
     <string name="appconfig_receiver_background_enabled">Syncthing stoppen terwijl uitvoeren in achtergrond is ingeschakeld wordt niet ondersteund.</string>
-
     <string name="folder_type_sendonly">Enkel versturen</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximumleeftijd</string>
@@ -534,7 +360,6 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="none">Geen</string>
     <string name="versions_path">Versiepad</string>
     <string name="command">Opdracht</string>
-
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
     <string name="keep_versions_description">Het aantal verouderde versies dat bijgehouden moet worden, per bestand.</string>
     <string name="simple_file_versioning_description">Bestanden worden met een tijdsstempel verplaatst naar de map .stversions indien vervangen of verwijderd door Syncthing.</string>
@@ -545,20 +370,17 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="cleanout_after_description">Het aantal dagen dat bestanden in de prullenbak bijgehouden dienen te worden. Nul betekent voorgoed</string>
     <string name="external_versioning_description">De eerste opdrachtregelparameter is het mappad, de tweede parameter het relatieve pad in de map.</string>
     <string name="no_versioning_description">Kies een versiebeheertype om versiebeheer in te schakelen.</string>
-
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Type: eenvoudig</string>
     <string name="type_trashcan">Type: prullenbak</string>
     <string name="type_staggered">Type: gespreid</string>
     <string name="type_external">Type: extern</string>
-
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
     <string name="trashcan_versioning_info">Legen na: %1$s</string>
     <string name="staggered_versioning_info">Maximumleeftijd: %1$d \nVersiepad: %2$s</string>
     <string name="external_versioning_info">Opdracht: %1$s</string>
     <string name="simple_versioning_info">Versies behouden: %1$s</string>
     <string name="show_device_id">Apparaat-ID weergeven</string>
-
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Kon apparaat-ID niet lezen.</string>
     <string name="browse">Bladeren</string>
