@@ -202,6 +202,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
+    <string name="device_disconnected_not_synced">Desconectado (%1$s pendiente) </string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausado</string>
 
@@ -521,6 +523,8 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Por favor enciende el wifi para seleccionar redes.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Por favor, active la ubicación para seleccionar las redes.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Necesita otorgar el permiso de UBICACIÓN para usar esta función.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permiso requerido</string>
@@ -556,6 +560,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
 
     <string name="use_root_summary">Ejecutar Syncthing como root le permite escribir en las carpetas que Android normalmente restringe como de solo lectura. Utilice esta función con precaución.</string>
+
+    <string name="bind_network_title">Enlazar a red activa</string>
+    <string name="bind_network_summary">Forzar el uso de WiFi incluso si no hay conexión a Internet. Si se desactiva, Syncthing podrá usar datos móviles en este caso.</string>
 
     <string name="expert_mode_title">Modo experto</string>
 
@@ -724,6 +731,11 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="verbose_log_title">Registro detallado</string>
 
     <string name="verbose_log_summary">Activar esta opción ayudará a generar registros de depuración a un nivel muy detallado.</string>
+
+    <string name="log_to_file_title">Registrar en archivo</string>
+
+    <string name="log_to_file_summary">La salida de SyncthingNative se escribirá en un archivo.</string>
+
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Abrir registro</string>

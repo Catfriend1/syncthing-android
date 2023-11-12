@@ -18,24 +18,55 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Wprowadzenie</string>
+    <string name="storage_permission_desc">Syncthing potrzebuje dostępu do pamięci urządzenia, aby synchronizować pliki.</string>
+    <string name="dialog_all_files_access_not_supported">Twoje urządzenie nie pozwala na dostęp do wszystkich plików</string>
+
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optymalizacja akumulatora</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Twoje urządzenie nie wspiera wyłączania optymalizacji baterii</string>
 
+    <!-- Slide "Location Permission" -->
+    <string name="location_permission_title">Uprawnienia do lokalizacji</string>
+    <!-- Slide "Key Generation" -->
+    <string name="key_generation_title">Generowanie kluczy</string>
+    <!-- Generic texts used everywhere -->
+    <string name="back">Wstecz</string>
     <string name="cont">Kontynuuj</string>
     <string name="finish">Koniec</string>
     <string name="generic_example">Przykład</string>
     <string name="generic_error">Błąd</string>
     <string name="generic_help">Pomoc</string>
+    <string name="grant_permission">Przyznaj uprawnienia</string>
+    <string name="permission_granted">Uprawnienia przyznane</string>
     <string name="reason">Powód:</string>
 
+    <string name="accept">Akceptuj</string>
+
     <string name="ignore">Ignoru</string>
+
+    <string name="page_x_of_y">Strona %1$s z %2$s</string>
 
     <string name="main_menu">Menu główne</string>
 
     <string name="refresh">Odśwież</string>
 
 
+
+    <string name="photo_shoot_activity_title">Aparat Syncthing-Fork</string>
+
+    <string name="photo_shoot_intro_permission_title">Wymagane uprawnienia</string>
+
+    <string name="photo_shoot_intro_no_camera">Niestety, to urządzenie nie posiada dostępnej kamery.</string>
+
+    <string name="photo_shoot_intro_missing_permissions">Aby kontynuować, wymagane są uprawnienia dostępu do aparatu oraz do zapisu plików.</string>
+
+    <string name="grant_storage_permission">Przyznaj dostęp do plików</string>
+
+    <string name="grant_camera_permission">Przyznaj dostęp do aparatu</string>
+
+    <!-- Main menu button -->
+    <string name="open_main_menu">Otwórz menu główne</string>
+    <string name="close_main_menu">Zamknij menu główne</string>
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Potwierdź zamknięcie aplikacji</string>
@@ -89,9 +120,19 @@
 
     <string name="override_changes">Nadpisz zmiany</string>
 
+    <!-- Override Changes Confirmation Dialog -->
+    <string name="override_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na innych urządzeniach współdzielących ten katalog. Czy kontynuować?</string>
+
     <string name="revert_local_changes">Odwróć zmiany lokalne</string>
 
+    <string name="delete_unexpected_items">Usuń nieoczekiwane dane</string>
+
+
+    <!-- Revert Local Changes Confirmation Dialog -->
+    <string name="revert_local_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na tym urządzeniu w tym katalogu. Czy kontynuować?</string>
+
     <string name="open_file_manager">Otwórz menedżer plików</string>
+    <string name="open_file_with">Otwórz plik za pomocą</string>
     <string name="open_file_no_compatible_app">Nie znaleziono aplikacji do otwarcia tego pliku.</string>
 
     <!-- Suggest File Manager App Dialog -->
@@ -101,21 +142,52 @@
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Urządzenia</string>
 
+    <!-- Shown if no devices are configured in add folder dialog  -->
+    <string name="devices_list_empty">Nie skonfigurowano żadnych urządzeń. Dotknij tutaj, aby dodać nowe urządzenie.</string>
+
+    <!-- Shown in ListView if no devices are configured -->
+    <string name="no_devices_configured">Brak skonfigurowanych urządzeń.\nZacznij od dodania pierwszego urządzenia.</string>
+
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Aktualne</string>
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Synchronizowanie (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Synchronizowanie (%1$d%%, %2$s)</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Rozłączony</string>
+    <string name="device_disconnected_not_synced">Rozłączono (%1$s oczekuje)</string>
+
+    <!-- Indicates that the device is paused and does not sync -->
+    <string name="device_paused">Wstrzymano</string>
+
+    <!-- Indicates that devices does not share any folders -->
+    <string name="device_state_unused">Nieużywane</string>
+
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Nieznany</string>
+
+    <!-- Last seen title -->
+    <string name="device_last_seen">Ostatnio widziano:\u0020%1$s</string>
+    <string name="device_last_seen_never">Nigdy</string>
+
+    <!-- Title for the listing of shared folders with a colon and space appended -->
+    <string name="shared_folders_title_colon">Katalogi:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Pobieranie</string>
 
     <!-- Title for current upload rate -->
     <string name="upload_title">Wysyłanie</string>
+
+    <!-- StatusFragment -->
+    <string name="status_fragment_title">Stan</string>
+
+    <string name="syncthing_starting">Syncthing uruchamia się.</string>
+    <string name="syncthing_running">Syncthing jest uruchomiony.</string>
+    <string name="syncthing_not_running">Syncthing nie jest uruchomiony.</string>
+    <string name="syncthing_has_crashed">Syncthing przestał działać.</string>
 
     <!-- DrawerFragment -->
 
@@ -132,6 +204,9 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Serwer ogłoszeniowy</string>
 
+    <!-- Title for uptime status -->
+    <string name="uptime">Czas działania</string>
+
     <string name="restart">Uruchom ponownie</string>
 
     <string name="dialog_confirm_restart">Uruchomić program ponownie?</string>
@@ -147,6 +222,17 @@
 
     <!-- Setting title -->
     <string name="directory">Katalog</string>
+    <string name="advanced_directory_selection">Zaawansowany wybór katalogu</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_fileWatcher">Obserwuj zmiany</string>
+    <!-- Setting title and description -->
+    <string name="folder_ignore_delete_caption">Ignoruj usunięcia</string>
+    <string name="folder_ignore_delete_description">Zaawansowana opcja zmieniająca sposób obsługi przychodzących aktualizacji indeksu. Gdy jest włączona, przychodzące aktualizacje z flagą \"usunięto\" są ignorowane. Więcej informacji: &folder_ignore_delete_docs_url</string>
+
+    <!-- Setting title -->
+    <string name="folder_pause">Wstrzymaj synchronizację</string>
+
     <!-- Setting title -->
     <string name="devices">Urządzenia</string>
 
@@ -171,6 +257,9 @@
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Identyfikator katalogu nie może być pusty</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">Etykieta katalogu nie może być pusta</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Ścieżka katalogu nie może być pusta</string>
 
@@ -182,6 +271,9 @@
 
     <!-- Setting title -->
     <string name="device_id">Identyfikator urządzenia</string>
+
+    <!-- Status title -->
+    <string name="discovered_devices_title">Znalezione urządzenia - Dotknij, aby wybrać</string>
 
     <!-- Setting title -->
     <string name="name">Nazwa</string>
@@ -205,6 +297,14 @@
     <!-- Setting title -->
     <string name="introducer">Wprowadzający</string>
 
+    <!-- Setting title -->
+    <string name="pause_device">Wstrzymaj synchronizację</string>
+
+    <!-- Setting title -->
+    <string name="untrusted_device">Niezaufane urządzenie</string>
+
+    <string name="untrusted_device_explanation">Wszystkie foldery współdzielone z tym urządzeniem muszą być zabezpieczone hasłem, tak aby całość przesyłanych danych była nie do odczytu bez podania danego hasła.</string>
+
     <!-- ActionBar item -->
     <string name="delete_device">Usuń urządzenie</string>
 
@@ -222,11 +322,26 @@
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Identyfikator urządzenia nie może być pusty</string>
 
+    <!-- Toast shown when trying to create a device with an empty name -->
+    <string name="device_name_required">Nazwa urządzenia nie może być pusta</string>
+
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Skanuj kod QR</string>
 
+    <!-- Dialog message if no compatible barcode scanner app is installed -->
+    <string name="install_barcode_scanner_app_message">Wymagany jest skaner kodów QR. Czy chcesz zainstalować aplikację \"Binary Eye\" z F-Droid?</string>
+
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Nie otrzymano uprawnień root.</string>
+
+    <!-- TipsAndTricks activity -->
+
+
+    <!-- Title of the Tips and Tricks activity -->
+    <string name="tips_and_tricks_title">Wskazówki</string>
+
+    <string name="tip_sync_on_local_network_title">Synchronizacja tylko w lokalnej sieci WiFi</string>
+    <string name="tip_sync_on_local_network_text">Jeśli chcesz, aby synchronizacja była dokonywana tylko z urządzeniami w lokalnej sieci WiFi lub hotspocie, możesz zmniejszyć zużycie baterii i zapobiec przypadkowej synchronizacji przez dane komórkowe poprzez wyłączenie następujących opcji w Ustawieniach Syncthing:\n- Trawersowanie NAT\n- Globalne wyszukiwanie\n- Włącz przekazywanie\nPozostaw opcję \"Lokalne wyszukiwanie\" włączoną.</string>
 
     <!-- WebGuiActivity -->
 
@@ -237,6 +352,9 @@
     <string name="web_gui_loading">Oczekiwanie na interfejs użytkownika</string>
 
 
+    <!-- Text for WebViewActivity openBrowser action button -->
+    <string name="open_in_browser">Otwórz w przeglądarce</string>
+
     <!-- SettingsFragment -->
 
 
@@ -244,10 +362,13 @@
 
     <string name="category_run_conditions">Warunki działania</string>
 
+    <string name="category_user_interface">Interfejs użytkownika</string>
+
     <string name="category_behaviour">Zachowanie</string>
 
     <string name="category_syncthing_options">Ustawienia Syncthing</string>
 
+    <string name="category_backup">Import i eksport</string>
     <string name="category_experimental">Eksperymentalne</string>
 
     <!-- Preference screen - Run conditions -->
@@ -291,6 +412,8 @@
 
     <string name="usage_reporting">Anonimowe statystyki użycia</string>
 
+    <string name="crash_reporting">Anonimowe zgłaszanie awarii</string>
+
     <string name="export_config">Eksportuj ustawienia</string>
 
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
@@ -326,6 +449,8 @@
     <string name="st_reset_database_done">Przywrócono stan początkowy bazy danych</string>
 
     <string name="category_about">O programie</string>
+
+    <string name="verbose_log_title">Szczegółowe dzienniki</string>
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Otwórz dziennik</string>
@@ -519,4 +644,5 @@
     <string name="browse">Przeglądaj</string>
     <string name="no_sub_folder_is_selected">Żaden podfolder nie został wybrany</string>
     <string name="share_device_id_chooser">Udostępnij ID urządzenia</string>
+    <string name="qs_schedule_label">Uruchom na 5 minut</string>
     </resources>

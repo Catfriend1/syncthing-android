@@ -198,8 +198,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Se sincronizează(%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Se sincronizează(%1$d%%, %2$s)</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Deconectat</string>
+    <string name="device_disconnected_not_synced">Deconectat (%1$s în așteptare)</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Întrerupt</string>
 
@@ -517,6 +521,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Activează locația pentru a selecta rețele.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Necesită permisiunea</string>
@@ -540,6 +546,11 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
 
     <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
+    <string name="run_on_time_schedule_summary">Activarea acestei opțiuni va încerca să sincronizeze pentru o durată configurată dacă sunt îndeplinite condițiile de rulare și ultima sincronizare a avut loc acum mai mult de 1 oră. Acest lucru poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Reține: acest lucru poate lăsa fișiere temporare incomplete în urmă până la următoarea sincronizare programată.</string>
+
+    <string name="sync_duration_minutes_title">Durata ciclului de sincronizare</string>
+    <string name="sync_duration_minutes_summary">%1$s minute</string>
+
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Pornire automată</string>
     <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>
@@ -547,6 +558,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="use_root_title">Rulează ca root</string>
 
     <string name="use_root_summary">Rularea Syncthing ca root îi permite să scrie în dosarele în care Android restricționează accesul doar citire. Utilizați această funcție cu precauție.</string>
+
+    <string name="bind_network_title">Conectare la rețeaua activă</string>
+    <string name="bind_network_summary">Forțează utilizarea WiFi chiar dacă nu există conexiune la internet. Dacă este dezactivată, Syncthing poate folosi datele mobile în acest caz.</string>
 
     <string name="expert_mode_title">Modul expert</string>
 
@@ -607,6 +621,8 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="webui_tcp_port_title">Port Web UI TCP</string>
 
     <string name="webui_remote_access_title">Acces de la distanță Web UI</string>
+
+    <string name="webui_remote_access_summary">Specifică pentru a permite accesarea interfeței de utilizare web de pe alt dispozitiv. Dacă este activat, te poți conecta cu utilizatorul „syncthing” și cheia API ca parolă. Implicit: dezactivat (cel mai sigur)</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
@@ -717,6 +733,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Activity title -->
     <string name="folder_picker_title">Selector de director</string>
 
+    <!-- Storage path overview -->
+    <string name="advanced_storage_path_overview">Prezentare generală avansată a căii de stocare</string>
+
+    <!-- Current path -->
+    <string name="current_path">Calea curentă: %1$s</string>
+
     <!-- ListView empty text -->
     <string name="directory_empty">Directorul este gol</string>
 
@@ -808,6 +830,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Ați activat „Executare conform graficului de timp”, iar ultima sincronizare nu a fost mai mult de o oră în urmă.</string>
+    <string name="reason_not_within_time_frame_2">Ai activat „Executare conform orarului” și ultima sincronizare a avut loc acum %s.</string>
     <string name="reason_not_within_time_frame_0_min">mai puțin de un minut</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minut</item>
@@ -821,6 +844,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
 
     <!-- ... Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing nu este configurat să ruleze prin conexiunea de date mobile.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor nu este instanțiat. Repornește aplicația și trimite un raport de eroare dacă această eroare nu dispare după repornire.</string>
+
+    <!-- Sync Conditions Dialog -->
+
+    <string name="custom_wifi_ssid_whitelist_empty">Niciun SSID WiFi nu este inclus în lista albă. Specifică câteva în setări.</string>
+
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -829,6 +858,22 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing rulează</string>
     <string name="syncthing_active_details">Syncthing rulează: %1$s</string>
+    <string name="no_remote_devices_connected">Nu sunt conectate dispozitive la distanță</string>
+
+    <plurals name="device_online_up_to_date">
+        <item quantity="one">%1$d dispozitiv online și actualizat</item>
+        <item quantity="few">%1$d dispozitive online și actualizate</item>
+        <item quantity="other">%1$d dispozitive online și actualizate</item>
+    </plurals>
+
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Sincronizare: %1$d%% complet, %2$d dispozitiv online</item>
+        <item quantity="few">Sincronizare: %1$d%% complet, %2$d dispozitive online</item>
+        <item quantity="other">Sincronizare: %1$d%% complet, %2$d dispozitive online</item>
+    </plurals>
+
+    <string name="syncthing_disabled">Syncthing în pauză</string>
+
     <string name="syncthing_terminated">Syncthing a fost închis</string>
 
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
@@ -886,8 +931,12 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Possible folder states -->
     <string name="state_failed_items">Elemente eșuate (%1$d)</string>
     <string name="state_up_to_date">Actualizat</string>
+    <string name="state_local_additions">Adăugiri locale</string>
+    <string name="state_cleaning">Curățare versiuni</string>
+    <string name="state_clean_waiting">În așteptarea curățării</string>
     <string name="state_scanning">Scanare</string>
     <string name="state_scan_waiting">În așteptarea scanării</string>
+    <string name="state_sync_waiting">Se așteaptă sincronizarea</string>
     <string name="state_sync_preparing">Pregătire pentru sincronizare</string>
     <string name="state_syncing_general">Sincronizare</string>
     <string name="state_syncing">Se sincronizează(%1$d%%)</string>
@@ -910,10 +959,14 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="folder_type_sendreceive">Trimitere și primire</string>
     <string name="folder_type_sendonly">Doar trimitere</string>
     <string name="folder_type_receiveonly">Doar primire</string>
+    <string name="folder_type_receive_encrypted">Recepționează Criptate</string>
+
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">Dosarul va trimite și va recepționa modificări de la dispozitivele la distanță.</string>
     <string name="folder_type_sendonly_description">Fișierele sunt protejate de modificările făcute pe alte dispozitive, dar modificările făcute pe acest dispozitiv vor fi trimise restului clusterului.</string>
     <string name="folder_type_receiveonly_description">Fișierele sunt sincronizate din cluster, dar orice modificare făcută local nu va fi trimisă altor dispozitive.</string>
+    <string name="folder_type_receive_encrypted_description">Stochează și sincronizează numai date criptate. Dosarele de pe toate dispozitivele conectate trebuie să fie configurate cu aceeași parolă sau să fie și de tipul „Recepționează Criptate”.</string>
+
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Ordinea de preluare a fișierelor</string>
 
@@ -977,4 +1030,11 @@ atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt ș
     <string name="custom_sync_conditions_description">Vă permite să specificați excepții de la condițiile de rulare globală.</string>
     <string name="custom_sync_conditions_dialog">Specificați condițiile de sincronizare</string>
 
-    </resources>
+    <!-- Quick Setting icon names and labels -->
+    <string name="qs_force_label">Rulează forțat</string>
+    <string name="qs_forced_to_run">Forțat să ruleze</string>
+    <string name="qs_forced_to_stop">Forțat să se oprească</string>
+    <string name="qs_following_run_conditions">Urmărind condițiile de rulare</string>
+    <string name="qs_schedule_label">Rulează pentru 5 minute</string>
+    <string name="qs_schedule_disabled">Orar dezactivat</string>
+</resources>

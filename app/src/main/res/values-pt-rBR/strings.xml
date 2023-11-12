@@ -65,13 +65,30 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
 
 
+    <!-- PhotoShootActivity -->
+
+    <string name="photo_shoot_launcher_title">Câmera Sync.</string>
+
+    <string name="photo_shoot_activity_title">Câmera Syncthing-Fork</string>
+
+    <string name="photo_shoot_intro_welcome_title">Bem-vindo ao Câmera Syncthing</string>
+
     <string name="photo_shoot_intro_permission_title">Permissões necessárias</string>
+
+    <string name="photo_shoot_intro_no_camera">Desculpe, este dispositivo não tem uma câmera.</string>
 
     <string name="photo_shoot_intro_missing_permissions">Requeremos permissão ao armazenamento e a câmera para continuar.</string>
 
     <string name="grant_storage_permission">Conceder permissão de armazenamento</string>
 
     <string name="grant_camera_permission">Conceder permissão da câmera</string>
+
+    <string name="photo_shoot_take_picture_failure">Não foi possível tirar uma foto ou você cancelou.</string>
+
+    <!-- Label of the folder created by the Syncthing Camera feature. -->
+    <string name="default_syncthing_camera_folder_label">Câmera Syncthing</string>
+
+
 
     <!-- MainActivity -->
 
@@ -142,6 +159,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <string name="revert_local_changes">Reverter mudanças locais</string>
 
+    <string name="delete_unexpected_items">Apagar itens inesperados</string>
+
+
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Todas as mudanças feitas nesse dispositivo dentro daquela pasta serão desfeitas. Proceder?</string>
 
@@ -171,8 +191,12 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Sincronizando (%1$d%%)</string>
+    <string name="device_syncing_percent_bytes">Sincronizando (%1$d%%, %2$s)</string>
+
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Desconectado</string>
+    <string name="device_disconnected_not_synced">Desconectado (%1$s pendente(s))</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Pausado</string>
 
@@ -182,6 +206,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Desconhecido</string>
 
+    <!-- Last seen title -->
+    <string name="device_last_seen">Visto por último:\u0020%1$s</string>
     <string name="device_last_seen_never">Nunca</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
@@ -203,6 +229,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="syncthing_starting">O Synthing está iniciando.</string>
     <string name="syncthing_running">O Syncthing está em execução.</string>
     <string name="syncthing_not_running">O Syncthing não está em execução.</string>
+    <string name="syncthing_has_crashed">O Syncthing travou.</string>
+
     <!-- DrawerFragment -->
 
 
@@ -236,9 +264,15 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <!-- Setting title -->
     <string name="directory">Pasta</string>
+    <string name="advanced_directory_selection">Seleção avançada de diretórios</string>
+
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">observe as mudanças</string>
     <string name="folder_fileWatcherDescription">Pede ao sistema em operação para notificar sobre mudanças em arquivos. Se desabilitado cai para uma varredura periódica por hora.</string>
+
+    <!-- Setting title and description -->
+    <string name="folder_ignore_delete_caption">Ignorar exclusão</string>
+    <string name="folder_ignore_delete_description">Opção avançada que afeta o tratamento das atualizações de índice recebidas. Quando definida, as atualizações recebidas com o sinalizador de exclusão definido são ignoradas. Veja &folder_ignore_delete_docs_url;</string>
 
     <!-- Setting title -->
     <string name="folder_pause">Repositório pausado</string>
@@ -267,6 +301,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">O ID da pasta não pode ficar vazio</string>
 
+    <!-- Toast shown when trying to create a folder with an empty label -->
+    <string name="folder_label_required">O rótulo da pasta não pode estar vazio</string>
+
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">O caminho da pasta não pode ficar vazio</string>
 
@@ -274,6 +311,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Sua versão do Android garante acesso apenas à leitura da pasta selecionada</string>
+
+    <!-- Summary shown if we only have readwrite access to the folder path -->
+    <string name="folder_path_readwrite">Sua versão do Android concede ao Syncthing acesso de leitura e escrita à pasta selecionada.</string>
 
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">A mudança de pastas existentes para \'Receber criptografado\' não é suportada.</string>
 
@@ -353,8 +393,10 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="tip_sync_on_local_network_title">Sincronizar apenas usando a rede WiFi local</string>
     <string name="tip_sync_on_local_network_text">Se você deseja sincronizar apenas com dispositivos localizados na rede Wi-Fi local ou acessíveis via hotspot Wi-Fi, você pode reduzir o uso da bateria e evitar a sincronização acidental por dados móveis desativando as seguintes opções em \'Configurações/Opções de sincronização\': \n- Habilitar travessia de NAT\n- Descoberta Global\n- Habilitar Relaying\nApenas deixe \'Descoberta local\' habilitada.</string>
 
+    <string name="tip_custom_sync_conditions_title">Usar condições personalizadas de sincronização por pasta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esse recurso será melhorada em versões futuras. Por enquanto, nós não queríamos quebrar configurações existentes e o comportamento do app. É por isso que condições de sincronização personalizadas para um certo tipo de rede só podem ser definidas se você ativar primeiro a sincronização na rede nas condições execução global.</string>
 
+    <string name="tip_ignore_delete_title">Fazer backups das fotos do celular para o computador?</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: o app não inicia na inicialização</string>
     <string name="tip_xiaomi_battery_saver_text">O aplicativo do sistema de economia de bateria da Xiaomi MIUI revoga a permissão \'ignorar otimização da bateria\' do aplicativo em cada reinicialização do telefone. Isso faz com que o aplicativo mostre a tela de boas-vindas e peça novamente a permissão obrigatória ausente. Solução: na tela inicial, abra a gaveta de aplicativos> Pressione e segure \'Syncthing-Fork\' > \'Informações do aplicativo\' > \'Economia de bateria\' e selecione \'Sem restrições\' (MIUI 10.3.2.0+).</string>
 
@@ -422,6 +464,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <string name="run_on_mobile_data_title">Executar nos dados móveis</string>
     <string name="run_on_wifi_title">Executar no Wi-Fi</string>
+    <string name="run_on_metered_wifi_title">Executar em WiFi limitado</string>
+    <string name="run_on_metered_wifi_summary">Executar quando o dispositivo estiver conectado a uma rede Wi-Fi limitado, por exemplo, um ponto de acesso ou uma rede com fio. Atenção: Isso pode consumir grande parte de seu plano de dados se você sincronizar muitos dados.</string>
+
     <string name="run_on_whitelisted_wifi_title">Executar em redes Wi-Fi específicas</string>
     <string name="specify_wifi_ssid_whitelist">Selecionar redes Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_networks">Redes Wi-Fi selecionadas: %1$s</string>
@@ -499,6 +544,16 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
 
     <string name="usage_reporting">Relatório anônimo de uso</string>
 
+    <string name="crash_reporting">Relatório anônimo de travamentos</string>
+
+    <string name="webui_tcp_port_title">Porta TCP da interface web</string>
+
+    <string name="webui_remote_access_title">Acesso remoto à interface web</string>
+
+    <string name="webui_remote_access_summary">Especifique para permitir o acesso à interface web de outro dispositivo. Se habilitado, você pode entrar com o usuário \'syncthing\' e a chave da API como senha. Padrão: desabilitado (mais seguro)</string>
+
+    <string name="webui_debugging_title">Depuração da interface web</string>
+
     <string name="export_config">Exportar configuração</string>
 
     <!-- Experimental options -->
@@ -534,6 +589,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="config_import_failed">A importação falhou. Verifique se os arquivos estão em %1$s</string>
 
     <string name="dialog_settings_restart_app_title">Reinício necessário</string>
+
+    <string name="dialog_settings_restart_app_question">Para alterar essa opção, é necessário reiniciar o aplicativo imediatamente. Todas as outras alterações serão descartadas. Continuar?</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opções do STTRACE</string>
@@ -573,6 +630,12 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versão do Syncthing</string>
 
+    <!-- Title of the preference showing the REST API key -->
+    <string name="syncthing_api_key">Chave de API do Syncthing (clique para copiar)</string>
+
+    <!-- Shown when the API key is copied to the clipboard -->
+    <string name="api_key_copied_to_clipboard">Chave de API do Synchthing copiada para a área de transferência</string>
+
     <!-- FolderPickerAcitivity -->
 
 
@@ -589,6 +652,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="select_folder">Selecionar pasta</string>
 
     <string name="create_folder_failed">Falha na criação da pasta</string>
+
+    <!-- Menu item to go up to parent folder -->
+    <string name="folder_go_up">Subir</string>
 
     <!-- LogActivity -->
 
@@ -654,19 +720,33 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Sub Folder title -->
     <string name="sub_folder">Subpasta</string>
 
+    <string name="reason_force_stop">O Syncthing não está em execução já que você não permitiu que ele fosse executado em conexões WiFi limitadas.</string>
+
     <string name="reason_not_within_time_frame_0_min">menos de um minuto</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuto</item>
         <item quantity="many">%d minutos</item>
         <item quantity="other">%d minutos</item>
     </plurals>
+    <string name="reason_not_charging">O celular não está carregando.</string>
+    <string name="reason_not_on_battery_power">O celular não está utilizando a energia da bateria.</string>
+    <string name="reason_not_while_power_saving">O Syncthing não está rodando já que o celular está em modo de economia de bateria agora.</string>
     <string name="reason_on_mobile_data">O Syncthing está autorizado a executar nos dados móveis.</string>
     <string name="reason_not_nonroaming_mobile_data">O Syncthing não está em execução já que você não permitiu que ele fosse executado em conexões de dados móveis.</string>
 
     <string name="reason_wifi_disallowed">O Syncthing não está autorizado a executar no WiFi ou ethernet</string>
     <string name="reason_on_wifi">O Syncthing está autorizado a executar no WiFi e o WiFi está conectado no momento.</string>
     <string name="reason_not_on_wifi">O Syncthing está autorizado a executar no WiFi mas o WiFi não está conectado ou o celular está no modo avião.</string>
+    <string name="reason_on_metered_nonmetered_wifi">O Syncthing está autorizado a executar em conexões WiFi limitadas e não limitadas.</string>
+    <string name="reason_on_whitelisted_wifi">O Synthing está autorizado a executar na rede WiFi atual</string>
+    <string name="reason_not_on_whitelisted_wifi">O Syncthing não está rodando já que o nome da rede WiFi atual não está na lista de redes permitidas.</string>
+    <string name="reason_on_nonmetered_wifi">O Syncthing está autorizado a executar em conexões WiFi não limitadas. A conexão WiFi ativa não é limitada.</string>
+    <string name="reason_not_nonmetered_wifi">O Syncthing não está em execução já que você não permitiu que ele fosse executado em conexões WiFi limitadas.</string>
     <string name="reason_on_flight_mode">O Synthing está em execução já que você autorizou que fosse executado quando o modo avião está ativo.</string>
+    <!-- Sync Conditions Dialog -->
+
+    <string name="custom_wifi_ssid_whitelist_empty">Sem SSIDs de WiFi na lista de redes permitidas. Especifique alguns nas configurações.</string>
+
     <!-- SyncthingService -->
 
     <!-- Text for the exit button on the drawer -->
@@ -679,6 +759,8 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="syncthing_disabled">O Syncthing está dormindo</string>
 
     <string name="config_create_failed">Não foi possível criar o arquivo de configuração</string>
+    <string name="config_read_failed">Não foi possível ler a configuração. Considere fazer backup dos dados das pastas de sincronização, limpar os dados do app nas configurações do Android e então iniciá-lo novamente.</string>
+
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotos</string>
 
@@ -808,6 +890,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="no_sub_folder_is_selected">Nenhuma subpasta selecionada</string>
     <string name="share_device_id_chooser">Compartilhe ID do dispositivo com</string>
     <string name="custom_sync_conditions_title">Condições de execução personalizadas</string>
+    <string name="custom_sync_conditions_description">Permite que você especifique exceções às condições globais de execução.</string>
     <string name="qs_following_run_conditions">Condições de execução seguintes</string>
     <string name="qs_schedule_label">Executar por 5 minutos</string>
     <string name="qs_schedule_disabled">Agendamento desativado</string>

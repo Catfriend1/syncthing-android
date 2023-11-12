@@ -202,6 +202,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnesso</string>
+    <string name="device_disconnected_not_synced">Disconnesso (%1$sin attesa)</string>
+
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">In pausa</string>
 
@@ -216,7 +218,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="device_last_seen_never">Mai</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">Caretelle:\u0020</string>
+    <string name="shared_folders_title_colon">Cartelle:\u0020</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
@@ -521,6 +523,8 @@ Si prega di segnalare eventuali problemi su Github.</string>
 
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Si prega di attivare il WiFi per selezionare le reti.</string>
 
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Si prega di attivare la posizione per selezionare le reti.</string>
+
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">È necessario concedere l\'autorizzazione alla LOCALIZZAZIONE per utilizzare questa funzione.</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Autorizzazione richiesta</string>
@@ -556,6 +560,9 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="use_root_title">Esegui Syncthing come Superutente</string>
 
     <string name="use_root_summary">L\'esecuzione di Syncthing come root permette di scrivere le cartelle che normalmente Android blocca in sola lettura. Usa questa funzione con cautela.</string>
+
+    <string name="bind_network_title">Associa alla rete attiva</string>
+    <string name="bind_network_summary">Forza l\'uso del WiFi anche se non c\'è connessione a Internet. Se disabilitato, Syncthing potrebbe usare i dati mobili in questa situazione.</string>
 
     <string name="expert_mode_title">Modalità esperto</string>
 
@@ -726,6 +733,11 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="verbose_log_title">Log dettagliato</string>
 
     <string name="verbose_log_summary">Abilita questa opzione per generare dei log di debug molto dettagliati. </string>
+
+    <string name="log_to_file_title">Log su file</string>
+
+    <string name="log_to_file_summary">L\'output di SyncthingNative verrà scritto su un file.</string>
+
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Apri Registro</string>
