@@ -228,7 +228,7 @@
     <string name="folder_fileWatcher">Obserwuj zmiany</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignoruj usunięcia</string>
-    <string name="folder_ignore_delete_description">Zaawansowana opcja zmieniająca sposób obsługi przychodzących aktualizacji indeksu. Gdy jest włączona, przychodzące aktualizacje z flagą \"usunięto\" są ignorowane. Więcej informacji: &folder_ignore_delete_docs_url</string>
+    <string name="folder_ignore_delete_description">Zaawansowana opcja zmieniająca sposób obsługi przychodzących aktualizacji indeksu. Gdy jest włączona, przychodzące aktualizacje z flagą \"usunięto\" są ignorowane. Więcej informacji: &folder_ignore_delete_docs_url;</string>
 
     <!-- Setting title -->
     <string name="folder_pause">Wstrzymaj synchronizację</string>
