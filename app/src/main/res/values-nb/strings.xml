@@ -15,7 +15,7 @@
     <string name="share_device_id">Del Enhets-ID</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Send Enhets-ID til</string>
-    <string name="usage_reporting_dialog_title">Tillat anonym rapportering av bruk?</string>
+    <string name="usage_reporting_dialog_title">Tillat anonym rapportering av bruk\?</string>
     <string name="usage_reporting_dialog_description">Den krypterte rapporten over bruk sendes daglig. Den brukes til å spore felles plattformer, mappestørrelser og versjoner av appen. Hvis datasettet endres vil du bli vist denne dialogen på nytt.\n\nDen aggregerte statistikken er offentlig tilgjengelig på https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nei</string>
@@ -54,7 +54,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Søketjener</string>
     <string name="restart">Omstart</string>
-    <string name="dialog_confirm_restart">Vil du starte Syncthing på nytt?</string>
+    <string name="dialog_confirm_restart">Vil du starte Syncthing på nytt\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Mappe-ID</string>
@@ -75,7 +75,7 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Opprett</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Vil du virkelig fjerne denne mappen fra Syncthing?</string>
+    <string name="remove_folder_confirm">Vil du virkelig fjerne denne mappen fra Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mappe-ID kan ikke være tom</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
@@ -107,7 +107,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Rediger Enhet</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Ønsker du å fjerne denne enheten?</string>
+    <string name="remove_device_confirm">Ønsker du å fjerne denne enheten\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enhets-ID kan ikke være tom</string>
     <!-- Content description for device ID qr code icon -->
@@ -137,9 +137,9 @@
     <string name="export_config">Eksporter innstillinger</string>
     <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
+    <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene\? Eksisterende filer vil bli overskrevet.\n\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger? Eksisterende filer vil bli skrevet over.</string>
+    <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger\? Eksisterende filer vil bli skrevet over.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Innstillingene ble eksportert til %1$s</string>
     <string name="import_config">Importer instillinger</string>

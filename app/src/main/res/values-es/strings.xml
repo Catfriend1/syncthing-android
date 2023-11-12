@@ -69,14 +69,14 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="exception_known_bug_notice">Se ha encontrado un error conocido que aún no ha sido resuelto. Consulte %1$s/%2$s para obtener más información. Por favor, déjenos una descripción precisa de lo que ocurrió justo antes.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirme para salir de la aplicación</string>
-    <string name="dialog_exit_while_running_as_service_message">Para su consideración: Ha configurado la aplicación para que se inicie automáticamente en el arranque. Por lo tanto, supervisa las condiciones de ejecución y se sincroniza en cualquier momento en segundo plano cuando las condiciones coinciden. Solo debería cerrarla manualmente si tiene problemas graves. Si no es así, desactive \"Iniciar automáticamente al arrancar\" en los ajustes. ¿Quiere cerrarla ahora hasta que el dispositivo se reinicie?</string>
+    <string name="dialog_exit_while_running_as_service_message">Para su consideración: Ha configurado la aplicación para que se inicie automáticamente en el arranque. Por lo tanto, supervisa las condiciones de ejecución y se sincroniza en cualquier momento en segundo plano cuando las condiciones coinciden. Solo debería cerrarla manualmente si tiene problemas graves. Si no es así, desactive \"Iniciar automáticamente al arrancar\" en los ajustes. ¿Quiere cerrarla ahora hasta que el dispositivo se reinicie\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Añadir carpeta</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Compartir el ID del dispositivo</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar el ID del dispositivo a</string>
-    <string name="usage_reporting_dialog_title">¿Permitir informes anónimos de uso?</string>
+    <string name="usage_reporting_dialog_title">¿Permitir informes anónimos de uso\?</string>
     <string name="usage_reporting_dialog_description">El informe cifrado de uso se manda a diario. Se utiliza para monitorizar las plataformas más comunes, el tamaño de las carpetas y las versiones de la aplicación. Si se modifica el conjunto de datos del informe se te presentará de nuevo este mensaje.\n\nLas estadísticas globales están disponibles públicamente en https://data.syncthing.net.</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
@@ -100,17 +100,17 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     </plurals>
     <string name="override_changes">Sobreescribir cambios</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Esto deshará todos los cambios realizados en los otros dispositivos que comparten esta carpeta. ¿Proceder?</string>
+    <string name="override_changes_question">Esto deshará todos los cambios realizados en los otros dispositivos que comparten esta carpeta. ¿Proceder\?</string>
     <string name="revert_local_changes">Revertir cambios locales</string>
     <string name="delete_unexpected_items">Eliminar elementos inesperados</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Esto deshará todos los cambios realizados en este dispositivo dentro de esa carpeta. ¿Proceder?</string>
+    <string name="revert_local_changes_question">Esto deshará todos los cambios realizados en este dispositivo dentro de esa carpeta. ¿Proceder\?</string>
     <string name="open_file_manager">Abrir gestor de archivos</string>
     <string name="open_file_with">Abrir archivo con</string>
     <string name="open_file_no_compatible_app">No se ha encontrado ninguna aplicación con la cual abrir el archivo.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">No se ha encontrado un gestor de archivos compatible</string>
-    <string name="suggest_file_manager_app_dialog_text">Le recomendamos instalar la aplicación de gestión de archivos de código abierto \"Material Files\". ¿Desea abrir su página de la tienda de aplicaciones?</string>
+    <string name="suggest_file_manager_app_dialog_text">Le recomendamos instalar la aplicación de gestión de archivos de código abierto \"Material Files\". ¿Desea abrir su página de la tienda de aplicaciones\?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositivos</string>
@@ -163,7 +163,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Title for uptime status -->
     <string name="uptime">Tiempo en línea</string>
     <string name="restart">Reiniciar</string>
-    <string name="dialog_confirm_restart">¿Quieres reiniciar Syncthing?</string>
+    <string name="dialog_confirm_restart">¿Quieres reiniciar Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID de carpeta</string>
@@ -193,14 +193,14 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Crear</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">¿Realmente quieres excluir esta carpeta de Syncthing?</string>
+    <string name="remove_folder_confirm">¿Realmente quieres excluir esta carpeta de Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">El ID de carpeta no debe estar vacío</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">La etiqueta de la carpeta no debe estar vacía</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">La ruta a la carpeta no debe estar vacía</string>
-    <string name="dialog_discard_changes">¿Descartar tus cambios?</string>
+    <string name="dialog_discard_changes">¿Descartar tus cambios\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Su versión de Android solo le otorga a Syncthing acceso de solo lectura a la carpeta seleccionada.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -249,7 +249,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Editar dispositivo</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">¿Realmente quieres excluir este dispositivo?</string>
+    <string name="remove_device_confirm">¿Realmente quieres excluir este dispositivo\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">El ID de dispositivo no debe estar vacío</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -261,7 +261,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Escanear código QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Esto requiere una aplicación de escáner de código de barras. ¿Desea instalar la aplicación \'Binary Eye\' de F-Droid?</string>
+    <string name="install_barcode_scanner_app_message">Esto requiere una aplicación de escáner de código de barras. ¿Desea instalar la aplicación \'Binary Eye\' de F-Droid\?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">No hay carpetas configuradas. Pulse para añadir una nueva carpeta.</string>
     <!-- Toast show if we could not get root permissions -->
@@ -275,7 +275,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="tip_sync_on_local_network_text">Si desea sincronizar solo con los dispositivos que se encuentran en la red WiFf local o accesibles a través de un hotspot de Wifi, puede reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\":\n- Permitir NAT Traversal\n- Descubrimiento Global\n- Habilitar la Retransmisión\nSolo deje activado el \"Descubrimiento Local\".</string>
     <string name="tip_custom_sync_conditions_title">Utilizar condiciones de sincronización personalizadas por carpeta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones  personalizadas de sincronización para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
-    <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador?</string>
+    <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador\?</string>
     <string name="tip_ignore_delete_text">Si desea tener una copia de seguridad de todas las fotos hechas en su teléfono en un ordenador, comparta la carpeta \"Cámara\" con el ordenador. Abra Syncthing en el ordenador, añada la carpeta y vaya a \"Acciones\" &gt; \"Avanzado\" &gt; Carpeta \"Cámara\". Habilite la opción \"Ignorar la eliminación\" y haga clic en \"Guardar\". Ahora puede eliminar las fotos de la carpeta de la cámara en el teléfono y se mantendrá la copia de seguridad en el ordenador.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: solución alternativa a \"dispositivo desconectado\"</string>
     <string name="tip_huawei_device_disconnected_text">Si su ordenador informa constantemente a su dispositivo Huawei como desconectado, abra la interfaz de usuario de Syncthing de su escritorio. Vaya a \"dispositivos remotos\", expanda la entrada del teléfono, haga clic en \"Editar\" y cambie a \"Avanzado\". Ponga la dirección IP de su teléfono en \"Direcciones\" así:\ntcp4://%1$s, dynamic\nConfirmado que funciona para: Huawei P10</string>
@@ -299,7 +299,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviso de Seguridad</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">El sitio web en %1$s parece tener un certificado inválido para el cifrado SSL. ¿Proceder?</string>
+    <string name="ssl_cert_invalid_text">El sitio web en %1$s parece tener un certificado inválido para el cifrado SSL. ¿Proceder\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Cargando página web:\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -412,7 +412,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="download_support_bundle_failed">Error al descargar el Paquete de Soporte. Revise el registro.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Deshacer la ignoración de dispositivos y carpetas</string>
-    <string name="undo_ignored_devices_folders_question">Esto deshará las decisiones anteriores de ignorar dispositivos y carpetas. ¿Continuar?</string>
+    <string name="undo_ignored_devices_folders_question">Esto deshará las decisiones anteriores de ignorar dispositivos y carpetas. ¿Continuar\?</string>
     <string name="undo_ignored_devices_folders_done">Decisiones deshechas exitosamente.</string>
     <string name="export_config">Exportar configuración</string>
     <!-- Toast after entering an invalid tcp port -->
@@ -435,9 +435,9 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
     <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para iniciar y detener el servicio mediante el envío de transmisiones, por ejemplo, desde aplicaciones de automatización de terceros. Nota: Tiene que reiniciar la aplicación manualmente después de cambiar esta opción.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Se sobreescribirán los ficheros existentes.\n\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.\n\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración? Se sobrescribirán los archivos existentes.</string>
+    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración\? Se sobrescribirán los archivos existentes.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">La configuración fue exportada a %1$s</string>
     <string name="config_export_failed">Exportación de configuración fallida, compruebe la salida de logcat.</string>
@@ -446,7 +446,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="config_imported_successful">Configuración importada</string>
     <string name="config_import_failed">Importación de la configuración fallida, comprueba que los ficheros están en %1$s</string>
     <string name="dialog_settings_restart_app_title">Reinicio requerido</string>
-    <string name="dialog_settings_restart_app_question">El cambio de esta opción requiere un reinicio inmediato de la aplicación. Todos los demás cambios serán descartados. ¿Continuar?</string>
+    <string name="dialog_settings_restart_app_question">El cambio de esta opción requiere un reinicio inmediato de la aplicación. Todos los demás cambios serán descartados. ¿Continuar\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opciones de STTRACE</string>
     <string name="environment_variables">Variables ambientales</string>
@@ -456,14 +456,14 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <string name="st_reset_database_title">Restablecer base de datos</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Esta acción solo debe ser realizada a base de una recomendación de nuestro equipo de soporte.
-\n¿Está seguro de que quiere borrar la base de datos de Syncthing?</string>
+\n¿Está seguro de que quiere borrar la base de datos de Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Base de datos de Syncthing restablecida con éxito</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Restablecer Índices Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Esta acción solo debe ser realizada a base de una recomendación de nuestro equipo de soporte.
-\n¿Está seguro de que quiere borrar los índices delta de Syncthing?</string>
+\n¿Está seguro de que quiere borrar los índices delta de Syncthing\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Índices Delta de Syncthing restablecidos con éxito</string>
     <string name="category_about">Acerca de</string>
@@ -620,7 +620,7 @@ Por favor, reporte cualquier problema que encuentre mediante GitHub.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Falta un archivo de configuración crucial para el funcionamiento</string>
     <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">Puerto TCP %s de la interfaz web ocupado. ¿Segunda instancia?</string>
+    <string name="webui_tcp_port_unavailable">Puerto TCP %s de la interfaz web ocupado. ¿Segunda instancia\?</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Cámara</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

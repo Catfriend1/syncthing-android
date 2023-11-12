@@ -42,7 +42,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="share_device_id">Partager ID appareil</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envoyer ID appareil à</string>
-    <string name="usage_reporting_dialog_title">Autoriser l\'envoi anonyme de rapports d\'utilisation ?</string>
+    <string name="usage_reporting_dialog_title">Autoriser l\'envoi anonyme de rapports d\'utilisation \?</string>
     <string name="usage_reporting_dialog_description">Le rapport crypté des usages est envoyé tous les jours. Il est utilisé pour recueillir les types de plates-formes, la tailles des partages et les versions d\'applications. Si le type de données envoyées dans les rapports est modifié, vous verrez à nouveau cette boite de dialogue.\n\nL\'agrégation des statistiques est publique, et disponible sur https://data.syncthing.net.</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
@@ -90,7 +90,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Title for announce server status -->
     <string name="announce_server">Serveur d\'annonce</string>
     <string name="restart">Redémarrer</string>
-    <string name="dialog_confirm_restart">Voulez-vous redémarrer Syncthing ?</string>
+    <string name="dialog_confirm_restart">Voulez-vous redémarrer Syncthing \?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID du partage</string>
@@ -116,12 +116,12 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Menu item to confirm folder creation -->
     <string name="create">Créer</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Voulez-vous vraiment enlever ce partage de Syncthing ?</string>
+    <string name="remove_folder_confirm">Voulez-vous vraiment enlever ce partage de Syncthing \?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">L\'ID du partage ne doit pas être vide</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Le chemin du répertoire ne doit pas être vide</string>
-    <string name="dialog_discard_changes">Annuler vos modifications ?</string>
+    <string name="dialog_discard_changes">Annuler vos modifications \?</string>
     <string name="ignore_patterns">Ignorer les exclusions</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -152,7 +152,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Modification de l\'appareil</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Voulez-vous vraiment enlever cet appareil ?</string>
+    <string name="remove_device_confirm">Voulez-vous vraiment enlever cet appareil \?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">L\'ID d\'appareil ne peut pas être vide</string>
     <!-- Content description for device ID qr code icon -->
@@ -214,9 +214,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés.\n\n ATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.\n\n ATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
     <string name="import_config">Importer la configuration</string>
@@ -232,7 +232,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="st_reset_database_title">Remise à zéro de la base de données</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
-        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
+        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Réinitialisation réussie de la base de données Syncthing</string>
@@ -240,7 +240,7 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="st_reset_deltas_title">Réinitialiser les index delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Cette action ne doit être réalisée que sur recommandation de l\'équipe support.
-        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing ?
+        \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>

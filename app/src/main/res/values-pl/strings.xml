@@ -52,7 +52,7 @@
     <string name="share_device_id">Udostępnij ID urządzenia</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Wyślij ID urządzenia do</string>
-    <string name="usage_reporting_dialog_title">Zezwolić na wysyłanie anonimowych statystyk użycia?</string>
+    <string name="usage_reporting_dialog_title">Zezwolić na wysyłanie anonimowych statystyk użycia\?</string>
     <string name="usage_reporting_dialog_description">Codziennie wysyłany jest zaszyfrowany raport statystyk użycia. Zawarte w nim są informacje o platformie użytkownika, rozmiarach folderów i wersji aplikacji. Jeśli zestaw pobieranych danych zmieni się to okno zostanie ponownie wyświetlone .\n\nZebrane statystyki są dostępne dla każdego na https://data.syncthing.net.</string>
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
@@ -77,11 +77,11 @@
     </plurals>
     <string name="override_changes">Nadpisz zmiany</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na innych urządzeniach współdzielących ten katalog. Czy kontynuować?</string>
+    <string name="override_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na innych urządzeniach współdzielących ten katalog. Czy kontynuować\?</string>
     <string name="revert_local_changes">Odwróć zmiany lokalne</string>
     <string name="delete_unexpected_items">Usuń nieoczekiwane dane</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na tym urządzeniu w tym katalogu. Czy kontynuować?</string>
+    <string name="revert_local_changes_question">Nastąpi wycofanie wszystkich zmian dokonanych na tym urządzeniu w tym katalogu. Czy kontynuować\?</string>
     <string name="open_file_manager">Otwórz menedżer plików</string>
     <string name="open_file_with">Otwórz plik za pomocą</string>
     <string name="open_file_no_compatible_app">Nie znaleziono aplikacji do otwarcia tego pliku.</string>
@@ -135,7 +135,7 @@
     <!-- Title for uptime status -->
     <string name="uptime">Czas działania</string>
     <string name="restart">Uruchom ponownie</string>
-    <string name="dialog_confirm_restart">Uruchomić program ponownie?</string>
+    <string name="dialog_confirm_restart">Uruchomić program ponownie\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Identyfikator katalogu</string>
@@ -164,14 +164,14 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Utwórz</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Usunąć ten katalog z Syncthing?</string>
+    <string name="remove_folder_confirm">Usunąć ten katalog z Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Identyfikator katalogu nie może być pusty</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Etykieta katalogu nie może być pusta</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Ścieżka katalogu nie może być pusta</string>
-    <string name="dialog_discard_changes">Porzucić zmiany?</string>
+    <string name="dialog_discard_changes">Porzucić zmiany\?</string>
     <string name="ignore_patterns">Wzorce ignorowania</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -207,7 +207,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Edycja urządzenia</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Usunąć to urządzenie?</string>
+    <string name="remove_device_confirm">Usunąć to urządzenie\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Identyfikator urządzenia nie może być pusty</string>
     <!-- Toast shown when trying to create a device with an empty name -->
@@ -215,7 +215,7 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Skanuj kod QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Wymagany jest skaner kodów QR. Czy chcesz zainstalować aplikację \"Binary Eye\" z F-Droid?</string>
+    <string name="install_barcode_scanner_app_message">Wymagany jest skaner kodów QR. Czy chcesz zainstalować aplikację \"Binary Eye\" z F-Droid\?</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Nie otrzymano uprawnień root.</string>
     <!-- TipsAndTricks activity -->
@@ -268,9 +268,9 @@
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
     <string name="use_tor_title">Korzystanie z Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wyeksportować ustawienia? Istniejące pliki zostaną zastąpione.\n\nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
+    <string name="dialog_confirm_export">Wyeksportować ustawienia\? Istniejące pliki zostaną zastąpione.\n\nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Zaimportować nowe ustawienia? Istniejące pliki zostaną zastąpione.</string>
+    <string name="dialog_confirm_import">Zaimportować nowe ustawienia\? Istniejące pliki zostaną zastąpione.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Wyeksportowano ustawienia do %1$s</string>
     <string name="import_config">Importuj ustawienia</string>

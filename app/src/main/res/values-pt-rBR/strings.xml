@@ -65,14 +65,14 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="close_main_menu">Fechar menu principal</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirme para sair do app</string>
-    <string name="dialog_exit_while_running_as_service_message">Para sua consideração: você configurou o aplicativo para iniciar automaticamente na inicialização. Portanto, ele monitora as condições de execução e sincroniza a qualquer momento em segundo plano quando as condições correspondem. Você só deve sair manualmente se tiver problemas graves. Caso contrário, desative \'Iniciar automaticamente na inicialização\' nas configurações. Deseja sair agora até que o dispositivo seja reiniciado?</string>
+    <string name="dialog_exit_while_running_as_service_message">Para sua consideração: você configurou o aplicativo para iniciar automaticamente na inicialização. Portanto, ele monitora as condições de execução e sincroniza a qualquer momento em segundo plano quando as condições correspondem. Você só deve sair manualmente se tiver problemas graves. Caso contrário, desative \'Iniciar automaticamente na inicialização\' nas configurações. Deseja sair agora até que o dispositivo seja reiniciado\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adicionar pasta</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Compartilhar ID</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar ID do dispositivo para</string>
-    <string name="usage_reporting_dialog_title">Permitir relatório anônimo de uso?</string>
+    <string name="usage_reporting_dialog_title">Permitir relatório anônimo de uso\?</string>
     <string name="usage_reporting_dialog_description">O relatório de uso é criptografado e enviado diariamente. É utilizado para rastrear plataformas, tamanhos de arquivos e versões da aplicação. Caso o formato dos dados seja alterado, esta caixa de diálogo te avisará.\n\nAs estatísticas agregadas estão disponíveis publicamente em https://data.syncthing.net.</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
@@ -96,17 +96,17 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     </plurals>
     <string name="override_changes">Sobrescrever mudanças</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Todas as mudanças feitas em outros dispositivos compartilhando esta pasta serão desfeitas. Proceder?</string>
+    <string name="override_changes_question">Todas as mudanças feitas em outros dispositivos compartilhando esta pasta serão desfeitas. Proceder\?</string>
     <string name="revert_local_changes">Reverter mudanças locais</string>
     <string name="delete_unexpected_items">Apagar itens inesperados</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Todas as mudanças feitas nesse dispositivo dentro daquela pasta serão desfeitas. Proceder?</string>
+    <string name="revert_local_changes_question">Todas as mudanças feitas nesse dispositivo dentro daquela pasta serão desfeitas. Proceder\?</string>
     <string name="open_file_manager">Abrir gerenciador de arquivos</string>
     <string name="open_file_with">Abrir arquivo com</string>
     <string name="open_file_no_compatible_app">Não foi encontrado nenhum aplicativo para abrir o arquivo.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nenhum gerenciador de arquivos encontrado</string>
-    <string name="suggest_file_manager_app_dialog_text">Recomendamos que você instale o gerenciador de arquivos de código-fonte aberto \'Material Files\'. Você gostaria de abrir sua página de loja de aplicativos?</string>
+    <string name="suggest_file_manager_app_dialog_text">Recomendamos que você instale o gerenciador de arquivos de código-fonte aberto \'Material Files\'. Você gostaria de abrir sua página de loja de aplicativos\?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispositivos</string>
@@ -159,7 +159,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Title for uptime status -->
     <string name="uptime">Tempo de atividade</string>
     <string name="restart">Reiniciar</string>
-    <string name="dialog_confirm_restart">Quer mesmo reiniciar o Syncthing?</string>
+    <string name="dialog_confirm_restart">Quer mesmo reiniciar o Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID da pasta</string>
@@ -189,14 +189,14 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Menu item to confirm folder creation -->
     <string name="create">Criar</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Quer mesmo remover esta pasta do Syncthing?</string>
+    <string name="remove_folder_confirm">Quer mesmo remover esta pasta do Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">O ID da pasta não pode ficar vazio</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">O rótulo da pasta não pode estar vazio</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">O caminho da pasta não pode ficar vazio</string>
-    <string name="dialog_discard_changes">Descartar as alterações?</string>
+    <string name="dialog_discard_changes">Descartar as alterações\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Sua versão do Android garante acesso apenas à leitura da pasta selecionada</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -238,7 +238,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Editar dispositivo</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Quer mesmo remover este dispositivo?</string>
+    <string name="remove_device_confirm">Quer mesmo remover este dispositivo\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">O ID de dispositivo não pode ficar vazio</string>
     <!-- Content description for device ID qr code icon -->
@@ -254,7 +254,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="tip_sync_on_local_network_text">Se você deseja sincronizar apenas com dispositivos localizados na rede Wi-Fi local ou acessíveis via hotspot Wi-Fi, você pode reduzir o uso da bateria e evitar a sincronização acidental por dados móveis desativando as seguintes opções em \'Configurações/Opções de sincronização\': \n- Habilitar travessia de NAT\n- Descoberta Global\n- Habilitar Relaying\nApenas deixe \'Descoberta local\' habilitada.</string>
     <string name="tip_custom_sync_conditions_title">Usar condições personalizadas de sincronização por pasta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esse recurso será melhorada em versões futuras. Por enquanto, nós não queríamos quebrar configurações existentes e o comportamento do app. É por isso que condições de sincronização personalizadas para um certo tipo de rede só podem ser definidas se você ativar primeiro a sincronização na rede nas condições execução global.</string>
-    <string name="tip_ignore_delete_title">Fazer backups das fotos do celular para o computador?</string>
+    <string name="tip_ignore_delete_title">Fazer backups das fotos do celular para o computador\?</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: o app não inicia na inicialização</string>
     <string name="tip_xiaomi_battery_saver_text">O aplicativo do sistema de economia de bateria da Xiaomi MIUI revoga a permissão \'ignorar otimização da bateria\' do aplicativo em cada reinicialização do telefone. Isso faz com que o aplicativo mostre a tela de boas-vindas e peça novamente a permissão obrigatória ausente. Solução: na tela inicial, abra a gaveta de aplicativos&gt; Pressione e segure \'Syncthing-Fork\' &gt; \'Informações do aplicativo\' &gt; \'Economia de bateria\' e selecione \'Sem restrições\' (MIUI 10.3.2.0+).</string>
     <!-- RecentChangesActivity -->
@@ -272,7 +272,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviso de segurança</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">O site em %1$s parece ter um certificado inválido para criptografia SSL. Proceder?</string>
+    <string name="ssl_cert_invalid_text">O site em %1$s parece ter um certificado inválido para criptografia SSL. Proceder\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Carregando site:\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -369,9 +369,9 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="toast_invalid_http_proxy_address">Entrada viola sintaxe do proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_summary">Padrão: Desativado. Ative esta opção para iniciar e parar o serviço enviando broadcasts, por exemplo. de aplicativos de automação de terceiros. Nota: Você precisa reiniciar o aplicativo manualmente após alterar esta opção.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Quer mesmo exportar a configuração? Arquivos existentes serão sobrescritos.\n\nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
+    <string name="dialog_confirm_export">Quer mesmo exportar a configuração\? Arquivos existentes serão sobrescritos.\n\nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração? Arquivos existentes serão sobrescritos.</string>
+    <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração\? Arquivos existentes serão sobrescritos.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A configuração foi salva em %1$s</string>
     <string name="import_config">Importar configuração</string>
@@ -379,7 +379,7 @@ Por favor, relate quaisquer problemas que você encontrar através do Github.</s
     <string name="config_imported_successful">A configuração foi importada</string>
     <string name="config_import_failed">A importação falhou. Verifique se os arquivos estão em %1$s</string>
     <string name="dialog_settings_restart_app_title">Reinício necessário</string>
-    <string name="dialog_settings_restart_app_question">Para alterar essa opção, é necessário reiniciar o aplicativo imediatamente. Todas as outras alterações serão descartadas. Continuar?</string>
+    <string name="dialog_settings_restart_app_question">Para alterar essa opção, é necessário reiniciar o aplicativo imediatamente. Todas as outras alterações serão descartadas. Continuar\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opções do STTRACE</string>
     <string name="environment_variables">Variáveis de ambiente</string>

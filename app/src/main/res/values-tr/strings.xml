@@ -18,7 +18,7 @@
     <string name="share_device_id">Aygıt ID Paylaş</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">İle Aygıt ID Gönder</string>
-    <string name="usage_reporting_dialog_title">Anonim kullanımın raporlanmasına izin veriyor musun ?</string>
+    <string name="usage_reporting_dialog_title">Anonim kullanımın raporlanmasına izin veriyor musun \?</string>
     <string name="usage_reporting_dialog_description">Şifrelenmiş kullanım raporu günlük olarak yollanır. Bu rapor kullanıcı platformları, klasör büyüklükleri ve uygulama sürüm bilgilerini takip etmek için kullanılır. Raporlanan veri kümesi değişirse, bu pencere aracılığıyla yeniden bilgilendirileceksiniz.\n\nBiriken istatistiklere https://data.syncthing.net adresinden halka açık olarak erişilebilinir.</string>
     <string name="yes">Evet</string>
     <string name="no">Hayır</string>
@@ -57,7 +57,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Bildirim Sunucusu</string>
     <string name="restart">Yeniden başlat</string>
-    <string name="dialog_confirm_restart">Syncthing\'i yeniden başlatmak istiyor musun?</string>
+    <string name="dialog_confirm_restart">Syncthing\'i yeniden başlatmak istiyor musun\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Klasör ID</string>
@@ -78,12 +78,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Oluştur</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Bu klasörü Syncthing\'den silmek istediğine emin misin?</string>
+    <string name="remove_folder_confirm">Bu klasörü Syncthing\'den silmek istediğine emin misin\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Klasör ID\'si boş bırakılamaz</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Klasör yolu boş olmamalı</string>
-    <string name="dialog_discard_changes">Değişiklikleri göz ardı et?</string>
+    <string name="dialog_discard_changes">Değişiklikleri göz ardı et\?</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Aygıt ID</string>
@@ -111,7 +111,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Aygıt Düzenleme</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Bu aygıtı silmek istediğinden emin misin?</string>
+    <string name="remove_device_confirm">Bu aygıtı silmek istediğinden emin misin\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Aygıt ID boş olmamalı</string>
     <!-- Content description for device ID qr code icon -->
@@ -146,9 +146,9 @@
     <string name="keep_wakelock_while_binary_running">Syncthing çalışırken CPU\'yu uyanık tut</string>
     <string name="use_tor_title">Tor kullan</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>
+    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musun\? Var olan dosyaların üzerine yazılacak.\n\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme yapılan yerden okuyabilir ve eşzamanlaması yapılan dosyaları indirmek/değiştirmek için kullanabilir.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Yeni yapılandırmayı gerçekten içe aktarmak istiyor musun? Var olan dosyaların üzerine yazılacak.</string>
+    <string name="dialog_confirm_import">Yeni yapılandırmayı gerçekten içe aktarmak istiyor musun\? Var olan dosyaların üzerine yazılacak.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Yapılandırma şurada dışa aktarıldı: %1$s</string>
     <string name="import_config">Yapılandırmayı İçe Aktar</string>

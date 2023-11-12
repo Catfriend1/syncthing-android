@@ -21,7 +21,7 @@
     <string name="share_device_id">Sdílet ID přístroje</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Poslat ID přístroje přes</string>
-    <string name="usage_reporting_dialog_title">Povolit anonymní hlášení o používání?</string>
+    <string name="usage_reporting_dialog_title">Povolit anonymní hlášení o používání\?</string>
     <string name="usage_reporting_dialog_description">Zašifrované hlášení o používání je odesíláno denně. Je použito k zjišťování obvyklých platforem, velikosti adresářů a verzi aplikace. Pokud se změní množství odesílaných detailů, budete znovu upozorněni tímto dialogem.\n\nSouhrnné statistiky jsou veřejně dostupné na https://data.syncthing.net.</string>
     <string name="yes">Ano</string>
     <string name="no">Ne</string>
@@ -67,7 +67,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Globální oznamování</string>
     <string name="restart">Restart</string>
-    <string name="dialog_confirm_restart">Opravdu chcete restartovat Syncthing?</string>
+    <string name="dialog_confirm_restart">Opravdu chcete restartovat Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID adresáře</string>
@@ -88,12 +88,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Přidat</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Opravdu chcete odebrat tento adresář ze Syncthing?</string>
+    <string name="remove_folder_confirm">Opravdu chcete odebrat tento adresář ze Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">ID adresáře nesmí být prázdné</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Cesta k adresáři nesmí být prázdná</string>
-    <string name="dialog_discard_changes">Zrušit změny?</string>
+    <string name="dialog_discard_changes">Zrušit změny\?</string>
     <string name="ignore_patterns">Ignorované vzory</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -122,7 +122,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Upravit přístroj</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Opravdu chcete odebrat tento přístroj?</string>
+    <string name="remove_device_confirm">Opravdu chcete odebrat tento přístroj\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID přístroje nesmí být prázdné</string>
     <!-- Content description for device ID qr code icon -->
@@ -169,9 +169,9 @@
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud běží Syncthing</string>
     <string name="use_tor_title">Použít Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány.\n\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
+    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci\? Existující soubory budou přepsány.\n\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Opravud chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
+    <string name="dialog_confirm_import">Opravud chcete importovat novou konfiguraci\? Existující soubory budou přepsány.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Nastavení bylo zálohováno do %1$s</string>
     <string name="import_config">Nahrát nastavení</string>

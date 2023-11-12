@@ -67,7 +67,7 @@
     <string name="share_device_id">デバイス ID を共有</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">デバイス ID を送信…</string>
-    <string name="usage_reporting_dialog_title">匿名での使用状況レポートを許可しますか?</string>
+    <string name="usage_reporting_dialog_title">匿名での使用状況レポートを許可しますか\?</string>
     <string name="usage_reporting_dialog_description">使用状況レポートは暗号化されて毎日送信されます。この情報はプラットフォーム、フォルダーのサイズ、アプリケーションのバージョンを調査するために使われます。送信するデータセットが変更された場合、このダイアログで再度確認が求められます。\n\n集計結果は https://data.syncthing.net で公開されています。</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
@@ -145,7 +145,7 @@
     <!-- Title for uptime status -->
     <string name="uptime">稼働時間</string>
     <string name="restart">再起動</string>
-    <string name="dialog_confirm_restart">Syncthing を再起動しますか?</string>
+    <string name="dialog_confirm_restart">Syncthing を再起動しますか\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">フォルダー ID</string>
@@ -168,14 +168,14 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">作成</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Syncthing からフォルダーを削除してもよろしいですか?</string>
+    <string name="remove_folder_confirm">Syncthing からフォルダーを削除してもよろしいですか\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">フォルダー ID は空にできません</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">フォルダのラベルは空であってはなりません。</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">フォルダーのパスは空にできません</string>
-    <string name="dialog_discard_changes">変更を破棄しますか?</string>
+    <string name="dialog_discard_changes">変更を破棄しますか\?</string>
     <string name="ignore_patterns">無視するパターン</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -210,7 +210,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">デバイスを編集</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">このデバイスを削除してもよろしいですか?</string>
+    <string name="remove_device_confirm">このデバイスを削除してもよろしいですか\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">デバイス ID は空にできません</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -347,9 +347,9 @@
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
     <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
+    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか\? 既存のファイルは上書きされます。\n\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか? 既存のファイルは上書きされます。</string>
+    <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか\? 既存のファイルは上書きされます。</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">設定を %1$s にエクスポートしました</string>
     <string name="config_export_failed">設定情報のエクスポートに失敗しました。logcatの出力を確認して下さい。</string>

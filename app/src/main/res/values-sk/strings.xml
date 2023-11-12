@@ -15,7 +15,7 @@
     <string name="share_device_id">Zdielať ID Zariadenia</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Zdielať ID Zariadenia s použitím</string>
-    <string name="usage_reporting_dialog_title">Povoliť anonymné hlásenia o používaní?</string>
+    <string name="usage_reporting_dialog_title">Povoliť anonymné hlásenia o používaní\?</string>
     <string name="usage_reporting_dialog_description">Šifrované dáta o používaní sú zasielané denne. Sú používané na získavanie štatistík o platformách, veľkostiach zdielaných adresárov a verziách aplikácie. Ak sa rozsah zbieraných údajov v budúcnosti zmení, budete na zmenu upozornený opätovným zobrazením tohoto dialógu.\n\nSúhrn získaných štatistýk je verejne dostupný na https://data.syncthing.net.</string>
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
@@ -122,7 +122,7 @@
     <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
     <string name="export_config">Exportovať Konfiguráciu</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu? Existujúce súbory budú prepísané.</string>
+    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu\? Existujúce súbory budú prepísané.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfigurácia bola exportovaná do %1$s</string>
     <string name="import_config">Importovať Konfiguráciu</string>

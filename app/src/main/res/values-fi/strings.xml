@@ -66,14 +66,14 @@
     <string name="exception_known_bug_notice">On ilmennyt tunnettu bugi, jota ei ole vielä korjattu. Katso %1$s/%2$s lisätietoja varten. Ole hyvä ja jätä meille tarkka kuvaus, mitä tapahtui juuri ennen.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Vahvista sovelluksen sulkeminen</string>
-    <string name="dialog_exit_while_running_as_service_message">Tiedoksesi: Asetit sovelluksen käynnistymään automaattisesti käynnistyksen yhteydessä. Tästä johtuen se tarkkailee käyntiehtoja ja synkronoi taustalla, kun ehdot täyttyvät. Sovellus tulisi sulkea manuaalisesti vain, jos kohtaat vakavia ongelmia. Muussa tapauksessa ota \'Käynnisty automaattisesti käynnistyksen yhteydessä\' pois käytöstä asetuksissa. Haluaisitko lopettaa nyt, kunnes laite uudelleenkäynnistetään?</string>
+    <string name="dialog_exit_while_running_as_service_message">Tiedoksesi: Asetit sovelluksen käynnistymään automaattisesti käynnistyksen yhteydessä. Tästä johtuen se tarkkailee käyntiehtoja ja synkronoi taustalla, kun ehdot täyttyvät. Sovellus tulisi sulkea manuaalisesti vain, jos kohtaat vakavia ongelmia. Muussa tapauksessa ota \'Käynnisty automaattisesti käynnistyksen yhteydessä\' pois käytöstä asetuksissa. Haluaisitko lopettaa nyt, kunnes laite uudelleenkäynnistetään\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Lisää kansio</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Jaa laitetunnus</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Jaa laitetunnus</string>
-    <string name="usage_reporting_dialog_title">Salli anonyymi käytön seuranta?</string>
+    <string name="usage_reporting_dialog_title">Salli anonyymi käytön seuranta\?</string>
     <string name="usage_reporting_dialog_description">Salatut käyttötiedot lähetetään päivittäin. Niitä käytetään seuraamaan yleisiä alustoja, kansioiden kokoja ja sovellusten versioita. Jos ilmoitettu tietosisältö muuttuu, sinulta kysytään lupa uudelleen.\n\nKoostetut tilastot ovat julkisesti saatavilla osoitteessa https://data.syncthing.net.</string>
     <string name="yes">Kyllä</string>
     <string name="no">Ei</string>
@@ -96,10 +96,10 @@
     </plurals>
     <string name="override_changes">Ohita muutokset</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Tämä peruu kaikki muutokset muista laitteista tähän kansioon. Jatketaanko?</string>
+    <string name="override_changes_question">Tämä peruu kaikki muutokset muista laitteista tähän kansioon. Jatketaanko\?</string>
     <string name="revert_local_changes">Peru paikalliset muutokset</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Tämä peruu kaikki tällä laitteella kansioon tehdyt muutokset. Jatketaanko?</string>
+    <string name="revert_local_changes_question">Tämä peruu kaikki tällä laitteella kansioon tehdyt muutokset. Jatketaanko\?</string>
     <string name="open_file_manager">Avaa tiedostonhallinta</string>
     <string name="open_file_with">Avaa tiedosto sovelluksessa</string>
     <string name="open_file_no_compatible_app">Ei löytynyt sovellusta tiedoston avaamiseksi.</string>
@@ -154,7 +154,7 @@
     <!-- Title for uptime status -->
     <string name="uptime">Päälläoloaika</string>
     <string name="restart">Käynnistä uudelleen</string>
-    <string name="dialog_confirm_restart">Haluatko käynnistää Syncthingin uudelleen?</string>
+    <string name="dialog_confirm_restart">Haluatko käynnistää Syncthingin uudelleen\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Kansion tunnus</string>
@@ -183,14 +183,14 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Luo</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Haluatko varmasti poistaa tämän kansion Synthingistä?</string>
+    <string name="remove_folder_confirm">Haluatko varmasti poistaa tämän kansion Synthingistä\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Kansion tunnus ei voi olla tyhjä</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Kansion nimi ei voi olla tyhjä</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Kansion polku ei voi olla tyhjä</string>
-    <string name="dialog_discard_changes">Hylkää muutokset?</string>
+    <string name="dialog_discard_changes">Hylkää muutokset\?</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Laitetunnus</string>
@@ -220,7 +220,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Muokkaa laitetta</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Haluatko varmasti poistaa tämän laitteen?</string>
+    <string name="remove_device_confirm">Haluatko varmasti poistaa tämän laitteen\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Laitetunnus ei voi olla tyhjä</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -285,9 +285,9 @@
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
     <string name="broadcast_service_control_title">Palvelun hallinta lähetetyillä komennoilla (Broadcasts)</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi? Vanhat tiedostot ylikirjoitetaan.\n\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
+    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi\? Vanhat tiedostot ylikirjoitetaan.\n\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset? Vanhat tiedostot ylikirjoitetaan.</string>
+    <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset\? Vanhat tiedostot ylikirjoitetaan.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Asetukset vietiin kansioon %1$s</string>
     <string name="import_config">Tuo asetukset</string>

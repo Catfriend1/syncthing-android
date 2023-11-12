@@ -69,14 +69,14 @@ Kérjük, hogy a Githubon keresztül jelezzen minden felmerülő problémát.</s
     <string name="exception_known_bug_notice">Egy ismert, még nem megoldott hibával találkoztunk. További információért lásd %1$s/%2$s. Kérjük, előzetesen hagyjon pontos leírást a történtekről.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Megerősítés az alkalmazás kilépéséhez</string>
-    <string name="dialog_exit_while_running_as_service_message">Az alkalmazást úgy állította be, hogy automatikusan elinduljon a rendszerindításkor. Ezért figyeli a futtatási feltételeket, és szinkronizál a háttérben, ha a feltételek megfelelnek. Ebből csak akkor kell manuálisan kilépnie, ha súlyos problémákba ütközik. Ellenkező esetben tiltsa le a \'Start automatically on boot \' (Automatikus indítás indításkor) opciót a beállításokban. Szeretne most kilépni, amíg a készülék újraindul?</string>
+    <string name="dialog_exit_while_running_as_service_message">Az alkalmazást úgy állította be, hogy automatikusan elinduljon a rendszerindításkor. Ezért figyeli a futtatási feltételeket, és szinkronizál a háttérben, ha a feltételek megfelelnek. Ebből csak akkor kell manuálisan kilépnie, ha súlyos problémákba ütközik. Ellenkező esetben tiltsa le a \'Start automatically on boot \' (Automatikus indítás indításkor) opciót a beállításokban. Szeretne most kilépni, amíg a készülék újraindul\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Mappa hozzáadása</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Eszközazonosító megosztása</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Eszközazonosító megosztása</string>
-    <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését?</string>
+    <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését\?</string>
     <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt.
 
 Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
@@ -101,17 +101,17 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     </plurals>
     <string name="override_changes">Változások felülbírálása</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Ez a mappát megosztó többi eszközön végrehajtott összes módosítást visszavonja. Folytatja?</string>
+    <string name="override_changes_question">Ez a mappát megosztó többi eszközön végrehajtott összes módosítást visszavonja. Folytatja\?</string>
     <string name="revert_local_changes">Helyi módosítások visszavonása</string>
     <string name="delete_unexpected_items">Nem várt elemek törlése</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Ez az eszközön az adott mappán belül végrehajtott összes módosítást visszavonja. Folytatja?</string>
+    <string name="revert_local_changes_question">Ez az eszközön az adott mappán belül végrehajtott összes módosítást visszavonja. Folytatja\?</string>
     <string name="open_file_manager">Fájlkezelő megnyitása</string>
     <string name="open_file_with">Fájl megnyitása ezzel</string>
     <string name="open_file_no_compatible_app">Nem található alkalmazás a fájl megnyitásához.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nincs kompatibilis fájlkezelő alkalmazás</string>
-    <string name="suggest_file_manager_app_dialog_text">Javasoljuk, hogy telepítse a \'Material Files\' nyílt forráskódú fájlkezelő alkalmazást. Szeretné megnyitni az alkalmazásbolt oldalát?</string>
+    <string name="suggest_file_manager_app_dialog_text">Javasoljuk, hogy telepítse a \'Material Files\' nyílt forráskódú fájlkezelő alkalmazást. Szeretné megnyitni az alkalmazásbolt oldalát\?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Eszközök</string>
@@ -164,7 +164,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Title for uptime status -->
     <string name="uptime">Üzemidő</string>
     <string name="restart">Újraindítás</string>
-    <string name="dialog_confirm_restart">Biztosan újraindítod a Syncthinget?</string>
+    <string name="dialog_confirm_restart">Biztosan újraindítod a Syncthinget\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Mappa azonosító</string>
@@ -194,14 +194,14 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Menu item to confirm folder creation -->
     <string name="create">Létrehozás</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Biztosan el szeretnéd távolítani ezt a mappát a Syncthingből?</string>
+    <string name="remove_folder_confirm">Biztosan el szeretnéd távolítani ezt a mappát a Syncthingből\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">A mappaazonosító nem lehet üres</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">A mappa címkéje nem lehet üres</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">A mappaútvonal nem lehet üres</string>
-    <string name="dialog_discard_changes">Elveted a módosításaidat?</string>
+    <string name="dialog_discard_changes">Elveted a módosításaidat\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Az Ön Android-verziója csak olvasási hozzáférést biztosít a Syncthingnek a kiválasztott mappához.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -250,7 +250,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Eszköz szerkesztése</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Biztosan eltávolítod ezt az eszközt?</string>
+    <string name="remove_device_confirm">Biztosan eltávolítod ezt az eszközt\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Az eszközazonosító nem lehet üres</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -262,7 +262,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR kód olvasása</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Ehhez vonalkódolvasó alkalmazásra van szükség. Szeretné telepíteni a \'Binary Eye\' alkalmazást az F-Droidról?</string>
+    <string name="install_barcode_scanner_app_message">Ehhez vonalkódolvasó alkalmazásra van szükség. Szeretné telepíteni a \'Binary Eye\' alkalmazást az F-Droidról\?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">Nincsenek mappák konfigurálva. Koppintson a gombra új mappa hozzáadásához.</string>
     <!-- Toast show if we could not get root permissions -->
@@ -276,7 +276,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="tip_sync_on_local_network_text">Ha csak olyan eszközökkel szeretne szinkronizálni, amelyek a helyi WiFi hálózaton vagy WiFi hotspoton keresztül elérhetőek, csökkentheti az akkumulátor-használatot és elkerülheti a véletlen szinkronizálást mobiladatokon keresztül, ha kikapcsolja a következő beállításokat a \"Beállítások/Szinkronizálási beállítások\" alatt:\n- NAT áthaladás engedélyezése\n- Globális felfedezés\n- Továbbítás engedélyezése\nCsak a \"Helyi felfedezés\" opciót hagyja engedélyezve.</string>
     <string name="tip_custom_sync_conditions_title">Mappánként/eszközönként egyéni szinkronizálási feltételek használata</string>
     <string name="tip_custom_sync_conditions_text">Ezt a funkciót a jövőbeni kiadásokban még javítani fogják. Egyelőre nem akartuk tönkretenni a meglévő konfigurációkat és az alkalmazás viselkedését. Ezért az egyéni szinkronizálási feltételek egy adott hálózattípushoz csak akkor állíthatók be, ha a globális futtatási feltételekben először engedélyezi a hálózaton történő szinkronizálást.</string>
-    <string name="tip_ignore_delete_title">Képek biztonsági mentése a telefonról a számítógépre?</string>
+    <string name="tip_ignore_delete_title">Képek biztonsági mentése a telefonról a számítógépre\?</string>
     <string name="tip_ignore_delete_text">Ha szeretné, hogy a telefonon készült képekről biztonsági másolat készüljön a számítógépre, ossza meg a \"Kamera\" mappát a számítógéppel. Nyissa meg a Syncthinget a számítógépen, adja hozzá a mappát, és lépjen a \'Műveletek\' &gt; \'Speciális\' &gt; \'Kamera\' mappa menüpontra. Kapcsolja be a \'Törlés figyelmen kívül hagyása\' opciót, és kattintson a \'Mentés\' gombra. Most már törölhet képeket a telefonon lévő kamera mappából, és azok a számítógépen mentve maradnak.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: \"eszköz lekapcsolva\" megoldása</string>
     <string name="tip_huawei_device_disconnected_text">Ha az asztali számítógép folyamatosan leválasztottnak jelzi a Huawei készüléket, nyissa meg az asztali számítógép Syncthing felhasználói felületét. Menjen a \'távoli eszközök\' menüpontra, bontsa ki a telefon bejegyzését, kattintson a \'Szerkesztés\' gombra, majd váltson a \'Speciális\' menüpontra. Írja be a telefon IP-címét a \'Címek\' mezőbe, így:\ntcp4://%1$s, dynamic\nConfirmed working for: Huawei P10</string>
@@ -300,7 +300,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Biztonsági értesítés</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Úgy tűnik, hogy a %1$s webhelyen érvénytelen tanúsítvány van az SSL-titkosításhoz. Folytassuk?</string>
+    <string name="ssl_cert_invalid_text">Úgy tűnik, hogy a %1$s webhelyen érvénytelen tanúsítvány van az SSL-titkosításhoz. Folytassuk\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Weblap betöltése:\n%1$s...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -413,7 +413,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="download_support_bundle_failed">Nem sikerült letölteni a támogatási csomagot. Ellenőrizze a naplókat.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Eszközök és mappák figyelmen kívül hagyásának visszavonása</string>
-    <string name="undo_ignored_devices_folders_question">Ez visszavonja az eszközök és mappák figyelmen kívül hagyására vonatkozó korábbi döntéseket. Folytatja?</string>
+    <string name="undo_ignored_devices_folders_question">Ez visszavonja az eszközök és mappák figyelmen kívül hagyására vonatkozó korábbi döntéseket. Folytatja\?</string>
     <string name="undo_ignored_devices_folders_done">Sikeresen visszavont döntések.</string>
     <string name="export_config">Beállítások mentése</string>
     <!-- Toast after entering an invalid tcp port -->
@@ -436,11 +436,11 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="broadcast_service_control_title">Szolgáltatásvezérlés műsorszórással</string>
     <string name="broadcast_service_control_summary">Alapértelmezett: Kikapcsolva. Engedélyezze ezt az opciót, ha a szolgáltatást adások küldésével kívánja elindítani és leállítani, például harmadik fél automatizálási alkalmazásaiból. Megjegyzés: Az opció módosítása után manuálisan újra kell indítania az alkalmazást.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva.
+    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt\? A már létező fájlok felül lesznek írva.
 
 VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják  szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
+    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
     <string name="config_export_failed">A konfiguráció exportálása sikertelen, ellenőrizze a hibanaplót.</string>
@@ -449,7 +449,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
     <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
     <string name="dialog_settings_restart_app_title">Újraindítás szükséges</string>
-    <string name="dialog_settings_restart_app_question">Ennek az beállításnak a megváltoztatása az alkalmazás azonnali újraindítását igényli. Minden más módosítás elvetésre kerül. Tovább?</string>
+    <string name="dialog_settings_restart_app_question">Ennek az beállításnak a megváltoztatása az alkalmazás azonnali újraindítását igényli. Minden más módosítás elvetésre kerül. Tovább\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE beállítások</string>
     <string name="environment_variables">Környezeti változók</string>
@@ -459,14 +459,14 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="st_reset_database_title">Adatbázis törlése</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
- \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát?</string>
+ \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing adatbázisát\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">A Syncthing adatbázisának törlése megtörtént</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Különbségi indexek visszaállítása</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Ezt a műveletet csak a support csapat ajánlása esetén szabad végrehajtani
- \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit?</string>
+ \nBiztos vagy benne, hogy törölni szeretnéd a Syncthing különbségi indexeit\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">A Syncthing különbségi indexei sikeresen visszaállítva</string>
     <string name="category_about">Névjegy</string>
@@ -617,7 +617,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Hiányzik a működéshez elengedhetetlen konfigurációs fájl</string>
     <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">WebUI tcp %s port foglalt. Második próbálkozás?</string>
+    <string name="webui_tcp_port_unavailable">WebUI tcp %s port foglalt. Második próbálkozás\?</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android kamera</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

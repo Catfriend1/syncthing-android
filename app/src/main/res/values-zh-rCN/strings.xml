@@ -69,7 +69,7 @@
     <string name="exception_known_bug_notice">遇到了一个尚未解决的已知错误。更多信息见%1$s/%2$s。请精确描述故障发生前的情形。</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">再次确认以退出程序</string>
-    <string name="dialog_exit_while_running_as_service_message">供您考虑：您将应用程序配置开机时自启。因此，它监视运行条件，并在条件匹配时随时在后台同步。只有在你遇到严重问题时你才应该手动退出。否则，在设置中禁用“启动时自动启动”。您想现在退出直到设备重新启动吗?</string>
+    <string name="dialog_exit_while_running_as_service_message">供您考虑：您将应用程序配置开机时自启。因此，它监视运行条件，并在条件匹配时随时在后台同步。只有在你遇到严重问题时你才应该手动退出。否则，在设置中禁用“启动时自动启动”。您想现在退出直到设备重新启动吗\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">添加文件夹</string>
     <!-- Title of the "share device id" menu action -->
@@ -102,7 +102,7 @@
     <string name="revert_local_changes">还原本地更改</string>
     <string name="delete_unexpected_items">删除意外项目</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗?</string>
+    <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗\?</string>
     <string name="open_file_manager">打开文件管理器</string>
     <string name="open_file_with">打开为......</string>
     <string name="open_file_no_compatible_app">找不到用于打开该文件的应用</string>
@@ -259,7 +259,7 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">扫描二维码</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">这需要一个条形码扫描器应用程序。你想安装来自F-Droid的应用程序“Binary Eye”吗? </string>
+    <string name="install_barcode_scanner_app_message">这需要一个条形码扫描器应用程序。你想安装来自F-Droid的应用程序“Binary Eye”吗\? </string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">未配置文件夹。点击添加一个新文件夹。</string>
     <!-- Toast show if we could not get root permissions -->
@@ -607,7 +607,7 @@
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">缺少對操作至關重要的配置文件</string>
     <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">WebUI TCP端口 %s 正忙. Second instance?</string>
+    <string name="webui_tcp_port_unavailable">WebUI TCP端口 %s 正忙. Second instance\?</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android 摄像机</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

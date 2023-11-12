@@ -43,7 +43,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="exception_known_bug_notice">En kendt fejl der ikke er blevet løst endnu er blevet mødt. Se %1$s/%2$s for flere informationer. Giv os en præcis forklaring af hvad der skete før.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Bekræft for at lukke appen</string>
-    <string name="dialog_exit_while_running_as_service_message">Til dine overvejelser: Du konfigurerede appen til at starte automatisk ved start. Derfor kontrollere den kørebetingelser og synkronisering hele tiden i baggrunden når betingelserne er mødt. Du bør kun lukke manuelt hvis du løber ikke alvorlige problemer. Ellers slå \'Start automatically on boot\' fra i indstillingerne. Vil du gerne lukke nu indtil enheden er genstartet?     </string>
+    <string name="dialog_exit_while_running_as_service_message">Til dine overvejelser: Du konfigurerede appen til at starte automatisk ved start. Derfor kontrollere den kørebetingelser og synkronisering hele tiden i baggrunden når betingelserne er mødt. Du bør kun lukke manuelt hvis du løber ikke alvorlige problemer. Ellers slå \'Start automatically on boot\' fra i indstillingerne. Vil du gerne lukke nu indtil enheden er genstartet\?     </string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Tilføj mappe</string>
     <!-- Title of the "share device id" menu action -->
@@ -114,7 +114,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Title for uptime status -->
     <string name="uptime">Oppetid</string>
     <string name="restart">Genstart</string>
-    <string name="dialog_confirm_restart">Ønsker du at genstarte Syncthing?</string>
+    <string name="dialog_confirm_restart">Ønsker du at genstarte Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Mappe ID</string>
@@ -140,12 +140,12 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Opret</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Er du sikker på du vil fjerne denne mappe fra Syncthing?</string>
+    <string name="remove_folder_confirm">Er du sikker på du vil fjerne denne mappe fra Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mappe ID må ikke være tomt</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Mappens sti må ikke være tom</string>
-    <string name="dialog_discard_changes">Slet dine ændringer?</string>
+    <string name="dialog_discard_changes">Slet dine ændringer\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Din Android version tillader kun Syncthing at læse den valgte mappe.  </string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -182,7 +182,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Rediger Enhed</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Er du sikker på at du vil fjerne denne enhed?</string>
+    <string name="remove_device_confirm">Er du sikker på at du vil fjerne denne enhed\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enheds-ID må ikke være tomt</string>
     <!-- Content description for device ID qr code icon -->
@@ -288,7 +288,7 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="usage_reporting">Anonym Forburgsrapportering</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Fortryd at ignorer enheder og mapper</string>
-    <string name="undo_ignored_devices_folders_question">Dette vil fortryde forrige beslutninger til at ignorer enheder og foldere. Fortsæt?</string>
+    <string name="undo_ignored_devices_folders_question">Dette vil fortryde forrige beslutninger til at ignorer enheder og foldere. Fortsæt\?</string>
     <string name="undo_ignored_devices_folders_done">Vellykket ufærdige valg.</string>
     <string name="export_config">Eksporter Konfigurering</string>
     <!-- Toast after entering invalid integer value -->
@@ -307,9 +307,9 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Input overtræder proxy syntaks \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt.\n\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
+    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer\? Eksisterende filer vil gå tabt.\n\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration? Eksisterende filer vil gå tabt.</string>
+    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration\? Eksisterende filer vil gå tabt.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfigurationen blev eksporteret til %1$s</string>
     <string name="config_export_failed">Eksportering af konfigurering fejlede, tjek logcat output.</string>
@@ -326,14 +326,14 @@ Rapporter et hvilket som helst problem du møder via GitHub. </string>
     <string name="st_reset_database_title">Nulstil database</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Denne aktion bør kun blive brugt baserede på en en anbefaling fra vores supportteam.
-        \nEr du sikker på du vil rydde Syncthing\'s databaser?</string>
+        \nEr du sikker på du vil rydde Syncthing\'s databaser\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthing\'s database successfuldt nulstillet</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Genstart Delta Indekser</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Denne aktion bør kun blive brugt baserede på en en anbefaling fra vores supportteam.
-        \nEr du sikker på du vil rydde Syncthing delta indekser?</string>
+        \nEr du sikker på du vil rydde Syncthing delta indekser\?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Vellykket genstart af Syncthing\'s delta indekser.   </string>
     <string name="category_about">Omkring</string>

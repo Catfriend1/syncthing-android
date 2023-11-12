@@ -49,14 +49,14 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="exception_known_bug_notice">S\'ha trobat un error conegut que encara no està resolt. Vegeu %1$s/%2$s per més informació. Siusplau doneu una descripció precisa del que ha passat amb antelació.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirmeu sortir de l\'aplicació</string>
-    <string name="dialog_exit_while_running_as_service_message">Per la vostra consideració: Heu configurat l\'aplicació perquè s\'iniciï automàticament durant l\'arrencada. Per tant es comproven les condicions d\'execució i es sincronitza en qualsevol moment que les condicions s\'acompleixen. Només hauríeu de tancar manualment si us trobeu amb problemes greus. Altrament, desactiveu \"Inicia automàticament durant l\'arrencada\" a la configuració. Voleu tancar ara fins que el dispositiu es reiniciï?</string>
+    <string name="dialog_exit_while_running_as_service_message">Per la vostra consideració: Heu configurat l\'aplicació perquè s\'iniciï automàticament durant l\'arrencada. Per tant es comproven les condicions d\'execució i es sincronitza en qualsevol moment que les condicions s\'acompleixen. Només hauríeu de tancar manualment si us trobeu amb problemes greus. Altrament, desactiveu \"Inicia automàticament durant l\'arrencada\" a la configuració. Voleu tancar ara fins que el dispositiu es reiniciï\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Afegeix una carpeta</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Comparteix ID del dispositiu</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Envia ID del dispositiu a</string>
-    <string name="usage_reporting_dialog_title">Permeteu els informes d\'ús anònims?</string>
+    <string name="usage_reporting_dialog_title">Permeteu els informes d\'ús anònims\?</string>
     <string name="usage_reporting_dialog_description">L\'informe d\'ús s\'envia de manera xifrada cada dia. L\'utilitzem per fer un seguiment de les plataformes més comuns, la mida de les carpetes i les versions de l\'aplicació. Si mai canviem el contingut dels informes us tornarem a mostrar aquest missatge.\n\nLes estadístiques globals estan disponibles públicament a https://data.syncthing.net.</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
@@ -118,7 +118,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Title for uptime status -->
     <string name="uptime">Temps actiu</string>
     <string name="restart">Reinicia</string>
-    <string name="dialog_confirm_restart">Voleu reiniciar el Syncthing?</string>
+    <string name="dialog_confirm_restart">Voleu reiniciar el Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID de la carpeta</string>
@@ -146,14 +146,14 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Crea</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Realment voleu eliminar aquesta carpeta del Syncthing?</string>
+    <string name="remove_folder_confirm">Realment voleu eliminar aquesta carpeta del Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">L\'ID de la carpeta no pot ser buit</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">L\'etiqueta de la carpeta no pot ser buida</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">El camí de la carpeta no pot ser buit</string>
-    <string name="dialog_discard_changes">Voleu descartar els canvis?</string>
+    <string name="dialog_discard_changes">Voleu descartar els canvis\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">La vostra versió d\'Android només permet accés de lectura al Syncthing per la carpeta seleccionada</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -192,7 +192,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Edita el dispositiu</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Realment voleu eliminar aquest dispositiu?</string>
+    <string name="remove_device_confirm">Realment voleu eliminar aquest dispositiu\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">L\'ID del dispositiu no pot ser buit</string>
     <!-- Toast shown when trying to create a device with an empty name -->
@@ -224,7 +224,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Avís de Seguretat</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Sembla que la pàgina web %1$s té un certificat que no és vàlid per xifrar amb SSL. Voleu continuar?</string>
+    <string name="ssl_cert_invalid_text">Sembla que la pàgina web %1$s té un certificat que no és vàlid per xifrar amb SSL. Voleu continuar\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Carregant pàgina web:\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -317,7 +317,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="download_support_bundle_failed">Ha fallat la descàrrega del Paquet de Suport. Comproveu els registres.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Desfés ignorant els dispositius i carpetes</string>
-    <string name="undo_ignored_devices_folders_question">Això desfarà les decisions anteriors d\'ignorar els dispositius i carpetes. Voleu continuar?</string>
+    <string name="undo_ignored_devices_folders_question">Això desfarà les decisions anteriors d\'ignorar els dispositius i carpetes. Voleu continuar\?</string>
     <string name="undo_ignored_devices_folders_done">S\'han desfet les decisions correctament</string>
     <string name="export_config">Exporta la configuració</string>
     <!-- Toast after entering invalid integer value -->
@@ -336,9 +336,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="toast_invalid_http_proxy_address">No compleix la sintaxi de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Control del Servei per Difusió</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Realment voleu exportar la configuració? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
+    <string name="dialog_confirm_export">Realment voleu exportar la configuració\? Es sobreescriuran els fitxers existents.\n\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Realment voleu importar una nova configuració? Es sobreescriuran els fitxers existents.</string>
+    <string name="dialog_confirm_import">Realment voleu importar una nova configuració\? Es sobreescriuran els fitxers existents.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">S\'ha exportat la configuració a %1$s</string>
     <string name="config_export_failed">Ha fallat la exportació de la configuració, comproveu el fitxer de registre.</string>
@@ -356,7 +356,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="st_reset_database_title">Reinicia la base de dades</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
-        \nSegur que voleu esborrar la base de dades del Syncthing?
+        \nSegur que voleu esborrar la base de dades del Syncthing\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">La base de dades del Syncthing s\'ha reiniciat amb èxit</string>
@@ -364,7 +364,7 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="st_reset_deltas_title">Reinicia els Índexs Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Això només ho heu de fer si us ho recomana l\'equip de suport tècnic.
-        \nSegur que voleu esborrar els índex delta del Syncthing?
+        \nSegur que voleu esborrar els índex delta del Syncthing\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">S\'han reiniciat correctament els índexs delta del Syncthing</string>

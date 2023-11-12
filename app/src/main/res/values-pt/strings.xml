@@ -19,7 +19,7 @@
     <string name="share_device_id">Partilhar ID do dispositivo</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Enviar ID do dispositivo para</string>
-    <string name="usage_reporting_dialog_title">Permitir relatórios anónimos de utilização?</string>
+    <string name="usage_reporting_dialog_title">Permitir relatórios anónimos de utilização\?</string>
     <string name="usage_reporting_dialog_description">O relatório de utilização cifrado é enviado diariamente. É usado para rastrear plataformas comuns, tamanhos de pastas e versões da aplicação. Se o conjunto de dados do relatório for alterado, este diálogo será apresentado novamente.\n\nAs estatísticas agregadas estão disponíveis publicamente em </string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
@@ -60,7 +60,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Servidor de busca global</string>
     <string name="restart">Reiniciar</string>
-    <string name="dialog_confirm_restart">Quer reiniciar o Syncthing?</string>
+    <string name="dialog_confirm_restart">Quer reiniciar o Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID da pasta</string>
@@ -81,12 +81,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Criar</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Tem a certeza de que quer remover esta pasta do Syncthing?</string>
+    <string name="remove_folder_confirm">Tem a certeza de que quer remover esta pasta do Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">O ID da pasta não pode estar vazio</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">O caminho da pasta não pode estar vazio</string>
-    <string name="dialog_discard_changes">Descarto as suas alterações?</string>
+    <string name="dialog_discard_changes">Descarto as suas alterações\?</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">ID do dispositivo</string>
@@ -114,7 +114,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Editar dispositivo</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Tem a certeza de que quer remover este dispositivo?</string>
+    <string name="remove_device_confirm">Tem a certeza de que quer remover este dispositivo\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">O ID do dispositivo não pode estar vazio</string>
     <!-- Content description for device ID qr code icon -->
@@ -150,9 +150,9 @@
     <string name="keep_wakelock_while_binary_running">Manter a CPU acordada enquanto o Syncthing está a correr</string>
     <string name="use_tor_title">Utilizar o Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Tem a certeza de que quer exportar a sua configuração? Ficheiros existentes serão sobrescritos.\n\nAVISO! Outras aplicações poderão ler a chave privada da localização da cópia de segurança e utilizá-la para descarregar/modificar os ficheiros sincronizados.</string>
+    <string name="dialog_confirm_export">Tem a certeza de que quer exportar a sua configuração\? Ficheiros existentes serão sobrescritos.\n\nAVISO! Outras aplicações poderão ler a chave privada da localização da cópia de segurança e utilizá-la para descarregar/modificar os ficheiros sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Quer mesmo importar a sua configuração? Os ficheiros existentes vão ser sobrepostos.</string>
+    <string name="dialog_confirm_import">Quer mesmo importar a sua configuração\? Os ficheiros existentes vão ser sobrepostos.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">A configuração foi exportada para %1$s</string>
     <string name="import_config">Importar configuração</string>

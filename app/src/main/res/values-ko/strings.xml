@@ -20,7 +20,7 @@
     <string name="share_device_id">기기 ID 공유</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">다음으로 기기 ID 보내기</string>
-    <string name="usage_reporting_dialog_title">익명 사용 보고서 전송을 허용하시겠습니까?</string>
+    <string name="usage_reporting_dialog_title">익명 사용 보고서 전송을 허용하시겠습니까\?</string>
     <string name="usage_reporting_dialog_description">암호화된 사용 리포트를 매일 보냅니다. 이것은 일반적 플랫폼, 폴더 크기, 앱의 버전을 추적하는데 사용됩니다. 보고된 데이터 설정이 변경된 경우 이 대화 상자가 다시 표시됩니다.\n\n수집된 통계는 https://data.syncthing.net에서 공개되고 있습니다.</string>
     <string name="yes">예</string>
     <string name="no">아니오</string>
@@ -63,7 +63,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">익명 서버</string>
     <string name="restart">재시작</string>
-    <string name="dialog_confirm_restart">정말로 Syncthing을 재시작하시겠습니까?</string>
+    <string name="dialog_confirm_restart">정말로 Syncthing을 재시작하시겠습니까\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">폴더 ID</string>
@@ -84,12 +84,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">생성</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">정말로 이 폴더를 삭제하시겠습니까?</string>
+    <string name="remove_folder_confirm">정말로 이 폴더를 삭제하시겠습니까\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">폴더 ID는 공백으로 둘 수 없습니다.</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">폴더 경로를 공백으로 둘 수 없습니다</string>
-    <string name="dialog_discard_changes">설정 변경을 취소합니까?</string>
+    <string name="dialog_discard_changes">설정 변경을 취소합니까\?</string>
     <string name="ignore_patterns">패턴 무시하기</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -118,7 +118,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">기기 수정</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">정말로 이 기기를 삭제하시겠습니까?</string>
+    <string name="remove_device_confirm">정말로 이 기기를 삭제하시겠습니까\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">기기명을 공백으로 둘 수 없습니다.</string>
     <!-- Content description for device ID qr code icon -->
@@ -165,9 +165,9 @@
     <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
     <string name="use_tor_title">Tor 사용</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까? 현재 존재하는 파일이 덮어쓰기됩니다.\n\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
+    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.\n\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">새로운 설정을 불러오시겠습니까? 현재 존재하는 파일이 덮어쓰기됩니다.`</string>
+    <string name="dialog_confirm_import">새로운 설정을 불러오시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.`</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">설정을 %1$s 로 내보내기했습니다</string>
     <string name="import_config">설정 불러오기</string>

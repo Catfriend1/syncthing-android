@@ -70,14 +70,14 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="exception_known_bug_notice">Một lỗi đã biết mà chưa được sửa đã xảy ra. Hãy xem %1$s/%2$s để biết thêm thông tin. Vui lòng mô tả chính xác cho chúng tôi những gì đã xảy ra trước đó.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Xác nhận thoát ứng dụng</string>
-    <string name="dialog_exit_while_running_as_service_message">Vì sự cân nhắc của bạn: Bạn đã thiết lập ứng dụng tự động khởi động khi khởi động thiết bị. Do đó nó giám sát các điều kiện chạy và đồng bộ tại bất kỳ lúc nào trong nền khi các điều kiện trùng khớp. Bạn chỉ nên thoát thủ công nếu bạn gặp vấn đề nghiêm trọng. Nếu không, hãy tắt \'Tự động khởi động khi khởi động thiết bị\' trong cài đặt. Bạn có muốn thoát ngay cho đến khi thiết bị khởi động lại không?</string>
+    <string name="dialog_exit_while_running_as_service_message">Vì sự cân nhắc của bạn: Bạn đã thiết lập ứng dụng tự động khởi động khi khởi động thiết bị. Do đó nó giám sát các điều kiện chạy và đồng bộ tại bất kỳ lúc nào trong nền khi các điều kiện trùng khớp. Bạn chỉ nên thoát thủ công nếu bạn gặp vấn đề nghiêm trọng. Nếu không, hãy tắt \'Tự động khởi động khi khởi động thiết bị\' trong cài đặt. Bạn có muốn thoát ngay cho đến khi thiết bị khởi động lại không\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Thêm th.mục</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Chia sẻ ID thiết bị</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Gửi ID thiết bị đến</string>
-    <string name="usage_reporting_dialog_title">Cho phép báo cáo sử dụng ẩn danh?</string>
+    <string name="usage_reporting_dialog_title">Cho phép báo cáo sử dụng ẩn danh\?</string>
     <string name="usage_reporting_dialog_description">Báo cáo s.dụng đã mã hoá sẽ được gửi đi hằng ngày. Nó được dùng để theo dõi các HĐH thông dụng, kích cỡ th.mục và ph.bản ứng dụng. Nếu bộ d.liệu báo cáo có th.đổi gì, bạn sẽ được nhắc lại bằng h.thoại này.\n\nThống kê t.hợp được đăng công khai tại https://data.syncthing.net.</string>
     <string name="yes">Có</string>
     <string name="no">Không</string>
@@ -99,17 +99,17 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     </plurals>
     <string name="override_changes">Ghi đè lên các thay đổi</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên tất cả thiết bị khác đang chia sẻ thư mục này. Tiếp tục?</string>
+    <string name="override_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên tất cả thiết bị khác đang chia sẻ thư mục này. Tiếp tục\?</string>
     <string name="revert_local_changes">Hoàn tác các thay đổi cục bộ</string>
     <string name="delete_unexpected_items">Xoá các mục không mong đợi</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên thiết bị này trong thư mục này. Tiếp tục?</string>
+    <string name="revert_local_changes_question">Việc này sẽ hoàn tác tất cả thay đổi đã được tạo trên thiết bị này trong thư mục này. Tiếp tục\?</string>
     <string name="open_file_manager">Mở trình quản lý tệp</string>
     <string name="open_file_with">Mở tệp bằng</string>
     <string name="open_file_no_compatible_app">Không tìm thấy ứng dụng nào để mở tệp này.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Không tìm thấy trình quản lý tệp tương thích nào</string>
-    <string name="suggest_file_manager_app_dialog_text">Chúng tôi khuyên bạn cài đặt ứng dụng quản lý tệp mã nguồn mở \'Material Files\'. Bạn có muốn mở trang cửa hàng ứng dụng của nó không?</string>
+    <string name="suggest_file_manager_app_dialog_text">Chúng tôi khuyên bạn cài đặt ứng dụng quản lý tệp mã nguồn mở \'Material Files\'. Bạn có muốn mở trang cửa hàng ứng dụng của nó không\?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Các thiết bị</string>
@@ -161,7 +161,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Title for uptime status -->
     <string name="uptime">Thời gian hoạt động</string>
     <string name="restart">Kh.chạy lại</string>
-    <string name="dialog_confirm_restart">Bạn có muốn khởi động lại Syncthing không?</string>
+    <string name="dialog_confirm_restart">Bạn có muốn khởi động lại Syncthing không\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID thư mục</string>
@@ -191,14 +191,14 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Tạo mới</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Có chắc là bạn muốn xoá thư mục này khỏi Syncthing?</string>
+    <string name="remove_folder_confirm">Có chắc là bạn muốn xoá thư mục này khỏi Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Không được để trống ID thư mục</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Nhãn thư mục không được trống</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Không được để trống đường dẫn thư mục</string>
-    <string name="dialog_discard_changes">Bỏ các thay đổi của bạn?</string>
+    <string name="dialog_discard_changes">Bỏ các thay đổi của bạn\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Phiên bản Android của bạn chỉ cấp quyền truy cập chỉ đọc vào thư mục đã chọn cho Syncthing.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -247,7 +247,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Chỉnh sửa th.bị</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Có chắc là bạn muốn xoá thiết bị này?</string>
+    <string name="remove_device_confirm">Có chắc là bạn muốn xoá thiết bị này\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Không được để trống ID thiết bị</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -259,7 +259,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Quét mã QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Việc này yêu cầu phải có ứng dụng quét mã vạch. Bạn có muốn cài đặt ứng dụng \'Binary Eye\' từ F-Droid không?</string>
+    <string name="install_barcode_scanner_app_message">Việc này yêu cầu phải có ứng dụng quét mã vạch. Bạn có muốn cài đặt ứng dụng \'Binary Eye\' từ F-Droid không\?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">Không có thư mục nào được thiết lập. Nhấn để thêm thư mục mới.</string>
     <!-- Toast show if we could not get root permissions -->
@@ -273,7 +273,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':\n- Bật NAT traversal\n- Khám phá toàn cầu\n- Bật vận chuyển\nChỉ để cho \'Khám phá cục bộ\' được bật.</string>
     <string name="tip_custom_sync_conditions_title">Sử dụng các điều kiện đồng bộ tùy chỉnh cho mỗi thư mục/thiết bị</string>
     <string name="tip_custom_sync_conditions_text">Tính năng này vẫn sẽ được cải thiện trong các phiên bản tương lai. Vào lúc này, chúng tôi không muốn phá hỏng các thiết lập và hành vi ứng dụng sẵn có. Đó là lý do tại sao các điều kiện đồng bộ tùy chỉnh cho một loại mạng cụ thể chỉ có thể được đặt nếu bạn bật đồng bộ khi có mạng đó trong điều kiện chạy toàn hệ thống trước tiên. </string>
-    <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính?</string>
+    <string name="tip_ignore_delete_title">Sao lưu ảnh từ điện thoại sang máy tính\?</string>
     <string name="tip_ignore_delete_text">Nếu bạn muốn tất cả ảnh chụp từ điện thoại được sao lưu sang máy tính, hãy chia sẻ thư mục \'Camera\' với máy tính. Mở Syncthing trên máy tính, thêm thư mục đó và đi đến \'Hành động\' &gt; \'Nâng cao\' &gt; Thư mục \'Camera\'. Bật \'Bỏ qua việc xóa\' và nhấn \'Lưu\'. Bây giờ bạn đã có thể xóa ảnh khỏi thư mục máy ảnh trên điện thoại và chúng sẽ vẫn được sao lưu trên máy tính.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: giải quyết vấn đề \'thiết bị đã ngắt kết nối\'</string>
     <string name="tip_huawei_device_disconnected_text">Nếu máy tính của bạn liên tục báo cáo thiết bị Huawei của bạn là bị ngắt kết nối, hãy mở giao diện Syncthing của máy tính. Đi đến \'thiết bị trên mạng\', mở rộng mục của điện thoại, nhấn \'Chỉnh sửa\', chuyển sang \'Nâng cao\'. Đặt địa chỉ IP của điện thoại vào \'Địa chỉ\' như thế này:\ntcp4://%1$s, động\nĐã xác nhận là giải quyết được cho: Huawei P10</string>
@@ -297,7 +297,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Thông báo bảo mật</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Trang web tại %1$s có vẻ là có chứng chỉ không hợp lệ để mã hóa SSL. Tiếp tục?</string>
+    <string name="ssl_cert_invalid_text">Trang web tại %1$s có vẻ là có chứng chỉ không hợp lệ để mã hóa SSL. Tiếp tục\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Đang tải trang web:\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -407,7 +407,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="download_support_bundle_failed">Tải xuống gói hỗ trợ thất bại. Hãy kiểm tra nhật ký.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Hoàn tác việc bỏ qua các thiết bị và thư mục</string>
-    <string name="undo_ignored_devices_folders_question">Việc này sẽ hoàn tác các quyết định bỏ qua thiết bị và thư mục trước đó. Tiếp tục?</string>
+    <string name="undo_ignored_devices_folders_question">Việc này sẽ hoàn tác các quyết định bỏ qua thiết bị và thư mục trước đó. Tiếp tục\?</string>
     <string name="undo_ignored_devices_folders_done">Hoàn tác các quyết định thành công.</string>
     <string name="export_config">Xuất cấu hình</string>
     <!-- Toast after entering an invalid tcp port -->
@@ -430,9 +430,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="broadcast_service_control_title">Điều khiển dịch vụ bằng truyền phát</string>
     <string name="broadcast_service_control_summary">Mặc định: Tắt. Hãy bật tùy chọn này để bắt đầu và dừng dịch vụ bằng cách gửi truyền phát, vd: từ các ứng dụng tự động hóa của bên thứ ba. Lưu ý: Bạn phải khởi động lại ứng dụng theo cách thủ công sau khi thay đổi tùy chọn này.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
+    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình\? Các tập tin hiện thời sẽ bị ghi đè.\n\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới? Các tập tin hiện tại sẽ bị chép đè lên.</string>
+    <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới\? Các tập tin hiện tại sẽ bị chép đè lên.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Cấu hình đã được xuất vào %1$s</string>
     <string name="config_export_failed">Xuất thiết lập thất bại, hãy kiểm tra đầu ra nhật ký.</string>
@@ -441,7 +441,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="config_imported_successful">Cấu hình đã được nhập</string>
     <string name="config_import_failed">Nhập c.hình th.bại, hãy chắc rằng các t.tin nằm trong %1$s</string>
     <string name="dialog_settings_restart_app_title">Yêu cầu khởi động lại</string>
-    <string name="dialog_settings_restart_app_question">Việc thay đổi tùy chọn này yêu cầu khởi động lại ứng dụng ngay lập tức. Tất cả các thay đổi khác sẽ bị bỏ đi. Tiếp tục?</string>
+    <string name="dialog_settings_restart_app_question">Việc thay đổi tùy chọn này yêu cầu khởi động lại ứng dụng ngay lập tức. Tất cả các thay đổi khác sẽ bị bỏ đi. Tiếp tục\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Tùy chọn STTRACE</string>
     <string name="environment_variables">Tham số môi trường</string>
@@ -451,7 +451,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="st_reset_database_title">Cài lại CSDL</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
-      \nBạn có chắc bạn muốn xóa cơ sở dữ liệu của Syncthing không?
+      \nBạn có chắc bạn muốn xóa cơ sở dữ liệu của Syncthing không\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Cài lại thành công CSDL của Syncthing</string>
@@ -459,7 +459,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="st_reset_deltas_title">Đặt lại mục lục Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Hành động này chỉ nên được thực hiện dựa trên khuyến cáo của nhóm hỗ trợ của chúng tôi.
-      \nBạn có chắc bạn muốn xóa mục lục delta của Syncthing không?
+      \nBạn có chắc bạn muốn xóa mục lục delta của Syncthing không\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Đặt lại mục lục delta của Syncthing thành công</string>
@@ -603,7 +603,7 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Một tệp thiết lập quan trọng để hoạt động bị thiếu</string>
     <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">Cổng TCP %s của giao diện web đang bận. Bản sao thứ hai?</string>
+    <string name="webui_tcp_port_unavailable">Cổng TCP %s của giao diện web đang bận. Bản sao thứ hai\?</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Máy ảnh Android</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->

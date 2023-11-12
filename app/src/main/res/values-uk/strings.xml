@@ -11,7 +11,7 @@
     <string name="generic_error">Помилка</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Додати каталог</string>
-    <string name="usage_reporting_dialog_title">Дозволити відправку анонімної статистики використання?</string>
+    <string name="usage_reporting_dialog_title">Дозволити відправку анонімної статистики використання\?</string>
     <string name="yes">Так</string>
     <string name="no">Ні</string>
     <string name="open_website">Відкрити сайт</string>
@@ -45,7 +45,7 @@
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Використання RAM</string>
     <string name="restart">Перезапуск</string>
-    <string name="dialog_confirm_restart">Бажаєте перезапустити Syncthing?</string>
+    <string name="dialog_confirm_restart">Бажаєте перезапустити Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID каталогу</string>
@@ -64,12 +64,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Створити</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Ви дійсно бажаєте видалити цей каталог з Syncthing?</string>
+    <string name="remove_folder_confirm">Ви дійсно бажаєте видалити цей каталог з Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">ID каталогу не може бути пустим</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Шлях до каталогу не може бути пустим</string>
-    <string name="dialog_discard_changes">Скасувати зміни?</string>
+    <string name="dialog_discard_changes">Скасувати зміни\?</string>
     <string name="ignore_patterns">Ігнорувати паттерни</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -90,7 +90,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Редагувати пристрій</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Дійсно бажаєте видалити цей пристрій?</string>
+    <string name="remove_device_confirm">Дійсно бажаєте видалити цей пристрій\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID пристрою не може бути пустим</string>
     <!-- Content description for device ID qr code icon -->
@@ -127,7 +127,7 @@
     <string name="keep_wakelock_while_binary_running">Перешкоджати режиму сну під час роботи Syncthing </string>
     <string name="use_tor_title">Використовувати Tor</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію? Існуючі файли будуть перезаписані</string>
+    <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію\? Існуючі файли будуть перезаписані</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Налаштування експортовано в %1$s</string>
     <string name="import_config">Імпортувати налаштування</string>

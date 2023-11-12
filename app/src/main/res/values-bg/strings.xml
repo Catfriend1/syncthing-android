@@ -19,7 +19,7 @@
     <string name="share_device_id">Сподели идентификатора</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Изпращане на идентификатора чрез</string>
-    <string name="usage_reporting_dialog_title">Разреши анонимно докладване за употребата на програмата?</string>
+    <string name="usage_reporting_dialog_title">Разреши анонимно докладване за употребата на програмата\?</string>
     <string name="usage_reporting_dialog_description">Криптираният доклад се изпраща ежедневно. Използва се, за отичане на ползваните платформи, размер на папки и версии на приложението. Ако събираните данни се променят, ще бъдете информиран с подобен на този диалог.\n\nОбобщената статистика ще намерите на https://data.syncthing.net.</string>
     <string name="yes">Да</string>
     <string name="no">Не</string>
@@ -58,7 +58,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">Сървър за откриване на устройства</string>
     <string name="restart">Рестартиране</string>
-    <string name="dialog_confirm_restart">Желаете ли Syncthing да бъде рестартиран?</string>
+    <string name="dialog_confirm_restart">Желаете ли Syncthing да бъде рестартиран\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Идентификатор на папката</string>
@@ -79,12 +79,12 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Създай</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Наистина ли желаете папката да бъде изтрита?</string>
+    <string name="remove_folder_confirm">Наистина ли желаете папката да бъде изтрита\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Наложително е да въведете идентификатор на папката</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Наложително е да въведете път до папката</string>
-    <string name="dialog_discard_changes">Отказвате ли се от направените промени?</string>
+    <string name="dialog_discard_changes">Отказвате ли се от направените промени\?</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Идентификатор на устройството</string>
@@ -112,7 +112,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Редактиране на устройство</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Наистина ли желаете устройството да бъде изтрито?</string>
+    <string name="remove_device_confirm">Наистина ли желаете устройството да бъде изтрито\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Наложително е да въведете идентификатор на устройството</string>
     <!-- Content description for device ID qr code icon -->
@@ -147,9 +147,9 @@
     <string name="export_config">Изнасяне на настройките</string>
     <string name="use_tor_title">Ползване на Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
+    <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени\? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
+    <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки\? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Настройките са изнесени в %1$s</string>
     <string name="import_config">Внасяне на настройки</string>

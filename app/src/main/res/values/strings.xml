@@ -110,7 +110,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirm to quit app</string>
-    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured the app to start automatically on boot. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only quit manually if you run into severe problems. Otherwise, disable \'Start automatically on boot \' in the settings. Would you like to quit now until the device rebooted?</string>
+    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured the app to start automatically on boot. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only quit manually if you run into severe problems. Otherwise, disable \'Start automatically on boot \' in the settings. Would you like to quit now until the device rebooted\?</string>
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Add Folder</string>
@@ -121,7 +121,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Send Device ID to</string>
 
-    <string name="usage_reporting_dialog_title">Allow Anonymous Usage Reporting?</string>
+    <string name="usage_reporting_dialog_title">Allow Anonymous Usage Reporting\?</string>
 
     <string name="usage_reporting_dialog_description">The encrypted usage report is sent daily. It is used to track common platforms, folder sizes and app versions. If the reported data set is changed you will be prompted with this dialog again.\n\nThe aggregated statistics are publicly available at https://data.syncthing.net.</string>
 
@@ -164,7 +164,7 @@ Please report any problems you encounter via Github.</string>
     <string name="override_changes">Override changes</string>
 
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">This will undo all changes made on the other devices sharing this folder. Proceed?</string>
+    <string name="override_changes_question">This will undo all changes made on the other devices sharing this folder. Proceed\?</string>
 
     <string name="revert_local_changes">Revert local changes</string>
 
@@ -172,7 +172,7 @@ Please report any problems you encounter via Github.</string>
 
 
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">This will undo all changes made on this device within that folder. Proceed?</string>
+    <string name="revert_local_changes_question">This will undo all changes made on this device within that folder. Proceed\?</string>
 
     <string name="open_file_manager">Open file manager</string>
     <string name="open_file_with">Open file with</string>
@@ -180,7 +180,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">No compatible file manager app found</string>
-    <string name="suggest_file_manager_app_dialog_text">We recommend you to install the open-source file manager app \'Material Files\'. Would you like to open its app store page?</string>
+    <string name="suggest_file_manager_app_dialog_text">We recommend you to install the open-source file manager app \'Material Files\'. Would you like to open its app store page\?</string>
 
     <!-- DeviceListFragment -->
 
@@ -260,7 +260,7 @@ Please report any problems you encounter via Github.</string>
 
     <string name="restart">Restart</string>
 
-    <string name="dialog_confirm_restart">Do you want to restart Syncthing?</string>
+    <string name="dialog_confirm_restart">Do you want to restart Syncthing\?</string>
 
     <!-- FolderActivity -->
 
@@ -305,7 +305,7 @@ Please report any problems you encounter via Github.</string>
     <string name="create">Create</string>
 
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Do you really want to remove this folder from Syncthing?</string>
+    <string name="remove_folder_confirm">Do you really want to remove this folder from Syncthing\?</string>
 
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">The folder ID must not be empty</string>
@@ -316,7 +316,7 @@ Please report any problems you encounter via Github.</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">The folder path must not be empty</string>
 
-    <string name="dialog_discard_changes">Discard your changes?</string>
+    <string name="dialog_discard_changes">Discard your changes\?</string>
 
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Your Android version only grants Syncthing readonly access to the selected folder.</string>
@@ -393,7 +393,7 @@ Please report any problems you encounter via Github.</string>
     <string name="edit_device">Edit Device</string>
 
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Do you really want to remove this device?</string>
+    <string name="remove_device_confirm">Do you really want to remove this device\?</string>
 
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">The device ID must not be empty</string>
@@ -411,7 +411,7 @@ Please report any problems you encounter via Github.</string>
     <string name="scan_qr_code_description">Scan QR Code</string>
 
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">This requires a barcode scanner app. Would you like to install the app \'Binary Eye\' from F-Droid?</string>
+    <string name="install_barcode_scanner_app_message">This requires a barcode scanner app. Would you like to install the app \'Binary Eye\' from F-Droid\?</string>
 
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">No folders configured. Tap to add a new folder.</string>
@@ -434,7 +434,7 @@ Please report any problems you encounter via Github.</string>
     <string name="tip_custom_sync_conditions_title">Use per folder/device custom sync conditions</string>
     <string name="tip_custom_sync_conditions_text">This feature will still be improved in future releases. For now, we didn\'t want to break existing configs and app behaviour. That\'s why custom sync conditions for a certain network type can only be set if you enable syncing on the network in the global run conditions first.</string>
 
-    <string name="tip_ignore_delete_title">Backup pictures from phone to computer?</string>
+    <string name="tip_ignore_delete_title">Backup pictures from phone to computer\?</string>
     <string name="tip_ignore_delete_text">If you\'d like to have all pictures made on your phone backed up to a computer, share the \'Camera\' folder with the computer. Open Syncthing on the computer, add the folder and go to \'Actions\' &gt; \'Advanced\' &gt; \'Camera\' folder. Enable \'Ignore Delete\' and click \'Save\'. You can now delete pictures from your camera folder on the phone and they will stay backed up on the computer.</string>
 
     <string name="tip_huawei_device_disconnected_title">Huawei: \'device disconnected\' workaround</string>
@@ -472,7 +472,7 @@ Please report any problems you encounter via Github.</string>
     <string name="security_notice">Security Notice</string>
 
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Website at %1$s appears to have an invalid certificate for SSL encryption. Proceed?</string>
+    <string name="ssl_cert_invalid_text">Website at %1$s appears to have an invalid certificate for SSL encryption. Proceed\?</string>
 
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Loading webpage:\n%1$s ...</string>
@@ -652,7 +652,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Undo ignoring devices and folders</string>
-    <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue?</string>
+    <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue\?</string>
     <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
     <string name="backup_folder_name">Backup folder name</string>
@@ -694,10 +694,10 @@ Please report any problems you encounter via Github.</string>
     <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
 
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Do you really want to export your configuration? Existing files will be overwritten.\n\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
+    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.\n\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
 
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Do you really want to import a new configuration? Existing files will be overwritten.</string>
+    <string name="dialog_confirm_import">Do you really want to import a new configuration\? Existing files will be overwritten.</string>
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Config was exported to %1$s</string>
@@ -711,7 +711,7 @@ Please report any problems you encounter via Github.</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
 
-    <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue?</string>
+    <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE Options</string>
@@ -726,7 +726,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">This action should only be performed based on a recommendation from our support team.
-        \nAre you sure you want to clear Syncthing\'s database?
+        \nAre you sure you want to clear Syncthing\'s database\?
     </string>
 
     <!-- Syncthing was reset -->
@@ -737,7 +737,7 @@ Please report any problems you encounter via Github.</string>
 
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
-        \nAre you sure you want to clear Syncthing\'s delta indexes?
+        \nAre you sure you want to clear Syncthing\'s delta indexes\?
     </string>
 
     <!-- Syncthing was reset -->
@@ -965,7 +965,7 @@ Please report any problems you encounter via Github.</string>
     <string name="config_file_missing">A config file crucial to operation is missing</string>
 
     <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">WebUI tcp port %s busy. Second instance?</string>
+    <string name="webui_tcp_port_unavailable">WebUI tcp port %s busy. Second instance\?</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Camera</string>

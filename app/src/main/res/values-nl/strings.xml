@@ -42,7 +42,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="share_device_id">Apparaat-ID delen</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Apparaat-ID versturen naar</string>
-    <string name="usage_reporting_dialog_title">Anoniem gebruiksrapportage toestaan?</string>
+    <string name="usage_reporting_dialog_title">Anoniem gebruiksrapportage toestaan\?</string>
     <string name="usage_reporting_dialog_description">Het versleuteld gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zal je deze dialoog opnieuw te zien krijgen.\n\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
@@ -89,7 +89,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Title for announce server status -->
     <string name="announce_server">Mededelingsserver</string>
     <string name="restart">Herstarten</string>
-    <string name="dialog_confirm_restart">Wil je Syncthing herstarten?</string>
+    <string name="dialog_confirm_restart">Wil je Syncthing herstarten\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Map-ID</string>
@@ -115,12 +115,12 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Creëren</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Weet je zeker dat je deze map van Syncthing wil verwijderen?</string>
+    <string name="remove_folder_confirm">Weet je zeker dat je deze map van Syncthing wil verwijderen\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">De map-ID mag niet leeg zijn</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Het mappad mag niet leeg zijn</string>
-    <string name="dialog_discard_changes">Wijzigingen verwerpen?</string>
+    <string name="dialog_discard_changes">Wijzigingen verwerpen\?</string>
     <string name="ignore_patterns">Patronen negeren</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
@@ -151,7 +151,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Apparaat bewerken</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Weet je zeker dat je dit apparaat wil verwijderen?</string>
+    <string name="remove_device_confirm">Weet je zeker dat je dit apparaat wil verwijderen\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">De apparaat-ID kan niet leeg zijn</string>
     <!-- Content description for device ID qr code icon -->
@@ -213,9 +213,9 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren? Bestaande bestanden worden overschreven.\n\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
+    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren\? Bestaande bestanden worden overschreven.\n\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren? Bestaande bestanden zullen worden overschreven.</string>
+    <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren\? Bestaande bestanden zullen worden overschreven.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Configuratie is geëxporteerd naar %1$s</string>
     <string name="import_config">Configuratie importeren</string>
@@ -231,7 +231,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="st_reset_database_title">Database opnieuw instellen</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
-\nBen je zeker dat je de database van Syncthing wil wissen?
+\nBen je zeker dat je de database van Syncthing wil wissen\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Opnieuw instellen van Syncthing-database geslaagd</string>
@@ -239,7 +239,7 @@ Als je problemen tegenkomt, meld ze dan via GitHub.</string>
     <string name="st_reset_deltas_title">Delta-indexen opnieuw instellen</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Deze actie moet je enkel uitvoeren wanneer ons ondersteuningsteam je dit aanraadt.
-\nBen je zeker dat je de delta-indexen van Syncthing wil wissen?
+\nBen je zeker dat je de delta-indexen van Syncthing wil wissen\?
 </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Delta-indexen van Syncthing opnieuw ingesteld</string>

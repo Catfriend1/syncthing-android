@@ -69,14 +69,14 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="exception_known_bug_notice">A fost întâlnită o eroare cunoscută care nu a fost încă rezolvată. Consultați %1$s/%2$s pentru mai multe informații. Vă rugăm să ne lăsați o descriere precisă a celor întâmplate dinainte.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirmați închiderea aplicației</string>
-    <string name="dialog_exit_while_running_as_service_message">Pentru atenția dumneavoastră: Ați configurat ca aplicația să pornească automat la pornire. Prin urmare, ea monitorizează condițiile de rulare și se sincronizează în fundal oricând se potrivesc condițiile. Ar trebui să o închideți manual numai dacă aveți probleme grave. În caz contrar, dezactivați „Start automat la pornire” în setări. Ați dori să renunțați acum până la repornirea dispozitivului?</string>
+    <string name="dialog_exit_while_running_as_service_message">Pentru atenția dumneavoastră: Ați configurat ca aplicația să pornească automat la pornire. Prin urmare, ea monitorizează condițiile de rulare și se sincronizează în fundal oricând se potrivesc condițiile. Ar trebui să o închideți manual numai dacă aveți probleme grave. În caz contrar, dezactivați „Start automat la pornire” în setări. Ați dori să renunțați acum până la repornirea dispozitivului\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Adăugare director</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Partajare ID dispozitiv</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Trimite ID-ul dispozitivul prin</string>
-    <string name="usage_reporting_dialog_title">Permite trimiterea unui raport de utilizare anonim?</string>
+    <string name="usage_reporting_dialog_title">Permite trimiterea unui raport de utilizare anonim\?</string>
     <string name="usage_reporting_dialog_description">Raportul de utilizare este trimis zilnic în mod criptat. Este folosit pentru a urmării platformele comune, mărimile de directoare și versiunile aplicației. Dacă datele raportate se schimbă veți fi întrebat din nou.\n\nStatisticile cumulate sunt disponibile public la https://data.syncthing.net</string>
     <string name="yes">Da</string>
     <string name="no">Nu</string>
@@ -100,17 +100,17 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     </plurals>
     <string name="override_changes">Suprascrie schimbări</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Aceasta va anula toate modificările aduse celorlalte dispozitive care distribuie acest dosar. Continuați?</string>
+    <string name="override_changes_question">Aceasta va anula toate modificările aduse celorlalte dispozitive care distribuie acest dosar. Continuați\?</string>
     <string name="revert_local_changes">Întoarceți modificările locale</string>
     <string name="delete_unexpected_items">Ștergeți elementele neașteptate</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continuați?</string>
+    <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continuați\?</string>
     <string name="open_file_manager">Deschide managerul de fișiere</string>
     <string name="open_file_with">Deschideți fișierul cu</string>
     <string name="open_file_no_compatible_app">Nu a fost găsită nicio aplicație care să deschidă fișierul.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nu a fost găsită nicio aplicație manager de fișiere compatibilă</string>
-    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația open-source de gestionare a fișierelor „Material Files”. Doriți să deschideți pagina magazinului de aplicații?</string>
+    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația open-source de gestionare a fișierelor „Material Files”. Doriți să deschideți pagina magazinului de aplicații\?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispozitive</string>
@@ -163,7 +163,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Title for uptime status -->
     <string name="uptime">Durata funcționării</string>
     <string name="restart">Repornire </string>
-    <string name="dialog_confirm_restart">Doriți să reporniți Syncthing?</string>
+    <string name="dialog_confirm_restart">Doriți să reporniți Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID director</string>
@@ -193,14 +193,14 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Menu item to confirm folder creation -->
     <string name="create">Creeare</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Chiar doriți să ștergeți acest director din Syncthing?</string>
+    <string name="remove_folder_confirm">Chiar doriți să ștergeți acest director din Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">ID-ul directorului nu poate fi gol</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Eticheta dosarului nu trebuie să fie goală</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Calea directorului nu poate fi goală</string>
-    <string name="dialog_discard_changes">Eliminăm schimbările dumneavoastră?</string>
+    <string name="dialog_discard_changes">Eliminăm schimbările dumneavoastră\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Versiunea dumneavoastră de Android a permis Synthing numai acces citire pentru directorul selectat.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -249,7 +249,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Editare dispozitiv</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Sigur doriți să eliminați acest dispozitiv?</string>
+    <string name="remove_device_confirm">Sigur doriți să eliminați acest dispozitiv\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID-ul dispozitivului nu poate fi gol</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -261,7 +261,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanare cod QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Doriți să instalați aplicația „Binary Eye” din F-Droid?</string>
+    <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Doriți să instalați aplicația „Binary Eye” din F-Droid\?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">Niciun dosar configurat. Atingeți pentru a adăuga un dosar nou.</string>
     <!-- Toast show if we could not get root permissions -->
@@ -275,7 +275,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="tip_sync_on_local_network_text">Dacă doriți să sincronizați doar cu dispozitivele localizate în rețeaua WiFi locală sau accesibile prin WiFi hotspot, puteți reduce consumul de baterie și puteți evita sincronizarea accidentală prin datele mobile, dezactivând următoarele opțiuni în „Setări/Opțiuni Syncthing”:\n- Activare traversare NAT\n- Descoperire globală\n- Activare retransmitere\nLăsați doar „Descoperirea locală” activată.</string>
     <string name="tip_custom_sync_conditions_title">Utilizați condiții de sincronizare personalizate per dosar/dispozitiv</string>
     <string name="tip_custom_sync_conditions_text">Această caracteristică va fi îmbunătățită în versiunile viitoare. Deocamdată, nu am dorit să modificăm configurațiile existente și comportamentul aplicației. De aceea, condițiile de sincronizare personalizate pentru un anumit tip de rețea pot fi setate numai dacă activați mai întâi sincronizarea în rețea în condițiile de rulare globală.</string>
-    <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer?</string>
+    <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer\?</string>
     <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” &gt; „Avansat” &gt; „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
     <string name="tip_huawei_device_disconnected_title">Soluție pentru Huawei: „dispozitiv deconectat”</string>
     <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este  deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:\ntcp4://%1$s, dinamic\nA fost confirmată funcționarea pentru: Huawei P10</string>
@@ -298,7 +298,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviz de securitate</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continuați?</string>
+    <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continuați\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Se încarcă pagina web:\n%1$s ...</string>
     <!-- Text for WebViewActivity openBrowser action button -->
@@ -402,7 +402,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="webui_remote_access_summary">Specifică pentru a permite accesarea interfeței de utilizare web de pe alt dispozitiv. Dacă este activat, te poți conecta cu utilizatorul „syncthing” și cheia API ca parolă. Implicit: dezactivat (cel mai sigur)</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Reface setarea de ignorare de dispozitive și directoare</string>
-    <string name="undo_ignored_devices_folders_question">Această acțiune va reface decizia precedentă de ignorare a dispozitivelor și directoarelor. Continuați?</string>
+    <string name="undo_ignored_devices_folders_question">Această acțiune va reface decizia precedentă de ignorare a dispozitivelor și directoarelor. Continuați\?</string>
     <string name="undo_ignored_devices_folders_done">Acțiune refăcută cu succes.</string>
     <string name="export_config">Exportă configurația</string>
     <!-- Toast after entering invalid integer value -->
@@ -422,9 +422,9 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="broadcast_service_control_title">Controlul serviciului prin Broadcast</string>
     <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activați această opțiune pentru a porni și opri serviciul prin trimiterea de mesaje Broadcast, de ex. din aplicații terțe de automatizare. Notă: trebuie să reporniți aplicația manual după modificarea acestei opțiuni.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Chiar doriți să exportați configurația? Fișierele existente vor fi suprascrise.\n\nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
+    <string name="dialog_confirm_export">Chiar doriți să exportați configurația\? Fișierele existente vor fi suprascrise.\n\nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă? Fișierele existente vor fi suprascrise.</string>
+    <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă\? Fișierele existente vor fi suprascrise.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Configurația a fost exportată în %1$s</string>
     <string name="import_config">Importă configurația</string>
@@ -432,7 +432,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="config_imported_successful">Configurația a fost importată</string>
     <string name="config_import_failed">Importarea configurației a eșuat, asigurați-vă că fișierele sunt în %1$s</string>
     <string name="dialog_settings_restart_app_title">Repornire necesară</string>
-    <string name="dialog_settings_restart_app_question">Modificarea acestei opțiuni necesită o repornire imediată a aplicației. Toate celelalte modificări vor fi anulate. Continuați?</string>
+    <string name="dialog_settings_restart_app_question">Modificarea acestei opțiuni necesită o repornire imediată a aplicației. Toate celelalte modificări vor fi anulate. Continuați\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opțiuni STTRACE</string>
     <string name="environment_variables">Variabile de mediu</string>
@@ -442,7 +442,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="st_reset_database_title">Resetează baza de date</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Acestă acțiune trebuie realizată numai în baza unei recomandări din partea echipei noastre de asistență.
-        \nSigur doriți să curățați baza de date Syncthing?
+        \nSigur doriți să curățați baza de date Syncthing\?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Baza de date Syncthing a fost resetată cu succes</string>
@@ -450,7 +450,7 @@ Vă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.
     <string name="st_reset_deltas_title">Resetare index diferențe</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Acestă acțiune trebuie realizată numai în baza unei recomandări din partea echipei noastre de asistență.
-        \nSigur doriți să curățați indexul diferențelor Syncthing?
+        \nSigur doriți să curățați indexul diferențelor Syncthing\?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Indexul cu diferențe Syncthing a fost resetat cu succes</string>

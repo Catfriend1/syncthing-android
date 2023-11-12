@@ -46,7 +46,7 @@
     <string name="share_device_id">Dela enhets-ID</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Skicka enhets-ID till</string>
-    <string name="usage_reporting_dialog_title">Tillåt anonym användningsrapportering?</string>
+    <string name="usage_reporting_dialog_title">Tillåt anonym användningsrapportering\?</string>
     <string name="usage_reporting_dialog_description">Den krypterade användningsrapporten skickas dagligen. Den används för att spåra vanliga plattformar, mappstorlekar och appversioner. Om uppsättningen av de rapporterade uppgifterna ändras kommer du att bli tillfrågad med den här dialogrutan igen.\n\nDen aggregerade statistiken är offentligt tillgänglig på https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
@@ -111,7 +111,7 @@
     <!-- Title for uptime status -->
     <string name="uptime">Drifttid</string>
     <string name="restart">Starta om</string>
-    <string name="dialog_confirm_restart">Vill du starta om Syncthing?</string>
+    <string name="dialog_confirm_restart">Vill du starta om Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">Mapp-ID</string>
@@ -137,14 +137,14 @@
     <!-- Menu item to confirm folder creation -->
     <string name="create">Skapa</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Vill du verkligen ta bort denna mapp från Syncthing?</string>
+    <string name="remove_folder_confirm">Vill du verkligen ta bort denna mapp från Syncthing\?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">Mapp-ID får inte vara tom</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Mappetiketten får inte vara tom</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Mapp-sökvägen får inte vara tom</string>
-    <string name="dialog_discard_changes">Kassera dina ändringar?</string>
+    <string name="dialog_discard_changes">Kassera dina ändringar\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
     <string name="folder_path_readonly">Din Android-version ger Syncthing endast skrivskyddad åtkomst till den valda mappen.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
@@ -183,7 +183,7 @@
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Redigera enhet</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Vill du verkligen ta bort den här enheten?</string>
+    <string name="remove_device_confirm">Vill du verkligen ta bort den här enheten\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">Enhetens ID får inte vara tom</string>
     <!-- Toast shown when trying to create a device with an empty name -->
@@ -291,7 +291,7 @@
     <string name="usage_reporting">Anonym användningsrapportering</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">Ångra ignorerande enheter och mappar</string>
-    <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta?</string>
+    <string name="undo_ignored_devices_folders_question">Detta kommer att ångra tidigare beslut att ignorera enheter och mappar. Fortsätta\?</string>
     <string name="undo_ignored_devices_folders_done">Ångrat beslut.</string>
     <string name="export_config">Exportera konfiguration</string>
     <!-- Toast after entering invalid integer value -->
@@ -310,9 +310,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
+    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration\? Befintliga filer kommer att skrivas över.\n\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
+    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration\? Befintliga filer kommer att skrivas över.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Konfiguration exporterades till %1$s</string>
     <string name="import_config">Importera konfiguration</string>
@@ -329,7 +329,7 @@
     <string name="st_reset_database_title">Återställ databas</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
-        \nÄr du säker på att du vill rensa Syncthings databas?
+        \nÄr du säker på att du vill rensa Syncthings databas\?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Syncthings databas återställdes</string>
@@ -337,7 +337,7 @@
     <string name="st_reset_deltas_title">Återställ deltaindex</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Denna åtgärd bör endast utföras baserat på en rekommendation från vårt supportteam.
-        \nÄr du säker på att du vill rensa Syncthings deltaindex?
+        \nÄr du säker på att du vill rensa Syncthings deltaindex\?
     </string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Syncthings deltaindex återställdes</string>
