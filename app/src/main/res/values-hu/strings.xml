@@ -135,10 +135,10 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Ismeretlen</string>
     <!-- Last seen title -->
-    <string name="device_last_seen">Utoljára megtekintve:\u0020%1$s</string>
+    <string name="device_last_seen">Utoljára megtekintve: %1$s</string>
     <string name="device_last_seen_never">Soha</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">Mappák:\u0020</string>
+    <string name="shared_folders_title_colon">"Mappák: "</string>
     <!-- Title for current download rate -->
     <string name="download_title">Letöltés</string>
     <!-- Title for current upload rate -->
@@ -154,9 +154,9 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="syncthing_has_crashed">A Syncthing összeomlott.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Letöltve:\u0020</string>
+    <string name="download_title_colon">"Letöltve: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Feltöltve:\u0020</string>
+    <string name="upload_title_colon">"Feltöltve: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Memória használat</string>
     <!-- Title for announce server status -->

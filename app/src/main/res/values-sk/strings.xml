@@ -46,9 +46,9 @@
     <string name="upload_title">Odosielanie</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Sťahovanie:\u0020</string>
+    <string name="download_title_colon">"Sťahovanie: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Odosielanie:\u0020</string>
+    <string name="upload_title_colon">"Odosielanie: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Využitie RAM</string>
     <!-- Title for announce server status -->

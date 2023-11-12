@@ -132,10 +132,10 @@
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">未知</string>
     <!-- Last seen title -->
-    <string name="device_last_seen">上次见到:\u0020%1$s</string>
+    <string name="device_last_seen">上次见到: %1$s</string>
     <string name="device_last_seen_never">从未</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">文件夹:\u0020</string>
+    <string name="shared_folders_title_colon">"文件夹: "</string>
     <!-- Title for current download rate -->
     <string name="download_title">下载速度</string>
     <!-- Title for current upload rate -->
@@ -151,9 +151,9 @@
     <string name="syncthing_has_crashed">Syncthing 应用已崩溃</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">下载：\u0020</string>
+    <string name="download_title_colon">"下载： "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">上传：\u0020</string>
+    <string name="upload_title_colon">"上传： "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">内存使用</string>
     <!-- Title for announce server status -->

@@ -108,9 +108,9 @@ Ens podeu informar dels problemes que trobeu a través de Github.</string>
     <string name="syncthing_has_crashed">El Syncthinc s\'ha tancat inesperadament.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Descàrrega:\u0020</string>
+    <string name="download_title_colon">"Descàrrega: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Pujada:\u0020</string>
+    <string name="upload_title_colon">"Pujada: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Ús de RAM</string>
     <!-- Title for announce server status -->

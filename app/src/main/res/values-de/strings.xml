@@ -133,10 +133,10 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unbekannt</string>
     <!-- Last seen title -->
-    <string name="device_last_seen">Zuletzt online:\u0020%1$s</string>
+    <string name="device_last_seen">Zuletzt online: %1$s</string>
     <string name="device_last_seen_never">Nie</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">Ordner:\u0020</string>
+    <string name="shared_folders_title_colon">"Ordner: "</string>
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
     <!-- Title for current upload rate -->
@@ -152,9 +152,9 @@ Bitte melden Sie auftretende Probleme via GitHub.</string>
     <string name="syncthing_has_crashed">Syncthing ist abgestürzt.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Herunterladen:\u0020</string>
+    <string name="download_title_colon">"Herunterladen: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Hochladen:\u0020</string>
+    <string name="upload_title_colon">"Hochladen: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-Auslastung</string>
     <!-- Title for announce server status -->

@@ -52,9 +52,9 @@
     <string name="upload_title">Envio</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Recepção:\u0020</string>
+    <string name="download_title_colon">"Recepção: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Envio:\u0020</string>
+    <string name="upload_title_colon">"Envio: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilização da RAM</string>
     <!-- Title for announce server status -->

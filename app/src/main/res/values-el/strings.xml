@@ -56,9 +56,9 @@
     <string name="upload_title">Αποστολή</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Λήψη:\u0020</string>
+    <string name="download_title_colon">"Λήψη: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Αποστολή:\u0020</string>
+    <string name="upload_title_colon">"Αποστολή: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Χρήση RAM</string>
     <!-- Title for announce server status -->

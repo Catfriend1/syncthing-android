@@ -47,9 +47,9 @@
     <string name="upload_title">Subida</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Descarga:\u0020</string>
+    <string name="download_title_colon">"Descarga: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Subida:\u0020</string>
+    <string name="upload_title_colon">"Subida: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Uso de RAM</string>
     <!-- Title for announce server status -->

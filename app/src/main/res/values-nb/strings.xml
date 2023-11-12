@@ -46,9 +46,9 @@
     <string name="upload_title">Opplasting</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Nedlasting:\u0020</string>
+    <string name="download_title_colon">"Nedlasting: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Opplasting:\u0020</string>
+    <string name="upload_title_colon">"Opplasting: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM-forbruk</string>
     <!-- Title for announce server status -->

@@ -49,9 +49,9 @@
     <string name="upload_title">Yükleme</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">İndirme:\u0020</string>
+    <string name="download_title_colon">"İndirme: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Yükleme:\u0020</string>
+    <string name="upload_title_colon">"Yükleme: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM Kullanımı</string>
     <!-- Title for announce server status -->

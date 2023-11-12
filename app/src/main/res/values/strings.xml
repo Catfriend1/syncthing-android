@@ -216,11 +216,11 @@ Please report any problems you encounter via Github.</string>
     <string name="device_state_unknown">Unknown</string>
 
     <!-- Last seen title -->
-    <string name="device_last_seen">Last seen:\u0020%1$s</string>
+    <string name="device_last_seen">Last seen: %1$s</string>
     <string name="device_last_seen_never">Never</string>
 
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">Folders:\u0020</string>
+    <string name="shared_folders_title_colon">"Folders: "</string>
 
     <!-- Title for current download rate -->
     <string name="download_title">Download</string>
@@ -244,10 +244,10 @@ Please report any problems you encounter via Github.</string>
 
 
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Download:\u0020</string>
+    <string name="download_title_colon">"Download: "</string>
 
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Upload:\u0020</string>
+    <string name="upload_title_colon">"Upload: "</string>
 
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM Usage</string>

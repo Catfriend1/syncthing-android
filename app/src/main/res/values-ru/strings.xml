@@ -136,9 +136,9 @@ Android требует разрешение доступа к геолокаци
     <string name="syncthing_has_crashed">Syncthing завершился из-за сбоя.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Скачивание:\u0020</string>
+    <string name="download_title_colon">"Скачивание: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Отдача:\u0020</string>
+    <string name="upload_title_colon">"Отдача: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Использование памяти</string>
     <!-- Title for announce server status -->

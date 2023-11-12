@@ -119,7 +119,7 @@
     <string name="device_last_seen">最後に見たもの:　%1$s</string>
     <string name="device_last_seen_never">二度としない</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">フォルダ:\u0020</string>
+    <string name="shared_folders_title_colon">"フォルダ: "</string>
     <!-- Title for current download rate -->
     <string name="download_title">ダウンロード</string>
     <!-- Title for current upload rate -->
@@ -135,9 +135,9 @@
     <string name="syncthing_has_crashed">Syncthing がクラッシュしました</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">ダウンロード:\u0020</string>
+    <string name="download_title_colon">"ダウンロード: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">アップロード:\u0020</string>
+    <string name="upload_title_colon">"アップロード: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">メモリ使用量</string>
     <!-- Title for announce server status -->

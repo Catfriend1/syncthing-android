@@ -132,10 +132,10 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Không rõ</string>
     <!-- Last seen title -->
-    <string name="device_last_seen">Lần cuối thấy:\u0020%1$s</string>
+    <string name="device_last_seen">Lần cuối thấy: %1$s</string>
     <string name="device_last_seen_never">Không bao giờ</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
-    <string name="shared_folders_title_colon">Thư mục:\u0020</string>
+    <string name="shared_folders_title_colon">"Thư mục: "</string>
     <!-- Title for current download rate -->
     <string name="download_title">Tải xuống</string>
     <!-- Title for current upload rate -->
@@ -151,9 +151,9 @@ Vui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
     <string name="syncthing_has_crashed">Syncthing đã dừng đột ngột.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Tải xuống:\u0020</string>
+    <string name="download_title_colon">"Tải xuống: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Tải lên:\u0020</string>
+    <string name="upload_title_colon">"Tải lên: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Mức s.dụng RAM</string>
     <!-- Title for announce server status -->

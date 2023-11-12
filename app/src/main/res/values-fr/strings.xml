@@ -82,9 +82,9 @@ S\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</str
     <string name="upload_title">Emission</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Réception:\u0020</string>
+    <string name="download_title_colon">"Réception: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Émission:\u0020</string>
+    <string name="upload_title_colon">"Émission: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilisation de la RAM</string>
     <!-- Title for announce server status -->

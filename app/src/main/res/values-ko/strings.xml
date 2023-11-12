@@ -55,9 +55,9 @@
     <string name="upload_title">업로드</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">다운로드됨:\u0020</string>
+    <string name="download_title_colon">"다운로드됨: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">업로드됨:\u0020</string>
+    <string name="upload_title_colon">"업로드됨: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM 사용량</string>
     <!-- Title for announce server status -->

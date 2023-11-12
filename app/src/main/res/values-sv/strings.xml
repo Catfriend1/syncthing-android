@@ -101,9 +101,9 @@
     <string name="syncthing_has_crashed">Syncthing har kraschat.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">Hämtar:\u0020</string>
+    <string name="download_title_colon">"Hämtar: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">Skickar:\u0020</string>
+    <string name="upload_title_colon">"Skickar: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">RAM användning</string>
     <!-- Title for announce server status -->
