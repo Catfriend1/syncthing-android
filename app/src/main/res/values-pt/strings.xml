@@ -191,7 +191,7 @@
     <string name="view_android_log">Ver registo do Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Ver o registo do Syncthing</string>
-    <string name="retrieving_logs">Obtendo registos...</string>
+    <string name="retrieving_logs">Obtendo registos…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Partilhar</string>
     <!-- SyncthingService -->

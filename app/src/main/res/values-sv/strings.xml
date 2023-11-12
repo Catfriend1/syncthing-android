@@ -217,7 +217,7 @@
     <string name="security_notice">Säkerhetsmeddelande</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Läser in webbplats:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Inställningar</string>
     <string name="category_run_conditions">Körvillkor</string>
@@ -371,7 +371,7 @@
     <string name="view_android_log">Visa Android-logg</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Visa Syncthing-logg</string>
-    <string name="retrieving_logs">Hämtar loggar...</string>
+    <string name="retrieving_logs">Hämtar loggar…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Dela</string>
     <!-- Title of the "share" activity -->
@@ -399,7 +399,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Det uppstod ett fel under delning, kontrollera applikationsloggar</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Delar filer...</string>
+    <string name="copy_progress">Delar filer…</string>
     <plurals name="file_name_title">
         <item quantity="one">Filnamn</item>
         <item quantity="other">Fillista</item>
@@ -410,7 +410,7 @@
     <string name="reason_not_on_battery_power">Telefonen körs inte på batteriet.</string>
     <string name="reason_not_while_power_saving">Syncthing körs inte eftersom telefonen för närvarande sparar energi.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing körs inte eftersom Android har för närvarande \"Auto-sync data\" inaktiverad.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing är inte konfigurerad för att köras på mobildataanslutning.</string>
     <string name="reason_on_mobile_data">Syncthing körs som mobildata är för närvarande ansluten.</string>
     <string name="reason_not_on_mobile_data">Syncthing får köras på mobildataanslutning men mobildata är inte anslutet.</string>

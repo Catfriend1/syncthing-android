@@ -275,7 +275,7 @@
     <string name="tip_write_to_sdcard_title">Workaround zum Schreiben auf Speicherkarte</string>
     <string name="tip_write_to_sdcard_text">Wenn Du die Meldung \"Android erlaubt nur schreibgeschützten Zugriff\" für einen bestimmten Ordner erhältst, erstelle einen neuen Ordner und benutze diesen Pfad, um Schreibzugriff zu erhalten:
 \n%1$s/DEIN_ORDNER_NAME
-\nSei vorsichtig: Dieser Ordner wird von Android gelöscht, sobald du die App deinstallierst. Verschiebe die Daten an einen sicheren Ort außerhalb des .../Android Ordners, bevor du die App deinstallierst.</string>
+\nSei vorsichtig: Dieser Ordner wird von Android gelöscht, sobald du die App deinstallierst. Verschiebe die Daten an einen sicheren Ort außerhalb des …/Android Ordners, bevor du die App deinstallierst.</string>
     <string name="tip_sync_on_local_network_title">Nur über lokales WLAN-Netzwerk syncen</string>
     <string name="tip_sync_on_local_network_text">Wenn Du beabsichtigst, nur mit Geräten zu syncen, die am lokalen WLAN-Netzwerk angeschlossen oder Teil eines Hotspot-WLAN sind, kannst du den Batterieverbrauch reduzieren und versehentliches Syncen über mobile Daten verhindern, indem Du die folgenden Optionen unter \"Einstellungen/Syncthing-Optionen\" abschaltest:
 \n- NAT-Durchdringung
@@ -313,7 +313,7 @@
     <string name="ssl_cert_invalid_text">Die Webseite \"%1$s\" scheint ein ungültiges SSL-Zertifikat zur Verschlüsselung aufzuweisen. Fortfahren\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Lade Webseite:
-\n%1$s...</string>
+\n%1$s…</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">In Browser öffnen</string>
     <!-- SettingsFragment -->
@@ -417,7 +417,7 @@
     <string name="webui_debugging_summary">Ermögliche Profiling und das Herunterladen eines Supportpakets. Ändern dieser Option wird Syncthing sofort neu starten.</string>
     <string name="download_support_bundle_title">Supportpaket herunterladen</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Bereite Supportpaket-Download vor ...</string>
+    <string name="download_support_bundle_in_progress">Bereite Supportpaket-Download vor …</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Supportpaket erfolgreich heruntergeladen: %s</string>
     <!-- Toast after failed support bundle download -->
@@ -529,7 +529,7 @@
     <string name="view_android_log">Zeige Android-Log</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Zeige Syncthing-Log</string>
-    <string name="retrieving_logs">Rufe Protokoll ab...</string>
+    <string name="retrieving_logs">Rufe Protokoll ab…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Teilen</string>
     <!-- ShareActivity -->
@@ -560,7 +560,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Beim Teilen ist ein Fehler aufgetreten, siehe Log</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Dateien werden geteilt...</string>
+    <string name="copy_progress">Dateien werden geteilt…</string>
     <plurals name="file_name_title">
         <item quantity="one">Dateiname</item>
         <item quantity="other">Liste der Dateien</item>
@@ -582,11 +582,11 @@
     <string name="reason_not_on_battery_power">Telefon wird nicht batteriebetrieben</string>
     <string name="reason_not_while_power_saving">Syncthing läuft nicht, weil das Telefon im Energiesparmodus ist.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing läuft nicht, weil die Android-Kachel \"Automatische Datensynchronisation\" ausgeschaltet ist.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing wurde nicht konfiguriert, die mobile Datenverbindung zu nutzen.</string>
     <string name="reason_on_mobile_data">Syncthing darf die mobile Datenverbindung nutzen.</string>
     <string name="reason_not_on_mobile_data">Syncthing darf bei mobiler Datenverbindung laufen, jedoch sind mobile Daten nicht verbunden.</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing darf bei mobilen Roaming- und Nicht-Roaming-Datenverbindungen ausgeführt werden.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing darf auf mobilen Datenverbindungen ohne Roaming ausgeführt werden. Die aktive Verbindung ist ohne Roaming.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing läuft nicht, da verboten wurde, dass es auf mobilen Datenverbindungen mit Roaming läuft.</string>

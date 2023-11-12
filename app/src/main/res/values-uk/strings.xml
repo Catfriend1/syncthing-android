@@ -157,7 +157,7 @@
     <string name="view_android_log">Переглянути журнал Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Переглянути журнал Syncthing</string>
-    <string name="retrieving_logs">Відкриваю журнал...</string>
+    <string name="retrieving_logs">Відкриваю журнал…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Поділитися</string>
     <!-- Title of the "share" activity -->

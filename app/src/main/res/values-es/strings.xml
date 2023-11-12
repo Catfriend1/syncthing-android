@@ -278,7 +278,7 @@
     <string name="tip_write_to_sdcard_title">Solución alterna de escribir a la tarjeta SD externa</string>
     <string name="tip_write_to_sdcard_text">Si ves que la interfaz de usuario indica que \"Android solo le otorga a Syncthing acceso de solo lectura\" para una determinada carpeta, cree una nueva carpeta utilizando esta ruta para obtener acceso de escritura:
 \n%1$s/YOUR_FOLDER_NAME
-\nTenga cuidado: Esta carpeta va a ser eliminada por Android si desinstala esta aplicación. Antes de desinstalar la aplicación, mueva los datos a un lugar seguro fuera de la carpeta .../Android.</string>
+\nTenga cuidado: Esta carpeta va a ser eliminada por Android si desinstala esta aplicación. Antes de desinstalar la aplicación, mueva los datos a un lugar seguro fuera de la carpeta …/Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizar solo mediante la red Wifi local</string>
     <string name="tip_sync_on_local_network_text">Si desea sincronizar solo con los dispositivos que se encuentran en la red WiFf local o accesibles a través de un hotspot de Wifi, puede reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\":
 \n- Permitir NAT Traversal
@@ -316,7 +316,7 @@
     <string name="ssl_cert_invalid_text">El sitio web en %1$s parece tener un certificado inválido para el cifrado SSL. ¿Proceder\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Cargando página web:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Abrir en navegador</string>
     <!-- SettingsFragment -->
@@ -532,7 +532,7 @@
     <string name="view_android_log">Mostrar registro de Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Mostrar registro de Syncthing</string>
-    <string name="retrieving_logs">Recuperando los registros...</string>
+    <string name="retrieving_logs">Recuperando los registros…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Compartir</string>
     <!-- ShareActivity -->
@@ -565,7 +565,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Se ha producido un error durante el uso compartido.</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Compartir archivos...</string>
+    <string name="copy_progress">Compartir archivos…</string>
     <plurals name="file_name_title">
         <item quantity="one">Nombre del archivo</item>
         <item quantity="many">Lista de Archivos</item>
@@ -589,11 +589,11 @@
     <string name="reason_not_on_battery_power">El teléfono no se está alimentando de la batería.</string>
     <string name="reason_not_while_power_saving">Syncthing no se está ejecutando porque el teléfono está ahorrando energía.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing no se está ejecutando porque Android tiene desactivada la función \"Sincronizar datos automáticamente\".</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing no está configurado para ejecutarse en una conexión de datos móviles.</string>
     <string name="reason_on_mobile_data">Syncthing está configurado para ejecutarse en datos móviles.</string>
     <string name="reason_not_on_mobile_data">Syncthing tiene permitido ejecutarse en una conexión de datos móviles, pero los datos móviles no están conectados.</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse en conexiones de datos móviles con o sin itinerancia.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse en conexiones de datos móviles sin itinerancia. La conexión activa es sin itinerancia.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing no se está ejecutando porque usted le ha prohibido ejecutarse en conexiones de datos móviles en itinerancia.</string>

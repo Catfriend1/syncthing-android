@@ -245,7 +245,7 @@
     <string name="view_android_log">檢視 Android 日誌</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">檢視 Syncthing 日誌</string>
-    <string name="retrieving_logs">正在取得日誌...</string>
+    <string name="retrieving_logs">正在取得日誌…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">分享</string>
     <!-- Title of the "share" activity -->
@@ -271,7 +271,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">在分享時出現錯誤，檢查應用程式日誌</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">正在分享檔案...</string>
+    <string name="copy_progress">正在分享檔案…</string>
     <plurals name="file_name_title">
         <item quantity="other">檔案列表</item>
     </plurals>

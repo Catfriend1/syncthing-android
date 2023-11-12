@@ -187,7 +187,7 @@
     <string name="view_android_log">Android Günlüğünü Göster</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Syncthing Günlük Kayıtlarını Göster</string>
-    <string name="retrieving_logs">Günlükler alınıyor...</string>
+    <string name="retrieving_logs">Günlükler alınıyor…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Paylaş</string>
     <!-- SyncthingService -->

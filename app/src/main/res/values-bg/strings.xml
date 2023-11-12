@@ -188,7 +188,7 @@
     <string name="view_android_log">Към журнала на Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Към журнала на Syncthing</string>
-    <string name="retrieving_logs">Извличане на журналите...</string>
+    <string name="retrieving_logs">Извличане на журналите…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Сподели</string>
     <!-- SyncthingService -->

@@ -106,7 +106,7 @@
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗\?</string>
     <string name="open_file_manager">打开文件管理器</string>
-    <string name="open_file_with">打开为......</string>
+    <string name="open_file_with">打开为…</string>
     <string name="open_file_no_compatible_app">找不到用于打开该文件的应用</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
@@ -313,7 +313,7 @@
     <string name="ssl_cert_invalid_text">位于%1$s的网站似乎有一个无效的SSL加密证书。继续吗？</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">正在载入:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">在浏览器中打开</string>
     <!-- SettingsFragment -->
@@ -418,7 +418,7 @@
     <string name="webui_debugging_summary">启用以开始资料收集并能够下载一个支持包。更改此选项将立即重启Syncthing。</string>
     <string name="download_support_bundle_title">下载支持包</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">正在准备下载支持包...</string>
+    <string name="download_support_bundle_in_progress">正在准备下载支持包…</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">支持包已成功下载至%s.</string>
     <!-- Toast after failed support bundle download -->
@@ -579,11 +579,11 @@
     <string name="reason_not_on_battery_power">手机未使用电池供电。</string>
     <string name="reason_not_while_power_saving">Syncthing没有运行，因为手机目前正在省电。</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing没有运行，因为Android“自动同步数据”被禁用。</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing未配置为在使用移动数据连接时运行。</string>
     <string name="reason_on_mobile_data">Syncthing 当前正在在蜂窝网络环境下运行</string>
     <string name="reason_not_on_mobile_data">Syncthing 被允许在蜂窝网络环境下运行 ， 但当前网络未连接至互联网</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing被允许在使用漫游和非漫游移动数据连接时运行。</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing被允许运行在非漫游的移动数据连接上。活动连接是非漫游连接。</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing没有运行，因为您不允许它在漫游移动数据连接上运行。</string>

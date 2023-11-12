@@ -277,7 +277,7 @@
     <string name="tip_write_to_sdcard_title">Vượt qua vấn đề ghi vào thẻ SD ngoài</string>
     <string name="tip_write_to_sdcard_text">Nếu bạn thấy giao diện nói rằng \'Android chỉ cấp quyền truy cập chỉ đọc cho Syncthing\' đối với một thư mục cụ thể, hãy tạo thư mục mới bằng đường dẫn này để có quyền truy cập ghi:
 \n%1$s/YOUR_FOLDER_NAME
-\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục .../Android.</string>
+\nHãy cẩn thận: Thư mục này sẽ bị Android quét sạch nếu bạn gỡ cài đặt ứng dụng này. Trước khi gỡ cài đặt ứng dụng, hãy di chuyển dữ liệu vào một nơi an toàn ở ngoài thư mục …/Android.</string>
     <string name="tip_sync_on_local_network_title">Đồng bộ chỉ sử dụng mạng Wi-Fi cục bộ</string>
     <string name="tip_sync_on_local_network_text">Nếu bạn muốn đồng bộ chỉ với các thiết bị ở trong mạng WiFi cục bộ hoặc có thể kết nối đến bằng điểm phát sóng WiFi, bạn có thể giảm hao pin và tránh việc vô ý đồng bộ qua dữ liệu di động bằng cách tắt các tùy chọn sau ở \'Cài đặt/Tùy chọn Syncthing\':
 \n- Bật NAT traversal
@@ -315,7 +315,7 @@
     <string name="ssl_cert_invalid_text">Trang web tại %1$s có vẻ là có chứng chỉ không hợp lệ để mã hóa SSL. Tiếp tục\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Đang tải trang web:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Mở trong trình duyệt</string>
     <!-- SettingsFragment -->
@@ -416,7 +416,7 @@
     <string name="webui_debugging_summary">Bật để bắt đầu lập hồ sơ và có thể tải xuống gói hỗ trợ. Việc thay đổi tùy chọn này sẽ khởi động lại Syncthing ngay lập tức.</string>
     <string name="download_support_bundle_title">Tải xuống gói hỗ trợ</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Đang chuẩn bị tải xuống gói hỗ trợ ...</string>
+    <string name="download_support_bundle_in_progress">Đang chuẩn bị tải xuống gói hỗ trợ …</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Tải xuống gói hỗ trợ thành công vào %s.</string>
     <!-- Toast after failed support bundle download -->
@@ -526,7 +526,7 @@
     <string name="view_android_log">Xem lịch sử Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Xem lịch sử Syncthing</string>
-    <string name="retrieving_logs">Đang lấy nhật ký...</string>
+    <string name="retrieving_logs">Đang lấy nhật ký…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Chia sẻ</string>
     <!-- ShareActivity -->
@@ -555,7 +555,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Đã xảy ra lỗi khi chia sẻ, hãy kiểm tra nhật ký ứng dụng</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Đang chia sẻ tệp...</string>
+    <string name="copy_progress">Đang chia sẻ tệp…</string>
     <plurals name="file_name_title">
         <item quantity="other">Danh sách tệp</item>
     </plurals>
@@ -575,11 +575,11 @@
     <string name="reason_not_on_battery_power">Điện thoại đang không chạy bằng pin.</string>
     <string name="reason_not_while_power_saving">Syncthing đang không chạy vì điện thoại hiện đang tiết kiệm pin.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing đang không chạy vì Android đã tắt \'Tự động đồng bộ dữ liệu\'.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing không được thiết lập để chạy khi có kết nối dữ liệu di động.</string>
     <string name="reason_on_mobile_data">Syncthing được cho phép chạy khi có dữ liệu di động.</string>
     <string name="reason_not_on_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động nhưng không có kết nối dữ liệu di động.</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động chuyển vùng và không chuyển vùng.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing được cho phép chạy khi có kết nối dữ liệu di động không chuyển vùng. Kết nối đang hoạt động là không chuyển vùng.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing đang không chạy vì bạn đã không cho phép chạy khi có kết nối dữ liệu di động chuyển vùng.</string>

@@ -278,7 +278,7 @@
     <string name="tip_write_to_sdcard_title">Soluția pentru scrierea pe cardul SD extern</string>
     <string name="tip_write_to_sdcard_text">Dacă vedeți un mesaj care afirmă că „Android acordă acces doar în citire pentru syncthing” la un anumit dosar, creați un nou dosar folosind această cale pentru a obține acces la scriere:
 \n%1$s/NUMELE_DOSARULUI
-\nFiți atenți: acest dosar va fi șters de Android dacă dezinstalați această aplicație. Înainte de a dezinstala aplicația, mutați datele într-un loc sigur în afara dosarului .../Android.</string>
+\nFiți atenți: acest dosar va fi șters de Android dacă dezinstalați această aplicație. Înainte de a dezinstala aplicația, mutați datele într-un loc sigur în afara dosarului …/Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizați doar utilizând rețeaua locală WiFi</string>
     <string name="tip_sync_on_local_network_text">Dacă doriți să sincronizați doar cu dispozitivele localizate în rețeaua WiFi locală sau accesibile prin WiFi hotspot, puteți reduce consumul de baterie și puteți evita sincronizarea accidentală prin datele mobile, dezactivând următoarele opțiuni în „Setări/Opțiuni Syncthing”:
 \n- Activare traversare NAT
@@ -315,7 +315,7 @@
     <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continuați\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Se încarcă pagina web:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Deschideți în browser</string>
     <!-- SettingsFragment -->
@@ -508,7 +508,7 @@
     <string name="view_android_log">Vezi jurnal de erori Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Vezi jurnal de erori Syncthing</string>
-    <string name="retrieving_logs">Se preia jurnalele de erori...</string>
+    <string name="retrieving_logs">Se preia jurnalele de erori…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Partajează</string>
     <!-- ShareActivity -->
@@ -541,7 +541,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">A survenit o eroare în timpul partajării, verificați jurnalele de erori</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Partajare fișiere...</string>
+    <string name="copy_progress">Partajare fișiere…</string>
     <plurals name="file_name_title">
         <item quantity="one">Nume fișier</item>
         <item quantity="few">Nume fișiere</item>
@@ -565,7 +565,7 @@
     <string name="reason_not_on_battery_power">Telefonul nu rulează pe baterie.</string>
     <string name="reason_not_while_power_saving">Syncthing nu rulează deoarece telefonul este în modul de economisire în prezent.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing nu rulează deoarece Android are dezactivată „sincronizarea automată a datelor”.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing nu este configurat să ruleze prin conexiunea de date mobile.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor nu este instanțiat. Repornește aplicația și trimite un raport de eroare dacă această eroare nu dispare după repornire.</string>
     <!-- Sync Conditions Dialog -->

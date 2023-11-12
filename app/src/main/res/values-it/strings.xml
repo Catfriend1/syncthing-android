@@ -277,7 +277,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="tip_write_to_sdcard_title">Soluzione alternativa per scrivere sulla memoria esterna</string>
     <string name="tip_write_to_sdcard_text">Se vedi l\'interfaccia utente che indica che \"Android concede solo la sincronizzazione dell\'accesso in sola lettura\" a una determinata cartella, crea una nuova cartella usando questo percorso per ottenere l\'accesso in scrittura:
 \n%1$s/YOUR_FOLDER_NAME
-\nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella ... /Android.</string>
+\nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella … /Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizza solo usando la rete WiFi locale</string>
     <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \"Impostazioni/Impostazioni Syncthing\':
 \n- Abilita NAT traversal
@@ -315,7 +315,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="ssl_cert_invalid_text">Il sito %1$s sembra avere un certificato SSL non valido. Vuoi precedere\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Caricamento pagina web:
-\n%1$s...</string>
+\n%1$s…</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Apri nel browser</string>
     <!-- SettingsFragment -->
@@ -419,7 +419,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="webui_debugging_summary">Abilita la profilatura per attivare il download di un bundle di supporto. Modificando questa opzione Syncthing si riavvierà immediatamente.</string>
     <string name="download_support_bundle_title">Scarica pacchetto di supporto</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Preparazione download per il pacchetto di supporto ...</string>
+    <string name="download_support_bundle_in_progress">Preparazione download per il pacchetto di supporto …</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Pacchetto di supporto scaricato in %s.</string>
     <!-- Toast after failed support bundle download -->
@@ -530,7 +530,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="view_android_log">Mostra Registro di Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Mostra Registro di Syncthing</string>
-    <string name="retrieving_logs">Recupero log...</string>
+    <string name="retrieving_logs">Recupero log…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Condividi</string>
     <!-- ShareActivity -->
@@ -563,7 +563,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Copy exception toast -->
     <string name="copy_exception">Si è verificato un errore durante la condivisione, controllare il log dell\'applicazione</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Condivisione file...</string>
+    <string name="copy_progress">Condivisione file…</string>
     <plurals name="file_name_title">
         <item quantity="one">Nome File</item>
         <item quantity="many">Lista File</item>
@@ -587,11 +587,11 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="reason_not_on_battery_power">Il cellulare non è alimentato da batteria.</string>
     <string name="reason_not_while_power_saving">Syncthing non è in esecuzione perchè il cellulare in modalità di risparmio energia.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing non è in esecuzione perché l\'opzione \'Sincronizzazione automatica\' è stata disabilitata in Android.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing non è configurato per avviarsi su rete mobile.</string>
     <string name="reason_on_mobile_data">Syncthing può avviarsi su rete mobile.</string>
     <string name="reason_not_on_mobile_data">Syncthing può avviarsi su rete mobile, ma la connessione non è attiva.</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing può avviarsi su reti mobili non in roaming e in roaming.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing può avviarsi su reti mobili non in roaming. La connessione attuale non è in roaming.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing non è in esecuzione perché non lo hai permesso quando sei connesso su rete mobile.</string>

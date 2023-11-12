@@ -258,7 +258,7 @@
     <string name="security_notice">セキュリティに関するお知らせ</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">ウェブページの読み込み中
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">ブラウザで開く</string>
     <!-- SettingsFragment -->

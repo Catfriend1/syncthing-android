@@ -434,7 +434,7 @@
     <string name="tip_write_to_sdcard_title">Write to external sdcard workaround</string>
     <string name="tip_write_to_sdcard_text">If you see the UI stating that \'Android only grants syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:
 \n%1$s/YOUR_FOLDER_NAME
-\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the .../Android folder.</string>
+\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the …/Android folder.</string>
 
     <string name="tip_sync_on_local_network_title">Sync only using the local WiFi network</string>
     <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local WiFi network or reachable via WiFi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':
@@ -490,7 +490,7 @@
 
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Loading webpage:
-\n%1$s ...</string>
+\n%1$s …</string>
 
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Open in browser</string>
@@ -657,7 +657,7 @@
     <string name="download_support_bundle_title">Download Support Bundle</string>
 
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Preparing Support Bundle download ...</string>
+    <string name="download_support_bundle_in_progress">Preparing Support Bundle download …</string>
 
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Support Bundle successfully downloaded to %s.</string>
@@ -920,12 +920,12 @@
     <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
 
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing is not configured to run on mobile data connection.</string>
     <string name="reason_on_mobile_data">Syncthing is allowed to run on mobile data.</string>
     <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
 
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing is allowed to run on roaming and non-roaming mobile data connections.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing is allowed to run on non-roaming mobile data connections. The active connection is non-roaming.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing is not running as you disallowed it to run on roaming mobile data connections.</string>

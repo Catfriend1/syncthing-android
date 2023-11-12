@@ -215,7 +215,7 @@
     <string name="view_android_log">Εμφάνιση καταγραφής Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Εμφάνιση καταγραφής Syncthing</string>
-    <string name="retrieving_logs">Ανάκτηση καταγραφών...</string>
+    <string name="retrieving_logs">Ανάκτηση καταγραφών…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Κοινή χρήση</string>
     <!-- Title of the "share" activity -->
@@ -243,7 +243,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Προέκυψε ένα σφάλμα κατά την κοινή χρήση, ελέγξτε την καταγραφή συμβάντων της εφαρμογής</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Πραγματοποιείται κοινή χρήση αρχείων...</string>
+    <string name="copy_progress">Πραγματοποιείται κοινή χρήση αρχείων…</string>
     <plurals name="file_name_title">
         <item quantity="one">Όνομα αρχείου</item>
         <item quantity="other">Λίστα αρχείων</item>

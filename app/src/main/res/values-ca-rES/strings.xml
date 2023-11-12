@@ -229,7 +229,7 @@
     <string name="ssl_cert_invalid_text">Sembla que la pàgina web %1$s té un certificat que no és vàlid per xifrar amb SSL. Voleu continuar\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Carregant pàgina web:
-\n%1$s ...</string>
+\n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Obre al navegador</string>
     <!-- SettingsFragment -->
@@ -412,7 +412,7 @@
     <string name="view_android_log">Mostra el registre de l\'Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Mostra el registre del Syncthing</string>
-    <string name="retrieving_logs">Obtenint registres...</string>
+    <string name="retrieving_logs">Obtenint registres…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Comparteix</string>
     <!-- Title of the "share" activity -->

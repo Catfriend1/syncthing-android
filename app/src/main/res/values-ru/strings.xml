@@ -378,7 +378,7 @@ Android требует разрешение доступа к геолокаци
     <string name="view_android_log">Логи Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Логи Syncthing</string>
-    <string name="retrieving_logs">Получение логов...</string>
+    <string name="retrieving_logs">Получение логов…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Поделиться</string>
     <!-- Title of the "share" activity -->

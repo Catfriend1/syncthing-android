@@ -218,7 +218,7 @@
     <string name="view_android_log">Zobrazit log pro Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Zobrazit log pro Syncthing</string>
-    <string name="retrieving_logs">Získávám logy...</string>
+    <string name="retrieving_logs">Získávám logy…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Sdílet</string>
     <!-- Title of the "share" activity -->
@@ -250,7 +250,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Sdílení souborů...</string>
+    <string name="copy_progress">Sdílení souborů…</string>
     <plurals name="file_name_title">
         <item quantity="one">Název souboru</item>
         <item quantity="few">Názvy souborů</item>

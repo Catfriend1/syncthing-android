@@ -273,7 +273,7 @@
     <string name="view_android_log">Voir le journal Android</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Voir le journal Syncthing</string>
-    <string name="retrieving_logs">Récupération des journaux....</string>
+    <string name="retrieving_logs">Récupération des journaux…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Partage</string>
     <!-- Title of the "share" activity -->
@@ -303,7 +303,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">Il s\'est produit une erreur pendant le partage, vérifiez les journaux de l\'application</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Partager des fichiers...</string>
+    <string name="copy_progress">Partager des fichiers…</string>
     <plurals name="file_name_title">
         <item quantity="one">Nom du fichier</item>
         <item quantity="many">Liste des fichiers</item>

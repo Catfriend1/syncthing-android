@@ -277,7 +277,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="tip_write_to_sdcard_title">Külső SDcard-ra való írás megoldása</string>
     <string name="tip_write_to_sdcard_text">Ha a felhasználói felület azt jelzi, hogy \"Az Android csak olvasási hozzáférést biztosít a szinkronizáláshoz\" egy bizonyos mappához, hozzon létre egy új mappát az alábbi elérési útvonalon, hogy írási hozzáférést kapjon:
 \n%1$s/MAPPA_NEVE
-\nLegyen óvatos: Ezt a mappát az Android törölni fogja, ha eltávolítja ezt az alkalmazást. Az alkalmazás eltávolítása előtt helyezze át az adatokat egy biztonságos helyre a .../Android mappán kívülre.</string>
+\nLegyen óvatos: Ezt a mappát az Android törölni fogja, ha eltávolítja ezt az alkalmazást. Az alkalmazás eltávolítása előtt helyezze át az adatokat egy biztonságos helyre a …/Android mappán kívülre.</string>
     <string name="tip_sync_on_local_network_title">Szinkronizálás csak a helyi WiFi hálózaton</string>
     <string name="tip_sync_on_local_network_text">Ha csak olyan eszközökkel szeretne szinkronizálni, amelyek a helyi WiFi hálózaton vagy WiFi hotspoton keresztül elérhetőek, csökkentheti az akkumulátor-használatot és elkerülheti a véletlen szinkronizálást mobiladatokon keresztül, ha kikapcsolja a következő beállításokat a \"Beállítások/Szinkronizálási beállítások\" alatt:
 \n- NAT áthaladás engedélyezése
@@ -315,7 +315,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="ssl_cert_invalid_text">Úgy tűnik, hogy a %1$s webhelyen érvénytelen tanúsítvány van az SSL-titkosításhoz. Folytassuk\?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Weblap betöltése:
-\n%1$s...</string>
+\n%1$s…</string>
     <!-- Text for WebViewActivity openBrowser action button -->
     <string name="open_in_browser">Megnyitás böngészőben</string>
     <!-- SettingsFragment -->
@@ -419,7 +419,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="webui_debugging_summary">Engedélyezze a profilkészítés elindítását és a támogatási csomag letöltését. Ha ezt az beállítást megváltoztatja, a Syncthing azonnal újraindul.</string>
     <string name="download_support_bundle_title">Támogatási csomag letöltése</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Felkészülés a támogatási csomag letöltésére ...</string>
+    <string name="download_support_bundle_in_progress">Felkészülés a támogatási csomag letöltésére …</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">A támogatási csomag sikeresen letöltődött ide%s.</string>
     <!-- Toast after failed support bundle download -->
@@ -531,7 +531,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="view_android_log">Android napló megtekintése</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Syncthing napló megtekintése</string>
-    <string name="retrieving_logs">Naplók betöltése...</string>
+    <string name="retrieving_logs">Naplók betöltése…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Megosztás</string>
     <!-- ShareActivity -->
@@ -562,7 +562,7 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <!-- Copy exception toast -->
     <string name="copy_exception">A megosztás során hiba történt. Részletek az alkalmazásnaplóban</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">Fájlok megosztása...</string>
+    <string name="copy_progress">Fájlok megosztása…</string>
     <plurals name="file_name_title">
         <item quantity="one">Fájlok listája</item>
         <item quantity="other">Fájlok listája</item>
@@ -584,11 +584,11 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <string name="reason_not_on_battery_power">A telefon nem akkumulátorról működik.</string>
     <string name="reason_not_while_power_saving">A Syncthing nem fut, mivel a telefon jelenleg energiatakarékos üzemmódban van.</string>
     <string name="reason_not_while_auto_sync_data_disabled">A szinkronizálás nem fut, mivel az Androidban jelenleg az \'Automatikus adatszinkronizálás\' le van tiltva.</string>
-    <!-- ... Mobile data -->
+    <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">A Syncthing nincs úgy konfigurálva, hogy mobil adatkapcsolaton fusson.</string>
     <string name="reason_on_mobile_data">A szinkronizálás mobil adatkapcsolaton is futhat.</string>
     <string name="reason_not_on_mobile_data">A szinkronizálás mobil adatkapcsolaton is futhat, de a készüléknek nincs ilyen kapcsolata.</string>
-    <!-- ... Roaming -->
+    <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">A Syncthing roaming és nem roaming mobil adatkapcsolatokon is futtatható.</string>
     <string name="reason_on_nonroaming_mobile_data">A Syncthing nem roaming mobil adatkapcsolatokon is futtatható. Az aktív kapcsolat nem barangolásos.</string>
     <string name="reason_not_nonroaming_mobile_data">A szinkronizálás nem fut, mivel letiltotta, hogy roaming mobil adatkapcsolatokon fusson.</string>

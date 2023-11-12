@@ -214,7 +214,7 @@
     <string name="view_android_log">Android 로그 보기</string>
     <!-- Title of the "log Syncthing" menu button -->
     <string name="view_syncthing_log">Syncthing 로그 보기</string>
-    <string name="retrieving_logs">로그를 받아오는중...</string>
+    <string name="retrieving_logs">로그를 받아오는중…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">공유</string>
     <!-- Title of the "share" activity -->
@@ -240,7 +240,7 @@
     <!-- Copy exception toast -->
     <string name="copy_exception">공유 중 오류가 발생했습니다, 어플리케이션 로그를 확인해 주세요</string>
     <!-- Copy progress dialog text -->
-    <string name="copy_progress">공유 파일...</string>
+    <string name="copy_progress">공유 파일…</string>
     <plurals name="file_name_title">
         <item quantity="other">파일 목록</item>
     </plurals>
