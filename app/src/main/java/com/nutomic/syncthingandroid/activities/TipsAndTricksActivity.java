@@ -73,7 +73,9 @@ public class TipsAndTricksActivity extends SyncthingActivity {
         }
 
         // Fill tip title and text content.
-        mTipListAdapter.add(getString(R.string.tip_sync_on_local_network_title), getString(R.string.tip_sync_on_local_network_text));
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
+            mTipListAdapter.add(getString(R.string.tip_sync_on_local_network_title), getString(R.string.tip_sync_on_local_network_text));
+        }
         mTipListAdapter.add(getString(R.string.tip_custom_sync_conditions_title), getString(R.string.tip_custom_sync_conditions_text));
         mTipListAdapter.add(getString(R.string.tip_ignore_delete_title), getString(R.string.tip_ignore_delete_text));
 
