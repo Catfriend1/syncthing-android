@@ -1,17 +1,14 @@
-* Syncthing v1.26.0
+* Syncthing v1.26.1
 
 Enhanced
 --
-- Allow username and password change (#1019)
-- Show sync cycle duration on qs tile (#1013)
+-
 
 Fixes
 --
-- Disallow too high number of minutes for sync cycle (#1014)
-- Persist device allowNetwork
-- Persist device numConnections
+- Fix notification permission revoked case
 
 Other
 --
-- Support Android 14
-- Support HTML login form (Web UI)
+- Updated Go dependency to 1.21.4
+- Updated NDK dependency to r26b
