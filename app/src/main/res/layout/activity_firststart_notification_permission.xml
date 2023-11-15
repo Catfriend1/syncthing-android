@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/bg_screen1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:text="@string/welcome_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/welcome_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="@string/notification_permission_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="61dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/baseline_notifications_active_24" />
+
+        <Button
+            android:id="@+id/btnGrantNotificationPerm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/grant_permission"
+            app:drawableStartCompat="@android:drawable/ic_menu_save"
+            app:drawableLeftCompat="@android:drawable/ic_menu_save"
+            android:paddingStart="@dimen/grant_button_padding"
+            android:paddingLeft="@dimen/grant_button_padding"
+            android:paddingEnd="@dimen/grant_button_padding"
+            android:paddingRight="@dimen/grant_button_padding"
+            android:text="@string/grant_permission"
+            android:textSize="12sp"
+            style="@style/Theme.Syncthing.GreyButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="@dimen/dots_margin_bottom"
+            android:layout_gravity="center_horizontal"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
+            android:text="@string/notification_permission_desc"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_desc" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
