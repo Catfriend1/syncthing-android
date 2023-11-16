@@ -3,6 +3,7 @@ plugins {
 }
 
 task buildNative(type: PythonTask) {
+    environment "NDK_VERSION", "$ndkVersionShared"
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
     command = "-u ./build-syncthing.py"

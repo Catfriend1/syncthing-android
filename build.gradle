@@ -3,7 +3,7 @@
 buildscript {
     ext {
         // Cannot be called "ndkVersion" as that leads to naming collision
-        ndkVersionShared = '25.1.8937393'
+        ndkVersionShared = '26.1.10909125'
     }
     repositories {
         google()
