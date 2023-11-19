@@ -46,11 +46,11 @@ If you miss any prerequisite, the shell scripts will abort with an error and tel
 # This command will help you install the minimum Android SDK components to build this project in case you don't use Android Studio.
 python install_minimum_android_sdk_prerequisites.py
 ```
-- Android NDK r24
+- Android NDK r26b
 ```
 $ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
 ```
-- Go 1.18.1
+- Go 1.21.4
 ```
 Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.
 ```
@@ -62,9 +62,9 @@ Make sure, Python is installed and available on the PATH environment variable. D
 ```
 Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.
 ```
-- Java Development Version 11
+- Java Development Version 17
 ```
-"java" should be on the PATH environment variable. Download 'jdk-11.0.11_windows-x64_bin.exe' from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.
+"java" should be on the PATH environment variable. Download from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.
 ```
 
 ## Build instructions
