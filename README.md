@@ -25,7 +25,6 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 # About Play Store releases:
 - Planning to close my Google Play Developer Account. Please say hi if you are interested in obtaining the latest gplay release files from me to help in publishing this app.
-- Syncthing-Fork releases on GPlay may - from time to time - not provide the full feature set of this app or just be outdated. This is caused by the store policies and has happened some times in the past. If you still like to download from there, here's the link: https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid
 
 # Privacy Policy
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
