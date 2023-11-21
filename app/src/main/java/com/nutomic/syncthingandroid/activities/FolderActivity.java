@@ -969,6 +969,7 @@ public class FolderActivity extends SyncthingActivity {
 
         if (type.equals("none")) {
             mFolder.versioning = new Folder.Versioning();
+            mFolder.versioning.type = "";
         } else {
             for (String key : arguments.keySet()) {
                 mFolder.versioning.params.put(key, arguments.getString(key));
