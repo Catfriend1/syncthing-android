@@ -4,33 +4,33 @@ License: MPL-2.0
 WebSite: https://github.com/Catfriend1/syncthing-android/wiki
 SourceCode: https://github.com/Catfriend1/syncthing-android-fdroid
 IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
-Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Translation: https://www.transifex.com/catfriend1/syncthing-android-1
 Changelog: https://github.com/Catfriend1/syncthing-android/releases
-LiberapayID: '1534877'
+Liberapay: cf4friends
 
 AutoName: Syncthing-Fork
 Description: |-
-    This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
-    enhancements like:
-    * Individual sync conditions can be applied per device and per folder
-    * Recent changes UI, click to open files.
-    * "Battery eater" problem is fixed.
-    * Android 8 and 9 support.
-    Syncthing replaces proprietary sync and cloud services with something open,
-    trustworthy and decentralized. Your data is your data alone and you deserve to
-    choose where it is stored, if it is shared with some third party and how it's
-    transmitted over the Internet. Syncthing-Fork for Android is a wrapper for
-    Syncthing that provides an Android UI instead of Syncthing's built-in Web UI.
-    Goals of the fork:
-    * Develop and try out enhancements together with the community.
-    * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-    * Make enhancements configurable in the UI, users should be able to turn them on and off
-    Comparison between upstream and fork at the time of writing this:
-    * Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-    * Syncing functionality and reliability depends on the syncthing binary submodule version.
-    * Fork gets along with upstream and sometimes they pick up my improvements.
-    * Strategy and release frequency is different
-    * Only the wrapper containing the Android UI is addressed by the fork.
+  This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
+  enhancements like:
+  * Individual sync conditions can be applied per device and per folder
+  * Recent changes UI, click to open files.
+  * "Battery eater" problem is fixed.
+  * Android 8 and 9 support.
+  Syncthing replaces proprietary sync and cloud services with something open,
+  trustworthy and decentralized. Your data is your data alone and you deserve to
+  choose where it is stored, if it is shared with some third party and how it's
+  transmitted over the Internet. Syncthing-Fork for Android is a wrapper for
+  Syncthing that provides an Android UI instead of Syncthing's built-in Web UI.
+  Goals of the fork:
+  * Develop and try out enhancements together with the community.
+  * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
+  * Make enhancements configurable in the UI, users should be able to turn them on and off
+  Comparison between upstream and fork at the time of writing this:
+  * Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
+  * Syncing functionality and reliability depends on the syncthing binary submodule version.
+  * Fork gets along with upstream and sometimes they pick up my improvements.
+  * Strategy and release frequency is different
+  * Only the wrapper containing the Android UI is addressed by the fork.
 
 RepoType: git
 Repo: https://github.com/Catfriend1/syncthing-android-fdroid.git
@@ -1206,25 +1206,6 @@ Builds:
       - PATH="$PWD/go/bin:$PATH" gradle buildNative
     ndk: r19c
 
-  - versionName: 1.5.0.0
-    versionCode: 1050000
-    disable: fails to build
-    commit: v1.5.0.0
-    submodules: true
-    gradle:
-      - yes
-    output: app/build/outputs/apk/release/app-release-unsigned.apk
-    rm:
-      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
-    build:
-      - wget -O go.tgz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
-      - echo '68a2297eb099d1a76097905a2ce334e3155004ec08cdea85f24527be3c48e856  go.tgz'
-        | shasum -c -
-      - tar xf go.tgz
-      - PATH="$PWD/go/bin:$PATH" gradle buildNative
-    ndk: r19c
-
   - versionName: 1.6.0.0
     versionCode: 1060000
     commit: v1.6.0.0
@@ -1374,7 +1355,7 @@ Builds:
     commit: v1.9.0.5
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1391,7 +1372,7 @@ Builds:
     commit: v1.10.0.0
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1408,7 +1389,7 @@ Builds:
     commit: v1.11.1.0
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1425,7 +1406,7 @@ Builds:
     commit: v1.12.0.1
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1442,7 +1423,7 @@ Builds:
     commit: v1.12.1.1
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1459,7 +1440,7 @@ Builds:
     commit: v1.13.1.1
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1476,7 +1457,7 @@ Builds:
     commit: v1.14.0.1
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1493,7 +1474,7 @@ Builds:
     commit: v1.15.0.0
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1510,7 +1491,7 @@ Builds:
     commit: v1.15.1.0
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1527,7 +1508,7 @@ Builds:
     commit: v1.16.0.1
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1544,7 +1525,7 @@ Builds:
     commit: v1.16.0.5
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1561,7 +1542,7 @@ Builds:
     commit: v1.16.0.6
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1578,7 +1559,7 @@ Builds:
     commit: 68fa5a0891bce27b5bb81e2bd39021ec36c7c870
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1595,7 +1576,7 @@ Builds:
     commit: 18489083dcda57477917320e94d4861cb1145bb9
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1612,7 +1593,7 @@ Builds:
     commit: 7510bd22fc2dfc8c3065a4ff84b113e888bb658d
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t testing golang-go
     gradle:
       - yes
@@ -1629,7 +1610,7 @@ Builds:
     commit: f13ae5bc835ed4e84b951eb9aa00ebc9690eb0ec
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y openjdk-11-jdk
       - update-alternatives --auto java
     gradle:
@@ -1641,15 +1622,409 @@ Builds:
     preassemble:
       - buildNative
 
-MaintainerNotes: |-
-    The submodule in syncthing/src/github.com/syncthing/syncthing must be
-    pristine, as the version/release information is taken from git.
-    The ignored directory
-    syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    contains pre-generated data for testing and is thus not involved in the build
-    process.
+  - versionName: 1.18.4.0
+    versionCode: 1180400
+    commit: 72f9ea6175812748daa67d992de178c3bc3d5433
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    preassemble:
+      - buildNative
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.18.5.0
+    versionCode: 1180500
+    commit: bb13d85b69c1a53a90a0909aba1b47b00879f36d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    preassemble:
+      - buildNative
+
+  - versionName: 1.18.6.0
+    versionCode: 1180600
+    commit: c86fec5b4aa7146977315478bc20f2fce1ae74eb
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.0.0
+    versionCode: 1190000
+    commit: ab39748a945ae935dc45fb5feec04c0c916f9270
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.1.0
+    versionCode: 1190100
+    commit: 45cd65bf8555899bf4b18067636bfd22e14d1bf4
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.1.1
+    versionCode: 1190101
+    commit: 8d55c51cfb38f23ea1aea7a334418002759ae32b
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.3.0
+    versionCode: 1200300
+    commit: 6f63d3c6d12eabfc2a2db8a2b251c581f6d0417d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.3.1
+    versionCode: 1200301
+    commit: db97d39b3afd7ea8d0a50026ff4beb6439ffafe0
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.21.0.0
+    versionCode: 1210000
+    commit: 1576568fbd6a84a4b5892ab440880a7346d160e2
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.21.0.1
+    versionCode: 1210001
+    commit: f36878f9b9e406935456c8581533bc650e738c4d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.21.0.2
+    versionCode: 1210002
+    commit: 1f1d5acc68353de8d08cdb15b3cc927650198d13
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' app/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> gradle.properties
+    preassemble:
+      - buildNative
+
+  - versionName: 1.21.0.3
+    versionCode: 1210003
+    commit: cd36410b83fda620ffe56b02711e5120489b88ff
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.22.1.0
+    versionCode: 1220100
+    commit: 47e722ffb8ff70a667741430c06b3d52acde3934
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.22.2.0
+    versionCode: 1220200
+    commit: 069ea8d40fbee68a38c7a29ee3f16e7bb67f872c
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.22.2.2
+    versionCode: 1220202
+    commit: 00de6f3ed447e94f28f156e1259bd6d0866d0b9c
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.23.0.0
+    versionCode: 1230000
+    commit: 6316f4ad24ae152ea2c5471c7e2dcfedbeea12ca
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.23.2.2
+    versionCode: 1230202
+    commit: 6c1967dc34c99f722dad953419b0bff0202c26ab
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.23.5.0
+    versionCode: 1230500
+    commit: 4ec121a170bf27e112ffcb74278ffd28173fada8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.23.6.0
+    versionCode: 1230600
+    commit: 8b2d3e7f271daeecbc26e587ef619cc0877056ad
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.26.0.2
+    versionCode: 1260002
+    commit: 73e08963f8b8067218abda32ef8a44ff9546f056
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+    build: gradle :syncthing:buildNative
+
+  - versionName: 1.26.1.0
+    versionCode: 1260100
+    commit: 1e5bb769b23eaca06d74af9284eeb32487ba0b16
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.21.4
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "NDK_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/26.1.10909125
+      - export goversion=$(grep "GO_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - pushd $$go$$
+      - git checkout -f go$goversion
+      - cd src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+
+MaintainerNotes: |-
+  The submodule in syncthing/src/github.com/syncthing/syncthing must be
+  pristine, as the version/release information is taken from git.
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.18.2.1
-CurrentVersionCode: 1180201
+CurrentVersion: 1.26.1.0
+CurrentVersionCode: 1260100
