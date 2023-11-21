@@ -152,7 +152,7 @@ public class ConfigXml {
         }
 
         // Set default folder to the "camera" folder: path and name
-        changed = changeDefaultFolder() || changed;
+        changed = addDcimDefaultFolder() || changed;
 
         /* Section - GUI */
         Element gui = getGuiElement();
@@ -1192,28 +1192,42 @@ public class ConfigXml {
      * Change default folder id to camera and path to camera folder path.
      * Returns if changes to the config have been made.
      */
-    private boolean changeDefaultFolder() {
-        Folder defaultFolder = new Folder();
-        Element folder = (Element) mConfig.getDocumentElement()
-                .getElementsByTagName("folder").item(0);
+    private boolean addDcimDefaultFolder() {
+        String dcimPath = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
+        /**
+         * Do not create the folder in Syncthing, if ".stfolder" already exists.
+         * The user might then have two Syncthing app installations running side by side
+         * or he is just setting things up from scratch (and knows how to create a folder).
+         */
+        if ((new File (dcimPath + "/" + Constants.FILENAME_STFOLDER)).exists()) {
+            Log.v(TAG, "addDcimDefaultFolder: " + Constants.FILENAME_STFOLDER + " from previous installation detected. Will not create the folder in Syncthing for safety reasons.");
+            return false;
+        }
+
+        // Prepare folder element.
         String deviceModel = Build.MODEL
                 .replace(" ", "_")
                 .toLowerCase(Locale.US)
                 .replaceAll("[^a-z0-9_-]", "");
         String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
-        folder.setAttribute("label", mContext.getString(R.string.default_android_camera_folder_label));
-        folder.setAttribute("id", mContext.getString(R.string.default_folder_id, defaultFolderId));
-        folder.setAttribute("path", Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
-        folder.setAttribute("type", Constants.FOLDER_TYPE_SEND_RECEIVE);
-        folder.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
-        folder.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
+        Folder folder = new Folder();
+        folder.minDiskFree = new Folder.MinDiskFree();
+        folder.id = mContext.getString(R.string.default_folder_id, defaultFolderId);
+        folder.label = mContext.getString(R.string.default_android_camera_folder_label);
+        folder.path = dcimPath;
 
-        Element elementVersioning = (Element) folder.getElementsByTagName("versioning").item(0);
-        if (elementVersioning != null) {
-            elementVersioning.setAttribute("type", "trashcan");
-        }
+        // Add versioning.
+        folder.versioning = new Folder.Versioning();
+        folder.versioning.type = "trashcan";
+        folder.versioning.params.put("cleanoutDays", Integer.toString(14));
+        folder.versioning.cleanupIntervalS = 3600;
+        folder.versioning.fsPath = "";
+        folder.versioning.fsType = "basic";
 
+        // Add folder to config.
+        Log.v(TAG, "addDcimDefaultFolder: Adding folder to config [" + folder.path + "]");
+        addFolder(folder);
         return true;
     }
 

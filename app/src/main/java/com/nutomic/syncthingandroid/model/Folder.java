@@ -48,7 +48,7 @@ public class Folder {
     public boolean disableTempIndexes = false;
     public boolean paused = false;
     public int weakHashThresholdPct = 25;
-    public String markerName = ".stfolder";
+    public String markerName = Constants.FILENAME_STFOLDER;
 
     // Since v1.1.0, see Issue #5445, PR #5479
     public Boolean copyOwnershipFromParent = false;
