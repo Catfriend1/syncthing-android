@@ -10,7 +10,7 @@ REM
 REM Runtime Variables.
 IF EXIST "%LocalAppData%\Android\Sdk" SET "ANDROID_SDK_ROOT=%LocalAppData%\Android\Sdk"
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
-SET SKIP_RELEASE_BUILD=0
+SET SKIP_RELEASE_BUILD=1
 IF NOT DEFINED ANDROID_PUBLISHER_CREDENTIALS echo [WARN] ANDROID_PUBLISHER_CREDENTIALS env var not set. We will skip the signed release build. & SET SKIP_RELEASE_BUILD=1
 REM
 REM SET ANDROID_PUBLISHER_CREDENTIALS=%userprofile%\.android\play_key.json"
