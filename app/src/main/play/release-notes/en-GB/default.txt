@@ -1,14 +1,15 @@
-* Syncthing v1.26.1
+* Syncthing @ main (~ v1.27.0-rc.1+)
 
 Enhanced
 --
--
+- Do not create default folder in Syncthing, if /DCIM/ contains .stfolder from previous install (#1042)
+- Switch the language of the app to a different one than the phone setting (#1044)
 
 Fixes
 --
-- Fix notification permission revoked case
+- Fix themed icon (#1041)
+- Fix set file versioning to none (#1043)
 
 Other
 --
-- Updated Go dependency to 1.21.4
-- Updated NDK dependency to r26b
+-
