@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE resources [
-<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
-]>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
     <string name="app_description">开放、分布式且值得信赖的文件同步应用。</string>
@@ -180,7 +177,7 @@
     <string name="folder_fileWatcherDescription">请求操作系统通知文件的更改。如果禁用，则退回到定期每小时扫描。</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">忽略删除</string>
-    <string name="folder_ignore_delete_description">专家选项，影响传入索引更新的处理。设置时，将忽略设置了\"删除\"标志的传入更新。见&folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">专家选项，影响传入索引更新的处理。设置时，将忽略设置了\"删除\"标志的传入更新。见https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
     <string name="folder_pause">暫停文件夾</string>
     <!-- Setting title -->

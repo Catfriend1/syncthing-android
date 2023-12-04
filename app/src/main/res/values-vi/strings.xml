@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE resources [
-<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
-]>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
     <string name="app_description">Một ứng dụng đồng bộ hoá tập tin phi tập trung, mở và đáng tin cậy.</string>
@@ -182,7 +179,7 @@
     <string name="folder_fileWatcherDescription">Bảo hệ điều hành thông báo về các thay đổi với các tệp. Nếu tắt, sẽ quét định kỳ hàng giờ làm dự phòng.</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Bỏ qua việc xóa</string>
-    <string name="folder_ignore_delete_description">Tùy chọn chuyên gia ảnh hưởng đến việc xử lý các cập nhật mục lục được nhận. Khi được đặt, các cập nhật có thuộc tính xóa bị bỏ qua. Hãy xem &folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">Tùy chọn chuyên gia ảnh hưởng đến việc xử lý các cập nhật mục lục được nhận. Khi được đặt, các cập nhật có thuộc tính xóa bị bỏ qua. Hãy xem https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
     <string name="folder_pause">Tạm dừng thư mục</string>
     <!-- Setting title -->

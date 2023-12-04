@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE resources [
-<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
-]>
-
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Syncthing-Fork</string>
@@ -265,7 +261,7 @@
 
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignore Delete</string>
-    <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See &folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
 
     <!-- Setting title -->
     <string name="folder_pause">Pause Folder</string>

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE resources [
-<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
-]>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
     <string name="app_description">O aplicație de sincronizare de fișiere în mod deschis, de încredere și descentralizat.</string>
@@ -183,7 +180,7 @@
     <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignorare Ștergere</string>
-    <string name="folder_ignore_delete_description">Opțiune de expert care afectează gestionarea actualizărilor de indexuri primite. Când este setat, actualizările primite marcate ca ștergere sunt ignorate. Consultați &folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">Opțiune de expert care afectează gestionarea actualizărilor de indexuri primite. Când este setat, actualizările primite marcate ca ștergere sunt ignorate. Consultați https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
     <string name="folder_pause">Întrerupe director</string>
     <!-- Setting title -->

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE resources [
-<!ENTITY folder_ignore_delete_docs_url "https://docs.syncthing.net/advanced/folder-ignoredelete.html">
-]>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
     <string name="app_description">Una aplicación de sincronización de ficheros abierta, de confianza y descentralizada.</string>
@@ -183,7 +180,7 @@
     <string name="folder_fileWatcherDescription">Le pide al sistema operativo notificar los cambios en los archivos. Si se desactiva, regresa a los escaneos periódicos por hora.</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignorar la Eliminación</string>
-    <string name="folder_ignore_delete_description">Opción de expertos que afecta el manejo de las actualizaciones entrantes de los índices. Cuando se establece, se ignoran las actualizaciones entrantes con la marca \"borrar\". Vea &folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">Opción de expertos que afecta el manejo de las actualizaciones entrantes de los índices. Cuando se establece, se ignoran las actualizaciones entrantes con la marca \"borrar\". Vea https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
     <string name="folder_pause">Pausar Carpeta</string>
     <!-- Setting title -->
