@@ -345,12 +345,9 @@
     <string name="compression">Compression</string>
 
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Never</item>
-        <item>Metadata</item>
-        <item>Always</item>
-    </string-array>
-
+    <string name="compress_never">Never</string>
+    <string name="compress_metadata">Metadata</string>
+    <string name="compress_always">Always</string>
     <!-- Setting title -->
     <string name="introducer">Introducer</string>
 
@@ -522,11 +519,9 @@
 
     <string name="power_source_title">Run when device is powered by</string>
 
-    <string-array name="power_source_entries">
-        <item>AC and battery power.</item>
-        <item>AC power.</item>
-        <item>Battery power.</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">AC and battery power.</string>
+    <string name="power_source_ac_power">AC power.</string>
+    <string name="power_source_battery_power">Battery power.</string>
 
     <string name="respect_battery_saving_title">Respect Android battery saving setting</string>
     <string name="respect_battery_saving_summary">Disable Syncthing if battery saving is active.</string>
@@ -563,29 +558,22 @@
 
     <string name="pref_language_default">Default Language</string>
 
-    <string-array name="folder_types">
-        <item>Send &amp; Receive</item>
-        <item>Send Only</item>
-        <item>Receive Only</item>
-        <item>Receive Encrypted</item>
-    </string-array>
+    <string name="folder_type_send_receive">Send &amp; Receive</string>
+    <string name="folder_type_send_only">Send Only</string>
+    <string name="folder_type_receive_only">Receive Only</string>
 
-    <string-array name="pull_order_types">
-        <item>Random</item>
-        <item>Alphabetic</item>
-        <item>Smallest First</item>
-        <item>Largest First</item>
-        <item>Oldest First</item>
-        <item>Newest First</item>
-    </string-array>
+    <string name="pull_order_random">Random</string>
+    <string name="pull_order_alphabetic">Alphabetic</string>
+    <string name="pull_order_smallest_first">Smallest First</string>
+    <string name="pull_order_largest_first">Largest First</string>
+    <string name="pull_order_oldest_first">Oldest First</string>
+    <string name="pull_order_newest_first">Newest First</string>
 
-    <string-array name="versioning_types">
-        <item>None</item>
-        <item>TrashCan</item>
-        <item>Simple</item>
-        <item>Staggered</item>
-        <item>External</item>
-    </string-array>
+    <string name="versioning_type_none">None</string>
+    <string name="versioning_type_trashcan">TrashCan</string>
+    <string name="versioning_type_simple">Simple</string>
+    <string name="versioning_type_staggered">Staggered</string>
+    <string name="versioning_type_external">External</string>
 
     <string name="device_name">Device Name</string>
 
@@ -965,22 +953,18 @@
     <string name="device_id_copied_to_clipboard">Device ID copied to clipboard</string>
 
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KB</item>
-        <item>MB</item>
-        <item>GB</item>
-        <item>TB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KB</string>
+    <string name="file_size_unit_MiB">MB</string>
+    <string name="file_size_unit_GiB">GB</string>
+    <string name="file_size_unit_TiB">TB</string>
 
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KB/s</item>
-        <item>MB/s</item>
-        <item>GB/s</item>
-        <item>TB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TB/s</string>
 
     <!-- Possible folder states -->
     <string name="state_failed_items">Failed Items (%1$d)</string>

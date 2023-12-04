@@ -109,11 +109,9 @@
     <!-- Setting title -->
     <string name="compression">Komprese</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Vypnuta</item>
-        <item>Metadata</item>
-        <item>Všechno</item>
-    </string-array>
+    <string name="compress_never">Vypnuta</string>
+    <string name="compress_metadata">Metadata</string>
+    <string name="compress_always">Všechno</string>
     <!-- Setting title -->
     <string name="introducer">Zavaděč</string>
     <!-- ActionBar item -->
@@ -150,13 +148,11 @@
     <string name="preference_language_title">Jazyk</string>
     <string name="preference_language_summary">Změnit jazyk aplikace</string>
     <string name="pref_language_default">Výchozí jazyk</string>
-    <string-array name="versioning_types">
-        <item>Žádné</item>
-        <item>Odpadkový koš</item>
-        <item>Jednoduché</item>
-        <item>Postupné</item>
-        <item>Externí</item>
-    </string-array>
+    <string name="versioning_type_none">Žádné</string>
+    <string name="versioning_type_trashcan">Odpadkový koš</string>
+    <string name="versioning_type_simple">Jednoduché</string>
+    <string name="versioning_type_staggered">Postupné</string>
+    <string name="versioning_type_external">Externí</string>
     <string name="device_name">Jméno přístroje</string>
     <string name="listen_address">Adresy naslouchání protokolu synchronizace</string>
     <string name="max_recv_kbps">Omezení příchozí rychlosti (KiB/s)</string>
@@ -279,21 +275,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID přístroje bylo zkopírováno schránky</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_up_to_date">Aktuální</string>
     <string name="state_scanning">Skenování</string>
     <string name="state_syncing">Synchronizuje se (%1$d%%)</string>

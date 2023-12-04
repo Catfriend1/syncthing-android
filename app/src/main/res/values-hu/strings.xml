@@ -234,11 +234,9 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <!-- Setting title -->
     <string name="compression">Tömörítés</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Semmit</item>
-        <item>Csak metaadatot</item>
-        <item>Mindet</item>
-    </string-array>
+    <string name="compress_never">Semmit</string>
+    <string name="compress_metadata">Csak metaadatot</string>
+    <string name="compress_always">Mindet</string>
     <!-- Setting title -->
     <string name="introducer">Bevezető</string>
     <!-- Setting title -->
@@ -353,11 +351,9 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Hozzáférés szükséges</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Az Android 8.1-el kezdve helyzeti hozzáférés szükséges a WiFi hálózat nevének olvasásához. Ezt a funkciót csak akkor használhatod, ha megadod ezt a hozzáférést.</string>
     <string name="power_source_title">Futtatás, ha a készülék áramellátása</string>
-    <string-array name="power_source_entries">
-        <item>AC és akkumulátoros tápellátás.</item>
-        <item>Hálózati tápellátás.</item>
-        <item>Akkumulátoros üzem.</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">AC és akkumulátoros tápellátás.</string>
+    <string name="power_source_ac_power">Hálózati tápellátás.</string>
+    <string name="power_source_battery_power">Akkumulátoros üzem.</string>
     <string name="respect_battery_saving_title">Az Android akkumulátor-optimalizáció beállításainak tiszteletben tartása</string>
     <string name="respect_battery_saving_summary">A Syncthing letiltása, ha az akkumulátorkímélő funkció aktív.</string>
     <string name="respect_master_sync_title">Az Android \'Automatikus adatszinkronizálás\' beállításának tiszteletben tartása</string>
@@ -380,27 +376,20 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="preference_language_title">Nyelv</string>
     <string name="preference_language_summary">Alkalmazás nyelvének megváltoztatása</string>
     <string name="pref_language_default">Alapértelmezett nyelv</string>
-    <string-array name="folder_types">
-        <item>Küldés és fogadás</item>
-        <item>Csak küldés</item>
-        <item>Csak fogadás</item>
-        <item>Titkosított vétel</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>Véletlenszerű</item>
-        <item>Betűrendes</item>
-        <item>Legkisebb elsőnek</item>
-        <item>A legnagyobb elsőként</item>
-        <item>Legrégebbi elsőnek</item>
-        <item>Legújabb elsőnek</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>Kikapcsolva</item>
-        <item>Lomtár</item>
-        <item>Egyszerű</item>
-        <item>Lépcsőzetes</item>
-        <item>Külső</item>
-    </string-array>
+    <string name="folder_type_send_receive">Küldés és fogadás</string>
+    <string name="folder_type_send_only">Csak küldés</string>
+    <string name="folder_type_receive_only">Csak fogadás</string>
+    <string name="pull_order_random">Véletlenszerű</string>
+    <string name="pull_order_alphabetic">Betűrendes</string>
+    <string name="pull_order_smallest_first">Legkisebb elsőnek</string>
+    <string name="pull_order_largest_first">A legnagyobb elsőként</string>
+    <string name="pull_order_oldest_first">Legrégebbi elsőnek</string>
+    <string name="pull_order_newest_first">Legújabb elsőnek</string>
+    <string name="versioning_type_none">Kikapcsolva</string>
+    <string name="versioning_type_trashcan">Lomtár</string>
+    <string name="versioning_type_simple">Egyszerű</string>
+    <string name="versioning_type_staggered">Lépcsőzetes</string>
+    <string name="versioning_type_external">Külső</string>
     <string name="device_name">Eszköz neve</string>
     <string name="listen_address">IP cím a szinkronizáláshoz</string>
     <string name="max_recv_kbps">Max letöltési sebesség (KiB/s)</string>
@@ -652,21 +641,17 @@ VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és 
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Az eszközazonosító a vágólapra másolva</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <!-- Possible folder states -->
     <string name="state_failed_items">Meghiúsult tételek (%1$d)</string>
     <string name="state_up_to_date">Naprakész</string>

@@ -190,11 +190,9 @@
     <!-- Setting title -->
     <string name="compression">Kompresja</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Brak</item>
-        <item>Metadane</item>
-        <item>Wszystko</item>
-    </string-array>
+    <string name="compress_never">Brak</string>
+    <string name="compress_metadata">Metadane</string>
+    <string name="compress_always">Wszystko</string>
     <!-- Setting title -->
     <string name="introducer">Wprowadzający</string>
     <!-- Setting title -->
@@ -253,13 +251,11 @@
     <string name="preference_language_title">Język</string>
     <string name="preference_language_summary">Zmień język aplikacji</string>
     <string name="pref_language_default">Domyślny język</string>
-    <string-array name="versioning_types">
-        <item>Żaden</item>
-        <item>Śmientik</item>
-        <item>Proste</item>
-        <item>Rozszerzone</item>
-        <item>Zewnętrzne</item>
-    </string-array>
+    <string name="versioning_type_none">Żaden</string>
+    <string name="versioning_type_trashcan">Śmientik</string>
+    <string name="versioning_type_simple">Proste</string>
+    <string name="versioning_type_staggered">Rozszerzone</string>
+    <string name="versioning_type_external">Zewnętrzne</string>
     <string name="device_name">Nazwa urządzenia</string>
     <string name="listen_address">Adres nasłuchiwania protokołu</string>
     <string name="max_recv_kbps">Limit pobierania (KiB/s)</string>
@@ -384,21 +380,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Skopiowano do schowka identyfikator urządzenia</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_up_to_date">aktualny</string>
     <string name="state_scanning">Skanowanie</string>
     <string name="state_syncing">Synchronizowanie (%1$d%%)</string>

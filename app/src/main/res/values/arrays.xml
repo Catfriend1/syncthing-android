@@ -8,11 +8,68 @@
         <item>always</item>
     </string-array>
 
+    <string-array name="compress_entries">
+        <item>@string/compress_never</item>
+        <item>@string/compress_metadata</item>
+        <item>@string/compress_always</item>
+    </string-array>
+
     <!-- Preference screen -->
     <string-array name="power_source_values">
         <item>ac_and_battery_power</item>
         <item>ac_power</item>
         <item>battery_power</item>
+    </string-array>
+
+    <string-array name="power_source_entries">
+        <item>@string/power_source_ac_and_battery_power</item>
+        <item>@string/power_source_ac_power</item>
+        <item>@string/power_source_battery_power</item>
+    </string-array>
+
+    <string-array name="notification_type_entries">
+        <item>@string/notification_type_normal</item>
+        <item>@string/notification_type_low_priority</item>
+        <item>@string/notification_type_none</item>
+    </string-array>
+
+    <string-array name="folder_types">
+        <item>@string/folder_type_send_receive</item>
+        <item>@string/folder_type_send_only</item>
+        <item>@string/folder_type_receive_only</item>
+    </string-array>
+
+    <string-array name="pull_order_types">
+        <item>@string/pull_order_random</item>
+        <item>@string/pull_order_alphabetic</item>
+        <item>@string/pull_order_smallest_first</item>
+        <item>@string/pull_order_largest_first</item>
+        <item>@string/pull_order_oldest_first</item>
+        <item>@string/pull_order_newest_first</item>
+    </string-array>
+
+    <string-array name="versioning_types">
+        <item>@string/versioning_type_none</item>
+        <item>@string/versioning_type_trashcan</item>
+        <item>@string/versioning_type_simple</item>
+        <item>@string/versioning_type_staggered</item>
+        <item>@string/versioning_type_external</item>
+    </string-array>
+
+    <string-array name="file_size_units">
+        <item>@string/file_size_unit_B</item>
+        <item>@string/file_size_unit_KiB</item>
+        <item>@string/file_size_unit_MiB</item>
+        <item>@string/file_size_unit_GiB</item>
+        <item>@string/file_size_unit_TiB</item>
+    </string-array>
+
+    <string-array name="transfer_rate_units">
+        <item>@string/transfer_rate_unit_B_s</item>
+        <item>@string/transfer_rate_unit_KiB_s</item>
+        <item>@string/transfer_rate_unit_MiB_s</item>
+        <item>@string/transfer_rate_unit_GiB_s</item>
+        <item>@string/transfer_rate_unit_TiB_s</item>
     </string-array>
 
     <!-- Preference screen -->

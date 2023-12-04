@@ -235,11 +235,9 @@
     <!-- Setting title -->
     <string name="compression">Compresión</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Nunca</item>
-        <item>Metadatos</item>
-        <item>Siempre</item>
-    </string-array>
+    <string name="compress_never">Nunca</string>
+    <string name="compress_metadata">Metadatos</string>
+    <string name="compress_always">Siempre</string>
     <!-- Setting title -->
     <string name="introducer">Introductor</string>
     <!-- Setting title -->
@@ -354,11 +352,9 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permiso requerido</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de Android 8.1, el acceso a la ubicación es necesario para poder leer el nombre del Wifi. Solo puedes utilizar esta función si concedes este permiso.</string>
     <string name="power_source_title">Ejecutar cuando el dispositivo está siendo alimentado mediante</string>
-    <string-array name="power_source_entries">
-        <item>Corriente Alterna y Batería</item>
-        <item>Corriente Alterna</item>
-        <item>Batería</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">Corriente Alterna y Batería</string>
+    <string name="power_source_ac_power">Corriente Alterna</string>
+    <string name="power_source_battery_power">Batería</string>
     <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
     <string name="respect_battery_saving_summary">Desactivar Syncthing si el ahorro de batería está activo.</string>
     <string name="respect_master_sync_title">Respetar el ajuste de Android \"Sincronizar datos automáticamente\"</string>
@@ -381,27 +377,20 @@
     <string name="preference_language_title">Idioma</string>
     <string name="preference_language_summary">Cambiar el idioma de la aplicación</string>
     <string name="pref_language_default">Idioma predeterminado</string>
-    <string-array name="folder_types">
-        <item>Enviar &amp; Recibir</item>
-        <item>Solo Enviar</item>
-        <item>Solo Recibir</item>
-        <item>Recibir Encriptado</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>Aleatorio</item>
-        <item>Alfabético</item>
-        <item>Más Pequeños Primero</item>
-        <item>Más Grandes Primero</item>
-        <item>Más Antiguos Primero</item>
-        <item>Más Nuevos Primero</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>Ninguna</item>
-        <item>Papelera</item>
-        <item>Simple</item>
-        <item>Escalonado</item>
-        <item>Externo</item>
-    </string-array>
+    <string name="folder_type_send_receive">Enviar &amp; Recibir</string>
+    <string name="folder_type_send_only">Solo Enviar</string>
+    <string name="folder_type_receive_only">Solo Recibir</string>
+    <string name="pull_order_random">Aleatorio</string>
+    <string name="pull_order_alphabetic">Alfabético</string>
+    <string name="pull_order_smallest_first">Más Pequeños Primero</string>
+    <string name="pull_order_largest_first">Más Grandes Primero</string>
+    <string name="pull_order_oldest_first">Más Antiguos Primero</string>
+    <string name="pull_order_newest_first">Más Nuevos Primero</string>
+    <string name="versioning_type_none">Ninguna</string>
+    <string name="versioning_type_trashcan">Papelera</string>
+    <string name="versioning_type_simple">Simple</string>
+    <string name="versioning_type_staggered">Escalonado</string>
+    <string name="versioning_type_external">Externo</string>
     <string name="device_name">Nombre del dispositivo</string>
     <string name="listen_address">Direcciones de escucha del protocolo de sincronización</string>
     <string name="max_recv_kbps">Límite de tráfico de entrada (KiB/s)</string>
@@ -659,21 +648,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID de dispositivo copiado al portapapeles</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <!-- Possible folder states -->
     <string name="state_failed_items">Elementos Fallidos (%1$d)</string>
     <string name="state_up_to_date">Actualizado</string>

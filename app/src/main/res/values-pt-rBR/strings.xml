@@ -225,11 +225,9 @@
     <!-- Setting title -->
     <string name="compression">Compressão</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Nunca</item>
-        <item>Metadados</item>
-        <item>Sempre</item>
-    </string-array>
+    <string name="compress_never">Nunca</string>
+    <string name="compress_metadata">Metadados</string>
+    <string name="compress_always">Sempre</string>
     <!-- Setting title -->
     <string name="introducer">Apresentador</string>
     <!-- Setting title -->
@@ -317,11 +315,9 @@
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Você precisa dar permissão de localização para usar esse recurso.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permissão requerida</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Iniciando com o Android 8.1, acesso a localização é necessário para ler o nome do WIFI. Você pode usar esse recurso se conceder essa permissão.</string>
-    <string-array name="power_source_entries">
-        <item>Carregando e na bateria.</item>
-        <item>Carregando.</item>
-        <item>Na bateria.</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">Carregando e na bateria.</string>
+    <string name="power_source_ac_power">Carregando.</string>
+    <string name="power_source_battery_power">Na bateria.</string>
     <string name="respect_battery_saving_title">Honrar a configuração de economia de bateria do Android</string>
     <string name="run_in_flight_mode_summary">Ativar esta opção fará com que o Syncthing seja executado mesmo quando você estiver offline. Ative se o seu dispositivo tiver problemas para detectar conexões Wi-Fi manuais durante o modo de voo.</string>
     <string name="use_root_title">Executar como Superusuário</string>
@@ -330,27 +326,20 @@
     <string name="preference_language_title">Idioma</string>
     <string name="preference_language_summary">Alterar o idioma do aplicativo</string>
     <string name="pref_language_default">Idioma padrão</string>
-    <string-array name="folder_types">
-        <item>Enviar e receber</item>
-        <item>Somente enviar</item>
-        <item>Somente receber</item>
-        <item>Receber criptografado</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>Aleatório</item>
-        <item>Alfabética</item>
-        <item>Menores primeiro</item>
-        <item>Maiores primeiro</item>
-        <item>Mais velhos primeiro</item>
-        <item>Mais novos primeiro</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>Nenhum</item>
-        <item>Lixeira</item>
-        <item>Simples</item>
-        <item>Escalonado</item>
-        <item>Externo</item>
-    </string-array>
+    <string name="folder_type_send_receive">Enviar e receber</string>
+    <string name="folder_type_send_only">Somente enviar</string>
+    <string name="folder_type_receive_only">Somente receber</string>
+    <string name="pull_order_random">Aleatório</string>
+    <string name="pull_order_alphabetic">Alfabética</string>
+    <string name="pull_order_smallest_first">Menores primeiro</string>
+    <string name="pull_order_largest_first">Maiores primeiro</string>
+    <string name="pull_order_oldest_first">Mais velhos primeiro</string>
+    <string name="pull_order_newest_first">Mais novos primeiro</string>
+    <string name="versioning_type_none">Nenhum</string>
+    <string name="versioning_type_trashcan">Lixeira</string>
+    <string name="versioning_type_simple">Simples</string>
+    <string name="versioning_type_staggered">Escalonado</string>
+    <string name="versioning_type_external">Externo</string>
     <string name="device_name">Nome do dispositivo</string>
     <string name="listen_address">Endereços de escuta do protocolo de sincronização</string>
     <string name="max_recv_kbps">Limite de velocidade de recepção (KiB/s)</string>
@@ -527,21 +516,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">O ID do dispositivo foi copiado para a área de transferência</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_up_to_date">Atualizado</string>
     <string name="state_clean_waiting">Esperando para limpar</string>
     <string name="state_scanning">Verificando</string>

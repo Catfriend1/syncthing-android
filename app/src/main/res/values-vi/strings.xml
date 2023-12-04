@@ -234,11 +234,9 @@
     <!-- Setting title -->
     <string name="compression">Nén</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Không bao giờ</item>
-        <item>Siêu dữ liệu</item>
-        <item>Luôn luôn</item>
-    </string-array>
+    <string name="compress_never">Không bao giờ</string>
+    <string name="compress_metadata">Siêu dữ liệu</string>
+    <string name="compress_always">Luôn luôn</string>
     <!-- Setting title -->
     <string name="introducer">Thiết bị g.thiệu</string>
     <!-- Setting title -->
@@ -352,11 +350,9 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Yêu cầu quyền</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Bắt đầu từ Android 8.1, quyền truy cập vị trí là bắt buộc để có thể đọc tên mạng Wi-Fi. Bạn chỉ có thể sử dụng tính năng này nếu bạn cấp quyền.</string>
     <string name="power_source_title">Chạy khi thiết bị chạy bằng</string>
-    <string-array name="power_source_entries">
-        <item>AC và pin.</item>
-        <item>AC.</item>
-        <item>Pin.</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">AC và pin.</string>
+    <string name="power_source_ac_power">AC.</string>
+    <string name="power_source_battery_power">Pin.</string>
     <string name="respect_battery_saving_title">Tôn trọng cài đặt tiết kiệm pin của Android</string>
     <string name="respect_battery_saving_summary">Tắt Syncthing nếu tiết kiệm pin được bật.</string>
     <string name="respect_master_sync_title">Tôn trọng cài đặt \'Tự động đồng bộ dữ liệu\' của Android</string>
@@ -377,27 +373,20 @@
     <string name="preference_language_title">Ngôn ngữ</string>
     <string name="preference_language_summary">Đổi ngôn ngữ ứng dụng</string>
     <string name="pref_language_default">Ngôn ngữ mặc định</string>
-    <string-array name="folder_types">
-        <item>Gửi &amp; Nhận</item>
-        <item>Chỉ gửi</item>
-        <item>Chỉ nhận</item>
-        <item>Receive Encrypted</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>Ngẫu nhiên</item>
-        <item>Bảng chữ cái</item>
-        <item>Nhỏ nhất trước</item>
-        <item>Lớn nhất trước</item>
-        <item>Cũ nhất trước</item>
-        <item>Mới nhất trước</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>Không có</item>
-        <item>Thùng rác</item>
-        <item>Đơn giản</item>
-        <item>Chững lại</item>
-        <item>Ngoài</item>
-    </string-array>
+    <string name="folder_type_send_receive">Gửi &amp; Nhận</string>
+    <string name="folder_type_send_only">Chỉ gửi</string>
+    <string name="folder_type_receive_only">Chỉ nhận</string>
+    <string name="pull_order_random">Ngẫu nhiên</string>
+    <string name="pull_order_alphabetic">Bảng chữ cái</string>
+    <string name="pull_order_smallest_first">Nhỏ nhất trước</string>
+    <string name="pull_order_largest_first">Lớn nhất trước</string>
+    <string name="pull_order_oldest_first">Cũ nhất trước</string>
+    <string name="pull_order_newest_first">Mới nhất trước</string>
+    <string name="versioning_type_none">Không có</string>
+    <string name="versioning_type_trashcan">Thùng rác</string>
+    <string name="versioning_type_simple">Đơn giản</string>
+    <string name="versioning_type_staggered">Chững lại</string>
+    <string name="versioning_type_external">Ngoài</string>
     <string name="device_name">Tên thiết bị</string>
     <string name="listen_address">Đồng bộ các đ.chỉ lắng nghe giao thức</string>
     <string name="max_recv_kbps">Giới hạn t.độ đầu vào (KiB/s)</string>
@@ -641,21 +630,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Đã chép ID thiết bị vào clipboard</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <!-- Possible folder states -->
     <string name="state_failed_items">Mục thất bại (%1$d)</string>
     <string name="state_up_to_date">Đã đồng bộ</string>

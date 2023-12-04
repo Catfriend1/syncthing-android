@@ -177,11 +177,9 @@
     <!-- Setting title -->
     <string name="compression">Compressió</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Mai</item>
-        <item>Metadades</item>
-        <item>Sempre</item>
-    </string-array>
+    <string name="compress_never">Mai</string>
+    <string name="compress_metadata">Metadades</string>
+    <string name="compress_always">Sempre</string>
     <!-- Setting title -->
     <string name="introducer">Introductor</string>
     <!-- Setting title -->
@@ -258,11 +256,9 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Calen permisos</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de l\'Android 8.1, cal tenir accés a la ubicació per poder llegir el nom de la WiFi. Només ho podreu fer si concediu aquest permís.</string>
     <string name="power_source_title">Executa quan el dispositiu estigui encès</string>
-    <string-array name="power_source_entries">
-        <item>Connectat a la corrent i amb bateria</item>
-        <item>Connectat a la corrent</item>
-        <item>Amb bateria</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">Connectat a la corrent i amb bateria</string>
+    <string name="power_source_ac_power">Connectat a la corrent</string>
+    <string name="power_source_battery_power">Amb bateria</string>
     <string name="respect_battery_saving_title">Respecta la configuració d\'estalvi de bateria de l\'Android</string>
     <string name="respect_battery_saving_summary">Desactiva el Syncthing durant el mode d\'estalvi de bateria.</string>
     <string name="respect_master_sync_title">Respecta l\'ajustament de l\'Android d\'\'Auto-sincronitzar dades\'</string>
@@ -277,27 +273,20 @@
     <string name="preference_language_title">Idioma</string>
     <string name="preference_language_summary">Canvieu l\'idioma de l\'aplicació</string>
     <string name="pref_language_default">Idioma per defecte</string>
-    <string-array name="folder_types">
-        <item>Envia i rep</item>
-        <item>Només envia</item>
-        <item>Només rep</item>
-        <item>Receive Encrypted</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>Aleatori</item>
-        <item>Alfabètic</item>
-        <item>Primer el més petit</item>
-        <item>Primer el més gran</item>
-        <item>Primer el més antic</item>
-        <item>Primer el més nou</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>Cap</item>
-        <item>Paperera</item>
-        <item>Simple</item>
-        <item>Escalonat</item>
-        <item>Extern</item>
-    </string-array>
+    <string name="folder_type_send_receive">Envia i rep</string>
+    <string name="folder_type_send_only">Només envia</string>
+    <string name="folder_type_receive_only">Només rep</string>
+    <string name="pull_order_random">Aleatori</string>
+    <string name="pull_order_alphabetic">Alfabètic</string>
+    <string name="pull_order_smallest_first">Primer el més petit</string>
+    <string name="pull_order_largest_first">Primer el més gran</string>
+    <string name="pull_order_oldest_first">Primer el més antic</string>
+    <string name="pull_order_newest_first">Primer el més nou</string>
+    <string name="versioning_type_none">Cap</string>
+    <string name="versioning_type_trashcan">Paperera</string>
+    <string name="versioning_type_simple">Simple</string>
+    <string name="versioning_type_staggered">Escalonat</string>
+    <string name="versioning_type_external">Extern</string>
     <string name="device_name">Nom del dispositiu</string>
     <string name="listen_address">Adreces d\'escolta del protocol de sincronització</string>
     <string name="max_recv_kbps">Límit de transferència entrant (KiB/s)</string>
@@ -481,21 +470,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">S\'ha copiat la ID del dispositiu al porta-retalls</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_scanning">Escanejant</string>
     <string name="state_syncing_general">Sincronitzant</string>
     <string name="state_syncing">Sincronitzant (%1$d%%)</string>

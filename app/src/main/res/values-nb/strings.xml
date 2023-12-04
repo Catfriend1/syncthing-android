@@ -94,11 +94,9 @@
     <!-- Setting title -->
     <string name="compression">Komprimering</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Aldri</item>
-        <item>Metadata</item>
-        <item>Alltid</item>
-    </string-array>
+    <string name="compress_never">Aldri</string>
+    <string name="compress_metadata">Metadata</string>
+    <string name="compress_always">Alltid</string>
     <!-- Setting title -->
     <string name="introducer">Innføring</string>
     <!-- ActionBar item -->
@@ -197,21 +195,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Enhets-ID kopiert til utklippstavle</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_scanning">Skanner</string>
     <string name="state_syncing">Synkroniserer (%1$d%%)</string>
     <string name="state_error">Feil</string>

@@ -101,11 +101,9 @@
     <!-- Setting title -->
     <string name="compression">Kompresi</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Jangan</item>
-        <item>Metadata</item>
-        <item>Selalu</item>
-    </string-array>
+    <string name="compress_never">Jangan</string>
+    <string name="compress_metadata">Metadata</string>
+    <string name="compress_always">Selalu</string>
     <!-- Setting title -->
     <string name="introducer">Pengenalan</string>
     <!-- ActionBar item -->

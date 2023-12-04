@@ -198,11 +198,9 @@
     <!-- Setting title -->
     <string name="compression">圧縮</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>オフ</item>
-        <item>メタデータのみ</item>
-        <item>全てのデータ</item>
-    </string-array>
+    <string name="compress_never">オフ</string>
+    <string name="compress_metadata">メタデータのみ</string>
+    <string name="compress_always">全てのデータ</string>
     <!-- Setting title -->
     <string name="introducer">紹介者デバイス</string>
     <!-- Setting title -->
@@ -289,11 +287,9 @@
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">この機能を使用するには、位置情報取得許可を与える必要があります。</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">許可が必要</string>
     <string name="power_source_title">デバイスの電源が次のものである場合に実行</string>
-    <string-array name="power_source_entries">
-        <item>ACとバッテリー電源。</item>
-        <item>AC電源</item>
-        <item>バッテリー電源</item>
-    </string-array>
+    <string name="power_source_ac_and_battery_power">ACとバッテリー電源。</string>
+    <string name="power_source_ac_power">AC電源</string>
+    <string name="power_source_battery_power">バッテリー電源</string>
     <string name="respect_battery_saving_title">Android の節電設定に従う</string>
     <string name="respect_battery_saving_summary">バッテリー節約が有効な場合は、Syncthingを無効にします。</string>
     <string name="respect_master_sync_title">Androidの「自動同期データ」の設定を優先します。</string>
@@ -307,27 +303,20 @@
     <string name="preference_language_title">言語</string>
     <string name="preference_language_summary">アプリの言語を変更します</string>
     <string name="pref_language_default">デフォルトの言語</string>
-    <string-array name="folder_types">
-        <item>送信と受信</item>
-        <item>送信のみ</item>
-        <item>受信のみ</item>
-        <item>Receive Encrypted</item>
-    </string-array>
-    <string-array name="pull_order_types">
-        <item>ランダム</item>
-        <item>アルファベット順</item>
-        <item>小さい順</item>
-        <item>大きい順</item>
-        <item>古い順</item>
-        <item>新しい順</item>
-    </string-array>
-    <string-array name="versioning_types">
-        <item>なし</item>
-        <item>ゴミ箱</item>
-        <item>シンプル</item>
-        <item>ジグザグ</item>
-        <item>外部</item>
-    </string-array>
+    <string name="folder_type_send_receive">送信と受信</string>
+    <string name="folder_type_send_only">送信のみ</string>
+    <string name="folder_type_receive_only">受信のみ</string>
+    <string name="pull_order_random">ランダム</string>
+    <string name="pull_order_alphabetic">アルファベット順</string>
+    <string name="pull_order_smallest_first">小さい順</string>
+    <string name="pull_order_largest_first">大きい順</string>
+    <string name="pull_order_oldest_first">古い順</string>
+    <string name="pull_order_newest_first">新しい順</string>
+    <string name="versioning_type_none">なし</string>
+    <string name="versioning_type_trashcan">ゴミ箱</string>
+    <string name="versioning_type_simple">シンプル</string>
+    <string name="versioning_type_staggered">ジグザグ</string>
+    <string name="versioning_type_external">外部</string>
     <string name="device_name">デバイス名</string>
     <string name="listen_address">同期プロトコルの待ち受けアドレス</string>
     <string name="max_recv_kbps">下り帯域制限 (KiB/秒)</string>
@@ -487,21 +476,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">デバイス ID をクリップボードにコピーしました</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_up_to_date">最新化</string>
     <string name="state_scanning">スキャン中</string>
     <string name="state_syncing_general">同期中</string>

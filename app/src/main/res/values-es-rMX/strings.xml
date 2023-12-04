@@ -92,11 +92,9 @@
     <!-- Setting title -->
     <string name="compression">Compresión</string>
     <!-- Strings representing compression options -->
-    <string-array name="compress_entries">
-        <item>Nunca</item>
-        <item>Metadatos</item>
-        <item>Siempre</item>
-    </string-array>
+    <string name="compress_never">Nunca</string>
+    <string name="compress_metadata">Metadatos</string>
+    <string name="compress_always">Siempre</string>
     <!-- Setting title -->
     <string name="introducer">Introductor</string>
     <!-- ActionBar item -->
@@ -193,21 +191,17 @@
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">ID del dispositivo copiada al portapapeles</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string-array name="file_size_units">
-        <item>B</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-    </string-array>
+    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_MiB">MiB</string>
+    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string-array name="transfer_rate_units">
-        <item>B/s</item>
-        <item>KiB/s</item>
-        <item>MiB/s</item>
-        <item>GiB/s</item>
-        <item>TiB/s</item>
-    </string-array>
+    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_scanning">Escaneando</string>
     <string name="state_syncing">Sincronizando (%1$d%%)</string>
     <string name="state_error">Error</string>
