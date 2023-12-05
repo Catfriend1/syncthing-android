@@ -376,7 +376,7 @@
     <string name="tip_custom_sync_conditions_title">Klasör/cihaz başına özel eşitleme koşullarını kullanın</string>
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
     <string name="app_version_title">Syncthing-Fork Sarmalayıcı Sürümü</string>
-    <string name="folder_ignore_delete_description">Gelen indeks güncellemelerinin işlenmesini etkileyen uzman seçeneği. Ayarlandığında, silme işareti ayarlıyken gelen güncellemeler yoksayılır. Bkz. &folder_ignore_delete_docs_url;</string>
+    <string name="folder_ignore_delete_description">Gelen indeks güncellemelerinin işlenmesini etkileyen uzman seçeneği. Ayarlandığında, silme işareti ayarlıyken gelen güncellemeler yoksayılır. Bkz. https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <string name="reason_broadcast_controlled">Syncthing, üçüncü taraf bir uygulama veya ADB tarafından gönderilen yayınları dinliyor. \'Ayarlar\' &gt; \'Deneysel\' &gt; \'Yayına Göre Hizmet Denetimi\'ni etkisizleştirerek yerleşik çalıştırma koşullarını kullanmaya geri dönebilirsiniz.</string>
     <string name="folder_type_sendreceive_description">Klasör, değişiklikleri hem uzak cihazlara gönderecek hem de onlardan değişiklikleri alacak.</string>
     <string name="tip_write_to_sdcard_title">Harici SD karta yazma geçici çözümü</string>
