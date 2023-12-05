@@ -27,11 +27,13 @@
         <item>@string/power_source_battery_power</item>
     </string-array>
 
+    <!--
     <string-array name="notification_type_entries">
         <item>@string/notification_type_normal</item>
         <item>@string/notification_type_low_priority</item>
         <item>@string/notification_type_none</item>
     </string-array>
+    -->
 
     <string-array name="folder_types">
         <item>@string/folder_type_send_receive</item>

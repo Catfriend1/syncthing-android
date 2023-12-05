@@ -8,7 +8,7 @@ REM
 REM Script Consts.
 SET CLEAN_BEFORE_BUILD=1
 SET SKIP_CHECKOUT_SRC=0
-SET DESIRED_SUBMODULE_VERSION=v1.26.1
+SET DESIRED_SUBMODULE_VERSION=
 SET GRADLEW_PARAMS=-q
 REM
 REM Runtime Variables.
@@ -56,15 +56,18 @@ git fetch --quiet --all
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git fetch FAILED. & goto :eos
 REM
-echo [INFO] Checking out syncthing_%DESIRED_SUBMODULE_VERSION% ...
-git checkout %DESIRED_SUBMODULE_VERSION% 2>&1 | find /i "HEAD is now at"
+echo [INFO] Reading required SyncthingNative from versions.gradle ...
+IF NOT DEFINED SYNCTHING_NATIVE_REQUIRED_VERSION call :getRequiredSynchtingNativeVersion
+REM
+echo [INFO] Checking out syncthing_%SYNCTHING_NATIVE_REQUIRED_VERSION% ...
+git checkout %SYNCTHING_NATIVE_REQUIRED_VERSION% 2>&1 | find /i "HEAD is now at"
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git checkout FAILED. & goto :eos
 REM
 :afterCheckoutSrc
 cd /d "%SCRIPT_PATH%"
 REM
-echo [INFO] Building submodule syncthing_%DESIRED_SUBMODULE_VERSION% ...
+echo [INFO] Building submodule syncthing_%SYNCTHING_NATIVE_REQUIRED_VERSION% ...
 call gradlew %GRADLEW_PARAMS% buildNative
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] gradlew buildNative FAILED. & goto :eos
@@ -83,6 +86,7 @@ IF NOT "%LIBCOUNT%" == "4" echo [ERROR] SyncthingNative[s] "libsyncthingnative.s
 REM
 goto :eos
 
+
 :cleanBeforeBuild
 REM
 REM Syntax:
@@ -91,6 +95,29 @@ REM
 echo [INFO] Performing cleanup ...
 rd /s /q "app\src\main\jniLibs" 2> NUL:
 IF NOT "%SKIP_CHECKOUT_SRC%" == "1" rd /s /q "syncthing\src\github.com\syncthing\syncthing" 2> NUL:
+REM
+goto :eof
+
+
+:getRequiredSynchtingNativeVersion
+REM 
+REM Get "versionMajor"
+SET VERSION_MAJOR=
+FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMajor"') DO SET VERSION_MAJOR=%%A
+SET VERSION_MAJOR=%VERSION_MAJOR:"=%
+REM 
+REM Get "versionMinor"
+SET VERSION_MINOR=
+FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMinor"') DO SET VERSION_MINOR=%%A
+SET VERSION_MINOR=%VERSION_MINOR:"=%
+REM 
+REM Get "versionPatch"
+SET VERSION_PATCH=
+FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionPatch"') DO SET VERSION_PATCH=%%A
+SET VERSION_PATCH=%VERSION_PATCH:"=%
+REM
+SET "SYNCTHING_NATIVE_REQUIRED_VERSION=v%VERSION_MAJOR%.%VERSION_MINOR%.%VERSION_PATCH%"
+echo [INFO] SYNCTHING_NATIVE_REQUIRED_VERSION=[%SYNCTHING_NATIVE_REQUIRED_VERSION%]"
 REM
 goto :eof
 
