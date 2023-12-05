@@ -2,6 +2,7 @@ package com.nutomic.syncthingandroid.activities;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -97,6 +98,7 @@ public class FirstStartActivity extends AppCompatActivity {
     SharedPreferences mPreferences;
 
     private Boolean mRunningOnTV = false;
+    private Boolean mUserDecisionIgnoreDozePermission = false;
 
     /**
      * Handles activity behaviour depending on prerequisites.
@@ -125,7 +127,6 @@ public class FirstStartActivity extends AppCompatActivity {
          * start directly into MainActivity.
          */
         if (!showSlideStoragePermission &&
-                !showSlideIgnoreDozePermission &&
                 !showSlideNotificationPermission &&
                 !showSlideKeyGeneration) {
             startApp();
@@ -289,13 +290,22 @@ public class FirstStartActivity extends AppCompatActivity {
         if (mViewPager.getCurrentItem() == mSlidePosIgnoreDozePermission) {
             // As the ignore doze permission is a prerequisite to run syncthing, refuse to continue without it.
             if (!haveIgnoreDozePermission()) {
-                Toast.makeText(this, R.string.toast_ignore_doze_permission_required,
-                        Toast.LENGTH_LONG).show();
                 /**
-                 * a) Phones, tablets: The ignore doze permission is mandatory.
+                 * a) Phones, tablets: The ignore doze permission is recommended.
                  * b) TVs: The ignore doze permission is optional as it can only set by ADB on Android 8+.
                  */
-                if (!mRunningOnTV) {
+                if (!mUserDecisionIgnoreDozePermission && !mRunningOnTV) {
+                    new AlertDialog.Builder(FirstStartActivity.this)
+                            .setMessage(R.string.dialog_confirm_skip_ignore_doze_permission)
+                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                    mUserDecisionIgnoreDozePermission = true;
+                                    onBtnNextClick();
+                            })
+                            .setNegativeButton(android.R.string.no, (dialog, which) -> {
+                                    mUserDecisionIgnoreDozePermission = false;
+                            })
+                            .show();
+
                     // Case a) - Prevent user moving on with the slides.
                     return;
                 }

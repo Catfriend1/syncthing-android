@@ -28,6 +28,7 @@
     <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization. Some devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
     <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Your device does not support disabling battery optimizations</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Careful: If SyncthingNative is interrupted and does something strange, you\'re to blame. Only skip in case your device does not support granting the permission. Really skip?</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Location Permission</string>
