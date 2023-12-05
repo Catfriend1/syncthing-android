@@ -753,4 +753,12 @@
     <string name="qs_following_run_conditions">Siguiendo las condiciones de ejecución</string>
     <string name="qs_schedule_label">Ejecutar durante 5 minutos</string>
     <string name="qs_schedule_disabled">Horario desactivado</string>
+    <string name="notification_permission_title">Permiso de notificación</string>
+    <string name="webui_username_title">Nombre de usuario de la interfaz web</string>
+    <string name="autoAcceptFolders">Aceptar automáticamente</string>
+    <string name="webui_password_title">Contraseña de la interfaz de usuario web</string>
+    <string name="backup_folder_name">Nombre de la carpeta de copia de seguridad</string>
+    <string name="notification_permission_desc">Requerido para mostrar notificaciones sobre nuevas conexiones de dispositivos, peticiones de uso compartido de carpetas y para mantener el servicio activo y conectado.</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Ejecutar durante %1$d minutos</string>
+    <string name="toast_notification_permission_required">La sincronización requiere el permiso de notificación para mantener su servicio activo y conectado.</string>
 </resources>

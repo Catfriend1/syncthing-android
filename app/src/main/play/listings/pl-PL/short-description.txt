@@ -1,1 +1,1 @@
-Nakładka na program Syncthing otwarta i zdecentralizowana synchronizacja plików
+Nakładka na Syncthing – otwarta i zdecentralizowana synchronizacja plików

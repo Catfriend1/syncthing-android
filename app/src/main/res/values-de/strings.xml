@@ -14,7 +14,7 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Speicher-Berechtigung</string>
     <string name="storage_permission_desc">Syncthing muss auf den Speicher zugreifen können, um Dateien zu synchronisieren.</string>
-    <string name="dialog_all_files_access_not_supported">Dein Gerät unterstützt den vollwertigen Dateizugriff nicht</string>
+    <string name="dialog_all_files_access_not_supported">Das Gerät unterstützt keinen uneingeschränkten Dateizugriff</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akku-Optimierung</string>
     <string name="ignore_doze_permission_os_notice">Es ist bekannt, dass Android TV\'s die App gelegentlich beenden, wenn sie im Hintergrund ausgeführt wird. Eine Lösung ist im Wiki unter \'%1$s/%2$s\' verfügbar.</string>
@@ -344,7 +344,7 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">Bitte schalte den Standort ein, um Netzwerke zu wählen.</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Bitte gewähre die Standort-Berechtigung, um diese Funktion nutzen zu können.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Berechtigung benötigt</string>
-    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Mit Android 8.1 beginnend wird der Standortzugriff dazu benötigt, den WLAN-Namen zu ermitteln. Daher kann diese Funktion nur genutzt werden, wenn diese Berechtigung erteilt wird.</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Ab Android 8.1 ist der Standortzugriff erforderlich, um WLAN-Namen ermitteln zu können. Daher kann diese Funktion nur genutzt werden, wenn diese Berechtigung erteilt wird.</string>
     <string name="power_source_title">Starte, wenn Gerät betrieben per</string>
     <string name="power_source_ac_and_battery_power">Ladegerät und Akku</string>
     <string name="power_source_ac_power">Ladegerät</string>
@@ -713,7 +713,7 @@
 \nEs wird in folgenden Abständen versioniert: In der ersten Stunde wird alle 30 Sekunden eine Version behalten, am ersten Tag eine jede Stunde, in den ersten 30 Tagen eine jeden Tag. Danach wird bis zum angegebenen Höchstalter eine Version pro Woche behalten.</string>
     <string name="maximum_age_description">Die längste Zeit, die alte Versionen vorgehalten werden (in Tagen, 0 um alte Versionen für immer zu behalten).</string>
     <string name="versions_path_description">Pfad, in dem Versionen gespeichert werden sollen (leer lassen, wenn das Standard-.stversions-Verzeichnis im geteilten Ordner verwendet werden soll).</string>
-    <string name="cleanout_after_description">Dauer in Tagen für welche die Dateien aufgehoben werden sollen. 0 bedeutet für immer.</string>
+    <string name="cleanout_after_description">Anzahl der Tage, die Dateien im Papierkorb belassen werden. 0 bedeutet für immer</string>
     <string name="external_versioning_description">Der erste Kommandozeilenparameter ist der Ordnerpfad und der zweite Parameter ist der relative Pfad innerhalb des Ordners</string>
     <string name="no_versioning_description">Dateiversionierungstyp auswählen um Dateiversionierung zu aktivieren.</string>
     <!-- Displays the current file versioning type in the Folder activity -->

@@ -340,10 +340,10 @@
     </plurals>
     <!-- Copy success toast -->
     <plurals name="copy_success">
-        <item quantity="one">%1$d plik skopiowano do \"%2$s\"</item>
-        <item quantity="few">%1$dplików skopiowano do folderu \"%2$s\"</item>
-        <item quantity="many">%1$dplików skopiowano do folderu \"%2$s\"</item>
-        <item quantity="other">%1$d pliki skopiowano do folderu \"%2$s\"</item>
+        <item quantity="one">%1$d plik skopiowano do folderu \"%2$s\"</item>
+        <item quantity="few">%1$d pliki skopiowano do folderu \"%2$s\"</item>
+        <item quantity="many">%1$d plików skopiowano do folderu \"%2$s\"</item>
+        <item quantity="other">%1$d plików skopiowano do folderu \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
     <string name="copy_exception">Wystąpił błąd podczas udostępniania. Sprawdź dzienniki aplikacji</string>
@@ -511,7 +511,7 @@
     <string name="notification_permission_desc">Wymagane do wyświetlania powiadomień dotyczących nowych połączeń urządzeń, żądań udostępnienia folderów oraz do utrzymywania działania usługi i połączenia.</string>
     <string name="tip_custom_sync_conditions_title">Użyj niestandardowych warunków synchronizacji dla folderu/urządzenia</string>
     <string name="download_support_bundle_failed">Pobieranie pakietu obsługi nie powiodło się. Sprawdź dzienniki.</string>
-    <string name="app_version_title">Wersja wrappera Syncthing-Fork</string>
+    <string name="app_version_title">Wersja nakładki Syncthing-Fork</string>
     <string name="reason_broadcast_controlled">Syncthing nasłuchuje transmisji wysyłanych przez aplikację innego dostawcy lub przez ADB. Możesz wrócić do wbudowanych warunków działania, dezaktywując opcję „Kontrola usług poprzez transmisję” w „Ustawienia” &gt; „Eksperymentalne”.</string>
     <string name="folder_type_sendreceive_description">Zawartość tego folderu będzie zarówno wysyłana jak i odbierana z innych urządzeń.</string>
     <string name="tip_write_to_sdcard_title">Obejście problemu: zapisz na zewnętrzniej karcie SD</string>

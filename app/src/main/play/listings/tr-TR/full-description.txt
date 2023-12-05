@@ -1,38 +1,38 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+Bu, Syncthing için Syncthing-Android sarmalayıcısının bir çatalıdır ve aşağıdaki gibi önemli geliştirmeler sağlar:
+* Klasör, cihaz ve genel eşitleme ilerlemesi kullanıcı arayüzünden kolayca okunabilir.
+* "Syncthing Camera" - iki telefonda tek bir paylaşılan ve özel Syncthing klasöründe arkadaşınızla, partnerinizle... fotoğraf çekebileceğiniz isteğe bağlı (kamerayı kullanmak için isteğe bağlı izne sahip olan) bir özellik. Bulut dahil değil. - ÖZELLİK ŞU ANDA BETA AŞAMASINDADIR -
+* Daha da fazla pil tasarrufu için "her saat eşitleyin"
+* Cihaz başına ve klasör başına ayrı eşitleme koşulları uygulanabilir
+* Son değişiklikler kullanıcı arayüzü, dosyaları açmak için tıklayın.
+* Syncthing'in çalışıp çalışmadığına bakılmaksızın klasör ve cihaz yapılandırmasında değişiklikler yapılabilir
+* Kullanıcı arayüzü eşitlemenin neden çalışıp çalışmadığını açıklar.
+* "Pili tüketme" sorunu düzeltildi.
+* Aynı ağdaki diğer Syncthing cihazlarını keşfedin ve bunları kolayca ekleyin.
+* Android 11'den bu yana harici SD kartta iki yönlü eşitlemeyi destekler.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Android için Syncthing-Fork, Syncthing'in yerleşik Web Kullanıcı Arayüzü yerine bir Android Kullanıcı Arayüzü sağlayan Syncthing için bir sarmalayıcıdır. Syncthing, tescilli eşitleme ve bulut hizmetlerinin yerini açık, güvenilir ve merkezi olmayan bir şeyle değiştirir. Verileriniz yalnızca size ait verilerdir ve bunların nerede saklanacağını, üçüncü taraflarla paylaşılıp paylaşılmayacağını ve İnternet üzerinden nasıl aktarılacağını seçme hakkına sahipsiniz.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Çatalın amaçları:
+* Toplulukla birlikte iyileştirmeleri geliştirin ve deneyin.
+* Syncthing alt modülündeki değişikliklerin neden olduğu hataları belirlemek ve düzeltmek için sarmalayıcıyı daha sık serbest bırakın
+* Kullanıcı arayüzünde yapılandırılabilir geliştirmeler yapın, kullanıcılar bunları açıp kapatabilmelidir
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Bunu yazarken yukarı akış ve çatal arasındaki karşılaştırma:
+* Her ikisi de GitHub'daki resmi kaynaktan oluşturulmuş syncthing ikili dosyasını içerir.
+* Eşitleme işlevselliği ve güvenilirliği, syncthing ikili alt modülü sürümüne bağlıdır.
+* Fork yukarı akışla iyi uyuşur ve bazen benim iyileştirmelerimi alır.
+* Strateji ve yayım sıklığı farklıdır
+* Yalnızca Android kullanıcı arayüzünü içeren sarmalayıcı çatal tarafından adreslenir.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Web sitesi: https://github.com/Catfriend1/syncthing-android
 
 Kaynak kodu: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Syncthing harici SD karta nasıl yazar: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Viki, SSS ve faydalı makaleler: https://github.com/Catfriend1/syncthing-android/wiki
 
-Sorunlar için: https://github.com/Catfriend1/syncthing-android/issues
+Sorunlar: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Lütfen çeviri konusunda
+yardım edin: https://hosted.weblate.org/projects/syncthing/android/catfriend1

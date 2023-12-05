@@ -8,11 +8,12 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">介绍</string>
-    <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要分享哪些文件夹至该设备上。
-请通过 GitHub 报告任何你遇到的问题。</string>
+    <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要和哪些设备分享哪些文件夹。 
+\n
+\n请通过 GitHub 报告任何你遇到的问题。</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">存储器读写权限</string>
-    <string name="storage_permission_desc">Syncthing 需要获取存储器读写权限以进行同步操作</string>
+    <string name="storage_permission_desc">Syncthing 需要访问你的存储以进行同步操作。</string>
     <string name="dialog_all_files_access_not_supported">您的设备不支持所有的文件访问</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">电池优化</string>
@@ -26,7 +27,7 @@
     <string name="location_permission_desc_api_29">Android 10+提示:“始终允许”</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">秘钥生成</string>
-    <string name="key_generation_success">成功生成用于私人数据交换的安全密钥</string>
+    <string name="key_generation_success">成功生成用于私人数据交换的安全密钥。</string>
     <!-- Generic texts used everywhere -->
     <string name="back">返回</string>
     <string name="cont">继续</string>
@@ -47,13 +48,13 @@
     <string name="photo_shoot_activity_title">Syncthing-Fork 相机</string>
     <string name="photo_shoot_intro_welcome_title">欢迎来到 Syncthing 相机</string>
     <string name="photo_shoot_intro_permission_title">所需权限</string>
-    <string name="photo_shoot_intro_no_camera">对不起，这个设备没有相机</string>
+    <string name="photo_shoot_intro_no_camera">对不起，这个设备没有相机。</string>
     <string name="photo_shoot_intro_missing_permissions">我们需要存储和相机权限才能继续。</string>
     <string name="grant_storage_permission">授予存储权限</string>
     <string name="grant_camera_permission">授予相机权限</string>
     <string name="photo_shoot_intro_permission_desc">Syncthing相机需要您的同意才能拍摄照片并存储在您的设备上。这个特性是可选的。要使用它，请授予权限并点击“继续”。我们将为您设置一个Syncthing相机文件夹，稍后你可以与其他Syncthing设备分享这个文件夹。</string>
-    <string name="photo_shoot_take_picture_success">成功将照片保存至 Syncthing 相机文件夹</string>
-    <string name="photo_shoot_take_picture_failure">拍照失败或你已取消操作</string>
+    <string name="photo_shoot_take_picture_success">成功将照片保存至 Syncthing 相机文件夹。</string>
+    <string name="photo_shoot_take_picture_failure">拍照失败或你已取消操作。</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Synchting 相机</string>
     <!-- MainActivity -->
@@ -73,10 +74,10 @@
     <string name="share_device_id">分享设备标识</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">发送设备标识至</string>
-    <string name="usage_reporting_dialog_title">允许发送匿名使用报告吗</string>
+    <string name="usage_reporting_dialog_title">允许发送匿名使用报告吗？</string>
     <string name="usage_reporting_dialog_description">每天发送加密过的使用情况报告。它被用来跟踪在何种平台、文件夹大小和应用程序的版本。如果报告所需收集的数据有改变，您将会再次看到本提醒对话框。
 \n
-\n汇总统计数据公开于 https://data.syncthing.net</string>
+\n汇总统计数据公开于 https://data.syncthing.net.</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="open_website">打开主页</string>
@@ -86,7 +87,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">正在生成安全密钥。这可能需要一段时间，请稍等。</string>
+    <string name="web_gui_creating_key">正在生成安全密钥。这可能需要几分钟…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">文件夹</string>
     <!-- Shown if no folders exist -->
@@ -103,8 +104,8 @@
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗\?</string>
     <string name="open_file_manager">打开文件管理器</string>
-    <string name="open_file_with">打开为…</string>
-    <string name="open_file_no_compatible_app">找不到用于打开该文件的应用</string>
+    <string name="open_file_with">选择用于打开的工具</string>
+    <string name="open_file_no_compatible_app">没找到用于打开该文件的应用。</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
     <string name="suggest_file_manager_app_dialog_text">我们建议你安装开源文件管理器应用程序\'Material Files\'。你要打开其应用商店页面吗？</string>
@@ -147,10 +148,10 @@
 \n无视运行条件</string>
     <string name="button_force_stop">强制停止
 \n无视运行条件</string>
-    <string name="syncthing_starting">正在启动 Syncthing</string>
-    <string name="syncthing_running">Syncthing 正在运行</string>
-    <string name="syncthing_not_running">Syncthing 已停止运行</string>
-    <string name="syncthing_has_crashed">Syncthing 应用已崩溃</string>
+    <string name="syncthing_starting">正在启动 Syncthing。</string>
+    <string name="syncthing_running">Syncthing 正在运行。</string>
+    <string name="syncthing_not_running">Syncthing 未在运行。</string>
+    <string name="syncthing_has_crashed">Syncthing 已崩溃。</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
     <string name="download_title_colon">"下载： "</string>
@@ -202,11 +203,11 @@
     <string name="folder_path_required">文件夹路径不得为空</string>
     <string name="dialog_discard_changes">放弃所做的更改？</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">您的 Android 系统只允许 Syncthing 仅读取目前已选择的目录</string>
+    <string name="folder_path_readonly">您的 Android 系统只允许 Syncthing 读取已选择的目录。</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
     <string name="folder_path_readwrite">你的安卓版本授予了Syncthing读取和写入选定文件夹的权限。</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
-    <string name="toast_invalid_folder_selected">当前路径不能使用，请重新选择</string>
+    <string name="toast_invalid_folder_selected">抱歉，所选路径不能使用，请选择位于内部或外部存储的文件夹。</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">不支持将现有文件夹切换为“接收加密”。</string>
     <string name="ignore_patterns">忽略列表</string>
     <!-- DeviceActivity -->
@@ -287,11 +288,11 @@
 \n确认此法对Huawei P10有效</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">小米：app不会自动启动</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI默认禁止应用自启动。请到“设置 &gt; 权限 &gt; 应用自启动”允许 Syncthing 自启动</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI 默认禁止应用自启动。请在主屏幕中，请到“设置 &gt; 权限 &gt; 应用自启动”并开启 Syncthing-Fork 滑块。</string>
     <string name="tip_xiaomi_battery_saver_title">小米: 应用反复显示欢迎屏幕</string>
-    <string name="tip_xiaomi_battery_saver_text">小米MIUI的电池保护系统应用会在每次重启手机时撤销该应用的“忽略电池优化”权限。这将导致应用程序显示欢迎界面，并再次请求丢失的强制权限。解决方案: 从主屏打开应用抽屉&gt;，长按“Syncthing-Fork”&gt; “应用信息“&gt;”电池保护\"，选择“无限制” (MIUI 10.3.2.0+)</string>
+    <string name="tip_xiaomi_battery_saver_text">小米MIUI的电池保护系统应用会在每次重启手机时撤销该应用的“忽略电池优化”权限。这将导致应用程序显示欢迎界面，并再次请求丢失的必需权限。解决方案: 从主屏打开应用抽屉&gt;，长按“Syncthing-Fork”&gt; “应用信息“&gt;”电池保护\"，选择“无限制” (MIUI 10.3.2.0+)。</string>
     <!-- RecentChangesActivity -->
-    <string name="no_recent_changes">无近期更改</string>
+    <string name="no_recent_changes">无近期更改。</string>
     <string name="recent_changes_title">近期修改</string>
     <string name="modified_by_device">设备: %1$s</string>
     <string name="modification_time">时间: %1$s</string>
@@ -321,13 +322,13 @@
     <string name="preference_app_theme_follow_dark">深色</string>
     <string name="category_behaviour">行为</string>
     <string name="category_syncthing_options">同步设置</string>
-    <string name="category_syncthing_options_summary">此菜单仅在Syncthing运行时可用</string>
+    <string name="category_syncthing_options_summary">此菜单仅在 Syncthing 运行时可用。</string>
     <string name="category_backup">导入与导出</string>
     <string name="category_debug">调试</string>
     <string name="category_experimental">实验性</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">运行条件</string>
-    <string name="run_conditions_summary">下方选项将控制 Syncthing 何时启用</string>
+    <string name="run_conditions_summary">下方选项将控制 Syncthing 何时运行。</string>
     <string name="run_on_mobile_data_title">移动数据时运行</string>
     <string name="run_on_mobile_data_summary">当设备通过移动数据网络连接时运行。警告:如果您同步大量数据，这可能会消耗您的移动运营商数据计划中的大量数据。</string>
     <string name="run_on_roaming_title">漫游时运行</string>
@@ -335,15 +336,14 @@
     <string name="run_on_wifi_title">让它在Wi-Fi上运行</string>
     <string name="run_on_wifi_summary">设备连接到Wi-Fi网络时运行。</string>
     <string name="run_on_metered_wifi_title">让它在计量Wi-Fi上运行</string>
-    <string name="run_on_metered_wifi_summary">设备在付费 Wi-Fi 网络环境下启用 Syncthing
-警告：可能会产生大量费用</string>
+    <string name="run_on_metered_wifi_summary">在设备连接到按流量付费 Wi-Fi 网络环境，如热点或tethered网络时运行。警告：如果你同步大量数据，这可能会消耗许多流量，并由此产生大量费用。</string>
     <string name="run_on_whitelisted_wifi_title">在指定的Wi-Fi网络上运行</string>
     <string name="specify_wifi_ssid_whitelist">选择 Wi-Fi 网络</string>
     <string name="run_on_whitelisted_wifi_networks">已选择的 Wi-Fi 网络 : %1$s</string>
     <string name="wifi_ssid_whitelist_empty">未指定Wi-Fi网络。 单击以指定网络。</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接并选择网络</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_location">请开启定位来选择网络</string>
-    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">您需要允许 Syncthing 获得定位权限以使用此功能</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">请打开无线网络连接来选择要连接的网络。</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">请开启定位来选择网络。</string>
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">您需要授予定位权限以使用此功能。</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">从Android 8.1开始，读取Wi-Fi名称需要获取位置权限。只有授予此权限，才能使用此功能。</string>
     <string name="power_source_title">设备供电方式</string>
@@ -351,9 +351,9 @@
     <string name="power_source_ac_power">电源供电</string>
     <string name="power_source_battery_power">电池供电</string>
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
-    <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing</string>
+    <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing。</string>
     <string name="respect_master_sync_title">遵循Android的“自动同步数据”设置</string>
-    <string name="respect_master_sync_summary">当快速设置磁贴“自动同步数据”被关闭时，禁用Syncthing</string>
+    <string name="respect_master_sync_summary">快速设置磁贴“自动同步数据”关闭时，禁用Syncthing。</string>
     <string name="run_in_flight_mode_title">无网络连接情形下运行</string>
     <string name="run_in_flight_mode_summary">启用这个选项会让Syncthing在你离线时也运行。如果您的设备在飞行模式下检测手动Wi-Fi连接有问题，请启用。</string>
     <string name="run_on_time_schedule_title">按照时间表运行</string>
@@ -362,7 +362,7 @@
     <string name="sync_duration_minutes_summary">%1$s分钟</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">自动启动</string>
-    <string name="behaviour_autostart_summary">系统开启时自动启动 Syncthing</string>
+    <string name="behaviour_autostart_summary">系统开启时自动启动。</string>
     <string name="use_root_title">Syncthing 运行于超级用户</string>
     <string name="use_root_summary">以 root 权限运行 Syncthing 允许它写入 Android 通常限制为只读访问的文件夹。请谨慎使用此功能。</string>
     <string name="bind_network_title">绑定到活跃网络</string>
@@ -412,12 +412,12 @@
     <!-- Titles for the preference to undo ignored devices and folders -->
     <string name="undo_ignored_devices_folders_title">撤销忽略的设备和文件夹</string>
     <string name="undo_ignored_devices_folders_question">该操作将会撤销现有已忽略的设备和文件夹的设置，是否继续？</string>
-    <string name="undo_ignored_devices_folders_done">成功撤销</string>
+    <string name="undo_ignored_devices_folders_done">成功撤销了决定。</string>
     <string name="export_config">导出设置</string>
     <!-- Toast after entering an invalid tcp port -->
-    <string name="invalid_port_number" tools:ignore="PluralsCandidate">端口号非法输入。请重新定义一个新的端口号(介于%1$d与%2$d之间)</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">端口号无效。请重新输入一个介于%1$d与%2$d之间的新端口号。</string>
     <!-- Toast after entering invalid integer value -->
-    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">数值非法输入。请重新定义一个新的数值(介于%1$d与%2$d之间)</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">输入值无效。请重新输入介于%1$d与%2$d之间的值。</string>
     <!-- Experimental options -->
     <string name="use_proxy">使用代理</string>
     <string name="do_not_use_proxy">代理未配置.</string>
@@ -456,15 +456,15 @@
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">重置数据库</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_database_question">此项操作在执行前，建议您在获得我们团队的建议后再使用该功能。
-请问您确定要清除 Syncthing 的数据库？</string>
+    <string name="st_reset_database_question">此项操作应仅基于支持团队的建议执行。
+\n您确定要清除 Syncthing 的数据库？</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">重置 Syncthing 数据库完成</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">重置 Delta 索引</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_deltas_question">此项操作在执行前，建议您在获得我们团队的建议后再使用该功能。
-请问您确定要清除 Syncthing Delta 索引？</string>
+    <string name="st_reset_deltas_question">此项操作应仅基于支持团队的建议执行。
+\n您确定要清除 Syncthing Delta 索引？</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">已成功重置 Syncthing Delta 索引</string>
     <string name="category_about">关于</string>
@@ -556,7 +556,7 @@
     <string name="reason_force_stop">Syncthing没有运行，因为您不顾运行条件强迫它停止。</string>
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">您启用了“按照时间表运行”，最后一次同步是在不到一个小时前。</string>
-    <string name="reason_not_within_time_frame_2">你启用了“按照时间表运行”，最后一次同步是在 %s 分钟之前</string>
+    <string name="reason_not_within_time_frame_2">你启用了“按照时间表运行”，最后一次同步是在 %s 之前。</string>
     <string name="reason_not_within_time_frame_0_min">不到一分钟</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="other">%d 分钟</item>
@@ -567,8 +567,8 @@
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing没有运行，因为Android“自动同步数据”被禁用。</string>
     <!-- … Mobile data -->
     <string name="reason_mobile_data_disallowed">Syncthing未配置为在使用移动数据连接时运行。</string>
-    <string name="reason_on_mobile_data">Syncthing 当前正在在蜂窝网络环境下运行</string>
-    <string name="reason_not_on_mobile_data">Syncthing 被允许在蜂窝网络环境下运行 ， 但当前网络未连接至互联网</string>
+    <string name="reason_on_mobile_data">Syncthing 被允许使用移动流量运行。</string>
+    <string name="reason_not_on_mobile_data">Syncthing 被允许在移动网络连接下运行 ， 但尚未连接移动数据。</string>
     <!-- … Roaming -->
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing被允许在使用漫游和非漫游移动数据连接时运行。</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing被允许运行在非漫游的移动数据连接上。活动连接是非漫游连接。</string>
@@ -582,9 +582,9 @@
     <string name="reason_on_nonmetered_wifi">Syncthing被允许在不计量的WiFi连接上运行。活动WiFi连接是不计量的。</string>
     <string name="reason_not_nonmetered_wifi">Syncthing没有运行，因为你不允许它在计量WiFi连接上运行。</string>
     <string name="reason_location_unavailable">你在设置中启用了“在选定的WiFi网络上运行”。Android定位服务目前处于关闭状态。根据Android的限制，Syncthing无法通过确定当前的WiFi网络名称来决定是否运行。解决方案: 打开位置，授予位置权限并重新连接WiFi。</string>
-    <string name="reason_on_flight_mode">允许 Syncthing 在飞行模式下运行</string>
+    <string name="reason_on_flight_mode">Syncthing 正在运行，因你允许它在飞行模式活跃时运行。</string>
     <string name="reason_broadcast_controlled">Syncthing正监听第三方应用程序或ADB发送的广播。通过禁用“设置”&gt;“实验性”&gt;“广播服务控制”，您可以切换回使用内置运行条件。</string>
-    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor没有实例化。如果这个错误在重启后没有消失，请重新启动应用程序并提交一个错误报告</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor没有实例化。如果这个错误在重启后没有消失，请重新启动应用并提交一个错误报告。</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">没有WiFi SSID被列入白名单。请在设置中指定一些。</string>
     <!-- SyncthingService -->
@@ -603,8 +603,8 @@
     <string name="syncthing_disabled">Syncthing 待机中</string>
     <string name="syncthing_terminated">Syncthing 已停止工作</string>
     <!-- Toast shown if syncthing failed to create or read the config -->
-    <string name="executable_not_found">核心文件 \"%s\" 丢失，檢查build和logcat</string>
-    <string name="config_create_failed">创建配置文件失败</string>
+    <string name="executable_not_found">核心可执行文件 \"%s\" 丢失，请检查build和logcat输出。</string>
+    <string name="config_create_failed">创建配置文件失败。请检查 logcat 输出。</string>
     <string name="config_read_failed">配置读取失败。建议您备份好同步文件夹内的数据，之后在 Android 设置中清除 Syncthing 的应用数据，再重新启动应用。</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">缺少對操作至關重要的配置文件</string>
@@ -616,7 +616,7 @@
     <string name="default_folder_id">%1$s-照片</string>
     <string name="notification_crash_title">Syncthing 已崩溃 %1$s</string>
     <string name="notification_crash_text">点击查看日志 (%1$s)</string>
-    <string name="notifications_persistent_channel">Syncthing 運行。</string>
+    <string name="notifications_persistent_channel">Syncthing 活跃中</string>
     <string name="notification_persistent_waiting_channel">监控正在运行的规则中</string>
     <string name="notifications_other_channel">其他通知</string>
     <!-- EventProcessor -->
@@ -685,7 +685,7 @@
     <string name="pull_order_type_oldestFirst">旧文件优先</string>
     <string name="pull_order_type_newestFirst">新文件优先</string>
     <!-- Pull order dialog descriptions for pull order types -->
-    <string name="pull_order_type_random_description">随机顺序拉取文件</string>
+    <string name="pull_order_type_random_description">随机顺序拉取文件。</string>
     <string name="pull_order_type_alphabetic_description">按文件名的字母顺序拉取文件。</string>
     <string name="pull_order_type_smallestFirst_description">按文件大小从小到大拉取文件。</string>
     <string name="pull_order_type_largestFirst_description">按文件大小从大到小拉取文件。</string>
@@ -703,12 +703,12 @@
     <string name="keep_versions_description">每个文件保留的版本数量上限。</string>
     <string name="simple_file_versioning_description">当某个文件在其他设备被替换或删除时，本设备将在 .stversions 目录中保留该文件的备份，并在文件名中加入时间戳信息。</string>
     <string name="trashcan_versioning_description">当文件被 Syncthing 替换或删除时，将被移动到 .stversions 目录。</string>
-    <string name="staggered_versioning_description">当某个文件在其他设备被替换或删除时，本设备将在 .stversions 目录中保留该文件的备份，并在文件名中加入时间戳信息。超过最长保留时间，或者不满足下列条件的历史版本，将会被删除。
-
-保留的历史版本会遵循以下条件：最近一小时内的历史版本，更新间隔小于三十秒的仅保留一份。最近一天内的历史版本，更新间隔小于一小时的仅保留一份。最近一个月内的历史版本，更新间隔小于一天的仅保留一份。距离现在超过一个月且小于最长保留时间的，更新间隔小于一周的仅保留一份。</string>
+    <string name="staggered_versioning_description">当文件被 Syncthing 替换或删除时会被移动到 .stversions 目录中，并以日期命名同一文件的不同版本。若文件的某些版本超过最长保留时间，或者在某一间隔内保存了过多版本的相同文件，这些版本的文件将被自动删除。
+\n
+\n使用以下间隔：最近一小时内的历史版本，更新间隔小于三十秒的仅保留一份。最近一天内的历史版本，更新间隔小于一小时的仅保留一份。最近一个月内的历史版本，更新间隔小于一天的仅保留一份。距离现在超过一个月且小于最长保留时间的，更新间隔小于一周的仅保留一份。</string>
     <string name="maximum_age_description">历史版本保留的最长天数，0 为永久保存。</string>
     <string name="versions_path_description">历史版本储存路径（留空则会默认存储在共享文件夹中的 .stversions 目录）。</string>
-    <string name="cleanout_after_description">文件保存在回收站的天数。零表示永久。</string>
+    <string name="cleanout_after_description">文件保存在回收站的天数。零表示永久</string>
     <string name="external_versioning_description">命令行的第一个参数是文件夹的路径，第二个参数是文件夹内的相对路径。</string>
     <string name="no_versioning_description">选择要启用的版本控制类型。</string>
     <!-- Displays the current file versioning type in the Folder activity -->
@@ -728,9 +728,9 @@
     <string name="browse">浏览</string>
     <string name="no_sub_folder_is_selected">未选中子文件夹</string>
     <string name="share_device_id_chooser">共享设备 ID 与</string>
-    <string name="run_on_whitelisted_wifi_summary">打开白名单将同步限制在制定的WiFi网络中</string>
+    <string name="run_on_whitelisted_wifi_summary">打开白名单将同步限制在指定的WiFi网络中。</string>
     <string name="custom_sync_conditions_title">自定义同步规则</string>
-    <string name="custom_sync_conditions_description">允许您指定全局运行条件的例外</string>
+    <string name="custom_sync_conditions_description">允许您指定全局运行条件的例外。</string>
     <string name="custom_sync_conditions_dialog">指定同步规则</string>
     <!-- Quick Setting icon names and labels -->
     <string name="qs_force_label">强制运行</string>
@@ -739,4 +739,12 @@
     <string name="qs_following_run_conditions">遵循运行条件</string>
     <string name="qs_schedule_label">运行 5 分钟</string>
     <string name="qs_schedule_disabled">已停用计划表</string>
+    <string name="webui_username_title">Web UI 用户名</string>
+    <string name="autoAcceptFolders">自动接受</string>
+    <string name="webui_password_title">Web UI 密码</string>
+    <string name="backup_folder_name">备份文件夹名</string>
+    <string name="notification_permission_desc">只有授予该权限才能显示新设备连接和文件夹分享请求的通知并保持服务活跃和连接。</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">运行 %1$d 分钟</string>
+    <string name="notification_permission_title">通知权限</string>
+    <string name="toast_notification_permission_required">Syncthing 需要通知权限保持其服务活跃和连接。</string>
 </resources>

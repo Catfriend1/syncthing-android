@@ -311,7 +311,7 @@
     <string name="versions_path_description">Cesta pro ukládání verzí (ponechte prázdné pro výchozí adresář .stversions ve sdíleném adresáři).</string>
     <string name="cleanout_after_description">Počet dní, po který budou soubory uchovány v koši. Nula znamená navždy.</string>
     <string name="external_versioning_description">První parametr příkazové řádky je cesta k adresáři, druhý je relativní cesta v témže adresáři.</string>
-    <string name="no_versioning_description">Pro povolení verzování vyberte jeho typ</string>
+    <string name="no_versioning_description">Pro povolení verzování vyberte jeho typ.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Typ: Jednoduché</string>
     <string name="type_trashcan">Typ: Koš</string>
@@ -329,4 +329,6 @@
     <string name="browse">Procházet</string>
     <string name="no_sub_folder_is_selected">Není vybrána žádná podsložka</string>
     <string name="share_device_id_chooser">Sdílet ID zařízení s</string>
+    <string name="pull_order_type_random_description">Stahovat soubory v náhodném pořadí.</string>
+    <string name="respect_master_sync_summary">Zakázat Syncthing, pokud je vypnutá dlaždice rychlého nastavení ‚Automaticky synchronizovat data‘.</string>
 </resources>
