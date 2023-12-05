@@ -347,9 +347,9 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">需要许可</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">从Android 8.1开始，读取Wi-Fi名称需要获取位置权限。只有授予此权限，才能使用此功能。</string>
     <string name="power_source_title">设备供电方式</string>
-    <string name="power_source_ac_and_battery_power">电源与电池供电</string>
-    <string name="power_source_ac_power">电源供电</string>
-    <string name="power_source_battery_power">电池供电</string>
+    <string name="power_source_ac_and_battery_power">电源与电池供电.</string>
+    <string name="power_source_ac_power">电源供电.</string>
+    <string name="power_source_battery_power">电池供电.</string>
     <string name="respect_battery_saving_title">遵循 Android 电池省电模式设置</string>
     <string name="respect_battery_saving_summary">省电模式启动时禁用 Syncthing。</string>
     <string name="respect_master_sync_title">遵循Android的“自动同步数据”设置</string>

@@ -381,8 +381,8 @@
     <string name="pull_order_alphabetic">Alfabético</string>
     <string name="pull_order_smallest_first">Más Pequeños Primero</string>
     <string name="pull_order_largest_first">Más Grandes Primero</string>
-    <string name="pull_order_oldest_first">Más Antiguos Primero</string>
-    <string name="pull_order_newest_first">Más Nuevos Primero</string>
+    <string name="pull_order_oldest_first">Los más antiguos primero</string>
+    <string name="pull_order_newest_first">Lo más nuevo primero</string>
     <string name="versioning_type_none">Ninguna</string>
     <string name="versioning_type_trashcan">Papelera</string>
     <string name="versioning_type_simple">Simple</string>

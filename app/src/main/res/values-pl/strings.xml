@@ -693,4 +693,16 @@
     <string name="folder_type">Typ folderu</string>
     <string name="exception_known_bug_notice">Napotkano znany błąd, który nie został jeszcze rozwiązany. Aby uzyskać więcej informacji, zobacz %1$s/%2$s. Prosimy o dokładny opis tego, co wydarzyło się wcześniej.</string>
     <string name="state_sync_preparing">Przygotowanie do synchronizacji</string>
+    <string name="folder_type_send_only">Tylko wyślij</string>
+    <string name="folder_type_receive_only">Tylko odbierz</string>
+    <string name="power_source_ac_and_battery_power">Zasilanie sieciowe i bateryjne.</string>
+    <string name="folder_type_send_receive">Wyślij i odbierz</string>
+    <string name="pull_order_largest_first">Od największych</string>
+    <string name="power_source_ac_power">Zasilanie sieciowe.</string>
+    <string name="pull_order_random">Losowo</string>
+    <string name="pull_order_oldest_first">Od najstarszych</string>
+    <string name="pull_order_newest_first">Od najnowszych</string>
+    <string name="pull_order_smallest_first">Od najmniejszych</string>
+    <string name="pull_order_alphabetic">Alfabetycznie</string>
+    <string name="power_source_battery_power">Zasilanie bateryjne.</string>
 </resources>

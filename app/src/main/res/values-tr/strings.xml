@@ -203,16 +203,16 @@
     <string name="device_id_copied_to_clipboard">Cihaz kimliği panoya kopyalandı</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string name="file_size_unit_B">B</string>
-    <string name="file_size_unit_KiB">KiB</string>
-    <string name="file_size_unit_MiB">MiB</string>
-    <string name="file_size_unit_GiB">GiB</string>
-    <string name="file_size_unit_TiB">TiB</string>
+    <string name="file_size_unit_KiB">KB</string>
+    <string name="file_size_unit_MiB">MB</string>
+    <string name="file_size_unit_GiB">GB</string>
+    <string name="file_size_unit_TiB">TB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string name="transfer_rate_unit_B_s">B/s</string>
-    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
-    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
-    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
-    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
+    <string name="transfer_rate_unit_KiB_s">KB/s</string>
+    <string name="transfer_rate_unit_MiB_s">MB/s</string>
+    <string name="transfer_rate_unit_GiB_s">GB/s</string>
+    <string name="transfer_rate_unit_TiB_s">TB/s</string>
     <string name="state_scanning">Taranıyor</string>
     <string name="state_syncing">Eşitleniyor (%%%1$d)</string>
     <string name="state_error">Hata</string>
@@ -624,4 +624,21 @@
     <string name="exception_known_bug_notice">Henüz çözülmemiş bilinen bir hatayla karşılaşıldı. Daha fazla bilgi için %1$s/%2$s adresine bakın. Lütfen bize önceden ne olduğuna dair kesin bir açıklama bırakın.</string>
     <string name="state_sync_preparing">Eşitlemeye hazırlanıyor</string>
     <string name="folder_type_sendonly">Yalnızca Gönder</string>
+    <string name="versioning_type_external">Harici</string>
+    <string name="folder_type_send_only">Yalnızca Gönder</string>
+    <string name="folder_type_receive_only">Yalnızca Al</string>
+    <string name="power_source_ac_and_battery_power">Piriz ve pil gücü.</string>
+    <string name="versioning_type_none">Yok</string>
+    <string name="folder_type_send_receive">Gönder ve Al</string>
+    <string name="pull_order_largest_first">Önce En Büyük Olan</string>
+    <string name="power_source_ac_power">Piriz gücü.</string>
+    <string name="versioning_type_simple">Basit</string>
+    <string name="pull_order_random">Rastgele</string>
+    <string name="pull_order_oldest_first">Önce En Eski Olan</string>
+    <string name="versioning_type_staggered">Aşamalı</string>
+    <string name="pull_order_newest_first">Önce En Yeni Olan</string>
+    <string name="versioning_type_trashcan">Çöp Kutusu</string>
+    <string name="pull_order_smallest_first">Önce En Küçük Olan</string>
+    <string name="pull_order_alphabetic">Alfabetik</string>
+    <string name="power_source_battery_power">Pil gücü.</string>
 </resources>
