@@ -1,4 +1,4 @@
-* Syncthing v1.27.0
+* Syncthing v1.27.1-rc.1
 
 Enhanced
 --
@@ -6,7 +6,7 @@ Enhanced
 
 Fixes
 --
--
+- (upstream) hopefully those exit code 2 crashes were fixed
 
 Other
 --
