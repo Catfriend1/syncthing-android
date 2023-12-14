@@ -327,7 +327,7 @@
         <item quantity="one">%1$d cihaz çevrimiçi ve güncel</item>
         <item quantity="other">%1$d cihaz çevrimiçi ve güncel</item>
     </plurals>
-    <string name="category_backup">İçe ve Dışa Aktar</string>
+    <string name="category_backup">İçe ve Dışa aktar</string>
     <string name="category_syncthing_options_summary">Bu menü yalnızca Syncthing çalışıyorsa kullanılabilir.</string>
     <string name="save_title">Kaydet</string>
     <string name="syncthing_log_title">Syncthing Günlüğü</string>
@@ -550,7 +550,7 @@
     <string name="folder_title">Klasör</string>
     <string name="sync_duration_minutes_title">Eşitleme döngüsünün süresi</string>
     <string name="advanced_directory_selection">Gelişmiş Dizin Seçimi</string>
-    <string name="syncthing_api_key">Syncthing API Anahtarı (kopyalamak için tıklayın)</string>
+    <string name="syncthing_api_key">Syncthing API Anahtarı (kopyalamak için dokunun)</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing\'in dolaşım dışı mobil veri bağlantıları üzerinden çalışmasına izin veriliyor. Etkin bağlantı dolaşım dışıdır.</string>
     <string name="preference_app_theme_follow_system">Sistemi takip et</string>
     <string name="custom_wifi_ssid_whitelist_empty">Beyaz listeye eklenmiş kablosuz (Wi-Fi) SSID\'si yok. Lütfen ayarlarda bazılarını belirtin.</string>
@@ -641,4 +641,5 @@
     <string name="pull_order_smallest_first">Önce En Küçük Olan</string>
     <string name="pull_order_alphabetic">Alfabetik</string>
     <string name="power_source_battery_power">Pil gücü.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Dikkat Edin: Eğer SyncthingNative kesintiye uğrarsa ve tuhaf bir şey yaparsa suçlu siz olursunuz. Yalnızca cihazınızın izin verilmesini desteklememesi durumunda atlayın. Gerçekten atlansın mı?</string>
 </resources>

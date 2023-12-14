@@ -544,7 +544,7 @@
         <item quantity="other">%1$d Dateien ins Verzeichnis \"%2$s\" kopiert</item>
     </plurals>
     <!-- Copy exception toast -->
-    <string name="copy_exception">Beim Teilen ist ein Fehler aufgetreten, siehe Log</string>
+    <string name="copy_exception">Beim Teilen ist ein Fehler aufgetreten, siehe App-Protokoll</string>
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Dateien werden geteilt…</string>
     <plurals name="file_name_title">

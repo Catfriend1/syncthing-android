@@ -747,4 +747,5 @@
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">运行 %1$d 分钟</string>
     <string name="notification_permission_title">通知权限</string>
     <string name="toast_notification_permission_required">Syncthing 需要通知权限保持其服务活跃和连接。</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">小心：如果 SyncthingNative被拦截并做了某些奇怪的事，要怪就怪你。只有当你的设备不支持授予此权限时才选择跳过。真要跳过？</string>
 </resources>

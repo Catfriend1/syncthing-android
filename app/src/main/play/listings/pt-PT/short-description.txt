@@ -1,0 +1,1 @@
+Invólucro para o Syncthing — Sincronização de ficheiros aberta e descentralizada

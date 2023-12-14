@@ -761,4 +761,5 @@
     <string name="notification_permission_desc">Requerido para mostrar notificaciones sobre nuevas conexiones de dispositivos, peticiones de uso compartido de carpetas y para mantener el servicio activo y conectado.</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Ejecutar durante %1$d minutos</string>
     <string name="toast_notification_permission_required">La sincronización requiere el permiso de notificación para mantener su servicio activo y conectado.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado: Si SyncthingNative se interrumpe y hace algo extraño, la culpa es tuya. Sólo omitir en caso de que su dispositivo no admite la concesión del permiso. ¿Saltar de verdad?</string>
 </resources>
