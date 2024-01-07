@@ -1,4 +1,4 @@
-* Syncthing v1.27.2-rc.1
+* Syncthing v1.27.2
 
 Enhanced
 --
@@ -6,10 +6,9 @@ Enhanced
 
 Fixes
 --
-- (upstream) update Syncthing to version 1.27.2-rc.1, which (hopefully) fixes app crashes
+-
 
 Other
 --
 - Experimental: Make ignore doze permission recommended instead of mandatory (#1058)
 - Thanks to @acolomb we got big improvements in community translation handling :-)
-
