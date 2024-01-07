@@ -381,4 +381,10 @@
     <string name="browse">Bladeren</string>
     <string name="no_sub_folder_is_selected">Geen onderliggende map geselecteerd</string>
     <string name="share_device_id_chooser">Apparaat-ID delen met</string>
+    <string name="folder_type_send_only">Alleen verzenden</string>
+    <string name="folder_type_receive_only">Alleen ontvangen</string>
+    <string name="power_source_ac_and_battery_power">Net- en batterijvoeding.</string>
+    <string name="folder_type_send_receive">Verzenden en ontvangen</string>
+    <string name="power_source_ac_power">Netvoeding.</string>
+    <string name="power_source_battery_power">Batterijvoeding.</string>
 </resources>

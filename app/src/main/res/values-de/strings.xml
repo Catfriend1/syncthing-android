@@ -748,9 +748,9 @@
     <string name="dialog_confirm_skip_ignore_doze_permission">Vorsicht: Wenn SyncthingNative unterbrochen wird und etwas Seltsames tut, sind Sie schuld. Überspringen Sie den Vorgang nur, wenn Ihr Gerät die Erteilung der Berechtigung nicht unterstützt. Wirklich überspringen?</string>
     <string name="autoAcceptFolders">Automatische Annahme</string>
     <string name="webui_password_title">Web UI Passwort</string>
-    <string name="backup_folder_name">Backup Ordnername</string>
+    <string name="backup_folder_name">Backup-Ordnername</string>
     <string name="notification_permission_desc">Erforderlich, um Benachrichtigungen über neue Geräteverbindungs- und Ordnerfreigabeanfragen anzuzeigen sowie den Dienst aktiv und verbunden zu halten.</string>
-    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Laufe für %1$d Minuten</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Für %1$d Minuten ausführen</string>
     <string name="notification_permission_title">Benachrichtigungsrecht</string>
     <string name="toast_notification_permission_required">Syncthing benötigt das Benachrichtigungsrecht, um seinen Dienst aufrecht und verbunden zu halten.</string>
 </resources>

@@ -18,4 +18,7 @@
     <string name="name">الاسم</string>
     <string name="state_error">خطأ</string>
     <string name="state_unknown">غير معروف</string>
+    <string name="app_description">تطبيق حُر، موثوق، محلي الإدارة.</string>
+    <string name="welcome_title">مرحبا بك في Syncthing على نظام أندرويد</string>
+    <string name="introduction">مقدمة</string>
 </resources>

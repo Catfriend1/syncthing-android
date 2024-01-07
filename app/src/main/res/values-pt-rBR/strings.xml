@@ -604,4 +604,6 @@
     <string name="qs_following_run_conditions">Condições de execução seguintes</string>
     <string name="qs_schedule_label">Executar por 5 minutos</string>
     <string name="qs_schedule_disabled">Agendamento desativado</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado. Se o SyncthingNative for interrompido e fizer algo estranho, é sua culpa. Apenas pule se seu dispositivo não suportar a concessão da permissão. Você realmente quer pular?</string>
+    <string name="notification_permission_title">Permissão de notificação</string>
 </resources>

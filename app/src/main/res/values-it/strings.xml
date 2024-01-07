@@ -13,13 +13,13 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Autorizzazione Memoria</string>
     <string name="storage_permission_desc">Syncthing deve accedere alla tua memoria per poter sincronizzare i file.</string>
-    <string name="dialog_all_files_access_not_supported">Il tuo dispositivo non supporta l\'accesso a tutti i file</string>
+    <string name="dialog_all_files_access_not_supported">Questo dispositivo non supporta l\'accesso a tutti i file</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Ottimizzazione della batteria</string>
     <string name="ignore_doze_permission_os_notice">Su Android TV può accadere che l\'app venga terminata mentre è in esecuzione in background. Una soluzione è disponibile nella wiki a \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android potrebbe interrompere la sincronizzazione dopo un po\' di tempo. Per evitarlo, disattiva le ottimizzazioni batteria. Alcuni dispositivi hanno funzioni aggiuntive per chiudere le app: dovresti aggiungere Synchting anche alle loro eccezioni.</string>
     <string name="toast_ignore_doze_permission_required">Questa app funziona correttamente solo se è stata esclusa dalla modalità di risparmio energetico \"doze\".</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Il tuo dispositivo non supporta la disabilitazione delle ottimizzazioni della batteria</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Questo dispositivo non supporta la disabilitazione delle ottimizzazioni della batteria</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Autorizzazione Posizione</string>
     <string name="location_permission_desc">Synchting può essere configurato per funzionare solo con alcune reti Wi-Fi. Android richiede che l\'app utilizzi il permesso di posizione per per leggere il nome della Wi-Fi in uso. Se vuoi questa funzionalità, premi il pulsante qui sopra. Puoi saltare questo passo, consulta la nostra privacy policy per ulteriori dettagli.</string>
@@ -66,7 +66,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="exception_known_bug_notice">È stato riscontrato un bug noto che non è stato ancora risolto. Consulta %1$s/%2$s per ulteriori informazioni. Per favore fornisci una descrizione dettagliata di cosa è successo prima dell\'errore.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Conferma uscita dall\'app</string>
-    <string name="dialog_exit_while_running_as_service_message">Attenzione: hai attivato l\'esecuzione dell\'app all\'avvio del dispositivo. In questo modo monitora le condizioni di esecuzione e si sincronizza in background quando le condizioni vengono soddisfatte. Dovresti uscire dall\'app solo se riscontri dei problemi, altrimenti disabilita l\'opzione di avvio automatico nelle impostazioni. Vuoi uscire ora finché il dispositivo verrà riavviato\?</string>
+    <string name="dialog_exit_while_running_as_service_message">Nota: l\'app è configurata per essere avviata automaticamente all\'accensione. In questo modo l\'app monitora le condizioni di esecuzione e sincronizza in background in qualsiasi momento quando le condizioni lo consentono. Si dovrebbe uscire manualmente solo se si riscontrano problemi gravi. Altrimenti, disattivare \'Avvia automaticamente all\'avvio\' nelle impostazioni. Uscire ora fino al riavvio del dispositivo?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Nuova Cartella</string>
     <!-- Title of the "share device id" menu action -->
@@ -80,7 +80,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="open_website">Apri sito</string>
-    <string name="toast_write_storage_permission_required">E\' richiesto il permesso di scrittura per questa app</string>
+    <string name="toast_write_storage_permission_required">È richiesto il permesso di scrittura per questa app</string>
     <string name="device_rejected">Il dispositivo \"%1$s\" vuole connettersi</string>
     <string name="folder_rejected">Il dispositivo \"%1$s\" vuole condividere la cartella \"%2$s\"</string>
     <!-- StateDialogActivity -->
@@ -122,7 +122,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Sincronizzato</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
-    <string name="device_syncing">Sincronizzazione (%1$d%%)</string>
+    <string name="device_syncing">Sincronizzazione in corso (%1$d%%)</string>
     <string name="device_syncing_percent_bytes">Sincronizzazione (%1$d%%, %2$s)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Disconnesso</string>
@@ -165,7 +165,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Title for uptime status -->
     <string name="uptime">Tempo di funzionamento</string>
     <string name="restart">Riavvia</string>
-    <string name="dialog_confirm_restart">Vuoi riavviare Syncthing\?</string>
+    <string name="dialog_confirm_restart">Riavviare Syncthing?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
     <string name="folder_id">ID Cartella</string>
@@ -195,7 +195,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Menu item to confirm folder creation -->
     <string name="create">Crea</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Vuoi veramente eliminare questa cartella da Syncthing\?</string>
+    <string name="remove_folder_confirm">Eliminare questa cartella da Syncthing?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">L\'ID Cartella non può essere vuoto</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
@@ -204,7 +204,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="folder_path_required">Il percorso della cartella non può essere vuoto</string>
     <string name="dialog_discard_changes">Annullare le modifiche\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">La versione di Android in uso concede a Syncthing permessi di sola lettura per la cartella selezionata.</string>
+    <string name="folder_path_readonly">La versione di Android consente a Syncthing l\'accesso in sola lettura alla cartella selezionata.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
     <string name="folder_path_readwrite">La versione di Android in uso concede a Syncthing permessi di lettura e scrittura per la cartella selezionata.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
@@ -243,13 +243,13 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="untrusted_device_explanation">Tutte le cartelle condivise con questo dispositivo devono essere protette da password, in modo che tutti i dati inviati saranno illeggibili senza la password definita.</string>
     <!-- ActionBar item -->
     <string name="delete_device">Elimina Dispositivo</string>
-    <string name="add_device">Nuovo Dispositivo</string>
+    <string name="add_device">Aggiungi Dispositivo</string>
     <!-- Menu item to confirm adding a device -->
     <string name="add">Aggiungi</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Modifica Dispositivo</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Vuoi veramente eliminare questo dispositivo\?</string>
+    <string name="remove_device_confirm">Eliminare questo dispositivo?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">L\'ID Dispositivo non può essere vuoto</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
@@ -265,7 +265,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">Non ci sono cartelle configurate. Tocca per aggiungere una nuova cartella.</string>
     <!-- Toast show if we could not get root permissions -->
-    <string name="toast_root_denied">Manca permesso di root.</string>
+    <string name="toast_root_denied">Manca permesso di root</string>
     <!-- TipsAndTricks activity -->
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Consigli &amp; Suggerimenti</string>
@@ -315,7 +315,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="open_in_browser">Apri nel browser</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Impostazioni</string>
-    <string name="category_run_conditions">Condizioni di funzionamento</string>
+    <string name="category_run_conditions">Condizioni di Esecuzione</string>
     <string name="category_user_interface">Interfaccia utente</string>
     <string name="preference_app_theme_title">Tema</string>
     <string name="preference_app_theme_follow_system">Segui il sistema</string>
@@ -330,7 +330,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condizioni di funzionamento</string>
     <string name="run_conditions_summary">Usa le seguenti opzioni per decidere quando Syncthing sarà in esecuzione</string>
-    <string name="run_on_mobile_data_title">Esegui su connessione dati</string>
+    <string name="run_on_mobile_data_title">Esegui su reti mobili</string>
     <string name="run_on_mobile_data_summary">Esegui quando il dispositivo è connesso ad una rete dati mobile. Attenzione: può consumare molti dati del tuo piano tariffario se sincronizzi grosse quantità di dati.</string>
     <string name="run_on_roaming_title">Esegui in roaming</string>
     <string name="run_on_roaming_summary">Permetti di eseguire Syncthing su rete dati durante il roaming. (!) Se questa opzione funziona correttamente, per favore scrivici su GitHub.</string>
@@ -338,7 +338,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="run_on_wifi_summary">Esegui quando il dispositivo è connesso ad una rete Wi-Fi o ethernet.</string>
     <string name="run_on_metered_wifi_title">Esegui su connessione Wi-Fi a consumo</string>
     <string name="run_on_metered_wifi_summary">Esegui quando il dispositivo è connesso ad una connessione Wi-Fi a consumo come un hotspot o tethering di una rete dati. Attenzione: può consumare molti dati del tuo piano tariffario se sincronizzi grosse quantità di dati.</string>
-    <string name="run_on_whitelisted_wifi_title">Esegui su reti Wi-Fi selezionate</string>
+    <string name="run_on_whitelisted_wifi_title">Esegui su reti Wi-Fi specifiche</string>
     <string name="specify_wifi_ssid_whitelist">Seleziona reti Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_networks">Reti Wi-Fi selezionate: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">Non ci sono reti Wi-Fi selezionate. Tocca per aggiungerle.</string>
@@ -373,9 +373,9 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="preference_language_title">Lingua</string>
     <string name="preference_language_summary">Cambia la lingua dell\'app</string>
     <string name="pref_language_default">Lingua di default</string>
-    <string name="folder_type_send_receive">Invia &amp; Ricevi</string>
-    <string name="folder_type_send_only">Invia solo</string>
-    <string name="folder_type_receive_only">Ricevi solo</string>
+    <string name="folder_type_send_receive">Invio &amp; Ricezione</string>
+    <string name="folder_type_send_only">Solo Invio</string>
+    <string name="folder_type_receive_only">Sola Ricezione</string>
     <string name="pull_order_random">Casuale</string>
     <string name="pull_order_alphabetic">Alfabetico</string>
     <string name="pull_order_smallest_first">Prima il più piccolo</string>
@@ -388,7 +388,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="versioning_type_staggered">Cadenzato</string>
     <string name="versioning_type_external">Esterno</string>
     <string name="device_name">Nome Dispositivo</string>
-    <string name="listen_address">Indirizzi Protocollo Sincronizzazione</string>
+    <string name="listen_address">Indirizzi di Ascolto Protocollo Sincronizzazione</string>
     <string name="max_recv_kbps">Limite Velocità in Ingresso (KiB/s)</string>
     <string name="max_send_kbps">Limite Velocità in Uscita (KiB/s)</string>
     <string name="global_announce_enabled">Individuazione Globale</string>
@@ -411,34 +411,35 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <!-- Toast after failed support bundle download -->
     <string name="download_support_bundle_failed">È fallito il download del pacchetto di supporto. Controlla i log.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
-    <string name="undo_ignored_devices_folders_title">Annulla dispositivi e cartelle ignorate</string>
+    <string name="undo_ignored_devices_folders_title">Annulla l\'aver ignorato dispositivi e cartelle</string>
     <string name="undo_ignored_devices_folders_question">Annullerai le scelte precedenti per ignorare dispositivi e cartelle. Vuoi continuare\?</string>
     <string name="undo_ignored_devices_folders_done">Scelte annullate con successo.</string>
     <string name="export_config">Esporta Configurazione</string>
     <!-- Toast after entering an invalid tcp port -->
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Numero porta non valido. Inserisci una porta da %1$d a %2$d.</string>
     <!-- Toast after entering invalid integer value -->
-    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Il valore inserito non è valido. Si prega di inserire il valore tra %1$d e %2$d.</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Il valore inserito non è valido. Si prega di inserire un valore tra %1$d e %2$d.</string>
     <!-- Experimental options -->
     <string name="use_proxy">Connettersi tramite un proxy</string>
     <string name="do_not_use_proxy">Nessun proxy configurato.</string>
     <string name="keep_wakelock_while_binary_running">Mantieni attiva la CPU quando syncthing è in esecuzione</string>
     <string name="keep_wakelock_while_binary_running_summary">Solo per Android 5 e inferiori. Usa questa opzione se riscontri disconnessioni improvvise quando lavori a batteria. Causerà maggior consumo della batteria.</string>
     <string name="use_tor_title">Utilizza Tor</string>
-    <string name="use_tor_summary">Forza tutto il traffico attraverso Tor per una maggiore privacy. Richiede Orbot. Disabilita le opzioni proxy.</string>
+    <string name="use_tor_summary">Forza tutto il traffico attraverso Tor per una maggiore privacy. Richiede Orbot. Le opzioni di proxy verranno disabilitate.</string>
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
     <!-- Toast after entering invalid socks proxy address -->
-    <string name="toast_invalid_socks_proxy_address">Il dato inserito viola la sintassi del proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="toast_invalid_socks_proxy_address">Il dato inserito non rispetta la sintassi del proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="http_proxy_address_title">Proxy HTTP(S)</string>
     <!-- Toast after entering invalid http proxy address -->
-    <string name="toast_invalid_http_proxy_address">Il dato inserito viola la sintassi del proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="toast_invalid_http_proxy_address">Il dato inserito non rispetta la sintassi del proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilita questa opzione per avviare e interrompere il servizio inviando dei broadcast, come ad esempio utilizzando app di automazione. Nota: dovrai riavviare il servizio manualmente dopo aver cambiato questa opzione.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vuoi veramente esportare la tua configurazione\? I files esistenti verranno sovrascritti.n
-\nATTENZIONE! Le altre applicazioni potrebbero non essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
+    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti.
+\n
+\nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vuoi realmente importare una nuova configurazione\? I files esistenti verranno sovrascritti.</string>
+    <string name="dialog_confirm_import">Importare una nuova configurazione? I files esistenti verranno sovrascritti.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Config è stata esportata in %1$s</string>
     <string name="config_export_failed">Impossibile esportare la configurazione, controlla il logcat.</string>
@@ -457,14 +458,14 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="st_reset_database_title">Reset del Database</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_question">Questa azione dovrebbe essere eseguita solo sulla base di una raccomandazione del nostro team di supporto.
-\nSei sicuro di voler cancellare il database di Syncthing\?</string>
+\nProcedere con la cancellazione del database di Syncthing?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Reset del database di Syncthing riuscito</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Reimposta gli indici Delta</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_question">Questa azione dovrebbe essere eseguita solo sulla base di una raccomandazione del nostro team di supporto.
-\nSei sicuro di voler cancellare gli indici delta di Syncthing\?</string>
+\nProcedere con la cancellazione degli indici delta di Syncthing?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Ripristinati con successo gli indici delta di Syncthing</string>
     <string name="category_about">Info</string>
@@ -665,7 +666,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="state_sync_waiting">In attesa di Sincronizzazione</string>
     <string name="state_sync_preparing">Preparazione alla Sincronizzazione</string>
     <string name="state_syncing_general">Sincronizzazione</string>
-    <string name="state_syncing">Sincronizzazione (%1$d%%)</string>
+    <string name="state_syncing">Sincronizzazione in corso (%1$d%%)</string>
     <string name="state_error">Errore</string>
     <string name="state_error_message">Errore (%1$s)</string>
     <string name="state_unknown">Sconosciuto</string>
@@ -674,13 +675,13 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="state_unshared">Non condiviso</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Arrestare Syncthing non è possibile quando è abilitato il funzionamento in background.</string>
+    <string name="appconfig_receiver_background_enabled">Non è possibile arrestare Syncthing quando è abilitato il funzionamento in background.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipo di Cartella</string>
     <!-- Displays the current folder type in the folder activity -->
-    <string name="folder_type_sendreceive">Invia &amp; Ricevi</string>
-    <string name="folder_type_sendonly">Invia Soltanto</string>
-    <string name="folder_type_receiveonly">Ricevi solo</string>
+    <string name="folder_type_sendreceive">Invio &amp; Ricezione</string>
+    <string name="folder_type_sendonly">Solo Invio</string>
+    <string name="folder_type_receiveonly">Sola Ricezione</string>
     <string name="folder_type_receive_encrypted">Ricevi crittografato</string>
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La cartella invierà e riceverà cambiamenti con i dispositivi remoti.</string>
