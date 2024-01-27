@@ -512,4 +512,5 @@
     <string name="no_sub_folder_is_selected">Ingen undermapp är vald</string>
     <string name="share_device_id_chooser">Dela enhetens ID med</string>
     <string name="run_on_whitelisted_wifi_summary">Slå på vitlistan för att begränsa att synkronisering sker endast på angivna Wi-Fi-nätverk.</string>
+    <string name="dialog_all_files_access_not_supported">Din enhet stöder inte all filåtkomst</string>
 </resources>

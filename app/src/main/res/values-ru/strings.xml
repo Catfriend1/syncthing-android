@@ -14,7 +14,7 @@
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Доступ к файлам</string>
     <string name="storage_permission_desc">Syncthing требуется доступ к вашим файлам для осуществления синхронизации.</string>
-    <string name="dialog_all_files_access_not_supported">Ваше устройство не поддерживает полный доступ к файлам.</string>
+    <string name="dialog_all_files_access_not_supported">Ваше устройство не поддерживает доступ ко всем файлам</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
     <string name="ignore_doze_permission_os_notice">Известна проблема с Android TV, которая вызывает прекращение работы приложения в фоновом режиме. Решение доступно в вики: %1$s/%2$s.</string>
@@ -38,7 +38,7 @@ Android требует разрешение доступа к геолокаци
     <string name="generic_example">Пример</string>
     <string name="generic_error">Ошибка</string>
     <string name="generic_help">Помощь</string>
-    <string name="grant_permission">Дать доступ</string>
+    <string name="grant_permission">Выдать доступ</string>
     <string name="permission_granted">Доступ предоставлен</string>
     <string name="reason">Причина:</string>
     <string name="accept">Принять</string>
@@ -75,9 +75,9 @@ Android требует разрешение доступа к геолокаци
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Отправить ID устройства</string>
     <string name="usage_reporting_dialog_title">Разрешить отправлять анонимную статистику\?</string>
-    <string name="usage_reporting_dialog_description">Зашифрованный ежедневный отчет отправлен. Используется для отслеживания платформ, размеров папок и версий программы. Если отправляемые данные изменятся, то это диалог появится вновь.
+    <string name="usage_reporting_dialog_description">Зашифрованный отчет об использовании отправляется ежедневно. Используется для отслеживания платформ, размеров папок и версий программы. Если набор собираемых данных изменится, этот диалог появится вновь.
 \n
-\nОбобщенная статистика доступна на https://data.syncthing.net.</string>
+\nОбобщенная статистика доступна всем на https://data.syncthing.net.</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="open_website">Открыть сайт</string>
@@ -117,11 +117,11 @@ Android требует разрешение доступа к геолокаци
     <string name="no_devices_configured">Устройства не заданы.
 \nНачните работу, добавив новое</string>
     <!-- Indicates that a folder is fully synced to the local device -->
-    <string name="device_up_to_date">Обновлено</string>
+    <string name="device_up_to_date">В актуальном состоянии</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Синхронизация (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
-    <string name="device_disconnected">Отсоединено</string>
+    <string name="device_disconnected">Нет соединения</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">Остановлено</string>
     <!-- Indicates that the device connection is unknown -->
@@ -247,7 +247,7 @@ Android требует разрешение доступа к геолокаци
     <string name="open_in_browser">Открыть в браузере</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Настройки</string>
-    <string name="category_run_conditions">Условия выполнения</string>
+    <string name="category_run_conditions">Режимы работы</string>
     <string name="category_user_interface">Интерфейс</string>
     <string name="preference_app_theme_title">Тема</string>
     <string name="category_behaviour">Поведение</string>
@@ -290,11 +290,11 @@ Android требует разрешение доступа к геолокаци
     <string name="listen_address">Адрес Ожидания Протокола Синхронизации</string>
     <string name="max_recv_kbps">Лимит Скачивания (КБ/с)</string>
     <string name="max_send_kbps">Лимит Отдачи (КБ/с)</string>
-    <string name="global_announce_enabled">Глобальное Обнаружение</string>
-    <string name="local_announce_enabled">Локальное Обнаружение</string>
-    <string name="enable_nat_traversal">Включить NAT-T обход</string>
+    <string name="global_announce_enabled">Глобальное обнаружение</string>
+    <string name="local_announce_enabled">Локальное обнаружение</string>
+    <string name="enable_nat_traversal">Использовать обход NAT</string>
     <string name="global_announce_server">Серверы Глобального Обнаружения</string>
-    <string name="enable_relaying">Включить релеи</string>
+    <string name="enable_relaying">Использовать ретрансляторы</string>
     <string name="usage_reporting">Анонимные Отчёты Использования</string>
     <string name="export_config">Экспорт настроек</string>
     <!-- Experimental options -->
@@ -507,4 +507,11 @@ Android требует разрешение доступа к геолокаци
     <string name="browse">Обзор</string>
     <string name="no_sub_folder_is_selected">Подпапка не выбрана</string>
     <string name="share_device_id_chooser">Поделиться ID устройства</string>
+    <string name="run_conditions_summary">Выберите режимы работы Syncthing.</string>
+    <string name="undo_ignored_devices_folders_done">Успешно отменено.</string>
+    <string name="do_not_use_proxy">Прокси не настроены.</string>
+    <string name="power_source_ac_and_battery_power">От сети и батареи.</string>
+    <string name="power_source_ac_power">От сети.</string>
+    <string name="power_source_battery_power">От батареи.</string>
+    <string name="respect_battery_saving_summary">Отключить Syncthing в режиме энергосбережения.</string>
 </resources>

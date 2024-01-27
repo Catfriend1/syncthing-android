@@ -347,7 +347,7 @@ Si prega di segnalare eventuali problemi su Github.</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">È necessario concedere l\'autorizzazione alla LOCALIZZAZIONE per utilizzare questa funzione.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Autorizzazione richiesta</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partire da Android 8.1, è necessario l\'accesso alla posizione per poter leggere il nome del WiFi. È possibile utilizzare questa funzionalità solo se si concede questa autorizzazione.</string>
-    <string name="power_source_title">Esegui quando il dispositivo è alimentato da:</string>
+    <string name="power_source_title">Esegui quando il dispositivo è alimentato da</string>
     <string name="power_source_ac_and_battery_power">Corrente e batteria.</string>
     <string name="power_source_ac_power">Corrente.</string>
     <string name="power_source_battery_power">Batteria.</string>

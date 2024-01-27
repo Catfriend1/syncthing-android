@@ -1,0 +1,1 @@
+Wrapper untuk Syncthing - Sinkronisasi file terbuka dan terdesentralisasi
