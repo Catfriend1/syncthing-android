@@ -4,7 +4,7 @@
     <string name="app_description">O aplicație de sincronizare de fișiere în mod deschis, de încredere și descentralizat.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Bine ați venit la Syncthing pentru Android!</string>
+    <string name="welcome_title">Bine ați venit la Syncthing pentru Android</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducere</string>
@@ -75,9 +75,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Trimite ID-ul dispozitivul prin</string>
     <string name="usage_reporting_dialog_title">Permite trimiterea unui raport de utilizare anonim\?</string>
-    <string name="usage_reporting_dialog_description">Raportul de utilizare este trimis zilnic în mod criptat. Este folosit pentru a urmării platformele comune, mărimile de directoare și versiunile aplicației. Dacă datele raportate se schimbă veți fi întrebat din nou.
+    <string name="usage_reporting_dialog_description">Raportul de utilizare este trimis zilnic în mod criptat. Este folosit pentru a urmări platformele comune, mărimile directoarelor și versiunile aplicației. Dacă datele raportate se schimbă veți fi întrebat din nou.
 \n
-\nStatisticile cumulate sunt disponibile public la https://data.syncthing.net</string>
+\nStatisticile cumulate sunt disponibile public la https://data.syncthing.net.</string>
     <string name="yes">Da</string>
     <string name="no">Nu</string>
     <string name="open_website">Deschide site</string>
@@ -629,7 +629,7 @@
     <string name="state_unshared">Nepartajat</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată</string>
+    <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tip dosar</string>
     <!-- Displays the current folder type in the folder activity -->
@@ -652,7 +652,7 @@
     <string name="pull_order_type_oldestFirst">Cel mai vechi întâi</string>
     <string name="pull_order_type_newestFirst">Cel mai nou întâi</string>
     <!-- Pull order dialog descriptions for pull order types -->
-    <string name="pull_order_type_random_description">Preluare fișiere în ordine aleatoare</string>
+    <string name="pull_order_type_random_description">Preluare fișierelor în ordine aleatoare.</string>
     <string name="pull_order_type_alphabetic_description">Preluare fișiere după nume, în ordine alfabetică.</string>
     <string name="pull_order_type_smallestFirst_description">Preluare fișiere în funcție de mărime. Cele mai mici primele.</string>
     <string name="pull_order_type_largestFirst_description">Preluare fișiere în funcție de mărime. Cele mai mari primele.</string>
@@ -674,8 +674,8 @@
     atunci când sunt înlocuite sau șterse de către Syncthing. Versiunile sunt șterse automat dacă sunt mai vechi decât vârsta maximă sau dacă au depășit numărul de fișiere permise într-un interval.
 \n
 \nUrmătoarele intervale sunt folosite: în prima oră o versiune este păstrată pentru fiecare 30 de secunde, în prima zi o versiune este păstrată pentru fiecare oră, în primele 30 de zile o versiune este păstrată pentru fiecare zi, până la vârsta maximă o versiune este păstrată pentru fiecare săptămână.</string>
-    <string name="maximum_age_description">Intervalul de timp maxim de păstrat o versiune (în zile, setați la 0 pentru a păstra versiunile pentru totdeauna)</string>
-    <string name="versions_path_description">Calea unde versiunile vor fi stocate (lăsați gol pentru a folosi directorul implicit .stversions din directorul partajat)</string>
+    <string name="maximum_age_description">Intervalul de timp maxim de păstrat o versiune (în zile, setați la 0 pentru a păstra versiunile pentru totdeauna).</string>
+    <string name="versions_path_description">Calea unde versiunile vor fi stocate (lăsați gol pentru a folosi directorul implicit .stversions din directorul partajat).</string>
     <string name="cleanout_after_description">Numărul de zile de păstrat fișiere în coșul de gunoi. Zero înseamna pentru totdeauna</string>
     <string name="external_versioning_description">Primul parametru din linia de comandă este calea directorului iar al doilea parametru este calea relativă în director.</string>
     <string name="no_versioning_description">Selectați un tip de păstrare a versiunilor pentru a îl activa.</string>
