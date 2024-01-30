@@ -746,7 +746,7 @@
     <string name="qs_schedule_disabled">Zeitplan deaktiviert</string>
     <string name="webui_username_title">Web UI Benutzername</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Vorsicht: Wenn SyncthingNative unterbrochen wird und etwas Seltsames tut, sind Sie schuld. Überspringen Sie den Vorgang nur, wenn Ihr Gerät die Erteilung der Berechtigung nicht unterstützt. Wirklich überspringen?</string>
-    <string name="autoAcceptFolders">Automatische Annahme</string>
+    <string name="autoAcceptFolders">Automatisch annehmen</string>
     <string name="webui_password_title">Web UI Passwort</string>
     <string name="backup_folder_name">Backup-Ordnername</string>
     <string name="notification_permission_desc">Erforderlich, um Benachrichtigungen über neue Geräteverbindungs- und Ordnerfreigabeanfragen anzuzeigen sowie den Dienst aktiv und verbunden zu halten.</string>
