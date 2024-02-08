@@ -127,12 +127,13 @@ IF NOT EXIST %TEMP_OUTPUT_FOLDER%\ echo [ERROR] TEMP_OUTPUT_FOLDER=[%TEMP_OUTPUT
 IF NOT EXIST %TMP_DSC_SEVENZIP_EXE% echo [ERROR] TMP_DSC_SEVENZIP_EXE=[%TMP_DSC_SEVENZIP_EXE%] not found. & goto :eof
 REM 
 REM Download source code for current build commit as ZIP.
+:packageSourceCodeRetry
 echo [INFO] Downloading source code ZIP from GitHub ...
 curl -s -k -L -o %TMP_DSC_ZIPFILE_FULLFN% "https://github.com/Catfriend1/syncthing-android/archive/%COMMIT_LONG_HASH%.zip"
 IF NOT EXIST %TMP_DSC_ZIPFILE_FULLFN% echo [ERROR] Download source code FAILED #1. & pause & goto :eof
 call :getFileSize %TMP_DSC_ZIPFILE_FULLFN% FILE_SIZE
 IF "%FILE_SIZE%" == "" echo [ERROR] Download source code FAILED #2. & pause & goto :eof
-IF %FILE_SIZE% LSS 23 echo [ERROR] Download source code FAILED #3. & DEL /F %TMP_DSC_ZIPFILE_FULLFN% & pause & goto :eof
+IF %FILE_SIZE% LSS 23 echo [ERROR] Download source code FAILED #3. & DEL /F %TMP_DSC_ZIPFILE_FULLFN% & pause & goto :packageSourceCodeRetry
 REM 
 REM Package built APKs into ZIP.
 echo [INFO] Adding built APKs to source code ZIP ...
