@@ -393,6 +393,12 @@ for target in BUILD_TARGETS:
     })
 
     subprocess.check_call([go_bin, 'mod', 'download'], cwd=syncthing_dir)
+    subprocess.check_call(
+                              [go_bin, 'version'],
+                              env=environ, cwd=syncthing_dir)
+    subprocess.check_call(
+                              [go_bin, 'run', 'build.go', 'version'],
+                              env=environ, cwd=syncthing_dir)
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android',
                               '-goarch', target['goarch'],

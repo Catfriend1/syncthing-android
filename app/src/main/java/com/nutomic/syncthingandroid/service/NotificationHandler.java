@@ -81,9 +81,9 @@ public class NotificationHandler {
             mInfoChannel = new NotificationChannel(
                     CHANNEL_INFO, mContext.getString(R.string.notifications_other_channel),
                     NotificationManager.IMPORTANCE_LOW);
-            mPersistentChannel.enableVibration(false);
-            mPersistentChannel.setSound(null, null);
-            mPersistentChannel.setShowBadge(true);
+            mInfoChannel.enableVibration(false);
+            mInfoChannel.setSound(null, null);
+            mInfoChannel.setShowBadge(true);
             mNotificationManager.createNotificationChannel(mInfoChannel);
         } else {
             mPersistentChannel = null;
