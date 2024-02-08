@@ -1,4 +1,4 @@
-* Syncthing v1.27.2
+* Syncthing v1.27.3
 
 Enhanced
 --
@@ -10,5 +10,4 @@ Fixes
 
 Other
 --
-- Experimental: Make ignore doze permission recommended instead of mandatory (#1058)
-- Thanks to @acolomb we got big improvements in community translation handling :-)
+-
