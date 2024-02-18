@@ -12,9 +12,9 @@
 \n
 \n</string>
     <!-- Slide "Storage Permission" -->
-    <string name="storage_permission_title">Tallennustilan käyttöoikeus</string>
-    <string name="storage_permission_desc">Syncthing tarvitsee pääsyn tallennustilaasi synkronoidakseen.</string>
-    <string name="dialog_all_files_access_not_supported">Laitteesi ei tue pääsyä kaikkiin tiedostoihin</string>
+    <string name="storage_permission_title">Tallennustilan lupa</string>
+    <string name="storage_permission_desc">Syncthing on käytettävä tallennustilaa tiedostojen synkronointia varten.</string>
+    <string name="dialog_all_files_access_not_supported">Laitteesi ei tue kaikkien tiedostojen käyttöä</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Akun käytön optimointi</string>
     <string name="ignore_doze_permission_os_notice">Android TV:t tiedettävästi sulkevat toisinaan sovelluksen, kun se on käynnissä taustalla. Ratkaisu on saatavilla wikissä kohdassa \'%1$s/%2$s.</string>
@@ -36,7 +36,7 @@
     <string name="generic_error">Virhe</string>
     <string name="generic_help">Ohje</string>
     <string name="grant_permission">Myönnä käyttöoikeus</string>
-    <string name="permission_granted">Käyttöoikeus myönnetty</string>
+    <string name="permission_granted">Lupa myönnetty</string>
     <string name="reason">Syy:</string>
     <string name="accept">Hyväksy</string>
     <string name="ignore">Ohita</string>
@@ -80,7 +80,7 @@
     <string name="no">Ei</string>
     <string name="open_website">Avaa verkkosivu</string>
     <string name="toast_write_storage_permission_required">Tämä sovellus vaatii tallennustilan kirjoitusoikeuden</string>
-    <string name="device_rejected">Laite \"%1$s\" haluaa yhdistää</string>
+    <string name="device_rejected">Laite \"%1$s\" haluaa muodostaa yhteyden</string>
     <string name="folder_rejected">Laite \"%1$s\" haluaa jakaa kansion \"%2$s\"</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
@@ -442,4 +442,12 @@
     <string name="browse">Selaa</string>
     <string name="share_device_id_chooser">Jaa laitteen ID</string>
     <string name="custom_sync_conditions_description">Antaa sinun valita poikkeukset globaaleihin käyntiehtoihin</string>
+    <string name="pause_device">Keskeytä laite</string>
+    <string name="folder_type_send_receive">Lähetä ja vastaanota</string>
+    <string name="pull_order_random">satunnainen</string>
+    <string name="pull_order_alphabetic">Aakkosellinen</string>
+    <string name="pull_order_smallest_first">Pienin ensin</string>
+    <string name="pull_order_largest_first">Suurin ensin</string>
+    <string name="pull_order_oldest_first">Vanhin ensin</string>
+    <string name="pull_order_newest_first">Uusin ensin</string>
 </resources>

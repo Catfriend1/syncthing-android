@@ -200,4 +200,5 @@
     <string name="could_not_access_deviceid">Немає доступу до ID пристрою</string>
     <string name="browse">Огляд</string>
     <string name="no_sub_folder_is_selected">Підкаталог не вибрано</string>
+    <string name="dialog_all_files_access_not_supported">Ваш пристрій не підтримує доступ до всіх файлів</string>
 </resources>
