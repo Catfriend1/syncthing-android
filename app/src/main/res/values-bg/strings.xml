@@ -4,7 +4,7 @@
     <string name="app_description">Отворено и заслужаващо доверие приложение за децентрализирано синхронизиране на файлове.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Добре дошли в Syncthing за Android</string>
+    <string name="welcome_title">Добре дошли при Syncthing за Андроид</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Пестене на батерия</string>
     <string name="cont">Напред</string>
@@ -201,7 +201,7 @@
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">Натиснете за рестартиране на Syncthing</string>
     <!-- Shown when a device ID is copied to the clipboard -->
-    <string name="device_id_copied_to_clipboard">Идентификаторът на устройството е копиран в клипборда</string>
+    <string name="device_id_copied_to_clipboard">Идентификаторът на устройството е копиран</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string name="file_size_unit_B">B</string>
     <string name="file_size_unit_KiB">KiB</string>
@@ -222,4 +222,6 @@
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
     <string name="file_versioning">Версии на файловете</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Android 8.1 и по-нов изисква достъп до местоположението, за да бъде прочетен идентификатора на безжичната мрежа. Можете да използвате тази възможност само ако сте предоставили това разрешение.</string>
+    <string name="dialog_all_files_access_not_supported">Устройството не поддържа достъп до всички файлове</string>
 </resources>

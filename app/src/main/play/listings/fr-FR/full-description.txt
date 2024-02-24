@@ -1,7 +1,7 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
+Fork francisé de Syncthing-Android wrapper pour Syncthing qui amène des améliorations majeures comme :
+* Partages, Appareils et vue globale du processus de synchronisation facilement lus depuis le GUI.
+* "Syncthing Camera" - une fonctionnalité optionelle (avec une permission optionnelle pour utiliser l'appareil photo) qui vous permet de prendre des photos avec un ami ou partenaire, ... depuis deux téléphones vers un dossier partagé et privé Syncthing. Donc sans stockkage cloud dans la recette. - FONCTION ACTUELLEMENT EN BETA TEST -
+* "Planning d'exécution" pour économiser encore plus la batterie.
 * Individual sync conditions can be applied per device and per folder
 * Recent changes UI, click to open files.
 * Changes to folder and device config can be made regardless if Syncthing is running or not
@@ -20,19 +20,19 @@ Goals of the fork:
 Comparison between upstream and fork at the time of writing this:
 * Both contain the syncthing binary built from the official source at GitHub
 * Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+* Le fork suit la version officielle et parfois elle adopte mes améliorations.
+* La stratégie et la fréquence de mise à jour sont différentes.
+* Seul le wrapper contenant le GUI Android UI est concerné par le fork.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Site web : https://github.com/Catfriend1/syncthing-android
 
-Code source: https://github.com/Catfriend1/syncthing-android
+Code source : https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Comment Syncthing écrit sur les SD card externes : https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ et articles utiles : https://github.com/Catfriend1/syncthing-android/wiki
 
 Questions: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Merci d'aider à
+La traduction : https://hosted.weblate.org/projects/syncthing/android/catfriend1
