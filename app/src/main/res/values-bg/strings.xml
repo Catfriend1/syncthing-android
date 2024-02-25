@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
-    <string name="app_description">Отворено и заслужаващо доверие приложение за децентрализирано синхронизиране на файлове.</string>
+    <string name="app_description">Отворено и заслужаващо доверие приложение за нецентрализирано синхронизиране на файлове.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Добре дошли при Syncthing за Андроид</string>
@@ -53,7 +53,7 @@
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Качване: "</string>
     <!-- Title for current RAM usage -->
-    <string name="ram_usage">RAM в употреба</string>
+    <string name="ram_usage">Използвана памет</string>
     <!-- Title for announce server status -->
     <string name="announce_server">Сървър за откриване на устройства</string>
     <string name="restart">Рестартиране</string>
@@ -142,13 +142,13 @@
     <string name="enable_relaying">Разрешава препращане</string>
     <string name="usage_reporting"> Анонимен доклад за ползване на програмата</string>
     <string name="export_config">Изнасяне на настройките</string>
-    <string name="use_tor_title">Ползване на Tor</string>
+    <string name="use_tor_title">Ползване на Тор</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени\? Съществуващите файлове ще бъдат презаписани.
 \n
 \nВНИМАНИЕ! Програми могат да извлекат частния ви ключ от генерирания файл, а чрез него да свалят и синхронизират файлове.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Наистина ли желаете внасянето на нови настройки\? Съществуващите файлове ще бъдат презаписани.</string>
+    <string name="dialog_confirm_import">Желаете ли да внесете нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Настройките са изнесени в %1$s</string>
     <string name="import_config">Внасяне на настройки</string>
@@ -156,7 +156,7 @@
     <string name="config_imported_successful">Настройките са внесени</string>
     <string name="config_import_failed">Внасянето на настройките се провали. Уверете се, че файловете са в %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
-    <string name="st_reset_database_title">Нулиране на базата данни</string>
+    <string name="st_reset_database_title">Нулиране на базата от данни</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Базата данни на Syncthing е нулирана успешно</string>
     <string name="category_about">За програмата</string>
@@ -204,12 +204,12 @@
     <string name="device_id_copied_to_clipboard">Идентификаторът на устройството е копиран</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string name="file_size_unit_B">B</string>
-    <string name="file_size_unit_KiB">KiB</string>
+    <string name="file_size_unit_KiB">КБ</string>
     <string name="file_size_unit_MiB">MiB</string>
     <string name="file_size_unit_GiB">GiB</string>
     <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string name="transfer_rate_unit_B_s">B/s</string>
+    <string name="transfer_rate_unit_B_s">Б/с</string>
     <string name="transfer_rate_unit_KiB_s">KiB/s</string>
     <string name="transfer_rate_unit_MiB_s">MiB/s</string>
     <string name="transfer_rate_unit_GiB_s">GiB/s</string>
@@ -224,4 +224,22 @@
     <string name="file_versioning">Версии на файловете</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Android 8.1 и по-нов изисква достъп до местоположението, за да бъде прочетен идентификатора на безжичната мрежа. Можете да използвате тази възможност само ако сте предоставили това разрешение.</string>
     <string name="dialog_all_files_access_not_supported">Устройството не поддържа достъп до всички файлове</string>
+    <string name="override_changes">Налагане на местни промени</string>
+    <string name="status_fragment_title">Състояние</string>
+    <string name="folder_fileWatcher">Наблюдаване за промени</string>
+    <string name="respect_battery_saving_title">Отчитане на пестенето на батерия от Андроид</string>
+    <string name="respect_master_sync_title">Отчитане на синхрането на данни от Андроид</string>
+    <string name="respect_master_sync_summary">Спира Syncthing, когато настройката за автом. синхр. на данни от Андроид е изключена</string>
+    <string name="use_proxy">Свързване през мрежов посредник</string>
+    <string name="do_not_use_proxy">Няма настроен мрежов посредник.</string>
+    <string name="use_tor_summary">Пренасочва целия трафик през мрежата на Тор с цел поверителност. Изисква Orbot. Изключва настройките за мрежов посредник.</string>
+    <string name="toast_invalid_socks_proxy_address">Неприемлив синтаксис за мрежов посредник \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="http_proxy_address_title">Мрежов посредник за HTTP(S)</string>
+    <string name="toast_invalid_http_proxy_address">Неприемлив синтаксис за мрежов посредник \'http://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="power_source_ac_and_battery_power">Батерия или зарядно</string>
+    <string name="power_source_ac_power">Зарядно</string>
+    <string name="power_source_battery_power">Батерия</string>
+    <string name="toast_invalid_environment_variables">Стойността е недействително наименование на променлива на средата.</string>
+    <string name="copy_exception">Грешка при споделяне, проверете дневника на приложението</string>
+    <string name="cleanout_after_description">Броят дни за запазване на файловете в кошчето. Нула значи завинаги.</string>
 </resources>
