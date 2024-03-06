@@ -213,7 +213,7 @@
     <string name="transfer_rate_unit_KiB_s">KiB/s</string>
     <string name="transfer_rate_unit_MiB_s">MiB/s</string>
     <string name="transfer_rate_unit_GiB_s">GiB/s</string>
-    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
     <string name="state_scanning">Сканиране</string>
     <string name="state_syncing">Синхронизиране (%1$d%%)</string>
     <string name="state_error">Грешка</string>
