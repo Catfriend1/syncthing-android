@@ -1,4 +1,4 @@
-* Syncthing v1.27.3
+* Syncthing v1.27.4
 
 Enhanced
 --
