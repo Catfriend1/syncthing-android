@@ -10,7 +10,7 @@
     <string name="introduction">Introdução</string>
     <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus ID\'s exclusivos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos.
 \n
-\nPor favor, relate quaisquer problemas que você encontrar através do Github.</string>
+\nPor favor, relate quaisquer problemas que você encontrar através do GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permissão de Armazenamento</string>
     <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>

@@ -12,7 +12,7 @@
 \n
 \nĐể chia sẻ dữ liệu với các thiết bị khác, bạn cần phải thêm các ID thiết bị độc nhất của chúng vào danh sách thiết bị. Sau đó bạn có thể chọn các thư mục mà bạn muốn chia sẻ với các thiết bị.
 \n
-\nVui lòng báo cáo những vấn đề bạn gặp qua Github.</string>
+\nVui lòng báo cáo những vấn đề bạn gặp qua GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Quyền Bộ nhớ</string>
     <string name="storage_permission_desc">Syncthing cần truy cập bộ nhớ của bạn để đồng bộ hoá tệp.</string>

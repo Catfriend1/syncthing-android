@@ -1,6 +1,6 @@
 ## Reporting Bugs
 
-Please file bugs in the [Github Issue
+Please file bugs in the [GitHub Issue
 Tracker](https://github.com/Catfriend1/syncthing-android/issues). Bugs that
 are not specific to the Syncthing-Fork wrapper should be reported to the
 [upstream project](https://github.com/syncthing/syncthing/issues) instead.

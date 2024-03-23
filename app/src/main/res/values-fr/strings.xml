@@ -10,7 +10,7 @@
     <string name="introduction">Introduction</string>
     <string name="welcome_text">Syncthing est une application de synchronisation de fichiers. Son code source est ouvert. Pour partager des données avec d\'autres appareils, vous devez ajouter leur identifiant unique à la liste des appareils. Ensuite, vous pouvez sélectionner quels répertoires partager avec quels appareils..
 \n
-\nS\'il vous plaît, soumettez les problèmes que vous rencontrez via Github.</string>
+\nS\'il vous plaît, soumettez les problèmes que vous rencontrez via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permission de stockage</string>
     <string name="storage_permission_desc">Syncthing a besoin d’accéder a vos données pour pouvoir synchroniser les fichiers.</string>
@@ -548,7 +548,7 @@
     <string name="preference_app_theme_follow_dark">Sombre</string>
     <string name="run_on_mobile_data_summary">Exécuter quand l\'appareil est connecté au réseau de données mobiles. Attention : ceci peut rapidement consommer un gros volume de données de votre forfait si vous avez beaucoup de données.</string>
     <string name="run_on_roaming_title">Exécuter en itinérance</string>
-    <string name="run_on_roaming_summary">Autoriser l\'utilisation des données mobiles en itinérance (p.ex à l\'étranger). (!) Merci de poster un retour sur Github si ça marche correctement.</string>
+    <string name="run_on_roaming_summary">Autoriser l\'utilisation des données mobiles en itinérance (p.ex à l\'étranger). (!) Merci de poster un retour sur GitHub si ça marche correctement.</string>
     <string name="run_on_wifi_title">Exécuter sur Wi-Fi</string>
     <string name="run_on_wifi_summary">Exécuter sur les réseaux Wi-Fi ou Ethernet.</string>
     <string name="run_on_metered_wifi_title">Exécuter sur les réseaux Wi-Fi avec quota</string>

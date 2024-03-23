@@ -232,7 +232,7 @@
     <string name="introduction">Pendahuluan</string>
     <string name="welcome_text">Syncthing adalah aplikasi sinkronisasi file sumber terbuka. Untuk berbagi data dengan perangkat lain, Anda perlu menambahkan ID perangkat unik ke daftar perangkat. Setelah itu, Anda dapat memilih folder mana yang akan dibagikan dengan perangkat mana.
 \n
-\nSilakan laporkan masalah apa pun yang Anda temui melalui Github.</string>
+\nSilakan laporkan masalah apa pun yang Anda temui melalui GitHub.</string>
     <string name="storage_permission_title">Izin Penyimpanan</string>
     <string name="storage_permission_desc">Syncthing perlu mengakses penyimpanan Anda untuk melakukan sinkronisasi file.</string>
     <string name="dialog_all_files_access_not_supported">Perangkat Anda tidak mendukung semua akses file</string>

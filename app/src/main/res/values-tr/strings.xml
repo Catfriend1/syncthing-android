@@ -233,7 +233,7 @@
     <string name="key_generation_success">Özel veri alışverişi için güvenli anahtarlar başarılı olarak üretildi.</string>
     <string name="welcome_text">Syncthing bir açık kaynaklı dosya eşitleme uygulamasıdır. Diğer cihazlarla veri paylaşmak için onların benzersiz cihaz kimliklerini cihaz listesine eklemeniz gerekir. Daha sonra hangi klasörlerin hangi cihazlarla paylaşılacağını seçebilirsiniz.
 \n
-\nLütfen karşılaştığınız herhangi bir sorunu Github aracılığıyla bildirin.</string>
+\nLütfen karşılaştığınız herhangi bir sorunu GitHub aracılığıyla bildirin.</string>
     <string name="notification_permission_desc">Yeni cihaz bağlantıları, klasör paylaşım istekleri ile ilgili bildirimleri göstermek ve hizmeti canlı ve bağlı tutmak için gereklidir.</string>
     <string name="reason">Sebep:</string>
     <string name="qs_schedule_disabled">Zamanlama etkisizleştirildi</string>

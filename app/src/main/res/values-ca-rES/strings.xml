@@ -10,7 +10,7 @@
     <string name="introduction">Introducció</string>
     <string name="welcome_text">El Syncthing és una aplicació de sincronització de fitxers de codi obert. Per compartir dades amb altres dispositius, cal que afegiu els seus identificadors únics a la llista de dispositius. Un cop fet això podreu triar quines carpetes voleu compartir i amb quins dispositius.
 \n
-\nEns podeu informar dels problemes que trobeu a través de Github.</string>
+\nEns podeu informar dels problemes que trobeu a través de GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permís d\'emmagatzematge</string>
     <string name="storage_permission_desc">El Syncthing necessita accés a l\'emmagatzematge per poder sincronitzar els arxius</string>

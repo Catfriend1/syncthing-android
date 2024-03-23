@@ -10,7 +10,7 @@
     <string name="introduction">Bevezető</string>
     <string name="welcome_text">A Syncthing egy nyílt forráskódú fájlszinkronizáló alkalmazás. Az adatok más eszközökkel való megosztásához hozzá kell adnia azok egyedi eszközazonosítóját az eszközlistához. Ezután kiválaszthatja, hogy melyik mappát melyik eszközzel kívánja megosztani.
 \n
-\nKérjük, hogy a Githubon keresztül jelezzen minden felmerülő problémát.</string>
+\nKérjük, hogy a GitHubon keresztül jelezzen minden felmerülő problémát.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Tárolási engedély</string>
     <string name="storage_permission_desc">A fájlszinkronizáláshoz a Syncthingnek hozzá kell férnie a tárolóhoz.</string>
