@@ -8,7 +8,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">介绍</string>
-    <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要和哪些设备分享哪些文件夹。 
+    <string name="welcome_text">Syncthing 是一个开源的文件同步处理应用程序。若要与其他设备分享数据，你需要添加他们的唯一设备 ID 到设备列表。之后你就可以选择要和哪些设备分享哪些文件夹。
 \n
 \n请通过 GitHub 报告任何你遇到的问题。</string>
     <!-- Slide "Storage Permission" -->
