@@ -1,28 +1,28 @@
 Dies ist ein Fork des Syncthing-Android Wrappers für Syncthing, der die folgenden, größeren Verbesserungen mitbringt:
-* Der Fortschritt der Ordner-, Geräte- und Gesamtsynchronisierung kann problemlos auf der Benutzeroberfläche abgelesen werden.
-* "Syncthing Kamera" - eine optionale Funktion (mit optionaler Berechtigung zur Verwendung der Kamera), mit der Sie zusammen mit Ihrem Freund, Partner, ... Bilder auf zwei Telefonen in einem gemeinsamen und privaten Syncthing-Ordner aufnehmen können. Keine Cloud beteiligt. - FEATURE AKTUELL IN BETA PHASE -
-* "Synchronisiere stündlich", um noch mehr Akku zu sparen
+* Der Fortschritt der Ordner-, Geräte- und Gesamtsynchronisierung kann leicht auf der Benutzeroberfläche abgelesen werden.
+* "Syncthing Kamera" - eine optionale Funktion (mit optionaler Berechtigung zur Verwendung der Kamera), mit deren Hilfe mit Freund/in, Partner/in, ... Bilder auf zwei Telefonen in einem gemeinsamen und privaten Syncthing-Ordner aufgenommen werden können. Keine Cloud beteiligt. - FUNKTION AKTUELL IN BETA PHASE -
+* „Stündlich synchronisieren“, um noch mehr Akku zu sparen
 * Sync-Bedingungen können pro Gerät und pro Ordner individuell angewandt werden.
-* GUI zeigt letzte Änderungen; Klicke zum Öffnen von Dateien.
+* GUI zeigt letzte Änderungen; Klicken zum Öffnen von Dateien.
 * Änderungen an der Ordner- und Gerätekonfiguration können unabhängig davon vorgenommen werden, ob die Synchronisation läuft oder nicht
 * Die Benutzeroberfläche erklärt, warum Syncthing läuft oder schläft.
-* Das "Batteriefresser"-Problem wurde gelöst.
-* Finden Sie andere Syncthing-Geräte im selben Netzwerk und fügen Sie sie ganz einfach hinzu.
-* Unterstützt ab Android 11 die Zwei-Wege-Synchronisation auf externer SD Karte.
+* Das „Batteriefresser“-Problem wurde gelöst.
+* Andere Syncthing-Geräte im selben Netzwerk  finden und diese ganz einfach hinzufügen.
+* Unterstützt ab Android 11 die Zwei-Wege-Synchronisation auf externer SD-Karte.
 
-Syncthing-Fork für Android ist ein Wrapper für Syncthing, der eine Android Bedienoberfläche anstelle der Syncthing-eigenen Weboberfläche anbietet. Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas Offenem, Vertrauenswürdigen und Dezentralem. Deine Daten sind deine Daten und Du allein entscheidest, wo sie gespeichert werden, ob sie mit Dritten geteilt und wie sie über das Netz übertragen werden.
+Syncthing-Fork für Android ist ein Wrapper für Syncthing, der eine Android-Bedienoberfläche anstelle der Syncthing-eigenen Weboberfläche anbietet. Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas Offenem, Vertrauenswürdigen und Dezentralem. Die eigenen Daten bleiben die eigenen Daten und man allein entscheidet, wo sie gespeichert werden, ob sie mit Dritten geteilt und wie sie über das Netz übertragen werden.
 
 Ziele des Forks:
 * Gemeinsam mit der Community Verbesserungen entwickeln und ausprobieren.
-* Der Wrapper erscheint häufiger, um Bugs zu erkennen und zu beheben, die aufgrund von Änderung im Syncthing-Modul auftreten.
-* Verbesserungen in der Benutzeroberfläche einstellbar machen, damit Benutzer in der Lage sind, diese an- und abzuschalten.
+* Veröffentlichung des Wrappers in kürzeren Abständen, um Fehler zu identifizieren und zu beheben, die durch Änderungen im Syncthing-Submodul verursacht wurden.
+* Verbesserungen in der Benutzeroberfläche einstellbar machen, damit Benutzer und Benutzerinnen in der Lage sind, diese an- und abzuschalten.
 
 Upstream und Fork im Vergleich zum Zeitpunkt des Schreibens:
-* Beide enthalten die Synchronisations-Binärdatei, die aus dem offiziellen GitHub Sourcecode erstellt wurde
-* Synchronisations-Funktionalität und -Zuverlässigkeit hängt von der Version des Syncthing-Binärmoduls ab.
+* Beide enthalten die Synchronisations-Binärdatei, die aus dem offiziellen GitHub-Sourcecode erstellt wurde
+* Synchronisationsfunktionalität und -zuverlässigkeit hängt von der Version des Syncthing-Binärmoduls ab.
 * Der Fork arrangiert sich mit dem Upstream und manchmal nimmt er unsere Verbesserungen auf.
 * Strategie und Releasehäufigkeit unterscheidet sich
-* Der Fork kümmert sich nur um den Wrapper, welcher die Android Bedienoberfläche enthält.
+* Der Fork kümmert sich nur um den Wrapper, welcher die Android-Bedienoberfläche enthält.
 
 Webseite: https://github.com/Catfriend1/syncthing-android
 
@@ -32,7 +32,7 @@ Wie Syncthing auf externe SD-Karten schreibt: https://github.com/Catfriend1/sync
 
 Wiki, FAQ und hilfreiche Artikel: https://github.com/Catfriend1/syncthing-android/wiki
 
-Vorgänge: https://github.com/Catfriend1/syncthing-android/issues
+Probleme: https://github.com/Catfriend1/syncthing-android/issues
 
-Bitte hilf mit der
+Bitte mithelfen bei der
 Übersetzung: https://hosted.weblate.org/projects/syncthing/android/catfriend1
