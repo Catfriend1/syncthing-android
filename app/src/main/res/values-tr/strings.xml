@@ -627,11 +627,11 @@
     <string name="versioning_type_external">Harici</string>
     <string name="folder_type_send_only">Yalnızca Gönder</string>
     <string name="folder_type_receive_only">Yalnızca Al</string>
-    <string name="power_source_ac_and_battery_power">Piriz ve pil gücü.</string>
+    <string name="power_source_ac_and_battery_power">Priz ve pil gücü.</string>
     <string name="versioning_type_none">Yok</string>
     <string name="folder_type_send_receive">Gönder ve Al</string>
     <string name="pull_order_largest_first">Önce En Büyük Olan</string>
-    <string name="power_source_ac_power">Piriz gücü.</string>
+    <string name="power_source_ac_power">Priz gücü.</string>
     <string name="versioning_type_simple">Basit</string>
     <string name="pull_order_random">Rastgele</string>
     <string name="pull_order_oldest_first">Önce En Eski Olan</string>
