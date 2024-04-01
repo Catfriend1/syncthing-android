@@ -497,7 +497,7 @@
     </plurals>
     <string name="reason_not_charging">L\'appareil n\'est pas en charge.</string>
     <string name="reason_run_condition_monitor_not_instantiated">Le contrôleur de conditions d\'exécutions n\'est pas démarré. Merci de redémarrer l\'application et de signaler un bug si l\'erreur ne disparaît pas après le redémarrage.</string>
-    <string name="syncthing_disabled">Syncthing pionce</string>
+    <string name="syncthing_disabled">Syncthing est en veille</string>
     <string name="config_file_missing">Un fichier de configuration crucial est manquant</string>
     <string name="webui_tcp_port_unavailable">Le port TCP %s du GUI est déjà réservé. Est-ce une seconde instance ?</string>
     <string name="notification_out_of_disk_space">SDcard pleine. Fichier %1$s</string>
