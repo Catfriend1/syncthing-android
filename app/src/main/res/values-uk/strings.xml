@@ -40,7 +40,7 @@
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Відправка: "</string>
     <!-- Title for current RAM usage -->
-    <string name="ram_usage">Використання RAM</string>
+    <string name="ram_usage">Використання пам\'яті</string>
     <string name="restart">Перезапуск</string>
     <string name="dialog_confirm_restart">Бажаєте перезапустити Syncthing\?</string>
     <!-- FolderActivity -->
@@ -114,7 +114,7 @@
     <string name="device_name">Назва пристрою</string>
     <string name="max_recv_kbps">Обмеження вхідної смуги пропускання (KiB/s)</string>
     <string name="max_send_kbps">Обмеження вихідної смуги пропускання (KiB/s)</string>
-    <string name="global_announce_enabled">Взаємний пошук через публічні сервери</string>
+    <string name="global_announce_enabled">Глобальний пошук</string>
     <string name="local_announce_enabled">Взаємний пошук в локальній мережі</string>
     <string name="enable_nat_traversal">Дозволити NAT Traversal</string>
     <string name="global_announce_server">Публічні сервери координації NAT</string>
@@ -124,7 +124,7 @@
     <string name="keep_wakelock_while_binary_running">Перешкоджати режиму сну під час роботи Syncthing </string>
     <string name="use_tor_title">Використовувати Tor</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Дійсно бажаєте імпортувати нову конфігурацію\? Існуючі файли будуть перезаписані</string>
+    <string name="dialog_confirm_import">Ви справді бажаєте імпортувати нові налаштування? Існуючі файли буде перезаписано.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful">Налаштування експортовано в %1$s</string>
     <string name="import_config">Імпортувати налаштування</string>
@@ -194,11 +194,24 @@
     <string name="versions_path">Шлях до версій</string>
     <string name="command">Команда</string>
     <!-- File versioning dialog descriptions for file versioning types and file versioning configuration options. -->
-    <string name="keep_versions_description">Кількість попередніх версій до збереження, на кожен файл</string>
+    <string name="keep_versions_description">Кількість попередніх версій для збереження, для кожного файлу.</string>
     <string name="show_device_id">Показати ID пристрою</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Немає доступу до ID пристрою</string>
     <string name="browse">Огляд</string>
     <string name="no_sub_folder_is_selected">Підкаталог не вибрано</string>
     <string name="dialog_all_files_access_not_supported">Ваш пристрій не підтримує доступ до всіх файлів</string>
+    <string name="syncthing_not_running">Syncthing не запущено.</string>
+    <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="default_folder_id">%1$s-photos</string>
+    <string name="status_fragment_title">Стан</string>
+    <string name="power_source_ac_and_battery_power">Живлення від мережі та батареї.</string>
+    <string name="power_source_battery_power">Живлення від батареї.</string>
+    <string name="power_source_ac_power">Живлення від мережі.</string>
+    <string name="copy_exception">Під час надання доступу сталася помилка, деталі шукайте у журналі додатку</string>
+    <string name="cleanout_after_description">Кількість днів, протягом яких видалені файли залишатимуться у Кошику. Нуль означає завжди</string>
+    <string name="app_description">Відкритий, надійний додаток для децентралізованої синхронізації файлів.</string>
+    <string name="config_import_failed">Не вдалося імпортувати налаштування. Переконайтеся, що файли знаходяться у %1$s</string>
+    <string name="override_changes">Перезапиши зміни</string>
+    <string name="folder_fileWatcher">Відстежувати зміни</string>
 </resources>
