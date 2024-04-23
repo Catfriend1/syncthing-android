@@ -18,7 +18,7 @@
     <string name="ignore_doze_permission_title">Optimisation de la batterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV\'s est connu pour fermer occasionnellement l\'appli quand elle tourne en arrière plan. Une solution est disponible sur le wiki : \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps. Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches. Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permission de localisation</string>
     <!-- Slide "Key Generation" -->
@@ -46,11 +46,11 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="open_website">Ouvrir le site WEB</string>
-    <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application.</string>
+    <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes.</string>
+    <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Partages</string>
     <!-- Shown if no folders exist -->
@@ -81,9 +81,9 @@
     <string name="upload_title">Emission</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">"Réception: "</string>
+    <string name="download_title_colon">"Réception : "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">"Émission: "</string>
+    <string name="upload_title_colon">"Émission : "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilisation de la RAM</string>
     <!-- Title for announce server status -->
@@ -155,7 +155,7 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanner un QR Code</string>
     <!-- Toast show if we could not get root permissions -->
-    <string name="toast_root_denied">Échec d\'obtention des droits root (superviseur).</string>
+    <string name="toast_root_denied">Échec d\'obtention des droits root (superviseur)</string>
     <!-- WebGuiActivity -->
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interface WEB</string>
@@ -169,7 +169,7 @@
     <string name="category_experimental">Expérimental</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Conditions d\'exécution</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le WiFi pour sélectionner un réseau</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le Wi-Fi pour sélectionner un réseau.</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Vous devez accorder la permission LOCALISATION pour utiliser cette fonctionnalité.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission requise</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">À partir d\'Android 8.1, l\'accès à la localisation est nécessaire pour pouvoir lire le nom du WiFi. Vous pouvez utiliser cette fonctionnalité uniquement si vous accordez cette autorisation.</string>
@@ -180,7 +180,7 @@
     <string name="pref_language_default">Langue par défaut</string>
     <string name="versioning_type_none">Aucun</string>
     <string name="versioning_type_trashcan">Corbeille</string>
-    <string name="versioning_type_simple">Simple</string>
+    <string name="versioning_type_simple">Suivi simplifié</string>
     <string name="versioning_type_staggered">Décalé</string>
     <string name="versioning_type_external">Externe</string>
     <string name="device_name">Nom de l\'appareil</string>
@@ -198,16 +198,16 @@
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">La valeur entrée ne convient pas. SVP, entrez une valeur comprise entre %1$det %2$d.</string>
     <!-- Experimental options -->
     <string name="use_proxy">Se connecter via un proxy</string>
-    <string name="do_not_use_proxy">Aucun proxy configuré</string>
-    <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
+    <string name="do_not_use_proxy">Aucun proxy configuré.</string>
+    <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne</string>
     <string name="use_tor_title">Utiliser Tor</string>
     <string name="use_tor_summary">Forcer tout le trafic à travers Tor mieux préserver sa vie privée. Nécessite Orbot. Désactive les options de proxy.</string>
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
     <!-- Toast after entering invalid socks proxy address -->
-    <string name="toast_invalid_socks_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="toast_invalid_socks_proxy_address">L\'entrée ne respecte pas la syntaxe du mandataire \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="http_proxy_address_title">Proxy HTTP(S)</string>
     <!-- Toast after entering invalid http proxy address -->
-    <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du mandataire \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.
 \n
@@ -309,8 +309,8 @@
     <string name="exit">Quitter</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing fonctionne</string>
-    <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
-    <string name="config_create_failed">Echec de création du fichier de configuration</string>
+    <string name="syncthing_terminated">Syncthing est arrêté</string>
+    <string name="config_create_failed">Échec de création du fichier de configuration.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Caméra</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -364,23 +364,23 @@
     <string name="trashcan_versioning_description">Les fichiers sont déplacés vers le répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
     <string name="staggered_versioning_description">Les fichiers sont transférés, avec ajout de la date de version, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing. Les versions sont automatiquement supprimées si elles sont antérieures à l\'ancienneté maximum ou dépassent le nombre de fichiers autorisés dans un intervalle.
 \n
-\nLes intervalles suivants sont utilisés: pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
-    <string name="maximum_age_description">Durée maximum de conservation des versions (en jour, mettre 0 pour conserver sans limite)</string>
+\nLes intervalles suivants sont utilisés : pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
+    <string name="maximum_age_description">Durée maximum de conservation des versions (en jour, mettre 0 pour conserver sans limite).</string>
     <string name="versions_path_description">Emplacement où les versions seront stockées (laisser vide pour utiliser le répertoire par défaut .stversions dans le partage).</string>
-    <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité.</string>
+    <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité</string>
     <string name="external_versioning_description">Le premier paramètre de ligne de commande est le chemin du répertoire partagé, et le second est le chemin relatif dans le répertoire.</string>
     <string name="no_versioning_description">Choisir un type d\'archivage pour activer l\'archivage.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
-    <string name="type_simple">Type: Simple</string>
-    <string name="type_trashcan">Type: Corbeille</string>
-    <string name="type_staggered">Type: Décalé</string>
-    <string name="type_external">Type: Externe</string>
+    <string name="type_simple">Type : Suivi simple</string>
+    <string name="type_trashcan">Type : Corbeille</string>
+    <string name="type_staggered">Type : Échelonné</string>
+    <string name="type_external">Type : Externe</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
-    <string name="trashcan_versioning_info">Nettoyer après: %1$s</string>
-    <string name="staggered_versioning_info">Age maximum: %1$d
-\nEmplacement des versions: %2$s</string>
-    <string name="external_versioning_info">Commande: %1$s</string>
-    <string name="simple_versioning_info">Versions à conserver: %1$s</string>
+    <string name="trashcan_versioning_info">Nettoyer après : %1$s</string>
+    <string name="staggered_versioning_info">Age maximum : %1$d
+\nEmplacement des versions : %2$s</string>
+    <string name="external_versioning_info">Commande : %1$s</string>
+    <string name="simple_versioning_info">Versions à conserver : %1$s</string>
     <string name="show_device_id">Afficher l\'ID de l\'appareil</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Impossible d\'accéder à l\'ID de l\'appareil.</string>
