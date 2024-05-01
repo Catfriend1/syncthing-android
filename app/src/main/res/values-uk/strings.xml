@@ -214,4 +214,5 @@
     <string name="config_import_failed">Не вдалося імпортувати налаштування. Переконайтеся, що файли знаходяться у %1$s</string>
     <string name="override_changes">Перезапиши зміни</string>
     <string name="folder_fileWatcher">Відстежувати зміни</string>
+    <string name="app_name">Syncthing-Fork</string>
 </resources>
