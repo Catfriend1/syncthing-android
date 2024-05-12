@@ -138,7 +138,7 @@
         </activity>
         <activity
             android:name=".activities.LogActivity"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".activities.SettingsActivity">
             <intent-filter>
                 <action android:name=".activities.LogActivity" />
