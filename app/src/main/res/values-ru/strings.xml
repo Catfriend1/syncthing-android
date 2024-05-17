@@ -514,4 +514,6 @@ Android требует разрешение доступа к геолокаци
     <string name="power_source_ac_power">От сети.</string>
     <string name="power_source_battery_power">От батареи.</string>
     <string name="respect_battery_saving_summary">Отключить Syncthing в режиме энергосбережения.</string>
+    <string name="photo_shoot_take_picture_failure">Не удалось получить изображение или вы отменили его получение.</string>
+    <string name="photo_shoot_take_picture_success">Изображение успешно сохранено в папку Камеры Syncthing.</string>
 </resources>
