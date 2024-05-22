@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
-    <string name="app_description">공개되어 믿을 수 있는, 분산 파일 동기화 응용 프로그램.</string>
+    <string name="app_description">개방적이고 신뢰할 수 있는 분산형 파일 동기화 응용프로그램.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Android용 Syncthing에 어서오세요</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">배터리 최적화</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">기기가 배터리 최적화 비활성화를 지원하지 않습니다.</string>
-    <string name="cont">계속</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">사용자의 기기는 배터리 최적화를 비활성화하는 것을 지원하지 않습니다</string>
+    <string name="cont">계속하기</string>
     <string name="finish">완료</string>
     <string name="generic_error">오류</string>
     <!-- Title of the "add folder" menu action -->
@@ -317,4 +317,51 @@
     <string name="browse">탐색</string>
     <string name="no_sub_folder_is_selected">하위 폴더가 선택되지 않았습니다</string>
     <string name="share_device_id_chooser">기기 ID 공유</string>
+    <string name="notification_permission_title">알림 권한</string>
+    <string name="photo_shoot_launcher_title">카메라 동기화</string>
+    <string name="toast_notification_permission_required">Syncthing이 활성화되고 연결된 상태를 유지하려면 알림 권한이 필요합니다.</string>
+    <string name="refresh">새로고침</string>
+    <string name="photo_shoot_activity_title">Syncthing-Fork 카메라</string>
+    <string name="photo_shoot_intro_welcome_title">Syncthing 카메라에 오신것을 환영합니다</string>
+    <string name="photo_shoot_intro_permission_title">요구되는 권한</string>
+    <string name="photo_shoot_intro_no_camera">죄송합니다, 이 기기에는 카메라가 없습니다.</string>
+    <string name="photo_shoot_intro_missing_permissions">계속하려면 저장소 및 카메라 권한이 필요합니다.</string>
+    <string name="grant_storage_permission">저장소 권한 부여</string>
+    <string name="grant_camera_permission">카메라 권한 부여</string>
+    <string name="photo_shoot_take_picture_success">사진이 Syncthing 카메라 폴더에 성공적으로 저장되었습니다.</string>
+    <string name="photo_shoot_take_picture_failure">사진 촬영에 실패했거나 사용자가 사진 촬영을 취소했습니다.</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing 카메라</string>
+    <string name="close_main_menu">메인 메뉴 닫기</string>
+    <string name="exception_known_bug_notice">아직 해결되지 않은 노운 버그가 발생했습니다. 자세한 내용은 %1$s/%2$s를 참조해주세요. 이전에 발생한 상황에 대해 정확한 설명을 남겨주세요.</string>
+    <string name="dialog_exit_while_running_as_service_title">앱을 종료하려면 확인하세요</string>
+    <string name="notification_permission_desc">해당 권한은 새 기기 연결 및 폴더 공유 요청 알림을 표시하고, 서비스가 활성화되고 연결된 상태를 유지하기 위해 필요합니다.</string>
+    <string name="activity_main_bottom_navigation_rescan_all">전체 재검색</string>
+    <string name="introduction">소개</string>
+    <string name="storage_permission_desc">Syncthing이 파일 동기화를 하기 위해서는 사용자의 저장소에 접근해야 합니다.</string>
+    <string name="dialog_all_files_access_not_supported">사용자의 장치는 모든 파일에 대한 접근을 지원하지 않습니다</string>
+    <string name="ignore_doze_permission_os_notice">Android TV는 백그라운드에서 응용 프로그램이 실행 중일 때 가끔 응용 프로그램을 종료하는 것으로 알려져 있습니다. 해당 문제의 해결 방법은 위키의 \'%1$s/%2$s\'에서 확인할 수 있습니다.</string>
+    <string name="toast_ignore_doze_permission_required">이 응용 프로그램은 \'doze\' 절전 모드에서 예외로 설정되어야만 안정적으로 작동합니다.</string>
+    <string name="location_permission_title">위치 권한</string>
+    <string name="location_permission_desc_api_29">Android 10 버전 이상 팁: \"항상 허용\"</string>
+    <string name="key_generation_title">키 생성</string>
+    <string name="key_generation_success">개인 데이터 교환을 위한 보안 키가 성공적으로 생성되었습니다.</string>
+    <string name="back">뒤로</string>
+    <string name="generic_example">예시</string>
+    <string name="grant_permission">권한 부여</string>
+    <string name="permission_granted">권한이 부여됨</string>
+    <string name="reason">이유:</string>
+    <string name="accept">허용</string>
+    <string name="ignore">무시</string>
+    <string name="page_x_of_y">%2$s의 %1$s페이지</string>
+    <string name="main_menu">메인 메뉴</string>
+    <string name="generic_help">도움말</string>
+    <string name="open_main_menu">메인 메뉴 열기</string>
+    <string name="welcome_text">Syncthing은 오픈 소스 파일 동기화 응용 프로그램입니다. 다른 기기와 데이터를 공유하려면 기기 목록에 고유한 기기 ID를 추가해야 합니다. 그런 다음 어떤 폴더를 어떤 기기와 공유할지 선택할 수 있습니다.
+\n
+\n문제가 발생하면 GitHub를 통해 알려주시기 바랍니다.</string>
+    <string name="storage_permission_title">저장소 권한</string>
+    <string name="ignore_doze_permission_desc">Android에서는 일정 시간이 지나면 동기화가 중지될 수 있습니다. 이를 방지하려면 배터리 최적화 옵션을 끄시기 바랍니다. 일부 기기에는 사전 설치된 추가적인 작업 종료 응용 프로그램이 있습니다. Syncthing을 정상적으로 작동하게 하기 위해서는 해당 응용프로그램의 화이트리스트에 Syncthing을 추가해야 합니다.</string>
+    <string name="location_permission_desc">Syncthing은 선택한 Wi-Fi 네트워크에서 작동하도록 구성할 수 있습니다. Android에서는 활성화된 Wi-Fi 네트워크 이름을 읽기 위해 응용 프로그램에 위치 권한이 필요합니다. 이 기능을 사용하려면 위의 버튼을 누르십시오. 이 단계를 건너뛸 수 있습니다. 자세한 내용은 개인정보 처리방침을 참고하세요.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">주의: SyncthingNative가 중단되어 오동작이 발생하면 하면 책임은 사용자에게 있습니다. 기기가 권한 부여를 지원하지 않는 경우에만 건너뛰십시오. 정말 건너뛰겠습니까?</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing 카메라가 사진을 촬영하고 이를 기기에 저장하려면 사용자의 동의가 필요합니다. 이 기능은 선택 사항입니다. 사용하려면 권한을 부여하고 \'계속\'을 누르십시오. 나중에 다른 Syncthing 기기와 공유할 수 있는 Syncthing 카메라 폴더를 설정해드립니다.</string>
 </resources>
