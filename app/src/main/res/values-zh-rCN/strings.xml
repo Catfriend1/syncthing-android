@@ -329,7 +329,7 @@
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">运行条件</string>
     <string name="run_conditions_summary">下方选项将控制 Syncthing 何时运行。</string>
-    <string name="run_on_mobile_data_title">移动数据时运行</string>
+    <string name="run_on_mobile_data_title">允许用移动数据运行</string>
     <string name="run_on_mobile_data_summary">当设备通过移动数据网络连接时运行。警告:如果您同步大量数据，这可能会消耗您的移动运营商数据计划中的大量数据。</string>
     <string name="run_on_roaming_title">漫游时运行</string>
     <string name="run_on_roaming_summary">漫游时允许Syncthing使用移动数据。(!)请向GitHub反馈此功能是否工作正常。</string>
