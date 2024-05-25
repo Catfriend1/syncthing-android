@@ -18,13 +18,13 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">다음으로 기기 ID 보내기</string>
     <string name="usage_reporting_dialog_title">익명 사용 보고서 전송을 허용하시겠습니까\?</string>
-    <string name="usage_reporting_dialog_description">암호화된 사용 리포트를 매일 보냅니다. 이것은 일반적 플랫폼, 폴더 크기, 앱의 버전을 추적하는데 사용됩니다. 보고된 데이터 설정이 변경된 경우 이 대화 상자가 다시 표시됩니다.
+    <string name="usage_reporting_dialog_description">암호화된 사용량 보고서가 매일 전송됩니다. 이 보고서는 일반적인 플랫폼, 폴더 크기 및 응용 프로그램 버전을 추적하는 데 사용됩니다. 보고된 데이터 셋이 변경되면 이 대화 상자가 다시 표시됩니다.
 \n
-\n수집된 통계는 https://data.syncthing.net에서 공개되고 있습니다.</string>
+\n수집된 통계는 https://data.syncthing.net에서 공개적으로 이용할 수 있습니다.</string>
     <string name="yes">예</string>
     <string name="no">아니오</string>
     <string name="open_website">웹사이트 열기</string>
-    <string name="toast_write_storage_permission_required">스토리지 쓰기 권한이 필요합니다</string>
+    <string name="toast_write_storage_permission_required">저장소 쓰기 권한이 필요합니다</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
@@ -333,7 +333,7 @@
     <string name="default_syncthing_camera_folder_label">Syncthing 카메라</string>
     <string name="close_main_menu">메인 메뉴 닫기</string>
     <string name="exception_known_bug_notice">아직 해결되지 않은 노운 버그가 발생했습니다. 자세한 내용은 %1$s/%2$s를 참조해주세요. 이전에 발생한 상황에 대해 정확한 설명을 남겨주세요.</string>
-    <string name="dialog_exit_while_running_as_service_title">앱을 종료하려면 확인하세요</string>
+    <string name="dialog_exit_while_running_as_service_title">응용 프로그램을 종료하려면 확인하세요</string>
     <string name="notification_permission_desc">해당 권한은 새 기기 연결 및 폴더 공유 요청 알림을 표시하고, 서비스가 활성화되고 연결된 상태를 유지하기 위해 필요합니다.</string>
     <string name="activity_main_bottom_navigation_rescan_all">전체 재검색</string>
     <string name="introduction">소개</string>
@@ -364,4 +364,39 @@
     <string name="location_permission_desc">Syncthing은 선택한 Wi-Fi 네트워크에서 작동하도록 구성할 수 있습니다. Android에서는 활성화된 Wi-Fi 네트워크 이름을 읽기 위해 응용 프로그램에 위치 권한이 필요합니다. 이 기능을 사용하려면 위의 버튼을 누르십시오. 이 단계를 건너뛸 수 있습니다. 자세한 내용은 개인정보 처리방침을 참고하세요.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">주의: SyncthingNative가 중단되어 오동작이 발생하면 하면 책임은 사용자에게 있습니다. 기기가 권한 부여를 지원하지 않는 경우에만 건너뛰십시오. 정말 건너뛰겠습니까?</string>
     <string name="photo_shoot_intro_permission_desc">Syncthing 카메라가 사진을 촬영하고 이를 기기에 저장하려면 사용자의 동의가 필요합니다. 이 기능은 선택 사항입니다. 사용하려면 권한을 부여하고 \'계속\'을 누르십시오. 나중에 다른 Syncthing 기기와 공유할 수 있는 Syncthing 카메라 폴더를 설정해드립니다.</string>
+    <string name="revert_local_changes_question">이 작업은 이 기기의 해당 폴더 내에서 이루어진 모든 변경 사항을 취소합니다. 진행하시겠습니까?</string>
+    <string name="open_file_manager">파일 관리자 실행</string>
+    <string name="open_file_with">다음 프로그램으로 파일 열기</string>
+    <string name="open_file_no_compatible_app">파일을 열 수 있는 응용 프로그램을 찾을 수 없습니다.</string>
+    <string name="suggest_file_manager_app_dialog_title">호환되는 파일 관리자 응용 프로그램을 찾을 수 없습니다</string>
+    <string name="suggest_file_manager_app_dialog_text">오픈 소스 파일 관리자 앱 \'Material Files\'를 설치하는 것을 권장합니다. 앱 스토어 페이지를 여시겠습니까?</string>
+    <string name="no_devices_configured">설정된 기기가 없습니다.
+\n지금 기기를 추가하여 시작하세요.</string>
+    <string name="device_paused">일시정지</string>
+    <string name="device_last_seen_never">절대로</string>
+    <string name="shared_folders_title_colon">"폴더목록: "</string>
+    <string name="button_follow_run_conditions">실행 조건을 따라주세요</string>
+    <string name="button_force_stop">강제 중지
+\n실행 조건 무시</string>
+    <string name="button_force_start">강제 시작
+\n실행 조건 무시</string>
+    <string name="syncthing_not_running">Syncthing이 실행중이 아닙니다.</string>
+    <string name="syncthing_has_crashed">Syncthing이 중단되었습니다.</string>
+    <string name="uptime">가동 시간</string>
+    <string name="advanced_directory_selection">고급 디렉토리 선택</string>
+    <string name="status_fragment_title">상태</string>
+    <string name="override_changes">변경 사항 덮어쓰기</string>
+    <string name="folder_fileWatcher">변경 사항 확인</string>
+    <string name="folder_rejected">기기 \"%1$s\"가 폴더 \"%2$s\"를 공유하려고 합니다</string>
+    <string name="device_rejected">기기 \"%1$s\"가 연결을 요청합니다</string>
+    <string name="revert_local_changes">로컬 변경 사항 되돌리기</string>
+    <string name="delete_unexpected_items">예상치 못한 항목 삭제</string>
+    <string name="device_syncing_percent_bytes">동기화 중 (%1$d%%, %2$s)</string>
+    <string name="device_disconnected_not_synced">연결 끊김 (%1$s 대기 중)</string>
+    <string name="device_state_unused">사용되지 않음</string>
+    <string name="device_last_seen">마지막으로 본 시간 : %1$s</string>
+    <string name="syncthing_starting">Syncthing이 시작 중입니다.</string>
+    <string name="syncthing_running">Syncthing이 실행중입니다.</string>
+    <string name="deviceEncryptionPasswordHint">신뢰할 수 없는 경우, 암호화 비밀번호를 입력하세요</string>
+    <string name="override_changes_question">이 작업은 이 폴더를 공유하는 다른 기기에서 이루어진 모든 변경 사항을 취소합니다. 진행하시겠습니까?</string>
 </resources>
