@@ -399,4 +399,56 @@
     <string name="syncthing_running">Syncthing이 실행중입니다.</string>
     <string name="deviceEncryptionPasswordHint">신뢰할 수 없는 경우, 암호화 비밀번호를 입력하세요</string>
     <string name="override_changes_question">이 작업은 이 폴더를 공유하는 다른 기기에서 이루어진 모든 변경 사항을 취소합니다. 진행하시겠습니까?</string>
+    <string name="folder_pause">폴더 일시 정지</string>
+    <string name="autoAcceptFolders">자동 수락</string>
+    <string name="pause_device">기기 일시정지</string>
+    <string name="untrusted_device">신뢰할 수 없는 기기</string>
+    <string name="device_id_invalid">기기 ID 형식이 올바르지 않습니다. 올바른 ID를 재입력하세요.</string>
+    <string name="device_name_required">기기 이름은 비워둘 수 없습니다</string>
+    <string name="device_addresses_invalid">기기 주소 형식이 올바르지 않습니다. 다시 시도해 주세요. 자세한 내용은 Syncthing 문서를 참조하세요.</string>
+    <string name="tip_phone_ip_address_syntax">휴대폰 IP 주소</string>
+    <string name="tip_huawei_device_disconnected_text">데스크탑에서 Huawei 기기가 계속해서 연결이 끊어졌다고 보고되면, 데스크탑의 Syncthing UI를 엽니다. \'원격 기기\'로 이동하여 휴대폰 항목을 확장하고, \'편집\'을 클릭한 다음 \'고급\'으로 전환합니다. \'주소\'에 휴대폰 IP 주소를 다음과 같이 입력하세요:
+\ntcp4://%1$s, dynamic
+\nHuawei P10에서 작동 확인됨</string>
+    <string name="tip_xiaomi_autostart_title">Xiaomi: 부팅 시 앱이 시작되지 않음</string>
+    <string name="web_page_loading">웹페이지 로딩중:
+\n%1$s …</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI는 기본적으로 앱이 자동으로 시작되는 것을 허용하지 않습니다. 홈 화면에서 \'설정\' &gt; \'권한\' &gt; \'자동 시작\'으로 이동하여 \'Syncthing-Fork\' 슬라이더를 활성화하세요.</string>
+    <string name="open_in_browser">브라우저에서 열기</string>
+    <string name="category_user_interface">사용자 인터페이스</string>
+    <string name="preference_app_theme_title">테마</string>
+    <string name="preference_app_theme_follow_system">운영 체제에 따름</string>
+    <string name="preference_app_theme_follow_light">밝은 색</string>
+    <string name="category_syncthing_options_summary">이 메뉴는 Syncthing이 실행 중일 때만 사용할 수 있습니다.</string>
+    <string name="category_backup">가져오기 및 내보내기</string>
+    <string name="category_debug">문제 해결</string>
+    <string name="run_conditions_summary">Syncthing을 언제 실행할 지 결정하려면 다음 옵션을 사용하세요.</string>
+    <string name="run_on_mobile_data_title">모바일 데이터 사용 시 작동</string>
+    <string name="run_on_mobile_data_summary">기기가 모바일 데이터 네트워크에 연결되어 있을 때 실행합니다. 경고: 많은 양의 데이터를 동기화할 경우, 모바일 데이터 요금제에서 많은 데이터를 소비할 수 있습니다.</string>
+    <string name="run_on_roaming_summary">Syncthing이 로밍 중에 모바일 데이터를 사용하도록 허용합니다. (!) 이 기능이 정상적으로 작동하면 GitHub에 피드백을 남겨주세요.</string>
+    <string name="run_on_wifi_title">와이파이에서 실행</string>
+    <string name="run_on_wifi_summary">기기가 Wi-Fi 또는 이더넷 네트워크에 연결되었을 때 실행합니다.</string>
+    <string name="run_on_metered_wifi_title">미터 와이파이에서 실행</string>
+    <string name="local_discovery_disabled">\'설정\' &gt; \'Syncthing 옵션\' &gt; \'로컬 검색\'에서 로컬 검색을 비활성화했습니다. 로컬 네트워크에서 기기를 검색하려면 이를 활성화하십시오.</string>
+    <string name="untrusted_device_explanation">이 기기와 공유된 모든 폴더는 비밀번호로 보호되어야 하며, 제공된 비밀번호 없이는 모든 전송된 데이터를 읽을 수 없습니다.</string>
+    <string name="tip_huawei_device_disconnected_title">Huawei: \'기기 연결 끊김\' 문제 해결 방법</string>
+    <string name="folder_fileWatcherDescription">운영 체제에 파일 변경 사항을 알리도록 요청합니다. 이 기능이 비활성화되면 매시간 주기적인 스캔을 수행합니다.</string>
+    <string name="folder_ignore_delete_caption">삭제 요청 무시</string>
+    <string name="folder_ignore_delete_description">수신 인덱스 업데이트 처리를 관리하는 전문가용 옵션입니다. 이 옵션을 설정하면 삭제 플래그가 설정된 수신 업데이트가 무시됩니다. 자세한 내용은 https://docs.syncthing.net/advanced/folder-ignoredelete.html을 참조하세요</string>
+    <string name="folders">폴더 목록</string>
+    <string name="install_barcode_scanner_app_message">이 기능을 사용하려면 바코드 스캐너 응용 프로그램이 필요합니다. F-Droid에서 \'Binary Eye\' 앱을 설치하시겠습니까?</string>
+    <string name="preference_app_theme_follow_dark">어두운 색</string>
+    <string name="run_on_metered_wifi_summary">기기가 미터 와이파이 네트워크(예: 핫스팟 또는 테더링 네트워크)에 연결되었을 때 실행합니다. 주의: 많은 양의 데이터를 동기화할 경우 데이터 요금제의 상당 부분을 소모할 수 있습니다.</string>
+    <string name="folder_label_required">폴더 라벨 항목은 빈칸으로 둘 수 없습니다</string>
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: 앱이 반복적으로 초기 화면을 표시함</string>
+    <string name="no_recent_changes">최근 변경된 사항이 없습니다.</string>
+    <string name="recent_changes_title">최근 변경사항</string>
+    <string name="modified_by_device">기기: %1$s</string>
+    <string name="modification_time">시간: %1$s</string>
+    <string name="this_device">이 기기</string>
+    <string name="security_notice">보안 공지사항</string>
+    <string name="ssl_cert_invalid_text">%1$s의 웹사이트에 SSL 암호화를 위한 유효하지 않은 인증서가 있는 것 같습니다. 계속하시겠습니까?</string>
+    <string name="run_on_roaming_title">로밍 중에 실행</string>
+    <string name="devices_list_empty">설정된 기기가 없습니다. 새 기기를 추가하려면 탭하세요.</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI의 배터리 절약 시스템 앱은 기기가 재부팅될 때 앱의 \'배터리 최적화 무시\' 권한을 취소합니다. 이로 인해 앱이 초기 화면을 표시하고 누락된 필수 권한을 다시 요청하게 됩니다. 해결 방법: 홈 화면에서 앱 서랍을 엽니다 &gt; \'Syncthing-Fork\'를 길게 누릅니다 &gt; \'앱 정보\' &gt; \'배터리 절약\'을 선택하고 \'제한 없음\'을 선택합니다 (MIUI 10.3.2.0+).</string>
 </resources>
