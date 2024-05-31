@@ -451,4 +451,40 @@
     <string name="run_on_roaming_title">로밍 중에 실행</string>
     <string name="devices_list_empty">설정된 기기가 없습니다. 새 기기를 추가하려면 탭하세요.</string>
     <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI의 배터리 절약 시스템 앱은 기기가 재부팅될 때 앱의 \'배터리 최적화 무시\' 권한을 취소합니다. 이로 인해 앱이 초기 화면을 표시하고 누락된 필수 권한을 다시 요청하게 됩니다. 해결 방법: 홈 화면에서 앱 서랍을 엽니다 &gt; \'Syncthing-Fork\'를 길게 누릅니다 &gt; \'앱 정보\' &gt; \'배터리 절약\'을 선택하고 \'제한 없음\'을 선택합니다 (MIUI 10.3.2.0+).</string>
+    <string name="webui_debugging_summary">프로파일링을 시작하고 지원 번들을 다운로드할 수 있도록 하려면 활성화하세요. 이 옵션을 변경하면 Syncthing이 즉시 재시작됩니다.</string>
+    <string name="use_tor_summary">개인 정보 보호를 위해 모든 트래픽을 Tor를 통하도록 강제합니다. Orbot이 필요합니다. 프록시 옵션을 비활성화합니다.</string>
+    <string name="toast_invalid_socks_proxy_address">입력이 프록시 문법 \'socks5://[IP/호스트이름]:[포트]\'를 위반합니다</string>
+    <string name="broadcast_service_control_summary">기본값: 비활성화. 이 옵션을 활성화하면 방송을 보내는 것으로 서비스(예시 : 서드파티 자동화 앱)를 시작하고 중지할 수 있습니다 참고: 이 옵션을 변경한 후에는 앱을 수동으로 다시 시작해야 합니다.</string>
+    <string name="dialog_settings_restart_app_question">이 옵션을 변경하면 앱을 즉시 재시작해야 합니다. 다른 모든 변경 사항은 삭제됩니다. 계속하시겠습니까?</string>
+    <string name="crash_reporting">익명의 크래시 보고</string>
+    <string name="webui_tcp_port_title">웹 UI TCP 포트</string>
+    <string name="webui_remote_access_summary">다른 기기에서 웹 UI에 접근할 수 있도록 허용하려면 설정하세요. 활성화되면 사용자 \'syncthing\'과 API 키를 비밀번호로 사용하여 로그인할 수 있습니다. 기본값: 비활성화(가장 안전함)</string>
+    <string name="webui_debugging_title">웹 UI 디버깅</string>
+    <string name="download_support_bundle_title">지원 번들 다운로드</string>
+    <string name="download_support_bundle_in_progress">지원 번들 다운로드를 준비중 …</string>
+    <string name="undo_ignored_devices_folders_title">기기 및 폴더 무시 취소</string>
+    <string name="undo_ignored_devices_folders_question">이 작업은 이전의 기기 및 폴더 무시 설정을 취소합니다. 계속하시겠습니까?</string>
+    <string name="undo_ignored_devices_folders_done">설정이 성공적으로 취소되었습니다.</string>
+    <string name="backup_folder_name">백업 폴더 이름</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">포트 번호가 유효하지 않습니다. %1$d와 %2$d 사이의 포트를 입력하세요.</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">입력값이 유효하지 않습니다. %1$d과 %2$d 사이의 값을 입력해주세요.</string>
+    <string name="use_proxy">프록시를 통해 연결</string>
+    <string name="do_not_use_proxy">프록시가 구성되지 않았습니다.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Android 5 이하의 버전에서만 사용 가능합니다. 배터리 사용 중 예기치 않은 연결 끊김이 발생하면 이 설정을 사용하세요. 이로 인해 배터리 소모가 증가할 수 있습니다.</string>
+    <string name="config_export_failed">설정 내보내기에 실패했습니다. logcat 출력을 확인하세요.</string>
+    <string name="pull_order_alphabetic">사전순</string>
+    <string name="pull_order_smallest_first">오름차순</string>
+    <string name="pull_order_largest_first">내림차순</string>
+    <string name="pull_order_oldest_first">오래된 순</string>
+    <string name="pull_order_newest_first">최신순</string>
+    <string name="webui_remote_access_title">웹 UI 원격 접근</string>
+    <string name="webui_username_title">웹 UI 사용자 이름</string>
+    <string name="webui_password_title">웹 UI 비밀번호</string>
+    <string name="download_support_bundle_succeeded">%s에 지원 번들이 성공적으로 다운로드 되었습니다.</string>
+    <string name="download_support_bundle_failed">지원 번들을 다운로드하는데 실패했습니다. 자세한 사항은 로그를 확인하세요.</string>
+    <string name="dialog_settings_restart_app_title">재시작 필요</string>
+    <string name="socks_proxy_address_title">SOCKS5 프록시</string>
+    <string name="http_proxy_address_title">HTTP(S) 프록시\"</string>
+    <string name="toast_invalid_http_proxy_address">입력이 프록시 문법 \'http://[IP/호스트명]:[포트]\'를 위반합니다</string>
+    <string name="broadcast_service_control_title">방송을 통한 서비스 제어</string>
 </resources>
