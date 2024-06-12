@@ -486,7 +486,7 @@
     <string name="socks_proxy_address_title">SOCKS5 프록시</string>
     <string name="http_proxy_address_title">HTTP(S) 프록시\"</string>
     <string name="toast_invalid_http_proxy_address">입력이 프록시 문법 \'http://[IP/호스트명]:[포트]\'를 위반합니다</string>
-    <string name="broadcast_service_control_title">방송을 통한 서비스 제어</string>
+    <string name="broadcast_service_control_title">브로드캐스트를 통한 서비스 제어</string>
     <string name="toast_invalid_folder_selected">죄송합니다. 선택한 폴더는 사용할 수 없습니다. 내부 또는 외부 저장소에 있는 폴더를 선택해 주세요.</string>
     <string name="notification_persistent_waiting_channel">실행 조건 모니터링 중</string>
     <string name="tip_sync_on_local_network_text">로컬 WiFi 네트워크나 WiFi 핫스팟을 통해 연결된 기기와만 동기화하려면, \'설정/Syncthing 옵션\'에서 다음 옵션을 끄는 것으로 배터리 사용량을 줄이고 실수로 모바일 데이터를 이용해 동기화되는 것을 방지할 수 있습니다:
@@ -587,4 +587,25 @@
     <string name="pull_order_type_newestFirst_description">파일을 수정 시간 순으로 가져오기. 가장 최근의 것부터 가져옵니다.</string>
     <string name="pull_order_type_oldestFirst">오래된 순</string>
     <string name="pull_order_type_oldestFirst_description">파일을 수정 시간 순으로 가져오기. 가장 오래된 것부터 가져옵니다.</string>
+    <string name="reason_on_mobile_data">Syncthing을 모바일 데이터로 실행할 수 있습니다.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing은 로밍이 아닌 모바일 데이터 연결에서도 실행될 수 있습니다. 현재 활성화 된 연결상태는 로밍이 아닙니다.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing이 로밍 모바일 데이터 연결에서 실행되지 않도록 설정했기 때문에 실행되지 않습니다.</string>
+    <string name="reason_wifi_disallowed">Syncthing을 WiFi 또는 이더넷에서 실행시킬 수 없습니다.</string>
+    <string name="reason_on_wifi">Syncthing을 WiFi에서 실행할 수 있으며 현재 WiFi에 연결되어 있습니다.</string>
+    <string name="file_versioning_generic_description">Syncthing은 이전 버전 파일이 삭제되거나 클러스터에서 새로운 버전으로 대체될 때 이전 버전을 보관할 수 있습니다. 사용 가능한 버전 관리 전략을 보려면 클릭하세요. 파일 버전 관리는 폴더별로, 기기별로 구성됩니다. 선택된 버전:</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing은 로밍일때와 로밍이 아닌 모바일 데이터 연결에서 실행할 수 있습니다.</string>
+    <string name="reason_not_on_wifi">Syncthing은 WiFi에서 실행할 수 있지만, WiFi에 연결되어 있지 않거나 전화기가 비행 모드에 있습니다.</string>
+    <string name="reason_not_on_mobile_data">Syncthing은 모바일 데이터 연결상태에서 실행할 수 있지만, 모바일 데이터가 연결되어 있지 않습니다.</string>
+    <string name="custom_sync_conditions_title">사용자 지정 동기화 조건</string>
+    <string name="custom_sync_conditions_dialog">동기화 조건 지정</string>
+    <string name="qs_forced_to_run">강제로 실행됨</string>
+    <string name="qs_forced_to_stop">강제로 정지됨</string>
+    <string name="qs_following_run_conditions">실행 조건 따르기</string>
+    <string name="qs_schedule_label">5분 동안 실행</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">%1$d분 동안 실행</string>
+    <string name="qs_schedule_disabled">일정이 비활성화 됨</string>
+    <string name="run_on_whitelisted_wifi_summary">화이트리스트를 켜서 지정된 WiFi 네트워크에서만 동기화가 이루어지도록 제한하세요.</string>
+    <string name="custom_sync_conditions_description">전역 실행 조건에 대한 예외를 지정할 수 있습니다.</string>
+    <string name="qs_force_label">강제 실행</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing을 유료 및 무료 WiFi 연결에서 실행할 수 있습니다.</string>
 </resources>
