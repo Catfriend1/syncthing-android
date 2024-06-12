@@ -579,4 +579,12 @@
     <string name="log_to_file_title">파일에 로그 저장</string>
     <string name="advanced_storage_path_overview">고급 저장 경로 개요</string>
     <string name="current_path">현재 경로: %1$s</string>
+    <string name="pull_order_type_newestFirst">최신 순</string>
+    <string name="pull_order_type_random_description">파일을 무작위 순서로 가져오기.</string>
+    <string name="pull_order_type_alphabetic_description">파일 이름을 알파벳 순서로 가져오기.</string>
+    <string name="pull_order_type_smallestFirst_description">파일을 크기 순으로 가져오기. 가장 작은 것부터 가져옵니다.</string>
+    <string name="pull_order_type_largestFirst_description">파일을 크기 순으로 가져오기. 가장 큰 것부터 가져옵니다.</string>
+    <string name="pull_order_type_newestFirst_description">파일을 수정 시간 순으로 가져오기. 가장 최근의 것부터 가져옵니다.</string>
+    <string name="pull_order_type_oldestFirst">오래된 순</string>
+    <string name="pull_order_type_oldestFirst_description">파일을 수정 시간 순으로 가져오기. 가장 오래된 것부터 가져옵니다.</string>
 </resources>
