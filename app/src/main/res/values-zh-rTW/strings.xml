@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Syncthing-Fork</string>
+    <string name="app_name">Syncthing 衍生版</string>
     <string name="app_description">一個開放、可靠、去中心化的檔案同步應用程式。</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">歡迎來到 Syncthing for Android</string>
+    <string name="welcome_title">歡迎使用專為 Android 打造的 Syncthing 應用程式</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">介紹</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">儲存空間權限</string>
-    <string name="storage_permission_desc">Syncthing 需要獲得您的存儲權限以進行檔案同步。</string>
+    <string name="storage_permission_desc">Syncthing 需要取得您的裝置上「管理所有檔案的權限」以進行檔案同步。</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">電池最佳化</string>
     <string name="dialog_disable_battery_optimizations_not_supported">你的裝置不支援停用電池最佳化</string>
@@ -18,7 +18,7 @@
     <string name="location_permission_title">位置權限</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">產生鑰匙</string>
-    <string name="cont">繼續</string>
+    <string name="cont">下一步</string>
     <string name="finish">完成</string>
     <string name="generic_example">例子</string>
     <string name="generic_error">錯誤</string>
@@ -30,14 +30,14 @@
     <string name="main_menu">主選單</string>
     <string name="refresh">更新</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork 相機</string>
-    <string name="photo_shoot_intro_welcome_title">歡迎使用 Syncthing-Fork 相機</string>
+    <string name="photo_shoot_intro_welcome_title">歡迎使用 Syncthing 相機</string>
     <string name="photo_shoot_intro_permission_title">所需要的權限</string>
     <string name="photo_shoot_intro_no_camera">抱歉，這台設備並無相機。</string>
-    <string name="photo_shoot_intro_missing_permissions">我們需要儲存與地理位置權限才能往下一步</string>
+    <string name="photo_shoot_intro_missing_permissions">我們需要儲存與相機權限才能前往下一步。</string>
     <string name="grant_storage_permission">允許儲存權限</string>
     <string name="grant_camera_permission">允許相機權限</string>
     <!-- Main menu button -->
-    <string name="open_main_menu">打開主選單</string>
+    <string name="open_main_menu">開啟主選單</string>
     <string name="close_main_menu">關閉主選單</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">增加資料夾</string>
@@ -53,8 +53,8 @@
     <string name="no">否</string>
     <string name="open_website">打開網站</string>
     <string name="toast_write_storage_permission_required">應用程式需要寫入儲存空間的權限</string>
-    <string name="device_rejected">有 %1$s 裝置想要連線</string>
-    <string name="folder_rejected">设备%1$s 要共享文件夹%2$s</string>
+    <string name="device_rejected">裝置 %1$s 想要建立連線</string>
+    <string name="folder_rejected">裝置%1$s 想要共享資料夾%2$s</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
@@ -351,4 +351,30 @@
     <string name="no_sub_folder_is_selected">無子資料夾被選擇</string>
     <string name="share_device_id_chooser">分享裝置識別代碼</string>
     <string name="custom_sync_conditions_title">自訂同步條件</string>
+    <string name="notification_permission_title">通知權限</string>
+    <string name="notification_permission_desc">顯示「新裝置連線請求」、「資料夾共享通知」等通知訊息，以及確保背景服務維持啟動且與其他裝置保持連線。</string>
+    <string name="page_x_of_y">第%1$s 頁，共%2$s頁</string>
+    <string name="photo_shoot_launcher_title">同步相機</string>
+    <string name="welcome_text">Syncthing 是一款開源的檔案同步應用程式。如欲與其他裝置分享檔案，您將需要將它們的唯一裝置識別字串加入裝置列表。此後您將能選擇要對哪些裝置分享哪個資料夾。
+\n
+\n若有任何疑問，請至本專案的 Github 頁面分享您在使用上遇到的任何問題。</string>
+    <string name="undo_ignored_devices_folders_question">這將還原方才「忽略裝置與資料夾」的操作，請問要繼續嗎？</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">警告：假如 SyncthingNative 被干擾且有異常行為時，您得自負責任。請僅在裝置無法授予相關權限時略過本步驟！確定略過嗎？</string>
+    <string name="location_permission_desc">您可以指定 Syncthing 僅在特定無線網路作動。Android 要求應用程式需要擁有位置權限以讀取活躍中的無線網路名稱。假如您打算使用本功能，請按下上方的按鈕。您或許會想要略過本步驟，如需進一步說明，請參閱我們的隱私權政策。</string>
+    <string name="location_permission_desc_api_29">Android 10 以上的建議選項：「一律允許」</string>
+    <string name="key_generation_success">已產生用於私密傳輸的安全金鑰。</string>
+    <string name="reason">原因：</string>
+    <string name="photo_shoot_take_picture_success">成功儲存圖片至 Syncthing 相機資料夾。</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing 需要您的同意以拍攝相片並儲存在您的裝置上。本功能為非必要的選用功能。要使用本功能，請授予權限並按下「下一步」。我們將為您新增一個 Syncthing Camera 資料夾以利您後續分享至其他 Syncthing 裝置。</string>
+    <string name="photo_shoot_take_picture_failure">無法拍照或您已取消。</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
+    <string name="activity_main_bottom_navigation_rescan_all">重新掃描全部</string>
+    <string name="dialog_settings_restart_app_question">改變本選項將會強制重新啟動應用程式，方才的其他改變將被放棄，確定要繼續嗎？</string>
+    <string name="app_version_title">Syncthing 衍生版封装版本</string>
+    <string name="toast_ignore_doze_permission_required">唯有將本應用程式排除在自動休眠的省電模式外，方能使本程式功能正常運作。</string>
+    <string name="dialog_all_files_access_not_supported">您的裝置不支援「管理所有檔案」的特殊權限</string>
+    <string name="ignore_doze_permission_os_notice">目前已知部分 Android TV 裝置會時不時關閉背景執行的應用程式。我們有在「%1$s/%2$s」提供一個可能的解決方案。</string>
+    <string name="back">上一步</string>
+    <string name="ignore_doze_permission_desc">Android 系統可能會在裝置閒置一段時間後停止自動同步。為了避免這個現象，我們建議停用電池最佳化。在一些裝置上還會有預安裝的程序清除軟體，您也需要將 Syncthing 加入到它們的白名單中。</string>
+    <string name="toast_notification_permission_required">Syncthing 需要通知權限來維持背景服務以及保持連線。</string>
 </resources>
