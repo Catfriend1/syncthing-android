@@ -106,7 +106,7 @@
     <string name="compress_metadata">메타데이터</string>
     <string name="compress_always">항상</string>
     <!-- Setting title -->
-    <string name="introducer">Introducer</string>
+    <string name="introducer">소개자</string>
     <!-- ActionBar item -->
     <string name="delete_device">기기 삭제</string>
     <string name="add_device">기기 추가</string>
@@ -117,7 +117,7 @@
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">정말로 이 기기를 삭제하시겠습니까\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
-    <string name="device_id_required">기기명을 공백으로 둘 수 없습니다.</string>
+    <string name="device_id_required">기기명을 공백으로 둘 수 없습니다</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR 코드 스캔</string>
     <!-- Toast show if we could not get root permissions -->
@@ -224,7 +224,9 @@
     <string name="nothing_share">공유 할 것이 없음</string>
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
-        <item quantity="other">%1$d 파일이 \"%2$s\" 폴더로 복사 되었습니다, %3$d는 이미 존재 합니다.</item>
+        <item quantity="other">%1$d 파일이 \"%2$s\" 폴더로 복사 되었습니다, %3$d는 이미 존재합니다
+\n
+\n%1$d 파일들이 \"%2$s\" 폴더로 복사 되었습니다, %3$d는 이미 존재합니다</item>
     </plurals>
     <!-- Copy success toast -->
     <plurals name="copy_success">
@@ -545,9 +547,8 @@
     <string name="reason_not_within_time_frame">사용자가 \'시간 일정에 따라 실행\'을 활성화했으며 마지막 동기화가 1시간 이내에 이루어졌습니다.</string>
     <string name="reason_force_stop">사용자가 실행 조건과 상관없이 강제로 중지하였기 때문에 Syncthing이 실행 중이지 않습니다.</string>
     <plurals name="reason_not_within_time_frame_minutes">
-        <item quantity="other">단수형
-\n%d 분
-\n복수형
+        <item quantity="other">%d 분
+\n
 \n%d 분</item>
     </plurals>
     <string name="reason_not_within_time_frame_0_min">1분 미만</string>
@@ -574,7 +575,7 @@
     <string name="tip_write_to_sdcard_title">외부 sd카드를 사용하기 위한 방법</string>
     <string name="log_to_file_summary">SyncthingNative의 출력이 파일에 기록됩니다.</string>
     <string name="st_reset_deltas_title">델타 인덱스 초기화</string>
-    <string name="st_reset_deltas_done">Syncthing의 델타 인덱스 초기화에 성공했습니다.</string>
+    <string name="st_reset_deltas_done">Syncthing의 델타 인덱스 초기화에 성공했습니다</string>
     <string name="verbose_log_summary">이 옵션을 활성화하면 매우 상세한 디버그 기록을 생성하는 데 도움이 됩니다.</string>
     <string name="log_to_file_title">파일에 로그 저장</string>
     <string name="advanced_storage_path_overview">고급 저장 경로 개요</string>
@@ -630,7 +631,7 @@
     <string name="config_read_failed">설정을 읽는 데 실패했습니다. 동기화 폴더의 데이터를 백업한 후, Android 설정에서 이 응용프로그램의 데이터를 삭제하고 다시 실행하세요.</string>
     <string name="webui_tcp_port_unavailable">WebUI TCP 포트 %s가 이미 사용 중입니다. 두 번째 인스턴스인가요?</string>
     <string name="notification_crash_text">로그를 보려면 클릭하세요 (%1$s)</string>
-    <string name="notifications_persistent_channel">Syncthing 활성화</string>
+    <string name="notifications_persistent_channel">Syncthing 작동 중</string>
     <string name="state_failed_items">실패한 항목 (%1$d)</string>
     <string name="state_up_to_date">최신 상태</string>
     <string name="state_local_additions">로컬 추가항목</string>
@@ -656,9 +657,9 @@
     <string name="syncthing_active_details">Syncthing이 실행 중입니다: %1$s</string>
     <string name="reason_on_flight_mode">비행기 모드가 활성화되었을 때 Syncthing이 실행되도록 설정했기 때문에 Syncthing이 실행 중입니다.</string>
     <plurals name="device_online_up_to_date">
-        <item quantity="other">%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있습니다.
+        <item quantity="other">%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있음
 \n
-\n%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있습니다.</item>
+\n%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있음</item>
     </plurals>
     <string name="syncthing_terminated">Syncthing이 종료되었습니다</string>
     <string name="config_file_missing">실행에 필수적인 설정 파일이 누락됨</string>
