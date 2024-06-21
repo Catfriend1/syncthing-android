@@ -28,7 +28,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">보안 키 생성 중. 몇 분 정도 소요될 수 있습니다.</string>
+    <string name="web_gui_creating_key">보안 키 생성 중. 몇 분 정도 소요될 수 있습니다…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">폴더</string>
     <!-- Shown if no folders exist -->
@@ -271,7 +271,7 @@
     <string name="transfer_rate_unit_KiB_s">KiB/s</string>
     <string name="transfer_rate_unit_MiB_s">MiB/s</string>
     <string name="transfer_rate_unit_GiB_s">GiB/s</string>
-    <string name="transfer_rate_unit_TiB_s">TiB/s</string>
+    <string name="transfer_rate_unit_TiB_s">초당 테라바이트</string>
     <string name="state_scanning">스캔 중</string>
     <string name="state_syncing">동기화 중 (%1$d%%)</string>
     <string name="state_error">오류</string>
@@ -608,4 +608,59 @@
     <string name="custom_sync_conditions_description">전역 실행 조건에 대한 예외를 지정할 수 있습니다.</string>
     <string name="qs_force_label">강제 실행</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing을 유료 및 무료 WiFi 연결에서 실행할 수 있습니다.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor가 인스턴스화되지 않았습니다. 앱을 다시 시작하고, 재시작 후에도 이 오류가 사라지지 않으면 버그 리포트를 제출해 주세요.</string>
+    <string name="state_clean_waiting">정리 대기중</string>
+    <string name="state_error_message">오류 (%1$s)</string>
+    <string name="state_paused">일시정지됨</string>
+    <string name="folder_type">폴더 종류</string>
+    <string name="folder_type_receiveonly_description">파일은 클러스터로부터 동기화되지만, 로컬에서 이루어진 변경 사항은 다른 기기로 전송되지 않습니다.</string>
+    <string name="pull_order_type_largestFirst">파일 크기 내림차순</string>
+    <string name="notification_out_of_disk_space">SD카드가 가득찼습니다. 파일 %1$s</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing은 현재 WiFi 네트워크에서 실행할 수 있습니다.</string>
+    <string name="reason_not_on_whitelisted_wifi">현재 WiFi 네트워크의 이름이 화이트리스트에 없어서 Syncthing이 실행되지 않습니다.</string>
+    <string name="custom_wifi_ssid_whitelist_empty">화이트리스트에 등록된 WiFi SSID가 없습니다. 설정에서 WIFI SSID를 화이트리스트에 등록해주세요.</string>
+    <string name="no_remote_devices_connected">연결된 무선 기기가 없음</string>
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="other">동기화 중: %1$d%% 완료, %2$d개의 기기가 온라인 상태
+\n
+\n동기화 중: %1$d%% 완료, %2$d개의 기기가 온라인 상태</item>
+    </plurals>
+    <string name="syncthing_disabled">Syncthing이 수면모드에 있음</string>
+    <string name="executable_not_found">코어 실행 파일 \"%s\"가 없습니다. 빌드와 로그캣 출력을 확인하세요.</string>
+    <string name="config_read_failed">설정을 읽는 데 실패했습니다. 동기화 폴더의 데이터를 백업한 후, Android 설정에서 이 응용프로그램의 데이터를 삭제하고 다시 실행하세요.</string>
+    <string name="webui_tcp_port_unavailable">WebUI TCP 포트 %s가 이미 사용 중입니다. 두 번째 인스턴스인가요?</string>
+    <string name="notification_crash_text">로그를 보려면 클릭하세요 (%1$s)</string>
+    <string name="notifications_persistent_channel">Syncthing 활성화</string>
+    <string name="state_failed_items">실패한 항목 (%1$d)</string>
+    <string name="state_up_to_date">최신 상태</string>
+    <string name="state_local_additions">로컬 추가항목</string>
+    <string name="state_cleaning">버전 정리 중</string>
+    <string name="state_scan_waiting">스캔 대기중</string>
+    <string name="state_sync_waiting">동기화 대기중</string>
+    <string name="state_sync_preparing">동기화를 준비하는 중</string>
+    <string name="state_syncing_general">동기화 중</string>
+    <string name="state_unshared">공유되지 않음</string>
+    <string name="folder_type_sendreceive">송신 &amp; 수신</string>
+    <string name="folder_type_receiveonly">수신 전용</string>
+    <string name="folder_type_receive_encrypted">수신 암호화됨</string>
+    <string name="folder_type_sendreceive_description">이 폴더는 무선 기기로 변경 사항을 보내고 무선 기기로부터 변경 사항을 받습니다.</string>
+    <string name="folder_type_receive_encrypted_description">암호화된 데이터만 저장하고 동기화합니다. 연결된 모든 기기의 폴더는 동일한 비밀번호로 설정되거나 \'암호화된 수신\' 유형으로 설정되어야 합니다.</string>
+    <string name="pull_order">파일을 가져오는 순서</string>
+    <string name="pull_order_type_random">무작위</string>
+    <string name="pull_order_type_alphabetic">사전순</string>
+    <string name="pull_order_type_smallestFirst">파일 크기 오름차순</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing은 무료 WiFi 연결에서 실행될 수 있습니다. 현재 활성화 된 WiFi 연결은 무료입니다.</string>
+    <string name="reason_not_nonmetered_wifi">유료 WiFi 연결에서 Syncthing이 실행되지 않도록 설정했기 때문에 Syncthing이 실행되지 않습니다.</string>
+    <string name="reason_location_unavailable">설정에서 \'선택한 WiFi 네트워크에서 실행\'을 활성화했습니다. 현재 Android 위치 서비스가 꺼져 있습니다. Android 제한 사항에 따라 Syncthing은 실행 여부를 결정하기 위한 현재 WiFi 네트워크 이름을 확인할 수 없습니다. 해결 방법: 위치 서비스를 켜고, 위치 권한을 부여한 후 WiFi에 다시 연결하세요.</string>
+    <string name="reason_broadcast_controlled">Syncthing은 서드파티 앱 또는 ADB에서 보내는 브로드캐스팅을 수신하고 있습니다. \'설정\' &gt; \'실험실\' &gt; \'브로드캐스팅을 통한 서비스 제어\'를 비활성화하여 기본 실행 조건으로 돌아갈 수 있습니다.</string>
+    <string name="syncthing_active_details">Syncthing이 실행 중입니다: %1$s</string>
+    <string name="reason_on_flight_mode">비행기 모드가 활성화되었을 때 Syncthing이 실행되도록 설정했기 때문에 Syncthing이 실행 중입니다.</string>
+    <plurals name="device_online_up_to_date">
+        <item quantity="other">%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있습니다.
+\n
+\n%1$d개의 기기가 온라인 상태이며 최신 상태로 유지되고 있습니다.</item>
+    </plurals>
+    <string name="syncthing_terminated">Syncthing이 종료되었습니다</string>
+    <string name="config_file_missing">실행에 필수적인 설정 파일이 누락됨</string>
+    <string name="folder_type_sendonly_description">파일은 다른 기기에서 이루어진 변경으로부터 보호되지만, 이 기기에서 이루어진 변경은 클러스터의 나머지 부분으로 전송됩니다.</string>
 </resources>
