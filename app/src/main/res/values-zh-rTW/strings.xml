@@ -377,4 +377,6 @@
     <string name="back">上一步</string>
     <string name="ignore_doze_permission_desc">Android 系統可能會在裝置閒置一段時間後停止自動同步。為了避免這個現象，我們建議停用電池最佳化。在一些裝置上還會有預安裝的程序清除軟體，您也需要將 Syncthing 加入到它們的白名單中。</string>
     <string name="toast_notification_permission_required">Syncthing 需要通知權限來維持背景服務以及保持連線。</string>
+    <string name="syncthing_starting">Syncthing 正在啟動。</string>
+    <string name="syncthing_running">Syncthing 執行中。</string>
 </resources>
