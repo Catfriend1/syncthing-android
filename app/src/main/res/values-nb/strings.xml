@@ -23,7 +23,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Genererer sikre nøkler. Dette kan ta noen minutter.</string>
+    <string name="web_gui_creating_key">Genererer sikre nøkler. Dette kan ta noen minutter…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Mapper</string>
     <!-- Shown if no folders exist -->
@@ -212,4 +212,85 @@
     <string name="folder_size_format">%1$s / %2$s</string>
     <string name="appconfig_receiver_background_enabled">Du kan ikke stoppe Syncthing når «kjør i bakgrunnen» er skrudd på.</string>
     <string name="file_versioning">Versjonering av filer</string>
+    <string name="notification_permission_title">Varslingstillatelse</string>
+    <string name="generic_help">Hjelp</string>
+    <string name="photo_shoot_intro_no_camera">Beklager, denne enheten har ikke kamera.</string>
+    <string name="photo_shoot_activity_title">Syncthing-Fork kamera</string>
+    <string name="photo_shoot_intro_welcome_title">Velkommen til Syncthing kamera</string>
+    <string name="photo_shoot_intro_permission_title">Nødvendige tilganger</string>
+    <string name="photo_shoot_intro_missing_permissions">Vi krever tilgang til lagring og kamera for å fortsette.</string>
+    <string name="grant_storage_permission">Gi tilgang til lagring</string>
+    <string name="grant_camera_permission">Gi tilgang til kamera</string>
+    <string name="activity_main_bottom_navigation_rescan_all">Skann alt på nytt</string>
+    <string name="open_main_menu">Åpne hovedmeny</string>
+    <string name="close_main_menu">Lukk hovedmeny</string>
+    <string name="dialog_exit_while_running_as_service_title">Bekreft å avslutte appen</string>
+    <string name="override_changes">Overstyre endringer</string>
+    <string name="delete_unexpected_items">Slette uventede elementer</string>
+    <string name="revert_local_changes_question">Dette vil angre alle endringer som er gjort på denne enheten i den mappen. Fortsette?</string>
+    <string name="open_file_manager">Åpne filbehandler</string>
+    <string name="open_file_with">Åpne fil med</string>
+    <string name="open_file_no_compatible_app">Ingen app funnet for å åpne filen.</string>
+    <string name="suggest_file_manager_app_dialog_title">Ingen kompatibel filbehandler app funnet</string>
+    <string name="no_devices_configured">Ingen enheter er konfigurert.
+\nStart med å legge til en enhet nå.</string>
+    <string name="device_paused">Midlertidig stanset</string>
+    <string name="device_state_unused">Ubrukt</string>
+    <string name="device_disconnected_not_synced">Frakoblet (%1$s venter)</string>
+    <string name="device_last_seen">Sist sett: %1$s</string>
+    <string name="device_last_seen_never">Aldri</string>
+    <string name="syncthing_starting">Syncthing har startet.</string>
+    <string name="syncthing_running">Syncthing kjører.</string>
+    <string name="syncthing_not_running">Syncthing kjører ikke.</string>
+    <string name="syncthing_has_crashed">Syncthing har krasjet.</string>
+    <string name="pause_device">Sett enhet på pause</string>
+    <string name="category_run_conditions">Kjør betingelser</string>
+    <string name="devices_list_empty">Ingen enheter er konfigurert. Trykk for å legge til en ny enhet.</string>
+    <string name="grant_permission">Gi tilgang</string>
+    <string name="permission_granted">Tilgang gitt</string>
+    <string name="reason">Årsak:</string>
+    <string name="accept">Godta</string>
+    <string name="ignore">Ignorer</string>
+    <string name="main_menu">Hovedmeny</string>
+    <string name="refresh">Oppdater</string>
+    <string name="revert_local_changes">Reverser lokale endringer</string>
+    <string name="device_rejected">Enhet \"%1$s\" ønsker å koble seg til</string>
+    <string name="folder_rejected">Enhet \"%1$s\" ønsker å dele mappe \"%2$s\"</string>
+    <plurals name="files">
+        <item quantity="one">%1$d / %2$d Fil</item>
+        <item quantity="other">%1$d / %2$d Filer</item>
+    </plurals>
+    <string name="status_fragment_title">Status</string>
+    <string name="folder_fileWatcherDescription">Ber operativsystemet varsle om endringer i filer. Hvis deaktiveres, går det tilbake til periodiske, timesvis skanninger.</string>
+    <string name="folder_pause">Sett mappe på pause</string>
+    <string name="folder_path_readonly">Din Android-versjon gir kun Syncthing lesetilgang til den valgte mappen.</string>
+    <string name="folder_path_readwrite">Din Android-versjon gir Syncthing lese- og skrivetilgang til den valgte mappen.</string>
+    <string name="ignore_patterns">Ignorer mønstre</string>
+    <string name="share_device_id_chooser">Del enhets ID med</string>
+    <string name="introduction">Introduksjon</string>
+    <string name="storage_permission_title">Lagringstillatelse</string>
+    <string name="storage_permission_desc">Syncthing må få tilgang til lagringsplassen din for å gjøre filsynkronisering.</string>
+    <string name="dialog_all_files_access_not_supported">Din enhet støtter ikke tilgang til alle filer</string>
+    <string name="ignore_doze_permission_title">Batterioptimaliseringer</string>
+    <string name="back">Tilbake</string>
+    <string name="finish">Fullfør</string>
+    <string name="generic_example">Eksempel</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Din enheten støtter ikke deaktivering av batterioptimaliseringer</string>
+    <string name="location_permission_desc_api_29">Tips for Android 10+: «Tillat hele tiden»</string>
+    <string name="key_generation_title">Nøkkelgenerering</string>
+    <string name="key_generation_success">Sikre nøkler for privat datautveksling har blitt vellykket generert.</string>
+    <string name="cont">Fortsett</string>
+    <string name="device_syncing_percent_bytes">Synkroniserer (%1$d%%, %2$s)</string>
+    <string name="dialog_discard_changes">Angre dine endringer?</string>
+    <string name="category_behaviour">Oppførsel</string>
+    <string name="browse">Bla gjennom</string>
+    <string name="photo_shoot_take_picture_success">Vellykket lagring av bilde i Syncthing kamera mappen.</string>
+    <string name="photo_shoot_take_picture_failure">Kunne ikke ta et bilde, eller du har avbrutt.</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing kamera</string>
+    <string name="photo_shoot_launcher_title">Synk. kamera</string>
+    <string name="page_x_of_y">Side %1$s av %2$s</string>
+    <string name="override_changes_question">Dette vil angre alle endringer som er gjort på de andre enhetene som deler denne mappen. Fortsette?</string>
+    <string name="folder_fileWatcher">Overvåk for endringer</string>
+    <string name="toast_invalid_folder_selected">Beklager. Den valgte mappen kan ikke brukes. Vennligst velg en mappe som ligger på intern- eller ekstern lagring.</string>
+    <string name="no_sub_folder_is_selected">Ingen undermappe er valgt</string>
 </resources>
