@@ -1,13 +1,1 @@
-* Syncthing v1.27.7
-
-Enhanced
---
--
-
-Fixes
---
--
-
-Other
---
--
+.
