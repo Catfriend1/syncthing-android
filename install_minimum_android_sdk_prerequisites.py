@@ -15,12 +15,12 @@ import platform
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
-# Version numbers and URLs taken from
+# Version numbers, SHA256 and URLs taken from
 ## https://developer.android.com/studio
-ANDROID_SDK_TOOLS_VERSION = '10406996'
-ANDROID_SDK_TOOLS_SHASUM_LINUX = '8919e8752979db73d8321e9babe2caedcc393750817c1a5f56c128ec442fb540'
-ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '9b782a54d246ba5d207110fddd1a35a91087a8aaf4057e9df697b1cbc0ef60fc'
-ANDROID_SDK_VERSION = '34'
+ANDROID_SDK_TOOLS_VERSION = '11076708'
+ANDROID_SDK_TOOLS_SHASUM_LINUX = '2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
+ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862'
+ANDROID_SDK_VERSION = '35'
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
