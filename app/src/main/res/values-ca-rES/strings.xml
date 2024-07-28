@@ -546,4 +546,5 @@
     <string name="share_device_id_chooser">Comparteix la ID del dispositiu amb</string>
     <string name="custom_sync_conditions_title">Condicions d\'execució personalitzades</string>
     <string name="custom_sync_conditions_dialog">Especifica les condicions de sincronització</string>
+    <string name="dialog_all_files_access_not_supported">El vostre dispositiu no admet l\'accés a tots els fitxers</string>
 </resources>
