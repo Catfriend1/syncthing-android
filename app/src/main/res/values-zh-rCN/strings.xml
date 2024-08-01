@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
-    <string name="app_description">开放、分布式且值得信赖的文件同步应用。</string>
+    <string name="app_description">开放且值得信赖的去中心化文件同步应用程序。</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">欢迎使用 Android 版 Syncthing</string>
@@ -22,7 +22,7 @@
     <string name="toast_ignore_doze_permission_required">本应用程序只有被排除于“瞌睡”省电模式的情况才能可靠运行。</string>
     <string name="dialog_disable_battery_optimizations_not_supported">您的设备不支持禁用电池优化</string>
     <!-- Slide "Location Permission" -->
-    <string name="location_permission_title">位置權限</string>
+    <string name="location_permission_title">位置权限</string>
     <string name="location_permission_desc">Syncthing 可以被设置在指定的 Wi-Fi 网络下工作。 Android 要求应用获取定位权限以便获取设备当前 Wi-Fi 信息。 若您想使用该功能，请允许该权限请求。当然您也可以选择跳过该选项，更多信息请查阅我们的隐私政策。</string>
     <string name="location_permission_desc_api_29">Android 10+提示:“始终允许”</string>
     <!-- Slide "Key Generation" -->
@@ -35,8 +35,8 @@
     <string name="generic_example">示例</string>
     <string name="generic_error">错误</string>
     <string name="generic_help">帮助</string>
-    <string name="grant_permission">授予權限</string>
-    <string name="permission_granted">权限已获取</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="permission_granted">权限已授予</string>
     <string name="reason">原因：</string>
     <string name="accept">同意</string>
     <string name="ignore">忽略</string>
@@ -66,14 +66,14 @@
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">遇到了一个尚未解决的已知错误。更多信息见%1$s/%2$s。请精确描述故障发生前的情形。</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
-    <string name="dialog_exit_while_running_as_service_title">再次确认以退出程序</string>
+    <string name="dialog_exit_while_running_as_service_title">确认退出应用</string>
     <string name="dialog_exit_while_running_as_service_message">供您考虑：您将应用程序配置开机时自启。因此，它监视运行条件，并在条件匹配时随时在后台同步。只有在你遇到严重问题时你才应该手动退出。否则，在设置中禁用“启动时自动启动”。您想现在退出直到设备重新启动吗\?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">添加文件夹</string>
     <!-- Title of the "share device id" menu action -->
-    <string name="share_device_id">分享设备标识</string>
+    <string name="share_device_id">分享设备 ID</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
-    <string name="send_device_id_to">发送设备标识至</string>
+    <string name="send_device_id_to">将设备 ID 发送至</string>
     <string name="usage_reporting_dialog_title">允许发送匿名使用报告吗？</string>
     <string name="usage_reporting_dialog_description">每天发送加密过的使用情况报告。它被用来跟踪在何种平台、文件夹大小和应用程序的版本。如果报告所需收集的数据有改变，您将会再次看到本提醒对话框。
 \n
@@ -167,7 +167,7 @@
     <string name="dialog_confirm_restart">您想要重启 Syncthing 吗？</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
-    <string name="folder_id">文件夹标识</string>
+    <string name="folder_id">文件夹 ID</string>
     <!-- Setting title -->
     <string name="folder_label">文件夹标签</string>
     <!-- Setting title -->
@@ -196,7 +196,7 @@
     <!-- Dialog shown when attempting to remove a folder -->
     <string name="remove_folder_confirm">您确定要从 Syncthing 中删除该文件夹吗？</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
-    <string name="folder_id_required">文件夹标识不得为空</string>
+    <string name="folder_id_required">文件夹 ID 不能为空</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">文件夹标签不能为空</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
@@ -212,7 +212,7 @@
     <string name="ignore_patterns">忽略列表</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
-    <string name="device_id">设备标识</string>
+    <string name="device_id">设备 ID</string>
     <!-- Status title -->
     <string name="discovered_devices_title">发现的设备-点击选择</string>
     <!-- Status text -->
@@ -250,7 +250,7 @@
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">您确定要移除该设备吗？</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
-    <string name="device_id_required">设备标识不得为空</string>
+    <string name="device_id_required">设备 ID 不能为空</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_invalid">设备ID的格式不正确。请重试并输入正确的ID。</string>
     <!-- Toast shown when trying to create a device with an empty name -->
@@ -629,7 +629,7 @@
     <!-- Text of the notification shown when a restart is needed -->
     <string name="restart_notification_text">点此立即重启本应用</string>
     <!-- Shown when a device ID is copied to the clipboard -->
-    <string name="device_id_copied_to_clipboard">设备标识已复制到剪贴板</string>
+    <string name="device_id_copied_to_clipboard">设备 ID 已复制到剪贴板</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
     <string name="file_size_unit_B">B</string>
     <string name="file_size_unit_KiB">KiB</string>
@@ -672,7 +672,7 @@
     <string name="folder_type_receive_encrypted">接收加密的</string>
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">该文件夹既向远程设备发送更改，又从远程设备接收更改。</string>
-    <string name="folder_type_sendonly_description">文件受不受在其他设备上所做更改的影响，但在此设备上所做的更改将被发送到集群的其他部分。</string>
+    <string name="folder_type_sendonly_description">文件受到保护，不会受到其他设备上所做的更改的影响，但在此设备上进行的更改将发送到群集的其他部分。</string>
     <string name="folder_type_receiveonly_description">文件是从集群同步而来，但本地所做的任何更改都不会发送到其他设备。</string>
     <string name="folder_type_receive_encrypted_description">只存储和同步加密数据。所有已连接设备上的文件夹需要设置相同的密码或是“接收加密”的文件夹。</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
@@ -727,7 +727,7 @@
     <string name="could_not_access_deviceid">无法获取设备 ID。</string>
     <string name="browse">浏览</string>
     <string name="no_sub_folder_is_selected">未选中子文件夹</string>
-    <string name="share_device_id_chooser">共享设备 ID 与</string>
+    <string name="share_device_id_chooser">分享设备 ID 与</string>
     <string name="run_on_whitelisted_wifi_summary">打开白名单将同步限制在指定的WiFi网络中。</string>
     <string name="custom_sync_conditions_title">自定义同步规则</string>
     <string name="custom_sync_conditions_description">允许您指定全局运行条件的例外。</string>
