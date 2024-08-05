@@ -18,16 +18,14 @@
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Оптимизация батареи</string>
     <string name="ignore_doze_permission_os_notice">Известна проблема с Android TV, которая вызывает прекращение работы приложения в фоновом режиме. Решение доступно в вики: %1$s/%2$s.</string>
-    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания.
-\n
-\nТакже, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
+    <string name="ignore_doze_permission_desc">Android может остановить синхронизацию через определенное время. Чтобы избежать этого, отключите энергосбережение в режиме ожидания. Также, если на вашем устройстве установлена программа для автоматического завершения приложений, внесите Syncthing в её список исключений.</string>
     <string name="toast_ignore_doze_permission_required">Это приложение работает стабильно только если для него отключены настройки экономия энергии.</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Ваше устройство не поддерживает отключение энергосбережения</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Доступ к местоположению</string>
     <string name="location_permission_desc">Syncthing может быть настроено для работы с выбранными сетями Wi-Fi.
 Android требует разрешение доступа к геолокации, чтобы считывать название активной Wi-Fi сети. Если вы хотите использовать эту опцию, нажмите кнопку выше. Вы можете пропустить этот этап. Смотрите нашу политику конфиденциальности для подробной информации.</string>
-    <string name="location_permission_desc_api_29">Совет для Android 10+: \" Разрешить всегда\"</string>
+    <string name="location_permission_desc_api_29">Совет для Android 10+: \"Разрешить всегда\"</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Генерация ключей</string>
     <string name="key_generation_success">Криптографические ключи для приватного обмена данными были успешно сгенерированы.</string>
@@ -51,11 +49,11 @@ Android требует разрешение доступа к геолокаци
     <string name="photo_shoot_activity_title">Syncthing-Fork Камера</string>
     <string name="photo_shoot_intro_welcome_title">Добро пожаловать в Syncthing Камера</string>
     <string name="photo_shoot_intro_permission_title">Необходимые разрешения</string>
-    <string name="photo_shoot_intro_no_camera">Извините, у текущего устройства нет камеры</string>
+    <string name="photo_shoot_intro_no_camera">Извините, у этого устройства нет камеры.</string>
     <string name="photo_shoot_intro_missing_permissions">Для продолжения требуется доступ к файлам и камере.</string>
     <string name="grant_storage_permission">Выдать разрешение доступа к файлам</string>
     <string name="grant_camera_permission">Выдать разрешение доступа к камере</string>
-    <string name="photo_shoot_intro_permission_desc">Syncthing Камера требует вашего разрешения для создания фотографий и хранения их на вашем устройстве. Эта опция дополнительна. Чтобы использовать её, предоставьте доступ и нажмите \"Продолжить\". Будет настроена папка Syncthing Камеры, которую вы позже сможете синхронизировать с другими устройствами Syncthing.</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing Камера требует вашего разрешения для создания фотографий и хранения их на вашем устройстве. Эта опция необязательна. Чтобы использовать её, предоставьте доступ и нажмите \"Продолжить\". Будет настроена папка Syncthing Камеры, которую вы позже сможете синхронизировать с другими устройствами Syncthing.</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Syncthing Камера</string>
     <!-- MainActivity -->
@@ -63,7 +61,7 @@ Android требует разрешение доступа к геолокаци
     <string name="activity_main_bottom_navigation_rescan_all">Пересканировать всё</string>
     <!-- Main menu button -->
     <string name="open_main_menu">Открыть главное меню</string>
-    <string name="close_main_menu">Закрыть главное меню.</string>
+    <string name="close_main_menu">Закрыть главное меню</string>
     <!-- Exception dialog message -->
     <string name="exception_known_bug_notice">Была встречена найденная ошибка, которая ещё не была решена. Больше информации в %1$s/%2$s. Пожалуйста, оставьте нам точное описание произошедшего перед этим.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
@@ -75,7 +73,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Отправить ID устройства</string>
     <string name="usage_reporting_dialog_title">Разрешить отправлять анонимную статистику\?</string>
-    <string name="usage_reporting_dialog_description">Зашифрованный отчет об использовании отправляется ежедневно. Используется для отслеживания платформ, размеров папок и версий программы. Если набор собираемых данных изменится, этот диалог появится вновь.
+    <string name="usage_reporting_dialog_description">Зашифрованный отчет об использовании отправляется ежедневно. Используется для отслеживания используемых платформ, размеров папок и версий программы. Если набор собираемых данных изменится, этот диалог появится вновь.
 \n
 \nОбобщенная статистика доступна всем на https://data.syncthing.net.</string>
     <string name="yes">Да</string>
@@ -87,7 +85,7 @@ Android требует разрешение доступа к геолокаци
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Генерируем ключи. Это может занять несколько минут.</string>
+    <string name="web_gui_creating_key">Генерируем ключи. Это может занять несколько минут…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Папки</string>
     <!-- Shown if no folders exist -->
@@ -99,7 +97,7 @@ Android требует разрешение доступа к геолокаци
         <item quantity="many">%1$d / %2$d Файлов</item>
         <item quantity="other">%1$d / %2$d Файла</item>
     </plurals>
-    <string name="override_changes">Переопределить изменения</string>
+    <string name="override_changes">Отменить изменения</string>
     <string name="revert_local_changes">Откатить локальные изменения</string>
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Это действие откатит все изменения в папке на текущем устройстве. Продолжить\?</string>
@@ -115,7 +113,7 @@ Android требует разрешение доступа к геолокаци
     <string name="devices_list_empty">Устройства не заданы. Нажмите для добавления нового.</string>
     <!-- Shown in ListView if no devices are configured -->
     <string name="no_devices_configured">Устройства не заданы.
-\nНачните работу, добавив новое</string>
+\nНачните работу, добавив новое.</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">В актуальном состоянии</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -123,7 +121,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Нет соединения</string>
     <!-- Indicates that the device is paused and does not sync -->
-    <string name="device_paused">Остановлено</string>
+    <string name="device_paused">Приостановлено</string>
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Неизвестно</string>
     <string name="device_last_seen_never">Никогда</string>
@@ -175,7 +173,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Menu item to confirm folder creation -->
     <string name="create">Создать</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Вы точно хотите удалить эту папку с Syncthing\?</string>
+    <string name="remove_folder_confirm">Вы точно хотите удалить эту папку из Syncthing?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">ID папки не может быть пустым</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
@@ -213,7 +211,7 @@ Android требует разрешение доступа к геолокаци
     <string name="pause_device">Приостановить устройство</string>
     <!-- ActionBar item -->
     <string name="delete_device">Удалить устройство</string>
-    <string name="add_device">Доб устройство</string>
+    <string name="add_device">Добавить устройство</string>
     <!-- Menu item to confirm adding a device -->
     <string name="add">Добавить</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
@@ -444,7 +442,7 @@ Android требует разрешение доступа к геолокаци
     <string name="transfer_rate_unit_MiB_s">Мб/с</string>
     <string name="transfer_rate_unit_GiB_s">Гб/с</string>
     <string name="transfer_rate_unit_TiB_s">Тб/с</string>
-    <string name="state_up_to_date">уточненный</string>
+    <string name="state_up_to_date">Актуальна</string>
     <string name="state_scanning">Сканирование</string>
     <string name="state_syncing">Синхронизация (%1$d%%)</string>
     <string name="state_error">Ошибка</string>
@@ -516,4 +514,47 @@ Android требует разрешение доступа к геолокаци
     <string name="respect_battery_saving_summary">Отключить Syncthing в режиме энергосбережения.</string>
     <string name="photo_shoot_take_picture_failure">Не удалось получить изображение или вы отменили его получение.</string>
     <string name="photo_shoot_take_picture_success">Изображение успешно сохранено в папку Камеры Syncthing.</string>
+    <string name="notification_permission_title">Разрешение на уведомление</string>
+    <string name="override_changes_question">Это действие откатит все изменения на других устройствах, имеющий общий доступ к папке. Продолжить?</string>
+    <string name="suggest_file_manager_app_dialog_text">Рекомендуем вам установить файловый менеджер с открытым исходным кодом \'Material Files\'. Хотите открыть страницу приложения?</string>
+    <string name="device_syncing_percent_bytes">Синхронизация (%1$d%%, %2$s)</string>
+    <string name="deviceEncryptionPasswordHint">Если не доверенное, введите пароль шифрования</string>
+    <string name="device_disconnected_not_synced">Отключено (%1$s на очереди)</string>
+    <string name="device_state_unused">Неиспользованное</string>
+    <string name="shared_folders_title_colon">"Папок: "</string>
+    <string name="button_follow_run_conditions">СОБЛЮДАТЬ УСЛОВИЯ ЗАПУСКА</string>
+    <string name="discovered_device_list_empty">Локальное обнаружение не нашло устройств в пределах этой сети. Запустите это приложение на втором телефоне. Файлы установки для компьютеров доступны здесь: %1$s</string>
+    <string name="untrusted_device">Не доверенное устройство</string>
+    <string name="untrusted_device_explanation">Все папки, совместно используемые с этим устройством, должны быть защищены паролем, чтобы все отправленные данные не могли быть прочитаны без указанного пароля.</string>
+    <string name="install_barcode_scanner_app_message">Это действие требует приложение сканирования штрих-кодов. Хотите установить приложение \'Binary Eye\' от F-Droid?</string>
+    <string name="device_id_invalid">ID устройства не соответствует формату. Попробуйте ввести правильный ID заново.</string>
+    <string name="tip_custom_sync_conditions_title">Использовать пользовательские условия синхронизации для каждой папки/устройства</string>
+    <string name="notification_permission_desc">Требуется для показа уведомлений о новых подключениях устройств, запросах на совместное использование папок и для поддержания работоспособности службы.</string>
+    <string name="toast_notification_permission_required">Syncthing требует разрешения на уведомления, чтобы поддерживать работоспособность службы.</string>
+    <string name="delete_unexpected_items">Удалить неожиданные файлы</string>
+    <string name="device_last_seen">Был в сети: %1$s</string>
+    <string name="autoAcceptFolders">Автоматический приём</string>
+    <string name="tip_write_to_sdcard_title">Обходное решение для записи на внешнюю SD-карту</string>
+    <string name="tip_ignore_delete_title">Восстановить фото из телефона на компьютер?</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Переключение существующих папок в \'Получать зашифрованными\' не поддерживается.</string>
+    <string name="folder_path_readwrite">Ваша версия Android даёт разрешение Syncthing на чтение и запись в указанной папке.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Осторожно: Если SyncthingNative будет прерван и сделает что-то странное, вы сами виноваты. Пропускайте только если ваше устройство не поддерживает выдачу разрешения. Пропустить?</string>
+    <string name="dialog_exit_while_running_as_service_message">На заметку: Вы настроили приложение на автоматический запуск при загрузке. Поэтому оно отслеживает условия работы и синхронизируется в любое время в фоновом режиме, если условия совпадают. Вы должны завершать работу вручную только в случае возникновения серьезных проблем. В противном случае отключите \"Запускать автоматически при загрузке\" в настройках. Хотите завершить работу до перезагрузки устройства?</string>
+    <string name="button_force_start">ПРИНУДИТЕЛЬНЫЙ ЗАПУСК
+\nИГНОРИРОВАТЬ УСЛОВИЯ ЗАПУСКА</string>
+    <string name="button_force_stop">ПРИНУДИТЕЛЬНАЯ ОСТАНОВКА
+\nИГНОРИРОВАТЬ УСЛОВИЯ ЗАПУСКА</string>
+    <string name="folder_ignore_delete_description">Экспертная опция, влияющая на обработку входящих обновлений индекса. Если опция установлена, входящие обновления с установленным флагом delete игнорируются. См. https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="advanced_directory_selection">Расширенный выбор папки</string>
+    <string name="local_discovery_disabled">Вы отключили локальное обнаружение в \'Настройки\' &gt; \'Настройки Syncthing\' &gt; \'Локальное обнаружение\'. Включите эту опцию для поиска устройств в локальной сети.</string>
+    <string name="device_addresses_invalid">Адреса устройств не соответствуют формату. Попробуйте ещё раз. Смотрите документацию Syncthing для большей информации.</string>
+    <string name="tip_write_to_sdcard_text">Если вы видите меню, пишущее, что \'Android даёт Syncthing только разрешение на чтение\' для определённой папки, создайте новую папку используя этот путь для выдачи доступа к записи:
+\n%1$s/ИМЯ_ВАШЕЙ_ПАПКИ
+\nБудьте осторожны: Эта папка будет очищена системой, если вы удалите это приложение. Перед удалением приложения, переместите данные в безопасное место снаружи папки …/Android .</string>
+    <string name="tip_sync_on_local_network_text">Если вы хотите синхронизироваться только с устройствами в локальной сети или точке доступа, вы можете уменьшить использование батареи и избежать случайной синхронизации по мобильной сети, выключив следующие настройки в \'Настройки/Настройки Syncthing\':
+\n- Использовать обход NAT
+\n- Глобальное обнаружение
+\n- Использовать ретрансляторы
+\nОставьте \'Локальное обнаружение\' включённым.</string>
+    <string name="tip_custom_sync_conditions_text">Эта функция будет улучшена в будущих релизах. Пока же мы не хотели ломать существующие конфигурации и поведение приложения. Поэтому пользовательские условия синхронизации для определенного типа сети можно установить только в том случае, если вы сначала включите синхронизацию по сети в глобальных условиях запуска.</string>
 </resources>
