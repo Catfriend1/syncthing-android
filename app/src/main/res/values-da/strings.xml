@@ -8,9 +8,9 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduktion</string>
-    <string name="welcome_text">Syncthing er en åben kildekode filsynkroniserings applikation. For at dele data ,ed andre enheder, skal du tilføje deres unikke enhedsid til enhedslisten. Derefter kan du vælge hvilke mapper der skal deles med hvilke enheder.
+    <string name="welcome_text">Syncthing er en open-source filsynkroniserings-applikation. For at dele data med andre enheder, skal du tilføje deres unikke enheds-ID til enhedslisten. Derefter kan du vælge, hvilke mapper der skal deles med hvilke enheder.
 \n
-\nRapporter et hvilket som helst problem du møder via GitHub.</string>
+\nRapporter eventuelle problemer, du støder på, via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Lagertilladelser</string>
     <string name="storage_permission_desc">Syncthing skal have adgang til dit lager for at kunne synkronisere filer.</string>
@@ -18,7 +18,7 @@
     <string name="ignore_doze_permission_title">Batterioptimering</string>
     <string name="ignore_doze_permission_desc">Android vil måske stoppe synkroniseringen efter noget tid. For at forhindre dette, slå batterioptimering fra. Nogle enheder har yderligere task-killing applikationer preinstallierede. Du burde også tilføje Syncthing til deres whitelist.</string>
     <string name="toast_ignore_doze_permission_required">Denne app virker kun pålideligt hvis den er fritaget fra \"doze\" strømbesparelses tilstand.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Din enhed understøtter ikke at slå batterioptimeringer fra</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Placeringstilladelse</string>
     <string name="location_permission_desc">Syncthing kan blive konfigurede til at virke på valgte Wi-Fi netværk. Android kræver at appen skal have placeringstilladelse for at kunne læse aktive Wi-Fi netværksnavn. Hvis du vil bruge dette funktion så klik på knappen ovenover. Du må gerne springe dette trin over. Se vores privatlivspolitik for flere detaljer.</string>
@@ -55,8 +55,8 @@
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="open_website">Åben Hjemmeside</string>
-    <string name="toast_write_storage_permission_required">Write storage rettigheder er nødvendige for denne app.</string>
-    <string name="device_rejected">Enheden \"%1$s\" vil gerne få forbindelse</string>
+    <string name="toast_write_storage_permission_required">Denne app kræver tilladelse til at skrive på lagerplads</string>
+    <string name="device_rejected">Enheden \"%1$s\" ønsker at oprette forbindelse</string>
     <string name="folder_rejected">Enhed \"%1$s\" vil gerne dele mappen \"%2$s\"</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
@@ -123,7 +123,7 @@
     <!-- Setting title -->
     <string name="directory">Katalog</string>
     <!-- Setting title and description -->
-    <string name="folder_fileWatcher">Kig efter ændringer</string>
+    <string name="folder_fileWatcher">Hold øje med ændringer</string>
     <string name="folder_fileWatcherDescription">Beder operationssystemet om at underrette omkring ændringer til filer. Hvis slået fra, vil den gå tilbage til pr. time scanning</string>
     <!-- Setting title -->
     <string name="folder_pause">Sæt mappe på pause</string>
@@ -241,14 +241,14 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Vær venlig at slukke WiFi for at vælge netværk.</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du nødt til at tillade PLACERING for at kunne bruge denne funktion.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Tilladelse påkrævet</string>
-    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Fra starten af Android 8.1, vil lokationstilladelse være krævet for at kunne læse Wi-Fi-navnet. Du kan kun bruge denne egenskab hvis du tillader denne tilladelse.</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Fra og med Android 8.1 er det nødvendigt med placeringsadgang for at kunne læse Wi-Fi-navnet. Du kan kun bruge denne funktion, hvis du giver denne tilladelse.</string>
     <string name="power_source_title">Kør når enheden er tilsluttet til</string>
-    <string name="power_source_ac_and_battery_power">AC og batteri strøm</string>
-    <string name="power_source_ac_power">AC strøm.</string>
-    <string name="power_source_battery_power">Batteri strøm</string>
+    <string name="power_source_ac_and_battery_power">Vekselstrøm og batteri.</string>
+    <string name="power_source_ac_power">Vekselstrøm.</string>
+    <string name="power_source_battery_power">Batteri.</string>
     <string name="respect_battery_saving_title">Respekter Android battery saving indstillinger</string>
     <string name="respect_battery_saving_summary">Afbryd Syncthing hvis batteribesparelse er aktivt.</string>
-    <string name="respect_master_sync_title">Respekter Android \'Auto-sync data\' indstilling</string>
+    <string name="respect_master_sync_title">Respekter Androids indstillinger for \'Automatisk datasynkronisering\'</string>
     <string name="respect_master_sync_summary">Afbryd Syncthing når indstillingen \'Auto-sync data\' er slået fra.</string>
     <string name="run_in_flight_mode_title">Kør uden netværksforbindelse</string>
     <string name="run_in_flight_mode_summary">Aktivering af denne mulighed vil gøre at Syncthing køre selvom du er offline. Aktiver dette hvis din enhed har problemer med at finde manuelle Wi-Fi forbindelser i flystilstand.</string>
@@ -277,7 +277,7 @@
     <string name="listen_address">Sync Protocol Listen Addresser</string>
     <string name="max_recv_kbps">Indgående Rate Limit (KiB/s)</string>
     <string name="max_send_kbps">Udgående Rate Limit (KiB/s)</string>
-    <string name="global_announce_enabled">Global Opdagelse</string>
+    <string name="global_announce_enabled">Global opdagelse</string>
     <string name="local_announce_enabled">Lokal Opdagelse</string>
     <string name="enable_nat_traversal">Aktiver NAT Traversal</string>
     <string name="global_announce_server">Global Opdagelses Servere</string>
@@ -386,7 +386,7 @@
     </plurals>
     <!-- Copy success toast -->
     <plurals name="copy_success">
-        <item quantity="one">%1$d filer kopieret til mappen \"%2$s\"</item>
+        <item quantity="one">%1$d fil kopieret til mappen \"%2$s\"</item>
         <item quantity="other">%1$d filer kopieret til mappen \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
@@ -474,7 +474,7 @@
     <!-- Displays the current folder type in the folder activity -->
     <string name="folder_type_sendreceive">Send &amp; Modtag</string>
     <string name="folder_type_sendonly">Send kun</string>
-    <string name="folder_type_receiveonly">Modtag Kun</string>
+    <string name="folder_type_receiveonly">Modtag kun</string>
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">Mappen vil både sende og modtage ændringer til og fra fjernliggende enheder.</string>
     <string name="folder_type_sendonly_description">Filer er beskyttet fra ændringer lavet fra andre enheder, men ændringer lavet på denne enhed vil blive sendt til resten af gruppen.</string>
@@ -511,7 +511,7 @@
 \nFølgende intervaller bliver brugt: i løbet af den første time, beholdes en version hver 30 sekund, i løbet af den første dag en version bliver beholdt hver time, i løbet af de første 30 dage bliver en version beholdt hver dag indtil den maksimale alder overskrides gemmes en version hver uge.</string>
     <string name="maximum_age_description">Den maksimale tid for at beholde en version(i dage, sæt til 0 for at beholde for altid).</string>
     <string name="versions_path_description">Sti hvor versioner skal gemmes (lad være tomt for at burge det normale .stversions directory i den delte mappe).</string>
-    <string name="cleanout_after_description">Antallet a dage til at beholde filer i skraldespanden. Nul betyder for altid.</string>
+    <string name="cleanout_after_description">Antallet af dage til at beholde filer i skraldespanden. Nul betyder for altid</string>
     <string name="external_versioning_description">Det første kommandolinjeparameter er mappe-stien og det andet parameter er den relative sti i mappen.</string>
     <string name="no_versioning_description">Vælg en versioneringstype for at aktivere versionering.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
@@ -535,4 +535,7 @@
     <string name="custom_sync_conditions_title">Brugerdefineret synkroniseringsbetingelser</string>
     <string name="custom_sync_conditions_description">Tillader dig at specificere undtagelser til globale kørebetingelser.</string>
     <string name="custom_sync_conditions_dialog">Specificer synkroniseringsbetingelser</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Vær forsigtig: Hvis SyncthingNative bliver afbrudt og gør noget mærkeligt, er det din skyld. Spring kun over, hvis din enhed ikke understøtter tilladelsen. Vil du virkelig springe over?</string>
+    <string name="dialog_all_files_access_not_supported">Din enhed understøtter ikke adgang til alle filer</string>
+    <string name="ignore_doze_permission_os_notice">Android TV\'er er kendt for lejlighedsvis at afslutte appen, når den kører i baggrunden. En løsning er tilgængelig på wikien på \'%1$s/%2$s\'.</string>
 </resources>
