@@ -1,38 +1,38 @@
-这是用于Syncthing的Syncthing-Android包装器的一个分支，它带来了一些重要的增强功能，例如：
-*文件夹，设备和整体同步进度可以从UI轻松读取。
-*“ Syncthing 相机”-一项可选功能（具有使用相机的可选权限），您可以在其中将您的朋友，伴侣，...在两部手机上拍照到一个共享的和私有的Syncthing文件夹中。 不涉及云。 -当前处于测试阶段的功能-
-*“每小时同步”以节省更多电量
-* 每台设备和每个同步文件夹均可设置单独的同步规则
-* 最近已更改显示在UI上，单击以打开文件。
-*无论是否正在运行同步，都可以更改文件夹和设备配置
-* UI解释了为什么同步正在运行或不运行。
-* 电池消耗问题已解决
-*发现同一网络上的其他Syncthing设备并轻松添加它们。
-* 自安卓 11系统起，支持支持外置SD卡双向同步
+这是 Syncthing-Android 包装器的一个 fork，为 Syncthing 带来了以下主要增强功能：
+* 文件夹、设备和整体同步进度可从 UI 轻松读取。
+* “Syncthing 相机”一项可选功能（具有使用相机的可选权限），您可以在两部手机上与朋友、伴侣等一起拍摄照片，并将其保存到一个共享的私人 Syncthing 文件夹中。不涉及云。- 功能目前处于测试阶段 -
+* “每小时同步”以节省更多电量
+* 每个设备和每个文件夹都可以应用单独的同步条件
+* 最近更改 UI，单击以打开文件。
+* 无论 Syncthing 是否正在运行，都可以更改文件夹和设备配置
+* UI 解释了 Syncthing 是否正在运行的原因。
+* “耗电”问题已修复。
+* 发现同一网络上的其他 Syncthing 设备并轻松添加它们。
+* 自 Android 11 起支持外部 SD 卡上的双向同步。
 
-Android的Syncthing-Fork是Syncthing的包装，它提供了Android UI而不是Syncthing的内置Web UI。 Syncthing以开放，可信赖和分散的方式取代了专有的同步和云服务。 您的数据仅是数据，如果与某些第三方共享，则应选择存储位置以及如何通过Internet传输。
+Android 版 Syncthing-Fork 是 Syncthing 的包装器，它提供 Android UI，而不是 Syncthing 的内置 Web UI。Syncthing 用开放、值得信赖和去中心化的服务取代了专有的同步和云服务。您的数据是您自己的数据，您有权选择将其存储在何处、是否与第三方共享以及如何通过互联网传输。
 
-分叉的目标：
-*与社区一起开发并尝试增强功能。
-*更频繁地释放包装器，以识别和修复由同步子模块中的更改引起的错误
-*使增强功能在用户界面中可配置，用户应该能够打开和关闭它们
+Fork 的目标：
+* 与社区一起开发和尝试增强功能。
+* 更频繁地发布包装器以识别和修复由 Syncthing 子模块中的更改引起的错误
+* 在 UI 中配置增强功能，用户应该能够打开和关闭它们
 
-在撰写本文时，上游和分支之间的比较：
-*两者都包含从 GitHub 官方来源构建而来的 syncthing 二进制文件
-*同步功能和可靠性取决于同步二进制子模块的版本。
-* Fork与上游相处，有时他们会接受我的改进。
-*策略和发布频率不同
-*派生仅处理包含Android UI的包装器。
+撰写本文时上游和 fork 之间的比较：
+* 两者都包含从 GitHub 上的官方源构建的 Syncthing 二进制文件
+* 同步功能和可靠性取决于 Syncthing 二进制子模块版本。
+* Fork 与上游相处融洽，有时他们会采纳我的改进。
+* 策略和发布频率不同
+* 仅包含 Android UI 的包装器由 fork 处理。
 
 网站：https://github.com/Catfriend1/syncthing-android
 
 源代码：https://github.com/Catfriend1/syncthing-android
 
-Syncthing如何写入外部SD卡：https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Syncthing 如何写入外部 SD 卡：https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki，常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/wiki
+Wiki、常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/wiki
 
-问题回报：https://github.com/Catfriend1/syncthing-android/issues
+问题反馈：https://github.com/Catfriend1/syncthing-android/issues
 
 请帮助
 翻译：https://hosted.weblate.org/projects/syncthing/android/catfriend1
