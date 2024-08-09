@@ -379,4 +379,5 @@
     <string name="toast_notification_permission_required">Syncthing 需要通知權限來維持背景服務以及保持連線。</string>
     <string name="syncthing_starting">Syncthing 正在啟動。</string>
     <string name="syncthing_running">Syncthing 執行中。</string>
+    <string name="dialog_exit_while_running_as_service_title">確認退出應用程式</string>
 </resources>
