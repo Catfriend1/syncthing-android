@@ -115,7 +115,7 @@ Android требует разрешение доступа к геолокаци
     <string name="no_devices_configured">Устройства не заданы.
 \nНачните работу, добавив новое.</string>
     <!-- Indicates that a folder is fully synced to the local device -->
-    <string name="device_up_to_date">В актуальном состоянии</string>
+    <string name="device_up_to_date">Актуально</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">Синхронизация (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
@@ -126,7 +126,7 @@ Android требует разрешение доступа к геолокаци
     <string name="device_state_unknown">Неизвестно</string>
     <string name="device_last_seen_never">Никогда</string>
     <!-- Title for current download rate -->
-    <string name="download_title">Скачивание</string>
+    <string name="download_title">Загрузка</string>
     <!-- Title for current upload rate -->
     <string name="upload_title">Отдача</string>
     <!-- StatusFragment -->
@@ -137,7 +137,7 @@ Android требует разрешение доступа к геолокаци
     <string name="syncthing_has_crashed">Syncthing завершился из-за сбоя.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">"Скачивание: "</string>
+    <string name="download_title_colon">"Загрузка: "</string>
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Отдача: "</string>
     <!-- Title for current RAM usage -->
@@ -227,13 +227,13 @@ Android требует разрешение доступа к геолокаци
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">Папки не заданы. Нажмите для добавления новой.</string>
     <!-- Toast show if we could not get root permissions -->
-    <string name="toast_root_denied">Рут права не доступны</string>
+    <string name="toast_root_denied">Root-права не получены</string>
     <!-- TipsAndTricks activity -->
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Советы</string>
     <string name="tip_sync_on_local_network_title">Синхронизировать только по локальной WiFi сети</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
-    <string name="recent_changes_title">Последние изменения</string>
+    <string name="recent_changes_title">Недавние изменения</string>
     <string name="modified_by_device">Устройство: %1$s</string>
     <string name="modification_time">Время: %1$s</string>
     <!-- WebGuiActivity -->
@@ -259,14 +259,14 @@ Android требует разрешение доступа к геолокаци
     <string name="specify_wifi_ssid_whitelist">Выбрать Wi-Fi сети</string>
     <string name="run_on_whitelisted_wifi_networks">Выбранные Wi-Fi сети: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">Wi-Fi сети не заданы. Нажмите для добавления новых.</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите WiFi, чтобы выбрать сети</string>
-    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Включите Wi-Fi, чтобы выбрать сети.</string>
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Вы должны разрешить позиционирование для использования данной функции.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Требуется разрешение</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Начиная с Android 8.1, для чтения имени сети WiFi требуется разрешение позиционирования. Вы можете пользоваться данной функцией только если разрешите позиционирование.</string>
     <string name="respect_battery_saving_title">Учитывать настройки энергосбережения Android</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Автозапуск</string>
-    <string name="use_root_title">Запуск Syncthing с рут-правами</string>
+    <string name="use_root_title">Запуск Syncthing с root-правами</string>
     <string name="preference_language_title">Язык</string>
     <string name="preference_language_summary">Изменить язык приложения</string>
     <string name="pref_language_default">Язык по умолчанию</string>
@@ -285,15 +285,15 @@ Android требует разрешение доступа к геолокаци
     <string name="versioning_type_staggered">Ступенчатое</string>
     <string name="versioning_type_external">Внешнее</string>
     <string name="device_name">Имя устройства</string>
-    <string name="listen_address">Адрес Ожидания Протокола Синхронизации</string>
-    <string name="max_recv_kbps">Лимит Скачивания (КБ/с)</string>
-    <string name="max_send_kbps">Лимит Отдачи (КБ/с)</string>
+    <string name="listen_address">Прослушиваемые адреса для синхронизации</string>
+    <string name="max_recv_kbps">Ограничение скорости загрузки (КиБ/с)</string>
+    <string name="max_send_kbps">Ограничение скорости отдачи (КиБ/с)</string>
     <string name="global_announce_enabled">Глобальное обнаружение</string>
     <string name="local_announce_enabled">Локальное обнаружение</string>
     <string name="enable_nat_traversal">Использовать обход NAT</string>
-    <string name="global_announce_server">Серверы Глобального Обнаружения</string>
+    <string name="global_announce_server">Серверы глобального обнаружения</string>
     <string name="enable_relaying">Использовать ретрансляторы</string>
-    <string name="usage_reporting">Анонимные Отчёты Использования</string>
+    <string name="usage_reporting">Анонимные отчёты об использовании</string>
     <string name="export_config">Экспорт настроек</string>
     <!-- Experimental options -->
     <string name="use_proxy">Подсоединиться через прокси</string>
@@ -319,10 +319,10 @@ Android требует разрешение доступа к геолокаци
     <string name="config_imported_successful">Настройки импортированы</string>
     <string name="config_import_failed">Неудачное импортирование настроек, убедитесь что файлы находятся в %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
-    <string name="sttrace_title">STTRACE Options</string>
-    <string name="environment_variables">Environment variables</string>
+    <string name="sttrace_title">Параметры STTRACE</string>
+    <string name="environment_variables">Переменные окружения</string>
     <!-- Toast after entering invalid STTRACE params -->
-    <string name="toast_invalid_environment_variables">Value is not a valid environment variable string</string>
+    <string name="toast_invalid_environment_variables">Недопустимое значение строки переменных среды</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Сбросить базу данных</string>
     <!-- Syncthing was reset -->
@@ -405,13 +405,13 @@ Android требует разрешение доступа к геолокаци
     </plurals>
     <!-- Sub Folder title -->
     <string name="sub_folder">Подпапка</string>
-    <string name="reason_not_charging">Телефон не на зарядке</string>
+    <string name="reason_not_charging">Телефон не на зарядке.</string>
     <!-- SyncthingService -->
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Выход</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing запущен</string>
-    <string name="config_create_failed">Ошибка при создании файла конфигурации</string>
+    <string name="config_create_failed">Ошибка при создании файла конфигурации.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Камера</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -441,7 +441,7 @@ Android требует разрешение доступа к геолокаци
     <string name="transfer_rate_unit_KiB_s">Кб/с</string>
     <string name="transfer_rate_unit_MiB_s">Мб/с</string>
     <string name="transfer_rate_unit_GiB_s">Гб/с</string>
-    <string name="transfer_rate_unit_TiB_s">Тб/с</string>
+    <string name="transfer_rate_unit_TiB_s">Тиб/с</string>
     <string name="state_up_to_date">Актуальна</string>
     <string name="state_scanning">Сканирование</string>
     <string name="state_syncing">Синхронизация (%1$d%%)</string>
@@ -459,7 +459,7 @@ Android требует разрешение доступа к геолокаци
     <string name="folder_type_sendonly">Только отправка</string>
     <string name="folder_type_receiveonly">Только получение</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
-    <string name="pull_order">Порядок загрузки файлов</string>
+    <string name="pull_order">Порядок получения файлов</string>
     <!-- Displays the current pull order type in the Folder activity -->
     <string name="pull_order_type_random">В случайном порядке</string>
     <string name="pull_order_type_alphabetic">По алфавиту</string>
@@ -468,7 +468,7 @@ Android требует разрешение доступа к геолокаци
     <string name="pull_order_type_oldestFirst">Сначала старые</string>
     <string name="pull_order_type_newestFirst">Сначала новые</string>
     <!-- Pull order dialog descriptions for pull order types -->
-    <string name="pull_order_type_random_description">Загружать файлы в случайном порядке</string>
+    <string name="pull_order_type_random_description">Получать файлы в случайном порядке.</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Максимальный срок</string>
     <string name="clean_out_after">Очистить после</string>
@@ -487,7 +487,7 @@ Android требует разрешение доступа к геолокаци
     <string name="versions_path_description">Путь, в котором нужно хранить версии (оставьте пустым для папки по умолчанию .stversions внутри общей папки).</string>
     <string name="cleanout_after_description">Количество дней хранения файлов в корзине. Ноль значит навсегда</string>
     <string name="external_versioning_description">Первый параметр командной строки - путь к папке, второй - относительный путь в этой папке.</string>
-    <string name="no_versioning_description">Выберите тип управления версиями</string>
+    <string name="no_versioning_description">Выберите тип управления версиями.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Тип: Обычное</string>
     <string name="type_trashcan">Тип: Корзина</string>
@@ -521,7 +521,7 @@ Android требует разрешение доступа к геолокаци
     <string name="deviceEncryptionPasswordHint">Если не доверенное, введите пароль шифрования</string>
     <string name="device_disconnected_not_synced">Отключено (%1$s на очереди)</string>
     <string name="device_state_unused">Неиспользованное</string>
-    <string name="shared_folders_title_colon">"Папок: "</string>
+    <string name="shared_folders_title_colon">"Папки: "</string>
     <string name="button_follow_run_conditions">СОБЛЮДАТЬ УСЛОВИЯ ЗАПУСКА</string>
     <string name="discovered_device_list_empty">Локальное обнаружение не нашло устройств в пределах этой сети. Запустите это приложение на втором телефоне. Файлы установки для компьютеров доступны здесь: %1$s</string>
     <string name="untrusted_device">Не доверенное устройство</string>
@@ -536,7 +536,7 @@ Android требует разрешение доступа к геолокаци
     <string name="autoAcceptFolders">Автоматический приём</string>
     <string name="tip_write_to_sdcard_title">Обходное решение для записи на внешнюю SD-карту</string>
     <string name="tip_ignore_delete_title">Восстановить фото из телефона на компьютер?</string>
-    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Переключение существующих папок в \'Получать зашифрованными\' не поддерживается.</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Переключение существующих папок в \'Получать зашифрованное\' не поддерживается.</string>
     <string name="folder_path_readwrite">Ваша версия Android даёт разрешение Syncthing на чтение и запись в указанной папке.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Осторожно: Если SyncthingNative будет прерван и сделает что-то странное, вы сами виноваты. Пропускайте только если ваше устройство не поддерживает выдачу разрешения. Пропустить?</string>
     <string name="dialog_exit_while_running_as_service_message">На заметку: Вы настроили приложение на автоматический запуск при загрузке. Поэтому оно отслеживает условия работы и синхронизируется в любое время в фоновом режиме, если условия совпадают. Вы должны завершать работу вручную только в случае возникновения серьезных проблем. В противном случае отключите \"Запускать автоматически при загрузке\" в настройках. Хотите завершить работу до перезагрузки устройства?</string>
@@ -557,4 +557,111 @@ Android требует разрешение доступа к геолокаци
 \n- Использовать ретрансляторы
 \nОставьте \'Локальное обнаружение\' включённым.</string>
     <string name="tip_custom_sync_conditions_text">Эта функция будет улучшена в будущих релизах. Пока же мы не хотели ломать существующие конфигурации и поведение приложения. Поэтому пользовательские условия синхронизации для определенного типа сети можно установить только в том случае, если вы сначала включите синхронизацию по сети в глобальных условиях запуска.</string>
+    <string name="tip_xiaomi_autostart_title">Xiaomi: приложение не запускается при загрузке</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI по умолчанию запрещает приложениям запускаться самостоятельно. На главном экране перейдите в \'Настройки\' &gt; \'Разрешения\' &gt; \'Автозапуск\' и включите ползунок \'Syncthing-Fork\'.</string>
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: приложение постоянно показывает экран приветствия</string>
+    <string name="no_recent_changes">Нет недавних изменений.</string>
+    <string name="ssl_cert_invalid_text">Похоже, сайт %1$s, имеет недействительный сертификат шифрования SSL. Продолжить?</string>
+    <string name="web_page_loading">Загрузка веб-страницы:
+\n%1$s …</string>
+    <string name="preference_app_theme_follow_system">Системная</string>
+    <string name="preference_app_theme_follow_dark">Тёмная</string>
+    <string name="preference_app_theme_follow_light">Светлая</string>
+    <string name="run_on_mobile_data_summary">Работать, когда устройство подключено к мобильной сети. Предупреждение: это может потреблять много данных из тарифного плана вашего мобильного оператора, если вы синхронизируете большие объемы данных.</string>
+    <string name="run_on_metered_wifi_title">Работать в тарифицированных Wi-Fi сетях</string>
+    <string name="run_on_wifi_summary">Работать, когда устройство подключено к Wi-Fi сети или Ethernet.</string>
+    <string name="run_on_whitelisted_wifi_title">Работать в указанных Wi-Fi сетях</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Включите функцию определения местоположения для выбора сетей.</string>
+    <string name="power_source_title">Работать при питании</string>
+    <string name="expert_mode_title">Режим эксперта</string>
+    <string name="use_root_summary">Запуск Syncthing с root-правами позволяет ему писать в папки, доступ к которым Android обычно ограничивает только чтением. Используйте эту функцию с осторожностью.</string>
+    <string name="bind_network_title">Привязать к активной сети</string>
+    <string name="webui_password_title">Пароль для веб-интерфейса</string>
+    <string name="webui_debugging_title">Отладка веб-интерфейса</string>
+    <string name="webui_debugging_summary">Включите, чтобы запустить профилирование и иметь возможность загрузить пакет поддержки. Изменение этого параметра перезапустит Syncthing немедленно.</string>
+    <string name="download_support_bundle_title">Загрузить пакет поддержки</string>
+    <string name="download_support_bundle_in_progress">Подготовка загрузки пакета поддержки …</string>
+    <string name="download_support_bundle_succeeded">Пакет поддержки загружен в %s.</string>
+    <string name="backup_folder_name">Имя папки резервной копии</string>
+    <string name="undo_ignored_devices_folders_title">Отменить игнорирование устройств и папок</string>
+    <string name="undo_ignored_devices_folders_question">Это отменит предыдущие решения об игнорировании устройств и папок. Продолжить?</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Недопустимый номер порта. Введите порт от %1$d до %2$d.</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Недопустимое значение. Введите значение от %1$d до %2$d.</string>
+    <string name="config_export_failed">Не удалось экспортировать конфигурацию, проверьте вывод logcat.</string>
+    <string name="dialog_settings_restart_app_title">Требуется перезапуск</string>
+    <string name="syncthing_api_key">Ключ API Syncthing (нажмите, чтобы скопировать)</string>
+    <string name="reason_not_on_battery_power">Телефон не работает от батареи.</string>
+    <string name="reason_wifi_disallowed">Syncthing не разрешено работать от Wi-Fi или Ethernet.</string>
+    <string name="reason_on_wifi">Syncthing разрешено работать от Wi-Fi, и Wi-Fi сейчас подключён.</string>
+    <string name="reason_not_on_wifi">Syncthing разрешено работать от Wi-Fi, но Wi-Fi не подключён или телефон в режиме полёта.</string>
+    <string name="state_syncing_general">Синхронизация</string>
+    <string name="state_error_message">Ошибка (%1$s)</string>
+    <string name="folder_type_receive_encrypted">Получать зашифрованное</string>
+    <string name="pull_order_type_largestFirst_description">Получать файлы в порядке размера, начиная с больших.</string>
+    <string name="pull_order_type_smallestFirst_description">Получать файлы в порядке размера, начиная с меньших.</string>
+    <string name="pull_order_type_alphabetic_description">Получать файлы в алфавитном порядке.</string>
+    <string name="webui_username_title">Имя пользователя для веб-интерфейса</string>
+    <string name="dialog_settings_restart_app_question">Изменение этого параметра требует немедленного перезапуска приложения. Все остальные изменения будут отменены. Продолжить?</string>
+    <string name="tip_huawei_device_disconnected_title">Huawei: решение проблемы \'устройство отключено\'</string>
+    <string name="run_on_roaming_title">Работать в роуминге</string>
+    <string name="run_on_mobile_data_title">Работать по мобильной сети</string>
+    <string name="security_notice">Уведомление о безопасности</string>
+    <string name="run_on_wifi_title">Работать по Wi-Fi</string>
+    <string name="run_on_roaming_summary">Разрешить Syncthing использовать мобильную сеть в роуминге. (!) Пожалуйста, оставьте отзыв на GitHub, если эта функция работает правильно.</string>
+    <string name="run_in_flight_mode_title">Работать без сети</string>
+    <string name="run_on_time_schedule_title">Работать в соответствии с расписанием</string>
+    <string name="sync_duration_minutes_title">Продолжительность цикла синхронизации</string>
+    <string name="sync_duration_minutes_summary">%1$s минут</string>
+    <string name="respect_master_sync_title">Соблюдать настройку Android \'Автоматическая синхронизация данных\'</string>
+    <string name="respect_master_sync_summary">Отключать Syncthing, если опция \'Автоматическая синхронизация данных\' отключена.</string>
+    <string name="webui_tcp_port_title">TCP порт веб-интерфейса</string>
+    <string name="crash_reporting">Анонимные отчеты о сбоях</string>
+    <string name="webui_remote_access_title">Удалённый доступ к веб-интерфейсу</string>
+    <string name="keep_wakelock_while_binary_running_summary">Только для Android 5 или ниже. Используйте эту настройку, если у вас возникают неожиданные отключения при работе от аккумулятора. Это приведет к увеличению расхода батареи.</string>
+    <string name="syncthing_database_size">Размер базы данных Synthing</string>
+    <string name="os_open_file_limit">Предельное количество открытых файлов для Android</string>
+    <string name="reason_on_mobile_data">Syncthing разрешено работать от мобильной сети.</string>
+    <string name="reason_not_on_mobile_data">Syncthing разрешено работать от мобильной сети, но мобильная сеть не подключена.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing разрешено работать в текущей Wi-Fi сети.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing не работает, так как вы запретили ему работу в тарифицированных Wi-Fi сетях.</string>
+    <string name="state_sync_waiting">Ожидание синхронизации</string>
+    <string name="folder_type_receiveonly_description">Файлы синхронизируются с кластером, но любые изменения, внесенные локально, не будут отправлены на другие устройства.</string>
+    <string name="pull_order_type_oldestFirst_description">Получать файлы в порядке времени изменения, начиная со старых.</string>
+    <string name="qs_schedule_label">Работать 5 минут</string>
+    <string name="custom_sync_conditions_dialog">Укажите условия синхронизации</string>
+    <string name="this_device">Это устройство</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Работать %1$d минут</string>
+    <string name="qs_schedule_disabled">Расписание отключено</string>
+    <string name="folder_ignore_delete_caption">Игнорировать удаление</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d минута</item>
+        <item quantity="few">%d минуты</item>
+        <item quantity="many">%d минут</item>
+        <item quantity="other">%d минут</item>
+    </plurals>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing не работает, так как вы запретили ему работу в роуминге.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing разрешено работать от мобильной сети без роуминга. Активная сеть без роуминга.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing разрешено работать в тарифицированных и нетарифицированных Wi-Fi сетях.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing разрешено работать в нетарифицированных Wi-Fi сетях. Активная сеть без тарификации.</string>
+    <string name="tip_ignore_delete_text">Если вы хотите, чтобы все фотографии, сделанные на вашем телефоне, были скопированы на компьютер, поделитесь папкой \'Камера\' с компьютером. Откройте Syncthing на компьютере, добавьте папку и перейдите в \'Действия\' &gt; \'Дополнительно\' &gt; папка \'Камера\'. Включите \'Игнорировать удаление\' и нажмите \'Сохранить\'. Теперь вы можете удалять фотографии из папки камеры на телефоне, и они останутся в резервной копии на компьютере.</string>
+    <string name="tip_huawei_device_disconnected_text">Если ваш компьютер постоянно сообщает, что устройство Huawei отключено, откройте интерфейс Syncthing на компьютере. Перейдите в раздел \'Удалённые устройства\', разверните запись телефона, нажмите \'Редактировать\', переключитесь на \'Дополнительно\'. Введите IP-адрес вашего телефона в \'Адреса\' следующим образом:
+\ntcp4://%1$s, dynamic
+\nПодтверждено, что работает на: Huawei P10</string>
+    <string name="run_on_metered_wifi_summary">Работать, когда устройство подключено к тарифицированной Wi-Fi сети, например, к точке доступа или при раздаче Wi-Fi с телефона. Внимание: При синхронизации большого количества данных может быть израсходована значительная часть тарифного плана.</string>
+    <string name="run_in_flight_mode_summary">Если включить этот параметр, Syncthing будет работать даже при отключении от сети. Включите, если у вашего устройства есть проблемы с обнаружением ручных Wi-Fi подключений в режиме полёта.</string>
+    <string name="tip_xiaomi_battery_saver_text">Системное приложение Xiaomi MIUI для экономии заряда батареи отзывает разрешение \'игнорировать оптимизацию батареи\' при каждой перезагрузке телефона. Это приводит к тому, что приложение показывает экран приветствия и снова запрашивает недостающее обязательное разрешение. Решение: На главном экране откройте меню приложений &gt; долгое нажатие на \'Syncthing-Fork\' &gt; \'Информация о приложении\' &gt; \'Экономия заряда батареи\' и выберите \'Без ограничений\' (MIUI 10.3.2.0+).</string>
+    <string name="run_on_time_schedule_summary">При включении этого параметра Syncthing попробует синхронизироваться в течение заданного времени, если выполнены условия работы и последняя синхронизация была более 1 часа назад. Это может значительно сэкономить заряд батареи, но требует, чтобы партнеры по синхронизации находились в сети. Обратите внимание: при этом могут остаться неполные временные файлы до следующей синхронизации по расписанию.</string>
+    <string name="behaviour_autostart_summary">Запускать приложение автоматически при загрузке операционной системы.</string>
+    <string name="bind_network_summary">Использовать Wi-Fi принудительно даже при отсутствии подключения к Интернету. Если этот параметр отключен, Syncthing может использовать мобильную сеть в таком случае.</string>
+    <string name="expert_mode_summary">При включении этой опции будут показаны расширенные параметры конфигурации. Сначала вам следует ознакомиться с документацией по Syncthing, чтобы убедиться, что вы знаете, как правильно их использовать. Неправильные настройки могут привести к разрядке батареи, истощению системных ресурсов или неполной синхронизации.</string>
+    <string name="download_support_bundle_failed">Не удалось загрузить пакет поддержки. Проверьте логи.</string>
+    <string name="state_sync_preparing">Подготовка к синхронизации</string>
+    <string name="folder_type_sendreceive_description">Папка будет отправлять и получать изменения от удаленных устройств.</string>
+    <string name="folder_type_sendonly_description">Файлы защищены от изменений, внесенных на других устройствах, но изменения, внесенные на этом устройстве, будут отправлены на остальные устройства кластера.</string>
+    <string name="folder_type_receive_encrypted_description">Хранит и синхронизирует только зашифрованные данные. Папки на всех подключенных устройствах должны быть настроены на один и тот же пароль или иметь тип \'Получать зашифрованное\'.</string>
+    <string name="pull_order_type_newestFirst_description">Получать файлы в порядке времени изменения, начиная с новых.</string>
+    <string name="api_key_copied_to_clipboard">Ключ API Syncthing скопирован в буфер обмена</string>
+    <string name="complete_welcome_wizard_first">Сначала запустите приложение из меню приложений и завершите первичную настройку, прежде чем приступить к обмену файлами.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing не настроен на работу от мобильной сети.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing разрешено работать от мобильной сети с в роуминге и без него.</string>
 </resources>
