@@ -658,7 +658,7 @@
     <string name="state_error_message">错误（%1$s）</string>
     <string name="state_unknown">未知</string>
     <string name="state_paused">已暂停</string>
-    <string name="status_outofsync">不同步</string>
+    <string name="status_outofsync">未同步</string>
     <string name="state_unshared">非共享</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
