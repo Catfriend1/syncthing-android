@@ -242,4 +242,6 @@
     <string name="toast_invalid_environment_variables">Стойността е недействително наименование на променлива на средата.</string>
     <string name="copy_exception">Грешка при споделяне, проверете дневника на приложението</string>
     <string name="cleanout_after_description">Броят дни за запазване на файловете в кошчето. Нула значи завинаги.</string>
+    <string name="device_rejected">Устройството „%1$s“ желае да се свърже</string>
+    <string name="run_on_mobile_data_title">Работи на мобилни данни</string>
 </resources>
