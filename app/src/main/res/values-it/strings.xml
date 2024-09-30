@@ -13,7 +13,7 @@ Si prega di segnalare eventuali problemi su GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Autorizzazione Memoria</string>
     <string name="storage_permission_desc">Syncthing deve accedere alla tua memoria per poter sincronizzare i file.</string>
-    <string name="dialog_all_files_access_not_supported">Questo dispositivo non supporta l\'accesso a tutti i file</string>
+    <string name="dialog_all_files_access_not_supported">Il tuo dispositivo non supporta l\'accesso a tutti i file</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Ottimizzazione della batteria</string>
     <string name="ignore_doze_permission_os_notice">Su Android TV può accadere che l\'app venga terminata mentre è in esecuzione in background. Una soluzione è disponibile nella wiki a \'%1$s/%2$s\'.</string>
@@ -752,4 +752,13 @@ Si prega di segnalare eventuali problemi su GitHub.</string>
     <string name="qs_following_run_conditions">Seguendo le condizioni di esecuzione</string>
     <string name="qs_schedule_label">Esegui per 5 minuti</string>
     <string name="qs_schedule_disabled">Programmazione disabilitata</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Eseguito per %1$d minuti</string>
+    <string name="notification_permission_desc">Necessario per mostrare notifiche relative a nuove connessioni di dispositivi, richieste di condivisione di cartelle e per mantenere il servizio vivo e connesso.</string>
+    <string name="toast_notification_permission_required">Syncthing richiede il permesso di notifica per mantenere il servizio in vita e connesso.</string>
+    <string name="notification_permission_title">Autorizzazione di notifica</string>
+    <string name="backup_folder_name">Nome cartella di backup</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Attenzione: Se SyncthingNative viene interrotto e fa qualcosa di strano, la responsabilità è vostra. Saltate solo se il vostro dispositivo non supporta l\'autorizzazione. Saltare davvero?</string>
+    <string name="autoAcceptFolders">Auto Accept</string>
+    <string name="webui_username_title">Utente Web UI</string>
+    <string name="webui_password_title">Password Web UI</string>
 </resources>
