@@ -1,6 +1,0 @@
-ext {
-    versionMajor = 1
-    versionMinor = 27
-    versionPatch = 12
-    versionWrapper = 0
-}
