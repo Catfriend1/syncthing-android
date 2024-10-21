@@ -160,7 +160,7 @@ public class Device {
 
         if (!address.matches("^tcp([46])?://.*$") &&
                 !address.matches("^relay://.*$") &&
-                !address.matches("^quic://.*$")) {
+                !address.matches("^quic([46])?://.*$")) {
             // Log.v(TAG, "Invalid protocol.");
             return false;
         }
@@ -293,6 +293,8 @@ public class Device {
         failSuccess = failSuccess && checkDeviceAddress("relay://stlocal:22067");
         failSuccess = failSuccess && checkDeviceAddress("quic://127.0.0.1");
         failSuccess = failSuccess && checkDeviceAddress("quic://127.0.0.1:24000");
+        failSuccess = failSuccess && checkDeviceAddress("quic4://127.0.0.1:24000");
+        failSuccess = failSuccess && checkDeviceAddress("quic6://127.0.0.1:24000");
 
         // Negative Syntax
         failSuccess = failSuccess && !checkDeviceAddress("tcp://myserver:");
