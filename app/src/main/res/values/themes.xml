@@ -23,6 +23,8 @@
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner.Underlined</item>
         <item name="android:spinnerItemStyle">@style/Widget.Syncthing.TextView.SpinnerItem</item>
         <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
+
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 
     <style name="Theme.Syncthing" parent="Theme.Syncthing.Base">

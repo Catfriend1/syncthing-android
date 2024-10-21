@@ -213,7 +213,7 @@ public class NotificationHandler {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-                    service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+                    service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
                 } else {
                     service.startForeground(idToShow, builder.build());
                 }
