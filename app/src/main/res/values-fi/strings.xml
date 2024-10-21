@@ -450,4 +450,10 @@
     <string name="pull_order_largest_first">Suurin ensin</string>
     <string name="pull_order_oldest_first">Vanhin ensin</string>
     <string name="pull_order_newest_first">Uusin ensin</string>
+    <string name="autoAcceptFolders">Hyväksy automaattisesti</string>
+    <string name="tips_and_tricks_title">Vinkit &amp; Vihjeet</string>
+    <string name="untrusted_device">Ei-luotettu laite</string>
+    <string name="device_name_required">Laitteen nimi ei voi olla tyhjä</string>
+    <string name="folders">Kansiot</string>
+    <string name="tip_ignore_delete_title">Varmuuskopioidaanko puhelimen kuvat tietokoneelle?</string>
 </resources>
