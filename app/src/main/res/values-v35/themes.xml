@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Syncthing.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="textAppearanceListItemPrimary">@style/TextAppearance.Syncthing.ListItemPrimary</item>
+        <item name="textAppearanceListItemSecondary">@style/TextAppearance.Syncthing.ListItemSecondary</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.Syncthing.ListItemSmall</item>
+
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:listViewStyle">@style/Widget.Syncthing.ListView</item>
+        <item name="android:listDivider">@drawable/list_divider_inset</item>
+        <item name="drawerArrowStyle">@style/Widget.Syncthing.DrawerArrowToggle</item>
+
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+
+        <item name="spinnerStyle">@style/Widget.AppCompat.Spinner.Underlined</item>
+        <item name="android:spinnerItemStyle">@style/Widget.Syncthing.TextView.SpinnerItem</item>
+        <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
+
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+</resources>
