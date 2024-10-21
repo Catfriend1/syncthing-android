@@ -44,12 +44,12 @@
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Неясно</string>
     <!-- Title for current download rate -->
-    <string name="download_title">Сваляне</string>
+    <string name="download_title">Изтегляне</string>
     <!-- Title for current upload rate -->
     <string name="upload_title">Качване</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">"Сваляне: "</string>
+    <string name="download_title_colon">"Изтегляне: "</string>
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Качване: "</string>
     <!-- Title for current RAM usage -->
@@ -133,7 +133,7 @@
     <string name="use_root_title">Стартира Syncthing с права на Superuser</string>
     <string name="device_name">Име на устройството</string>
     <string name="listen_address">Адрес за слушане на синхронизиращия протокол</string>
-    <string name="max_recv_kbps">Лимит на скоростта за сваляне (KiB/s)</string>
+    <string name="max_recv_kbps">Ограничение при изтегляне (KiB/s)</string>
     <string name="max_send_kbps">Лимит на скоростта за качване (KiB/s)</string>
     <string name="global_announce_enabled">Глобално откриване</string>
     <string name="local_announce_enabled">Локално откриване</string>
@@ -244,4 +244,16 @@
     <string name="cleanout_after_description">Броят дни за запазване на файловете в кошчето. Нула значи завинаги.</string>
     <string name="device_rejected">Устройството „%1$s“ желае да се свърже</string>
     <string name="run_on_mobile_data_title">Работи на мобилни данни</string>
+    <string name="notification_permission_title">Разрешение за известия</string>
+    <string name="welcome_text">Syncthing е приложение за синхронизиране на файлове с отворен код.\nЗа да споделите информация с друго устройство е необходимо да добавите уникалния му идентификатор към списъка с устройствата. След това ще можете да изберете кои папки с кои устройства да споделите.\nАко срещнете проблем го споделете в GitHub.</string>
+    <string name="ignore_doze_permission_os_notice">Известен проблем на телевизорите с Android, е че понякога затварят приложения във фонов режим. Решението е налично на адрес „%1$s/%2$s“.</string>
+    <string name="ignore_doze_permission_desc">Android може да спре синхронизацията след известно време. За да предотвратите това, изключете оптимизацията на батерията. Някои устройства имат инсталирани допълнителни приложения, които затварят процеси. Трябва да добавите Syncthing и в техния списък с изключения.</string>
+    <string name="location_permission_desc">Syncthing може да бъде настроен да работи само в избрани безжични мрежи. Android изисква приложението да има разрешение за местоположение, за да веземе името на използваната безжична мрежа. Ако искате да използвате тази възможност, натиснете бутона по-горе. Можете да пропуснете стъпката. За повече подробности вижте политиката за поверителност.</string>
+    <string name="toast_notification_permission_required">Syncthing се нуждае от разрешението за известия, за да поддържа работоспособността на услугата.</string>
+    <string name="location_permission_desc_api_29">Съвет за Андрод 10+: „Разрешаване винаги“</string>
+    <string name="introduction">Въведение</string>
+    <string name="storage_permission_title">Разрешение за хранилище</string>
+    <string name="storage_permission_desc">За да извършва синхронизация Syngthing има нужда от достъп до хранилището.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Устройството не поддържа изключване на оптимизирането на батерията</string>
+    <string name="location_permission_title">Достъп до местоположението</string>
 </resources>
