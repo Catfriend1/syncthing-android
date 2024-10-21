@@ -7,7 +7,7 @@ Dies ist ein Fork des Syncthing-Android Wrappers für Syncthing, der die folgend
 * Änderungen an der Ordner- und Gerätekonfiguration können unabhängig davon vorgenommen werden, ob die Synchronisation läuft oder nicht
 * Die Benutzeroberfläche erklärt, warum Syncthing läuft oder schläft.
 * Das „Batteriefresser“-Problem wurde gelöst.
-* Andere Syncthing-Geräte im selben Netzwerk  finden und diese ganz einfach hinzufügen.
+* Andere Syncthing-Geräte im selben Netzwerk finden und diese ganz einfach hinzufügen.
 * Unterstützt ab Android 11 die Zwei-Wege-Synchronisation auf externer SD-Karte.
 
 Syncthing-Fork für Android ist ein Wrapper für Syncthing, der eine Android-Bedienoberfläche anstelle der Syncthing-eigenen Weboberfläche anbietet. Syncthing ersetzt die proprietären Synchronisierungs- und Cloud-Dienste, mit etwas Offenem, Vertrauenswürdigen und Dezentralem. Die eigenen Daten bleiben die eigenen Daten und man allein entscheidet, wo sie gespeichert werden, ob sie mit Dritten geteilt und wie sie über das Netz übertragen werden.
@@ -34,5 +34,5 @@ Wiki, FAQ und hilfreiche Artikel: https://github.com/Catfriend1/syncthing-androi
 
 Probleme: https://github.com/Catfriend1/syncthing-android/issues
 
-Bitte mithelfen bei der
-Übersetzung: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Bitte bei der Übersetzung mithelfen:
+https://hosted.weblate.org/projects/syncthing/android/catfriend1
