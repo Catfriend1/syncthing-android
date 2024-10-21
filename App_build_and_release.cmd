@@ -6,7 +6,7 @@ cls
 REM
 REM Script Consts.
 SET CLEANUP_BEFORE_BUILD=1
-SET SKIP_RELEASE_BUILD=0
+SET SKIP_RELEASE_BUILD=1
 REM
 REM Runtime Variables.
 IF EXIST "%LocalAppData%\Android\Sdk" SET "ANDROID_SDK_ROOT=%LocalAppData%\Android\Sdk"

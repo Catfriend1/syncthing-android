@@ -24,31 +24,31 @@ IF NOT DEFINED BUILD_FLAVOUR_GPLAY echo [ERROR] Env var BUILD_FLAVOUR_GPLAY not 
 REM 
 REM Get "applicationId"
 SET APPLICATION_ID=
-FOR /F "tokens=2 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle" 2^>^&1 ^| findstr /c:"applicationId "') DO SET APPLICATION_ID=%%A
+FOR /F "tokens=3 delims= " %%A IN ('type "%SCRIPT_PATH%app\build.gradle.kts" 2^>^&1 ^| findstr /c:"applicationId "') DO SET APPLICATION_ID=%%A
 SET APPLICATION_ID=%APPLICATION_ID:"=%
 echo [INFO] applicationId="%APPLICATION_ID%"
 REM 
 REM Get "versionMajor"
 SET VERSION_MAJOR=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMajor"') DO SET VERSION_MAJOR=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionMajor"') DO SET VERSION_MAJOR=%%A
 SET VERSION_MAJOR=%VERSION_MAJOR:"=%
 REM echo [INFO] versionMajor="%VERSION_MAJOR%"
 REM 
 REM Get "versionMinor"
 SET VERSION_MINOR=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMinor"') DO SET VERSION_MINOR=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionMinor"') DO SET VERSION_MINOR=%%A
 SET VERSION_MINOR=%VERSION_MINOR:"=%
 REM echo [INFO] versionMinor="%VERSION_MINOR%"
 REM 
 REM Get "versionPatch"
 SET VERSION_PATCH=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionPatch"') DO SET VERSION_PATCH=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionPatch"') DO SET VERSION_PATCH=%%A
 SET VERSION_PATCH=%VERSION_PATCH:"=%
 REM echo [INFO] versionPatch="%VERSION_PATCH%"
 REM 
 REM Get "versionWrapper"
 SET VERSION_WRAPPER=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionWrapper"') DO SET VERSION_WRAPPER=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionWrapper"') DO SET VERSION_WRAPPER=%%A
 SET VERSION_WRAPPER=%VERSION_WRAPPER:"=%
 REM echo [INFO] versionWrapper="%VERSION_WRAPPER%"
 REM

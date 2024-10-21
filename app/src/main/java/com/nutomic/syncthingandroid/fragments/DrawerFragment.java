@@ -20,7 +20,6 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
-import com.nutomic.syncthingandroid.BuildConfig;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.RecentChangesActivity;
@@ -135,7 +134,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
          * Reason: SyncthingNative's Web UI is not approved by Google because
          *          it is lacking full DPAD navigation support. See issue #567.
          */
-        mDrawerActionWebGui.setVisibility((!mRunningOnTV || BuildConfig.DEBUG) ? View.VISIBLE : View.GONE);
+        mDrawerActionWebGui.setVisibility((!mRunningOnTV) ? View.VISIBLE : View.GONE);
 
         // Enable buttons if syncthing is running.
         mDrawerRecentChanges.setEnabled(syncthingRunning);

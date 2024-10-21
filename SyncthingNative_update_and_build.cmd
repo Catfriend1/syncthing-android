@@ -56,7 +56,7 @@ git fetch --quiet --all
 SET RESULT=%ERRORLEVEL%
 IF NOT "%RESULT%" == "0" echo [ERROR] git fetch FAILED. & goto :eos
 REM
-echo [INFO] Reading required SyncthingNative from versions.gradle ...
+echo [INFO] Reading required SyncthingNative from build.gradle.kts ...
 IF NOT DEFINED SYNCTHING_NATIVE_REQUIRED_VERSION call :getRequiredSynchtingNativeVersion
 REM
 echo [INFO] Checking out syncthing_%SYNCTHING_NATIVE_REQUIRED_VERSION% ...
@@ -103,17 +103,17 @@ goto :eof
 REM 
 REM Get "versionMajor"
 SET VERSION_MAJOR=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMajor"') DO SET VERSION_MAJOR=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionMajor"') DO SET VERSION_MAJOR=%%A
 SET VERSION_MAJOR=%VERSION_MAJOR:"=%
 REM 
 REM Get "versionMinor"
 SET VERSION_MINOR=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionMinor"') DO SET VERSION_MINOR=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionMinor"') DO SET VERSION_MINOR=%%A
 SET VERSION_MINOR=%VERSION_MINOR:"=%
 REM 
 REM Get "versionPatch"
 SET VERSION_PATCH=
-FOR /F "tokens=2 delims== " %%A IN ('type "%SCRIPT_PATH%app\versions.gradle" 2^>^&1 ^| findstr "versionPatch"') DO SET VERSION_PATCH=%%A
+FOR /F "tokens=2 delims==) " %%A IN ('type "%SCRIPT_PATH%build.gradle.kts" 2^>^&1 ^| findstr "versionPatch"') DO SET VERSION_PATCH=%%A
 SET VERSION_PATCH=%VERSION_PATCH:"=%
 REM
 SET "SYNCTHING_NATIVE_REQUIRED_VERSION=v%VERSION_MAJOR%.%VERSION_MINOR%.%VERSION_PATCH%"

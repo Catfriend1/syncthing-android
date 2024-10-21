@@ -63,11 +63,11 @@ def fail(message, *args, **kwargs):
 
 
 def get_min_sdk(project_dir):
-    with open(os.path.join(project_dir, 'app', 'build.gradle')) as file_handle:
+    with open(os.path.join(project_dir, 'app', 'build.gradle.kts')) as file_handle:
         for line in file_handle:
             tokens = list(filter(None, line.split()))
-            if len(tokens) == 2 and tokens[0] == 'minSdkVersion':
-                return int(tokens[1])
+            if len(tokens) == 3 and tokens[0] == 'minSdk':
+                return int(tokens[2])
 
     fail('Failed to find minSdkVersion')
 
@@ -316,6 +316,8 @@ syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'sync
 prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
 min_sdk = get_min_sdk(project_dir)
 
+# print ('Info: min_sdk = ' + str(min_sdk))
+
 # Check if git is available.
 git_bin = which("git");
 if not git_bin:
@@ -330,7 +332,7 @@ print('git_bin=\'' + git_bin + '\'')
 # Check if go is available.
 go_bin = which("go");
 if not go_bin:
-    print('Warning: go is not available on the PATH.')
+    print('Info: go is not available on the PATH. Trying install_go')
     install_go();
     # Retry: Check if go is available.
     go_bin = which("go");
