@@ -215,4 +215,6 @@
     <string name="override_changes">Перезапиши зміни</string>
     <string name="folder_fileWatcher">Відстежувати зміни</string>
     <string name="app_name">Syncthing-Fork</string>
+    <string name="welcome_text">Syncthing — це додаток для синхронізації файлів з відкритим вихідним кодом. Щоб ділитися даними з іншими пристроями, необхідно додати їхні унікальні ідентифікатори пристроїв до списку пристроїв. Після цього можна вибрати, які папки спільно використовувати з якими пристроями.\n\nБудь ласка, повідомляйте про будь-які проблеми через GitHub.</string>
+    <string name="storage_permission_desc">Syncthing потребує доступу до вашого сховища для синхронізації файлів.</string>
 </resources>
