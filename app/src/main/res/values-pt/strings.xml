@@ -424,7 +424,7 @@
         <item quantity="other">%1$d ficheiros copiados para a pasta \"%2$s\"</item>
     </plurals>
     <plurals name="file_name_title">
-        <item quantity="one">Nome do Ficheiro</item>
+        <item quantity="one">Nome do Ficheiro %d</item>
         <item quantity="many">Lista de Ficheiros</item>
         <item quantity="other">Lista de Ficheiros</item>
     </plurals>
