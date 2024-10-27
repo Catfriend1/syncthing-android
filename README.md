@@ -27,14 +27,15 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 Switching is easier then you may think!
 
-- On Syncthing on the official app, go into the settings and create a backup
-- Confirm you can see that backup in your files
-- Now stop the official app entirely using the system app settings for Syncthing (force stop the app basically - we need to ensure it's not running)
-- Now start Syncthing-Fork
-- In the Syncthing-Fork settings, restore the backup you created earlier
+- On Syncthing on the official app, go into the settings and create a backup.
+- Confirm you can see that backup in your files.
+- Now stop the official app entirely using the system app settings for Syncthing (force stop the app basically - we need to ensure it's not running).
+- Now start Syncthing-Fork.
+- In the Syncthing-Fork settings, restore the backup you created earlier.
 - Like magic, everything should be as it was in Syncthing official.
-- Confirm everything looks good
-- Uninstall the official Syncthing app
+- Confirm everything looks good.
+- Uninstall the official Syncthing app.
+- Delete the syncthing configuration backup from `backups/syncthing`.
 
 # About Play Store releases:
 - Planning to close my Google Play Developer Account. Please say hi if you are interested in obtaining the latest gplay release files from me to help in publishing this app.
