@@ -11,7 +11,7 @@
     <string name="generic_error">Грешка</string>
     <string name="ignore">Пренебрегване</string>
     <!-- Title of the "add folder" menu action -->
-    <string name="add_folder">Добавяне на папка</string>
+    <string name="add_folder">Добавяне папка</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Споделяне на идентификатор</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
@@ -36,7 +36,7 @@
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Синхронизирано</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
-    <string name="device_syncing">Синхронизиране (%1$d%%)</string>
+    <string name="device_syncing">Синхронизиране (%1$d% %)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Няма връзка</string>
     <!-- Indicates that the device connection is unknown -->
@@ -101,7 +101,7 @@
     <string name="introducer">Поръчител</string>
     <!-- ActionBar item -->
     <string name="delete_device">Премахване на устройство</string>
-    <string name="add_device">Добавяне на устройство</string>
+    <string name="add_device">Добавяне у-во</string>
     <!-- Menu item to confirm adding a device -->
     <string name="add">Добавяне</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
@@ -176,42 +176,42 @@
     <string name="select_folder">Избиране на папка</string>
     <string name="create_folder_failed">Грешка при създаване на папка</string>
     <!-- Title of the "log android" menu button -->
-    <string name="view_android_log">Към журнала на Android</string>
+    <string name="view_android_log">Преглед на дневника на Андроид</string>
     <!-- Title of the "log Syncthing" menu button -->
-    <string name="view_syncthing_log">Към журнала на Syncthing</string>
-    <string name="retrieving_logs">Извличане на журналите…</string>
+    <string name="view_syncthing_log">Преглед на дневника на Syncthing</string>
+    <string name="retrieving_logs">Получаване на дневниците…</string>
     <!-- Title of the "share log" menu button -->
-    <string name="share_title">Сподели</string>
+    <string name="share_title">Споделяне</string>
     <!-- SyncthingService -->
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Изход</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing работи</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
-    <string name="default_folder_id">%1$s-снимки</string>
+    <string name="default_folder_id">snimki-ot-%1$s</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Изисква се рестартиране</string>
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
-    <string name="restart_notification_text">Натиснете за рестартиране на Syncthing</string>
+    <string name="restart_notification_text">Докоснете за рестартиране на Syncthing</string>
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Идентификаторът на устройството е копиран</string>
     <!-- Strings representing units for file sizes, from smallest to largest -->
-    <string name="file_size_unit_B">B</string>
+    <string name="file_size_unit_B">б</string>
     <string name="file_size_unit_KiB">КБ</string>
-    <string name="file_size_unit_MiB">MiB</string>
-    <string name="file_size_unit_GiB">GiB</string>
-    <string name="file_size_unit_TiB">TiB</string>
+    <string name="file_size_unit_MiB">МБ</string>
+    <string name="file_size_unit_GiB">ГБ</string>
+    <string name="file_size_unit_TiB">ТБ</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string name="transfer_rate_unit_B_s">Б/с</string>
-    <string name="transfer_rate_unit_KiB_s">KiB/s</string>
-    <string name="transfer_rate_unit_MiB_s">MiB/s</string>
-    <string name="transfer_rate_unit_GiB_s">GiB/s</string>
-    <string name="transfer_rate_unit_TiB_s">ТиБ/с</string>
-    <string name="state_scanning">Сканиране</string>
-    <string name="state_syncing">Синхронизиране (%1$d%%)</string>
+    <string name="transfer_rate_unit_B_s">б/с</string>
+    <string name="transfer_rate_unit_KiB_s">КБ/с</string>
+    <string name="transfer_rate_unit_MiB_s">МБ/с</string>
+    <string name="transfer_rate_unit_GiB_s">ГБ/с</string>
+    <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
+    <string name="state_scanning">Обхождане</string>
+    <string name="state_syncing">Синхронизиране (%1$d% %)</string>
     <string name="state_error">Грешка</string>
     <string name="state_unknown">Неизвестно</string>
     <string name="status_outofsync">Несинхронизирано</string>
@@ -224,7 +224,7 @@
     <string name="status_fragment_title">Състояние</string>
     <string name="folder_fileWatcher">Наблюдаване за промени</string>
     <string name="respect_battery_saving_title">Спазване на пестенето на батерия от Андроид</string>
-    <string name="respect_master_sync_title">Спазване на синхрането на данни от Андроид</string>
+    <string name="respect_master_sync_title">Спазване на синхронизиране на данни от Андроид</string>
     <string name="respect_master_sync_summary">Спиране на Syncthing при изключена настройка за автом. синхр. на данни от Андроид.</string>
     <string name="use_proxy">Свързване през мрежов посредник</string>
     <string name="do_not_use_proxy">Няма настроен мрежов посредник.</string>
@@ -316,7 +316,7 @@
     </plurals>
     <string name="delete_unexpected_items">Премахване на неочаквани елементи</string>
     <string name="open_file_with">Отваряне от</string>
-    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d%%, %2$s)</string>
+    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d% %, %2$s)</string>
     <string name="device_disconnected_not_synced">Изключено (%1$s на изчакване)</string>
     <string name="device_paused">На пауза</string>
     <string name="device_state_unused">Неизползвано</string>
@@ -369,7 +369,7 @@
     <string name="run_conditions_summary">Изберете режимите на работа на Syncthing.</string>
     <string name="run_on_wifi_title">Работи на безжични мрежи</string>
     <string name="run_on_roaming_title">Работи в чужбина</string>
-    <string name="run_on_whitelisted_wifi_title">Работи на избрани Wi-Fi мрежи</string>
+    <string name="run_on_whitelisted_wifi_title">Работи на избрани безжични мрежи</string>
     <string name="wifi_ssid_whitelist_empty">Не са избрани безжични мрежи. Докоснете, за да изберете.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">Включете местоположението, за да можете да избирате мрежи.</string>
     <string name="power_source_title">Работи при захранване от</string>
@@ -469,4 +469,84 @@
     <string name="webui_username_title">Потребителско име за интерфейса за уеб</string>
     <string name="st_reset_deltas_done">Промените на индексите на Syncthing са нулирани</string>
     <string name="st_reset_deltas_question">Това действие трябва да бъде извършвано само след препоръка от екип по поддръжка.\nЖелаете ли промените на индексите да бъдат нулирани?</string>
+    <string name="folder_go_up">Нагоре</string>
+    <string name="syncthing_log_title">Дневник на Syncthing</string>
+    <string name="android_log_title">Дневник на Андроид</string>
+    <string name="reason_force_stop">Syncthing не работи, защото сте избрали принудително да спре без да следва условията.</string>
+    <string name="reason_not_within_time_frame">Настройката „Работи по график“ е включена, а последната синхронизация е била преди по-малко от час.</string>
+    <string name="reason_not_within_time_frame_2">Настройката „Работи по график“ е включена, а последната синхронизация е била преди %s.</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d минута</item>
+        <item quantity="other">%d минути</item>
+    </plurals>
+    <string name="reason_not_charging">Устройството не се зарежда.</string>
+    <string name="reason_not_on_battery_power">Устройството не работи на батерии.</string>
+    <string name="reason_not_while_power_saving">Syncthing не работи, защото устройството е в режим на пестене на енергия.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing не работи, защото настройката за синхронизиране на данни на Андроид е изключена.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing не е настроен да работи на мобилни данни.</string>
+    <string name="reason_on_mobile_data">Syncthing може да работи на мобилни данни.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing може да работи в чуждестранни и домашни мобилни мрежи.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing не работи, защото сте забранили работа в чуждестранни мобилни мрежи.</string>
+    <string name="notifications_other_channel">Други известия</string>
+    <string name="notification_out_of_disk_space">Картата SD е пълна. Файл %1$s</string>
+    <string name="notification_crash_text">Докоснете за преглед на дневника (%1$s)</string>
+    <string name="notifications_persistent_channel">Syncthing работи</string>
+    <string name="notification_persistent_waiting_channel">Наблюдение на условията на работа</string>
+    <string name="state_error_message">Грешка (%1$s)</string>
+    <string name="folder_type_sendreceive_description">Папката и ще изпраща, и ще получава промени от отдалечени устройства.</string>
+    <string name="folder_type_sendonly_description">Предпазва местните файлове от промени, идващи от другите устройства, но местните промени се изпращат.</string>
+    <string name="reason_not_within_time_frame_0_min">по-малко от минута</string>
+    <string name="reason_not_on_mobile_data">Syncthing може да работи на мобилни данни, но няма връзка с мобилни данни.</string>
+    <string name="complete_welcome_wizard_first">Първо отворете приложението от менюто с приложения и завършете съветника, преди да споделяте файлове.</string>
+    <string name="reason_location_unavailable">Включили сте „Работи на избрани безжични мрежи“ в настройките, но местоположението е изключено. Според ограниченията на Андроид, Syncthing няма достъп до името на мрежата, за да определи дали да работи. Решение: включете местоположението, дайте разрешение за достъп и отново включете безжичната мрежа.</string>
+    <string name="reason_wifi_disallowed">Syncthing не може да работи в безжични и кабелни мрежи.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing може да работи в домашни мрежи за мобилни данни. Текущата мрежа е такава.</string>
+    <string name="reason_broadcast_controlled">Syncthing слуша за сигнали от друго приложение или ADB. Можете да превключите към условията на работа като изключите Настройки → Експериментални → Управление на услугата чрез външни сигнали.</string>
+    <string name="config_read_failed">Грешка при четене на настройките. Препоръчително е да създадете резервно копие на данните от синхронизираните папки, след това да изчистите данните на приложението от настройките на Андроид и го стартирайте отново.</string>
+    <plurals name="file_name_title">
+        <item quantity="one">Име на файла</item>
+        <item quantity="other">Списък с файлове</item>
+    </plurals>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing не работи, защото името на текущата безжична мрежа липсва в списъка с разрешените.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing може да работи в безжични мрежи без отчитане на трафика. Текущата мрежа е такава.</string>
+    <string name="copy_progress">Споделяне на файлове…</string>
+    <string name="sub_folder">Вложена папка</string>
+    <string name="reason_force_start">Syncthing работи, защото сте избрали принудително да работи без да следва условията</string>
+    <string name="reason_on_wifi">Syncthing може да работи в безжични мрежи. Текущата мрежа е такава.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing не работи, защото сте забранили работа в безжични мрежи с отчитане на графика.</string>
+    <string name="reason_not_on_wifi">Syncthing може да работи в безжична мрежа, няма връзка или е включен самолетен режим.</string>
+    <string name="reason_on_flight_mode">Syncthing работи, защото сте разрешили работа по време на самолетен режим.</string>
+    <string name="custom_wifi_ssid_whitelist_empty">Списъкът с имена на разрешени безжични мрежи е празен. Добавете от настройките.</string>
+    <string name="syncthing_active_details">Syncthing работи: %1$s</string>
+    <string name="no_remote_devices_connected">Няма свързани отдалечени устройства</string>
+    <string name="syncthing_terminated">Syncthing е насилствено спрян</string>
+    <string name="config_create_failed">Грешка при създаване на файла с настройки. Проверете дневника.</string>
+    <string name="config_file_missing">Липсва основен за работата на приложението файл с настройки</string>
+    <string name="webui_tcp_port_unavailable">Портът за интерфейса за уеб %s е зает. Дали няма друг работещ екземпляр?</string>
+    <string name="default_android_camera_folder_label">Камера на Андроид</string>
+    <string name="notification_crash_title">Syncthing се срина (код на грешката %1$s)</string>
+    <string name="folder_type_receiveonly_description">Файловете се синхронизират от другите устройства, но местните промени не се изпращат.</string>
+    <string name="cancel_title">Отказ</string>
+    <string name="folder_title">Папка</string>
+    <string name="file_name_template">Нов файл %1$s</string>
+    <string name="nothing_share">Няма какво да бъде споделено</string>
+    <plurals name="copy_success_partially">
+        <item quantity="one">%1$d файл, копиран в папка „%2$s“, %3$d вече съшествува</item>
+        <item quantity="other">%1$d файла, копирани в папка „%2$s“, %3$d вече съшествуват</item>
+    </plurals>
+    <plurals name="copy_success">
+        <item quantity="one">%1$d файл е копиран в папка „%2$s“</item>
+        <item quantity="other">%1$d файла са копирани в папка „%2$s“</item>
+    </plurals>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing работи в безжични мрежи с и без отчитане на трафика.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing може да работи в текущата безжична мрежа.</string>
+    <string name="state_failed_items">Елементи с грешка: (%1$d)</string>
+    <string name="state_local_additions">Местно добавени</string>
+    <string name="state_up_to_date">Синхронизирано</string>
+    <string name="state_scan_waiting">Изчаква за обхождане</string>
+    <string name="state_clean_waiting">Изчаква за почистване</string>
+    <string name="state_sync_waiting">Изчаква за синхронизиране</string>
+    <string name="state_syncing_general">Синхронизиране</string>
+    <string name="state_cleaning">Почистване на версии</string>
+    <string name="state_sync_preparing">Подготовка за синхронизация</string>
 </resources>
