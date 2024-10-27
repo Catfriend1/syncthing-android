@@ -316,7 +316,7 @@
     </plurals>
     <string name="delete_unexpected_items">Премахване на неочаквани елементи</string>
     <string name="open_file_with">Отваряне от</string>
-    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d% %, %2$s)</string>
+    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d%%, %2$s)</string>
     <string name="device_disconnected_not_synced">Изключено (%1$s на изчакване)</string>
     <string name="device_paused">На пауза</string>
     <string name="device_state_unused">Неизползвано</string>
