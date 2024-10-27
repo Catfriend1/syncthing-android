@@ -211,7 +211,7 @@
     <string name="transfer_rate_unit_GiB_s">ГБ/с</string>
     <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
     <string name="state_scanning">Обхождане</string>
-    <string name="state_syncing">Синхронизиране (%1$d% %)</string>
+    <string name="state_syncing">Синхронизиране (%1$d%%)</string>
     <string name="state_error">Грешка</string>
     <string name="state_unknown">Неизвестно</string>
     <string name="status_outofsync">Несинхронизирано</string>
