@@ -36,7 +36,7 @@
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Синхронизирано</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
-    <string name="device_syncing">Синхронизиране (%1$d% %)</string>
+    <string name="device_syncing">Синхронизиране (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Няма връзка</string>
     <!-- Indicates that the device connection is unknown -->
