@@ -134,7 +134,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
          * Reason: SyncthingNative's Web UI is not approved by Google because
          *          it is lacking full DPAD navigation support. See issue #567.
          */
-        mDrawerActionWebGui.setVisibility((!mRunningOnTV) ? View.VISIBLE : View.GONE);
+        mDrawerActionWebGui.setVisibility((!mRunningOnTV || Constants.isDebuggable(getContext())) ? View.VISIBLE : View.GONE);
 
         // Enable buttons if syncthing is running.
         mDrawerRecentChanges.setEnabled(syncthingRunning);

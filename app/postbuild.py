@@ -11,6 +11,9 @@ import re
 # - Python 2.7.15
 # - Python 3.7.0
 #
+# Command line:
+#   gradlew postbuildscript
+#
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
@@ -76,46 +79,6 @@ def calcAndPrintCertHash(apk_fullfn, apk_build_type):
 
     return None
 
-def pushAPKtoDevice(apk_package_name, apk_fullfn_to_push):
-    if not debug_apk or not os.path.isfile(debug_apk):
-        print('[ERROR] pushAPKtoDevice: APK not found.');
-        return None
-
-    # Check if adb is available.
-    adb_bin = which("adb");
-    if not adb_bin:
-        print('[WARNING] adb is not available on the PATH.')
-        # install_adb();
-        # Retry: Check if adb is available.
-        # adb_bin = which("adb");
-        if not adb_bin:
-            print('[ERROR] adb is not available on the PATH.')
-            sys.exit(0)
-    print('[INFO] adb_bin=\'' + adb_bin + '\'')
-
-    print('[INFO] Connecting to attached usb device ...')
-    try:
-        subprocess.check_call([
-            adb_bin,
-            'devices'
-        ])
-    except:
-        sys.exit(0)
-
-    print('[INFO] Installing APK to attached usb device ...')
-    try:
-        subprocess.check_call(adb_bin + ' install -r --user 0 ' + apk_fullfn_to_push)
-    except:
-        sys.exit(0)
-
-    print('[INFO] Starting app ...')
-    try:
-        subprocess.check_call(adb_bin + ' shell monkey -p ' + apk_package_name + ' 1')
-    except:
-        sys.exit(0)
-
-    return None
-
 
 #################
 # Script Main   #
@@ -127,22 +90,12 @@ print ('')
 
 # Build FullFNs.
 current_dir = os.path.dirname(os.path.realpath(__file__))
-enable_push_to_device = os.path.realpath(os.path.join(current_dir, "..", "#enable_push_to_device"))
-debug_apk = os.path.realpath(os.path.join(current_dir, 'build', 'outputs', 'apk', 'debug', 'app-debug.apk'))
+# debug_apk = os.path.realpath(os.path.join(current_dir, 'build', 'outputs', 'apk', 'debug', 'app-debug.apk'))
+gplay_apk = os.path.realpath(os.path.join(current_dir, 'build', 'outputs', 'apk', 'gplay', 'app-gplay.apk'))
 release_apk = os.path.realpath(os.path.join(current_dir, 'build', 'outputs', 'apk', 'release', 'app-release.apk'))
 
 # Calculate certificate hash of built APKs and output if it matches a known release channel.
 # See the wiki for more details: wiki/Switch-between-releases_Verify-APK-is-genuine.md
-calcAndPrintCertHash(debug_apk, "debug");
+# calcAndPrintCertHash(debug_apk, "debug");
+calcAndPrintCertHash(gplay_apk, "gplay");
 calcAndPrintCertHash(release_apk, "release");
-
-#
-# Check if push to device is enabled.
-#
-# Purpose: Push to device eases deployment on a real Android test device for developers
-#           that cannot or do not wish to install the full Android Studio IDE.
-if not enable_push_to_device or not os.path.isfile(enable_push_to_device):
-    # print('[INFO] push-to-device after build is DISABLED. To enable it, run \'echo . > ' + enable_push_to_device + '\'')
-    sys.exit(0)
-
-pushAPKtoDevice("com.github.catfriend1.syncthingandroid.debug", debug_apk)

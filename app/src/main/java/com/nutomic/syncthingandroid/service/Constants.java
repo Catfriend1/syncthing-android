@@ -1,6 +1,7 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -274,6 +275,10 @@ public class Constants {
                                 Build.MODEL.equals("sdk_gphone_x86_arm"
                         )
                 );
+    }
+
+    public static Boolean isDebuggable(Context context) {
+        return (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
     }
 
     /**
