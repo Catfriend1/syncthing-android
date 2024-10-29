@@ -36,7 +36,7 @@
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Синхронизирано</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
-    <string name="device_syncing">Синхронизиране (%1$d%%)</string>
+    <string name="device_syncing">Синхронизиране (%1$d% %)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Няма връзка</string>
     <!-- Indicates that the device connection is unknown -->
@@ -121,12 +121,12 @@
     <string name="web_gui_loading">Изчакване на потребителския интерфейс</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Настройки</string>
-    <string name="category_run_conditions">Условия на работа</string>
+    <string name="category_run_conditions">Условия за работа</string>
     <string name="category_behaviour">Поведение</string>
     <string name="category_syncthing_options">Настройки на Syncthing</string>
     <string name="category_experimental">Експериментални</string>
     <!-- Preference screen - Run conditions -->
-    <string name="run_conditions_title">Условия на работа</string>
+    <string name="run_conditions_title">Условия за работа</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">За да изберете мрежи, включете безжичната връзка.</string>
     <string name="use_root_title">Даване на Syncthing права на суперпотребител</string>
     <string name="device_name">Име на устройството</string>
@@ -142,7 +142,7 @@
     <string name="export_config">Изнасяне на настройките</string>
     <string name="use_tor_title">Използване на Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Наистина ли желаете настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Други приложения могат да извлекат частния ключ от генерирания файл, а чрез него да изтеглят и синхронизират файлове.</string>
+    <string name="dialog_confirm_export">Желаете ли настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Други приложения могат да извлекат частния ключ от генерирания файл, а чрез него да изтеглят и синхронизират файлове.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Желаете ли да внесете нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->
@@ -211,7 +211,7 @@
     <string name="transfer_rate_unit_GiB_s">ГБ/с</string>
     <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
     <string name="state_scanning">Обхождане</string>
-    <string name="state_syncing">Синхронизиране (%1$d%%)</string>
+    <string name="state_syncing">Синхронизиране (%1$d% %)</string>
     <string name="state_error">Грешка</string>
     <string name="state_unknown">Неизвестно</string>
     <string name="status_outofsync">Несинхронизирано</string>
@@ -237,7 +237,7 @@
     <string name="power_source_battery_power">Батерия.</string>
     <string name="toast_invalid_environment_variables">Стойността е недействително наименование на променлива на средата.</string>
     <string name="copy_exception">Грешка при споделяне, проверете дневника на приложението</string>
-    <string name="cleanout_after_description">Броят дни за запазване на файловете в кошчето. Нула значи завинаги.</string>
+    <string name="cleanout_after_description">Максимален срок за пазене на файловете в кошчето (в дни, 0 – без ограничение)</string>
     <string name="device_rejected">Устройството „%1$s“ желае да се свърже</string>
     <string name="run_on_mobile_data_title">Работи на мобилни данни</string>
     <string name="notification_permission_title">Разрешение за известия</string>
@@ -264,7 +264,7 @@
     <string name="suggest_file_manager_app_dialog_title">Не е намерено съвместимо приложение за управление на файлове</string>
     <string name="deviceEncryptionPasswordHint">При недоверено задайте парола за шифроване</string>
     <string name="shared_folders_title_colon">"Папки: "</string>
-    <string name="button_follow_run_conditions">СПАЗВАНЕ\nусловията на работа</string>
+    <string name="button_follow_run_conditions">СПАЗВАНЕ\nусловията за работа</string>
     <string name="syncthing_not_running">Syncthing не работи.</string>
     <string name="syncthing_has_crashed">Syncthing се срина.</string>
     <string name="uptime">Работи от</string>
@@ -377,7 +377,7 @@
     <string name="run_on_time_schedule_title">Работи по график</string>
     <string name="sync_duration_minutes_title">Продължителност на цикъла на синхронизация</string>
     <string name="sync_duration_minutes_summary">%1$s минути</string>
-    <string name="behaviour_autostart_title">Аятоматично стартиране</string>
+    <string name="behaviour_autostart_title">Автоматично стартиране</string>
     <string name="behaviour_autostart_summary">Автоматично стартиране на приложението при стартиране на операционната система.</string>
     <string name="bind_network_title">Привързване към текущата мрежа</string>
     <string name="expert_mode_title">Режим за експерти</string>
@@ -395,7 +395,7 @@
     <string name="app_version_title">Издание на Syncthing-Fork</string>
     <string name="syncthing_api_key">Ключ за ППИ на Syncthing (докоснете за копиране)</string>
     <string name="current_path">Текущ път: %1$s</string>
-    <string name="folder_path_readonly">Това издние на Андроид дава на Syncthing само права за четене на избраната папка.</string>
+    <string name="folder_path_readonly">Това издание на Андроид дава на Syncthing само права за четене на избраната папка.</string>
     <string name="toast_invalid_folder_selected">Избраната папка не може да бъде използвана. Изберете папка, разположена във вътрешното или външното хранилище.</string>
     <string name="local_discovery_disabled">Изключили сте местното откриване в Настройки → Настройки на Syncthing → Местно откриване. Включете настройката, за да бъдат търсени устройства в местната мрежа.</string>
     <string name="untrusted_device_explanation">Папките, споделени с устройството трябва да бъдат защитени с парола, така че данните да са недостъпни без нея.</string>
@@ -491,7 +491,7 @@
     <string name="notification_out_of_disk_space">Картата SD е пълна. Файл %1$s</string>
     <string name="notification_crash_text">Докоснете за преглед на дневника (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing работи</string>
-    <string name="notification_persistent_waiting_channel">Наблюдение на условията на работа</string>
+    <string name="notification_persistent_waiting_channel">Наблюдение на условията за работа</string>
     <string name="state_error_message">Грешка (%1$s)</string>
     <string name="folder_type_sendreceive_description">Папката и ще изпраща, и ще получава промени от отдалечени устройства.</string>
     <string name="folder_type_sendonly_description">Предпазва местните файлове от промени, идващи от другите устройства, но местните промени се изпращат.</string>
@@ -501,7 +501,7 @@
     <string name="reason_location_unavailable">Включили сте „Работи на избрани безжични мрежи“ в настройките, но местоположението е изключено. Според ограниченията на Андроид, Syncthing няма достъп до името на мрежата, за да определи дали да работи. Решение: включете местоположението, дайте разрешение за достъп и отново включете безжичната мрежа.</string>
     <string name="reason_wifi_disallowed">Syncthing не може да работи в безжични и кабелни мрежи.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing може да работи в домашни мрежи за мобилни данни. Текущата мрежа е такава.</string>
-    <string name="reason_broadcast_controlled">Syncthing слуша за сигнали от друго приложение или ADB. Можете да превключите към условията на работа като изключите Настройки → Експериментални → Управление на услугата чрез външни сигнали.</string>
+    <string name="reason_broadcast_controlled">Syncthing слуша за сигнали от друго приложение или ADB. Можете да превключите към условията за работа като изключите Настройки → Експериментални → Управление на услугата чрез външни сигнали.</string>
     <string name="config_read_failed">Грешка при четене на настройките. Препоръчително е да създадете резервно копие на данните от синхронизираните папки, след това да изчистите данните на приложението от настройките на Андроид и го стартирайте отново.</string>
     <plurals name="file_name_title">
         <item quantity="one">Име на файла</item>
@@ -511,7 +511,7 @@
     <string name="reason_on_nonmetered_wifi">Syncthing може да работи в безжични мрежи без отчитане на трафика. Текущата мрежа е такава.</string>
     <string name="copy_progress">Споделяне на файлове…</string>
     <string name="sub_folder">Вложена папка</string>
-    <string name="reason_force_start">Syncthing работи, защото сте избрали принудително да работи без да следва условията</string>
+    <string name="reason_force_start">Syncthing работи, защото сте избрали принудително да работи без да следва условията.</string>
     <string name="reason_on_wifi">Syncthing може да работи в безжични мрежи. Текущата мрежа е такава.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing не работи, защото сте забранили работа в безжични мрежи с отчитане на графика.</string>
     <string name="reason_not_on_wifi">Syncthing може да работи в безжична мрежа, няма връзка или е включен самолетен режим.</string>
@@ -549,4 +549,74 @@
     <string name="state_syncing_general">Синхронизиране</string>
     <string name="state_cleaning">Почистване на версии</string>
     <string name="state_sync_preparing">Подготовка за синхронизация</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI по подразбиране не позволява на приложенията да се стартират самостоятелно. От началния екран отворете Настройки → Разрешения → Автоматично стартиране и включете плъзгача за „Syncthing-Fork“.</string>
+    <string name="bind_network_summary">Задължително използване на безжична мрежа, дори ако няма връзка с интернет. Ако не е отметнато, при липса на връзка Syncthing може да използва мобилни данни.</string>
+    <string name="webui_debugging_summary">Когато е отметнато започва профилиране, което дава възможност да изтеглите пакет за поддръжка. Промяната на настройката ще рестартира Syncthing веднага.</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Номерът на порта е неприемлив. Въведете порт между %1$d и %2$d.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Само за Андроид 5 и предишни. Използвайте тази настройка, само ако възникват неочаквани прекъсвания при работа на батерия. Ще доведе до увеличен разход на батерия.</string>
+    <string name="pull_order_type_smallestFirst">Първо най-малките</string>
+    <string name="pull_order_type_largestFirst">Първо най-големите</string>
+    <string name="pull_order_type_oldestFirst">Първо най-старите</string>
+    <string name="pull_order_type_newestFirst">Първо най-новите</string>
+    <string name="pull_order_type_random_description">Файловете ще бъдат изтегляни в произволен ред.</string>
+    <string name="pull_order_type_alphabetic_description">Файловете ще бъдат изтегляни по азбучен ред.</string>
+    <string name="trashcan_versioning_description">Когато Syncthing замени или премахне файл, негова версия се копира в папка .stversions.</string>
+    <string name="maximum_age_description">Максимален срок за пазене на версия (в дни, 0 – без ограничение).</string>
+    <string name="external_versioning_description">Първият параметър на командата е пътя към папката, а втория – относителния път в папката.</string>
+    <string name="no_versioning_description">Изберете вида на управлението на версии.</string>
+    <string name="type_simple">Вид: Обикновени</string>
+    <string name="type_trashcan">Вид: Кошче за отпадъци</string>
+    <string name="type_staggered">Вид: Разпределени</string>
+    <string name="type_external">Вид: С външно управление</string>
+    <string name="trashcan_versioning_info">Почистване след: %1$s</string>
+    <string name="staggered_versioning_info">Максимална възраст: %1$d\nПапка с версиите: %2$s</string>
+    <string name="external_versioning_info">Команда: %1$s</string>
+    <string name="simple_versioning_info">Количество пазени вресии: %1$s</string>
+    <string name="show_device_id">Идентификатор на устройството</string>
+    <string name="could_not_access_deviceid">Идентификаторът на устройството е недостъпен.</string>
+    <string name="browse">Разглеждане</string>
+    <string name="file_versioning_generic_description">Syncthing поддържа архивиране на по-ранна версия на даден файл, когато той бъде изтрит или заменен с по-нов. Докоснете, за да видите наличните стратегии за създаване на версии. Стратегиите могат да бъдат настроени за всяка папка на всяко отделно устройство. Избрана стратегия:</string>
+    <string name="simple_file_versioning_description">Когато Syncthing замени или премахне файл, негова версия се копира в папка .stversions, като в името му се добавят датата и часът.</string>
+    <string name="staggered_versioning_description">Когато Syncthing замени или премахне файл, негова версия се копира в папка .stversions. Някои версии биват премахнати, ако са по-стари от максималната възраст или надвишават броя, разрешен в даден период от време.\n\nИзползвани интервали: през първия час се пази версия от всеки 30 секунди, през първия ден се пази версия от всеки час, през първите 30 дни се пази версия от всеки ден, а до достигане на максималната възраст се пази версия от всяка седмица.</string>
+    <string name="tip_write_to_sdcard_text">Ако в потребителския интерфейс се показва съобщение, че Андроид предоставя само права за четене на Syncthing за конкретна папка, можете да създадете нова папка с права за писане, като използвате следния път: \n%1$s/YOUR_FOLDER_NAME\nВажно: Тази папка ще бъде премахната от Андроид при премахване на приложението. За да предотвратите загуба на данни, преместете важните файлове на сигурно място извън папката …/Android, преди да махнете приложението.</string>
+    <string name="tip_ignore_delete_text">Ако желаете всички снимки, направени с мобилното устройство, да бъдат копирани на компютър, споделете папката „Camera“ с него. Отворете Syncthing на компютъра, добавете папката и отворете от главното меню: Действия → Разширени → Папки → Папка „Camera“. Отметнете „Ignore Delete“ и натиснете „Запазване“. Вече можете да изтривате снимки от папката на камерата от телефона, като те ще останат компютъра.</string>
+    <string name="run_on_roaming_summary">Разрешаване на Syncthing да използва мобилни данни в чуцбина. (!) Оставете обратна връзка в Гитгъб ако тази настройка работи правилно.</string>
+    <string name="run_in_flight_mode_summary">Когато е отметнато Syncthing ще работи дори и когато няма връзка. Отметнете и ако в самолетен режим не се открива ръчно включената безжична връзка.</string>
+    <string name="use_root_summary">Използването на Syncthing с права на суперпотребител дава възможност на приложението права за запис в папки, до които Андроид обикновено предоставя достъп само за четене. Използвайте с повишено внимание.</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor не е подготвен. Рестартирайте приложението и ако грешката не изчезне след рестарта докладвайте за нея.</string>
+    <string name="executable_not_found">Основният изпълним файл „%s“ липсва. Проверете изведеното при компилацията и системния дневник.</string>
+    <string name="pull_order">Ред на изтегляне</string>
+    <string name="pull_order_type_smallestFirst_description">Файловете ще бъдат изтегляни според размера им. Първо най-малките.</string>
+    <string name="pull_order_type_largestFirst_description">Файловете ще бъдат изтегляни според размера им. Първо най-големите.</string>
+    <string name="pull_order_type_oldestFirst_description">Файловете ще бъдат изтегляни според датата на промяна. Първо най-старите.</string>
+    <string name="folder_type_receive_encrypted_description">Съдържа и синхронизира само шифровани данни. Папките на всички свързани устройства трабва да бъдат защитени с една и съща парола или да бъдат от вида „Получава шифровани данни“.</string>
+    <string name="pull_order_type_newestFirst_description">Файловете ще бъдат изтегляни според датата на промяна. Първо най-новите.</string>
+    <string name="maximum_age">Максимална възраст</string>
+    <string name="clean_out_after">Почистване след</string>
+    <string name="versions_path">Папка с версиите</string>
+    <string name="command">Команда</string>
+    <string name="keep_versions_description">Брой пазени стари версии на файл.</string>
+    <string name="versions_path_description">Папка, в която да бъдат запазвани версиите (оставете празно за подразбираната папка .stversions в споделената папка).</string>
+    <string name="no_sub_folder_is_selected">Не е избрана подпапка</string>
+    <string name="custom_sync_conditions_dialog">Указване на условия за сихронизиране</string>
+    <string name="qs_force_label">Принудителна работа</string>
+    <string name="qs_forced_to_run">Принуждаване към работа</string>
+    <string name="qs_forced_to_stop">Принудително спиране</string>
+    <string name="qs_following_run_conditions">Спазване на условията за работа</string>
+    <string name="qs_schedule_label">Работи от 5 минути</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Работи от %1$d минути</string>
+    <string name="qs_schedule_disabled">Графикът е изключен</string>
+    <string name="custom_sync_conditions_description">Дава възможност да посочите изключения от общите условия за работа.</string>
+    <string name="share_device_id_chooser">Споделяне идентификатора на устройството чрез</string>
+    <string name="run_on_whitelisted_wifi_summary">Включете списъка с разрешените безжични мрежи, за да ограничите синхронизирането само до тях.</string>
+    <string name="custom_sync_conditions_title">Потребителски условия за синхронизиране</string>
+    <string name="dialog_exit_while_running_as_service_message">Забележка: Настроили сте приложението да се изпълнява автоматично при зареждане. Следователно то следи условията за работа и синхронизира по всяко време във фонов режим, когато условията позволяват. Ако се сблъскате със сериозни проблеми приложението може да бъде спряно само ръчно. В противен случай изключете „Автоматично стартиране“ в настройките. Жеаете ли да спрете приложението сега, докато устройството не рестартира?</string>
+    <string name="tip_custom_sync_conditions_text">Тази функционалност ще бъде подобрена в следващите издания. Засега не искахме да нарушаваме съществуващите настройки и поведението на приложението. Ето защо потребителските условия за синхронизиране за определен вид мрежа могат да бъдат зададени само ако първо разрешите синхронизирането в мрежата в общите условия за работа.</string>
+    <string name="run_on_mobile_data_summary">Синхронизира, когато устройството е свързано към мобилни данни. Внимание: ако синхронизирате голямо количество данни е възможно изразходването на много от предоставения от оператора трафик.</string>
+    <string name="tip_sync_on_local_network_text">Ако искате да синхронизирате само с устройства, които се намират в местната безжична мрежа или са достъпни чрез безжична точка за достъп, можете да намалите разхода на батерията и да избегнете случайно синхронизиране чрез мобилни данни, като изключите следните неща в Настройки → Настройки на Syncthing:\n- обхождане на NAT\n- глобално откриване\n- разрешаване на ретранслатори\nОставете включена само настройката „Месно откриване“.</string>
+    <string name="run_on_time_schedule_summary">Когато е отметнато синхронизирането ще бъде извършвано за определено време, ако са изпълнени условията за работа и последната синхронизация е била преди повече от 1 час. По този начин можете да спестите много батерия, но изисква партньорите в синхронизацията да са на линия. Забележка: Могат да бъдат оставени частични временни файлове до следващата насрочена синхронизация.</string>
+    <string name="tip_huawei_device_disconnected_text">Ако на настолния компютър постоянно се отчита, че устройството Huawei е изключено, отворете Syncthing на компютъра. Под „Отдалечени устройства“, изберете елемента за телефона и натиснете бутона „Редактиране“, превключете в раздела „Разширени“. В секция „Адреси“ въведете IP адреса на мобилното устройство, както следва:\ntcp4://%1$s, dynamic\nПотвърдено, че работи за: Huawei P10</string>
+    <string name="run_on_metered_wifi_summary">Синхронизира, когато устройството е свързано към безжична мрежа с отчитане на трафика, напр. безжична точка за достъп или споделена мрежа от друг телефон. Внимание: Ако синхронизирате голямо количество данни е възможно изразходването на много от предоставения по тарифен план трафик.</string>
+    <string name="tip_xiaomi_battery_saver_text">Системното приложение за пестене на батерия в Xiaomi MIUI отнема разрешението на приложението за пренебрегване на оптимизацията на батерията при всяко рестартиране на телефона. Това води до показване на началния екран на приложението и повторно изискване за задължителното разрешение. Решение: От началния екран отворете списъка с приложения → Натиснете и задръжте „Syncthing-Fork“ → „Информация за приложението“ → „Пестене на батерия“ и изберете „Без ограничения“ (MIUI 10.3.2.0+).</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Въведената стойност е неприемлива. Въведете стойност между %1$d и %2$d.</string>
 </resources>
