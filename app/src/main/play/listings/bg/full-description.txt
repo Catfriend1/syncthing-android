@@ -1,38 +1,37 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+Това е разклонение на Syncthing-Android, обвивката за Syncthing, която предлага значителни подобрения като:
+* Напредъкът на синхронизацията на папка, устройство и общата може лесно да бъде проследена в интерфейса.
+* „Syncthing Camera“ – по желание (с възможност за използване на камерата), която позволява на вас и вашия приятел или партньор да правите снимки на два телефона в една споделена и частна папка на Syncthing. Без облак. - В БЕТА -
+* „Синхронизация на всеки час“, за да бъде спестена още повече батерия.
+* Индивидуални условия за синхронизиране могат да бъдат задавани за всяко устройство и папка.
+* Интерфейс за преглед на скорошните промени, с възможност за отваряне на файлове с едно докосване.
+* Промени в настройката на папки и устройства могат да бъдат правени независимо дали Syncthing работи или не.
+* Интерфейсът обяснява защо Syncthing в момента работи или не.
+* Решен е проблемът с „изтощаването на батерията“.
+* Откриване на други устройства с инсталиран Syncthing в същата мрежа и лесното им добавяне.
+* Поддържа двупосочна синхронизация на външна SD карта от Андроид 11.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork за Андроид е обвивка за Syncthing, която предоставя потребителския интерфейс на Андроид вместо вградения Web UI на Syncthing. Syncthing заменя частните облачни и услуги за синхронизиране с нещо отворено, надеждно и децентрализирано. Вашите данни са само ваши, и вие решавате къде бъдат съхранявани, дали бъдат споделяни с трети страни и как да бъдат предавани през интернет.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Цели на това разклонение:
+* Разработване и изпробване на подобрения заедно с общността.
+* По чести издания на обвивката, за да бъдат откривани и поправяни грешки, причинени от промени в модулите на Syncthing.
+* Правене на подобренията с възможност за настройка в потребителския интерфейс, така че потребителите да могат да ги включват и изключват.
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Сравнение между оригинала и разклонението към момента на писане:
+* И двата съдържат двоичния файл, който извършва синхронизирането, компилиран от официалния източник в GitHub.
+* Възможностите и надеждността на синхронизацията зависи от версията на модула на Syncthing.
+* Разклонението работи в съгласие с оригинала и понякога оригиналът включва подобрения от разклонението.
+* Стратегията и честотата на изданията са различни.
+* Само обвивката съдържа потребителски интерфейс на Андроид.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Страница: https://github.com/Catfriend1/syncthing-android
 
-Сорс код: https://github.com/Catfriend1/syncthing-android
+Изходен код: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Как Syncthing записва на външна SD карта: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, въпроси и отговори, и полезни статии: https://github.com/Catfriend1/syncthing-android/wiki
 
-Проблеми: https://github.com/Catfriend1/syncthing-android/issues
+Дефекти: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Помогнете с превода: https://hosted.weblate.org/projects/syncthing/android/catfriend1
