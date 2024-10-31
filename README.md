@@ -25,7 +25,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 # Switching from the (now deprecated) official version
 
-Switching is easier then you may think!
+Switching is easier than you may think!
 
 - On Syncthing on the official app, go into the settings and create a backup.
 - Confirm you can see that backup in your files.
