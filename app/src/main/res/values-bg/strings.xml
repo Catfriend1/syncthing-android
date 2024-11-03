@@ -36,7 +36,7 @@
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Синхронизирано</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
-    <string name="device_syncing">Синхронизиране (%1$d %%)</string>
+    <string name="device_syncing">Синхронизиране (%1$d %%)</string>
     <!-- Indicates that there is no connection to the device -->
     <string name="device_disconnected">Няма връзка</string>
     <!-- Indicates that the device connection is unknown -->
@@ -211,7 +211,7 @@
     <string name="transfer_rate_unit_GiB_s">ГБ/с</string>
     <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
     <string name="state_scanning">Обхождане</string>
-    <string name="state_syncing">Синхронизиране (%1$d %%)</string>
+    <string name="state_syncing">Синхронизиране (%1$d %%)</string>
     <string name="state_error">Грешка</string>
     <string name="state_unknown">Неизвестно</string>
     <string name="status_outofsync">Несинхронизирано</string>
@@ -264,7 +264,7 @@
     <string name="suggest_file_manager_app_dialog_title">Не е намерено съвместимо приложение за управление на файлове</string>
     <string name="deviceEncryptionPasswordHint">При недоверено задайте парола за шифроване</string>
     <string name="shared_folders_title_colon">"Папки: "</string>
-    <string name="button_follow_run_conditions">СПАЗВАНЕ\nусловията за работа</string>
+    <string name="button_follow_run_conditions">СПАЗВАНЕ\nусловията\nза работа</string>
     <string name="syncthing_not_running">Syncthing не работи.</string>
     <string name="syncthing_has_crashed">Syncthing се срина.</string>
     <string name="uptime">Работи от</string>
@@ -292,7 +292,7 @@
     <string name="state_unshared">Несподелена</string>
     <string name="folder_type">Вид на папката</string>
     <string name="pull_order_largest_first">Първо най-големите</string>
-    <string name="button_force_stop">ПРИНУДИТЕЛНО СПИРАНЕ\nне следва\nусловията на работа</string>
+    <string name="button_force_stop">ПРИНУДИТЕЛНО СПИРАНЕ\nне следва\nусловията за работа</string>
     <string name="advanced_directory_selection">Разширен избор на папки</string>
     <string name="folder_ignore_delete_caption">Пренебрегване на изтриванията</string>
     <string name="folder_ignore_delete_description">Разширена настройка, която влияе върху обработката на входящите промени на индекса. Когато е отметната, входящите промени със вдигнат флаг за изтриване биват пренебрегнати. Вижте https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
@@ -316,12 +316,12 @@
     </plurals>
     <string name="delete_unexpected_items">Премахване на неочаквани елементи</string>
     <string name="open_file_with">Отваряне от</string>
-    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d% %, %2$s)</string>
+    <string name="device_syncing_percent_bytes">Синхронизиране (%1$d %%, %2$s)</string>
     <string name="device_disconnected_not_synced">Изключено (%1$s на изчакване)</string>
     <string name="device_paused">На пауза</string>
     <string name="device_state_unused">Неизползвано</string>
     <string name="device_last_seen">Последно видяно: %1$s</string>
-    <string name="button_force_start">ПРИНУДИТЕЛНА РАБОТА\nне следва\nусловията на работа</string>
+    <string name="button_force_start">ПРИНУДИТЕЛНА РАБОТА\nне следва условията\nза работа</string>
     <string name="syncthing_starting">Syncthing стартира.</string>
     <string name="syncthing_running">Syncthing работи.</string>
     <string name="folder_label_required">Етикетът на папката не може да бъде празен</string>
@@ -336,9 +336,9 @@
     <string name="versioning_type_none">Изключено</string>
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">Syncing: %1$d% % готови, %2$d устройство на линия</item>
-        <item quantity="other">Syncing: %1$d% % готови, %2$d устройства на линия</item>
+        <item quantity="other">Syncing: %1$d %% готови, %2$d устройства на линия</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing си почива</string>
+    <string name="syncthing_disabled">Syncthing почива</string>
     <string name="folder_type_receiveonly">Само получава</string>
     <string name="toast_ignore_doze_permission_required">Това приложение работи стабилно само ако за него е изключена настройката за пестене на батерия.</string>
     <string name="generic_example">Пример</string>
