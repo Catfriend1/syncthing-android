@@ -285,8 +285,8 @@
     <string name="grant_camera_permission">Разрешаване на достъп до камерата</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: приложението постоянно показва екрана с поздрав</string>
     <plurals name="device_online_up_to_date">
-        <item quantity="one">%1$d устройство на линия, всичко обновено</item>
-        <item quantity="other">%1$d устройства на линия, всичко обновено</item>
+        <item quantity="one">%1$d свързано у-во, всичко обновено</item>
+        <item quantity="other">%1$d свързани у-ва, всичко обновено</item>
     </plurals>
     <string name="photo_shoot_intro_permission_desc">Syncthing Камера изисква съгласието ви, за да прави снимки и да ги запазва на устройството. Това е по ваш избор. За да се възползвате, дайте разрешенията и докоснете „Напред“. Ще бъде настроена папка Syncthing Камера, която по-късно можете да споделяте с други устройства с инсталиран Syncthing.</string>
     <string name="state_unshared">Несподелена</string>
@@ -335,8 +335,8 @@
     <string name="pull_order_newest_first">Първо най-новите</string>
     <string name="versioning_type_none">Изключено</string>
     <plurals name="syncthing_active_syncing_device_online">
-        <item quantity="one">Syncing: %1$d% % готови, %2$d устройство на линия</item>
-        <item quantity="other">Syncing: %1$d %% готови, %2$d устройства на линия</item>
+        <item quantity="one">Syncing: %1$d% % готови, %2$d свързано у-во</item>
+        <item quantity="other">Syncing: %1$d %% готови, %2$d свързани у-ва</item>
     </plurals>
     <string name="syncthing_disabled">Syncthing почива</string>
     <string name="folder_type_receiveonly">Само получава</string>
