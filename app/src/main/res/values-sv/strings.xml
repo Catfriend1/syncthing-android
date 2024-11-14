@@ -513,4 +513,7 @@
     <string name="share_device_id_chooser">Dela enhetens ID med</string>
     <string name="run_on_whitelisted_wifi_summary">Slå på vitlistan för att begränsa att synkronisering sker endast på angivna Wi-Fi-nätverk.</string>
     <string name="dialog_all_files_access_not_supported">Din enhet stöder inte all filåtkomst</string>
+    <string name="ignore_doze_permission_os_notice">Android TV är kända för att ibland avsluta appen när den körs i bakgrunden. En lösning finns tillgänglig på wikin på \'%1$s/%2$s\'.</string>
+    <string name="ignore_doze_permission_desc">Android kan stoppa synkroniseringen efter en tid. För att förhindra detta, inaktivera batterioptimering. Vissa enheter har ytterligare appar som dödar uppgifter förinstallerade. Du bör också lägga till Syncthing till deras vitlista.</string>
+    <string name="welcome_text">Syncthing är ett program för filsynkronisering med öppen källkod. För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\nRapportera eventuella problem du stöter på via GitHub.</string>
 </resources>
