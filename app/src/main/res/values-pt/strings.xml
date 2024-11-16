@@ -517,4 +517,9 @@
     <string name="no_versioning_description">Escolha um tipo de versionamento para habilitá-lo.</string>
     <string name="type_simple">Tipo: Simples</string>
     <string name="type_trashcan">Tipo: Lixo</string>
+    <string name="syncthing_not_running">Syncthing não está ativo.</string>
+    <string name="folder_path_readonly">Sua versão de Android apenas permite Syncthing acesso de leitura (readonly) à pasta selecionada.</string>
+    <string name="photo_shoot_launcher_title">Sync. Camera</string>
+    <string name="toast_notification_permission_required">Syncthing requer a permissão de notificação para manter o serviço vivo e conectado.</string>
+    <string name="exception_known_bug_notice">Encontrou um \"Bug\" já conhecido mas que ainda não foi resolvido. Veja %1$s/%2$s para mais informações, e por favor, deixe uma descrição detalhada do que estava fazendo antes do Bug acontecer.</string>
 </resources>
