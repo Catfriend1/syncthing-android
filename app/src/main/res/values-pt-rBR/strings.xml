@@ -201,7 +201,7 @@
     <string name="folder_path_required">O caminho da pasta não pode ficar vazio</string>
     <string name="dialog_discard_changes">Descartar as alterações\?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">Sua versão do Android garante acesso apenas à leitura da pasta selecionada</string>
+    <string name="folder_path_readonly">Sua versão de Android apenas permite Syncthing acesso de leitura (readonly) à pasta selecionada.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
     <string name="folder_path_readwrite">Sua versão do Android concede ao Syncthing acesso de leitura e escrita à pasta selecionada.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">A mudança de pastas existentes para \'Receber criptografado\' não é suportada.</string>
