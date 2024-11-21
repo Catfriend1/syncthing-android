@@ -249,7 +249,7 @@
     <string name="preference_language_summary">Zmień język aplikacji</string>
     <string name="pref_language_default">Domyślny język</string>
     <string name="versioning_type_none">Żaden</string>
-    <string name="versioning_type_trashcan">Śmientik</string>
+    <string name="versioning_type_trashcan">Kosz</string>
     <string name="versioning_type_simple">Proste</string>
     <string name="versioning_type_staggered">Rozszerzone</string>
     <string name="versioning_type_external">Zewnętrzne</string>
