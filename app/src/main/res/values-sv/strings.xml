@@ -422,7 +422,7 @@
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s foton</string>
-    <string name="notification_crash_title">Syncthing har kraschat %1$s</string>
+    <string name="notification_crash_title">Syncthing har kraschat (avslutningskod %1$s)</string>
     <string name="notification_crash_text">Klicka för att visa loggar (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing är aktiv</string>
     <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>
@@ -516,4 +516,18 @@
     <string name="ignore_doze_permission_os_notice">Android TV är kända för att ibland avsluta appen när den körs i bakgrunden. En lösning finns tillgänglig på wikin på \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android kan stoppa synkroniseringen efter en tid. För att förhindra detta, inaktivera batterioptimering. Vissa enheter har ytterligare appar som dödar uppgifter förinstallerade. Du bör också lägga till Syncthing till deras vitlista.</string>
     <string name="welcome_text">Syncthing är ett program för filsynkronisering med öppen källkod. För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\nRapportera eventuella problem du stöter på via GitHub.</string>
+    <string name="notification_permission_title">Aviseringstillstånd</string>
+    <string name="photo_shoot_intro_welcome_title">Välkommen till Syncthing Camera</string>
+    <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
+    <string name="toast_notification_permission_required">Syncthing kräver aviseringstillstånd för att hålla tjänsten vid liv och ansluten.</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
+    <string name="device_addresses_invalid">Enhetsadresserna är inte korrekt formaterade. Försök igen. Titta på Syncthing-dokumenten för mer information.</string>
+    <string name="notification_permission_desc">Krävs för att visa aviseringar om nya enhetsanslutningar, förfrågningar om mappdelning och för att hålla tjänsten vid liv och ansluten.</string>
+    <string name="folder_ignore_delete_description">Expertalternativ som påverkar hanteringen av inkommande indexuppdateringar. När den är inställd ignoreras inkommande uppdateringar med borttagningsflaggan. Se https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Försiktigt: Om SyncthingNative avbryts och gör något konstigt är du skyldig. Hoppa bara över om din enhet inte stöder beviljande av tillstånd. Verkligen hoppa över?</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing Camera kräver ditt samtycke för att ta bilder och lagra dem på din enhet. Denna funktion är valfri. För att använda det, bevilja behörigheter och tryck på \"Fortsätt\". Vi kommer att skapa en Syncthing Camera-mapp åt dig som du kan dela med andra Syncthing-enheter senare.</string>
+    <string name="photo_shoot_take_picture_success">Bilden har sparats i mappen Syncthing Camera.</string>
+    <string name="notification_out_of_disk_space">SD-kortet är fullt. Fil %1$s</string>
+    <string name="location_permission_desc_api_29">Tips för Android 10+: \"Tillåt hela tiden\"</string>
+    <string name="location_permission_desc">Syncthing kan konfigureras för att fungera på utvalda Wi-Fi-nätverk. Android kräver att appen har platsbehörighet för att läsa det aktiva Wi-Fi-nätverkets namn. Om du vill använda den här funktionen, tryck på knappen ovan. Du kan hoppa över detta steg. Se vår integritetspolicy för mer information.</string>
 </resources>
