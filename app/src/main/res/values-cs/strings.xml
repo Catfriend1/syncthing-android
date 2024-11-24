@@ -65,7 +65,7 @@
     <string name="ram_usage">Využití RAM</string>
     <!-- Title for announce server status -->
     <string name="announce_server">Globální oznamování</string>
-    <string name="restart">Restart</string>
+    <string name="restart">Restartovat</string>
     <string name="dialog_confirm_restart">Opravdu chcete restartovat Syncthing\?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
@@ -264,7 +264,7 @@
     <string name="notifications_other_channel">Ostatní upozornění</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
-    <string name="restart_title">Je potřeba restartovat</string>
+    <string name="restart_title">Vyžadováno restartování</string>
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
@@ -389,4 +389,87 @@
     <string name="storage_permission_desc">Aby Syncthing mohl synchronizovat soubory, potřebuje přístup k úložišti.</string>
     <string name="dialog_all_files_access_not_supported">Vaše zařízení nepodporuje přístup ke všem souborům</string>
     <string name="pause_device">Pozastavit zařízení</string>
+    <string name="device_syncing_percent_bytes">Synchronizace (%1$d%%, %2$s)</string>
+    <string name="device_state_unused">Nepoužitý</string>
+    <string name="button_force_stop">VYNUTIT ZASTAVENÍ\nIGNOROVAT PODMÍNKY BĚHU</string>
+    <string name="main_menu">Hlavní nabídka</string>
+    <string name="refresh">Obnovit</string>
+    <string name="exception_known_bug_notice">Vyskytla se známá chyba, která dosud nebyla vyřešena.Další informace naleznete v %1$s/%2$s. Předtím nám prosím zanechte přesný popis toho, co se stalo.</string>
+    <string name="photo_shoot_intro_permission_desc">Aplikace Syncthing Camera vyžaduje váš souhlas k pořizování snímků a jejich ukládání do zařízení. Tato funkce je volitelná. Chcete-li ji používat, udělte oprávnění a klepněte na možnost „Pokračovat“. Nastavíme pro vás složku Syncthing Camera, kterou můžete později sdílet s ostatními zařízeními Syncthing.</string>
+    <string name="folder_rejected">Zařízení „%1$s“ chce sdílet složku „%2$s“</string>
+    <string name="override_changes_question">Tím zrušíte všechny změny provedené v ostatních zařízeních sdílejících tuto složku. Pokračovat?</string>
+    <string name="category_backup">Import a Export</string>
+    <string name="notification_permission_title">Oprávnění k zmánením</string>
+    <string name="reason">Důvod:</string>
+    <string name="accept">Příjmout</string>
+    <string name="page_x_of_y">Stránka %1$s z %2$s</string>
+    <string name="photo_shoot_activity_title"></string>
+    <string name="photo_shoot_intro_permission_title">Požadovaná oprávnění</string>
+    <string name="photo_shoot_intro_no_camera">Je nám líto, ale toto zařízení nemá fotoaparát.</string>
+    <string name="photo_shoot_intro_missing_permissions">K pokračování potřebujeme povolení k uložišti a používání fotoaparátu.</string>
+    <string name="grant_camera_permission">Udělit oprávnění k fotoaparátu</string>
+    <string name="grant_storage_permission">Udělit oprávnění k uložišti</string>
+    <string name="photo_shoot_take_picture_success">Snímek byl úspěšně uložen do složky Syncthing Camera.</string>
+    <string name="photo_shoot_take_picture_failure">Nepodařilo se vám pořídit snímek nebo jste ho zrušili.</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
+    <string name="activity_main_bottom_navigation_rescan_all">Znovu prohledat vše</string>
+    <string name="open_main_menu">Otevřít hlavní nabídku</string>
+    <string name="dialog_exit_while_running_as_service_title">Potvrdit ukončení aplikace</string>
+    <string name="device_rejected">Zařízení „%1$s“ se chce připojit</string>
+    <string name="revert_local_changes">Vrátit místní změny</string>
+    <string name="delete_unexpected_items">Odstranit neočekávané položky</string>
+    <string name="suggest_file_manager_app_dialog_title">Nebyla nalezena žádná kompatibilní aplikace správce souborů</string>
+    <string name="open_file_no_compatible_app">Nebyla nalezena žádná aplikace pro otevření souboru.</string>
+    <string name="suggest_file_manager_app_dialog_text">Doporučujeme nainstalovat správce souborů s otevřeným zdrojovým kódem Material Files. Chcete otevřít její stránku v obchodě s aplikacemi?</string>
+    <string name="deviceEncryptionPasswordHint">V případě nedůvěryhodnosti zadat šifrovací heslo</string>
+    <string name="device_disconnected_not_synced">Odpojeno (%1$s čeká)</string>
+    <string name="device_last_seen">Naposledy viděn: %1$s</string>
+    <string name="device_last_seen_never">Nikdy</string>
+    <string name="shared_folders_title_colon">"Složky: "</string>
+    <string name="button_force_start">VYNUTI SPUŠTĚNÍ\nIGNOROVAT PODMÍNKY BĚHU</string>
+    <string name="uptime">Doba spuštění</string>
+    <string name="advanced_directory_selection">Pokročilý výběr adresáře</string>
+    <string name="folder_label_required">Popisek složky nesmí být prázdný</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Přepnutí existujících složek na „Přijímat šifrovaně“ není podporováno.</string>
+    <string name="no_recent_changes">Žádné nedávné změny.</string>
+    <string name="dialog_settings_restart_app_title">Vyžadován restart</string>
+    <string name="syncthing_active_details">Syncthing běží: %1$s</string>
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojeno</item>
+        <item quantity="few">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojena</item>
+        <item quantity="other">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojeno</item>
+    </plurals>
+    <string name="devices_list_empty">Nejsou nakonfigurována žádná zařízení. Klepnutím přidáte nové zařízení.</string>
+    <string name="folder_ignore_delete_description">Expertní volba, která ovlivňuje zpracování příchozích aktualizací indexu.Je-li nastavena, jsou příchozí aktualizace s nastaveným příznakem odstranění ignorovány. Viz https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="welcome_text">Syncthing je aplikace s otevřeným zdrojovým kódem pro synchronizaci souborů. Chcete-li sdílet data s jinými zařízeními, musíte přidat jejich jedinečná ID do seznamu zařízení. Poté můžete vybrat, které složky se mají sdílet s kterými zařízeními.\n\nJakékoli problémy, na které narazíte, nahlaste prostřednictvím služby GitHub.</string>
+    <string name="ignore_doze_permission_desc">Systém Android může po určité době synchronizaci zastavit. Chcete-li tomu zabránit, vypněte optimalizaci baterie. Některá zařízení mají předinstalované další aplikace, které ukončují úlohy. Do jejich bílého seznamu byste měli přidat také Syncthing.</string>
+    <string name="recent_changes_title">Nedávné změny</string>
+    <string name="notification_permission_desc">Nutné pro zobrazení oznámení o nových připojeních zařízení, požadavcích na sdílení složek a pro udržení služby při životě a připojení.</string>
+    <string name="toast_notification_permission_required">Syncthing vyžaduje oprávnění k oznámení, aby udržel svou službu běžet a připojenou.</string>
+    <string name="grant_permission">Udělit oprávnění</string>
+    <string name="permission_granted">Orávnění uděleno</string>
+    <string name="photo_shoot_intro_welcome_title">Vítejte v Syncthing Camera</string>
+    <string name="close_main_menu">Zavřít hlavní nabídku</string>
+    <string name="revert_local_changes_question">Tím zrušíte všechny změny provedené v tomto zařízení v rámci této složky. Pokračovat?</string>
+    <string name="open_file_with">Otevřít soubor pomocí</string>
+    <string name="no_devices_configured">Nejsou nakonfigurována žádná zařízení.\nKlepnutím přidáte nové zařízení.</string>
+    <string name="button_follow_run_conditions">DODRŽOVAT PODMÍNKY BĚHU</string>
+    <plurals name="device_online_up_to_date">
+        <item quantity="one">%1$d zařízení je připojeno a aktuální</item>
+        <item quantity="few">%1$d zařízení jsou připojena a aktuální</item>
+        <item quantity="other">%1$d zařízení je připojeno a aktuální</item>
+    </plurals>
+    <string name="location_permission_desc_api_29">Tip pro Android 10+: „Povolit vždy“</string>
+    <string name="back">Zpět</string>
+    <string name="generic_example">Příklad</string>
+    <string name="generic_help">Nápověda</string>
+    <string name="introduction">Úvod</string>
+    <string name="ignore_doze_permission_os_notice">Televizory se systémem Android jsou známé tím, že občas ukončí aplikaci spuštěnou na pozadí. Řešení je k dispozici na wiki na adrese \'%1$s/%2$s\'.</string>
+    <string name="key_generation_title">Generování klíčů</string>
+    <string name="key_generation_success">Bezpečné klíče pro výměnu soukromých dat byly úspěšně vygenerovány.</string>
+    <string name="photo_shoot_launcher_title"></string>
+    <string name="location_permission_desc">Synchronizaci lze nakonfigurovat tak, aby fungovala ve vybraných sítích Wi-Fi. Systém Android vyžaduje, aby aplikace měla oprávnění k poloze, aby mohla číst název aktivní sítě Wi-Fi. Pokud chcete tuto funkci používat, stiskněte výše uvedené tlačítko. Tento krok můžete přeskočit. Další podrobnosti naleznete v našich zásadách ochrany osobních údajů.</string>
+    <string name="toast_ignore_doze_permission_required">Tato aplikace funguje spolehlivě, pouze pokud je vyjmuta z úsporného režimu „Doze“.</string>
+    <string name="location_permission_title">Oprávnění k poloze</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Pozor: Pokud se SyncthingNative přeruší a udělá něco divného, je to vaše vina. Přeskočte pouze v případě, že vaše zařízení nepodporuje udělení oprávnění. Opravdu přeskočit?</string>
 </resources>
