@@ -403,7 +403,6 @@
     <string name="reason">Důvod:</string>
     <string name="accept">Příjmout</string>
     <string name="page_x_of_y">Stránka %1$s z %2$s</string>
-    <string name="photo_shoot_activity_title"></string>
     <string name="photo_shoot_intro_permission_title">Požadovaná oprávnění</string>
     <string name="photo_shoot_intro_no_camera">Je nám líto, ale toto zařízení nemá fotoaparát.</string>
     <string name="photo_shoot_intro_missing_permissions">K pokračování potřebujeme povolení k uložišti a používání fotoaparátu.</string>
@@ -467,7 +466,6 @@
     <string name="ignore_doze_permission_os_notice">Televizory se systémem Android jsou známé tím, že občas ukončí aplikaci spuštěnou na pozadí. Řešení je k dispozici na wiki na adrese \'%1$s/%2$s\'.</string>
     <string name="key_generation_title">Generování klíčů</string>
     <string name="key_generation_success">Bezpečné klíče pro výměnu soukromých dat byly úspěšně vygenerovány.</string>
-    <string name="photo_shoot_launcher_title"></string>
     <string name="location_permission_desc">Synchronizaci lze nakonfigurovat tak, aby fungovala ve vybraných sítích Wi-Fi. Systém Android vyžaduje, aby aplikace měla oprávnění k poloze, aby mohla číst název aktivní sítě Wi-Fi. Pokud chcete tuto funkci používat, stiskněte výše uvedené tlačítko. Tento krok můžete přeskočit. Další podrobnosti naleznete v našich zásadách ochrany osobních údajů.</string>
     <string name="toast_ignore_doze_permission_required">Tato aplikace funguje spolehlivě, pouze pokud je vyjmuta z úsporného režimu „Doze“.</string>
     <string name="location_permission_title">Oprávnění k poloze</string>
