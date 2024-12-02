@@ -175,7 +175,7 @@ public class SettingsActivity extends SyncthingActivity {
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
         private EditTextPreference mSyncDurationMinutes;
-        private EditTextPreference mSyncIntervalMinutes;
+        private EditTextPreference mSleepIntervalMinutes;
 
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
@@ -290,7 +290,7 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
             mSyncDurationMinutes =
                     (EditTextPreference) findPreference(Constants.PREF_SYNC_DURATION_MINUTES);
-            mSyncIntervalMinutes =
+            mSleepIntervalMinutes =
                     (EditTextPreference) findPreference(Constants.PREF_SLEEP_INTERVAL_MINUTES);
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
@@ -310,8 +310,8 @@ public class SettingsActivity extends SyncthingActivity {
                     getString(R.string.sync_duration_minutes_summary, mSyncDurationMinutes.getText())
             );
 
-            mSyncIntervalMinutes.setSummary(
-                    getString(R.string.sync_duration_minutes_summary, mSyncIntervalMinutes.getText())
+            mSleepIntervalMinutes.setSummary(
+                    getString(R.string.sync_duration_minutes_summary, mSleepIntervalMinutes.getText())
             );
 
             mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
