@@ -534,7 +534,7 @@
 
     <string name="sync_duration_minutes_title">Duration of the sync cycle</string>
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
-    <string name="sync_interval_minutes_title">Duration of the sync pause interval</string>
+    <string name="sleep_interval_minutes_title">Duration of the sync pause interval</string>
 
     <!-- Preferences - Behaviour -->
 

@@ -109,8 +109,8 @@
             android:defaultValue="5" />
 
         <EditTextPreference
-            android:key="sync_interval_minutes"
-            android:title="@string/sync_interval_minutes_title"
+            android:key="sleep_interval_minutes"
+            android:title="@string/sleep_interval_minutes_title"
             android:summary="@string/sync_duration_minutes_summary"
             android:singleLineTitle="false"
             android:inputType="number"
