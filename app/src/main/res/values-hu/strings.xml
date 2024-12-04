@@ -75,9 +75,7 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Eszközazonosító megosztása</string>
     <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését\?</string>
-    <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt.
-
-Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
+    <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt. Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="open_website">Weblap megnyitása</string>
@@ -435,9 +433,7 @@ Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.ne
     <string name="broadcast_service_control_title">Szolgáltatásvezérlés műsorszórással</string>
     <string name="broadcast_service_control_summary">Alapértelmezett: Kikapcsolva. Engedélyezze ezt az opciót, ha a szolgáltatást adások küldésével kívánja elindítani és leállítani, például harmadik fél automatizálási alkalmazásaiból. Megjegyzés: Az opció módosítása után manuálisan újra kell indítania az alkalmazást.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt\? A már létező fájlok felül lesznek írva.
-
-VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
+    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva. VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
