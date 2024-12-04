@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
-    <string name="app_description">Otwarta, godna zaufania i zdecentralizowana aplikacja do synchronizacji plików.</string>
+    <string name="app_description">Otwarta, godna zaufania i zdecentralizowana aplikacja do synchronizacji plików.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Witamy w aplikacji Syncthing dla systemu Android</string>
@@ -445,7 +445,7 @@
     <string name="state_clean_waiting">Oczekiwanie na czyszczenie</string>
     <string name="run_on_mobile_data_title">Działaj na mobilnej transmisji danych</string>
     <string name="log_to_file_title">Rejestruj do pliku</string>
-    <string name="run_on_time_schedule_summary">Włączenie tej opcji spowoduje próbę synchronizacji przez skonfigurowany czas, jeśli zostaną spełnione warunki działania, a ostatnia synchronizacja miała miejsce ponad godzinę temu. Może to zaoszczędzić dużo energii, ale wymaga, aby partnerzy synchronizacji byli online. Uwaga: może to spowodować pozostawienie niekompletnych plików tymczasowych do czasu następnej zaplanowanej synchronizacji.</string>
+    <string name="run_on_time_schedule_summary">Włączenie tej opcji spowoduje próbę synchronizacji przez skonfigurowany czas, jeśli zostaną spełnione warunki działania i jeżeli od ostatniej synchronizacji upłynął określony okres. Może to zaoszczędzić dużo energii, ale wymaga, aby partnerzy synchronizacji byli online. Uwaga: może to spowodować pozostawienie niekompletnych plików tymczasowych do czasu następnej zaplanowanej synchronizacji.</string>
     <string name="os_open_file_limit">Limit otwartych plików systemu Android</string>
     <string name="pull_order_type_alphabetic">Alfabetycznie</string>
     <string name="download_support_bundle_title">Pobierz pakiet obsługi</string>
@@ -706,4 +706,5 @@
     <string name="pull_order_alphabetic">Alfabetycznie</string>
     <string name="power_source_battery_power">Zasilanie bateryjne.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Ostrożnie: jeśli SyncthingNative zostanie przerwany i zrobi coś dziwnego, będzie to wina użytkownika. Pomiń ten proces tylko wtedy, gdy urządzenie nie obsługuje udzielania uprawnień. Naprawdę pominąć?</string>
+    <string name="sleep_interval_minutes_title">Czas trwania interwału wstrzymania synchronizacji</string>
 </resources>
