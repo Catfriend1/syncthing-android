@@ -8,8 +8,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">はじめに</string>
-    <string name="welcome_text">Syncthingはオープンソースのファイル同期アプリケーションです。他のデバイスとデータを共有するには、デバイスリストにデバイスIDを追加します。その後、どのデバイスとどのフォルダを共有するかを選択することができます。
-何か問題があればGitHub経由で報告してください。</string>
+    <string name="welcome_text">Syncthingはオープンソースのファイル同期アプリケーションです。他のデバイスとデータを共有するには、デバイスリストにデバイスIDを追加します。その後、どのデバイスとどのフォルダを共有するかを選択することができます。 何か問題があればGitHub経由で報告してください。</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">ストレージアクセス許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
