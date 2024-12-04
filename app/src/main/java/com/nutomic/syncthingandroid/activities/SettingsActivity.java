@@ -175,6 +175,7 @@ public class SettingsActivity extends SyncthingActivity {
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
         private EditTextPreference mSyncDurationMinutes;
+        private EditTextPreference mSleepIntervalMinutes;
 
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
@@ -289,6 +290,8 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
             mSyncDurationMinutes =
                     (EditTextPreference) findPreference(Constants.PREF_SYNC_DURATION_MINUTES);
+            mSleepIntervalMinutes =
+                    (EditTextPreference) findPreference(Constants.PREF_SLEEP_INTERVAL_MINUTES);
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
@@ -305,6 +308,10 @@ public class SettingsActivity extends SyncthingActivity {
 
             mSyncDurationMinutes.setSummary(
                     getString(R.string.sync_duration_minutes_summary, mSyncDurationMinutes.getText())
+            );
+
+            mSleepIntervalMinutes.setSummary(
+                    getString(R.string.sync_duration_minutes_summary, mSleepIntervalMinutes.getText())
             );
 
             mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
@@ -604,6 +611,16 @@ public class SettingsActivity extends SyncthingActivity {
                         return false;
                     }
                     preference.setSummary(getString(R.string.sync_duration_minutes_summary, durationMinutes));
+                    break;
+                case Constants.PREF_SLEEP_INTERVAL_MINUTES:
+                    String intervalMinutes = o.toString();
+                    if (TextUtils.isEmpty(intervalMinutes)) {
+                        return false;
+                    }
+                    if (Integer.parseInt(intervalMinutes) <= 0) {
+                        return false;
+                    }
+                    preference.setSummary(getString(R.string.sync_duration_minutes_summary, intervalMinutes));
                     break;
             }
             mPendingRunConditions = true;

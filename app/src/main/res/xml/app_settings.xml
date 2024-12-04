@@ -108,6 +108,15 @@
             android:maxLength="9"
             android:defaultValue="5" />
 
+        <EditTextPreference
+            android:key="sleep_interval_minutes"
+            android:title="@string/sleep_interval_minutes_title"
+            android:summary="@string/sync_duration_minutes_summary"
+            android:singleLineTitle="false"
+            android:inputType="number"
+            android:maxLength="1440"
+            android:defaultValue="60" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

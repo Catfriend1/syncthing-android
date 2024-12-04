@@ -182,7 +182,7 @@ public class RunConditionMonitor {
          */
         if (lastSyncTimeSinceBootMillisecs > elapsedRealtime) {
             SharedPreferences.Editor editor = mPreferences.edit();
-            editor.putLong(Constants.PREF_LAST_RUN_TIME, -Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000);
+            editor.putLong(Constants.PREF_LAST_RUN_TIME, -Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60 * 1000);
             editor.apply();
             lastSyncTimeSinceBootMillisecs = 0;
         }
@@ -206,7 +206,7 @@ public class RunConditionMonitor {
                         * mTimeConditionMatch is set to true during updateShouldRunDecision().
                         * Thus the false case cannot be triggered if the delay for scheduleSyncTriggerServiceJob would be negative
                         */
-                    Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS - elapsedSecondsSinceLastSync,
+                        (Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60) - elapsedSecondsSinceLastSync,
                 !mTimeConditionMatch
         );
     }
@@ -281,7 +281,7 @@ public class RunConditionMonitor {
                 JobUtils.cancelAllScheduledJobs(context);
                 JobUtils.scheduleSyncTriggerServiceJob(
                         context,
-                        Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS,
+                        Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60,
                         true
                 );
                 return;
@@ -313,9 +313,9 @@ public class RunConditionMonitor {
                  * corrected immediately
                  */
                 long lastRunTimeMillis = mPreferences.getLong(Constants.PREF_LAST_RUN_TIME, 0);
-                if (lastDeterminedShouldRun && SystemClock.elapsedRealtime() - lastRunTimeMillis > Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000) {
+                if (lastDeterminedShouldRun && SystemClock.elapsedRealtime() - lastRunTimeMillis > Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60 * 1000) {
                     SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putLong(Constants.PREF_LAST_RUN_TIME, SystemClock.elapsedRealtime() - Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000 + 60*1000);
+                    editor.putLong(Constants.PREF_LAST_RUN_TIME, SystemClock.elapsedRealtime() - Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60 * 1000 + 60*1000);
                     editor.apply();
                 }
             }
@@ -341,7 +341,7 @@ public class RunConditionMonitor {
                 JobUtils.cancelAllScheduledJobs(context);
                 JobUtils.scheduleSyncTriggerServiceJob(
                         context,
-                        Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS,
+                        Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60,
                         true
                 );
             } else {
@@ -572,7 +572,7 @@ public class RunConditionMonitor {
 
         // PREF_RUN_ON_TIME_SCHEDULE
         // set mTimeConditionMatch to true if the last run was more than WAIT_FOR_NEXT_SYNC_DELAY_SECS ago
-        if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Constants.WAIT_FOR_NEXT_SYNC_DELAY_SECS * 1000)
+        if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60 * 1000)
             mTimeConditionMatch = true;
         if (prefRunOnTimeSchedule && !mTimeConditionMatch) {
             // Currently, we aren't within a "SyncthingNative should run" time frame.

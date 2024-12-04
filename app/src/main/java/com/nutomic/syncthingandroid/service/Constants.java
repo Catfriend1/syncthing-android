@@ -42,6 +42,7 @@ public class Constants {
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
     public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
     public static final String PREF_SYNC_DURATION_MINUTES       = "sync_duration_minutes";
+    public static final String PREF_SLEEP_INTERVAL_MINUTES       = "sleep_interval_minutes";
 
     // Preferences - User Interface
     public static final String PREF_APP_THEME                   = "app_theme";
