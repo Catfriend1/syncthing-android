@@ -8,7 +8,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduzione</string>
-    <string name="welcome_text">Syncthing è una app open-source per la sincronizzazione di file. Per condividere dati con altri dispositivi, devi aggiungere il rispettivo ID Dispositivo all\'elenco dispositivo. Successivamente potrai scegliere quali cartelle sincronizzare con quali dispositivi. Si prega di segnalare eventuali problemi su GitHub.</string>
+    <string name="welcome_text">Syncthing è una app open-source per la sincronizzazione di file. Per condividere dati con altri dispositivi, devi aggiungere il rispettivo ID Dispositivo all\'elenco dispositivo. Successivamente potrai scegliere quali cartelle sincronizzare con quali dispositivi.\n\nSi prega di segnalare eventuali problemi su GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Autorizzazione Memoria</string>
     <string name="storage_permission_desc">Syncthing deve accedere alla tua memoria per poter sincronizzare i file.</string>
@@ -51,7 +51,7 @@
     <string name="grant_storage_permission">Concedi permesso memoria</string>
     <string name="grant_camera_permission">Concedi permesso fotocamera</string>
     <string name="photo_shoot_intro_permission_desc">Fotocamera Syncthing richiede il tuo permesso per scattare foto e salvarle sul tuo dispositivo. Questa funzione è opzionale. Per usarla, concedi i permessi e tocca \"Continua\". Creeremo una cartella \'Fotocamera Syncthing\' che potrai condividere con i gli altri dispositivi Syncthing.</string>
-    <string name="photo_shoot_take_picture_success">Foto salvata con successo nella cartella della fotocamera di Syncthing</string>
+    <string name="photo_shoot_take_picture_success">Foto salvata con successo nella cartella della fotocamera di Syncthing.</string>
     <string name="photo_shoot_take_picture_failure">È fallito lo scatto di una foto oppure hai annullato l\'operazione.</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Fotocamera Syncthing</string>
@@ -85,7 +85,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Generazione delle chiavi in corso. Potrebbe essere necessario qualche minuto.</string>
+    <string name="web_gui_creating_key">Generazione di chiavi sicure. Questa operazione può richiedere alcuni minuti…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Cartelle</string>
     <!-- Shown if no folders exist -->
@@ -150,7 +150,7 @@
 \nIGNORA CONDIZIONI DI ESECUZIONE</string>
     <string name="syncthing_starting">Syncthing è in avvio.</string>
     <string name="syncthing_running">Syncthing è in esecuzione.</string>
-    <string name="syncthing_not_running">Syncthing non è in esecuzione</string>
+    <string name="syncthing_not_running">Syncthing non è in esecuzione.</string>
     <string name="syncthing_has_crashed">Syncthing è andato in crash.</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
@@ -256,7 +256,7 @@
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">Il nome del dispositivo non può essere vuoto</string>
     <!-- Toast shown when trying to create a device with invalid addresses -->
-    <string name="device_addresses_invalid">Gli indirizzi del dispositivo non sono formattati correttamente. Riprovare e consultare la documentazione di Syncthing per maggiori informazioni.-</string>
+    <string name="device_addresses_invalid">Gli indirizzi del dispositivo non sono formattati correttamente. Riprovare e consultare la documentazione di Syncthing per maggiori informazioni.</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scansiona Codice QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
@@ -273,19 +273,13 @@
 \n%1$s/YOUR_FOLDER_NAME
 \nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella … /Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizza solo usando la rete WiFi locale</string>
-    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \"Impostazioni/Impostazioni Syncthing\':
-\n- Abilita NAT traversal
-\n- Individuazione Globale
-\n- Abilita Reindirizzamento
-\nLascia abilitato solo \'Individuazione Locale\'.</string>
+    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \'Impostazioni/Impostazioni Syncthing\': \n- Abilita NAT traversal \n- Individuazione Globale \n- Abilita Reindirizzamento \nLascia abilitato solo \'Individuazione Locale\'.</string>
     <string name="tip_custom_sync_conditions_title">Usa condizioni di sincronizzazione personalizzate per cartella/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Questa funzione verrà migliorata in versioni future. Per ora non abbiamo voluto alterare le configurazioni esistenti e il comportamento dell\'app. Per questo motivo le condizioni di sincronizzazione personalizzate per un tipo di rete possono essere attivate solo se attivi la sincronizzazione su questa rete nelle condizioni generali di esecuzione.</string>
     <string name="tip_ignore_delete_title">Vuoi salvare le foto dal cellulare al computer\?</string>
     <string name="tip_ignore_delete_text">Se vuoi che tutte le foto fatte dal tuo cellulare siano salvate su un computer, condividi la cartella \'Camera\' con il computer. Apri Syncthing sul computer, aggiungi la cartella e vai a \'Azioni\' &gt; \'Avanzato\' &gt; Cartella \'Camera\'. Abilita \'Ignore Delete\' e clicca \'Salva\'. Ora potrai eliminare foto dal tuo cellulare, lasciandole salvate sul computer.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: soluzione alternativa a \'dispositivo disconnesso\'</string>
-    <string name="tip_huawei_device_disconnected_text">Se il tuo computer riporta che il tuo dispositivo si disconnette in continuazione, apri l\'interfaccia di Syncthing dal computer, vai su \'Dispositivo Remoti\', espandi la voce del cellulare, clicca su \'Modifica\' e vai alla scheda \'Avanzato\'. Inserisci l\'IP del dispositivo in \'Indirizzi\' così:
-\ntcp4://%1$s, dynamic
-\nÈ stato testato con successo su Huawei P10.</string>
+    <string name="tip_huawei_device_disconnected_text">Se il desktop segnala costantemente il dispositivo Huawei come disconnesso, aprire l\'interfaccia utente Syncthing del desktop. Andare su \'Dispositivi remoti\', espandere la voce del telefono, fare clic su \'Modifica\' e passare ad \'Avanzate\'. Inserire l\'indirizzo IP del telefono in \'Indirizzi\' in questo modo: \ntcp4://%1$s, dynamic \nConfermato il funzionamento per: Huawei P10</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: l\'app non parte all\'avvio del dispositivo</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI impedisce in maniera predefinita che le app si avviino automaticamente. Dalla schermata home, vai in \'Impostazioni\'&gt;\'Permessi\'&gt;\'Avvio automatico\' e attiva l\'opzione per \'Syncthing-Fork\'.</string>
@@ -328,7 +322,7 @@
     <string name="category_experimental">Sperimentale</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condizioni di funzionamento</string>
-    <string name="run_conditions_summary">Usa le seguenti opzioni per decidere quando Syncthing sarà in esecuzione</string>
+    <string name="run_conditions_summary">Usa le seguenti opzioni per decidere quando Syncthing sarà in esecuzione.</string>
     <string name="run_on_mobile_data_title">Esegui su reti mobili</string>
     <string name="run_on_mobile_data_summary">Esegui quando il dispositivo è connesso ad una rete dati mobile. Attenzione: può consumare molti dati del tuo piano tariffario se sincronizzi grosse quantità di dati.</string>
     <string name="run_on_roaming_title">Esegui in roaming</string>
@@ -357,7 +351,7 @@
     <string name="run_in_flight_mode_title">Esegui senza connessione di rete</string>
     <string name="run_in_flight_mode_summary">Abilitando questa opzione permetterai a Syncthing di funzionare anche quando sei offline. Da utilizzare se il tuo dispositivo ha problemi a rilevare le connessioni Wi-Fi in modalità aereo.</string>
     <string name="run_on_time_schedule_title">Esegui secondo programmazione</string>
-    <string name="run_on_time_schedule_summary">Abilitando questa opzione la sincronizzazione verrà eseguita per la durata desiderata le condizioni di esecuzione sono soddisfatte e l\'ultima sincronizzazione è avvenuta più di 1 ora fa. Può risparmiare molta batteria ma necessita che il/ì ricevente/i sia online. Nota bene: potrebbe lasciare alcuni file temporanei non sincronizzati fino alla successiva sincronizzazione.</string>
+    <string name="run_on_time_schedule_summary">Abilitando questa opzione si tenterà di sincronizzare per una durata configurata se le condizioni di esecuzione sono soddisfatte e se è trascorso un periodo di intervallo specificato dall\'ultima sincronizzazione. Ciò può far risparmiare molta batteria, ma richiede che i partner di sincronizzazione siano online. Nota: ciò potrebbe lasciare file temporanei incompleti fino alla successiva sincronizzazione pianificata.</string>
     <string name="sync_duration_minutes_title">Durata del ciclo di sincronizzazione</string>
     <string name="sync_duration_minutes_summary">%1$s minuti</string>
     <!-- Preferences - Behaviour -->
@@ -399,7 +393,7 @@
     <string name="crash_reporting">Segnalazione anonima dei crash</string>
     <string name="webui_tcp_port_title">Porta TCP Interfaccia Web</string>
     <string name="webui_remote_access_title">Accesso remoto alla Interfaccia Web</string>
-    <string name="webui_remote_access_summary">Consente l\'accesso all\'Interfaccia Web da un altro dispositivo. Se abilitato, potrai effettuare l\'accesso con l\'utente \'syncthing\' e la chiave API come password. È disabilitato per impostazione predefinita (più sicuro).</string>
+    <string name="webui_remote_access_summary">Consente l\'accesso all\'Interfaccia Web da un altro dispositivo. Se abilitato, potrai effettuare l\'accesso con l\'utente \'syncthing\' e la chiave API come password. È disabilitato per impostazione predefinita (più sicuro)</string>
     <string name="webui_debugging_title">Debug WebUI</string>
     <string name="webui_debugging_summary">Abilita la profilatura per attivare il download di un bundle di supporto. Modificando questa opzione Syncthing si riavvierà immediatamente.</string>
     <string name="download_support_bundle_title">Scarica pacchetto di supporto</string>
@@ -616,7 +610,7 @@
     <string name="syncthing_terminated">Syncthing è stato terminato</string>
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">L\'eseguibile \"%s\" non è stato trovato. Controlla la build e il logcat.</string>
-    <string name="config_create_failed">Impossibile creare il file di configurazione</string>
+    <string name="config_create_failed">Impossibile creare la configurazione. Controllare l\'output di logcat.</string>
     <string name="config_read_failed">Impossibile leggere la configurazione. Ti suggeriamo di fare un backup delle cartelle sincronizzate, cancellare i dati dell\'app dalle impostazioni di Android e riaprire l\'app.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Non è stato trovato un file di configurazione essenziale</string>
@@ -757,7 +751,8 @@
     <string name="notification_permission_title">Autorizzazione di notifica</string>
     <string name="backup_folder_name">Nome cartella di backup</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Attenzione: Se SyncthingNative viene interrotto e fa qualcosa di strano, la responsabilità è vostra. Saltate solo se il vostro dispositivo non supporta l\'autorizzazione. Saltare davvero?</string>
-    <string name="autoAcceptFolders">Auto Accept</string>
+    <string name="autoAcceptFolders">Auto Accetta</string>
     <string name="webui_username_title">Utente Web UI</string>
     <string name="webui_password_title">Password Web UI</string>
+    <string name="sleep_interval_minutes_title">Durata dell\'intervallo di pausa di sincronizzazione</string>
 </resources>
