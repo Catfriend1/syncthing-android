@@ -647,7 +647,7 @@
 \nConservez seulement l\'option \'Découverte locale\' activée.</string>
     <string name="tip_custom_sync_conditions_text">Cette fonctionnalité sera toujours améliorée dans de futures versions. Pour l\'instant, nous ne voulons pas casser les configurations existantes et le comportement de l\'application. C\'est pourquoi les conditions personnalisées de synchronisation pour certains types de réseaux ne peuvent être définies que si vous activez d\'abord la synchro sur le réseau dans les conditions globales d\'exécution.</string>
     <string name="tip_ignore_delete_text">Si vous souhaitez que toutes vos photos du téléphone soient synchronisées vers un PC, partagez le répertoire \'Camera\' avec le PC. Ouvrez Syncthing sur le PC, ajoutez le partage puis allez dans \'Actions\'&gt;\'Avancé\'&gt;\'Partages\'&gt;\'Nom-du-partage\' et cochez la case \'Ignore Delete\'. Cliquez sur \'Enregistrer\' tout en bas. Vous pouvez maintenant effacer les photos dans le téléphone sans qu\'elles soient aussi supprimées du PC.</string>
-    <string name="run_on_time_schedule_summary">Tenter de synchroniser pendant une durée définie si les condition sont remplies et que la dernière synchro a eu lieu il y a plus d\'une heure. Économise beaucoup de batterie mais nécessite que les pairs soient en ligne. Notez que cela peut laisser des fichiers temporaires incomplets jusqu\'à la synchro suivante.</string>
+    <string name="run_on_time_schedule_summary">Quand cette option est activée, Syncthing tente de synchroniser pendant la durée configurée si les condition d\'exécution sont remplies et que la dernière synchro a eu lieu depuis plus de l\'intervalle spécifié. Ceci peut économiser beaucoup la batterie mais nécessite que les pairs soient en ligne. Notez que cela peut laisser des fichiers temporaires incomplets jusqu\'à la synchro suivante.</string>
     <string name="folder_type_send_receive">Envoyer et recevoir</string>
     <string name="webui_remote_access_summary">Permettre l\'accès au GUI depuis un autre appareil. Si activé, vous pourrez vous connecter avec l\'utilisateur \'syncthing\' et la clé d\'API comme mot de passe. Désactivé par défaut (plus sécurisé)</string>
     <string name="keep_wakelock_while_binary_running_summary">Pour Android 5 et antérieur. activer si vous avez de nombreuses déconnexions sur batterie. Ceci augmente la consommation.</string>
@@ -688,4 +688,5 @@
     </plurals>
     <string name="web_page_loading">Chargement :
 \n%1$s …</string>
+    <string name="sleep_interval_minutes_title">Durée de l\'intervalle de suspension de la synchronisation</string>
 </resources>
