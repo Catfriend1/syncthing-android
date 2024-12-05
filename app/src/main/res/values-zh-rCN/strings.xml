@@ -357,7 +357,7 @@
     <string name="run_in_flight_mode_title">在没有网络连接的情况下运行</string>
     <string name="run_in_flight_mode_summary">启用此选项将导致 Syncthing 即使在离线时也会运行。如果您的设备在飞行模式下检测手动 Wi-Fi 连接时出现问题，请启用。</string>
     <string name="run_on_time_schedule_title">按照时间表运行</string>
-    <string name="run_on_time_schedule_summary">如果满足运行条件并且上次同步时间超过 1 小时，启用此选项将尝试在配置的持续时间内进行同步。这可以节省很多电量，但需要同步伙伴在线。请注意：这可能会在下一次计划同步发生前留下不完整的临时文件。</string>
+    <string name="run_on_time_schedule_summary">如果满足运行条件并且自上次同步以来一些指定的间隔期已过，那么启用此选项将尝试在配置的持续时间内进行同步。这可以节省很多电量，但需要同步伙伴在线。请注意：这可能会在下一次计划同步发生前留下不完整的临时文件。</string>
     <string name="sync_duration_minutes_title">同步周期的持续时间</string>
     <string name="sync_duration_minutes_summary">%1$s 分钟</string>
     <!-- Preferences - Behaviour -->
@@ -748,4 +748,5 @@
     <string name="notification_permission_title">通知权限</string>
     <string name="toast_notification_permission_required">Syncthing 需要通知权限保持其服务活动和连接。</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">小心：如果 SyncthingNative 被中断并做了一些奇怪的事情，要怪就怪自己。仅在您的设备不支持授予权限的情况下跳过。是否跳过？</string>
+    <string name="sleep_interval_minutes_title">同步暂停间隔持续时间</string>
 </resources>
