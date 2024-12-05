@@ -358,8 +358,8 @@
     <string name="run_in_flight_mode_title">Ohne Netzwerkverbindung starten</string>
     <string name="run_in_flight_mode_summary">Durch Aktivieren der Option wird Syncthing auch dann laufen, wenn das Gerät offline ist. Dies aktivieren, wenn das Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
     <string name="run_on_time_schedule_title">Gemäß Zeitplan synchronisieren</string>
-    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für eine konfigurierte Dauer zu synchronisieren, wenn die Laufkonditionen zutreffen und die letzte Synchronisation nicht länger als 1 Stunde zurückliegt. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
-    <string name="sync_duration_minutes_title">Dauer des Sync-Zyklus</string>
+    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für eine konfigurierte Dauer zu synchronisieren, wenn die Laufbedingungen erfüllt sind und seit der letzten Synchronisierung ein bestimmter Zeitraum verstrichen ist. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
+    <string name="sync_duration_minutes_title">Dauer des Synchronisationszyklus</string>
     <string name="sync_duration_minutes_summary">%1$s Minuten</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Autostart</string>
@@ -755,4 +755,5 @@
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Für %1$d Minuten ausführen</string>
     <string name="notification_permission_title">Benachrichtigungsrecht</string>
     <string name="toast_notification_permission_required">Syncthing benötigt das Benachrichtigungsrecht, um seinen Dienst aufrecht und verbunden zu halten.</string>
+    <string name="sleep_interval_minutes_title">Dauer des Synchronisationspausenintervalls</string>
 </resources>
