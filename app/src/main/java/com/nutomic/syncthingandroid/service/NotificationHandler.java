@@ -21,9 +21,8 @@ import com.nutomic.syncthingandroid.activities.FirstStartActivity;
 import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
+import com.nutomic.syncthingandroid.fragments.DrawerFragment;
 import com.nutomic.syncthingandroid.service.SyncthingService.State;
-
-import static com.nutomic.syncthingandroid.fragments.DrawerFragment.ACTION_EXIT;
 
 import javax.inject.Inject;
 
@@ -212,6 +211,7 @@ public class NotificationHandler {
                 .setOnlyAlertOnce(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, openAppIntent, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
+                .addAction(R.drawable.baseline_close_24, mContext.getString(R.string.exit), stopServicePendingIntent);
         if (!appShutdownInProgress) {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
