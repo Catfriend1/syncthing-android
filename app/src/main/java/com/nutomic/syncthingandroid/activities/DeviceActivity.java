@@ -535,6 +535,11 @@ public class DeviceActivity extends SyncthingActivity {
         mDevice.deviceID = getIntent().getStringExtra(EXTRA_DEVICE_ID);
         mDevice.addresses = DYNAMIC_ADDRESS;
         mDevice.compression = METADATA.getValue(this);
+		
+		// ConfigXml.saveChanges fails to transform if mDevice.name is NULL
+		if (mDevice.name == null) {
+			mDevice.name = "";
+		}
     }
 
     private void addEmptyFolderListView() {
@@ -596,11 +601,6 @@ public class DeviceActivity extends SyncthingActivity {
         }
         if (!mDevice.checkDeviceID()) {
             Toast.makeText(this, R.string.device_id_invalid, Toast.LENGTH_LONG)
-                    .show();
-            return;
-        }
-        if (isEmpty(mDevice.name)) {
-            Toast.makeText(this, R.string.device_name_required, Toast.LENGTH_LONG)
                     .show();
             return;
         }
