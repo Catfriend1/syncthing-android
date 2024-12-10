@@ -60,10 +60,10 @@ copy /y "%SCRIPT_PATH%app\src\main\play\release-notes\en-GB\beta.txt" "%SCRIPT_P
 REM
 echo [INFO] Running lint before building ...
 REM
-call gradlew --quiet lint%BUILD_FLAVOUR_RELEASE% & SET RESULT=%ERRORLEVEL%
-IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_RELEASE%" exited with code #%RESULT%. & goto :eos
+call gradlew lint%BUILD_FLAVOUR_RELEASE% & SET RESULT=%ERRORLEVEL%
+REM IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_RELEASE%" exited with code #%RESULT%. & goto :eos
 REM
-call gradlew --quiet lint%BUILD_FLAVOUR_GPLAY% & SET RESULT=%ERRORLEVEL%
+call gradlew lint%BUILD_FLAVOUR_GPLAY% & SET RESULT=%ERRORLEVEL%
 IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
 REM
 REM Building APK
