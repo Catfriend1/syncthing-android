@@ -85,6 +85,9 @@
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.github.catfriend1.syncthingandroid.MainActivity.EXIT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.RecentChangesActivity"
