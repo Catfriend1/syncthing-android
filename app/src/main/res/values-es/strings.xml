@@ -359,7 +359,7 @@
     <string name="run_in_flight_mode_title">Ejecutar sin conexión de red</string>
     <string name="run_in_flight_mode_summary">Habilitar esta opción ocasionará que Syncthing se ejecute aún cuando estás fuera de línea. Actívela si su dispositivo tiene problemas para detectar conexiones Wifi manuales en modo avión.</string>
     <string name="run_on_time_schedule_title">Ejecutar según el horario</string>
-    <string name="run_on_time_schedule_summary">Activar esta opción intentará sincronizar durante una duración configurada si se cumplen las condiciones de ejecución y la última sincronización fue hace más de 1 hora. Esto puede ahorrar mucha batería, pero requiere que los socios de sincronización estén en línea. Tenga en cuenta: Esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
+    <string name="run_on_time_schedule_summary">Al activar esta opción, se intentará sincronizar durante un periodo configurado si se cumplen las condiciones de ejecución y si ha transcurrido algún periodo de intervalo especificado desde la última sincronización. Esto puede ahorrar mucha batería, pero requiere que los socios de sincronización estén en línea. Nota: Esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
     <string name="sync_duration_minutes_title">Duración del ciclo de sincronización</string>
     <string name="sync_duration_minutes_summary">%1$s minutos</string>
     <!-- Preferences - Behaviour -->
@@ -762,4 +762,5 @@
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Ejecutar durante %1$d minutos</string>
     <string name="toast_notification_permission_required">La sincronización requiere el permiso de notificación para mantener su servicio activo y conectado.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado: Si SyncthingNative se interrumpe y hace algo extraño, la culpa es tuya. Sólo omitir en caso de que su dispositivo no admite la concesión del permiso. ¿Saltar de verdad?</string>
+    <string name="sleep_interval_minutes_title">Duración del intervalo de pausa de sincronización</string>
 </resources>
