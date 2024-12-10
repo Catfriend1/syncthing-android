@@ -1,0 +1,41 @@
+name: Image Builder Template
+
+on:
+  workflow_call:
+    inputs:
+      push:
+        required: true
+        type: boolean
+
+env:
+  # Our build metadata
+  BUILD_USER: android-builder
+  BUILD_HOST: github.syncthing.net
+  # template var
+  image: ghcr.io/syncthing/syncthing-android-builder
+
+jobs:
+  build-image:
+    name: Build Builder Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - uses: docker/setup-buildx-action@v2
+
+      - uses: docker/login-action@v2
+        if: ${{ inputs.push }}
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          tags: '${{ env.image }}:latest,${{ env.image }}:${{ github.sha }}'
+          push: ${{ inputs.push }}
