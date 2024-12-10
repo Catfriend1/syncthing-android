@@ -3,12 +3,10 @@ package com.nutomic.syncthingandroid.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -119,6 +117,7 @@ public class MainActivity extends SyncthingActivity
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout          mDrawerLayout;
 
+    private Intent mLastIntent;
     private Boolean oneTimeShot = true;
 
     @Inject SharedPreferences mPreferences;
@@ -261,24 +260,13 @@ public class MainActivity extends SyncthingActivity
         }
 
         onNewIntent(getIntent());
-        
-        IntentFilter filter = new IntentFilter(ACTION_EXIT);
-        registerReceiver(exitReceiver, filter, Context.RECEIVER_EXPORTED);
     }
     
     
-    private BroadcastReceiver exitReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = getIntent().getAction();
-            if (action != null) {
-                if (ACTION_EXIT.equals(action)) {
-                    Log.e(TAG, "Intent!!!");
-                }
-            } else {
-                Log.e(TAG, "Uppps");
-            }
-        } 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        mLastIntent = intent;
+        super.onNewIntent(intent);
     };
 
 
@@ -377,6 +365,12 @@ public class MainActivity extends SyncthingActivity
 
         startUIRefreshHandler();
         super.onResume();
+        
+        String action = mLastIntent.getAction();
+        if (action != null) {
+            Log.e(TAG, action);
+        }
+        Log.e(TAG, "B");
     }
 
     @Override
@@ -390,7 +384,6 @@ public class MainActivity extends SyncthingActivity
             mSyncthingService.unregisterOnServiceStateChangeListener(mDeviceListFragment);
             mSyncthingService.unregisterOnServiceStateChangeListener(mStatusFragment);
         }
-        unregisterReceiver(exitReceiver);
     }
 
     @Override
