@@ -535,11 +535,11 @@ public class DeviceActivity extends SyncthingActivity {
         mDevice.deviceID = getIntent().getStringExtra(EXTRA_DEVICE_ID);
         mDevice.addresses = DYNAMIC_ADDRESS;
         mDevice.compression = METADATA.getValue(this);
-		
-		// ConfigXml.saveChanges fails to transform if mDevice.name is NULL
-		if (mDevice.name == null) {
-			mDevice.name = "";
-		}
+
+        // ConfigXml.saveChanges fails to transform if mDevice.name is NULL
+        if (mDevice.name == null) {
+            mDevice.name = "";
+        }
     }
 
     private void addEmptyFolderListView() {
