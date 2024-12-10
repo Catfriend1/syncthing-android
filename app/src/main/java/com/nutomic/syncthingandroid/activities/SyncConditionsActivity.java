@@ -277,6 +277,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
     public void onBackPressed() {
         setResult(Activity.RESULT_OK);
         finish();
+        super.onBackPressed();
     }
 
 }

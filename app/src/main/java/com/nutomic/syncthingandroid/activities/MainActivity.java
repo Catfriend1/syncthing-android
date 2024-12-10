@@ -554,6 +554,7 @@ public class MainActivity extends SyncthingActivity
              */
             moveTaskToBack(true);
         }
+        super.onBackPressed();
     }
 
     /**

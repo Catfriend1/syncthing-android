@@ -69,6 +69,7 @@ public class QRScannerActivity extends ThemedAppCompatActivity implements Barcod
                 finish();
             }
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override

@@ -321,6 +321,7 @@ public class FolderPickerActivity extends SyncthingActivity
     public void onBackPressed() {
         setResult(Activity.RESULT_CANCELED);
         finish();
+        super.onBackPressed();
     }
 
     /**

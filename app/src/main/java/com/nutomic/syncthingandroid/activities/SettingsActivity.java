@@ -112,6 +112,7 @@ public class SettingsActivity extends SyncthingActivity {
                 }
             }
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
