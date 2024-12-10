@@ -27,6 +27,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 - Discover other Syncthing devices on the same network and easily add them.
 - Supports two-way synchronization on external sd cards since Android 11.
 - Supports encrypted folders on untrusted devices.
+- Partial Android 15+ support regarding the run condition monitor due to Android restrictions. Feel free to PR and help here :-).
 
 ## Switching from the (now deprecated) official version
 
