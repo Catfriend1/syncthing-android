@@ -599,11 +599,6 @@ public class DeviceActivity extends SyncthingActivity {
                     .show();
             return;
         }
-        if (isEmpty(mDevice.name)) {
-            Toast.makeText(this, R.string.device_name_required, Toast.LENGTH_LONG)
-                    .show();
-            return;
-        }
         if (!mDevice.checkDeviceAddresses()) {
             Toast.makeText(this, R.string.device_addresses_invalid, Toast.LENGTH_LONG)
                     .show();
