@@ -467,7 +467,12 @@ public class ConfigXml {
             Folder folder = new Folder();
             folder.id = getAttributeOrDefault(r, "id", "");
             folder.label = getAttributeOrDefault(r, "label", folder.label);
+            
             folder.path = getAttributeOrDefault(r, "path", "");
+            if (folder.path.startsWith("~/")) {
+                folder.path = folder.path.replaceFirst("^~", FileUtils.getInternalStorageRootAbsolutePath());
+            }
+            
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
             folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", folder.autoNormalize);
             folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
