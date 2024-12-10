@@ -6,7 +6,7 @@
 
 ### Version Information
 - App Version: 1.x.y.z
-- Syncthing Version: v1.x.y
+- App installed from: GitHub (signed apk), F-Droid, G-Play
 - Android Version: Android x.y <!-- / LineAgeOS x.y / ... -->
 - Device manufacturer: <!--  Huawei / LG / Samsung / Xiaomi / ... -->
 - Device model: <!-- I9100 / H815 / MI8 / ... -->
