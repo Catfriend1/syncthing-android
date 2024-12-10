@@ -205,8 +205,7 @@ public class NotificationHandler {
         
         Intent exitIntent = new Intent(mContext, MainActivity.class);
         exitIntent.setAction(MainActivity.ACTION_EXIT);
-        exitIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        PendingIntent exitPendingIntent = PendingIntent.getBroadcast(
+        PendingIntent exitPendingIntent = PendingIntent.getActivity(
                     mContext,
                     0,
                     exitIntent,
