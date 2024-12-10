@@ -50,6 +50,7 @@ import com.nutomic.syncthingandroid.model.SharedWithDevice;
 import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
+import com.nutomic.syncthingandroid.util.FileUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -593,6 +594,11 @@ public class RestApi {
         List<Folder> folders;
         synchronized (mConfigLock) {
             folders = deepCopy(mConfig.folders, new TypeToken<List<Folder>>(){}.getType());
+        }
+        for (Folder folder : folders) {
+            if (folder.path.startsWith("~/")) {
+                folder.path = folder.path.replaceFirst("^~", FileUtils.getInternalStorageRootAbsolutePath());
+            }
         }
         Collections.sort(folders, FOLDERS_COMPARATOR);
         return folders;
