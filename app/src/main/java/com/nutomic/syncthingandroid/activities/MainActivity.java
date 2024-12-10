@@ -263,7 +263,7 @@ public class MainActivity extends SyncthingActivity
         onNewIntent(getIntent());
         
         IntentFilter filter = new IntentFilter(ACTION_EXIT);
-        registerReceiver(exitReceiver, filter);
+        registerReceiver(exitReceiver, filter, Context.RECEIVER_EXPORTED);
     }
     
     

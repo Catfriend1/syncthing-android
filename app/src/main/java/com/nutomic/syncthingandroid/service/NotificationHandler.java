@@ -205,7 +205,7 @@ public class NotificationHandler {
         
         Intent stopServiceIntent = new Intent(mContext, MainActivity.class);
         stopServiceIntent.setAction(MainActivity.ACTION_EXIT);
-        PendingIntent stopServicePendingIntent = PendingIntent.getActivity(
+        PendingIntent stopServicePendingIntent = PendingIntent.getBroadcast(
                     mContext,
                     0,
                     stopServiceIntent,
