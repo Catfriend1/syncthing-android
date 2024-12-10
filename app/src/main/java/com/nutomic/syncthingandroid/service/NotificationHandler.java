@@ -203,12 +203,13 @@ public class NotificationHandler {
         
         Intent openAppIntent = new Intent(mContext, MainActivity.class);
         
-        Intent stopServiceIntent = new Intent(mContext, MainActivity.class);
-        stopServiceIntent.setAction(MainActivity.ACTION_EXIT);
-        PendingIntent stopServicePendingIntent = PendingIntent.getBroadcast(
+        Intent exitIntent = new Intent(mContext, MainActivity.class);
+        exitIntent.setAction(MainActivity.ACTION_EXIT);
+        exitIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        PendingIntent exitPendingIntent = PendingIntent.getBroadcast(
                     mContext,
                     0,
-                    stopServiceIntent,
+                    exitIntent,
                     FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
         );
         
@@ -220,7 +221,7 @@ public class NotificationHandler {
                 .setOnlyAlertOnce(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, openAppIntent, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
-                .addAction(R.drawable.baseline_close_24, mContext.getString(R.string.exit), stopServicePendingIntent);
+                .addAction(R.drawable.baseline_close_24, mContext.getString(R.string.exit), exitPendingIntent);
         if (!appShutdownInProgress) {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
