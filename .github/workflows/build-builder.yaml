@@ -1,0 +1,20 @@
+name: Builder Image
+
+on:
+  pull_request:
+    paths:
+      - 'docker/**'
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/image-builder-template.yaml
+    with:
+      push: false
+
+  push-image:
+    if: github.event_name == 'workflow_dispatch'
+    uses: ./.github/workflows/image-builder-template.yaml
+    with:
+      push: true

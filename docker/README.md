@@ -1,7 +1,15 @@
 # How to use this
 
-1. Build the docker image: `docker build -t syncthing-android-builder:latest .`
-2. Checkout syncthing-android somewhere (for the sake of discussion let's say /tmp/syncthing-android)
-3. Inside /tmp/syncthing-android, do `git submodule init; git submodule update`
-4. Run `docker run --rm -v /tmp/syncthing-android:/mnt syncthing-android-builder ./gradlew buildNative assembleDebug`
-5. Retrieve APKs from /tmp/syncthing-android/app/build/outputs
+## Create the builder image
+
+From inside the checked out syncthing-android repository, run:
+
+`docker build -t syncthing-android-builder:latest -f ./docker/Dockerfile .`
+
+## Build the app
+
+1. From inside the checked out syncthing-android repository, run:
+   `git submodule init; git submodule update`
+2. Actual build:
+   `docker run --rm -v /tmp/syncthing-android:/mnt syncthing-android-builder ./gradlew buildNative assembleDebug`
+3. Retrieve APKs from ./app/build/outputs

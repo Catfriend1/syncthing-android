@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  groups:
+    dagger:
+      patterns:
+        - "com.google.dagger:dagger*"
+  ignore:
+  - dependency-name: androidx.annotation:annotation
+    versions:
+    - "> 1.1.0"
+  - dependency-name: androidx.constraintlayout:constraintlayout
+    versions:
+    - "> 1.1.3"
+  - dependency-name: com.android.tools.build:gradle
+    versions:
+    - "> 3.6.3"
+  - dependency-name: com.github.triplet.play
+    versions:
+    - "> 2.8.0"
+  - dependency-name: com.google.android.material:material
+    versions:
+    - "> 1.0.0"
+  - dependency-name: com.google.zxing:core
+    versions:
+    - "> 3.3.0"
+  - dependency-name: com.google.dagger:dagger-compiler
+    versions:
+    - 2.31.2
+    - "2.32"
+    - "2.33"
+    - "2.34"
+    - 2.34.1
+    - "2.35"
+  - dependency-name: com.google.dagger:dagger
+    versions:
+    - 2.31.2
+    - "2.32"
+    - "2.33"
+    - "2.34"
+    - 2.34.1
