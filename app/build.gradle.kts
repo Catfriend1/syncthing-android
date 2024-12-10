@@ -18,7 +18,7 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.annimon:stream:1.2.2")
     implementation("com.google.android.material:material:1.4.0")
-    implementation("com.google.code.gson:gson:2.8.8")
+    implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.google.dagger:dagger:2.53.1")
     implementation("com.google.guava:guava:33.3.1-android")
     // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
