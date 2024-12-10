@@ -3,9 +3,12 @@ package com.nutomic.syncthingandroid.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -257,16 +260,27 @@ public class MainActivity extends SyncthingActivity
             }
         }
 
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        if (action != null) {
-            if (ACTION_EXIT.equals(action)) {
-                Log.e(TAG, "Intent!!!");
-            }
-        }
-
-        onNewIntent(intent);
+        onNewIntent(getIntent());
+        
+        IntentFilter filter = new IntentFilter(ACTION_EXIT);
+        registerReceiver(exitReceiver, filter);
     }
+    
+    
+    private BroadcastReceiver exitReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = getIntent().getAction();
+            if (action != null) {
+                if (ACTION_EXIT.equals(action)) {
+                    Log.e(TAG, "Intent!!!");
+                }
+            } else {
+                Log.e(TAG, "Uppps");
+            }
+        } 
+    };
+
 
     /**
      * Updates the ViewPager to show tabs depending on the service state.
@@ -376,6 +390,7 @@ public class MainActivity extends SyncthingActivity
             mSyncthingService.unregisterOnServiceStateChangeListener(mDeviceListFragment);
             mSyncthingService.unregisterOnServiceStateChangeListener(mStatusFragment);
         }
+        unregisterReceiver(exitReceiver);
     }
 
     @Override
