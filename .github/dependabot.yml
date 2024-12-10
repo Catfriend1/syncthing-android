@@ -7,7 +7,7 @@ updates:
   open-pull-requests-limit: 10
   groups:
     dagger:
-      pattern:
+      patterns:
         - "com.google.dagger:dagger*"
   ignore:
   - dependency-name: androidx.annotation:annotation
