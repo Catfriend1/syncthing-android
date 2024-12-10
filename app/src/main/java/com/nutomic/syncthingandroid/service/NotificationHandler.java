@@ -203,6 +203,16 @@ public class NotificationHandler {
         int idToCancel = syncthingRunning ? ID_PERSISTENT_WAITING : ID_PERSISTENT;
         
         Intent openAppIntent = new Intent(mContext, MainActivity.class);
+        
+        Intent stopServiceIntent = new Intent(mContext, DrawerFragment.class);
+        stopServiceIntent.setAction(DrawerFragment.ACTION_EXIT);
+        PendingIntent stopServicePendingIntent = PendingIntent.getActivity(
+                    mContext,
+                    0,
+                    stopServiceIntent,
+                    FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
+        );
+        
         NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
         NotificationCompat.Builder builder = getNotificationBuilder(channel)
                 .setContentTitle(text)
