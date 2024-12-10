@@ -44,12 +44,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
     private static final String TAG = "DrawerFragment";
 
     private static final int SETTINGS_SCREEN_REQUEST = 3460;
-    
-    /**
-     * Intent action to exit app.
-     */
-    public static final String ACTION_EXIT =
-            "com.github.catfriend1.syncthingandroid.MainActivity.EXIT";
 
     /**
      * These buttons might be accessible if the screen is big enough
@@ -125,13 +119,6 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
 
         // Initially fill UI elements.
         updateUI();
-        
-        String action = mActivity.getIntent().getAction();
-        if (action != null) {
-            if (ACTION_EXIT.equals(action)) {
-                doExit();
-            }
-        }
     }
 
     @Override

@@ -21,7 +21,6 @@ import com.nutomic.syncthingandroid.activities.FirstStartActivity;
 import com.nutomic.syncthingandroid.activities.FolderActivity;
 import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
-import com.nutomic.syncthingandroid.fragments.DrawerFragment;
 import com.nutomic.syncthingandroid.service.SyncthingService.State;
 
 import javax.inject.Inject;
@@ -204,8 +203,8 @@ public class NotificationHandler {
         
         Intent openAppIntent = new Intent(mContext, MainActivity.class);
         
-        Intent stopServiceIntent = new Intent(mContext, DrawerFragment.class);
-        stopServiceIntent.setAction(DrawerFragment.ACTION_EXIT);
+        Intent stopServiceIntent = new Intent(mContext, MainActivity.class);
+        stopServiceIntent.setAction(MainActivity.ACTION_EXIT);
         PendingIntent stopServicePendingIntent = PendingIntent.getActivity(
                     mContext,
                     0,
