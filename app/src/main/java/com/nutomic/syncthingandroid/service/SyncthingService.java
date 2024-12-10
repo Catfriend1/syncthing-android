@@ -1067,12 +1067,19 @@ public class SyncthingService extends Service {
             } else {
                 // File not found.
                 Log.w(TAG, "importConfig: SharedPreferences file missing. This is expected if you migrate from the official app to the forked app.");
+
+                // Parse XML and use apiKey for PREF_WEBUI_PASSWORD as that was the default in the other app.
+                afterFreshServiceInstanceStart();
+                String apiKeyFromXml = mConfig.getApiKey();
+
                 /**
                  * Don't fail as the file might be expectedly missing when users migrate
                  * to the forked app. Clear cached info like the local deviceID from prefs.
                  */
                 SharedPreferences.Editor editor = mPreferences.edit();
                 editor.clear();
+                // Fix issue 1189
+                editor.putString(Constants.PREF_WEBUI_PASSWORD, apiKeyFromXml);
                 editor.apply();
             }
         } catch (IOException | ClassNotFoundException e) {
