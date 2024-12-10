@@ -307,6 +307,14 @@ public class FileUtils {
             .map(java.nio.file.Path::toFile)
             .forEach(File::delete);
     }
+    
+    /**
+     * Expands the "~" path.
+     * Result: e.g. /storage/emulated/0
+     */
+    public static String getInternalStorageRootAbsolutePath() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
+    }
 
     /**
      * Derives the mime type from file extension.
