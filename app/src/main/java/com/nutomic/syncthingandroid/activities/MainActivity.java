@@ -363,13 +363,17 @@ public class MainActivity extends SyncthingActivity
         }
 
         startUIRefreshHandler();
-        super.onResume();
-        
+
         String action = mLastIntent.getAction();
         if (action != null) {
-            Log.e(TAG, action);
+            if (ACTION_EXIT.equals(action)) {
+                Log.i(TAG, "Exit app requested by notification action");
+                stopService(new Intent(this, SyncthingService.class));
+                finishAndRemoveTask();
+            }
         }
-        Log.e(TAG, "B");
+        
+        super.onResume();
     }
 
     @Override
