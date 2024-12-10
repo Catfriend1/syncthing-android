@@ -23,6 +23,8 @@ import com.nutomic.syncthingandroid.activities.LogActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.service.SyncthingService.State;
 
+import static com.nutomic.syncthingandroid.fragments.DrawerFragment.ACTION_EXIT;
+
 import javax.inject.Inject;
 
 public class NotificationHandler {
