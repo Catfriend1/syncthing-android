@@ -416,7 +416,7 @@
     <string name="transfer_rate_unit_GiB_s">GiB/s</string>
     <string name="transfer_rate_unit_TiB_s">TiB/s</string>
     <string name="state_scanning">Skannataan</string>
-    <string name="state_syncing">Synkronoidaan (%1$d%%)</string>
+    <string name="state_syncing">Synkronoidaan (%1$d %%)</string>
     <string name="state_error">Virhe</string>
     <string name="state_unknown">Tuntematon</string>
     <string name="state_paused">Tauolla</string>
@@ -456,4 +456,9 @@
     <string name="device_name_required">Laitteen nimi ei voi olla tyhjä</string>
     <string name="folders">Kansiot</string>
     <string name="tip_ignore_delete_title">Varmuuskopioidaanko puhelimen kuvat tietokoneelle?</string>
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Synkronointi: %1$d %% valmis, %2$d laite verkossa</item>
+        <item quantity="other">Synkronointi: %1$d %% valmis, %2$d laitetta verkossa</item>
+    </plurals>
+    <string name="device_syncing_percent_bytes">Synkronoidaan (%1$d %%, %2$s)</string>
 </resources>
