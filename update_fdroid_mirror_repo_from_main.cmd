@@ -14,6 +14,7 @@ git remote remove upstream 2>NUL:
 call :runGit remote add upstream https://github.com/Catfriend1/syncthing-android.git
 call :runGit pull upstream main
 REM :runGit merge {commit_id}
+REM :runGit reset --hard head~1
 REM
 call :readVersionFromVersionsGradle
 echo [INFO] applicationId="%APPLICATION_ID%"
