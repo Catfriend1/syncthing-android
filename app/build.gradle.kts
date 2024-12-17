@@ -23,7 +23,7 @@ dependencies {
     implementation("com.google.guava:guava:33.3.1-android")
     // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
     implementation("com.google.zxing:core:3.3.0")
-    implementation("com.journeyapps:zxing-android-embedded:4.2.0") { isTransitive = false }
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0") { isTransitive = false }
     implementation("eu.chainfire:libsuperuser:1.1.1")
     implementation("org.mindrot:jbcrypt:0.4")
 
