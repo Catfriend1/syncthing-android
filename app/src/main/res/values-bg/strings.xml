@@ -335,7 +335,7 @@
     <string name="pull_order_newest_first">Първо най-новите</string>
     <string name="versioning_type_none">Изключено</string>
     <plurals name="syncthing_active_syncing_device_online">
-        <item quantity="one">Syncing: %1$d% % готови, %2$d свързано у-во</item>
+        <item quantity="one">Syncing: %1$d %% готови, %2$d свързано у-во</item>
         <item quantity="other">Syncing: %1$d %% готови, %2$d свързани у-ва</item>
     </plurals>
     <string name="syncthing_disabled">Syncthing почива</string>
