@@ -142,7 +142,7 @@
     <string name="export_config">Изнасяне на настройките</string>
     <string name="use_tor_title">Използване на Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Желаете ли настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ! Други приложения могат да извлекат частния ключ от генерирания файл, а чрез него да изтеглят и синхронизират файлове.</string>
+    <string name="dialog_confirm_export">Желаете ли настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ!!!\nДруги приложения могат да получат достъп до частния ключ от резервното копие, а чрез него да изтеглят и променят синхронизирани файлове.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Желаете ли да внесете нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->
@@ -264,7 +264,7 @@
     <string name="suggest_file_manager_app_dialog_title">Не е намерено съвместимо приложение за управление на файлове</string>
     <string name="deviceEncryptionPasswordHint">При недоверено задайте парола за шифроване</string>
     <string name="shared_folders_title_colon">"Папки: "</string>
-    <string name="button_follow_run_conditions">СПАЗВАНЕ\nусловията\nза работа</string>
+    <string name="button_follow_run_conditions">Спазване на\nусловията за работа</string>
     <string name="syncthing_not_running">Syncthing не работи.</string>
     <string name="syncthing_has_crashed">Syncthing се срина.</string>
     <string name="uptime">Работи от</string>
@@ -292,7 +292,7 @@
     <string name="state_unshared">Несподелена</string>
     <string name="folder_type">Вид на папката</string>
     <string name="pull_order_largest_first">Първо най-големите</string>
-    <string name="button_force_stop">ПРИНУДИТЕЛНО СПИРАНЕ\nне следва\nусловията за работа</string>
+    <string name="button_force_stop">Принудително спране\nпренебрегва\nусловията за работа</string>
     <string name="advanced_directory_selection">Разширен избор на папки</string>
     <string name="folder_ignore_delete_caption">Пренебрегване на изтриванията</string>
     <string name="folder_ignore_delete_description">Разширена настройка, която влияе върху обработката на входящите промени на индекса. Когато е отметната, входящите промени със вдигнат флаг за изтриване биват пренебрегнати. Вижте https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
@@ -321,7 +321,7 @@
     <string name="device_paused">На пауза</string>
     <string name="device_state_unused">Неизползвано</string>
     <string name="device_last_seen">Последно видяно: %1$s</string>
-    <string name="button_force_start">ПРИНУДИТЕЛНА РАБОТА\nне следва условията\nза работа</string>
+    <string name="button_force_start">Принудителна работа\nпренебрегва\nусловията за работа</string>
     <string name="syncthing_starting">Syncthing стартира.</string>
     <string name="syncthing_running">Syncthing работи.</string>
     <string name="folder_label_required">Етикетът на папката не може да бъде празен</string>
@@ -579,10 +579,10 @@
     <string name="simple_file_versioning_description">Когато Syncthing замени или премахне файл, негова версия се копира в папка .stversions, като в името му се добавят датата и часът.</string>
     <string name="staggered_versioning_description">Когато Syncthing замени или премахне файл, негова версия се копира в папка .stversions. Някои версии биват премахнати, ако са по-стари от максималната възраст или надвишават броя, разрешен в даден период от време.\n\nИзползвани интервали: през първия час се пази версия от всеки 30 секунди, през първия ден се пази версия от всеки час, през първите 30 дни се пази версия от всеки ден, а до достигане на максималната възраст се пази версия от всяка седмица.</string>
     <string name="tip_write_to_sdcard_text">Ако в потребителския интерфейс се показва съобщение, че Андроид предоставя само права за четене на Syncthing за конкретна папка, можете да създадете нова папка с права за писане, като използвате следния път: \n%1$s/YOUR_FOLDER_NAME\nВажно: Тази папка ще бъде премахната от Андроид при премахване на приложението. За да предотвратите загуба на данни, преместете важните файлове на сигурно място извън папката …/Android, преди да махнете приложението.</string>
-    <string name="tip_ignore_delete_text">Ако желаете всички снимки, направени с мобилното устройство, да бъдат копирани на компютър, споделете папката „Camera“ с него. Отворете Syncthing на компютъра, добавете папката и отворете от главното меню: Действия → Разширени → Папки → Папка „Camera“. Отметнете „Ignore Delete“ и натиснете „Запазване“. Вече можете да изтривате снимки от папката на камерата от телефона, като те ще останат компютъра.</string>
+    <string name="tip_ignore_delete_text">Ако желаете всички снимки, направени с мобилното устройство, да бъдат копирани на компютър, споделете папката „Camera“ с него. Отворете Syncthing на компютъра, добавете папката и отворете от главното меню: Действия → Разширени → Папки → Папка „Camera“. Отметнете „Ignore Delete“ и натиснете „Запазване“. Вече можете да изтривате снимки от папката на камерата на мобилното устройство, като те ще останат на компютъра.</string>
     <string name="run_on_roaming_summary">Разрешаване на Syncthing да използва мобилни данни в чуцбина. (!) Оставете обратна връзка в Гитгъб ако тази настройка работи правилно.</string>
     <string name="run_in_flight_mode_summary">Когато е отметнато Syncthing ще работи дори и когато няма връзка. Отметнете и ако в самолетен режим не се открива ръчно включената безжична връзка.</string>
-    <string name="use_root_summary">Използването на Syncthing с права на суперпотребител дава възможност на приложението права за запис в папки, до които Андроид обикновено предоставя достъп само за четене. Използвайте с повишено внимание.</string>
+    <string name="use_root_summary">Използването на Syncthing с права на суперпотребител дава възможност на приложението за запис в папки, до които Андроид обикновено предоставя достъп само за четене. Използвайте с повишено внимание.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor не е подготвен. Рестартирайте приложението и ако грешката не изчезне след рестарта докладвайте за нея.</string>
     <string name="executable_not_found">Основният изпълним файл „%s“ липсва. Проверете изведеното при компилацията и системния дневник.</string>
     <string name="pull_order">Ред на изтегляне</string>
