@@ -56,7 +56,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Genererar säkra nycklar. Detta kan ta några minuter.</string>
+    <string name="web_gui_creating_key">Genererar säkra nycklar. Detta kan ta några minuter…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Mappar</string>
     <!-- Shown if no folders exist -->
@@ -119,7 +119,7 @@
     <!-- Setting title -->
     <string name="directory">Katalog</string>
     <!-- Setting title and description -->
-    <string name="folder_fileWatcher">Håll utkik efter ändringar</string>
+    <string name="folder_fileWatcher">Bevaka ändringar</string>
     <string name="folder_fileWatcherDescription">Frågar operativsystemet att meddela om ändringar i filer. Om inaktiverad faller tillbaka på återkommande skanningar varje timme.</string>
     <!-- Setting title -->
     <string name="folder_pause">Pausa mapp</string>
@@ -237,7 +237,7 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Slå på wifi för att välja nätverk.</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Du måste ge tillstånd för PLATS för att använda den här funktionen.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Behörighet krävs</string>
-    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa WiFi-namnet. Du kan bara använda den här funktionen om du beviljar denna behörighet.</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Från och med Android 8.1 krävs platsåtkomst för att kunna läsa Wi-Fi-namnet. Du kan bara använda denna funktion om du beviljar denna behörighet.</string>
     <string name="power_source_title">Kör när enheten drivs av</string>
     <string name="power_source_ac_and_battery_power">Växelström och batterikraft.</string>
     <string name="power_source_ac_power">Växelström.</string>
@@ -417,7 +417,7 @@
     <string name="syncthing_active">Syncthing körs</string>
     <string name="syncthing_disabled">Syncthing sover</string>
     <string name="syncthing_terminated">Syncthing avslutades</string>
-    <string name="config_create_failed">Misslyckades med att skapa konfigurationsfil</string>
+    <string name="config_create_failed">Det gick inte att skapa konfigurationen. Kontrollera logcat-utmatningen.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -440,7 +440,7 @@
     <string name="file_size_unit_B">B</string>
     <string name="file_size_unit_KiB">KiB</string>
     <string name="file_size_unit_MiB">MiB</string>
-    <string name="file_size_unit_GiB">GiB</string>
+    <string name="file_size_unit_GiB">GB</string>
     <string name="file_size_unit_TiB">TiB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string name="transfer_rate_unit_B_s">B/s</string>
@@ -464,7 +464,7 @@
     <!-- Displays the current folder type in the folder activity -->
     <string name="folder_type_sendreceive">Skicka &amp; ta emot</string>
     <string name="folder_type_sendonly">Skicka endast</string>
-    <string name="folder_type_receiveonly">Ta emot endast.</string>
+    <string name="folder_type_receiveonly">Ta endast emot</string>
     <string name="folder_type_receiveonly_description">Filer synkroniseras från klustret, men eventuella ändringar som görs lokalt kommer inte att skickas till andra enheter.</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
     <string name="pull_order">Filhämtningsordning</string>
@@ -515,7 +515,7 @@
     <string name="dialog_all_files_access_not_supported">Din enhet stöder inte all filåtkomst</string>
     <string name="ignore_doze_permission_os_notice">Android TV är kända för att ibland avsluta appen när den körs i bakgrunden. En lösning finns tillgänglig på wikin på \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android kan stoppa synkroniseringen efter en tid. För att förhindra detta, inaktivera batterioptimering. Vissa enheter har ytterligare appar som dödar uppgifter förinstallerade. Du bör också lägga till Syncthing till deras vitlista.</string>
-    <string name="welcome_text">Syncthing är ett program för filsynkronisering med öppen källkod. För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter.\n\nRapportera eventuella problem du stöter på via GitHub.</string>
+    <string name="welcome_text">Syncthing är ett program för filsynkronisering med öppen källkod. För att dela data med andra enheter måste du lägga till deras unika enhets-ID i enhetslistan. Efteråt kan du välja vilka mappar som ska delas med vilka enheter. \n \nRapportera eventuella problem du stöter på via GitHub.</string>
     <string name="notification_permission_title">Aviseringstillstånd</string>
     <string name="photo_shoot_intro_welcome_title">Välkommen till Syncthing Camera</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
@@ -689,4 +689,8 @@
         <item quantity="one">Synkronisering: %1$d%% klar, %2$d enhet uppkopplad</item>
         <item quantity="other">Synkronisering: %1$d%% klar, %2$d enheter uppkopplade</item>
     </plurals>
+    <string name="config_read_failed">Det gick inte att läsa konfigurationen. Överväg att säkerhetskopiera data från dina synkroniseringsmappar, rensa sedan appens data från Android-inställningarna och starta den igen.</string>
+    <string name="default_android_camera_folder_label">Android kamera</string>
+    <string name="webui_tcp_port_unavailable">WebUI tcp-port %s upptagen. Andra instans?</string>
+    <string name="state_failed_items">Misslyckade objekt (%1$d)</string>
 </resources>
