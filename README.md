@@ -112,7 +112,7 @@ A Linux VM, for example running Debian, is recommended to build this.
 Build SyncthingNative and the Syncthing-Android wrapper using the following commands:
 
 ```bash
-apt-get -y install git openjdk-11-jdk python
+apt-get -y install git openjdk-17-jdk python
 mkdir -p /root/work
 cd /root/work
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
