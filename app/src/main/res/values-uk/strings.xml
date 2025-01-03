@@ -215,6 +215,14 @@
     <string name="override_changes">Перезапиши зміни</string>
     <string name="folder_fileWatcher">Відстежувати зміни</string>
     <string name="app_name">Syncthing-Fork</string>
-    <string name="welcome_text">Syncthing — це додаток для синхронізації файлів з відкритим вихідним кодом. Щоб ділитися даними з іншими пристроями, необхідно додати їхні унікальні ідентифікатори пристроїв до списку пристроїв. Після цього можна вибрати, які папки спільно використовувати з якими пристроями.\n\nБудь ласка, повідомляйте про будь-які проблеми через GitHub.</string>
+    <string name="welcome_text">Syncthing — це програма для синхронізації файлів з відкритим кодом. Для того, щоб поділитися даними з іншими пристроями, вам потрібно додати їх унікальні ідентифікатори пристроїв до списку пристроїв. Після цього ви зможете вибрати, які папки ділити з якими пристроями.\n\nБудь ласка, повідомляйте про будь-які проблеми, які ви зіштовхнете, через GitHub.</string>
     <string name="storage_permission_desc">Syncthing потребує доступу до вашого сховища для синхронізації файлів.</string>
+    <string name="toast_ignore_doze_permission_required">Цей додаток працює стабільно лише в тому випадку, якщо для нього вимкнено налаштування економії енергії.</string>
+    <string name="ignore_doze_permission_os_notice">Відомо, що Android TV іноді завершують додаток, коли він працює у фоновому режимі. Рішення доступне на вікі за посиланням \'%1$s/%2$s\'.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Ваш пристрій не підтримує вимкнення оптимізації батареї</string>
+    <string name="introduction">Вступ</string>
+    <string name="storage_permission_title">Доступ до файлів</string>
+    <string name="ignore_doze_permission_title">Оптимізація батареї</string>
+    <string name="ignore_doze_permission_desc">Android може припинити синхронізацію через деякий час. Щоб цього уникнути, вимкніть оптимізацію батареї. Деякі пристрої мають попередньо встановлені додаткові програми для завершення задач. Ви повинні додати Syncthing до їх списку дозволених додатків.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Увага: Якщо SyncthingNative буде перервано і виникнуть які-небудь неполадки, це буде ваша відповідальність. Пропускайте лише в разі, якщо ваш пристрій не підтримує надання цього дозволу. Справді пропустити?</string>
 </resources>
