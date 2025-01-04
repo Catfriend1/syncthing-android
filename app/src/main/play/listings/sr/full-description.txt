@@ -1,38 +1,38 @@
-This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+Ово је форк Syncthing-Android обвезника за Syncthing који доноси главна побољшања као што су:
+* Прогрес синхронизације фасцикли, уређаја и укупно може лако да се прочита из интерфејса.
+* "Syncthing камера" - опционална функција (са опционом дозволом за употребу камере) где можете да фотографишете са вашим пријатељем, партнером, ... на два телефона у једној заједничкој и приватној Syncthing фасцикли. Нема облака. - ФУНКЦИЈА ТРЕНУТНО У БЕТА ФАЗИ -
+* "Синхронизуј сваког сата" да сачувате још више батерије.
+* Појединачни услови синхронизације могу се применити по уређају и по фасцикли.
+* Недавне промене у интерфејсу, кликните да отворите фајлове.
+* Промене у конфигурацији фасцикли и уређаја могу се направити без обзира на то да ли је Syncthing укључен или није.
+* Интерфејс објашњава зашто је Syncthing укључен или није.
+* Проблем "једења батерије" је исправљен.
+* Откријте друге Syncthing уређаје на истој мрежи и лако их додајте.
+* Подржава двосмерну синхронизацију на спољној SD картици од Android 11.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork за Android је обвезник за Syncthing који пружа Android интерфејс уместо Syncthing-овог уграђеног веб интерфејса. Syncthing замењује патентиране синхронизације и облак услуге са нечим отвореним, поузданим и децентрализованим. Ваши подаци су само ваши и заслужујете да изаберете где ће бити сачувани, да ли ће бити делјени са неком трећом страном и како ће бити преносени преко интернета.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Циљеви форка:
+* Развити и испробати побољшања заједно са заједницом.
+* Чешће објављивати обвезник да идентификује и исправи грешке узроковане променама у Syncthing подмодулу.
+* Учинити побољшања конфигурисивим у интерфејсу, корисници би требало да могу да их укључе и искључе.
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Fork gets along with upstream and sometimes they pick up my improvements.
-* Strategy and release frequency is different
-* Only the wrapper containing the Android UI is addressed by the fork.
+Поређење између узводног и форка у тренутку писања овога:
+* Обоје садрже Syncthing бинарни фајл саграђен из званичног извора на GitHub-у.
+* Функционалност синхронизације и поузданост зависе од верзије Syncthing бинарног подмодула.
+* Форк сарађује са узводним и понекад преузима моја побољшања.
+* Стратегија и учесталост објављивања су различити.
+* Само обвезник који садржи Android интерфејс је адресиран од стране форка.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Вебсајт: https://github.com/Catfriend1/syncthing-android
 
-Source code: https://github.com/Catfriend1/syncthing-android
+Изворни код: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Како Syncthing пише на спољну SD картицу: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Вики, ЧПП и корисни чланци: https://github.com/Catfriend1/syncthing-android/wiki
 
-Issues: https://github.com/Catfriend1/syncthing-android/issues
+Проблеми: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
-Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Молимо вас да помогнете са
+Превод: https://hosted.weblate.org/projects/syncthing/android/catfriend1

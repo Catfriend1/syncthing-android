@@ -1,1 +1,1 @@
-Wrapper for Syncthing - Open and decentralized file synchronization
+Омотач за Syncthing - Отворена и децентрализована синхронизација фајлова
