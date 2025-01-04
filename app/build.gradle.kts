@@ -20,7 +20,7 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.google.dagger:dagger:2.54")
-    implementation("com.google.guava:guava:33.3.1-android")
+    implementation("com.google.guava:guava:33.4.0-android")
     // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
     implementation("com.google.zxing:core:3.3.0")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0") { isTransitive = false }
