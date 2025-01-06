@@ -6,9 +6,9 @@ buildscript {
         // Changes to this value must be reflected in `./docker/Dockerfile`
         set("ndkVersionShared", "27.0.12077973")
         set("versionMajor", 1)
-        set("versionMinor", 28)
-        set("versionPatch", 1)
-        set("versionWrapper", 1)
+        set("versionMinor", 29)
+        set("versionPatch", 0)
+        set("versionWrapper", 0)
     }
 
     repositories {
