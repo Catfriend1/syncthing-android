@@ -16,7 +16,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Генеруються ключі безпеки. Процедура може зайняти декілька хвилин.</string>
+    <string name="web_gui_creating_key">Генеруються ключі безпеки. Процедура може зайняти декілька хвилин…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Каталоги</string>
     <!-- Shown if no folders exist -->
@@ -106,7 +106,7 @@
     <string name="category_experimental">Експериментальне</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Умови запуску</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь-ласка, увімкніть Wi-Fi, щоби вибрати мережі</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Будь ласка, увімкніть Wi-Fi, щоби вибрати мережі.</string>
     <string name="respect_battery_saving_title">Відповідно до налаштувань енергозбереження пристрою в системі</string>
     <string name="preference_language_title">Мова</string>
     <string name="preference_language_summary">Змінити мову пристрою</string>
@@ -197,7 +197,7 @@
     <string name="keep_versions_description">Кількість попередніх версій для збереження, для кожного файлу.</string>
     <string name="show_device_id">Показати ID пристрою</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-    <string name="could_not_access_deviceid">Немає доступу до ID пристрою</string>
+    <string name="could_not_access_deviceid">Не вдалося отримати доступ до ідентифікатора пристрою.</string>
     <string name="browse">Огляд</string>
     <string name="no_sub_folder_is_selected">Підкаталог не вибрано</string>
     <string name="dialog_all_files_access_not_supported">Ваш пристрій не підтримує доступ до всіх файлів</string>
@@ -225,4 +225,108 @@
     <string name="ignore_doze_permission_title">Оптимізація батареї</string>
     <string name="ignore_doze_permission_desc">Android може припинити синхронізацію через деякий час. Щоб цього уникнути, вимкніть оптимізацію батареї. Деякі пристрої мають попередньо встановлені додаткові програми для завершення задач. Ви повинні додати Syncthing до їх списку дозволених додатків.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Увага: Якщо SyncthingNative буде перервано і виникнуть які-небудь неполадки, це буде ваша відповідальність. Пропускайте лише в разі, якщо ваш пристрій не підтримує надання цього дозволу. Справді пропустити?</string>
+    <string name="notification_permission_title">Дозвіл на сповіщення</string>
+    <string name="grant_permission">Надати дозвіл</string>
+    <string name="notification_permission_desc">Необхідний для показу сповіщень про нові підключення пристроїв, запити на спільний доступ до папок, а також для підтримання працездатності сервісу.</string>
+    <string name="toast_notification_permission_required">Syncthing потребує дозволу на сповіщення, щоб підтримувати свою службу в робочому стані та на зв\'язку.</string>
+    <string name="generic_help">Допомога</string>
+    <string name="permission_granted">Дозвіл надано</string>
+    <string name="reason">Причина:</string>
+    <string name="accept">Прийняти</string>
+    <string name="ignore">Ігнорувати</string>
+    <string name="device_disconnected_not_synced">Відключено (%1$s в очікуванні)</string>
+    <string name="override_changes_question">Це скасує всі зміни, зроблені на інших пристроях, до яких надано спільний доступ до цієї теки. Продовжити?</string>
+    <string name="revert_local_changes_question">Це скасує всі зміни, зроблені на цьому пристрої у цій теці. Приступити?</string>
+    <string name="revert_local_changes">Відмінити локальні зміни</string>
+    <string name="suggest_file_manager_app_dialog_title">Немає сумісного файлового менеджера</string>
+    <string name="suggest_file_manager_app_dialog_text">Ми рекомендуємо вам встановити файловий менеджер з відкритим кодом «Material Files». Бажаєте відкрити сторінку цього додатку в магазині?</string>
+    <string name="delete_unexpected_items">Видаляти неочікувані елементи</string>
+    <string name="device_state_unused">Не використовується</string>
+    <string name="device_paused">Призупинено</string>
+    <string name="open_file_manager">Відкрити файловий менеджер</string>
+    <string name="open_file_with">Відкрити файл у</string>
+    <string name="open_file_no_compatible_app">Немає додатка для відкриття цього файлу.</string>
+    <string name="uptime">Час роботи</string>
+    <string name="advanced_directory_selection">Розширений вибір каталогу</string>
+    <string name="folder_fileWatcherDescription">Просить операційну систему повідомляти про зміни у файлах. Якщо вимкнено, повертається до періодичного щогодинного сканування.</string>
+    <string name="folder_ignore_delete_caption">Ігнорувати видалення</string>
+    <string name="keep_versions">Збереження версій</string>
+    <string name="folder_ignore_delete_description">Експертна опція, яка впливає на обробку вхідних оновлень індексів. Якщо встановлено, вхідні оновлення з встановленим прапором видалення ігноруються. Див. розділ https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="folder_label_required">Назва каталогу повинна бути не порожньою</string>
+    <string name="folder_pause">Призупинити каталог</string>
+    <string name="folders">Каталоги</string>
+    <string name="pause_device">Призупинення пристрою</string>
+    <string name="autoAcceptFolders">Автоматичне прийняття</string>
+    <string name="folder_path_readwrite">Ваша версія Android надає Syncthing дозвіл на читання і запис до вибраної теки.</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Перемикання «Отримувати зашифровані» не підтримується в наявних теках.</string>
+    <string name="discovered_devices_title">Виявлені пристрої - торкніться, щоб вибрати</string>
+    <string name="tip_sync_on_local_network_title">Синхронізація тільки через локальну мережу WiFi</string>
+    <string name="category_user_interface">Інтерфейс користувача</string>
+    <string name="category_debug">Усунення несправностей</string>
+    <string name="page_x_of_y">Сторінка %1$s з %2$s</string>
+    <string name="main_menu">Головне меню</string>
+    <string name="refresh">Оновити</string>
+    <string name="photo_shoot_intro_permission_title">Необхідні дозволи</string>
+    <string name="photo_shoot_intro_welcome_title">Ласкаво просимо до Syncthing камери</string>
+    <string name="photo_shoot_intro_no_camera">Вибачте, цей пристрій не має камери.</string>
+    <string name="photo_shoot_intro_missing_permissions">Нам потрібні дозволи до сховища та камери, щоб продовження.</string>
+    <string name="grant_storage_permission">Надати доступ до сховища</string>
+    <string name="grant_camera_permission">Надати доступ до камери</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing Камера вимагає вашої згоди на створення знімків і збереження їх на вашому пристрої. Ця функція є необов\'язковою. Щоб скористатися нею, надайте дозволи та натисніть «Продовжити». Ми створимо для вас каталог «Syngthing Камера», якою ви зможете поділитися з іншими синхронізованими пристроями пізніше.</string>
+    <string name="photo_shoot_take_picture_success">Успішно збережено зображення до каталогу Syncthing Камера.</string>
+    <string name="photo_shoot_take_picture_failure">Невдалось зробити знімок, або ви скасували.</string>
+    <string name="default_syncthing_camera_folder_label">Камера Syncthing</string>
+    <string name="activity_main_bottom_navigation_rescan_all">Пересканувати все</string>
+    <string name="open_main_menu">Відкрити головне меню</string>
+    <string name="close_main_menu">Закрити головне меню</string>
+    <string name="dialog_exit_while_running_as_service_title">Підтвердіть вихід з програми</string>
+    <string name="device_last_seen">Востаннє бачили: %1$s</string>
+    <string name="device_rejected">Пристрій «%1$s» хоче приєднатись</string>
+    <string name="folder_rejected">Пристрій «%1$s» хоче поділитись каталогом «%2$s»</string>
+    <string name="shared_folders_title_colon">"Каталоги: "</string>
+    <string name="button_follow_run_conditions">ДОТРИМУВАТИСЯ УМОВ ЗАПУСКУ</string>
+    <string name="syncthing_starting">Syncthing запускається.</string>
+    <string name="compress_never">Ніколи</string>
+    <string name="syncthing_running">Syncthing виконується.</string>
+    <string name="folder_path_readonly">У вашій версії Android програма Синхронізація надає доступ до вибраної теки лише для читання.</string>
+    <string name="compress_metadata">Метадані</string>
+    <string name="compress_always">Завжди</string>
+    <string name="device_id_invalid">Ідентифікатор пристрою відформатовано неправильно. Будь ласка, спробуйте ще раз і введіть правильний ідентифікатор.</string>
+    <string name="device_name_required">Назва пристрою не може бути порожньою</string>
+    <string name="category_behaviour">Поведінка</string>
+    <string name="category_syncthing_options_summary">Це меню доступне тільки коли Syncthing запущено.</string>
+    <string name="category_backup">Імпорт та Експорт</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Починаючи з Android 8.1, для зчитування назви Wi-Fi потрібен доступ до місцезнаходження. Ви можете використовувати цю функцію, лише якщо надасте відповідний дозвіл.</string>
+    <string name="location_permission_title">Доступ до розташування</string>
+    <string name="location_permission_desc_api_29">Порада для Android 10+: «Дозволити постійно»</string>
+    <string name="back">Назад</string>
+    <string name="generic_example">Приклад</string>
+    <string name="key_generation_title">Генерація ключа</string>
+    <string name="key_generation_success">Безпечні ключі для приватного обміну даними успішно згенеровано.</string>
+    <string name="share_device_id">Поділитись ідентифікатором пристрою</string>
+    <string name="send_device_id_to">Надіслати ідентифікатор пристрою до</string>
+    <string name="devices_list_empty">Немає налаштованих пристроїв. Натисніть щоб додати новий.</string>
+    <string name="device_last_seen_never">Ніколи</string>
+    <string name="device_up_to_date">В актуальному стані</string>
+    <string name="device_syncing_percent_bytes">Синхронізація (%1$d%%, %2$s)</string>
+    <string name="no_devices_configured">Немає налаштованих пристроїв.\nПочніть з додавання зараз.</string>
+    <string name="deviceEncryptionPasswordHint">Якщо не довіряєте, введіть пароль шифрування</string>
+    <string name="untrusted_device_explanation">Усі каталоги, до яких надається спільний доступ з цим пристроєм, повинні бути захищені паролем, щоб усі надіслані дані не можна було прочитати без вказаного пароля.</string>
+    <string name="untrusted_device">Пристрій ненадійний</string>
+    <string name="usage_reporting_dialog_description">Зашифрований звіт про використання надсилається щодня. Він використовується для відстеження поширених платформ, розмірів папок і версій програм. Якщо набір даних для звіту буде змінено, вам знову буде запропоновано це діалогове вікно. \n \nЗведені статистичні дані знаходяться у відкритому доступі на сайті https://data.syncthing.net.</string>
+    <plurals name="files">
+        <item quantity="one">%1$d файл з %2$d</item>
+        <item quantity="few">%1$d файли з %2$d</item>
+        <item quantity="many">%1$d файлів з %2$d</item>
+        <item quantity="other">%1$d файлів з %2$d</item>
+    </plurals>
+    <string name="button_force_start">ПРИМУСОВИЙ ЗАПУСК \nІГНОРУВАТИ УМОВИ ЗАПУСКУ</string>
+    <string name="button_force_stop">ПРИМУСОВО ЗУПИНИТИ\nІГНОРУВАТИ УМОВИ ЗАПУСКУ</string>
+    <string name="tip_write_to_sdcard_text">Якщо ви бачите в інтерфейсі, що «Android надає Syngthing доступ лише для читання» до певного каталогу створіть новий каталог використовуючи цей шлях, щоб отримати доступ для запису: \n%1$s/ІМ\'Я_ВАШОЇ_ТЕКИ \nБудьте обережні: Ця тека буде знищена Android, якщо ви видалите цю програму. Перед видаленням програми перемістіть дані в безпечне місце за межами теки.../Android.</string>
+    <string name="transfer_rate_unit_TiB_s">TB/с</string>
+    <string name="location_permission_desc">Syncthing можна налаштувати для роботи у вибраних мережах Wi-Fi. Android вимагає, щоб програма мала дозвіл на визначення місцезнаходження, щоб зчитувати ім\'я активної мережі Wi-Fi. Якщо ви хочете скористатися цією функцією, натисніть кнопку вище. Ви можете пропустити цей крок. Дивіться нашу політику конфіденційності для більш детальної інформації.</string>
+    <string name="exception_known_bug_notice">Виявлено відому помилку, яку ще не вирішено. Дивіться %1$s/%2$s для отримання додаткової інформації. Будь ласка, заздалегідь залиште нам точний опис того, що сталося.</string>
+    <string name="syncthing_has_crashed">Syncthing впав.</string>
+    <string name="dialog_exit_while_running_as_service_message">До вашої уваги: Ви налаштували автоматичний запуск програми під час завантаження пристрою. Тому вона відстежує умови запуску і синхронізує в будь-який час у фоновому режимі, коли умови збігаються. Вам слід завершувати роботу вручну лише у разі виникнення серйозних проблем. В іншому випадку вимкніть опцію «Запускати автоматично при завантаженні» у налаштуваннях. Ви хочете завершити роботу зараз, доки пристрій не перезавантажився?</string>
+    <string name="toast_invalid_folder_selected">Вибачте. Вибрана тека не може бути використана. Будь ласка, виберіть теку, розташовану на внутрішньому або зовнішньому накопичувачі.</string>
 </resources>
