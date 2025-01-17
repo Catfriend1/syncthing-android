@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Syncthing-Fork</string>
-    <string name="app_description">Uma aplicação aberta, confiável e descentralizada para sincronização de arquivos.</string>
+    <string name="app_description">Um aplicativo aberto, confiável e descentralizado para sincronização de arquivos.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
     <string name="welcome_title">Bem vindo(a) ao Syncthing for Android</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introdução</string>
-    <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus ID\'s exclusivos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos.
-\n
-\nPor favor, relate quaisquer problemas que você encontrar através do GitHub.</string>
+    <string name="welcome_text">Syncthing é um aplicativo de sincronização de arquivos de código aberto. Para compartilhar dados com outros dispositivos, você precisa adicionar seus IDs únicos de dispositivos à lista de dispositivos. Depois disso, você pode selecionar quais pastas compartilhar com quais dispositivos. \n \nPor favor, relate qualquer problema que você enfrentar pelo GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permissão de Armazenamento</string>
     <string name="storage_permission_desc">O Syncthing precisa acessar seu armazenamento para fazer a sincronização de arquivos.</string>
-    <string name="dialog_all_files_access_not_supported">Seu dispositivo não suporta acesso a todos os arquivos</string>
+    <string name="dialog_all_files_access_not_supported">Seu dispositivo não suporta o acesso a todos os arquivos</string>
     <!-- Slide "Ignore battery optimizations" -->
-    <string name="ignore_doze_permission_title">Otimização de bateria</string>
-    <string name="ignore_doze_permission_os_notice">TV\'s Android são conhecidas por ocasionalmente encerrar o app quando está rodando em segundo plano. Uma soução está disponível na wiki em \'%1$s/%2$s\'.</string>
-    <string name="ignore_doze_permission_desc">O Android pode interromper a sincronização após algum tempo. Para evitar isso, desative a otimização da bateria. Alguns dispositivos têm aplicativos adicionais que matam tarefas pré-instalados. Você também deve adicionar o Syncthing à lista de permissões.</string>
-    <string name="toast_ignore_doze_permission_required">Este aplicativo só funciona de forma confiável se for isento do modo de poupança de energia \"doze\".</string>
+    <string name="ignore_doze_permission_title">Otimização de Bateria</string>
+    <string name="ignore_doze_permission_os_notice">Dispositivos Android TVs são conhecidas por ocasionalmente encerrar o app quando está rodando em segundo plano. Uma solução está disponível na wiki em \'%1$s/%2$s\'.</string>
+    <string name="ignore_doze_permission_desc">O Android pode interromper a sincronização após algum tempo. Para evitar isso, desative a otimização da bateria. Alguns dispositivos têm apps adicionais pré-instalados que matam apps em segundo plano. Você também deve adicionar o Syncthing à lista de permissões.</string>
+    <string name="toast_ignore_doze_permission_required">Este app só funciona de forma estável se for ignorado do modo de economia de energia \"doze\".</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Seu dispositivo não suporta a desativação das otimizações de bateria</string>
     <!-- Slide "Location Permission" -->
-    <string name="location_permission_title">Permissão de localização</string>
-    <string name="location_permission_desc">A sincronização pode ser configurada para funcionar em redes Wi-Fi selecionadas. O Android exige que o aplicativo tenha permissão de localização para ler o nome da rede Wi-Fi ativa. Se você quiser usar esse recurso, pressione o botão acima. Você pode pular esta etapa. Veja nossa política de privacidade para mais detalhes.</string>
+    <string name="location_permission_title">Permissão de Localização</string>
+    <string name="location_permission_desc">O Syncthing pode ser configurado para funcionar em redes Wi-Fi selecionadas. O Android requer que o app tenha a permissão de localização para ler o nome da rede Wi-Fi ativa. Se você quiser usar esse recurso, pressione o botão acima. Você pode pular esta etapa. Veja nossa política de privacidade para mais detalhes.</string>
     <string name="location_permission_desc_api_29">Dica para Android 10+: \"Permitir o tempo todo\"</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Geração de Chaves</string>
@@ -44,63 +42,61 @@
     <string name="main_menu">Menu principal</string>
     <string name="refresh">Atualizar</string>
     <!-- PhotoShootActivity -->
-    <string name="photo_shoot_launcher_title">Câmera Sync.</string>
-    <string name="photo_shoot_activity_title">Câmera Syncthing-Fork</string>
-    <string name="photo_shoot_intro_welcome_title">Bem-vindo ao Câmera Syncthing</string>
+    <string name="photo_shoot_launcher_title">Sinc. Câmera</string>
+    <string name="photo_shoot_activity_title">Câmera do Syncthing-Fork</string>
+    <string name="photo_shoot_intro_welcome_title">Bem-vindo à Câmera Syncthing</string>
     <string name="photo_shoot_intro_permission_title">Permissões necessárias</string>
     <string name="photo_shoot_intro_no_camera">Desculpe, este dispositivo não tem uma câmera.</string>
-    <string name="photo_shoot_intro_missing_permissions">Requeremos permissão ao armazenamento e a câmera para continuar.</string>
+    <string name="photo_shoot_intro_missing_permissions">Precisamos das permissões de armazenamento e de câmera para continuar.</string>
     <string name="grant_storage_permission">Conceder permissão de armazenamento</string>
-    <string name="grant_camera_permission">Conceder permissão da câmera</string>
+    <string name="grant_camera_permission">Conceder permissão de câmera</string>
     <string name="photo_shoot_take_picture_failure">Não foi possível tirar uma foto ou você cancelou.</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Câmera Syncthing</string>
     <!-- MainActivity -->
     <!-- Main bottom navigation view -->
-    <string name="activity_main_bottom_navigation_rescan_all">Reescanear tudo</string>
+    <string name="activity_main_bottom_navigation_rescan_all">Fazer scan de tudo novamente</string>
     <!-- Main menu button -->
-    <string name="open_main_menu">Abrir menu principal</string>
-    <string name="close_main_menu">Fechar menu principal</string>
+    <string name="open_main_menu">Abrir Menu Principal</string>
+    <string name="close_main_menu">Fechar Menu Principal</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirme para sair do app</string>
     <string name="dialog_exit_while_running_as_service_message">Para sua consideração: você configurou o aplicativo para iniciar automaticamente na inicialização. Portanto, ele monitora as condições de execução e sincroniza a qualquer momento em segundo plano quando as condições correspondem. Você só deve sair manualmente se tiver problemas graves. Caso contrário, desative \'Iniciar automaticamente na inicialização\' nas configurações. Deseja sair agora até que o dispositivo seja reiniciado\?</string>
     <!-- Title of the "add folder" menu action -->
-    <string name="add_folder">Adicionar pasta</string>
+    <string name="add_folder">Adicionar Pasta</string>
     <!-- Title of the "share device id" menu action -->
-    <string name="share_device_id">Compartilhar ID</string>
+    <string name="share_device_id">Compartilhar ID do Dispositivo</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
-    <string name="send_device_id_to">Enviar ID do dispositivo para</string>
-    <string name="usage_reporting_dialog_title">Permitir relatório anônimo de uso\?</string>
-    <string name="usage_reporting_dialog_description">O relatório de uso é criptografado e enviado diariamente. É utilizado para rastrear plataformas, tamanhos de arquivos e versões da aplicação. Caso o formato dos dados seja alterado, esta caixa de diálogo te avisará.
-\n
-\nAs estatísticas agregadas estão disponíveis publicamente em https://data.syncthing.net.</string>
+    <string name="send_device_id_to">Enviar ID do Dispositivo para</string>
+    <string name="usage_reporting_dialog_title">Permitir Relatório de Uso Anônimo?</string>
+    <string name="usage_reporting_dialog_description">O relatório de uso é criptografado e enviado diariamente. É utilizado para rastrear plataformas, tamanhos de pastas e versões de aplicativo. Caso o formato dos dados seja alterado, esta caixa de diálogo te avisará. \n \nAs estatísticas agregadas estão disponíveis publicamente em https://data.syncthing.net.</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
-    <string name="open_website">Abrir site</string>
-    <string name="toast_write_storage_permission_required">A permissão de escrita em armazenamento é obrigatória para este aplicativo</string>
-    <string name="device_rejected">O dispositivo \"%1$s\" quer conectar</string>
+    <string name="open_website">Abrir Site</string>
+    <string name="toast_write_storage_permission_required">A permissão de escrita em armazenamento é necessária para esse app</string>
+    <string name="device_rejected">O dispositivo \"%1$s\" quer se conectar</string>
     <string name="folder_rejected">O dispositivo \"%1$s\" quer compartilhar a pasta \"%2$s\"</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Gerando chaves de segurança. Isto pode levar alguns minutos.</string>
+    <string name="web_gui_creating_key">Gerando chaves seguras. Isto pode levar alguns minutos…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Pastas</string>
     <!-- Shown if no folders exist -->
     <string name="folder_list_empty">Nenhuma pasta encontrada</string>
     <!-- Format string for folder file count -->
     <plurals name="files">
-        <item quantity="one">%1$d/%2$dArquivo</item>
-        <item quantity="many">%1$d/%2$dArquivos</item>
-        <item quantity="other">%1$d/%2$dArquivos</item>
+        <item quantity="one">%1$d/%2$d Arquivo</item>
+        <item quantity="many">%1$d/%2$d Arquivos</item>
+        <item quantity="other">%1$d/%2$d Arquivos</item>
     </plurals>
     <string name="override_changes">Sobrescrever mudanças</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Todas as mudanças feitas em outros dispositivos compartilhando esta pasta serão desfeitas. Proceder\?</string>
+    <string name="override_changes_question">Todas as mudanças feitas em outros dispositivos compartilhando esta pasta serão desfeitas. Deseja mesmo continuar?</string>
     <string name="revert_local_changes">Reverter mudanças locais</string>
     <string name="delete_unexpected_items">Apagar itens inesperados</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Todas as mudanças feitas nesse dispositivo dentro daquela pasta serão desfeitas. Proceder\?</string>
+    <string name="revert_local_changes_question">Todas as mudanças feitas nesse dispositivo dentro daquela pasta serão desfeitas. Deseja mesmo continuar?</string>
     <string name="open_file_manager">Abrir gerenciador de arquivos</string>
     <string name="open_file_with">Abrir arquivo com</string>
     <string name="open_file_no_compatible_app">Não foi encontrado nenhum aplicativo para abrir o arquivo.</string>
@@ -604,6 +600,18 @@
     <string name="qs_following_run_conditions">Condições de execução seguintes</string>
     <string name="qs_schedule_label">Executar por 5 minutos</string>
     <string name="qs_schedule_disabled">Agendamento desativado</string>
-    <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado. Se o SyncthingNative for interrompido e fizer algo estranho, é sua culpa. Apenas pule se seu dispositivo não suportar a concessão da permissão. Você realmente quer pular?</string>
-    <string name="notification_permission_title">Permissão de notificação</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado: Se o SyncthingNative for interrompido e fizer algo estranho, é sua culpa. Apenas pule se seu dispositivo não suportar a concessão da permissão. Você realmente quer pular?</string>
+    <string name="notification_permission_title">Permissão de Notificação</string>
+    <string name="notification_permission_desc">Necessário para mostrar notificações sobre novas conexões de dispositivos, solicitações de compartilhemento de pasta, e para manter o serviço ativo e conectado.</string>
+    <string name="toast_notification_permission_required">O Syncthing requer a permissão de notificação para manter o serviço ativo e conectado.</string>
+    <string name="photo_shoot_take_picture_success">Foto salva com sucesso à pasta da Câmera Syncthing.</string>
+    <string name="device_id_invalid">O ID do dispositivo não está formatado corretamente. Por favor tente novamente e digite o ID correto.</string>
+    <string name="device_name_required">O nome do dispositivo não pode estar vazio</string>
+    <string name="toast_invalid_folder_selected">Desculpe. A pasta selecionada não pode ser usada. Por favor selecione uma pasta localizada no armazenamento interno ou externo.</string>
+    <string name="discovered_device_list_empty">A descoberta local não encontrou nenhum dispositivo na rede local. Execute esse app em um segundo dispositivo. Arquivos de instalação para computadores estão disponíveis em: %1$s</string>
+    <string name="untrusted_device_explanation">Todas as pastas compartilhadas com esse dispositivo devem estar protegidas por uma senha, de forma que os dados enviados não são legíveis sem a senha correta.</string>
+    <string name="autoAcceptFolders">Automaticamente Aceitar</string>
+    <string name="local_discovery_disabled">Você desativou a descoberta local em \'Configurações\' &gt; \'Opções do Syncthing\' &gt; \'Descoberta Local\'. Ative-a para buscar dispositivos na rede local.</string>
+    <string name="photo_shoot_intro_permission_desc">A Câmera Syncthing requer seu consentimento para tirar fotos e armazená-las no seu dispositivo. Essa função é opcional. Para usá-la, conceda as permissões e toque em \"Continuar\". Nós iremos configurar uma pasta para a Câmera Syncthing para você, que você pode compartilhar com outros dispositivos Syncthing depois.</string>
+    <string name="exception_known_bug_notice">Um bug conhecido que não foi resolvido ainda ocorreu. Veja %1$s/%2$s para mais informações. Por favor, nos deixe uma descrição precisa do que aconteceu antes disso acontecer.</string>
 </resources>
