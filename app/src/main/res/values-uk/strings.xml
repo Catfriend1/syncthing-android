@@ -413,4 +413,12 @@
     <string name="tip_xiaomi_battery_saver_text">Система заощадження батареї MIUI на пристроях Xiaomi відкликає дозвіл на \'ігнорування оптимізації батареї\' для додатків після кожного перезавантаження телефону. Це призводить до того, що додаток знову показує екран привітання та запитує відсутній обов\'язковий дозвіл. Рішення: З головного екрану відкрийте список додатків &gt; довго натисніть на \'Syncthing-Fork\' &gt; \'Інформація про додаток\' &gt; \'Заощаджувач батареї\' і виберіть \'Без обмежень\' (MIUI 10.3.2.0+).</string>
     <string name="tip_huawei_device_disconnected_text">Якщо ваш комп\'ютер постійно повідомляє, що ваш пристрій Huawei відключений, відкрийте інтерфейс Syncthing на вашому комп\'ютері. Перейдіть до \'віддалених пристроїв\', розгорніть запис телефону, натисніть \'Редагувати\', перейдіть на вкладку \'Розширено\'. Введіть IP-адресу вашого телефону в поле \'Адреси\' ось так:\ntcp4://%1$s, dynamic\nПідтверджено, що працює для: Huawei P10</string>
     <string name="listen_address">Прослуховувані адреси для синхронізації</string>
+    <string name="webui_username_title">Ім\'я користувача вебінтерфейсу</string>
+    <string name="webui_password_title">Пароль вебінтерфейсу</string>
+    <string name="webui_remote_access_summary">Вкажіть, щоб дозволити доступ до веб-інтерфейсу з іншого пристрою. Якщо увімкнено, ви зможете входити за допомогою користувача «Syncthing» та ключа API як пароля. За замовчуванням: вимкнено (найбезпечніший варіант)</string>
+    <string name="webui_tcp_port_title">TCP порт вебінтерфейсу</string>
+    <string name="webui_remote_access_title">Віддалений доступ до вебінтерфейсу</string>
+    <string name="versioning_type_simple">Просте</string>
+    <string name="versioning_type_staggered">Поступове</string>
+    <string name="versioning_type_external">Зовнішнє</string>
 </resources>
