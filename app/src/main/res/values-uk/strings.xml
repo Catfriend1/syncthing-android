@@ -421,4 +421,22 @@
     <string name="versioning_type_simple">Просте</string>
     <string name="versioning_type_staggered">Поступове</string>
     <string name="versioning_type_external">Зовнішнє</string>
+    <string name="download_support_bundle_in_progress">Підготовка до завантаження пакета підтримки …</string>
+    <string name="http_proxy_address_title">Проксі HTTP(S)</string>
+    <string name="keep_wakelock_while_binary_running_summary">Тільки для Android 5 або старішої версії. Використовуйте це налаштування, якщо під час роботи від батареї виникають несподівані відключення. Це призведе до збільшення споживання батареї.</string>
+    <string name="undo_ignored_devices_folders_question">Це скасує раніше ігноровані пристрої і теки. Продовжити?</string>
+    <string name="download_support_bundle_succeeded">Пакет підтримки успішно завантажено до %s.</string>
+    <string name="download_support_bundle_failed">Не вдалося завантажити пакет підтримки. Перевірте журнал.</string>
+    <string name="use_proxy">Підключення через проксі-сервер</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Номер порту невірний. Будь ласка, введіть порт між %1$d та %2$d.</string>
+    <string name="do_not_use_proxy">Проксі не налаштовано.</string>
+    <string name="webui_debugging_summary">Увімкніть, щоб розпочати профілювання і мати можливість завантажити пакет підтримки. Зміна цього параметра призведе до негайного перезапуску Syncthing.</string>
+    <string name="download_support_bundle_title">Завантажити пакет підтримки</string>
+    <string name="undo_ignored_devices_folders_title">Скасувати ігнорування пристроїв і тек</string>
+    <string name="undo_ignored_devices_folders_done">Ігнорування скасовано.</string>
+    <string name="backup_folder_name">Ім\'я теки резервної копії</string>
+    <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Введене значення невірне. Будь ласка, введіть значення між %1$d та %2$d.</string>
+    <string name="use_tor_summary">Примусово пропускайте весь трафік через Tor для підвищення конфіденційності. Потрібен Orbot. Вимикає параметри проксі.</string>
+    <string name="socks_proxy_address_title">Проксі SOCKS5</string>
+    <string name="toast_invalid_socks_proxy_address">Вхідні дані порушують синтаксис проксі «socks5://[IP/HOSTNAME]:[PORT]»</string>
 </resources>
