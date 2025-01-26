@@ -349,7 +349,7 @@ Android требует разрешение доступа к геолокаци
     <string name="syncthing_version_title">Версия ядра</string>
     <!-- FolderPickerAcitivity -->
     <!-- Activity title -->
-    <string name="folder_picker_title">Выбор Папки</string>
+    <string name="folder_picker_title">Выбор папки</string>
     <!-- ListView empty text -->
     <string name="directory_empty">Папка пуста</string>
     <!-- Menu item to create folder on the file system -->
@@ -398,7 +398,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Копируем файлы…</string>
     <plurals name="file_name_title">
-        <item quantity="one">Имя файла</item>
+        <item quantity="one">Название файла</item>
         <item quantity="few">Список файлов</item>
         <item quantity="many">Список файлов</item>
         <item quantity="other">Список файлов</item>
@@ -437,11 +437,11 @@ Android требует разрешение доступа к геолокаци
     <string name="file_size_unit_GiB">ГБ</string>
     <string name="file_size_unit_TiB">ТБ</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
-    <string name="transfer_rate_unit_B_s">б/с</string>
-    <string name="transfer_rate_unit_KiB_s">Кб/с</string>
-    <string name="transfer_rate_unit_MiB_s">Мб/с</string>
-    <string name="transfer_rate_unit_GiB_s">Гб/с</string>
-    <string name="transfer_rate_unit_TiB_s">Тиб/с</string>
+    <string name="transfer_rate_unit_B_s">Б/с</string>
+    <string name="transfer_rate_unit_KiB_s">КБ/с</string>
+    <string name="transfer_rate_unit_MiB_s">МБ/с</string>
+    <string name="transfer_rate_unit_GiB_s">ГБ/с</string>
+    <string name="transfer_rate_unit_TiB_s">ТБ/с</string>
     <string name="state_up_to_date">Актуальна</string>
     <string name="state_scanning">Сканирование</string>
     <string name="state_syncing">Синхронизация (%1$d%%)</string>
@@ -508,9 +508,9 @@ Android требует разрешение доступа к геолокаци
     <string name="run_conditions_summary">Выберите режимы работы Syncthing.</string>
     <string name="undo_ignored_devices_folders_done">Успешно отменено.</string>
     <string name="do_not_use_proxy">Прокси не настроены.</string>
-    <string name="power_source_ac_and_battery_power">От сети и батареи.</string>
-    <string name="power_source_ac_power">От сети.</string>
-    <string name="power_source_battery_power">От батареи.</string>
+    <string name="power_source_ac_and_battery_power">От сети и батареи</string>
+    <string name="power_source_ac_power">От сети</string>
+    <string name="power_source_battery_power">От батареи</string>
     <string name="respect_battery_saving_summary">Отключить Syncthing в режиме энергосбережения.</string>
     <string name="photo_shoot_take_picture_failure">Не удалось получить изображение или вы отменили его получение.</string>
     <string name="photo_shoot_take_picture_success">Изображение успешно сохранено в папку Камеры Syncthing.</string>
@@ -664,4 +664,25 @@ Android требует разрешение доступа к геолокаци
     <string name="complete_welcome_wizard_first">Сначала запустите приложение из меню приложений и завершите первичную настройку, прежде чем приступить к обмену файлами.</string>
     <string name="reason_mobile_data_disallowed">Syncthing не настроен на работу от мобильной сети.</string>
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing разрешено работать от мобильной сети с в роуминге и без него.</string>
+    <string name="current_path">Текущий путь: %1$s</string>
+    <string name="app_version_title">Версия Syncthing-Fork</string>
+    <string name="state_failed_items">Не удалось (%1$d)</string>
+    <string name="reason_not_while_power_saving">Syncthing не запущен, потому что устройство в режиме энергосбережения.</string>
+    <string name="broadcast_service_control_title">Управление через трансляцию</string>
+    <string name="log_to_file_title">Журналировать в файл</string>
+    <string name="advanced_storage_path_overview">Обзор пути хранения</string>
+    <string name="folder_go_up">Наверх</string>
+    <string name="qs_forced_to_run">Принудительно запущен</string>
+    <string name="qs_forced_to_stop">Принудительно остановлен</string>
+    <string name="reason_force_start">Syncthing запущен принудительно в обход условий запуска.</string>
+    <string name="syncthing_disabled">Syncthing на паузе</string>
+    <string name="syncthing_terminated">Syncthing выключен</string>
+    <string name="verbose_log_title">Подробный журнал</string>
+    <string name="state_local_additions">Локальные добавления</string>
+    <string name="state_cleaning">Версии удаляюся</string>
+    <string name="state_clean_waiting">Готовится очистка</string>
+    <string name="state_scan_waiting">Готовится сканирование</string>
+    <string name="qs_force_label">Запустить принудительно</string>
+    <string name="custom_sync_conditions_title">Свои условия синхронизации</string>
+    <string name="qs_following_run_conditions">По условиям запуска</string>
 </resources>
