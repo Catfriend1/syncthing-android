@@ -439,4 +439,15 @@
     <string name="use_tor_summary">Примусово пропускайте весь трафік через Tor для підвищення конфіденційності. Потрібен Orbot. Вимикає параметри проксі.</string>
     <string name="socks_proxy_address_title">Проксі SOCKS5</string>
     <string name="toast_invalid_socks_proxy_address">Вхідні дані порушують синтаксис проксі «socks5://[IP/HOSTNAME]:[PORT]»</string>
+    <string name="log_to_file_title">Журнал у файл</string>
+    <string name="verbose_log_title">Детальний журнал</string>
+    <string name="verbose_log_summary">Увімкнення цієї опції допоможе створити журнали налагодження на дуже детальному рівні.</string>
+    <string name="st_reset_database_question">Цю дію слід виконувати лише за рекомендацією нашої служби підтримки.\nВи впевнені, що бажаєте очистити базу даних Syncthing?</string>
+    <string name="dialog_confirm_export">"Ви впевнені що хочете експортувати ваші налаштування? Файли що вже існують будуть перезаписані.\n\nПОПЕРЕДЖЕННЯ: Інші додатки також зможуть читати приватні ключі  з розташування резервної копії й використати їх для завантаження або зміни синхронізованих файлів."</string>
+    <string name="dialog_settings_restart_app_question">Зміна цієї опції вимагає негайного перезапуску програми. Всі інші зміни будуть відкинуті. Продовжити?</string>
+    <string name="toast_invalid_http_proxy_address">Введені дані не відповідають синтаксису проксі «http://[IP/HOSTNAME]:[PORT]»</string>
+    <string name="config_export_failed">Не вдалось експортувати налаштування, перевірте журнал.</string>
+    <string name="dialog_settings_restart_app_title">Потребує перезапуску</string>
+    <string name="st_reset_deltas_title">Скинути індекси відмінностей</string>
+    <string name="log_to_file_summary">Вивід SyncthingNative буде записаний у файл.</string>
 </resources>
