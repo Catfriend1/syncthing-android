@@ -43,10 +43,6 @@ Switching is easier than you may think!
 - Uninstall the official Syncthing app.
 - Delete the syncthing configuration backup from `backups/syncthing`.
 
-## About Play Store releases
-
-- Planning to close my Google Play Developer Account. Please say hi if you are interested in obtaining the latest gplay release files from me to help in publishing this app.
-
 ## Privacy Policy
 
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
