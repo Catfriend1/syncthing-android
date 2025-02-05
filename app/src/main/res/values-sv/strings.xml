@@ -693,4 +693,5 @@
     <string name="default_android_camera_folder_label">Android kamera</string>
     <string name="webui_tcp_port_unavailable">WebUI tcp-port %s upptagen. Andra instans?</string>
     <string name="state_failed_items">Misslyckade objekt (%1$d)</string>
+    <string name="photo_shoot_launcher_title">Synkronisera. Kamera</string>
 </resources>
