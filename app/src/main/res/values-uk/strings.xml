@@ -448,6 +448,65 @@
     <string name="toast_invalid_http_proxy_address">Введені дані не відповідають синтаксису проксі «http://[IP/HOSTNAME]:[PORT]»</string>
     <string name="config_export_failed">Не вдалось експортувати налаштування, перевірте журнал.</string>
     <string name="dialog_settings_restart_app_title">Потребує перезапуску</string>
-    <string name="st_reset_deltas_title">Скинути індекси відмінностей</string>
+    <string name="st_reset_deltas_title">Скинути дельта індекси</string>
     <string name="log_to_file_summary">Вивід SyncthingNative буде записаний у файл.</string>
+    <string name="reason_not_charging">Телефон не заряджається.</string>
+    <string name="nothing_share">Нема чим поділитися</string>
+    <string name="reason_not_on_mobile_data">Syncthing дозволено запускати за допомогою мобільного з\'єднання, але мобільні дані не підключено.</string>
+    <string name="reason_on_wifi">Syncthing дозволено працювати через Wi-Fi, і Wi-Fi наразі підключено.</string>
+    <string name="reason_not_on_wifi">Syncthing дозволено працювати через Wi-Fi, але він не під\'єднаний або телефон перебуває в режимі польоту.</string>
+    <string name="syncthing_api_key">Ключ Syncthing API (натисніть що б скопіювати)</string>
+    <string name="api_key_copied_to_clipboard">Ключ Syncthing API скопійовано в буфер обміну</string>
+    <string name="syncthing_database_size">Розмір бази даних Syncthing</string>
+    <string name="os_open_file_limit">Обмеження відкритих файлів Android</string>
+    <string name="folder_picker_title">Обрати теку</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing не працює, оскільки в Android наразі вимкнено «Автосинхронізація даних».</string>
+    <string name="reason_on_mobile_data">Syncthing дозволено працювати на мобільних даних.</string>
+    <string name="reason_not_while_power_saving">Syncthing не працює, оскільки телефон наразі працює в режимі енергозбереження.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing не налаштовано на роботу в мобільних мережах.</string>
+    <string name="st_reset_deltas_question">Цю дію слід виконувати лише за рекомендацією нашої служби підтримки. \nВи впевнені, що хочете очистити дельта-індекси Syncthing?</string>
+    <string name="st_reset_deltas_done">Дельта-індекси Syncthing успішно очищені</string>
+    <string name="open_issue_tracker_summary">Відкрити відстежувач помилок Syncthing-Fork на %1$s</string>
+    <string name="syncthing_version_title">Версія Syncthing</string>
+    <string name="app_version_title">Версія обгортки Syncthing-Fork</string>
+    <string name="current_path">Поточний шлях: %1$s</string>
+    <string name="directory_empty">Тека порожня</string>
+    <string name="folder_go_up">Перейти вгору</string>
+    <plurals name="copy_success">
+        <item quantity="one">%1$d файл скопійовано до теки «%2$s»</item>
+        <item quantity="few">%1$d файли скопійовано до теки «%2$s»</item>
+        <item quantity="many">%1$d файлів скопійовано до теки «%2$s»</item>
+        <item quantity="other">%1$d файлів скопійовано до теки «%2$s»</item>
+    </plurals>
+    <string name="copy_progress">Поширення файлів…</string>
+    <string name="cancel_title">Скасувати</string>
+    <string name="file_name_template">Новий файл %1$s</string>
+    <plurals name="copy_success_partially">
+        <item quantity="one">%1$d файл скопійовано до теки «%2$s», %3$d вже існують</item>
+        <item quantity="few">%1$d файли скопійовано до теки «%2$s», %3$d вже існують</item>
+        <item quantity="many">%1$d файлів скопійовано до теки «%2$s», %3$d вже існують</item>
+        <item quantity="other">%1$d файлів скопійовано до теки «%2$s», %3$d вже існують</item>
+    </plurals>
+    <plurals name="file_name_title">
+        <item quantity="one">Назва файлу</item>
+        <item quantity="few">Список файлів</item>
+        <item quantity="many">Список файлів</item>
+        <item quantity="other">Список файлів</item>
+    </plurals>
+    <string name="reason_force_start">Syncthing запущено, оскільки ви примусово запустили його незалежно від умов запуску.</string>
+    <string name="reason_force_stop">Syncthing не працює, оскільки ви примусово зупинили її незалежно від умов запуску.</string>
+    <string name="reason_not_within_time_frame">Ви ввімкнули «Запуск за розкладом», а остання синхронізація була менше ніж годину тому.</string>
+    <string name="reason_not_within_time_frame_0_min">менше хвилини</string>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d хвилина</item>
+        <item quantity="few">%d хвилини</item>
+        <item quantity="many">%d хвилин</item>
+        <item quantity="other">%d хвилин</item>
+    </plurals>
+    <string name="reason_not_on_battery_power">Телефон не працює від акумулятора.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing може працювати на роумінгових і не роумінгових мобільних з\'єднаннях.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing дозволено запускати під час підключення мобільних даних без роумінгу. Активне з\'єднання не роумінгове.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing не працює, оскільки ви заборонили запуск у роумінгових мобільних мережах.</string>
+    <string name="reason_wifi_disallowed">Syncthing не дозволено працювати через WiFi чи ethernet.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing дозволено працювати в лімітованих, й нелімітованих з\'єднаннях WiFi.</string>
 </resources>
