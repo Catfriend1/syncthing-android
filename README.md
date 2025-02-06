@@ -14,6 +14,10 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/4.png" alt="screenshot 3" width="200" />
 
+## I am no longer publishing this on Google Play
+
+"nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into his mission. It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the meaning of open source.
+
 ## Major enhancements in this fork are
 
 - Folder, device and overall sync progress can easily be read off the UI.
