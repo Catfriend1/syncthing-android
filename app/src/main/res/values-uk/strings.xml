@@ -509,4 +509,13 @@
     <string name="reason_not_nonroaming_mobile_data">Syncthing не працює, оскільки ви заборонили запуск у роумінгових мобільних мережах.</string>
     <string name="reason_wifi_disallowed">Syncthing не дозволено працювати через WiFi чи ethernet.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing дозволено працювати в лімітованих, й нелімітованих з\'єднаннях WiFi.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing не працює оскільки ви заборонили роботу в обмежених WiFi з\'єднаннях.</string>
+    <string name="broadcast_service_control_summary">За замовчуванням: вимкнено. Увімкніть цю опцію, щоб запускати та зупиняти службу, надсилаючи широкомовні повідомлення, напр. зі сторонніх програм автоматизації. Примітка. Після зміни цього параметра програму потрібно перезапустити вручну.</string>
+    <string name="complete_welcome_wizard_first">Спочатку запустіть програму з панелі програм і завершіть роботу майстра привітання, перш ніж ділитися файлами.</string>
+    <string name="reason_not_within_time_frame_2">Ви увімкнули «Запускати за розкладом», а остання синхронізація була %s тому.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing дозволено працювати в поточній WiFi мережі.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing не працює оскільки поточної WiFi мережі немає у білому списку.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing дозволено працювати в не обмежених з’єднаннях WiFi. Активне з’єднання Wi-Fi не обмежене.</string>
+    <string name="reason_location_unavailable">Ви ввімкнули «Запуск у вибраних мережах WiFi» у налаштуваннях. Службу розташування Android наразі вимкнено. Згідно з обмеженнями Android, Syncthing не може визначити поточну назву мережі WiFi, щоб вирішити, чи слід її запускати. Рішення: увімкніть розташування, надайте дозвіл на розташування та повторно під\'єднайте Wi-Fi.</string>
+    <string name="reason_on_flight_mode">Syncthing працює оскільки ви дозволили роботу в режимі польоту.</string>
 </resources>
