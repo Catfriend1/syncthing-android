@@ -99,6 +99,14 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- Ignore time schedule when charging -->
+        <CheckBoxPreference
+            android:key="ignore_schedule_on_charge"
+            android:title="@string/ignore_schedule_on_charge_title"
+            android:summary="@string/ignore_schedule_on_charge_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="false" />
+
         <EditTextPreference
             android:key="sync_duration_minutes"
             android:title="@string/sync_duration_minutes_title"

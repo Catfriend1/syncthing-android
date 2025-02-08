@@ -536,6 +536,10 @@
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
     <string name="sleep_interval_minutes_title">Duration of the sync pause interval</string>
 
+    <!-- Ignore Schedule While Charging -->
+    <string name="ignore_schedule_on_charge_title">Ignore schedule when charging</string>
+    <string name="ignore_schedule_on_charge_summary">When enabled, the time schedule will be ignored if the device is charging while respecting other run conditions.</string>
+
     <!-- Preferences - Behaviour -->
 
     <string name="behaviour_autostart_title">Autostart</string>

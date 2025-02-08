@@ -558,6 +558,8 @@ public class RunConditionMonitor {
         boolean prefRunInFlightMode = mPreferences.getBoolean(Constants.PREF_RUN_IN_FLIGHT_MODE, false);
         boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
 
+        boolean prefIgnoreRunScheduleOnCharge = mPreferences.getBoolean(Constants.PREF_IGNORE_SCHEDULE_ON_CHARGE, false);
+
         // PREF_BTNSTATE_FORCE_START_STOP
         switch (prefBtnStateForceStartStop) {
             case Constants.BTNSTATE_FORCE_START:
@@ -574,6 +576,17 @@ public class RunConditionMonitor {
         // set mTimeConditionMatch to true if the last run was more than WAIT_FOR_NEXT_SYNC_DELAY_SECS ago
         if (SystemClock.elapsedRealtime() - mPreferences.getLong(Constants.PREF_LAST_RUN_TIME,0) > Integer.parseInt(mPreferences.getString(Constants.PREF_SLEEP_INTERVAL_MINUTES,"60")) * 60 * 1000)
             mTimeConditionMatch = true;
+
+        // ATTENTION!!!!!!!!!!!!!!!!!! I am a fairly new android dev. I am not sure if I am able to
+        // call isCharging_API17() here but I figure it is the way to tell if the phone is charging.
+        //
+        // if the user is using schedule AND ignores schedule when charging AND the phone is charging
+        if (prefRunOnTimeSchedule && prefIgnoreRunScheduleOnCharge && isCharging_API17()) {
+            // the app should act like mTimeConditionMatch condition is true (should sync)
+            LogV("decideShouldRun: prefRunOnTimeSchedule && prefIgnoreRunScheduleOnCharge && isCharging_API17()");
+            mTimeConditionMatch = true;
+        }
+
         if (prefRunOnTimeSchedule && !mTimeConditionMatch) {
             // Currently, we aren't within a "SyncthingNative should run" time frame.
             LogV("decideShouldRun: PREF_RUN_ON_TIME_SCHEDULE && !mTimeConditionMatch");
