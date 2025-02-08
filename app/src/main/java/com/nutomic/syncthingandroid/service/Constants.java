@@ -191,6 +191,12 @@ public class Constants {
     public static final int WAIT_FOR_NEXT_SYNC_DELAY_SECS       = isRunningOnEmulator() ? 20 : 3600;        // "off" state duration
 
     /**
+     * If user enabled "Ignore schedule when charging" the following
+     * parameters are effective
+     */
+    public static final String PREF_IGNORE_SCHEDULE_ON_CHARGE = "pref_ignore_schedule_on_charge";
+
+    /**
      * File in the config folder that contains configuration.
      */
     public static final String CONFIG_FILE = "config.xml";
