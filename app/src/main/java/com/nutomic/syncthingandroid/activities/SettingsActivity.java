@@ -1176,7 +1176,7 @@ public class SettingsActivity extends SyncthingActivity {
             if (newValue.equals("")) {
                 preference.setSummary(getString(R.string.do_not_use_proxy) + " " + getString(R.string.generic_example) + ": " + getString(R.string.http_proxy_address_example));
                 return true;
-            } else if (newValue.matches("^http://.*:\\d{1,5}$")) {
+            } else if (newValue.matches("^https?://.*:\\d{1,5}$")) {
                 preference.setSummary(getString(R.string.use_proxy) + " " + newValue);
                 return true;
             } else {
