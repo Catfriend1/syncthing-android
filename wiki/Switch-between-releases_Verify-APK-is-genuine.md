@@ -18,7 +18,7 @@ The signing on these release channels differ, so if you wish to change to a diff
 
 To verify your downloaded APK, compare the certificate hash of the APK to the one's listed below. It has to match one of them to indicate you have a genuine version of the app.
 
-1. GitHub APK: 2ScaPj41giu4vFh+Y7Q0GJTqwbA=
+1. GitHub APK: dQAnHXvlh80yJgrQUCo6LAg4294=
 
 2. F-Droid APK: nyupq9aU0x6yK8RHaPra5GbTqQY=
 
@@ -26,4 +26,4 @@ To verify your downloaded APK, compare the certificate hash of the APK to the on
 
 Here is a quick way of getting the certificate hash out of an APK file on Linux:
 
-* keytool -list -printcert -jarfile "/path/to/release.apk" | grep "SHA1: " | cut -d " " -f 3 | xxd -r -p | openssl base64
+* keytool -printcert -jarfile "/path/to/release.apk" | grep "SHA1: " | cut -d " " -f 3 | xxd -r -p | openssl base64
