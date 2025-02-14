@@ -56,7 +56,7 @@ IF NOT DEFINED SIGNING_PASSWORD echo [ERROR] Signing password is required. Pleas
 REM
 :absLint
 REM
-copy /y "%SCRIPT_PATH%app\src\main\play\release-notes\en-GB\beta.txt" "%SCRIPT_PATH%app\src\main\play\release-notes\en-GB\default.txt" 
+copy /y "%SCRIPT_PATH%app\src\main\play\release-notes\en-US\beta.txt" "%SCRIPT_PATH%app\src\main\play\release-notes\en-US\default.txt" 
 REM
 echo [INFO] Running lint before building ...
 REM
