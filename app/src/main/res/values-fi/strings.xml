@@ -42,7 +42,7 @@
     <string name="ignore">Ohita</string>
     <string name="page_x_of_y">Sivu %1$s/%2$s</string>
     <string name="main_menu">Päävalikko</string>
-    <string name="refresh">Päivitä</string>
+    <string name="refresh">Virkistä</string>
     <!-- PhotoShootActivity -->
     <string name="photo_shoot_launcher_title">Sync. Kamera</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Kamera</string>
