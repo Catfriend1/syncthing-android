@@ -206,8 +206,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         showLastItemFinishedUI(binding, cachedFolderStatus);
 
         binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
-        String itemsAndSize = "\u2211 ";
-        itemsAndSize += mContext.getResources()
+        String itemsAndSize = mContext.getResources()
                 .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles);
         itemsAndSize += " \u2022 ";
         itemsAndSize += mContext.getString(R.string.folder_size_format,
@@ -245,7 +244,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         binding.lastItemFinishedItem.setText(finishedItemText);
         binding.lastItemFinishedItem.setVisibility(VISIBLE);
 
-        String finishedItemTime = "\u21cc\u231a";
+        String finishedItemTime = "\u21cc";
         finishedItemTime += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
         binding.lastItemFinishedTime.setText(finishedItemTime);
         binding.lastItemFinishedTime.setVisibility(VISIBLE);
@@ -266,7 +265,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         String shortenedPath = path.replaceFirst("/storage/emulated/0", "[int]");
         shortenedPath = shortenedPath.replaceFirst("/storage/[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}", "[ext]");
         shortenedPath = shortenedPath.replaceFirst("/" + mContext.getPackageName(), "/[app]");
-        return "\u2756 " + Util.getPathEllipsis(shortenedPath);
+        return Util.getPathEllipsis(shortenedPath);
     }
 
     private void onClickOverride(View view, Folder folder) {
