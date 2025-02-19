@@ -121,7 +121,7 @@
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Le chemin du répertoire ne doit pas être vide</string>
     <string name="dialog_discard_changes">Annuler vos modifications \?</string>
-    <string name="ignore_patterns">Ignorer les exclusions</string>
+    <string name="ignore_patterns">Exclusions par modèles (voir doc \"Ignore\")</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Mon ID</string>
