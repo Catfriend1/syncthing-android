@@ -411,7 +411,7 @@ Android требует разрешение доступа к геолокаци
     <string name="exit">Выход</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Syncthing запущен</string>
-    <string name="config_create_failed">Ошибка при создании файла конфигурации.</string>
+    <string name="config_create_failed">Ошибка при создании файла конфигурации. Ознакомьтесь с журналом.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Камера</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
@@ -591,7 +591,7 @@ Android требует разрешение доступа к геолокаци
     <string name="dialog_settings_restart_app_title">Требуется перезапуск</string>
     <string name="syncthing_api_key">Ключ API Syncthing (нажмите, чтобы скопировать)</string>
     <string name="reason_not_on_battery_power">Телефон не работает от батареи.</string>
-    <string name="reason_wifi_disallowed">Syncthing не разрешено работать от Wi-Fi или Ethernet.</string>
+    <string name="reason_wifi_disallowed">Syncthing не разрешено работать по Wi-Fi или Ethernet.</string>
     <string name="reason_on_wifi">Syncthing разрешено работать от Wi-Fi, и Wi-Fi сейчас подключён.</string>
     <string name="reason_not_on_wifi">Syncthing разрешено работать от Wi-Fi, но Wi-Fi не подключён или телефон в режиме полёта.</string>
     <string name="state_syncing_general">Синхронизация</string>
@@ -634,12 +634,12 @@ Android требует разрешение доступа к геолокаци
     <string name="qs_schedule_disabled">Расписание отключено</string>
     <string name="folder_ignore_delete_caption">Игнорировать удаление</string>
     <plurals name="reason_not_within_time_frame_minutes">
-        <item quantity="one">%d минута</item>
+        <item quantity="one">%d минуту</item>
         <item quantity="few">%d минуты</item>
         <item quantity="many">%d минут</item>
         <item quantity="other">%d минут</item>
     </plurals>
-    <string name="reason_not_nonroaming_mobile_data">Syncthing не работает, так как вы запретили ему работу в роуминге.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing не работает, т.к. запрещена работа в роуминге.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing разрешено работать от мобильной сети без роуминга. Активная сеть без роуминга.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing разрешено работать в тарифицированных и нетарифицированных Wi-Fi сетях.</string>
     <string name="reason_on_nonmetered_wifi">Syncthing разрешено работать в нетарифицированных Wi-Fi сетях. Активная сеть без тарификации.</string>
@@ -675,7 +675,7 @@ Android требует разрешение доступа к геолокаци
     <string name="qs_forced_to_run">Принудительно запущен</string>
     <string name="qs_forced_to_stop">Принудительно остановлен</string>
     <string name="reason_force_start">Syncthing запущен принудительно в обход условий запуска.</string>
-    <string name="syncthing_disabled">Syncthing на паузе</string>
+    <string name="syncthing_disabled">Syncthing приостановлен</string>
     <string name="syncthing_terminated">Syncthing выключен</string>
     <string name="verbose_log_title">Подробный журнал</string>
     <string name="state_local_additions">Локальные добавления</string>
@@ -685,4 +685,33 @@ Android требует разрешение доступа к геолокаци
     <string name="qs_force_label">Запустить принудительно</string>
     <string name="custom_sync_conditions_title">Свои условия синхронизации</string>
     <string name="qs_following_run_conditions">По условиям запуска</string>
+    <string name="webui_remote_access_summary">Укажите, чтобы разрешить доступ к веб интерфейсу с другого устройства. Когда включено, вы сможете входить как пользователь «syncthing» с паролем в качестве ключа API. По умолчанию: выключено (наибольшая безопасность)</string>
+    <string name="verbose_log_summary">Очень подробное журналирование для отладки.</string>
+    <string name="log_to_file_summary">Журнал SyncthingNative будет вестись в файл.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing не работает, т.к. Автосинхронизация данных выключена в Android.</string>
+    <string name="reason_on_flight_mode">Syncthing работает, т.к. разрешена работа в режиме полёта.</string>
+    <string name="reason_not_within_time_frame">Включена работа по расписанию; последняя синхронизация была менее часа назад.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing не работает, т.к. текущая сеть Wi-Fi не добавлена в список разрешённых.</string>
+    <string name="custom_wifi_ssid_whitelist_empty">Список разрешённых сетей Wi-Fi пуст. Укажите хотя бы одну в настройках.</string>
+    <string name="syncthing_active_details">Syncthing запущен: %1$s</string>
+    <string name="no_remote_devices_connected">Нет подключенных удалённых устройств</string>
+    <string name="config_file_missing">Необходимый файл конфигурации не найден</string>
+    <string name="webui_tcp_port_unavailable">TCP-порт WebUI %s занят. Другой сервер уже запущен?</string>
+    <plurals name="device_online_up_to_date">
+        <item quantity="one">%1$d устройство в сети и синхронизировано</item>
+        <item quantity="few">%1$d устройства в сети и синхронизированы</item>
+        <item quantity="many">%1$d устройств в сети, синхронизированы</item>
+        <item quantity="other">%1$d устройств в сети, синхронизированы</item>
+    </plurals>
+    <string name="sleep_interval_minutes_title">Продолжительность интервала приостановки синхронизации</string>
+    <string name="reason_force_stop">Syncthing не работает, т.к. синхронизация принудительно остановлена пользователем.</string>
+    <string name="broadcast_service_control_summary">По умолчанию: выключено. Включите, чтобы запускать и останавливать службу вещанием, например, из сторонних приложений автоматизации. Внимание: для применения требуется перезапуск приложения.</string>
+    <string name="reason_not_within_time_frame_2">Включена работа по расписанию; последняя синхронизация была %s назад.</string>
+    <string name="reason_not_within_time_frame_0_min">менее минуты</string>
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Синхронизация: %1$d завершено, %2$d устройство в сети</item>
+        <item quantity="few">Синхронизация: %1$d завершено, %2$d устройства в сети</item>
+        <item quantity="many">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
+        <item quantity="other">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
+    </plurals>
 </resources>
