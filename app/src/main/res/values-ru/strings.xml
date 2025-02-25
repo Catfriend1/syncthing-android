@@ -668,7 +668,7 @@ Android требует разрешение доступа к геолокаци
     <string name="app_version_title">Версия Syncthing-Fork</string>
     <string name="state_failed_items">Не удалось (%1$d)</string>
     <string name="reason_not_while_power_saving">Syncthing не запущен, потому что устройство в режиме энергосбережения.</string>
-    <string name="broadcast_service_control_title">Управление через трансляцию</string>
+    <string name="broadcast_service_control_title">Управление командами вещания</string>
     <string name="log_to_file_title">Журналировать в файл</string>
     <string name="advanced_storage_path_overview">Обзор пути хранения</string>
     <string name="folder_go_up">Наверх</string>
@@ -695,7 +695,7 @@ Android требует разрешение доступа к геолокаци
     <string name="custom_wifi_ssid_whitelist_empty">Список разрешённых сетей Wi-Fi пуст. Укажите хотя бы одну в настройках.</string>
     <string name="syncthing_active_details">Syncthing запущен: %1$s</string>
     <string name="no_remote_devices_connected">Нет подключенных удалённых устройств</string>
-    <string name="config_file_missing">Необходимый файл конфигурации не найден</string>
+    <string name="config_file_missing">Необходимый файл конфигурации отсутствует</string>
     <string name="webui_tcp_port_unavailable">TCP-порт WebUI %s занят. Другой сервер уже запущен?</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d устройство в сети и синхронизировано</item>
@@ -703,9 +703,9 @@ Android требует разрешение доступа к геолокаци
         <item quantity="many">%1$d устройств в сети, синхронизированы</item>
         <item quantity="other">%1$d устройств в сети, синхронизированы</item>
     </plurals>
-    <string name="sleep_interval_minutes_title">Продолжительность интервала приостановки синхронизации</string>
+    <string name="sleep_interval_minutes_title">Продолжительность приостановки синхронизации</string>
     <string name="reason_force_stop">Syncthing не работает, т.к. синхронизация принудительно остановлена пользователем.</string>
-    <string name="broadcast_service_control_summary">По умолчанию: выключено. Включите, чтобы запускать и останавливать службу вещанием, например, из сторонних приложений автоматизации. Внимание: для применения требуется перезапуск приложения.</string>
+    <string name="broadcast_service_control_summary">По умолчанию: выключено. Включите, чтобы запускать и останавливать службу командами вещания, например, из сторонних приложений автоматизации. Внимание: для применения требуется перезапуск приложения.</string>
     <string name="reason_not_within_time_frame_2">Включена работа по расписанию; последняя синхронизация была %s назад.</string>
     <string name="reason_not_within_time_frame_0_min">менее минуты</string>
     <plurals name="syncthing_active_syncing_device_online">
@@ -714,4 +714,11 @@ Android требует разрешение доступа к геолокаци
         <item quantity="many">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
         <item quantity="other">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
     </plurals>
+    <string name="reason_broadcast_controlled">Syncthing ожидает команды вещания от сторонних приложений или от ADB. Это поведение можно выключить в Настройках: «Экспериментальные» - «Управление командами вещания».</string>
+    <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor не установлено. Перезапустите приложение или сообщите об этой проблеме, если она не уходит.</string>
+    <string name="executable_not_found">Основная программа «%s» отсутствует. Проверьте журналы сборки и работы.</string>
+    <string name="state_unshared">Не в общем доступе</string>
+    <string name="notification_out_of_disk_space">SD-карта заполнена. Файл %1$s</string>
+    <string name="file_versioning_generic_description">Syncthing поддерживает архивацию прежних версий файлов, когда они удаляются или заменяются новыми версиями из кластера. Ознакомьтесь с доступными стратегиями управления версиями файлов. Настройка выполняется на каждом устройстве и с точностью до отдельных папок. Текущая стратегия:</string>
+    <string name="run_on_whitelisted_wifi_summary">Чтобы ограничить синхронизацию до конкретных сетей Wi-Fi, настройте разрешающий список.</string>
 </resources>
