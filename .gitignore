@@ -28,6 +28,7 @@ gradle/wrapper/gradlew*
 
 # Go modules
 syncthing/pkg/mod/
+syncthing/pkg/sumdb/
 
 # External build artifacts
 ext/
