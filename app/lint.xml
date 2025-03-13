@@ -65,6 +65,7 @@
         <ignore path="src/main/res/values-fr" />
         <ignore path="src/main/res/values-pt-rBR" />
         <ignore path="src/main/res/values-ru" />
+        <ignore path="src/main/res/values-uk" />
     </issue>
     <!-- Don't fail lint on unused translations because they don't hurt -->
     <issue id="UnusedQuantity" severity="ignore">

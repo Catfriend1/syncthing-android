@@ -39,7 +39,7 @@ REM
 echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" release.
 REM
 echo [INFO] Checking release prerequisites ...
-IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [ERROR] ANDROID_PUBLISHER_CREDENTIALS file not found. Please retry. & pause & goto :checkPrerequisites
+IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [WARN] ANDROID_PUBLISHER_CREDENTIALS file not found. Publishing steps will be skipped later.
 FOR /F "tokens=*" %%i in ('type "%ANDROID_PUBLISHER_CREDENTIALS%" 2^>NUL:') DO SET ANDROID_PUBLISHER_CREDENTIALS=%%i
 REM
 REM User has to enter the signing password if it is not filled in here.
@@ -61,7 +61,7 @@ REM
 echo [INFO] Running lint before building ...
 REM
 call gradlew lint%BUILD_FLAVOUR_RELEASE% & SET RESULT=%ERRORLEVEL%
-REM IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_RELEASE%" exited with code #%RESULT%. & goto :eos
+IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_RELEASE%" exited with code #%RESULT%. & goto :eos
 REM
 call gradlew lint%BUILD_FLAVOUR_GPLAY% & SET RESULT=%ERRORLEVEL%
 IF NOT "!RESULT!" == "0" echo [ERROR] "gradlew lint%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
@@ -89,6 +89,8 @@ IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew deleteUnsupportedPlayTranslations
 REM
 REM Copy build artifacts with correct file name to upload folder.
 call "%SCRIPT_PATH%postbuild_copy_apk.cmd"
+REM
+IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [WARN] ANDROID_PUBLISHER_CREDENTIALS not set. Skipping. & goto :eos
 REM
 :askUserReadyToPublish
 SET UI_ANSWER=
