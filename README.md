@@ -79,10 +79,9 @@ git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 # Build
 cd ~/git/syncthing-android
 ./gradlew buildNative
-./gradlew lint assembleDebug
+./gradlew lintDebug
+./gradlew assembleDebug
 ```
-
-You can also use Android Studio to build the apk after you manually ran the `./gradlew buildNative` command in the repository root.
 
 To clean up all files generated during build, use the following commands:
 
