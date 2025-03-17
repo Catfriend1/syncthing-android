@@ -76,11 +76,6 @@ mkdir -p ~/git && cd ~/git
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 ## git pull origin Catfriend1-patch-1 && git checkout Catfriend1-patch-1
 #
-# Install NDK.
-mkdir -p ~/git/syncthing-android-prereq && cd ~/git/syncthing-android-prereq
-curl --output "ndk_r28.zip" "https://dl.google.com/android/repository/android-ndk-r28-linux.zip"
-unzip -q "ndk_r28.zip"
-#
 # Build
 cd ~/git/syncthing-android
 ./gradlew buildNative
