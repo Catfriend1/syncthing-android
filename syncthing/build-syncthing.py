@@ -237,6 +237,7 @@ def get_ndk_ready():
 def install_ndk():
     import hashlib
     import os
+    import zipfile
 
     if sys.version_info[0] >= 3:
         from urllib.request import urlretrieve
@@ -276,8 +277,13 @@ def install_ndk():
     if not os.path.isfile(ndk_home_path + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-rXY" in the current path.
-        from subprocess import STDOUT
-        subprocess.check_output(['unzip', '-q', zip_fullfn, '-d', prerequisite_tools_dir], stderr=STDOUT)
+        if sys.platform == 'win32':
+            zip = zipfile.ZipFile(zip_fullfn, 'r')
+            zip.extractall(prerequisite_tools_dir)
+            zip.close()
+        else:
+            from subprocess import STDOUT
+            subprocess.check_output(['unzip', '-q', zip_fullfn, '-d', prerequisite_tools_dir], stderr=STDOUT)
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
