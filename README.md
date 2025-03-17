@@ -105,18 +105,28 @@ Make sure, git (or git.exe) is installed and available on the PATH environment v
 
 Edit "App_build_and_release.cmd" and set "SKIP_RELEASE_BUILD=1" if you don't need to upload signed releases to Google Play. This will simplify things for you.
 
-#### Build on Linux
+#### Build on Debian Linux / WSL
 
 A Linux VM, for example running Debian, is recommended to build this.
 
 Build SyncthingNative and the Syncthing-Android wrapper using the following commands:
 
 ```bash
-apt-get -y install gcc git openjdk-17-jdk python3
-mkdir -p /root/work
-cd /root/work
+#
+# Install prerequisites.
+apt-get -y install gcc git openjdk-17-jdk python3 unzip
+#
+# Clone repository.
+mkdir -p ~/git && cd ~/git
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
-cd /root/work/syncthing-android
+#
+# Install NDK.
+mkdir -p ~/git/syncthing-android-prereq && cd ~/git/syncthing-android-prereq
+curl --output "android-ndk-r28-linux.zip" "https://dl.google.com/android/repository/android-ndk-r28-linux.zip"
+unzip "android-ndk-r28-linux.zip"
+#
+# Build
+cd ~/git/syncthing-android
 ./gradlew buildNative
 ./gradlew lint assembleDebug
 ```
