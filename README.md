@@ -60,52 +60,7 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 
 ## Building
 
-### Prerequisites
-
-If you miss any prerequisite, the shell scripts will abort with an error and tell you what you need to do. In case you like to dive into building directly, you can skip this section and jump directly to "Build instructions".
-
-- Android SDK
-
-```bash
-# This command will help you install the minimum Android SDK components to build this project in case you don't use Android Studio.
-python install_minimum_android_sdk_prerequisites.py
-```
-
-- Android NDK r26b
-
-```log
-$ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
-```
-
-- Go 1.24.1
-
-```log
-Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.
-```
-
-- Python 3.9.6 64-Bit
-
-```log
-Make sure, Python is installed and available on the PATH environment variable. Download 'https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe' and run 'python-3.9.6-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0'
-```
-
-- Git (for Linux) or Git for Windows
-
-```log
-Make sure, git (or git.exe) is installed and available on the PATH environment variable. If Git is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup MinGit 2.19.0-x64 on the PATH.
-```
-
-- Java Development Version 17
-
-```log
-"java" should be on the PATH environment variable. Download from Oracle and run the installer. Log off and back on to let the new PATH variable take effect.
-```
-
-### Build instructions
-
-Edit "App_build_and_release.cmd" and set "SKIP_RELEASE_BUILD=1" if you don't need to upload signed releases to Google Play. This will simplify things for you.
-
-#### Build on Debian Linux / WSL
+### Build on Debian Linux / WSL
 
 A Linux VM, for example running Debian, is recommended to build this.
 
@@ -141,7 +96,7 @@ To clean up all files generated during build, use the following commands:
 ./gradlew clean
 ```
 
-#### Build on Windows
+### Build on Windows
 
 ```bash
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
