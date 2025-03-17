@@ -78,6 +78,7 @@ git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 #
 # Build
 cd ~/git/syncthing-android
+python3 install_minimum_android_sdk_prerequisites.py
 ./gradlew buildNative
 ./gradlew lintDebug
 ./gradlew assembleDebug
