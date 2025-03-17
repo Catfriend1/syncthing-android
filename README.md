@@ -60,7 +60,7 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 
 ## Building
 
-### Build on Debian Linux / WSL
+### Build on Debian Linux / WSL - recommended way
 
 A Linux VM, for example running Debian, is recommended to build this.
 
