@@ -81,6 +81,7 @@ cd ~/git/syncthing-android
 python3 install_minimum_android_sdk_prerequisites.py
 ./gradlew buildNative
 export ANDROID_HOME=~/git/syncthing-android-prereq
+echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> gradle.properties
 ./gradlew lintDebug
 ./gradlew assembleDebug
 ```
