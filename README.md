@@ -119,6 +119,7 @@ apt-get -y install gcc git openjdk-17-jdk python3 unzip
 # Clone repository.
 mkdir -p ~/git && cd ~/git
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+## git pull origin Catfriend1-patch-1 && git checkout Catfriend1-patch-1
 #
 # Install NDK.
 mkdir -p ~/git/syncthing-android-prereq && cd ~/git/syncthing-android-prereq
