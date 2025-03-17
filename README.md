@@ -94,7 +94,14 @@ To clean up all files generated during build, use the following commands:
 ### Build on Windows
 
 ```bash
+::
+:: Install prerequisites.
+winget install --accept-source-agreements --source winget --exact --id "Python.Python.3.9" --scope machine -h --override "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0" 
+::
+:: Clone repository.
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+::
+:: Build
 cd /d "YOUR_CLONED_GIT_ROOT"
 SyncthingNative_update_and_build
 App_build_and_release
