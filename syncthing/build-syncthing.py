@@ -286,7 +286,7 @@ def install_ndk():
         print("Setting permissions on NDK executables ...")
         change_permissions_recursive(ndk_home_path, 0o755);
         #
-        # Fix NDK r23 bug with incomplete path and arguments when calling "clang".
+        # Fix NDK r28 bug with incomplete path and arguments when calling "clang".
         ndk_bin_clang = os.path.join(
             ndk_home_path,
             'toolchains',
@@ -296,7 +296,7 @@ def install_ndk():
             'bin',
             'clang'
         )
-        write_file (ndk_bin_clang, '`dirname $0`/clang-18 "$@"')
+        write_file (ndk_bin_clang, '`dirname $0`/clang-19 "$@"')
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
