@@ -7,10 +7,14 @@ import sys
 import platform
 #
 # Script Compatibility:
-# - Python 3.9.6
+# - Python 3.9.13
 #
-# Run script from command line with:
-#   python3 install_minimum_android_sdk_prerequisites.py
+# Run script from command line
+## Debian Linux / WSL
+### python3 install_minimum_android_sdk_prerequisites.py
+##
+## Windows
+### python install_minimum_android_sdk_prerequisites.py
 #
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
@@ -21,6 +25,8 @@ ANDROID_SDK_TOOLS_VERSION = '11076708'
 ANDROID_SDK_TOOLS_SHASUM_LINUX = '2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
 ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862'
 ANDROID_SDK_VERSION = '35'
+
+ANDROID_NDK_VERSION = '28.0.13004108'
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -100,7 +106,7 @@ def install_sdk_tools():
         fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
     print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
-    # Proceed with extraction of the NDK if necessary.
+    # Proceed with extraction of the SDK if necessary.
     sdk_tools_path = prerequisite_tools_dir + os.path.sep + 'cmdline-tools'
     if not os.path.isfile(sdk_tools_path + os.path.sep + "source.properties"):
         print("Extracting sdk-tools ...")
@@ -171,5 +177,8 @@ subprocess.check_call([sdk_manager_bin, 'platforms;android-' + ANDROID_SDK_VERSI
 #
 print('[INFO] sdk_manager_bin build-tools;' + ANDROID_SDK_VERSION + '.0.0')
 subprocess.check_call([sdk_manager_bin, 'build-tools;' + ANDROID_SDK_VERSION + '.0.0'])
+#
+print('[INFO] sdk_manager_bin ndk;' + ANDROID_NDK_VERSION)
+subprocess.check_call([sdk_manager_bin, 'ndk;' + ANDROID_NDK_VERSION])
 #
 print('Done.')

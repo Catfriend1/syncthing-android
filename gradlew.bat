@@ -14,6 +14,9 @@
 @rem limitations under the License.
 @rem
 
+@rem CUSTOM
+@IF NOT DEFINED JAVA_HOME SET JAVA_HOME=%ProgramFiles%\Android\Android Studio\jbr
+
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem

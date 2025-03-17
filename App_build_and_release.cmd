@@ -8,7 +8,6 @@ REM Script Consts.
 SET CLEANUP_BEFORE_BUILD=1
 REM
 REM Runtime Variables.
-IF EXIST "%LocalAppData%\Android\Sdk" SET "ANDROID_SDK_ROOT=%LocalAppData%\Android\Sdk"
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
 REM SET ANDROID_PUBLISHER_CREDENTIALS=%userprofile%\.android\play_key.json"
