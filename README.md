@@ -77,7 +77,7 @@ python install_minimum_android_sdk_prerequisites.py
 $ANDROID_NDK_HOME environment variable should point at the root directory of your NDK. If the variable is not set, build-syncthing.py will automatically try to download and setup the NDK.
 ```
 
-- Go 1.21.4
+- Go 1.24.1
 
 ```log
 Make sure, Go is installed and available on the PATH environment variable. If Go is not found on the PATH environment variable, build-syncthing.py will automatically try to download and setup GO on the PATH.
@@ -112,7 +112,7 @@ A Linux VM, for example running Debian, is recommended to build this.
 Build SyncthingNative and the Syncthing-Android wrapper using the following commands:
 
 ```bash
-apt-get -y install git openjdk-17-jdk python3
+apt-get -y install gcc git openjdk-17-jdk python3
 mkdir -p /root/work
 cd /root/work
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
