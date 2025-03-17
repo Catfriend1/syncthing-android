@@ -21,13 +21,13 @@ PLATFORM_DIRS = {
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 FILENAME_SYNCTHING_BINARY = 'libsyncthingnative.so'
 
-GO_VERSION = '1.22.5'
-GO_EXPECTED_SHASUM_LINUX = '904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0'
-GO_EXPECTED_SHASUM_WINDOWS = '59968438b8d90f108fd240d4d2f95b037e59716995f7409e0a322dcb996e9f42'
+GO_VERSION = '1.24.1'
+GO_EXPECTED_SHASUM_LINUX = 'cb2396bae64183cdccf81a9a6df0aea3bce9511fc21469fb89a0c00470088073'
+GO_EXPECTED_SHASUM_WINDOWS = '95666b551453209a2b8869d29d177285ff9573af10f085d961d7ae5440f645ce'
 
-NDK_VERSION = 'r27'
-NDK_EXPECTED_SHASUM_LINUX = '5e5cd517bdb98d7e0faf2c494a3041291e71bdcc'
-NDK_EXPECTED_SHASUM_WINDOWS = '0ea2756e6815356831bda3af358cce4cdb6a981e'
+NDK_VERSION = 'r28'
+NDK_EXPECTED_SHASUM_LINUX = '894f469c5192a116d21f412de27966140a530ebc'
+NDK_EXPECTED_SHASUM_WINDOWS = 'f79a00c721dc5c15b2bf093d7bb2af96496a42b2'
 
 BUILD_TARGETS = [
     {
@@ -235,9 +235,9 @@ def get_ndk_ready():
 
 
 def install_ndk():
+    import hashlib
     import os
     import zipfile
-    import hashlib
 
     if sys.version_info[0] >= 3:
         from urllib.request import urlretrieve
@@ -277,26 +277,13 @@ def install_ndk():
     if not os.path.isfile(ndk_home_path + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-rXY" in the current path.
-        zip = zipfile.ZipFile(zip_fullfn, 'r')
-        zip.extractall(prerequisite_tools_dir)
-        zip.close()
-
-    # Linux only - Set executable permission on files.
-    if platform.system() == 'Linux':
-        print("Setting permissions on NDK executables ...")
-        change_permissions_recursive(ndk_home_path, 0o755);
-        #
-        # Fix NDK r23 bug with incomplete path and arguments when calling "clang".
-        ndk_bin_clang = os.path.join(
-            ndk_home_path,
-            'toolchains',
-            'llvm',
-            'prebuilt',
-            PLATFORM_DIRS[platform.system()],
-            'bin',
-            'clang'
-        )
-        write_file (ndk_bin_clang, '`dirname $0`/clang-14 "$@"')
+        if sys.platform == 'win32':
+            zip = zipfile.ZipFile(zip_fullfn, 'r')
+            zip.extractall(prerequisite_tools_dir)
+            zip.close()
+        else:
+            from subprocess import STDOUT
+            subprocess.check_output(['unzip', '-q', zip_fullfn, '-d', prerequisite_tools_dir], stderr=STDOUT)
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')

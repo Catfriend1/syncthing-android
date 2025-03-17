@@ -10,7 +10,7 @@ import platform
 # - Python 3.9.6
 #
 # Run script from command line with:
-#   python install_minimum_android_sdk_prerequisites.py
+#   python3 install_minimum_android_sdk_prerequisites.py
 #
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
@@ -141,9 +141,6 @@ if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
     fail('Unsupported python platform %s. Supported platforms: %s', platform.system(),
          ', '.join(SUPPORTED_PYTHON_PLATFORMS))
 
-if not sys.platform == 'win32':
-    fail ('Script is currently supported to run under Windows only.')
-
 prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
 
 # Check if "sdk-manager" of sdk-tools package is available.
@@ -156,13 +153,23 @@ if not sdk_manager_bin:
         if not sdk_manager_bin:
             fail('Error: sdkmanager from sdk-tools package is not available on PATH.')
 print('sdk_manager_bin=\'' + sdk_manager_bin + '\'')
-
-# Windows only - Auto accept all sdkmanager licenses.
+#
+# Update SDK repository.
+print('[INFO] sdk_manager_bin --update')
+subprocess.check_call([sdk_manager_bin, '--update'])
+#
+# Auto accept all sdkmanager licenses.
 if sys.platform == 'win32':
-    subprocess.check_call([sdk_manager_bin, '--update'])
     powershell_bin = which('powershell')
     subprocess.check_call([powershell_bin, 'for($i=0;$i -lt ' + ANDROID_SDK_VERSION + ';$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
-    subprocess.check_call([sdk_manager_bin, 'platforms;android-' + ANDROID_SDK_VERSION])
-    subprocess.check_call([sdk_manager_bin, 'build-tools;' + ANDROID_SDK_VERSION + '.0.0'])
-
+else:
+    print('[INFO] sdkmanager --licenses')
+    os.system('yes | sdkmanager --licenses')
+#
+print('[INFO] sdk_manager_bin platforms;android-' + ANDROID_SDK_VERSION)
+subprocess.check_call([sdk_manager_bin, 'platforms;android-' + ANDROID_SDK_VERSION])
+#
+print('[INFO] sdk_manager_bin build-tools;' + ANDROID_SDK_VERSION + '.0.0')
+subprocess.check_call([sdk_manager_bin, 'build-tools;' + ANDROID_SDK_VERSION + '.0.0'])
+#
 print('Done.')
