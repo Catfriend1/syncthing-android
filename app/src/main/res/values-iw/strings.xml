@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="introduction">מבוא</string>
+    <string name="welcome_text">Syncthing הוא יישום קוד פתוח לסנכרון קבצים. כדי לשתף נתונים עם התקנים אחרים, אתה צריך להוסיף את מזהה ההתקן הייחודי שלהם לרשימת ההתקנים. לאחר מכן תוכל לבחור אילו תיקיות לשתף עם אילו התקנים. \n \nנא לדווח על כל בעיה שנתקלת בה דרך GitHub.</string>
+    <string name="storage_permission_title">הרשאת אחסון</string>
+    <string name="storage_permission_desc">Syncthing צריך לגשת לאחסון שלך כדי לבצע סנכרון קבצים.</string>
+    <string name="dialog_all_files_access_not_supported">ההתקן שלך לא תומך בגישה לכל הקבצים</string>
+    <string name="ignore_doze_permission_title">מיטוב סוללה</string>
+    <string name="app_name">Syncthing-Fork</string>
+    <string name="app_description">יישום פתוח, אמין ומבוזר לסנכרון קבצים.</string>
+    <string name="welcome_title">ברוך הבא אל Syncthing עבור אנדרואיד</string>
 </resources>
