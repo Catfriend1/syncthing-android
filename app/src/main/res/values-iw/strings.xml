@@ -32,7 +32,7 @@
     <string name="main_menu">תפריט ראשי</string>
     <string name="photo_shoot_launcher_title">סנכרן מצלמה</string>
     <string name="photo_shoot_intro_welcome_title">ברוך הבא למצלמת Syncthing</string>
-    <string name="photo_shoot_intro_missing_permissions">אנו דורשים הרשאת אחסון ומצלמה כדי להמשיך.</string>
+    <string name="photo_shoot_intro_missing_permissions">אנו דורשים הרשאות אחסון ומצלמה כדי להמשיך.</string>
     <string name="grant_storage_permission">הענק הרשאת אחסון</string>
     <string name="grant_camera_permission">הענק הרשאת מצלמה</string>
     <string name="photo_shoot_take_picture_success">התמונה נשמרה בהצלחה בתיקייה של מצלמת Syncthing.</string>
@@ -50,7 +50,7 @@
     <string name="open_website">פתח אתר אינטרנט</string>
     <string name="device_rejected">התקן \"%1$s\" רוצה להתחבר</string>
     <string name="override_changes">דרוס שינויים</string>
-    <string name="revert_local_changes">החזר שינויים מקומיים</string>
+    <string name="revert_local_changes">בטל שינויים מקומיים</string>
     <string name="delete_unexpected_items">מחק פריטים בלתי צפויים</string>
     <string name="revert_local_changes_question">זה יבטל את כל השינויים שנעשו בהתקן זה בתוך אותה תיקייה. להמשיך?</string>
     <string name="open_file_with">פתח קובץ עם</string>
@@ -178,8 +178,8 @@
     <string name="run_on_wifi_title">פעל על Wi-Fi</string>
     <string name="run_on_wifi_summary">פעל כאשר ההתקן מחובר לרשת Wi-Fi או אתרנט.</string>
     <string name="notification_permission_title">הרשאת התראות</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">התקן זה אינו תומך בהשבתת מיטובי סוללה</string>
-    <string name="location_permission_desc">ניתן להגדיר את Syncthing כך שיעבוד על רשתות Wi-Fi נבחרות. אנדרואיד דורש שליישום תהיה הרשאת מיקום כדי לקרוא את שם רשת ה-Wi-Fi הפעילה. אם אתה רוצה להשתמש בתכונה זו, לחץ על הלחצן למעלה. אתה יכול לדלג על שלב זה. ראה את מדיניות הפרטיות שלנו לפרטים נוספים.</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">ההתקן שלך אינו תומך בהשבתת מיטובי סוללה</string>
+    <string name="location_permission_desc">ניתן להגדיר את Syncthing כך שיעבוד על רשתות Wi-Fi שנבחרו. אנדרואיד דורש שליישום תהיה הרשאת מיקום כדי לקרוא את השם של רשת Wi-Fi פעילה. אם אתה רוצה להשתמש בתכונה זו, לחץ על הלחצן למעלה. אתה יכול לדלג על שלב זה. ראה את מדיניות הפרטיות שלנו לפרטים נוספים.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">זהירות: אם SyncthingNative נקטע ועושה משהו מוזר, אתה אשם. דלג רק במקרה שההתקן שלך לא תומך בהענקת ההרשאה. לדלג באמת?</string>
     <string name="photo_shoot_activity_title">מצלמת Syncthing-Fork</string>
     <string name="cont">המשך</string>
