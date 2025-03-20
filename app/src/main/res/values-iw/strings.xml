@@ -44,7 +44,7 @@
     <string name="share_device_id">שתף מזהה התקן</string>
     <string name="send_device_id_to">שלח מזהה התקן אל</string>
     <string name="usage_reporting_dialog_title">לאפשר דיווח שימוש אנונימי?</string>
-    <string name="usage_reporting_dialog_description">דוח השימוש המוצפן נשלח מדי יום. הוא משמש למעקב אחר פלטפורמות שכיחות, גדלי תיקיות וגירסאות יישום. אם מערך הנתונים המדווח ישתנה, תתבקש עם דו-שיח זה שוב. \n \nהסטטיסטיקות המצטברות זמינות לציבור בכתובת https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_description">דוח השימוש המוצפן נשלח מדי יום. הוא משמש למעקב אחר פלטפורמות שכיחות, גדלי תיקיות וגרסאות יישום. אם מערך הנתונים המדווח ישתנה, תתבקש עם דו-שיח זה שוב. \n \nהסטטיסטיקות המצטברות זמינות לציבור בכתובת https://data.syncthing.net.</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="open_website">פתח אתר אינטרנט</string>
@@ -92,7 +92,7 @@
     <string name="folder_ignore_delete_description">אפשרות מומחה שמשפיעה על הטיפול של עדכוני אינדקס נכנסים. כאשר מוגדרת, היישום מתעלם מעדכונים נכנסים המוגדרים עם דגל המחיקה. ראה את https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <string name="folder_pause">השהה תיקייה</string>
     <string name="devices">התקנים</string>
-    <string name="keep_versions">שמור גירסאות</string>
+    <string name="keep_versions">שמור גרסאות</string>
     <string name="delete_folder">מחק תיקייה</string>
     <string name="create_folder">צור תיקייה</string>
     <string name="edit_folder">ערוך תיקייה</string>
@@ -101,8 +101,8 @@
     <string name="folder_id_required">אסור שמזהה התיקייה יהיה ריק</string>
     <string name="folder_label_required">אסור שתווית התיקייה תהיה ריקה</string>
     <string name="folder_path_required">אסור שנתיב התיקייה יהיה ריק</string>
-    <string name="folder_path_readonly">גירסת האנדרואיד שלך רק מעניקה ל־Syncthing גישת קריאה בלבד לתיקייה שנבחרה.</string>
-    <string name="folder_path_readwrite">גירסת האנדרואיד שלך מעניקה ל־Syncthing גישת קריאה וכתיבה לתיקייה שנבחרה.</string>
+    <string name="folder_path_readonly">גרסת האנדרואיד שלך רק מעניקה ל־Syncthing גישת קריאה בלבד לתיקייה שנבחרה.</string>
+    <string name="folder_path_readwrite">גרסת האנדרואיד שלך מעניקה ל־Syncthing גישת קריאה וכתיבה לתיקייה שנבחרה.</string>
     <string name="dialog_discard_changes">להשליך את השינויים שלך?</string>
     <string name="toast_invalid_folder_selected">מצטערים. לא ניתן להשתמש בתיקייה שנבחרה. נא לבחור תיקייה הממוקמת באחסון הפנימי או החיצוני.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">החלפת תיקיות קיימות ל\'קבלה מוצפנת\' אינה נתמכת.</string>
@@ -340,8 +340,8 @@
     <string name="open_log_summary">פתח את חלון היומנים של Syncthing ואנדרואיד</string>
     <string name="report_issue_title">דווח על בעיה</string>
     <string name="open_issue_tracker_summary">פתח את מערכת מעקב הבעיות של Syncthing-Fork בכתובת %1$s</string>
-    <string name="syncthing_version_title">גירסת Syncthing</string>
-    <string name="app_version_title">גירסת עטיפת Syncthing-Fork</string>
+    <string name="syncthing_version_title">גרסת Syncthing</string>
+    <string name="app_version_title">גרסת עטיפת Syncthing-Fork</string>
     <string name="syncthing_api_key">מפתח API של Syncthing (לחץ כדי להעתיק)</string>
     <string name="api_key_copied_to_clipboard">מפתח API של Syncthing הועתק ללוח</string>
     <string name="syncthing_database_size">גודל מסד הנתונים של Syncthing</string>
@@ -460,7 +460,7 @@
     <string name="state_failed_items">פריטים שנכשלו (%1$d)</string>
     <string name="state_up_to_date">מעודכן</string>
     <string name="state_local_additions">הוספות מקומיות</string>
-    <string name="state_cleaning">מנקה גירסאות</string>
+    <string name="state_cleaning">מנקה גרסאות</string>
     <string name="state_clean_waiting">ממתין לנקות</string>
     <string name="state_scanning">סורק</string>
     <string name="state_scan_waiting">ממתין לסריקה</string>
@@ -477,8 +477,8 @@
     <string name="show_device_id">הצג מזהה התקן</string>
     <string name="external_versioning_info">פקודה: %1$s</string>
     <string name="pull_order">סדר משיכת קבצים</string>
-    <string name="staggered_versioning_info">גיל מרבי: %1$d \nנתיב גירסאות: %2$s</string>
-    <string name="simple_versioning_info">שמור גירסאות: %1$s</string>
+    <string name="staggered_versioning_info">גיל מרבי: %1$d \nנתיב גרסאות: %2$s</string>
+    <string name="simple_versioning_info">שמור גרסאות: %1$s</string>
     <string name="run_on_whitelisted_wifi_summary">הפעל את רשימת המותרים כדי להגביל את הסנכרון כך שיתקיים רק ברשתות WiFi שצוינו.</string>
     <string name="no_sub_folder_is_selected">לא נבחרה תיקיית משנה</string>
     <string name="pull_order_type_random">אקראי</string>
@@ -486,7 +486,7 @@
     <string name="pull_order_type_alphabetic_description">משוך קבצים המסודרים לפי שם הקובץ בסדר אלפביתי.</string>
     <string name="browse">עיון</string>
     <string name="clean_out_after">נקה לאחר</string>
-    <string name="staggered_versioning_description">הקבצים מועברים לגירסאות עם חותמת תאריך בתיקיית stversions. כאשר הם מוחלפים או נמחקים על ידי Syncthing. גירסאות נמחקות באופן אוטומטי אם הן ישנות יותר מהגיל המרבי או חורגות ממספר הקבצים המותרים בפרק זמן. \n \nנעשה שימוש בפרקי הזמן הבאים: במשך השעה הראשונה נשמרת גירסה כל 30 שניות, במשך היום הראשון נשמרת גירסה כל שעה, במשך 30 הימים הראשונים נשמרת גירסה כל יום, עד הגיל המרבי נשמרת גירסה כל שבוע.</string>
+    <string name="staggered_versioning_description">הקבצים מועברים לגרסאות עם חותמת תאריך בתיקיית stversions. כאשר הם מוחלפים או נמחקים על ידי Syncthing. גרסאות נמחקות באופן אוטומטי אם הן ישנות יותר מהגיל המרבי או חורגות ממספר הקבצים המותרים בפרק זמן. \n \nנעשה שימוש בפרקי הזמן הבאים: במשך השעה הראשונה נשמרת גרסה כל 30 שניות, במשך היום הראשון נשמרת גרסה כל שעה, במשך 30 הימים הראשונים נשמרת גרסה כל יום, עד הגיל המרבי נשמרת גרסה כל שבוע.</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">פעל במשך %1$d דקות</string>
     <string name="type_staggered">סוג: מדורג</string>
     <string name="trashcan_versioning_info">נקה לאחר: %1$s</string>
@@ -513,17 +513,17 @@
     <string name="pull_order_type_oldestFirst_description">משוך קבצים המסודרים לפי זמן השינוי. הישן ביותר תחילה בהתאמה.</string>
     <string name="pull_order_type_newestFirst_description">משוך קבצים המסודרים לפי זמן השינוי. החדש ביותר תחילה בהתאמה.</string>
     <string name="maximum_age">גיל מרבי</string>
-    <string name="file_versioning">ניהול גירסאות קבצים</string>
-    <string name="file_versioning_generic_description">היישום Syncthing תומך בהעברת הגירסה הישנה של קובץ לארכיון כאשר הוא נמחק או מוחלף עם גירסה חדשה יותר מהאשכול. לחץ כדי לראות אסטרטגיות ניהול גירסאות זמינות. ניהול גירסאות קבצים מוגדר לכל תיקייה, על בסיס לכל התקן. אסטרטגיה שנבחרה:</string>
-    <string name="versions_path">נתיב גירסאות</string>
+    <string name="file_versioning">ניהול גרסאות קבצים</string>
+    <string name="file_versioning_generic_description">היישום Syncthing תומך בהעברת הגרסה הישנה של קובץ לארכיון כאשר הוא נמחק או מוחלף עם גרסה חדשה יותר מהאשכול. לחץ כדי לראות אסטרטגיות ניהול גרסאות זמינות. ניהול גרסאות קבצים מוגדר לכל תיקייה, על בסיס לכל התקן. אסטרטגיה שנבחרה:</string>
+    <string name="versions_path">נתיב גרסאות</string>
     <string name="command">פקודה</string>
-    <string name="keep_versions_description">מספר הגירסאות הישנות שיש לשמור, לכל קובץ.</string>
-    <string name="simple_file_versioning_description">הקבצים מועברים לגירסאות עם חותמת תאריך בתיקיית stversions. כאשר הם מוחלפים או נמחקים על ידי Syncthing.</string>
+    <string name="keep_versions_description">מספר הגרסאות הישנות שיש לשמור, לכל קובץ.</string>
+    <string name="simple_file_versioning_description">הקבצים מועברים לגרסאות עם חותמת תאריך בתיקיית stversions. כאשר הם מוחלפים או נמחקים על ידי Syncthing.</string>
     <string name="trashcan_versioning_description">הקבצים מועברים לתיקיית stversions. כאשר הם מוחלפים או נמחקים על ידי Syncthing.</string>
-    <string name="maximum_age_description">הזמן המרבי לשמירת גירסה (בימים, הגדר ל־0 כדי להשאיר גירסאות לנצח).</string>
-    <string name="versions_path_description">הנתיב שבו יש לאחסן גירסאות (השאר ריק עבור תיקיית stversion. ברירת המחדל בתיקייה המשותפת).</string>
+    <string name="maximum_age_description">הזמן המרבי לשמירת גרסה (בימים, הגדר ל־0 כדי להשאיר גרסאות לנצח).</string>
+    <string name="versions_path_description">הנתיב שבו יש לאחסן גרסאות (השאר ריק עבור תיקיית stversion. ברירת המחדל בתיקייה המשותפת).</string>
     <string name="cleanout_after_description">מספר הימים לשמירת קבצים בפח האשפה. אפס פירושו לנצח</string>
-    <string name="no_versioning_description">בחר סוג ניהול גירסאות כדי להפעיל ניהול גירסאות.</string>
+    <string name="no_versioning_description">בחר סוג ניהול גרסאות כדי להפעיל ניהול גרסאות.</string>
     <string name="type_simple">סוג: פשוט</string>
     <string name="type_trashcan">סוג: פח אשפה</string>
     <string name="type_external">סוג: חיצוני</string>
