@@ -186,7 +186,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Изход</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing работи</string>
+    <string name="syncthing_active">Работи</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">snimki-ot-%1$s</string>
     <!-- RestApi -->
@@ -338,7 +338,7 @@
         <item quantity="one">Syncing: %1$d %% готови, %2$d свързано у-во</item>
         <item quantity="other">Syncing: %1$d %% готови, %2$d свързани у-ва</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing почива</string>
+    <string name="syncthing_disabled">Почива</string>
     <string name="folder_type_receiveonly">Само получава</string>
     <string name="toast_ignore_doze_permission_required">Това приложение работи стабилно само ако за него е изключена настройката за пестене на батерия.</string>
     <string name="generic_example">Пример</string>
@@ -517,9 +517,9 @@
     <string name="reason_not_on_wifi">Syncthing може да работи в безжична мрежа, няма връзка или е включен самолетен режим.</string>
     <string name="reason_on_flight_mode">Syncthing работи, защото сте разрешили работа по време на самолетен режим.</string>
     <string name="custom_wifi_ssid_whitelist_empty">Списъкът с имена на разрешени безжични мрежи е празен. Добавете от настройките.</string>
-    <string name="syncthing_active_details">Syncthing работи: %1$s</string>
+    <string name="syncthing_active_details">Работи: %1$s</string>
     <string name="no_remote_devices_connected">Няма свързани отдалечени устройства</string>
-    <string name="syncthing_terminated">Syncthing е насилствено спрян</string>
+    <string name="syncthing_terminated">Насилствено спряно</string>
     <string name="config_create_failed">Грешка при създаване на файла с настройки. Проверете дневника.</string>
     <string name="config_file_missing">Липсва основен за работата на приложението файл с настройки</string>
     <string name="webui_tcp_port_unavailable">Портът за интерфейса за уеб %s е зает. Дали няма друг работещ екземпляр?</string>
