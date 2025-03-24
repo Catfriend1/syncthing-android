@@ -596,8 +596,8 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Beenden</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing läuft</string>
-    <string name="syncthing_active_details">Syncthing läuft: %1$s</string>
+    <string name="syncthing_active">Läuft</string>
+    <string name="syncthing_active_details">Läuft: %1$s</string>
     <string name="no_remote_devices_connected">Keine entfernten Geräte verbunden</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d Gerät online und aktuell</item>
@@ -607,8 +607,8 @@
         <item quantity="one">Synce: %1$d %% fertig, %2$d Gerät online</item>
         <item quantity="other">Synce: %1$d %% fertig, %2$d Geräte online</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing schläft</string>
-    <string name="syncthing_terminated">Syncthing wurde beendet</string>
+    <string name="syncthing_disabled">Schläft</string>
+    <string name="syncthing_terminated">Beendet</string>
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">Ausführbarer Kernbestandteil der App „%s“ fehlt. Bitte den Build und die Logcat-Ausgabe prüfen.</string>
     <string name="config_create_failed">Erstellen der Konfiguration fehlgeschlagen. Bitte die Logcat-Ausgabe prüfen.</string>
