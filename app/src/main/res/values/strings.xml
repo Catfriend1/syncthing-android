@@ -892,8 +892,8 @@
     <string name="exit">Exit</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing is running</string>
-    <string name="syncthing_active_details">Syncthing is running: %1$s</string>
+    <string name="syncthing_active">Running</string>
+    <string name="syncthing_active_details">Running: %1$s</string>
     <string name="no_remote_devices_connected">No remote devices connected</string>
 
     <plurals name="device_online_up_to_date">
@@ -906,9 +906,9 @@
         <item quantity="other">Syncing: %1$d%% complete, %2$d devices online</item>
     </plurals>
 
-    <string name="syncthing_disabled">Syncthing is sleeping</string>
+    <string name="syncthing_disabled">Sleeping</string>
 
-    <string name="syncthing_terminated">Syncthing was terminated</string>
+    <string name="syncthing_terminated">Terminated</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">Core executable \"%s\" is missing. Check build and logcat output.</string>
