@@ -361,7 +361,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Zakończ</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing jest uruchomiony</string>
+    <string name="syncthing_active">Uruchomiony</string>
     <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego. Sprawdź dane wyjściowe logcat.</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-zdjęcia</string>
@@ -494,7 +494,7 @@
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Podana wartość jest nieprawidłowa. Podaj wartość z zakresu od %1$d do %2$d.</string>
     <string name="preference_app_theme_follow_dark">Ciemny</string>
     <string name="log_to_file_summary">Dane wyjściowe SyncthingNative zostaną zapisane do pliku.</string>
-    <string name="syncthing_disabled">Syncthing jest uśpiony</string>
+    <string name="syncthing_disabled">Uśpiony</string>
     <string name="file_versioning_generic_description">Syncthing obsługuje archiwizację starej wersji pliku, gdy zostanie on usunięty lub zastąpiony nowszą wersją z klastra. Kliknij, aby zobaczyć dostępne strategie wersjonowania. Wersjonowanie plików jest konfigurowane dla każdego folderu i urządzenia. Wybrana strategia:</string>
     <string name="activity_main_bottom_navigation_rescan_all">Skanuj wszystkie ponownie</string>
     <string name="button_force_stop">WYMUŚ ZATRZYMANIE
@@ -603,7 +603,7 @@
     <string name="reason_not_charging">Telefon nie jest ładowany.</string>
     <string name="run_on_wifi_title">Działaj na Wi-Fi</string>
     <string name="suggest_file_manager_app_dialog_text">Zalecamy zainstalowanie aplikacji do zarządzania plikami typu open source „Material Files”. Czy chcesz otworzyć stronę sklepu z aplikacjami?</string>
-    <string name="syncthing_active_details">Syncthing jest uruchomiony: %1$s</string>
+    <string name="syncthing_active_details">Uruchomiony: %1$s</string>
     <string name="photo_shoot_launcher_title">Aparat Sync.</string>
     <string name="tip_huawei_device_disconnected_text">Jeśli komputer stale zgłasza, że urządzenie Huawei jest odłączone, otwórz interfejs Syncthing na pulpicie. Przejdź do „Urządzenia zdalne”, rozwiń wpis dotyczący telefonu, kliknij „Edytuj”, przejdź do „Zaawansowane”. Wpisz adres IP swojego telefonu w „Adresach” w następujący sposób:
 \ntcp4://%1$s, dynamic
@@ -613,7 +613,7 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Wymagane uprawnienie</string>
     <string name="webui_debugging_title">Debugowanie interfejsu internetowego</string>
     <string name="run_on_time_schedule_title">Uruchamiaj zgodnie z harmonogramem</string>
-    <string name="syncthing_terminated">Syncthing został zatrzymany</string>
+    <string name="syncthing_terminated">Zakończony</string>
     <string name="run_on_metered_wifi_summary">Działaj, gdy urządzenie korzysta z taryfowej sieci Wi-Fi, np. hotspotu lub udostępnionego połączenia. Uwaga: może to skutkować znacznym zużyciem transferu, jeżeli synchronizujesz dużo danych.</string>
     <string name="expert_mode_summary">Włączenie tej opcji spowoduje wyświetlenie zaawansowanych opcji konfiguracji. Warto najpierw zapoznać się z dokumentacją Syncthing, aby upewnić się, że wiesz, jak poprawnie z niej korzystać. Nieprawidłowe ustawienia mogą spowodować zużycie baterii, wyczerpanie zasobów systemowych lub niepełną synchronizację.</string>
     <string name="location_permission_desc">Syncthing można skonfigurować do działania w wybranych sieciach Wi-Fi. Android wymaga, aby aplikacja miała uprawnienia do lokalizacji, aby odczytać nazwę aktywnej sieci Wi-Fi. Jeśli chcesz skorzystać z tej funkcji, naciśnij przycisk powyżej. Możesz pominąć ten krok. Więcej szczegółów znajdziesz w naszej polityce prywatności.</string>
