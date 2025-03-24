@@ -189,7 +189,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Çık</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing çalışıyor</string>
+    <string name="syncthing_active">Çalışıyor</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotograflar</string>
     <!-- RestApi -->
@@ -300,7 +300,7 @@
     <string name="run_on_mobile_data_title">Mobil veride çalıştır</string>
     <string name="device_rejected">\"%1$s\" cihazı bağlanmak istiyor</string>
     <string name="log_to_file_title">Dosyaya günlükle</string>
-    <string name="run_on_time_schedule_summary">Bu seçeneğin etkinleştirilmesi, çalıştırma koşulları karşılanırsa ve son eşitlemeden bu yana belirli bir aralık süresi geçmişse, yapılandırılmış bir süre boyunca eşitlemeye çalışılacaktır. Bu, büyük miktarda pil tasarrufu sağlayabilir ancak eşitleme ortaklarının çevrimiçi olmasını gerektirir. Lütfen unutmayın: Bu, bir sonraki planlı eşitleme gerçekleşene kadar tamamlanmamış geçici dosyaların geride kalmasına neden olabilir.</string>
+    <string name="run_on_time_schedule_summary">Bu seçeneği etkinleştirmek, çalıştırma koşulları karşılanırsa ve son eşitlemeden bu yana belirli bir aralık süresi geçmişse, yapılandırılmış bir süre boyunca eşitlemeye çalışacak. Bu, büyük miktarda pil tasarrufu sağlayabilir ancak eşitleme ortaklarının çevrimiçi olmasını gerektirir. Lütfen unutmayın: Bu, bir sonraki planlı eşitleme gerçekleşene kadar tamamlanmamış geçici dosyaların geride kalmasına neden olabilir.</string>
     <string name="os_open_file_limit">Android Açık Dosya Sınırı</string>
     <string name="pull_order_type_alphabetic">Alfabetik</string>
     <string name="download_support_bundle_title">Destek Paketini İndir</string>
@@ -357,7 +357,7 @@
     <string name="device_syncing_percent_bytes">Eşitleniyor (%%%1$d, %2$s)</string>
     <string name="preference_app_theme_follow_dark">Koyu</string>
     <string name="log_to_file_summary">SyncthingNative\'in çıktısı dosyaya yazılacaktır.</string>
-    <string name="syncthing_disabled">Syncthing uyuyor</string>
+    <string name="syncthing_disabled">Uyuyor</string>
     <string name="preference_language_summary">Uygulama dilini değiştirin</string>
     <string name="file_versioning_generic_description">Syncthing, bir dosya silindiğinde veya kümeden daha yeni bir sürümle değiştirildiğinde eski sürümünün arşivlenmesini destekler. Mevcut sürümlendirme stratejilerini görmek için tıklayın. Dosya sürümlendirme, cihaz bazında klasör başına yapılandırılır. Seçilen strateji:</string>
     <string name="maximum_age_description">Bir sürümü tutmak için en fazla süre (gün olarak, sürümleri süresiz tutmak için 0\'a ayarlayın).</string>
@@ -512,7 +512,7 @@
     <string name="suggest_file_manager_app_dialog_text">Açık kaynaklı dosya yöneticisi uygulaması \'Material Files\'ı yüklemenizi öneririz. Uygulama mağazası sayfasını açmak ister misiniz?</string>
     <string name="versions_path">Sürümlerin Yolu</string>
     <string name="versions_path_description">Sürümlerin depolanması gereken yol (paylaşılan klasördeki varsayılan .stversions dizini için boş bırakın).</string>
-    <string name="syncthing_active_details">Syncthing çalışıyor: %1$s</string>
+    <string name="syncthing_active_details">Çalışıyor: %1$s</string>
     <string name="tip_huawei_device_disconnected_text">Eğer masaüstünüz sürekli olarak Huawei cihazınızın bağlantısının kesildiğini bildiriyorsa, masaüstünüzün Syncthing kullanıcı arayüzünü açın. \'Uzak cihazlar\'a gidin, telefonun girişini genişletin, \'Düzenle\'ye tıklayın, \'Gelişmiş\'e geçin. Telefonunuzun IP adresini \'Adresler\'e şu şekilde girin:
 \ntcp4://%1$s, dinamik
 \nŞunun için çalıştığı onaylandı: Huawei P10</string>
@@ -531,7 +531,7 @@
     <string name="run_on_time_schedule_title">Zaman planlamasına göre çalıştır</string>
     <string name="suggest_file_manager_app_dialog_title">Bulunan uyumlu dosya yöneticisi uygulaması yok</string>
     <string name="type_simple">Tür: Basit</string>
-    <string name="syncthing_terminated">Syncthing sonlandırıldı</string>
+    <string name="syncthing_terminated">Sonlandırıldı</string>
     <string name="run_on_metered_wifi_summary">Cihaz tarifeli bir kablosuz (Wi-Fi) ağa bağlıyken çalıştır, örn. etkin nokta veya bağlı ağ. Dikkat: Çok fazla veri eşitlerseniz, bu işlem veri planınızın büyük bir bölümünü tüketebilir.</string>
     <string name="expert_mode_summary">Bu seçeneğin etkinleştirilmesi gelişmiş yapılandırma seçeneklerini gösterecek. Bunları nasıl doğru kullanacağınızı bildiğinizden emin olmak için önce Syncthing Belgelerine bir göz atmalısınız. Yanlış ayarlar pilin tükenmesine, sistem kaynaklarının tükenmesine veya tamamlanmamış eşitlemeye neden olabilir.</string>
     <string name="cancel_title">İptal</string>
