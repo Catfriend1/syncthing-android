@@ -162,7 +162,7 @@
     <!-- Title for announce server status -->
     <string name="announce_server">配置的宣布服务器</string>
     <!-- Title for uptime status -->
-    <string name="uptime">启动时间</string>
+    <string name="uptime">运行时间</string>
     <string name="restart">重启</string>
     <string name="dialog_confirm_restart">是否要重启 Syncthing？</string>
     <!-- FolderActivity -->
@@ -591,8 +591,8 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">退出</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing 正在运行</string>
-    <string name="syncthing_active_details">Syncthing 正在运行：%1$s</string>
+    <string name="syncthing_active">运行中</string>
+    <string name="syncthing_active_details">正在运行：%1$s</string>
     <string name="no_remote_devices_connected">未连接远程设备</string>
     <plurals name="device_online_up_to_date">
         <item quantity="other">%1$d 台设备在线且处于最新状态</item>
@@ -600,8 +600,8 @@
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="other">正在同步：%1$d%% 已完成，%2$d 台设备在线</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing 待机中</string>
-    <string name="syncthing_terminated">Syncthing 已终止</string>
+    <string name="syncthing_disabled">睡眠中</string>
+    <string name="syncthing_terminated">已终止</string>
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">缺少核心可执行文件“%s”。请检查构建和日志输出。</string>
     <string name="config_create_failed">创建配置失败。请检查日志输出。</string>
