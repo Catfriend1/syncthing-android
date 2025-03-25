@@ -28,7 +28,7 @@ dependencies {
     implementation("org.mindrot:jbcrypt:0.4")
 
     constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.10") {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.20") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
         }
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.10") {
