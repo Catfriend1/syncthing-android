@@ -169,7 +169,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Вихід</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing працює</string>
+    <string name="syncthing_active">Працює</string>
     <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
@@ -520,7 +520,7 @@
     <string name="reason_on_flight_mode">Syncthing працює оскільки ви дозволили роботу в режимі польоту.</string>
     <string name="webui_debugging_title">Налагодження WebUI</string>
     <string name="no_remote_devices_connected">Жоден віддалений пристрій не підключений</string>
-    <string name="syncthing_active_details">Syncthing працює: %1$s</string>
+    <string name="syncthing_active_details">Працює: %1$s</string>
     <string name="state_scan_waiting">Чекає на сканування</string>
     <string name="state_sync_waiting">Чекає на синхронізацію</string>
     <string name="state_sync_preparing">Готується до синхронізації</string>
@@ -553,8 +553,8 @@
         <item quantity="many">%1$d пристроїв в мережі та актуальні</item>
         <item quantity="other">%1$d пристроїв в мережі та актуальні</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing спить</string>
-    <string name="syncthing_terminated">Syncthing вимкнений</string>
+    <string name="syncthing_disabled">Спить</string>
+    <string name="syncthing_terminated">Вимкнений</string>
     <string name="executable_not_found">Основний виконуваний файл \"%s\" відсутній. Перевірте збірку та вивід logcat.</string>
     <string name="config_create_failed">Не вдалося створити конфігурацію. Перевірте вивід logcat.</string>
     <string name="config_read_failed">Не вдалося прочитати конфігурацію. Рекомендується створити резервну копію даних з ваших папок синхронізації, потім очистити дані цього додатку в налаштуваннях Android і запустити його знову.</string>
