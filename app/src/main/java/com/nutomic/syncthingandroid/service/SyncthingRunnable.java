@@ -109,7 +109,7 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser", "--logflags=0"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--reset-database", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "debug", "reset-database"};
                 break;
             case resetdeltas:
                 mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--debug-reset-delta-idxs", "--logflags=0"};
