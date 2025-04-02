@@ -100,19 +100,19 @@ public class SyncthingRunnable implements Runnable {
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case deviceid:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--device-id"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "device-id"};
                 break;
             case generate:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "generate --no-default-folder"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve --no-browser --logflags=0"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve --reset-database --logflags=0"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve --debug-reset-delta-idxs --logflags=0"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -516,6 +516,7 @@ public class SyncthingRunnable implements Runnable {
         HashMap<String, String> targetEnv = new HashMap<>();
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
+        targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
