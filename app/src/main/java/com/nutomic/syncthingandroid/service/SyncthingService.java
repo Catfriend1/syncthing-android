@@ -1017,7 +1017,6 @@ public class SyncthingService extends Service {
                             case "advanced_folder_picker":
                             case "notification_type":
                             case "notify_crashes":
-                            case "start_into_web_gui":
                             case "suggest_new_folder_root":
                             case "use_legacy_hashing":
                             case "pref_current_language":

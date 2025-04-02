@@ -49,6 +49,7 @@ public class Constants {
     public static final String PREF_EXPERT_MODE                 = "expert_mode";
 
     // Preferences - Behaviour
+    public static final String PREF_START_INTO_WEB_GUI          = "start_into_web_gui";
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_BIND_NETWORK                = "bind_network";
 

@@ -140,6 +140,12 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+             android:key="start_into_web_gui"
+             android:title="@string/start_into_web_gui_title"
+             android:summary="@string/start_into_web_gui_summary"
+             android:defaultValue="false"/>
+
     </PreferenceScreen>
 
     <PreferenceScreen

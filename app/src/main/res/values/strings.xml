@@ -554,6 +554,10 @@
     <string name="preference_language_title">Language</string>
     <string name="preference_language_summary">Change the app language</string>
 
+    <string name="start_into_web_gui_title">Start directly into web GUI</string>
+ 
+    <string name="start_into_web_gui_summary">When starting the app, open web GUI instead of the main screen</string>
+
     <string name="pref_language_default">Default Language</string>
 
     <string name="folder_type_send_receive">Send &amp; Receive</string>
