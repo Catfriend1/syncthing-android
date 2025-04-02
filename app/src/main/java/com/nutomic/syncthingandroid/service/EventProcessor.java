@@ -429,7 +429,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                     0,                          // this will be passed to "onUpdatedComplete#token"
                     fullFilePath,               // this will be passed to "onUpdatedComplete#cookie"
                     contentUri,
-                    MediaStore.Images.ImageColumns.DATA + " LIKE ?",
+                    MediaStore.Images.ImageColumns.DATA + " = ?",
                     new String[]{fullFilePath}
                 );
                 break;
