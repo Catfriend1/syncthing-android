@@ -494,7 +494,15 @@ public class FirstStartActivity extends AppCompatActivity {
      */
     private void startApp() {
         Intent mainIntent = new Intent(this, MainActivity.class);
-        startActivity(mainIntent);
+        /**
+          * In case start_into_web_gui option is enabled, start both activities
+          * so that back navigation works as expected.
+          */
+         if (mPreferences.getBoolean(Constants.PREF_START_INTO_WEB_GUI, false)) {
+             startActivities(new Intent[]{mainIntent, new Intent(this, WebGuiActivity.class)});
+         } else {
+             startActivity(mainIntent);
+         }
         finish();
     }
 
