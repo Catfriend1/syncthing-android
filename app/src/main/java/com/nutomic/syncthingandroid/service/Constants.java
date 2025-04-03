@@ -230,7 +230,7 @@ public class Constants {
     /**
      * Name of the folder containing the index database.
      */
-    public static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
+    public static final String INDEX_DB_FILE = "index-v2.db";
 
     /**
      * Name of the public HTTPS CA file in the data directory.
