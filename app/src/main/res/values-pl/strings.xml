@@ -707,4 +707,6 @@
     <string name="power_source_battery_power">Zasilanie bateryjne.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Ostrożnie: jeśli SyncthingNative zostanie przerwany i zrobi coś dziwnego, będzie to wina użytkownika. Pomiń ten proces tylko wtedy, gdy urządzenie nie obsługuje udzielania uprawnień. Naprawdę pominąć?</string>
     <string name="sleep_interval_minutes_title">Czas trwania interwału wstrzymania synchronizacji</string>
+    <string name="start_into_web_gui_title">Rozpocznij bezpośrednio w interfejsie sieciowym</string>
+    <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz interfejs sieciowy zamiast głównego ekranu</string>
 </resources>

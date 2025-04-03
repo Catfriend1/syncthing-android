@@ -749,4 +749,6 @@
     <string name="toast_notification_permission_required">Syncthing 需要通知权限保持其服务活动和连接。</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">小心：如果 SyncthingNative 被中断并做了一些奇怪的事情，要怪就怪自己。仅在您的设备不支持授予权限的情况下跳过。是否跳过？</string>
     <string name="sleep_interval_minutes_title">同步暂停间隔持续时间</string>
+    <string name="start_into_web_gui_title">启动直接进入 Web GUI</string>
+    <string name="start_into_web_gui_summary">启动应用时，打开 Web GUI 而不是打开主屏幕</string>
 </resources>
