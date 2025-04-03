@@ -516,6 +516,7 @@ public class SyncthingRunnable implements Runnable {
         HashMap<String, String> targetEnv = new HashMap<>();
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
+        // Set config, key and database directory.
         targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
@@ -525,6 +526,10 @@ public class SyncthingRunnable implements Runnable {
         }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
+
+        // Since Syncthing v2+: purge deletes from database after 1 year.
+        targetEnv.put("STDBDELETERETENTIONINTERVAL", "8766h");
+
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
