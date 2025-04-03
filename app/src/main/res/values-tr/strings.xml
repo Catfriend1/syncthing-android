@@ -643,4 +643,6 @@
     <string name="power_source_battery_power">Pil gücü.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Dikkat Edin: Eğer SyncthingNative kesintiye uğrarsa ve tuhaf bir şey yaparsa suçlu siz olursunuz. Yalnızca cihazınızın izin verilmesini desteklememesi durumunda atlayın. Gerçekten atlansın mı?</string>
     <string name="sleep_interval_minutes_title">Eşitleme duraklatma aralığının süresi</string>
+    <string name="start_into_web_gui_summary">Uygulamayı başlatırken, ana ekran yerine web Grafiksel Kullanıcı Arayüzü\'nü açar</string>
+    <string name="start_into_web_gui_title">Doğrudan web GKA içinde başlat</string>
 </resources>
