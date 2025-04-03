@@ -228,9 +228,13 @@ public class Constants {
     }
 
     /**
-     * Name of the folder containing the index database.
+     * Name of the index database file in the data directory.
      */
     public static final String INDEX_DB_FILE = "index-v2.db";
+
+    public static File getIndexDbFile(Context context) {
+        return new File(context.getFilesDir(), INDEX_DB_FILE);
+    }
 
     /**
      * Name of the public HTTPS CA file in the data directory.
