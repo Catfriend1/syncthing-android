@@ -106,13 +106,13 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "generate", "--no-default-folder"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser"};
                 break;
             case resetdatabase:
                 mCommand = new String[]{mSyncthingBinary.getPath(), "debug", "reset-database"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--debug-reset-delta-idxs", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--debug-reset-delta-idxs"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -518,6 +518,7 @@ public class SyncthingRunnable implements Runnable {
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
         // Set config, key and database directory.
         targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
+        targetEnv.put("STLOGFLAGS", "0");
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
