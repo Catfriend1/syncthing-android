@@ -756,4 +756,6 @@
     <string name="notification_permission_title">Benachrichtigungsrecht</string>
     <string name="toast_notification_permission_required">Syncthing benötigt das Benachrichtigungsrecht, um seinen Dienst aufrecht und verbunden zu halten.</string>
     <string name="sleep_interval_minutes_title">Dauer des Synchronisationspausenintervalls</string>
+    <string name="start_into_web_gui_title">Direkt die Weboberfläche öffnen</string>
+    <string name="start_into_web_gui_summary">Beim Start der App die Weboberfläche anstelle des Hauptfensters öffnen</string>
 </resources>
