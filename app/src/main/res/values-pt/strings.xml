@@ -522,4 +522,17 @@
     <string name="photo_shoot_launcher_title">Sync. Camera</string>
     <string name="toast_notification_permission_required">Syncthing requer a permissão de notificação para manter o serviço vivo e conectado.</string>
     <string name="exception_known_bug_notice">Encontrou um \"Bug\" já conhecido mas que ainda não foi resolvido. Veja %1$s/%2$s para mais informações, e por favor, deixe uma descrição detalhada do que estava fazendo antes do Bug acontecer.</string>
+    <string name="photo_shoot_intro_permission_desc">O Syncthing Camera necessita do seu consentimento para tirar fotografias a armazená-las no seu dispositivo. Esta funcionalidade é opcional. Para a usar, dê permissão e toque em \"Continuar\". Iremos criar um pasta Syncthing Camera para si que poderá partilhar com outros dispositivos Syncthing mais tarde.</string>
+    <string name="local_discovery_disabled">Você desabilitou a descoberta local em \'Configurações\' &gt; \'Opções do Syncthing\' &gt; \'Descoberta Local\'. Habilite-a para procurar dispositivos na rede local.</string>
+    <string name="notification_permission_desc">Necessário para mostrar notificações relativas às ligações de dispositivos novos, pedidos de partilha de pastas e para manter o serviço a funcionar e conectado.</string>
+    <string name="toast_invalid_folder_selected">Lamentamos, mas a pasta escolhida não pode ser usada. Escolha uma pasta localizada no armazenamento interno ou externo.</string>
+    <string name="untrusted_device_explanation">Todas as pastas partilhadas com este dispositivo têm de estar protegidas com uma senha, por forma a que todos os dados enviados sejam ilegíveis sem a senha dada.</string>
+    <string name="install_barcode_scanner_app_message">Isto requer uma aplicação leitora de códigos de barras. Gostaria de instalar a aplicação \'Binary Eye\' a partir do F-Droid?</string>
+    <string name="tip_write_to_sdcard_title">Alternativa à escrita no cartão SD externo</string>
+    <string name="photo_shoot_take_picture_success">Imagem guardada na pasta Syncthing Camera com sucesso.</string>
+    <string name="discovered_device_list_empty">A descoberta local não encontrou quaisquer dispositivos na rede local. Corra esta aplicação num segundo telemóvel. Os ficheiros de instalação para computadores estão disponíveis em: %1$s</string>
+    <string name="autoAcceptFolders">Aceitar automaticamente</string>
+    <string name="device_name_required">O nome do dispositivo não pode ficar em branco</string>
+    <string name="device_addresses_invalid">Os endereços do dispositivo não estão bem formatados. Tente novamente. Veja a documentação do Syncthing para mais informação.</string>
+    <string name="device_id_invalid">O ID do dispositivo não está bem formatado. Tente novamente e coloque o ID certo.</string>
 </resources>

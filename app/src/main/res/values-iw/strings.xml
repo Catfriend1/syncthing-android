@@ -416,21 +416,21 @@
     <string name="reason_run_condition_monitor_not_instantiated">לא נוצר מופע של RunConditionMonitor. נא להפעיל מחדש את היישום ולהגיש דוח באגים אם שגיאה זו אינה נעלמת לאחר ההפעלה מחדש.</string>
     <string name="custom_wifi_ssid_whitelist_empty">אין SSID של WiFi ברשימת המותרים. נא לציין כמה בהגדרות.</string>
     <string name="exit">יציאה</string>
-    <string name="syncthing_active">היישום Syncthing פועל</string>
-    <string name="syncthing_active_details">היישום Syncthing פועל: %1$s</string>
+    <string name="syncthing_active">פועל</string>
+    <string name="syncthing_active_details">פועל: %1$s</string>
     <string name="no_remote_devices_connected">אין התקנים מרוחקים מחוברים</string>
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">מסנכרן: %1$d%% הושלמו, התקן %2$d מקוון</item>
         <item quantity="two">מסנכרן: %1$d%% הושלמו, %2$d התקנים מקוונים</item>
         <item quantity="other">מסנכרן: %1$d%% הושלמו, %2$d התקנים מקוונים</item>
     </plurals>
-    <string name="syncthing_disabled">היישום Syncthing במצב שינה</string>
+    <string name="syncthing_disabled">במצב שינה</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">התקן %1$d מקוון ומעודכן</item>
         <item quantity="two">%1$d התקנים מקוונים ומעודכנים</item>
         <item quantity="other">%1$d התקנים מקוונים ומעודכנים</item>
     </plurals>
-    <string name="syncthing_terminated">היישום Syncthing הופסק</string>
+    <string name="syncthing_terminated">הופסק</string>
     <string name="config_create_failed">יצירת תצורה נכשלה. בדוק פלט logcat.</string>
     <string name="executable_not_found">קובץ ההפעלה המרכזי \"%s\" חסר. בדוק פלט בנייה ו־logcat.</string>
     <string name="config_read_failed">קריאת תצורה נכשלה. שקול גיבוי של הנתונים שלך מתיקיות הסנכרון, ואז נקה את הנתונים של יישום זה מהגדרות אנדרואיד ופתח אותו שוב.</string>
