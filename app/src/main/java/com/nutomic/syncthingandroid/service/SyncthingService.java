@@ -851,6 +851,8 @@ public class SyncthingService extends Service {
                     new File(exportPath, Constants.HTTPS_CERT_FILE));
             Files.copy(Constants.getHttpsKeyFile(this),
                     new File(exportPath, Constants.HTTPS_KEY_FILE));
+            Files.copy(Constants.getIndexDbFile(this),
+                    new File(exportPath, Constants.INDEX_DB_FILE));
         } catch (IOException e) {
             Log.w(TAG, "Failed to export config", e);
             failSuccess = false;
@@ -883,34 +885,6 @@ public class SyncthingService extends Service {
                 }
             } catch (IOException e) {
                 Log.e(TAG, "exportConfig: Failed to export SharedPreferences #2", e);
-            }
-        }
-
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Log.d(TAG, "exportConfig: Exporting index database");
-            Path databaseSourcePath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-            Path databaseExportPath = Paths.get(exportPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseExportPath)) {
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseExportPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseExportPath + "'" + e);
-                }
-            }
-            try {
-                java.nio.file.Files.walk(databaseSourcePath).forEach(source -> {
-                    try {
-                        java.nio.file.Files.copy(source, databaseExportPath.resolve(databaseSourcePath.relativize(source)));
-                    } catch (IOException e) {
-                        Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseExportPath + "'");
-                    }
-                 });
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to copy directory '" + databaseSourcePath + "' to '" + databaseExportPath + "'");
             }
         }
         Log.d(TAG, "exportConfig END");
@@ -953,6 +927,7 @@ public class SyncthingService extends Service {
             File publicKey = new File(importPath, Constants.PUBLIC_KEY_FILE);
             File httpsCert = new File(importPath, Constants.HTTPS_CERT_FILE);
             File httpsKey = new File(importPath, Constants.HTTPS_KEY_FILE);
+            File indexDb = new File(importPath, Constants.INDEX_DB_FILE);
 
             // Check if necessary files for import are available.
             if (config.exists() && privateKey.exists() && publicKey.exists()) {
@@ -961,6 +936,7 @@ public class SyncthingService extends Service {
                 Files.copy(publicKey, Constants.getPublicKeyFile(this));
                 Files.copy(httpsCert, Constants.getHttpsCertFile(this));
                 Files.copy(httpsKey, Constants.getHttpsKeyFile(this));
+                Files.copy(indexDb, Constants.getIndexDbFile(this));
             } else {
                 Log.e(TAG, "importConfig: config, privateKey and/or publicKey files missing");
                 failSuccess = false;
@@ -972,7 +948,6 @@ public class SyncthingService extends Service {
 
         if (failSuccess) {
             failSuccess = failSuccess && importConfigSharedPrefs(importPath);
-            failSuccess = failSuccess && importConfigDatabase(importPath);
         }
         Log.d(TAG, "importConfig END");
 
@@ -1094,38 +1069,6 @@ public class SyncthingService extends Service {
                 }
             } catch (IOException e) {
                 Log.e(TAG, "importConfig: Failed to import SharedPreferences #2", e);
-            }
-        }
-        return failSuccess;
-    }
-
-    public boolean importConfigDatabase(final File importPath) {
-        boolean failSuccess = true;
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Path databaseImportPath = Paths.get(importPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseImportPath)) {
-                Log.d(TAG, "importConfig: Importing index database");
-                Path databaseTargetPath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseTargetPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseTargetPath + "'" + e);
-                }
-                try {
-                    java.nio.file.Files.walk(databaseImportPath).forEach(source -> {
-                        try {
-                            java.nio.file.Files.copy(source, databaseTargetPath.resolve(databaseImportPath.relativize(source)));
-                        } catch (IOException e) {
-                            Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseTargetPath + "'");
-                        }
-                     });
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to copy directory '" + databaseImportPath + "' to '" + databaseTargetPath + "'");
-                }
             }
         }
         return failSuccess;
