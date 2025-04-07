@@ -538,4 +538,6 @@
     <string name="qs_following_run_conditions">עוקב אחר תנאי הריצה</string>
     <string name="qs_schedule_label">פעל במשך 5 דקות</string>
     <string name="qs_schedule_disabled">לוח הזמנים מושבת</string>
+    <string name="start_into_web_gui_title">התחל ישירות בממשק רשת גרפי</string>
+    <string name="start_into_web_gui_summary">כשמתחילים את היישום, פתח את ממשק הרשת הגרפי במקום המסך הראשי</string>
 </resources>
