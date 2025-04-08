@@ -170,7 +170,7 @@
     <string name="exit">Вихід</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Працює</string>
-    <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
+    <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Необхідний перезапуск</string>
