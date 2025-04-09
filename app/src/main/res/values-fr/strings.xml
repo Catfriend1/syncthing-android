@@ -315,7 +315,7 @@
     <string name="default_android_camera_folder_label">Android Caméra</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
-    <string name="notification_crash_title">Syncthing s\'est planté %1$s</string>
+    <string name="notification_crash_title">Crash (code d\'erreur %1$s)</string>
     <string name="notifications_persistent_channel">Syncthing en marche</string>
     <string name="notification_persistent_waiting_channel">Surveillance des conditions de fonctionnement</string>
     <string name="notifications_other_channel">Autres notifications</string>
