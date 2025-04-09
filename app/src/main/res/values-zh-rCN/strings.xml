@@ -614,7 +614,7 @@
     <string name="default_android_camera_folder_label">Android 相机</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-照片</string>
-    <string name="notification_crash_title">Syncthing 已崩溃（退出代码 %1$s）</string>
+    <string name="notification_crash_title">已崩溃（退出代码 %1$s）</string>
     <string name="notification_crash_text">单击查看日志（%1$s）</string>
     <string name="notifications_persistent_channel">Syncthing 处于活动状态</string>
     <string name="notification_persistent_waiting_channel">监控运行状况</string>
