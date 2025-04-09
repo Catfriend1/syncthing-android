@@ -372,7 +372,7 @@
     <string name="syncthing_database_size">Syncthing Veritabanı Boyutu</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing, dolaşım mobil veri bağlantıları üzerinden çalışmasına izin vermediğiniz için çalışmıyor.</string>
     <string name="webui_debugging_summary">Profil oluşturmaya başlamak ve bir destek paketi indirebilmek için etkinleştirin. Bu seçeneğin değiştirilmesi Syncthing\'i hemen yeniden başlatacak.</string>
-    <string name="notification_crash_title">Syncthing çöktü (çıkış kodu %1$s)</string>
+    <string name="notification_crash_title">Çöktü (çıkış kodu %1$s)</string>
     <string name="tip_custom_sync_conditions_title">Klasör/cihaz başına özel eşitleme koşullarını kullanın</string>
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
     <string name="app_version_title">Syncthing-Fork Sarmalayıcı Sürümü</string>
