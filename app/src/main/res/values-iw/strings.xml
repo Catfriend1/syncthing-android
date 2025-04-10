@@ -438,7 +438,7 @@
     <string name="webui_tcp_port_unavailable">יציאת TCP %s של ממשק המשתמש ברשת עסוקה. מופע שני?</string>
     <string name="default_android_camera_folder_label">מצלמת אנדרואיד</string>
     <string name="default_folder_id">%1$s-photos</string>
-    <string name="notification_crash_title">היישום Syncthing קרס (קוד יציאה %1$s)</string>
+    <string name="notification_crash_title">קרס (קוד יציאה %1$s)</string>
     <string name="notification_crash_text">לחץ עבור יומנים (%1$s)</string>
     <string name="notifications_persistent_channel">היישום Syncthing פעיל</string>
     <string name="notification_persistent_waiting_channel">מנטר תנאי ריצה</string>
