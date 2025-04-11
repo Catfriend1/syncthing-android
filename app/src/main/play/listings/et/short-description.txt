@@ -1,0 +1,1 @@
+Wrapper for Syncthing - Open and decentralized file synchronization
