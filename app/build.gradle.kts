@@ -10,7 +10,7 @@ dependencies {
     annotationProcessor("com.google.dagger:dagger-compiler:2.56")
     implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("androidx.core:core:1.15.0")
+    implementation("androidx.core:core:1.16.0")
     implementation("androidx.documentfile:documentfile:1.0.1")
     implementation("androidx.fragment:fragment:1.8.6")
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
