@@ -100,19 +100,19 @@ public class SyncthingRunnable implements Runnable {
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case deviceid:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--device-id"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "device-id"};
                 break;
             case generate:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "generate", "--no-default-folder"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "debug", "reset-database"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--debug-reset-delta-idxs"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -516,6 +516,9 @@ public class SyncthingRunnable implements Runnable {
         HashMap<String, String> targetEnv = new HashMap<>();
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
+        // Set config, key and database directory.
+        targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
+        targetEnv.put("STLOGFLAGS", "0");
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
@@ -524,6 +527,10 @@ public class SyncthingRunnable implements Runnable {
         }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
+
+        // Since Syncthing v2+: purge deletes from database after 1 year.
+        targetEnv.put("STDBDELETERETENTIONINTERVAL", "8766h");
+
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
