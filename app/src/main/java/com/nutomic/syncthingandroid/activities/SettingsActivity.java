@@ -1190,8 +1190,8 @@ public class SettingsActivity extends SyncthingActivity {
          * Calculates the size of the syncthing database on disk.
          */
         private String getDatabaseSize() {
-            // For simplicity, we take the whole config + database to calculate the size, because config is much smaller than the database.
-            String result = Util.runShellCommandGetOutput("/system/bin/du -sh " + mContext.getFilesDir() + "/", false);
+            String dbPath = mContext.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER;
+            String result = Util.runShellCommandGetOutput("/system/bin/du -sh " + dbPath, false);
             if (TextUtils.isEmpty(result)) {
                 return "N/A";
             }
