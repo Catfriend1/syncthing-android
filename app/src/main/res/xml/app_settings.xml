@@ -321,7 +321,7 @@
             android:title="@string/backup_folder_name"
             android:summary="@null"
             android:persistent="true"
-            android:defaultValue="syncthing"
+            android:defaultValue="backups/syncthing"
             android:inputType="textNoSuggestions" />
 
         <Preference
