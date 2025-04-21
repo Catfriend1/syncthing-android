@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED;
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW;
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_FORCE_START;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class QuickSettingsTileSchedule extends TileService {
@@ -71,6 +72,7 @@ public class QuickSettingsTileSchedule extends TileService {
             LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mContext);
             Intent intent = new Intent(ACTION_SYNC_TRIGGER_FIRED);
             intent.putExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
+            intent.putExtra(EXTRA_FORCE_START, true);
             localBroadcastManager.sendBroadcast(intent);
         }
     }
