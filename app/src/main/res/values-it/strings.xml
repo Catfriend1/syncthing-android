@@ -21,7 +21,7 @@
     <string name="dialog_disable_battery_optimizations_not_supported">Questo dispositivo non supporta la disabilitazione delle ottimizzazioni della batteria</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Autorizzazione Posizione</string>
-    <string name="location_permission_desc">Synchting può essere configurato per funzionare solo con alcune reti Wi-Fi. Android richiede che l\'app utilizzi il permesso di posizione per per leggere il nome della Wi-Fi in uso. Se vuoi questa funzionalità, premi il pulsante qui sopra. Puoi saltare questo passo, consulta la nostra privacy policy per ulteriori dettagli.</string>
+    <string name="location_permission_desc">Synchting può essere configurato per funzionare solo con alcune reti Wi-Fi. Android richiede che l\'app utilizzi il permesso di posizione per leggere il nome della Wi-Fi in uso. Se vuoi questa funzionalità, premi il pulsante qui sopra. Puoi saltare questo passo, consulta la nostra privacy policy per ulteriori dettagli.</string>
     <string name="location_permission_desc_api_29">Consiglio per Android 10+: \"Permetti sempre\"</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generazione Chiavi</string>
@@ -92,9 +92,9 @@
     <string name="folder_list_empty">Nessuna cartella trovata</string>
     <!-- Format string for folder file count -->
     <plurals name="files">
-        <item quantity="one">%1$d / %2$d File</item>
-        <item quantity="many">%1$d / %2$d File</item>
-        <item quantity="other">%1$d / %2$d File</item>
+        <item quantity="one">%1$d / %2$d file</item>
+        <item quantity="many">%1$d / %2$d file</item>
+        <item quantity="other">%1$d / %2$d file</item>
     </plurals>
     <string name="override_changes">Sovrascrivi modifiche</string>
     <!-- Override Changes Confirmation Dialog -->
@@ -273,7 +273,7 @@
 \n%1$s/YOUR_FOLDER_NAME
 \nAttenzione: questa cartella verrà cancellata da Android se disinstalli questa app. Prima di disinstallare l\'app, spostare i dati in un luogo sicuro fuori dalla cartella … /Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizza solo usando la rete WiFi locale</string>
-    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \'Impostazioni/Impostazioni Syncthing\': \n- Abilita NAT traversal \n- Individuazione Globale \n- Abilita Reindirizzamento \nLascia abilitato solo \'Individuazione Locale\'.</string>
+    <string name="tip_sync_on_local_network_text">Se vuoi effettuare la sincronizzazione solo con i dispositivi che sono nella rete WiFi locale o hotspot, puoi abbassare il consumo di batteria ed evitare che la sincronizzazione avvenga consumando dati mobili disabilitando queste opzioni in \'Impostazioni/Opzioni di Syncthing\': \n- Abilita NAT traversal \n- Individuazione Globale \n- Abilita Reindirizzamento \nLascia abilitato solo \'Individuazione Locale\'.</string>
     <string name="tip_custom_sync_conditions_title">Usa condizioni di sincronizzazione personalizzate per cartella/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Questa funzione verrà migliorata in versioni future. Per ora non abbiamo voluto alterare le configurazioni esistenti e il comportamento dell\'app. Per questo motivo le condizioni di sincronizzazione personalizzate per un tipo di rete possono essere attivate solo se attivi la sincronizzazione su questa rete nelle condizioni generali di esecuzione.</string>
     <string name="tip_ignore_delete_title">Vuoi salvare le foto dal cellulare al computer\?</string>
@@ -593,8 +593,8 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Esci</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing è in esecuzione</string>
-    <string name="syncthing_active_details">Syncthing è in esecuzione: %1$s</string>
+    <string name="syncthing_active">In esecuzione</string>
+    <string name="syncthing_active_details">In esecuzione: %1$s</string>
     <string name="no_remote_devices_connected">Nessun dispositivo remoto connesso</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d dispositivo online e sincronizzato</item>
@@ -606,8 +606,8 @@
         <item quantity="many">Sincronizzazione: %1$d%% completato, %2$d dispositivi online </item>
         <item quantity="other">Sincronizzazione: %1$d%% completato, %2$d dispositivi online </item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing è in sospensione</string>
-    <string name="syncthing_terminated">Syncthing è stato terminato</string>
+    <string name="syncthing_disabled">In sospensione</string>
+    <string name="syncthing_terminated">Terminato</string>
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">L\'eseguibile \"%s\" non è stato trovato. Controlla la build e il logcat.</string>
     <string name="config_create_failed">Impossibile creare la configurazione. Controllare l\'output di logcat.</string>
@@ -620,7 +620,7 @@
     <string name="default_android_camera_folder_label">Fotocamera Android</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
-    <string name="notification_crash_title">Syncthing è andato in crash %1$s</string>
+    <string name="notification_crash_title">Arresto (codice di uscita %1$s)</string>
     <string name="notification_crash_text">Clicca per i log (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing attivo</string>
     <string name="notification_persistent_waiting_channel">Monitoraggio delle condizioni di esecuzione</string>
