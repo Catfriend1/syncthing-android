@@ -3,11 +3,11 @@
     <cloud-backup disableIfNoEncryptionCapabilities="true">
         <include domain="sharedpref" path="."/>
         <include domain="file" path="."/>
-        <exclude domain="file" path="index-v2.db"/>
+        <exclude domain="file" path="index-v2"/>
     </cloud-backup>
     <device-transfer>
         <include domain="sharedpref" path="."/>
         <include domain="file" path="."/>
-        <exclude domain="file" path="index-v2.db"/>
+        <exclude domain="file" path="index-v2"/>
     </device-transfer>
 </data-extraction-rules>
