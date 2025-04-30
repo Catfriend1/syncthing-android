@@ -851,8 +851,6 @@ public class SyncthingService extends Service {
                     new File(exportPath, Constants.HTTPS_CERT_FILE));
             Files.copy(Constants.getHttpsKeyFile(this),
                     new File(exportPath, Constants.HTTPS_KEY_FILE));
-            Files.copy(Constants.getIndexDbFile(this),
-                    new File(exportPath, Constants.INDEX_DB_FILE));
         } catch (IOException e) {
             Log.w(TAG, "Failed to export config", e);
             failSuccess = false;
@@ -885,6 +883,34 @@ public class SyncthingService extends Service {
                 }
             } catch (IOException e) {
                 Log.e(TAG, "exportConfig: Failed to export SharedPreferences #2", e);
+            }
+        }
+
+        /**
+         * java.nio.file library is available since API level 26, see
+         * https://developer.android.com/reference/java/nio/file/package-summary
+         */
+        if (Build.VERSION.SDK_INT >= 26) {
+            Log.d(TAG, "exportConfig: Exporting index database");
+            Path databaseSourcePath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
+            Path databaseExportPath = Paths.get(exportPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
+            if (java.nio.file.Files.exists(databaseExportPath)) {
+                try {
+                    FileUtils.deleteDirectoryRecursively(databaseExportPath);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to delete directory '" + databaseExportPath + "'" + e);
+                }
+            }
+            try {
+                java.nio.file.Files.walk(databaseSourcePath).forEach(source -> {
+                    try {
+                        java.nio.file.Files.copy(source, databaseExportPath.resolve(databaseSourcePath.relativize(source)));
+                    } catch (IOException e) {
+                        Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseExportPath + "'");
+                    }
+                 });
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to copy directory '" + databaseSourcePath + "' to '" + databaseExportPath + "'");
             }
         }
         Log.d(TAG, "exportConfig END");
