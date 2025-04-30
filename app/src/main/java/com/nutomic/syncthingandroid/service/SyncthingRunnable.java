@@ -103,7 +103,7 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "device-id"};
                 break;
             case generate:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "generate", "--no-default-folder"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "generate"};
                 break;
             case main:
                 mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser"};
