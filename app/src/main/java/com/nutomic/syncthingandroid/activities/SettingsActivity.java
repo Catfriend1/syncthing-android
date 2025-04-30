@@ -1020,8 +1020,8 @@ public class SettingsActivity extends SyncthingActivity {
          * Default: /storage/emulated0/backups/syncthing
          */
         private final File getBackupFolder() {
-            String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "syncthing");
-            return new File(Environment.getExternalStorageDirectory() + "/backups/" + backupFolderName);
+            String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "backups/syncthing");
+            return new File(Environment.getExternalStorageDirectory() + "/" + backupFolderName);
         }
 
         /**

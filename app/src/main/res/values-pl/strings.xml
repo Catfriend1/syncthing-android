@@ -365,7 +365,7 @@
     <string name="config_create_failed">Nie udało się stworzyć pliku konfiguracyjnego. Sprawdź dane wyjściowe logcat.</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-zdjęcia</string>
-    <string name="notification_crash_title">Syncthing uległ awarii (kod zakończenia %1$s)</string>
+    <string name="notification_crash_title">Awaria (kod wyjścia %1$s)</string>
     <string name="notifications_other_channel">Inne powiadomienia</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->

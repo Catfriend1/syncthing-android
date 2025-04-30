@@ -372,7 +372,7 @@
     <string name="syncthing_database_size">Syncthing Veritabanı Boyutu</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing, dolaşım mobil veri bağlantıları üzerinden çalışmasına izin vermediğiniz için çalışmıyor.</string>
     <string name="webui_debugging_summary">Profil oluşturmaya başlamak ve bir destek paketi indirebilmek için etkinleştirin. Bu seçeneğin değiştirilmesi Syncthing\'i hemen yeniden başlatacak.</string>
-    <string name="notification_crash_title">Syncthing çöktü (çıkış kodu %1$s)</string>
+    <string name="notification_crash_title">Çöktü (çıkış kodu %1$s)</string>
     <string name="tip_custom_sync_conditions_title">Klasör/cihaz başına özel eşitleme koşullarını kullanın</string>
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
     <string name="app_version_title">Syncthing-Fork Sarmalayıcı Sürümü</string>
@@ -643,4 +643,6 @@
     <string name="power_source_battery_power">Pil gücü.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Dikkat Edin: Eğer SyncthingNative kesintiye uğrarsa ve tuhaf bir şey yaparsa suçlu siz olursunuz. Yalnızca cihazınızın izin verilmesini desteklememesi durumunda atlayın. Gerçekten atlansın mı?</string>
     <string name="sleep_interval_minutes_title">Eşitleme duraklatma aralığının süresi</string>
+    <string name="start_into_web_gui_summary">Uygulamayı başlatırken, ana ekran yerine web Grafiksel Kullanıcı Arayüzü\'nü açar</string>
+    <string name="start_into_web_gui_title">Doğrudan web GKA içinde başlat</string>
 </resources>

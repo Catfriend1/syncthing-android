@@ -621,7 +621,7 @@
     <string name="default_android_camera_folder_label">Android Kamera</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-Bilder</string>
-    <string name="notification_crash_title">Syncthing ist abgestürzt (Exitcode %1$s)</string>
+    <string name="notification_crash_title">Abgestürzt (Exitcode %1$s)</string>
     <string name="notification_crash_text">Klick für Protokolle (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing läuft</string>
     <string name="notification_persistent_waiting_channel">Laufkonditionen werden überwacht</string>
@@ -756,4 +756,6 @@
     <string name="notification_permission_title">Benachrichtigungsrecht</string>
     <string name="toast_notification_permission_required">Syncthing benötigt das Benachrichtigungsrecht, um seinen Dienst aufrecht und verbunden zu halten.</string>
     <string name="sleep_interval_minutes_title">Dauer des Synchronisationspausenintervalls</string>
+    <string name="start_into_web_gui_title">Direkt die Weboberfläche öffnen</string>
+    <string name="start_into_web_gui_summary">Beim Start der App die Weboberfläche anstelle des Hauptfensters öffnen</string>
 </resources>

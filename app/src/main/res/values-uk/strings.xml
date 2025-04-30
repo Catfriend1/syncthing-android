@@ -170,7 +170,7 @@
     <string name="exit">Вихід</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
     <string name="syncthing_active">Працює</string>
-    <string name="notification_crash_title">Роботу Syncthing аварійно завершено %1$s</string>
+    <string name="notification_crash_title">Збій (код виходу %1$s)</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
     <string name="restart_title">Необхідний перезапуск</string>
@@ -624,4 +624,6 @@
     <string name="pull_order_type_largestFirst_description">Отримувати файли в порядку розміру файлу. Спочатку найбільші.</string>
     <string name="file_versioning_generic_description">Syncthing підтримує архівацію старої версії файлу, коли він видаляється або замінюється новішою версією з кластера. Натисніть, щоб переглянути доступні стратегії версійності. Версійність файлів налаштовується для кожної папки окремо для кожного пристрою. Вибрана стратегія:</string>
     <string name="staggered_versioning_description">Файли переміщуються в директорію .stversions з міткою дати при заміні або видаленні через Syncthing. Версії автоматично видаляються, якщо вони старші за максимальний вік або перевищують кількість дозволених файлів за проміжок часу.\n\nВикористовуються наступні проміжки: протягом першої години зберігається версія кожні 30 секунд, протягом першого дня — кожну годину, протягом перших 30 днів — кожен день, до максимального віку — кожен тиждень.</string>
+    <string name="start_into_web_gui_title">Почати безпосередньо у веб-інтерфейсі</string>
+    <string name="start_into_web_gui_summary">Під час запуску додатка відкривати веб-інтерфейс замість головного екрану</string>
 </resources>
