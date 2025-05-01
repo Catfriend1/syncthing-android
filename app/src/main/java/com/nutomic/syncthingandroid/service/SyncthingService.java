@@ -1,9 +1,13 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.Manifest;
@@ -13,6 +17,10 @@ import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationChannelCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 
 import com.annimon.stream.Stream;
@@ -272,6 +280,25 @@ public class SyncthingService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand");
+
+        int uniqueNotificationId = 789;
+        // ServiceInfo.FOREGROUND_SERVICE_TYPE_MANIFEST is -1:
+        int foregroundServiceType = -1;
+        String notificationChannelId = "syncthing-foreground";
+        // NotificationManager.IMPORTANCE_HIGH is 4:
+        int notificationImportanceHigh = 4;
+
+        NotificationChannelCompat channel = new NotificationChannelCompat
+                .Builder(notificationChannelId, notificationImportanceHigh)
+                .setName("Syncthing channel")
+                .build();
+        NotificationManagerCompat.from(this).createNotificationChannel(channel);
+
+        Notification notification = new NotificationCompat.Builder(this, notificationChannelId)
+                .setSmallIcon(R.drawable.ic_monochrome)
+                .build();
+        ServiceCompat.startForeground(this, uniqueNotificationId, notification, foregroundServiceType);
+
         if (!mStoragePermissionGranted) {
             Log.e(TAG, "User revoked storage permission. Stopping service.");
             if (mNotificationHandler != null) {
