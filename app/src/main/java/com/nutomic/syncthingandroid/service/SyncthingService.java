@@ -239,9 +239,9 @@ public class SyncthingService extends Service {
     private boolean mPrefBroadcastServiceControl = false;
 
     /**
-     * ConnectivityManager and NetworkCallback are used to restart syncthing
-     * when a VPN capable connection is changed, to prevent connectivity
-     * issues due to network binding
+     * ConnectivityManager and NetworkCallback are used to rebind syncthing
+     * to the current network when a VPN capable connection is changed
+     * to prevent connectivity issues due to network binding
      */
     private ConnectivityManager connectivityManager;
     private ConnectivityManager.NetworkCallback networkCallback;
@@ -281,14 +281,18 @@ public class SyncthingService extends Service {
         networkCallback = new ConnectivityManager.NetworkCallback() {
             @Override
             public void onAvailable(@NonNull Network network) {
-                Log.d(TAG, "VPN capable network connection established, restarting syncthing");
-                SyncthingService.this.startService(new Intent(SyncthingService.this, SyncthingService.class).setAction(SyncthingService.ACTION_RESTART));
+                if (mSyncthingRunnable != null) {
+                    Log.d(TAG, "VPN capable network connection established, rebinding network");
+                    mSyncthingRunnable.bindNetwork();
+                }
             }
 
             @Override
             public void onLost(@NonNull Network network) {
-                Log.d(TAG, "VPN capable network connection lost, restarting syncthing");
-                SyncthingService.this.startService(new Intent(SyncthingService.this, SyncthingService.class).setAction(SyncthingService.ACTION_RESTART));
+                if (mSyncthingRunnable != null) {
+                    Log.d(TAG, "VPN capable network connection lost, rebinding network");
+                    mSyncthingRunnable.bindNetwork();
+                }
             }
         };
 
