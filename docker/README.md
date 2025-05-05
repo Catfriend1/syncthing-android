@@ -1,45 +1,46 @@
 # Fresh howto to build with Docker Desktop under WSL 2
 
-- Add WSL feature
+# Add WSL feature
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
--
-- Reboot
+#
+# Reboot
 shutdown -r -t 0
--
-- Set WSL version 2
+#
+# Set WSL version 2
 wsl --set-default-version 2
--
-- Install Debian Linux
+#
+# Install Debian Linux
 wsl.exe --install debian
 wsl.exe -l -v
--
-- Install Docker Desktop
--- https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
--
+#
+# Install Docker Desktop
+## https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+#
 logoff
-- Relogon
--
-- Docker Desktop
--- Settings
---- Resources
----- Advanced
------ Disk image location
------- %LocalAppData%\docker\wsl
----- WSL integration
------ Enable integration with my default WSL distro
------- Debian
--
-- Docker build step
+# Relogon
+#
+# Docker Desktop
+## Settings
+### Resources
+#### Advanced
+##### Disk image location
+###### %LocalAppData%\docker\wsl
+#### WSL integration
+##### Enable integration with my default WSL distro
+###### Debian
+#
+# Docker build step
 cmd
 cd /d "syncthing-android"
--
+#
 docker build -t syncthing-android-builder:latest -f docker/Dockerfile .
--
+#
 docker run --rm -v .:/mnt syncthing-android-builder:latest ./gradlew buildNative assembleDebug
--
+#
 
-# Docker under Linux
+
+# How to use this
 
 ## Create the builder image
 
