@@ -12,7 +12,7 @@ env:
   BUILD_USER: android-builder
   BUILD_HOST: github.syncthing.net
   # template var
-  image: ghcr.io/Catfriend1/syncthing-android-builder
+  image: ghcr.io/catfriend1/syncthing-android-builder
 
 jobs:
   build-image:
