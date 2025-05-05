@@ -25,8 +25,8 @@ jobs:
 
       - name: prepare-signing
         run: |
-          mkdir -p ~/.android
-          echo "${{ secrets.DEBUG_KEYSTORE_B64 }}" | base64 --decode > ~/.android/debug.keystore
+          mkdir -p /root/.android
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
 
       - name: build
         run: |
