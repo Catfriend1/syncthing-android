@@ -53,6 +53,7 @@ docker run --rm -v "%userprofile%/.android/debug.keystore:/root/.android/debug.k
 
 ## Destroy docker container
 ```
+docker images
 docker rmi syncthing-android-builder:latest
 ```
 
