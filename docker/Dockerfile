@@ -4,7 +4,7 @@ ENV GO_VERSION=1.24.1
 
 # Can be found scrolling down on this page:
 # https://developer.android.com/studio/index.html#command-tools
-ARG ANDROID_SDK_FILENAME=commandlinetools-linux-9123335_latest.zip
+ARG ANDROID_SDK_FILENAME=commandlinetools-linux-11076708_latest.zip
 WORKDIR /opt
 
 # The '--reinstall' combined with 'build-essentials' is necessary for cgo
