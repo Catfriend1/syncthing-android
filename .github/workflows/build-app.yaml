@@ -23,13 +23,11 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: prepare-signing
-        run: |
-          mkdir -p /root/.android
-          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
-
       - name: build
         run: |
+          set -eu -o pipefail
+          mkdir -p /root/.android
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
