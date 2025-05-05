@@ -9,8 +9,12 @@
 *.class
 
 # generated files
-app/build/
 .gradle/
+app/build/
+app/src/main/jniLibs
+
+# gradle-play-publisher
+keys.json
 
 # Local configuration file (sdk path, etc)
 local.properties
