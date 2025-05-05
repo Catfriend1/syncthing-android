@@ -51,6 +51,11 @@ docker build -t syncthing-android-builder:latest -f docker/Dockerfile .
 docker run --rm -v "%userprofile%/.android/debug.keystore:/root/.android/debug.keystore:ro" -v .:/mnt syncthing-android-builder:latest ./gradlew buildNative assembleDebug
 ```
 
+## Destroy docker container
+```
+docker rmi syncthing-android-builder:latest
+```
+
 
 # How to use this
 
