@@ -23,6 +23,11 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - name: prepare-signing
+        run: |
+          mkdir -p ~/.android
+          echo "${{ secrets.DEBUG_KEYSTORE_B64 }}" | base64 --decode > ~/.android/debug.keystore
+
       - name: build
         run: |
           git config --system --add safe.directory '*'

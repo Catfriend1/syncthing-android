@@ -33,3 +33,7 @@ docker push ghcr.io/catfriend1/syncthing-android-builder:latest
 ### Allow GitHub Actions to use actions created by GitHub
 ### Allow actions created by Marketplace
 #
+# Integrate "debug.keystore" signing key safely.
+## powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:USERPROFILE} + '\.android\debug.keystore'))" > "X:\debug.keystore.b64"
+## https://github.com/Catfriend1/syncthing-android/settings/secrets/actions
+### Add string as "DEBUG_KEYSTORE_B64".
