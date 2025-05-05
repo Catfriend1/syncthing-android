@@ -25,7 +25,7 @@ jobs:
 
       - name: build
         run: |
-          set -eu -o pipefail
+          set -eu
           mkdir -p /root/.android
           echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
           git config --system --add safe.directory '*'

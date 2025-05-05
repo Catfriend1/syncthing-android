@@ -41,7 +41,7 @@ jobs:
           SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE: '${{ runner.temp }}/google-play-secrets.json'
         shell: bash
         run: |
-          set -eu -o pipefail
+          set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           echo '${{ secrets.GOOGLE_PLAY_SECRETS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
           java -version
