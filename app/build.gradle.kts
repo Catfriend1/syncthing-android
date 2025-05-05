@@ -62,7 +62,7 @@ android {
     }
 
     signingConfigs {
-        create("debug") {
+        getByName("debug") {
             storeFile = File(System.getProperty("user.home") + "/.android/debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
@@ -82,6 +82,7 @@ android {
             isDebuggable = true
             isJniDebuggable = true
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
             isMinifyEnabled = false
