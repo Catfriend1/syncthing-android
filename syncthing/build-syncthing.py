@@ -227,11 +227,18 @@ def write_file(fullfn, text):
 def get_ndk_ready():
     if os.environ.get('ANDROID_NDK_HOME', ''):
         return
-    if not (os.environ.get('NDK_VERSION', '') and os.environ.get('ANDROID_SDK_ROOT', '')):
-        print('ANDROID_NDK_HOME env var is not defined. Then, NDK_VERSION and ANDROID_SDK_ROOT env vars must be defined.')
+    ndk_env_vars_defined = True
+    if not os.environ.get('NDK_VERSION', ''):
+        print('NDK_VERSION is NOT defined.')
+        ndk_env_vars_defined = False
+    if not os.environ.get('ANDROID_HOME', ''):
+        print('ANDROID_HOME is NOT defined.')
+        ndk_env_vars_defined = False
+    if not ndk_env_vars_defined:
+        print('ANDROID_NDK_HOME or NDK_VERSION and ANDROID_HOME environment variable must be defined.')
         install_ndk()
         return
-    os.environ["ANDROID_NDK_HOME"] = os.path.join(os.environ['ANDROID_SDK_ROOT'], 'ndk', os.environ['NDK_VERSION'])
+    os.environ["ANDROID_NDK_HOME"] = os.path.join(os.environ['ANDROID_HOME'], 'ndk', os.environ['NDK_VERSION'])
     return
 
 
