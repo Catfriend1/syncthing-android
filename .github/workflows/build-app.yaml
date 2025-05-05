@@ -32,7 +32,7 @@ jobs:
         run: |
           git config --system --add safe.directory '*'
           java -version
-          ./gradlew --no-daemon buildNative lint assembleDebug
+          ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
