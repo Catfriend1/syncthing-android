@@ -29,6 +29,7 @@ NDK_VERSION = 'r28'
 NDK_EXPECTED_SHASUM_LINUX = '894f469c5192a116d21f412de27966140a530ebc'
 NDK_EXPECTED_SHASUM_WINDOWS = 'f79a00c721dc5c15b2bf093d7bb2af96496a42b2'
 
+# The values here must correspond with those in ../docker/prebuild.sh
 BUILD_TARGETS = [
     {
         'arch': 'arm',
