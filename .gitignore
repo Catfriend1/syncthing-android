@@ -9,7 +9,7 @@
 *.class
 
 # generated files
-build/
+app/build/
 .gradle/
 
 # Local configuration file (sdk path, etc)
