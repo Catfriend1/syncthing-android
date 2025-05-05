@@ -15,23 +15,22 @@ wsl.exe --install debian
 wsl.exe -l -v
 
 ## Install Docker Desktop
-* Download https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
-* Install
-* logoff
-* Relogon
+- Download https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+- Install
+- logoff
+- Relogon
 
 ## Docker Desktop
-* Settings
-** Resources
-*** Advanced
-**** Disk image location
-***** %LocalAppData%\docker\wsl
-**** WSL integration
-***** Enable integration with my default WSL distro
-****** Debian
+- Settings
+- Resources
+- Resources / Advanced
+- Resources / Advanced / Disk image location
+%LocalAppData%\docker\wsl
+- Resources / Advanced / WSL integration
+Enable integration with my default WSL distro - Debian
 
 ## Docker build step
-* Open "cmd"
+- Open "cmd"
 cd /d "syncthing-android"
 
 docker build -t syncthing-android-builder:latest -f docker/Dockerfile .
