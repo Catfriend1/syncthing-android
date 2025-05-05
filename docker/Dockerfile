@@ -52,6 +52,7 @@ ENV GOPATH=/opt/gopath
 
 # Run prebuild script (will prebuild stuff into the image if env var is set)
 ADD . /opt/syncthing-android
+RUN find /opt/syncthing-android -name "*.sh" -exec sed -i 's/\r$//' {} \;
 RUN /opt/syncthing-android/docker/prebuild.sh
 
 WORKDIR /mnt
