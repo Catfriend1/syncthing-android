@@ -77,8 +77,8 @@ Notes:
 
 ```
 # Generate SHA256 hash
-powershell "$hex = 'F8:E0:27:73:B8:2C:F7:E9:4A:AB:1:62:2:9F:57:88:5F:F0:72:F:AE:C1:C:6B:CE:F4:9F:7D:F8:C9:4A:99'; $hexBytes = $hex.Split(':') | ForEach-Object { $_.PadLeft(2, '0') }; $hexClean = ($hexBytes -join ''); $bytes = for ($i = 0; $i -lt $hexClean.Length; $i += 2) { [Convert]::ToByte($hexClean.Substring($i, 2), 16) }; [Convert]::ToBase64String($bytes)"
+powershell "$hex = 'F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99'; $hexBytes = $hex.Split(':') | ForEach-Object { $_.PadLeft(2, '0') }; $hexClean = ($hexBytes -join ''); $bytes = for ($i = 0; $i -lt $hexClean.Length; $i += 2) { [Convert]::ToByte($hexClean.Substring($i, 2), 16) }; [Convert]::ToBase64String($bytes)"
 
 # Decode SHA256 hash
-powershell "$base64 = '+OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk='; $bytes = [System.Convert]::FromBase64String($base64); $hex = ($bytes | ForEach-Object { $_.ToString('x2') }) -join ''; $hex"
+powershell "$base64 = '+OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk='; $bytes = [System.Convert]::FromBase64String($base64); $hex = ($bytes | ForEach-Object { $_.ToString('X2') }) -join ':'; $hex"
 ```
