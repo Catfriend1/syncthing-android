@@ -1,2 +1,2 @@
-Update SyncthingNative to v1.29.5
+Update SyncthingNative to 2.0.0-rc.13
 Build using CI
