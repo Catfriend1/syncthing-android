@@ -26,8 +26,8 @@ jobs:
       - name: build
         run: |
           set -eu
-          mkdir -p ~/.android
-          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > ~/.android/debug.keystore
+          mkdir -p /root/.android
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
