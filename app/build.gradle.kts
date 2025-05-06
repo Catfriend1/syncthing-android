@@ -143,10 +143,6 @@ tasks.register<Delete>("deleteUnsupportedPlayTranslations") {
     )
 }
 
-task<Exec>("postBuildScript") {
-    commandLine("python", "-u" , "./postbuild.py")
-}
-
 project.afterEvaluate {
     android.buildTypes.forEach {
         val capitalizedName = it.name.replaceFirstChar { ch -> ch.uppercase() }
