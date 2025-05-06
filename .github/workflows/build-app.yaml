@@ -42,11 +42,17 @@ jobs:
           COMMIT_HASH=$(git rev-parse --short --verify HEAD)
           echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
 
+      - name: Debug keystore location
+        run: |
+          echo "User: $(whoami)"
+          echo "Home: $HOME"
+          find / -name debug.keystore 2>/dev/null || echo "Keystore not found"
+
       - name: build
         run: |
           set -eu
-          mkdir -p /root/.android
-          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > /root/.android/debug.keystore
+          mkdir -p "${HOME}/.android"
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "${HOME}/.android/debug.keystore"
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
