@@ -1,6 +1,3 @@
-import org.gradle.configurationcache.extensions.capitalized
-
-
 plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
@@ -152,7 +149,8 @@ task<Exec>("postBuildScript") {
 
 project.afterEvaluate {
     android.buildTypes.forEach {
-        tasks.named("merge${it.name.capitalized()}JniLibFolders") {
+        val capitalizedName = it.name.replaceFirstChar { ch -> ch.uppercase() }
+        tasks.named("merge${capitalizedName}JniLibFolders") {
             dependsOn(":syncthing:buildNative")
         }
     }

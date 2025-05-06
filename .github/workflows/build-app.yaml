@@ -23,21 +23,53 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - name: Get app version from build.gradle.kts
+        id: get_version
+        run: |
+          set -eu
+          VERSION_MAJOR=$(grep 'set("versionMajor"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_MINOR=$(grep 'set("versionMinor"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_PATCH=$(grep 'set("versionPatch"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_WRAPPER=$(grep 'set("versionWrapper"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH.$VERSION_WRAPPER"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Get commit hash
+        id: get_commit_hash
+        run: |
+          set -eu
+          git config --system --add safe.directory '*'
+          COMMIT_HASH=$(git rev-parse --short --verify HEAD)
+          echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+
       - name: build
         run: |
           set -eu
-          mkdir -p ~/.android
-          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > ~/.android/debug.keystore
+          mkdir -p "/root/.android"
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "/root/.android/debug.keystore"
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: syncthing-android-debug.apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+      - name: prepare-artifacts
+        shell: bash
+        run: |
+          set -eu
+          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
 
       - uses: actions/upload-artifact@v4
+        with:
+          name: com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            app/build/reports/**
+
+      - if: false
+        uses: actions/upload-artifact@v4
         with:
           name: reports-and-libs
           path: |
