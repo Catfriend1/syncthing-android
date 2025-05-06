@@ -7,7 +7,7 @@ plugins {
 dependencies {
     androidTestImplementation("androidx.annotation:annotation:1.2.0")
     androidTestImplementation("androidx.test:rules:1.6.1")
-    annotationProcessor("com.google.dagger:dagger-compiler:2.56.2.2")
+    annotationProcessor("com.google.dagger:dagger-compiler:2.56.2")
     implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.core:core:1.16.0")
