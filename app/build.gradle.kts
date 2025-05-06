@@ -10,7 +10,7 @@ plugins {
 dependencies {
     androidTestImplementation("androidx.annotation:annotation:1.2.0")
     androidTestImplementation("androidx.test:rules:1.6.1")
-    annotationProcessor("com.google.dagger:dagger-compiler:2.56")
+    annotationProcessor("com.google.dagger:dagger-compiler:2.56.2")
     implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.core:core:1.16.0")
@@ -22,7 +22,7 @@ dependencies {
     implementation("com.annimon:stream:1.2.2")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.code.gson:gson:2.13.0")
-    implementation("com.google.dagger:dagger:2.56")
+    implementation("com.google.dagger:dagger:2.56.2")
     implementation("com.google.guava:guava:33.4.8-android")
     // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
     implementation("com.google.zxing:core:3.3.0")
