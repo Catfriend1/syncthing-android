@@ -1,3 +1,6 @@
+import org.gradle.configurationcache.extensions.capitalized
+
+
 plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
@@ -148,5 +151,9 @@ task<Exec>("postBuildScript") {
 }
 
 project.afterEvaluate {
-    project.getTasks().getByName("mergeDebugJniLibFolders").dependsOn(":syncthing:buildNative")
+    android.buildTypes.forEach {
+        tasks.named("merge${it.name.capitalized()}JniLibFolders") {
+            dependsOn(":syncthing:buildNative")
+        }
+    }
 }
