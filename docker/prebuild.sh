@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 if [ -z "$SYNCTHING_ANDROID_PREBUILT" ]; then
     echo "Prebuild disabled"

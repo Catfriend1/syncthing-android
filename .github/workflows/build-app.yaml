@@ -16,25 +16,28 @@ jobs:
   build:
     name: Debug Build
     runs-on: ubuntu-latest
-    container: ghcr.io/syncthing/syncthing-android-builder
+    container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
 
       - name: build
         run: |
+          set -eu
+          mkdir -p ~/.android
+          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > ~/.android/debug.keystore
           git config --system --add safe.directory '*'
           java -version
-          ./gradlew --no-daemon buildNative lint assembleDebug
+          ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: syncthing-android-debug.apk
           path: app/build/outputs/apk/debug/app-debug.apk
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: reports-and-libs
           path: |

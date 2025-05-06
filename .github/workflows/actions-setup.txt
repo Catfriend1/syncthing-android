@@ -1,0 +1,42 @@
+#
+# https://github.com/settings/tokens/new
+## Token name
+### docker-push
+## Expiration
+### 30 days
+## Permissions
+### write:packages
+### read:packages
+### delete:packages
+#
+# Login
+echo %GHP% | docker login ghcr.io -u catfriend1 --password-stdin
+#
+# Tag
+docker tag syncthing-android-builder ghcr.io/catfriend1/syncthing-android-builder:latest
+#
+# Push container
+docker push ghcr.io/catfriend1/syncthing-android-builder:latest
+#
+# Verify
+## https://github.com/Catfriend1?tab=packages
+#
+# https://github.com/Catfriend1/syncthing-android/pkgs/container/syncthing-android-builder
+## Link image to repository "Catfriend1/syncthing-android"
+#
+# https://github.com/users/Catfriend1/packages/container/syncthing-android-builder/settings
+## Manage Actions access
+### + Catfriend1/syncthing-android
+#
+# Setup actions
+## https://github.com/Catfriend1/syncthing-android/settings/actions
+### Allow GitHub Actions to use actions created by GitHub
+### Allow actions created by Marketplace
+#
+# Add repository strings: https://github.com/Catfriend1/syncthing-android/settings/secrets/actions
+## DEBUG_KEYSTORE_B64
+### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:USERPROFILE} + '\.android\debug.keystore'))" > "X:\debug.keystore.b64"
+## SIGNING_KEYSTORE_JKS_BASE64
+### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:USERPROFILE} + '\.android\catfriend1.jks'))" > "X:\catfriend1.jks.b64"
+## SIGNING_PASSWORD
+### [PWD]
