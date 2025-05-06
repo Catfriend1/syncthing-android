@@ -4,10 +4,10 @@ on:
   push:
     # Cannot filter on both branches (release) and tags - it's ORed
     tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
-      - '[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+\.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+\.[0-9]+'
 
 env:
   # Our build metadata
@@ -18,9 +18,9 @@ jobs:
   release:
     name: Release Build and Publish
     runs-on: ubuntu-latest
-    container: ghcr.io/syncthing/syncthing-android-builder
+    container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
@@ -35,29 +35,30 @@ jobs:
 
       - name: build_release
         env:
-          SYNCTHING_RELEASE_KEY_ALIAS: android
+          SYNCTHING_RELEASE_KEY_ALIAS: Syncthing-Fork
           SIGNING_PASSWORD: '${{ secrets.SIGNING_PASSWORD }}'
           SYNCTHING_RELEASE_STORE_FILE: '${{ runner.temp }}/signing-keystore.jks'
-          SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE: '${{ runner.temp }}/google-play-secrets.json'
+          # SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE: '${{ runner.temp }}/google-play-secrets.json'
         shell: bash
         run: |
-          set -eu -o pipefail
+          set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
-          echo '${{ secrets.GOOGLE_PLAY_SECRETS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
+          # echo '${{ secrets.GOOGLE_PLAY_SECRETS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
           java -version
           # TODO: Readd publishReleaseBundle if google play works again, or
           # remove everything related to publishing to google play.
-          ./gradlew --no-daemon buildNative lint assembleRelease bundleRelease
-          rm "$SYNCTHING_RELEASE_STORE_FILE" "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
+          ./gradlew --no-daemon buildNative lintRelease assembleRelease bundleRelease
+          # rm "$SYNCTHING_RELEASE_STORE_FILE" "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
 
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          cd app/build/outputs/apk/release
-          sha256sum app-release.apk | gpg --clearsign > sha256sum.txt.asc
+          # echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
+          # cd app/build/outputs/apk/release
+          # sha256sum app-release.apk | gpg --clearsign > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc"
+          # TODO: Readd ,app/build/outputs/apk/release/*.asc
+          artifacts: "app/build/outputs/apk/release/*.apk"
           artifactErrorsFailBuild: true
-          bodyFile: "app/src/main/play/release-notes/en-GB/default.txt"
+          bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
           prerelease: ${{ contains('-rc.', github.ref_name) }}
           draft: true
