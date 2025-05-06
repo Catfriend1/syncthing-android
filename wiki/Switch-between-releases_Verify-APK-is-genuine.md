@@ -82,4 +82,15 @@ powershell "$hex = 'C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:
 
 # Decode SHA256 hash
 powershell "$base64 = 'x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM='; $bytes = [System.Convert]::FromBase64String($base64); $hex = ($bytes | ForEach-Object { $_.ToString('X2') }) -join ':'; $hex"
+
+# Verify GPG signature
+gpg --edit-key 2AE7B863311870943686F89E57262A988E551584
+## trust
+## 5
+## quit
+gpg --verify sha256sum.txt.asc
+gpg --output sha256sum.txt --decrypt sha256sum.txt.asc
+
+# Verify SHA256 checksum of each file
+powershell -Command "Get-Content 'sha256sum.txt' | ForEach-Object { if ($_ -match '^([a-fA-F0-9]{64})\s+[* ]?(.+)$') { $expected = $matches[1]; $file = $matches[2]; if (Test-Path $file) { $actual = (Get-FileHash $file -Algorithm SHA256).Hash; if ($actual -ieq $expected) { Write-Host \"${file}: OK\" -ForegroundColor Green } else { Write-Host \"${file}: FAILED\" -ForegroundColor Red; Write-Host \"  Expected: $expected\"; Write-Host \"  Found : $actual\" } } else { Write-Warning \"File not found [$file].\" } } }"
 ```
