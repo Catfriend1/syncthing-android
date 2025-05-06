@@ -31,7 +31,8 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions) and artifacts.
 * It's for maintainers, contributors who require a second installation of the app on their phone for testing purposes.
 * File name is like: com.github.catfriend1.syncthingandroid_debug_1.29.6.0_7d59e75.apk
-* Certificate hash: 2ScaPj41giu4vFh+Y7Q0GJTqwbA=
+* Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
+* Signing Certificate SHA256 Fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
 
 
 The signing on these release channels differ, so if you wish to change to a different channel:
@@ -77,8 +78,8 @@ Notes:
 
 ```
 # Generate SHA256 hash
-powershell "$hex = 'C9:E8:B9:61:B8:5E:F6:36:4D:C7:B3:46:E1:61:3D:32:08:E7:7E:C3:EA:6C:70:B3:52:11:EF:7D:E7:4F:12:E5'; $hexBytes = $hex.Split(':') | ForEach-Object { $_.PadLeft(2, '0') }; $hexClean = ($hexBytes -join ''); $bytes = for ($i = 0; $i -lt $hexClean.Length; $i += 2) { [Convert]::ToByte($hexClean.Substring($i, 2), 16) }; [Convert]::ToBase64String($bytes)"
+powershell "$hex = 'C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3'; $hexBytes = $hex.Split(':') | ForEach-Object { $_.PadLeft(2, '0') }; $hexClean = ($hexBytes -join ''); $bytes = for ($i = 0; $i -lt $hexClean.Length; $i += 2) { [Convert]::ToByte($hexClean.Substring($i, 2), 16) }; [Convert]::ToBase64String($bytes)"
 
 # Decode SHA256 hash
-powershell "$base64 = 'yei5Ybhe9jZNx7NG4WE9MgjnfsPqbHCzUhHvfedPEuU='; $bytes = [System.Convert]::FromBase64String($base64); $hex = ($bytes | ForEach-Object { $_.ToString('X2') }) -join ':'; $hex"
+powershell "$base64 = 'x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM='; $bytes = [System.Convert]::FromBase64String($base64); $hex = ($bytes | ForEach-Object { $_.ToString('X2') }) -join ':'; $hex"
 ```
