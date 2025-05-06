@@ -44,3 +44,5 @@ docker push ghcr.io/catfriend1/syncthing-android-builder:latest
 ### [PWD]
 ## GNUPG_SIGNING_KEY_BASE64
 ### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes('X:\Catfriend1_SECRET.asc'))" > "X:\Catfriend1_SECRET.asc.b64"
+## GHCR_TOKEN
+### %GHP%
