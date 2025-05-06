@@ -32,6 +32,8 @@ docker push ghcr.io/catfriend1/syncthing-android-builder:latest
 ## https://github.com/Catfriend1/syncthing-android/settings/actions
 ### Allow GitHub Actions to use actions created by GitHub
 ### Allow actions created by Marketplace
+### Allow specified actions and reusable workflows
+#### ncipollo/release-action@v1,
 #
 # Add repository strings: https://github.com/Catfriend1/syncthing-android/settings/secrets/actions
 ## DEBUG_KEYSTORE_B64
