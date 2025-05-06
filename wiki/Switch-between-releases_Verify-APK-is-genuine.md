@@ -6,6 +6,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Published on [F-Droid](https://f-droid.org/packages/com.github.catfriend1.syncthingandroid/) and [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
 * File name is like: com.github.catfriend1.syncthingandroid_fdroid_1.29.6.0_7d59e75.apk
 * Certificate hash: yei5Ybhe9jZNx7NG4WE9MgjnfsPqbHCzUhHvfedPEuU=
+* Signing Certificate SHA256 Fingerprint: <details>C9:E8:B9:61:B8:5E:F6:36:4D:C7:B3:46:E1:61:3D:32:8:E7:7E:C3:EA:6C:70:B3:52:11:EF:7D:E7:4F:12:E5</details>
 
 <b>2. GitHub release build</b>
 
