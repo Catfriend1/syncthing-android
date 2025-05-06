@@ -1012,6 +1012,10 @@ public class SyncthingService extends Service {
                     for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
                         String prefKey = (String) e.getKey();
                         switch (prefKey) {
+                            // Preferences that should not be imported as they may be outdated and already changed by the user.
+                            case Constants.PREF_BACKUP_FOLDER_NAME:
+                                LogV("importConfig: Ignoring outdated user pref \"" + prefKey + "\".");
+                                break;
                             // Preferences that are no longer used and left-overs from previous versions of the app.
                             case "first_start":
                             case "advanced_folder_picker":
