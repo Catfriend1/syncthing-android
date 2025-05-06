@@ -13,8 +13,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * If you don't like to use F-Droid for some reason, please choose this!
 * Only published on [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
 * File name is like: com.github.catfriend1.syncthingandroid_release_1.29.6.0_7d59e75.apk
-* Certificate hash: +OAnc7gs9+lKqxYin1eIX/By+uwca870n334yUqZ
-* Signing Certificate SHA256 Fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:1:62:2:9F:57:88:5F:F0:72:F:AE:C1:C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
+* Certificate hash: +OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk=
 
 <b>3. Google Play release build</b>
 
@@ -22,8 +21,8 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * May contain limited functionality due to play policies.
 * It's an appetizer for your family and friends to start their Syncthing experience.
 * File name is like: com.github.catfriend1.syncthingandroid_gplay_1.29.6.0_7d59e75.aab
-* Certificate hash: +OAnc7gs9+lKqxYin1eIX/By+uwca870n334yUqZ
-* Signing Certificate SHA256 Fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:1:62:2:9F:57:88:5F:F0:72:F:AE:C1:C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
+* Certificate hash: +OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk=
+* Signing Certificate SHA256 Fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
 
 <b>4. GitHub debug build</b>
 
