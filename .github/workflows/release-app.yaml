@@ -56,7 +56,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/gplay/*.aab"
+          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/bundle/gplay/*.aab"
           artifactErrorsFailBuild: true
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
           prerelease: ${{ contains('-rc.', github.ref_name) }}
