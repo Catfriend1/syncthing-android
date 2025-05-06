@@ -9,28 +9,6 @@ Changelog: https://github.com/Catfriend1/syncthing-android/releases
 Liberapay: cf4friends
 
 AutoName: Syncthing-Fork
-Description: |-
-  This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
-  enhancements like:
-  * Individual sync conditions can be applied per device and per folder
-  * Recent changes UI, click to open files.
-  * "Battery eater" problem is fixed.
-  * Android 8 and 9 support.
-  Syncthing replaces proprietary sync and cloud services with something open,
-  trustworthy and decentralized. Your data is your data alone and you deserve to
-  choose where it is stored, if it is shared with some third party and how it's
-  transmitted over the Internet. Syncthing-Fork for Android is a wrapper for
-  Syncthing that provides an Android UI instead of Syncthing's built-in Web UI.
-  Goals of the fork:
-  * Develop and try out enhancements together with the community.
-  * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-  * Make enhancements configurable in the UI, users should be able to turn them on and off
-  Comparison between upstream and fork at the time of writing this:
-  * Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-  * Syncing functionality and reliability depends on the syncthing binary submodule version.
-  * Fork gets along with upstream and sometimes they pick up my improvements.
-  * Strategy and release frequency is different
-  * Only the wrapper containing the Android UI is addressed by the fork.
 
 RepoType: git
 Repo: https://github.com/Catfriend1/syncthing-android-fdroid.git
@@ -2257,11 +2235,167 @@ Builds:
       - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
       - gradle :syncthing:buildNative
 
+  - versionName: 1.28.1.0
+    versionCode: 1280100
+    commit: e8570f09d0277cee3d94858759a547e0b6aee8bd
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.28.1.1
+    versionCode: 1280101
+    commit: 2bca3b9604a8133becf30c8d08c9dc310a0ab0b2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.29.0.0
+    versionCode: 1290000
+    commit: 380f346dc4c2079c871756037d641b38512b398d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.29.2.0
+    versionCode: 1290200
+    commit: 5135925ae9b603e0fdea4e8be6b84fe7f5948f58
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.29.3.0
+    versionCode: 1290300
+    commit: e1dcb232bcfe05e578ee15464e0c0a79686190a1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.29.4.0
+    versionCode: 1290400
+    commit: 71afb7c77c47ac381adacd0a09eebfcff34ad389
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e '/executable/s/python/python3/' build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - gradle :syncthing:buildNative
+
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.28.0.0
-CurrentVersionCode: 1280000
+CurrentVersion: 1.29.4.0
+CurrentVersionCode: 1290400
