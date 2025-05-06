@@ -1,6 +1,3 @@
-# docker specific
-.git/objects/
-
 # built application files
 *.apk
 *.ap_
