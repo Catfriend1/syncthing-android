@@ -16,5 +16,7 @@ jobs:
   push-image:
     if: github.event_name == 'workflow_dispatch'
     uses: ./.github/workflows/image-builder-template.yaml
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
     with:
       push: true
