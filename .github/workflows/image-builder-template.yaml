@@ -6,6 +6,9 @@ on:
       push:
         required: true
         type: boolean
+    secrets:
+      GHCR_TOKEN:
+        required: false
 
 env:
   # Our build metadata
