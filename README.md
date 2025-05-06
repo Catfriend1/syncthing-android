@@ -6,7 +6,7 @@
 <a href="https://tooomm.github.io/github-release-stats/?username=Catfriend1&repository=syncthing-android" alt="GitHub Stats"><img src="https://img.shields.io/github/downloads/Catfriend1/syncthing-android/total.svg" /></a>
 <a href="https://hosted.weblate.org/projects/syncthing/android/catfriend1/"><img src="https://hosted.weblate.org/widget/syncthing/android/catfriend1/svg-badge.svg" alt="Translation status" /></a>[![Build App](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml/badge.svg)](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml)
 
-A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. Please open an issue under this fork if you need help. Important: Please don't file bugs at the upstream repository "[syncthing/syncthing-android](https://github.com/syncthing/syncthing-android)" if you are using this fork.
+A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. I'm currently short on time. Please seek help on the forum and/or social media apps first before consuming my time moderating issues on the tracker here. Thank you.
 
 <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/1.png" alt="screenshot 1" width="200" />
 
@@ -15,6 +15,8 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/4.png" alt="screenshot 3" width="200" />
 
 ## I am no longer publishing this on Google Play
+
+See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Switch-between-releases_Verify-APK-is-genuine.md) about release variants and which is recommended to fit your needs.
 
 "nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into his mission. It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the spirit of open source.
 
