@@ -1,6 +1,3 @@
-# docker specific
-.git/
-
 # built application files
 *.apk
 *.ap_
