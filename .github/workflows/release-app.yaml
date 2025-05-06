@@ -80,6 +80,7 @@ jobs:
         with:
           artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc,app/build/outputs/bundle/gplay/*.aab"
           artifactErrorsFailBuild: true
+          name: Syncthing-Fork v${{ env.VERSION }}
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
           prerelease: ${{ contains('-rc.', github.ref_name) }}
           draft: true
