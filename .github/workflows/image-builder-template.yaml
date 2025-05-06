@@ -6,6 +6,9 @@ on:
       push:
         required: true
         type: boolean
+    secrets:
+      GHCR_TOKEN:
+        required: false
 
 env:
   # Our build metadata
@@ -30,8 +33,8 @@ jobs:
         if: ${{ inputs.push }}
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: catfriend1
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - uses: docker/build-push-action@v4
         with:
