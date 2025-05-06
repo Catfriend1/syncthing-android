@@ -23,8 +23,8 @@
     <string name="dialog_disable_battery_optimizations_not_supported">您的设备不支持禁用电池优化</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">位置权限</string>
-    <string name="location_permission_desc">Syncthing 可以配置为在选定的 Wi-Fi 网络上工作。Android 要求应用具有位置权限才能读取活动的 Wi-Fi 网络名称。如果您想使用此功能，请按上面的按钮。您可以跳过此步骤。有关更多详细信息，请参阅我们的隐私政策。</string>
-    <string name="location_permission_desc_api_29">Android 10+ 提示：“始终允许”</string>
+    <string name="location_permission_desc">Syncthing 可以配置为在选定的 Wi-Fi 网络上工作。Android 要求应用具有获取位置权限才能读取活动的 Wi-Fi 网络名称。如果您想使用此功能，请按上面的按钮。您可以跳过此步骤。有关更多详细信息，请参阅我们的隐私政策。</string>
+    <string name="location_permission_desc_api_29">适用于 Android 10+ 提示：“始终允许”</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">密钥生成</string>
     <string name="key_generation_success">已成功生成用于私人数据交换的安全密钥。</string>
@@ -104,7 +104,7 @@
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">这将撤销在此设备的该文件夹内所做的所有更改。继续吗\?</string>
     <string name="open_file_manager">打开文件管理器</string>
-    <string name="open_file_with">选择用于打开的工具</string>
+    <string name="open_file_with">选择用于打开文件的方式</string>
     <string name="open_file_no_compatible_app">没找到用于打开该文件的应用。</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">没有找到兼容的文件管理器</string>
@@ -747,7 +747,7 @@
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">运行 %1$d 分钟</string>
     <string name="notification_permission_title">通知权限</string>
     <string name="toast_notification_permission_required">Syncthing 需要通知权限保持其服务活动和连接。</string>
-    <string name="dialog_confirm_skip_ignore_doze_permission">小心：如果 SyncthingNative 被中断并做了一些奇怪的事情，要怪就怪自己。仅在您的设备不支持授予权限的情况下跳过。是否跳过？</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">小心：如果 SyncthingNative 被中断并做了一些奇怪的事情，都怪您。仅在您的设备不支持授予权限的情况下跳过。真的要跳过？</string>
     <string name="sleep_interval_minutes_title">同步暂停间隔持续时间</string>
     <string name="start_into_web_gui_title">启动直接进入 Web GUI</string>
     <string name="start_into_web_gui_summary">启动应用时，打开 Web GUI 而不是打开主屏幕</string>
