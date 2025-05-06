@@ -33,30 +33,52 @@ jobs:
             exit 1
           fi
 
+      - name: Get app version from build.gradle.kts
+        id: get_version
+        run: |
+          set -eu
+          VERSION_MAJOR=$(grep 'set("versionMajor"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_MINOR=$(grep 'set("versionMinor"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_PATCH=$(grep 'set("versionPatch"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION_WRAPPER=$(grep 'set("versionWrapper"' build.gradle.kts | grep -o '[0-9]\+')
+          VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH.$VERSION_WRAPPER"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Get commit hash
+        id: get_commit_hash
+        run: |
+          set -eu
+          COMMIT_HASH=$(git rev-parse --short --verify HEAD)
+          echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+
       - name: build_release
         env:
           SYNCTHING_RELEASE_KEY_ALIAS: Syncthing-Fork
           SIGNING_PASSWORD: '${{ secrets.SIGNING_PASSWORD }}'
           SYNCTHING_RELEASE_STORE_FILE: '${{ runner.temp }}/signing-keystore.jks'
-          # SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE: '${{ runner.temp }}/google-play-secrets.json'
         shell: bash
         run: |
           set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
-          # echo '${{ secrets.GOOGLE_PLAY_SECRETS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
           java -version
-          # TODO: Readd publishReleaseBundle if google play works again, or
-          # remove everything related to publishing to google play.
           ./gradlew --no-daemon buildNative lintRelease assembleRelease bundlegplay
-          # rm "$SYNCTHING_RELEASE_STORE_FILE" "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
+          rm "$SYNCTHING_RELEASE_STORE_FILE"
 
-          # echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          # cd app/build/outputs/apk/release
-          # sha256sum app-release.apk | gpg --clearsign > sha256sum.txt.asc
+      - name: prepare-artifacts
+        shell: bash
+        run: |
+          set -eu
+          #
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
+          mv "app/build/outputs/bundle/gplay/app-gplay.aab" "app/build/outputs/bundle/gplay/com.github.catfriend1.syncthingandroid_gplay_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.aab"
+          #
+          cd "app/build/outputs/apk/release"
+          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
+          sha256sum "com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk" | gpg --clearsign > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/bundle/gplay/*.aab"
+          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc,app/build/outputs/bundle/gplay/*.aab"
           artifactErrorsFailBuild: true
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
           prerelease: ${{ contains('-rc.', github.ref_name) }}
