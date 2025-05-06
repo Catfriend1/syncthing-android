@@ -30,7 +30,7 @@ jobs:
           echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > ~/.android/debug.keystore
           git config --system --add safe.directory '*'
           java -version
-          ./gradlew --no-daemon buildNative lintDebug assembleDebug
+          ./gradlew --no-daemon --stacktrace buildNative lintDebug assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
