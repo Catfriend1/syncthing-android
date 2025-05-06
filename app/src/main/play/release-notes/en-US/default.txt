@@ -1,1 +1,2 @@
-.
+Update SyncthingNative to v1.29.5
+Build using CI
