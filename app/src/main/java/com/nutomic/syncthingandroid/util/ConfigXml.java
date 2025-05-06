@@ -497,6 +497,7 @@ public class ConfigXml {
             folder.sendOwnership = getContentOrDefault(r.getElementsByTagName("sendOwnership").item(0), folder.sendOwnership);
             folder.syncXattrs = getContentOrDefault(r.getElementsByTagName("syncXattrs").item(0), folder.syncXattrs);
             folder.sendXattrs = getContentOrDefault(r.getElementsByTagName("sendXattrs").item(0), folder.sendXattrs);
+            folder.filesystemType = getContentOrDefault(r.getElementsByTagName("filesystemType").item(0), folder.filesystemType);
 
             // Devices
             /*
@@ -613,6 +614,7 @@ public class ConfigXml {
                 setConfigElement(r, "sendOwnership", Boolean.toString(folder.sendOwnership));
                 setConfigElement(r, "syncXattrs", Boolean.toString(folder.syncXattrs));
                 setConfigElement(r, "sendXattrs", Boolean.toString(folder.sendXattrs));
+                setConfigElement(r, "filesystemType", folder.filesystemType);
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
