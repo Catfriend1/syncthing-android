@@ -42,11 +42,12 @@ jobs:
           COMMIT_HASH=$(git rev-parse --short --verify HEAD)
           echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
 
-      - name: Debug keystore location
+      - name: Find all debug.keystore files
         run: |
-          echo "User: $(whoami)"
-          echo "Home: $HOME"
-          find / -name debug.keystore 2>/dev/null || echo "Keystore not found"
+          echo "Current user: $(whoami)"
+          echo "Current HOME: $HOME"
+          echo "Searching for debug.keystore files..."
+          find / -type f -name "debug.keystore" 2>/dev/null || echo "No debug.keystore files found"
 
       - name: build
         run: |
@@ -56,6 +57,13 @@ jobs:
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
+
+      - name: Find all debug.keystore files
+        run: |
+          echo "Current user: $(whoami)"
+          echo "Current HOME: $HOME"
+          echo "Searching for debug.keystore files..."
+          find / -type f -name "debug.keystore" 2>/dev/null || echo "No debug.keystore files found"
 
       - uses: actions/upload-artifact@v4
         with:
