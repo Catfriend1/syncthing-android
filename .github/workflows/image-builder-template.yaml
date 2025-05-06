@@ -30,7 +30,7 @@ jobs:
         if: ${{ inputs.push }}
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: catfriend1
           password: ${{ secrets.GHCR_TOKEN }}
 
       - uses: docker/build-push-action@v4
