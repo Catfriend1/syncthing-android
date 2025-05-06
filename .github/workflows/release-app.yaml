@@ -47,7 +47,7 @@ jobs:
           java -version
           # TODO: Readd publishReleaseBundle if google play works again, or
           # remove everything related to publishing to google play.
-          ./gradlew --no-daemon buildNative lintRelease assembleRelease bundleRelease
+          ./gradlew --no-daemon buildNative lintRelease assembleRelease bundlegplay
           # rm "$SYNCTHING_RELEASE_STORE_FILE" "$SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE"
 
           # echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
@@ -56,8 +56,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          # TODO: Readd ,app/build/outputs/apk/release/*.asc
-          artifacts: "app/build/outputs/apk/release/*.apk"
+          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/bundle/gplay/*.aab"
           artifactErrorsFailBuild: true
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
           prerelease: ${{ contains('-rc.', github.ref_name) }}
