@@ -426,7 +426,7 @@ public class SettingsActivity extends SyncthingActivity {
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
             screen.findPreference(KEY_OS_OPEN_FILE_LIMIT).setSummary(getOpenFileLimit());
             mLicensePref            = findPreference(KEY_OPEN_SOURCE_LICENSES);
-            mLicensePref.setOnPreferenceChangeListener(this);
+            mLicensePref.setOnPreferenceClickListener(this);
 
             // Check if we should directly show a sub preference screen.
             Bundle bundle = getArguments();
@@ -941,6 +941,10 @@ public class SettingsActivity extends SyncthingActivity {
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                             })
                             .show();
+                    return true;
+                case KEY_OPEN_SOURCE_LICENSES:
+                    OssLicensesMenuActivity.setActivityTitle(getString(R.string.open_source_licenses_title));
+                    startActivity(new Intent(getActivity(), OssLicensesMenuActivity.class));
                     return true;
             }
         }
