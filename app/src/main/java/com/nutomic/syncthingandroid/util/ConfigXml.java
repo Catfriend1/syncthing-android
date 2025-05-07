@@ -475,7 +475,7 @@ public class ConfigXml {
             
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
             folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", folder.autoNormalize);
-            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
+            folder.fsWatcherDelayS = getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
             folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", folder.fsWatcherEnabled);
             folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", folder.ignorePerms);
             folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", folder.rescanIntervalS);
@@ -592,7 +592,7 @@ public class ConfigXml {
                 r.setAttribute("path", folder.path);
                 r.setAttribute("type", folder.type);
                 r.setAttribute("autoNormalize", Boolean.toString(folder.autoNormalize));
-                r.setAttribute("fsWatcherDelayS", Integer.toString(folder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Float.toString(folder.fsWatcherDelayS));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(folder.fsWatcherEnabled));
                 r.setAttribute("ignorePerms", Boolean.toString(folder.ignorePerms));
                 r.setAttribute("rescanIntervalS", Integer.toString(folder.rescanIntervalS));
