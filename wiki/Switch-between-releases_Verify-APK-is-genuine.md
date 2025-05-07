@@ -33,6 +33,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * File name is like: com.github.catfriend1.syncthingandroid_debug_1.29.6.0_7d59e75.apk
 * Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
 * Signing Certificate SHA256 Fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
+* Please note: Debug builds triggered from potentially untrusted sources, e.g. fork repositories use a PUBLIC signing certificate. This offers NO security at all. The content of these builds is NOT authored NOR approved by this repository. They are offered for TESTING PURPOSES only and are NOT production ready. If we would not sign them by the same PUBLIC key, contributors who forked the app would not be able to try out their contributed changes on their own phone or emulator by upgrading from their previous build as the CI build process would use a different debug signing key for each superseding build. The public UNTRUSTED key has the following SHA256 fingerprint: <details>D1:F4:C6:CD:8E:88:8B:B7:F1:2D:BB:4A:CC:E:6D:F7:86:62:77:F1:2:3F:91:A3:E7:F:EC:E7:14:4B:38:63</details>
 
 
 The signing on these release channels differ, so if you wish to change to a different channel:
