@@ -213,8 +213,10 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mSocksProxyAddress;
         private EditTextPreference mHttpProxyAddress;
 
+        /* About */
         private Preference mSyncthingVersion;
 
+        /* Context */
         private Context mContext;
         private SyncthingService mSyncthingService;
         private RestApi mRestApi;
