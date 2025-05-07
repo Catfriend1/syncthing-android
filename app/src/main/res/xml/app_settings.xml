@@ -472,6 +472,12 @@
             android:title="@string/os_open_file_limit"
             android:singleLineTitle="false" />
 
+        <Preference
+                android:persistent="false"
+                android:key="open_source_licenses"
+                android:title="@string/open_source_licenses_title"
+                android:summary="@string/open_source_licenses_summary" />
+
     </PreferenceScreen>
 
 </PreferenceScreen>

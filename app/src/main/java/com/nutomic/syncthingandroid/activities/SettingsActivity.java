@@ -40,6 +40,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
@@ -156,6 +157,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
         private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
         private static final String KEY_OS_OPEN_FILE_LIMIT = "os_open_file_limit";
+        private static final String KEY_OPEN_SOURCE_LICENSES = "open_source_licenses";
 
         private static final String BIND_ALL = "0.0.0.0";
         private static final String BIND_LOCALHOST = "127.0.0.1";
@@ -197,6 +199,7 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mWebUITcpPort;
         private EditTextPreference mWebUIUsername;
         private EditTextPreference mWebUIPassword;
+        private Preference mSyncthingApiKey;
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
@@ -212,9 +215,11 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mSocksProxyAddress;
         private EditTextPreference mHttpProxyAddress;
 
+        /* About */
         private Preference mSyncthingVersion;
-        private Preference mSyncthingApiKey;
+        private Preference mLicensePref;
 
+        /* Context */
         private Context mContext;
         private SyncthingService mSyncthingService;
         private RestApi mRestApi;
@@ -420,6 +425,8 @@ public class SettingsActivity extends SyncthingActivity {
             }
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
             screen.findPreference(KEY_OS_OPEN_FILE_LIMIT).setSummary(getOpenFileLimit());
+            mLicensePref            = findPreference(KEY_OPEN_SOURCE_LICENSES);
+            mLicensePref.setOnPreferenceClickListener(this);
 
             // Check if we should directly show a sub preference screen.
             Bundle bundle = getArguments();
@@ -934,6 +941,10 @@ public class SettingsActivity extends SyncthingActivity {
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                             })
                             .show();
+                    return true;
+                case KEY_OPEN_SOURCE_LICENSES:
+                    OssLicensesMenuActivity.setActivityTitle(getString(R.string.open_source_licenses_title));
+                    startActivity(new Intent(getActivity(), OssLicensesMenuActivity.class));
                     return true;
             }
         }

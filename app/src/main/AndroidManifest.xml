@@ -244,6 +244,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nutomic.syncthingandroid.activities.DeviceActivity" />
         </activity>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            android:theme="@style/Theme.Syncthing.Dialog"
+            android:parentActivityName=".activities.SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SettingsActivity" />
+        </activity>
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:theme="@style/Theme.Syncthing.Dialog"
+            android:parentActivityName=".activities.SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SettingsActivity" />
+        </activity>
         <property
             android:name="android.content.MEDIA_CAPABILITIES"
             android:resource="@xml/media_capabilities" />

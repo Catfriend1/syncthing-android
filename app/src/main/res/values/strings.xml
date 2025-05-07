@@ -709,6 +709,7 @@
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Successfully reset Syncthing\'s delta indexes</string>
 
+    <!-- Settings / About -->
     <string name="category_about">About</string>
 
     <string name="verbose_log_title">Verbose log</string>
@@ -754,6 +755,12 @@
 
     <!-- Title of the preference showing the OS open file limit -->
     <string name="os_open_file_limit">Android Open File Limit</string>
+    
+    <!-- Title of the preference showing the Open Source Licenses -->
+    <string name="open_source_licenses_title">Open Source Licenses</string>
+    
+    <!-- Summary of the preference showing the Open Source Licenses -->
+    <string name="open_source_licenses_summary">Show the open source licenses used</string>
 
     <!-- FolderPickerAcitivity -->
 
