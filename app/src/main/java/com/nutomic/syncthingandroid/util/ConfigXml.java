@@ -424,6 +424,14 @@ public class ConfigXml {
         }
     }
 
+    private Float getAttributeOrDefault(final Element element, String attribute, Float defaultValue) {
+        try {
+            return element.hasAttribute(attribute) ? Float.parseFloat(element.getAttribute(attribute)) : defaultValue;
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
     private String getAttributeOrDefault(final Element element, String attribute, String defaultValue) {
         return element.hasAttribute(attribute) ? element.getAttribute(attribute) : defaultValue;
     }
