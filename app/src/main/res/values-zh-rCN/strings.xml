@@ -751,4 +751,6 @@
     <string name="sleep_interval_minutes_title">同步暂停间隔持续时间</string>
     <string name="start_into_web_gui_title">启动直接进入 Web GUI</string>
     <string name="start_into_web_gui_summary">启动应用时，打开 Web GUI 而不是打开主屏幕</string>
+    <string name="open_source_licenses_summary">显示所使用的开放源代码许可</string>
+    <string name="open_source_licenses_title">开放源代码许可</string>
 </resources>
