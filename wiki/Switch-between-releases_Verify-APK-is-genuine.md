@@ -6,7 +6,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Published on [F-Droid](https://f-droid.org/packages/com.github.catfriend1.syncthingandroid/) and [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
 * File name is like: com.github.catfriend1.syncthingandroid_fdroid_1.29.6.0_7d59e75.apk
 * Certificate hash: yei5Ybhe9jZNx7NG4WE9MgjnfsPqbHCzUhHvfedPEuU=
-* Signing Certificate SHA256 Fingerprint: <details>C9:E8:B9:61:B8:5E:F6:36:4D:C7:B3:46:E1:61:3D:32:08:E7:7E:C3:EA:6C:70:B3:52:11:EF:7D:E7:4F:12:E5</details>
+* Signing Certificate SHA256 fingerprint: <details>C9:E8:B9:61:B8:5E:F6:36:4D:C7:B3:46:E1:61:3D:32:08:E7:7E:C3:EA:6C:70:B3:52:11:EF:7D:E7:4F:12:E5</details>
 
 <b>2. GitHub release build</b>
 
@@ -14,7 +14,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Only published on [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
 * File name is like: com.github.catfriend1.syncthingandroid_release_1.29.6.0_7d59e75.apk
 * Certificate hash: +OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk=
-* Signing Certificate SHA256 Fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
+* Signing Certificate SHA256 fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
 
 <b>3. Google Play release build</b>
 
@@ -23,16 +23,21 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * It's an appetizer for your family and friends to start their Syncthing experience.
 * File name is like: com.github.catfriend1.syncthingandroid_gplay_1.29.6.0_7d59e75.aab
 * Certificate hash: +OAnc7gs9+lKqwFiAp9XiF/wcg+uwQxrzvSfffjJSpk=
-* Signing Certificate SHA256 Fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
+* Signing Certificate SHA256 fingerprint: <details>F8:E0:27:73:B8:2C:F7:E9:4A:AB:01:62:02:9F:57:88:5F:F0:72:0F:AE:C1:0C:6B:CE:F4:9F:7D:F8:C9:4A:99</details>
 
 <b>4. GitHub debug build</b>
 
 * Only published on GitHub
 * Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions) and artifacts.
-* It's for maintainers, contributors who require a second installation of the app on their phone for testing purposes.
+* It's for maintainers and contributors who require a second installation of the app on their phone for testing purposes.
 * File name is like: com.github.catfriend1.syncthingandroid_debug_1.29.6.0_7d59e75.apk
-* Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
-* Signing Certificate SHA256 Fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
+* TRUSTED builds from this repository owners:
+* * Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
+* * Signing Certificate SHA256 fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
+* UNTRUSTED builds from contributors of forks:
+* * Debug builds triggered from potentially untrusted sources, e.g. fork repositories use a [PUBLIC signing certificate](https://github.com/Catfriend1/syncthing-android/blob/main/debug_scripts/debug.keystore.pub). This offers NO security at all. The content of these builds is NOT authored NOR approved by this repository. They are offered for TESTING PURPOSES only and are NOT production ready.
+* * If they would not be signed by the same PUBLIC key, contributors who forked the app and opened a PR here would not be able to try out their contributed changes on their own phone or emulator by upgrading from their previous build as the CI build process would use a different debug signing key for each superseding build.
+* * Public UNTRUSTED key <details>Certificate hash: 0fTGzY6Ii7fxLbtKzA5t94Zid/ECP5Gj5w/s5xRLOGM=<br>SHA256 fingerprint: D1:F4:C6:CD:8E:88:8B:B7:F1:2D:BB:4A:CC:E:6D:F7:86:62:77:F1:2:3F:91:A3:E7:F:EC:E7:14:4B:38:63</details>
 
 
 The signing on these release channels differ, so if you wish to change to a different channel:
