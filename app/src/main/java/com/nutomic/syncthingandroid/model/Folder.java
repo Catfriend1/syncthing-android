@@ -25,7 +25,7 @@ public class Folder {
     public String path;
     public String type = Constants.FOLDER_TYPE_SEND_RECEIVE;
     public boolean fsWatcherEnabled = true;
-    public int fsWatcherDelayS = 10;
+    public float fsWatcherDelayS = 10;
     private List<SharedWithDevice> devices = new ArrayList<>();
     /**
      * Folder rescan interval defaults to 3600s as it is the default in
