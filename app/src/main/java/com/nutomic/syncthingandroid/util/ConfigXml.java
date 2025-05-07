@@ -392,7 +392,7 @@ public class ConfigXml {
                 // Enable "fsWatcherEnabled" attribute and set default delay.
                 Log.i(TAG, "Set 'fsWatcherEnabled', 'fsWatcherDelayS' on folder " + r.getAttribute("id"));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
-                r.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Float.toString(defaultFolder.fsWatcherDelayS));
             }
 
             /**
