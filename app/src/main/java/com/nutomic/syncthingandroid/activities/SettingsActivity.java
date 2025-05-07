@@ -40,6 +40,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
@@ -156,6 +157,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
         private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
         private static final String KEY_OS_OPEN_FILE_LIMIT = "os_open_file_limit";
+        private static final String KEY_OPEN_SOURCE_LICENSES = "open_source_licenses";
 
         private static final String BIND_ALL = "0.0.0.0";
         private static final String BIND_LOCALHOST = "127.0.0.1";
@@ -215,6 +217,7 @@ public class SettingsActivity extends SyncthingActivity {
 
         /* About */
         private Preference mSyncthingVersion;
+        private Preference mLicensePref;
 
         /* Context */
         private Context mContext;
@@ -422,6 +425,8 @@ public class SettingsActivity extends SyncthingActivity {
             }
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
             screen.findPreference(KEY_OS_OPEN_FILE_LIMIT).setSummary(getOpenFileLimit());
+            mLicensePref            = findPreference(KEY_OPEN_SOURCE_LICENSES);
+            mLicensePref.setOnPreferenceChangeListener(this);
 
             // Check if we should directly show a sub preference screen.
             Bundle bundle = getArguments();
