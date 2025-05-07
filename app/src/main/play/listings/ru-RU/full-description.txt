@@ -1,4 +1,4 @@
-Это форк обёртки Syncthing-Android для Syncthing, который добавляет крупные улучшения, к примеру:
+Это продолжение клиента Syncthing для Android, включающее значительные улучшения, к примеру:
 * Folder, device and overall sync progress can easily be read off the UI.
 * "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
 * "Sync every hour" to save even more battery
