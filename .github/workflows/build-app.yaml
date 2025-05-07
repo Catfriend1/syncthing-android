@@ -42,11 +42,21 @@ jobs:
           COMMIT_HASH=$(git rev-parse --short --verify HEAD)
           echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
 
-      - name: build
+      - name: setup-debug-signing
         run: |
           set -eu
           mkdir -p "/root/.android"
-          echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "/root/.android/debug.keystore"
+          if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
+            echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
+            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "/root/.android/debug.keystore"
+          else
+            cp "debug_scripts/debug.keystore.pub" "/root/.android/debug.keystore"
+            echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
+          fi
+
+      - name: build
+        run: |
+          set -eu
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
