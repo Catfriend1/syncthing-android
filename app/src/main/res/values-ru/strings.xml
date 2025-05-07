@@ -695,7 +695,7 @@ Android требует разрешение доступа к геолокаци
     <string name="custom_wifi_ssid_whitelist_empty">Список разрешённых сетей Wi-Fi пуст. Укажите хотя бы одну в настройках.</string>
     <string name="syncthing_active_details">Работает: %1$s</string>
     <string name="no_remote_devices_connected">Нет подключенных удалённых устройств</string>
-    <string name="config_file_missing">Необходимый файл конфигурации отсутствует</string>
+    <string name="config_file_missing">Отсутствует конфигурационный файл, необходимый для работы</string>
     <string name="webui_tcp_port_unavailable">TCP-порт WebUI %s занят. Другой сервер уже запущен?</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d устройство в сети и синхронизировано</item>
@@ -726,4 +726,6 @@ Android требует разрешение доступа к геолокаци
     <string name="start_into_web_gui_title">Открывать веб-интерфейс при запуске</string>
     <string name="start_into_web_gui_summary">При заходе в приложение, сразу же открывать веб-интерфейс</string>
     <string name="custom_sync_conditions_description">Специальные исключения для основных условий работы.</string>
+    <string name="open_source_licenses_title">Лицензии Open Source</string>
+    <string name="open_source_licenses_summary">Показывать использующиеся лицензии open source</string>
 </resources>
