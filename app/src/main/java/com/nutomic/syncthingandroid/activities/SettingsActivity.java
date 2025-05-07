@@ -197,6 +197,7 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mWebUITcpPort;
         private EditTextPreference mWebUIUsername;
         private EditTextPreference mWebUIPassword;
+        private Preference mSyncthingApiKey;
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
@@ -213,7 +214,6 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mHttpProxyAddress;
 
         private Preference mSyncthingVersion;
-        private Preference mSyncthingApiKey;
 
         private Context mContext;
         private SyncthingService mSyncthingService;
