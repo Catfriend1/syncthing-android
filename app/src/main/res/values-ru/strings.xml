@@ -410,13 +410,13 @@ Android требует разрешение доступа к геолокаци
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Выход</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing запущен</string>
+    <string name="syncthing_active">Работает</string>
     <string name="config_create_failed">Ошибка при создании файла конфигурации. Ознакомьтесь с журналом.</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Камера</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s фото</string>
-    <string name="notification_crash_title">Syncthing завершился из-за сбоя %1$s</string>
+    <string name="notification_crash_title">Сбой (код завершения %1$s)</string>
     <string name="notification_crash_text">Нажмите для просмотра логов (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing работает</string>
     <string name="notification_persistent_waiting_channel">Отслеживание условий работы</string>
@@ -650,7 +650,7 @@ Android требует разрешение доступа к геолокаци
     <string name="run_on_metered_wifi_summary">Работать, когда устройство подключено к тарифицированной Wi-Fi сети, например, к точке доступа или при раздаче Wi-Fi с телефона. Внимание: При синхронизации большого количества данных может быть израсходована значительная часть тарифного плана.</string>
     <string name="run_in_flight_mode_summary">Если включить этот параметр, Syncthing будет работать даже при отключении от сети. Включите, если у вашего устройства есть проблемы с обнаружением ручных Wi-Fi подключений в режиме полёта.</string>
     <string name="tip_xiaomi_battery_saver_text">Системное приложение Xiaomi MIUI для экономии заряда батареи отзывает разрешение \'игнорировать оптимизацию батареи\' при каждой перезагрузке телефона. Это приводит к тому, что приложение показывает экран приветствия и снова запрашивает недостающее обязательное разрешение. Решение: На главном экране откройте меню приложений &gt; долгое нажатие на \'Syncthing-Fork\' &gt; \'Информация о приложении\' &gt; \'Экономия заряда батареи\' и выберите \'Без ограничений\' (MIUI 10.3.2.0+).</string>
-    <string name="run_on_time_schedule_summary">При включении этого параметра Syncthing попробует синхронизироваться в течение заданного времени, если выполнены условия работы и последняя синхронизация была более 1 часа назад. Это может значительно сэкономить заряд батареи, но требует, чтобы партнеры по синхронизации находились в сети. Обратите внимание: при этом могут остаться неполные временные файлы до следующей синхронизации по расписанию.</string>
+    <string name="run_on_time_schedule_summary">При включении этого параметра Syncthing попробует синхронизироваться в течение заданного времени, если выполнены условия работы и со времени последней синхронизации прошло заданное количество времени. Это может значительно сэкономить заряд батареи, но требует, чтобы партнеры по синхронизации находились в сети. Обратите внимание: при этом могут остаться неполные временные файлы до следующей синхронизации по расписанию.</string>
     <string name="behaviour_autostart_summary">Запускать приложение автоматически при загрузке операционной системы.</string>
     <string name="bind_network_summary">Использовать Wi-Fi принудительно даже при отсутствии подключения к Интернету. Если этот параметр отключен, Syncthing может использовать мобильную сеть в таком случае.</string>
     <string name="expert_mode_summary">При включении этой опции будут показаны расширенные параметры конфигурации. Сначала вам следует ознакомиться с документацией по Syncthing, чтобы убедиться, что вы знаете, как правильно их использовать. Неправильные настройки могут привести к разрядке батареи, истощению системных ресурсов или неполной синхронизации.</string>
@@ -675,8 +675,8 @@ Android требует разрешение доступа к геолокаци
     <string name="qs_forced_to_run">Принудительно запущен</string>
     <string name="qs_forced_to_stop">Принудительно остановлен</string>
     <string name="reason_force_start">Syncthing запущен принудительно в обход условий запуска.</string>
-    <string name="syncthing_disabled">Syncthing приостановлен</string>
-    <string name="syncthing_terminated">Syncthing выключен</string>
+    <string name="syncthing_disabled">Приостановлен</string>
+    <string name="syncthing_terminated">Неактивен</string>
     <string name="verbose_log_title">Подробный журнал</string>
     <string name="state_local_additions">Локальные добавления</string>
     <string name="state_cleaning">Версии удаляюся</string>
@@ -693,7 +693,7 @@ Android требует разрешение доступа к геолокаци
     <string name="reason_not_within_time_frame">Включена работа по расписанию; последняя синхронизация была менее часа назад.</string>
     <string name="reason_not_on_whitelisted_wifi">Syncthing не работает, т.к. текущая сеть Wi-Fi не добавлена в список разрешённых.</string>
     <string name="custom_wifi_ssid_whitelist_empty">Список разрешённых сетей Wi-Fi пуст. Укажите хотя бы одну в настройках.</string>
-    <string name="syncthing_active_details">Syncthing запущен: %1$s</string>
+    <string name="syncthing_active_details">Работает: %1$s</string>
     <string name="no_remote_devices_connected">Нет подключенных удалённых устройств</string>
     <string name="config_file_missing">Необходимый файл конфигурации отсутствует</string>
     <string name="webui_tcp_port_unavailable">TCP-порт WebUI %s занят. Другой сервер уже запущен?</string>
@@ -723,4 +723,7 @@ Android требует разрешение доступа к геолокаци
     <string name="run_on_whitelisted_wifi_summary">Чтобы ограничить синхронизацию до конкретных сетей Wi-Fi, настройте разрешающий список.</string>
     <string name="open_issue_tracker_summary">Открыть трекер задач Syncthing-Fork в %1$s</string>
     <string name="config_read_failed">Не удаётся прочесть конфигурацию. Можете попробовать сделать резервную копию данных и очистить данные приложения в настройках Android, затем запустить его снова.</string>
+    <string name="start_into_web_gui_title">Открывать веб-интерфейс при запуске</string>
+    <string name="start_into_web_gui_summary">При заходе в приложение, сразу же открывать веб-интерфейс</string>
+    <string name="custom_sync_conditions_description">Специальные исключения для основных условий работы.</string>
 </resources>
