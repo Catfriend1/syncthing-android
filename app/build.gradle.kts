@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 dependencies {
