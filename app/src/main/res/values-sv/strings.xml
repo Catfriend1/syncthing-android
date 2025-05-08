@@ -542,7 +542,6 @@
     <string name="preference_app_theme_follow_system">Följ systemet</string>
     <string name="respect_master_sync_title">Respektera Android-inställningen \"Synkronisera data automatiskt\"</string>
     <string name="respect_master_sync_summary">Inaktivera Syncthing när snabbinställningsrutan \"Synkronisera data automatiskt\" är avstängd.</string>
-    <string name="bind_network_summary">Tvinga att använda WiFi även om det inte finns någon internetanslutning. Om det är inaktiverat kan Syncthing använda mobildata i det här fallet.</string>
     <string name="expert_mode_title">Expertläge</string>
     <string name="webui_username_title">Användarnamn för webbgränssnittet</string>
     <string name="webui_password_title">Lösenord för webbgränssnittet</string>
@@ -604,7 +603,6 @@
     <string name="run_on_time_schedule_summary">Aktivering av det här alternativet kommer att försöka synkronisera under en konfigurerad varaktighet om körvillkoren är uppfyllda och om någon angiven intervallperiod har förflutit sedan den senaste synkroniseringen. Detta kan spara mycket batteri men kräver att synkroniseringspartners är uppkopplade. Observera: Detta kan lämna kvar ofullständiga temporära filer tills nästa schemalagda synkronisering äger rum.</string>
     <string name="sleep_interval_minutes_title">Varaktigheten av synkroniseringspausintervallet</string>
     <string name="use_root_summary">Genom att köra Syncthing som root kan den skriva till mappar som Android normalt begränsar till att vara skrivskyddad. Använd denna funktion med försiktighet.</string>
-    <string name="bind_network_title">Bind till aktivt nätverk</string>
     <string name="webui_remote_access_title">Fjärråtkomst för webbgränssnittet</string>
     <string name="webui_debugging_summary">Aktivera för att starta profilering och för att kunna ladda ner ett supportpaket. Om du ändrar det här alternativet startas Syncthing om direkt.</string>
     <string name="broadcast_service_control_title">Tjänstekontroll genom sändning</string>
