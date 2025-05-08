@@ -1,7 +1,5 @@
 package com.nutomic.syncthingandroid.service;
 
-import static com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +43,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import javax.inject.Inject;
 
 import eu.chainfire.libsuperuser.Shell;
+
+import static com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE;
 
 /**
  * Runs the syncthing binary from command line, and prints its output to logcat.
