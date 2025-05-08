@@ -22,7 +22,9 @@ import androidx.core.content.FileProvider;
 
 import com.nutomic.syncthingandroid.R;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -108,6 +111,41 @@ public class FileUtils {
         } else {
             return volumePath;
         }
+    }
+
+    private static List<String> getMountedStoragePaths() {
+        List<String> mountPaths = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("/proc/mounts"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains("/storage/") || line.contains("/mnt/media_rw/")) {
+                    String[] parts = line.split(" ");
+                    String mountPoint = parts[1];
+
+                    // Filter
+                    if ((mountPoint.startsWith("/storage/") || mountPoint.startsWith("/mnt/media_rw/"))
+                            && !mountPoint.contains("emulated")
+                            && new File(mountPoint).isDirectory()) {
+                        mountPaths.add(mountPoint);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            Log.w(TAG, "getMountedStoragePaths: Error reading /proc/mounts", e);
+        }
+        return mountPaths;
+    }
+
+    public static File[] getMountedStoragePathsAsFileArray() {
+        List<String> paths = getMountedStoragePaths();
+        List<File> files = new ArrayList<>();
+        for (String path : paths) {
+            File f = new File(path);
+            if (f.canRead()) {
+                files.add(f);
+            }
+        }
+        return files.toArray(new File[0]);
     }
 
     @SuppressLint("ObsoleteSdkInt")
