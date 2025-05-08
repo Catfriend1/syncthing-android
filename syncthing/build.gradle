@@ -2,11 +2,27 @@ plugins {
     id 'ru.vyarus.use-python' version '3.0.0'
 }
 
+static def getFormattedDate(Date date) {
+    return date.format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+}
+
+def modificationTime() {
+    // https://reproducible-builds.org/docs/source-date-epoch/
+    // Set based on the current commit that is being built.
+    def committedAt = System.getenv('SOURCE_DATE_EPOCH')
+    if (committedAt == null || committedAt.length() == 0) {
+        committedAt = "git log -1 --format=%ct".execute([], project.rootDir).text.trim()
+    }
+    return getFormattedDate(new Date(Long.parseLong(committedAt) * 1000))
+}
+
 task buildNative(type: PythonTask) {
     environment "NDK_VERSION", "$ndkVersionShared"
 
     // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
-    if (System.getenv("SOURCE_DATE_EPOCH") != null) {
+    if (System.getenv("SOURCE_DATE_EPOCH") == null) {
+        environment "SOURCE_DATE_EPOCH", modificationTime()
+    } else {
         environment "SOURCE_DATE_EPOCH", System.getenv("SOURCE_DATE_EPOCH")
     }
 
