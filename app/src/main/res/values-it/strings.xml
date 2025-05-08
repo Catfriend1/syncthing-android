@@ -359,8 +359,6 @@
     <string name="behaviour_autostart_summary">Esegui l\'app automaticamente quando viene avviato il dispositivo.</string>
     <string name="use_root_title">Esegui Syncthing come Superutente</string>
     <string name="use_root_summary">L\'esecuzione di Syncthing come root permette di scrivere le cartelle che normalmente Android blocca in sola lettura. Usa questa funzione con cautela.</string>
-    <string name="bind_network_title">Associa alla rete attiva</string>
-    <string name="bind_network_summary">Forza l\'uso del WiFi anche se non c\'è connessione a Internet. Se disabilitato, Syncthing potrebbe usare i dati mobili in questa situazione.</string>
     <string name="expert_mode_title">Modalità esperto</string>
     <string name="expert_mode_summary">Abilitando questa opzione verranno mostrate le opzioni di configurazione avanzate. Prima di cambiare qualcosa, consulta la documentazione di Syncthing per assicurarti di farlo correttamente. Impostazioni errate possono portare ad un consumo eccessivo di batteria, spreco di risorse di sistema o sincronizzazioni incomplete.</string>
     <string name="preference_language_title">Lingua</string>
