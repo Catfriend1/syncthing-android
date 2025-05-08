@@ -333,9 +333,7 @@
     <string name="run_in_flight_mode_summary">Омогућавање ове опције ће узроковати да Syncthing ради чак и када сте офлајн. Омогућите ако ваш уређај има проблема са детекцијом ручних Wi-Fi веза током режима лета.</string>
     <string name="behaviour_autostart_summary">Аутоматски покрени апликацију при покретању оперативног система.</string>
     <string name="use_root_title">Покрени Syncthing као суперкорисник</string>
-    <string name="bind_network_title">Повежи се на активну мрежу</string>
     <string name="preference_language_title">Језик</string>
-    <string name="bind_network_summary">Присили коришћење Wi-Fi чак и ако нема интернет везе. Ако је онемогућено, Syncthing може користити мобилне податке у овом случају.</string>
     <string name="config_export_successful">Конфигурација је извозена у %1$s</string>
     <string name="config_export_failed">Извоз конфигурације није успео, проверите лог излаз.</string>
     <string name="import_config">Увоз конфигурације</string>

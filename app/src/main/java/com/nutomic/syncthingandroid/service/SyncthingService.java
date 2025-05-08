@@ -5,22 +5,16 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
@@ -250,14 +244,6 @@ public class SyncthingService extends Service {
     private boolean mPrefBroadcastServiceControl = false;
 
     /**
-     * ConnectivityManager and NetworkCallback are used to rebind syncthing
-     * to the current network when a VPN capable connection is changed
-     * to prevent connectivity issues due to network binding
-     */
-    private ConnectivityManager connectivityManager;
-    private ConnectivityManager.NetworkCallback networkCallback;
-
-    /**
      * Starts the native binary.
      */
     @Override
@@ -282,32 +268,6 @@ public class SyncthingService extends Service {
 
         // Read pref.
         mPrefBroadcastServiceControl = mPreferences.getBoolean(Constants.PREF_BROADCAST_SERVICE_CONTROL, false);
-
-        connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkRequest networkRequest = new NetworkRequest.Builder()
-                .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)
-                .build();
-
-        networkCallback = new ConnectivityManager.NetworkCallback() {
-            @Override
-            public void onAvailable(@NonNull Network network) {
-                if (mSyncthingRunnable != null) {
-                    Log.d(TAG, "VPN capable network connection established, rebinding network");
-                    mSyncthingRunnable.bindNetwork();
-                }
-            }
-
-            @Override
-            public void onLost(@NonNull Network network) {
-                if (mSyncthingRunnable != null) {
-                    Log.d(TAG, "VPN capable network connection lost, rebinding network");
-                    mSyncthingRunnable.bindNetwork();
-                }
-            }
-        };
-
-        connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
     }
 
     /**
@@ -739,11 +699,6 @@ public class SyncthingService extends Service {
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
         }
         shutdown(State.DISABLED);
-
-        if (networkCallback != null) {
-            connectivityManager.unregisterNetworkCallback(networkCallback);
-        }
-
         super.onDestroy();
     }
 
