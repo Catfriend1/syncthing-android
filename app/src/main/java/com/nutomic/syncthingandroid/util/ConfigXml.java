@@ -392,7 +392,7 @@ public class ConfigXml {
                 // Enable "fsWatcherEnabled" attribute and set default delay.
                 Log.i(TAG, "Set 'fsWatcherEnabled', 'fsWatcherDelayS' on folder " + r.getAttribute("id"));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
-                r.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Float.toString(defaultFolder.fsWatcherDelayS));
             }
 
             /**
@@ -419,6 +419,14 @@ public class ConfigXml {
     private Integer getAttributeOrDefault(final Element element, String attribute, Integer defaultValue) {
         try {
             return element.hasAttribute(attribute) ? Integer.parseInt(element.getAttribute(attribute)) : defaultValue;
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    private Float getAttributeOrDefault(final Element element, String attribute, Float defaultValue) {
+        try {
+            return element.hasAttribute(attribute) ? Float.parseFloat(element.getAttribute(attribute)) : defaultValue;
         } catch (NumberFormatException e) {
             return defaultValue;
         }
@@ -475,7 +483,7 @@ public class ConfigXml {
             
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
             folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", folder.autoNormalize);
-            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
+            folder.fsWatcherDelayS = getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
             folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", folder.fsWatcherEnabled);
             folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", folder.ignorePerms);
             folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", folder.rescanIntervalS);
@@ -497,6 +505,7 @@ public class ConfigXml {
             folder.sendOwnership = getContentOrDefault(r.getElementsByTagName("sendOwnership").item(0), folder.sendOwnership);
             folder.syncXattrs = getContentOrDefault(r.getElementsByTagName("syncXattrs").item(0), folder.syncXattrs);
             folder.sendXattrs = getContentOrDefault(r.getElementsByTagName("sendXattrs").item(0), folder.sendXattrs);
+            folder.filesystemType = getContentOrDefault(r.getElementsByTagName("filesystemType").item(0), folder.filesystemType);
 
             // Devices
             /*
@@ -591,7 +600,7 @@ public class ConfigXml {
                 r.setAttribute("path", folder.path);
                 r.setAttribute("type", folder.type);
                 r.setAttribute("autoNormalize", Boolean.toString(folder.autoNormalize));
-                r.setAttribute("fsWatcherDelayS", Integer.toString(folder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Float.toString(folder.fsWatcherDelayS));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(folder.fsWatcherEnabled));
                 r.setAttribute("ignorePerms", Boolean.toString(folder.ignorePerms));
                 r.setAttribute("rescanIntervalS", Integer.toString(folder.rescanIntervalS));
@@ -613,6 +622,7 @@ public class ConfigXml {
                 setConfigElement(r, "sendOwnership", Boolean.toString(folder.sendOwnership));
                 setConfigElement(r, "syncXattrs", Boolean.toString(folder.syncXattrs));
                 setConfigElement(r, "sendXattrs", Boolean.toString(folder.sendXattrs));
+                setConfigElement(r, "filesystemType", folder.filesystemType);
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
