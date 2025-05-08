@@ -144,6 +144,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
         private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
         private static final String KEY_WEBUI_DEBUGGING = "webUIDebugging";
+        private static final String KEY_CLEAR_STVERSIONS = "clearStVersions";
         private static final String KEY_DOWNLOAD_SUPPORT_BUNDLE = "downloadSupportBundle";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
         // Settings/Import and Export
@@ -203,6 +204,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
         private CheckBoxPreference mWebUIDebugging;
+        private Preference mClearStVersions;
         private Preference mDownloadSupportBundle;
 
         /* Import and Export */
@@ -351,12 +353,14 @@ public class SettingsActivity extends SyncthingActivity {
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
             mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
             mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
+            mClearStVersions        = findPreference(KEY_CLEAR_STVERSIONS);
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
             mCategorySyncthingOptions = (PreferenceScreen) findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
             mSyncthingApiKey.setOnPreferenceClickListener(this);
+            mClearStVersions.setOnPreferenceClickListener(this);
             mDownloadSupportBundle.setOnPreferenceClickListener(this);
             undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
 
@@ -887,6 +891,8 @@ public class SettingsActivity extends SyncthingActivity {
                         return true;
                     default:
                         return false;
+                case KEY_CLEAR_STVERSIONS:
+                    return true;
                 case KEY_DOWNLOAD_SUPPORT_BUNDLE:
                     onDownloadSupportBundleClick();
                     return true;
