@@ -276,11 +276,11 @@ public class SyncthingService extends Service {
 
         NetworkRequest networkRequest = new NetworkRequest.Builder()
                 .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)
                 .build();
 
         networkCallback = new ConnectivityManager.NetworkCallback() {
-            @Override
-            public void onAvailable(@NonNull Network vpnNetwork) {
+            private void checkIfVpnNetworkAffectedAndRebind() {
                 Network[] allNetworks = connectivityManager.getAllNetworks();
                 for (Network net : allNetworks) {
                     NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(net);
@@ -292,6 +292,18 @@ public class SyncthingService extends Service {
                         break;
                     }
                 }
+            }
+
+            @Override
+            public void onAvailable(@NonNull Network vpnNetwork) {
+                Log.d(TAG, "networkCallback::onAvailable");
+                checkIfVpnNetworkAffectedAndRebind();
+            }
+
+            @Override
+            public void onLost(@NonNull Network network) {
+                Log.d(TAG, "networkCallback::onAvailable");
+                checkIfVpnNetworkAffectedAndRebind();
             }
         };
 
