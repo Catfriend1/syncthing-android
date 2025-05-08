@@ -711,4 +711,8 @@
     <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz interfejs sieciowy zamiast głównego ekranu</string>
     <string name="open_source_licenses_title">Licencje open source</string>
     <string name="open_source_licenses_summary">Pokaż używane licencje open source</string>
+    <string name="syncthing_forum_title">Forum Syncthing</string>
+    <string name="privacy_title">Polityka prywatności</string>
+    <string name="syncthing_forum_summary">Przejdź do forum Syncthing i uzyskaj pomoc</string>
+    <string name="privacy_summary">Otwórz politykę prywatności syncthing-android, która zawiera informacje na temat użycia (lub jego braku) danych osobowych, np. lokalizacji.</string>
 </resources>
