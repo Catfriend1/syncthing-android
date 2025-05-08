@@ -473,6 +473,22 @@
             android:singleLineTitle="false" />
 
         <Preference
+            android:title="@string/syncthing_forum_title"
+            android:summary="@string/syncthing_forum_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/syncthing_forum_url" />
+        </Preference>
+
+        <Preference
+            android:title="@string/privacy_title"
+            android:summary="@string/privacy_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/privacy_policy_url" />
+        </Preference>
+
+        <Preference
                 android:persistent="false"
                 android:key="open_source_licenses"
                 android:title="@string/open_source_licenses_title"
