@@ -7,7 +7,7 @@ buildscript {
         set("ndkVersionShared", "28.0.13004108")
         set("versionMajor", 1)
         set("versionMinor", 29)
-        set("versionPatch", 4)
+        set("versionPatch", 6)
         set("versionWrapper", 0)
     }
 
@@ -20,6 +20,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.6.1")
         classpath("com.github.ben-manes:gradle-versions-plugin:0.52.0")
+        classpath("com.google.android.gms:oss-licenses-plugin:0.10.5")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

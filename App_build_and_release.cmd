@@ -5,7 +5,7 @@ cd /d "%SCRIPT_PATH%"
 cls
 REM
 REM Script Consts.
-SET CLEANUP_BEFORE_BUILD=1
+SET CLEANUP_BEFORE_BUILD=0
 REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
@@ -54,8 +54,6 @@ setlocal EnableDelayedExpansion
 IF NOT DEFINED SIGNING_PASSWORD echo [ERROR] Signing password is required. Please retry. & goto :enterSigningPassword
 REM
 :absLint
-REM
-copy /y "%SCRIPT_PATH%app\src\main\play\release-notes\en-US\beta.txt" "%SCRIPT_PATH%app\src\main\play\release-notes\en-US\default.txt" 
 REM
 echo [INFO] Running lint before building ...
 REM

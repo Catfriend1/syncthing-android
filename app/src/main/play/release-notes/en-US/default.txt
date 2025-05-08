@@ -1,1 +1,10 @@
-.
+Upgrade notes:
+The backup folder location UI preference on the settings screen is now relative to the internal storage root. Before, it was interpreted relative to the "(int-stor)/backups" folder. Please review that setting if you upgrade from a previous release.
+
+Notes:
+We will now prefer CI builds over builds done on a personal device.
+Debug APK signing was upgraded from SHA1 to SHA256 signing.
+We are preparing for GPG signed release artifacts.
+
+Changes:
+Update SyncthingNative to v1.29.6
