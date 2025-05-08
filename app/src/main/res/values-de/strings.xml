@@ -759,5 +759,5 @@
     <string name="start_into_web_gui_title">Direkt die Weboberfläche öffnen</string>
     <string name="start_into_web_gui_summary">Beim Start der App die Weboberfläche anstelle des Hauptfensters öffnen</string>
     <string name="open_source_licenses_title">Open-Source-Lizenzen</string>
-    <string name="open_source_licenses_summary">Verwendeten Open-Source-Lizenzen anzeigen</string>
+    <string name="open_source_licenses_summary">Verwendete Open-Source-Lizenzen anzeigen</string>
 </resources>
