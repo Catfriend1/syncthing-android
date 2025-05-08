@@ -723,6 +723,17 @@
 
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Open the Syncthing and Android log window</string>
+
+    <!-- Menu item linking support forum -->
+    <string name="syncthing_forum_title">Syncthing Forum</string>
+    <string name="syncthing_forum_summary">Go to the Syncthing Forum and get support</string>
+    <string name="syncthing_forum_url" translatable="false">https://forum.syncthing.net/</string>
+
+    <!-- Menu item linking privacy policy -->
+    <string name="privacy_title">Privacy Policy</string>
+    <string name="privacy_summary">Open syncthing-android\'s privacy policy, which covers usage (if any) of personal data, e.g. location.</string>
+    <string name="privacy_policy_url" translatable="false">https://syncthing.net/android-privacy-policy</string>
+
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Report Issue</string>
 
