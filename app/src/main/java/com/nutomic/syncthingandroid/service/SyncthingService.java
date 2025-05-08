@@ -280,7 +280,10 @@ public class SyncthingService extends Service {
                 .build();
 
         networkCallback = new ConnectivityManager.NetworkCallback() {
-            private void checkIfVpnNetworkAffectedAndRebind() {
+            private boolean vpnConnected = false;
+            
+            private void checkIfVpnConnectedAndRebind() {
+                vpnConnected = false;
                 Network[] allNetworks = connectivityManager.getAllNetworks();
                 for (Network net : allNetworks) {
                     NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(net);
@@ -289,6 +292,7 @@ public class SyncthingService extends Service {
                             Log.d(TAG, "VPN based on WiFi detected – rebinding network");
                             mSyncthingRunnable.bindNetwork();
                         }
+                        vpnConnected = true;
                         break;
                     }
                 }
@@ -297,13 +301,19 @@ public class SyncthingService extends Service {
             @Override
             public void onAvailable(@NonNull Network vpnNetwork) {
                 Log.d(TAG, "networkCallback::onAvailable");
-                checkIfVpnNetworkAffectedAndRebind();
+                checkIfVpnConnectedAndRebind();
             }
 
             @Override
             public void onLost(@NonNull Network network) {
-                Log.d(TAG, "networkCallback::onAvailable");
-                checkIfVpnNetworkAffectedAndRebind();
+                Log.d(TAG, "networkCallback::onLost");
+                if (vpnConnected) {
+                    if (mSyncthingRunnable != null) {
+                        Log.d(TAG, "networkCallback::onLost: Previously was vpnConnected – rebinding network");
+                        mSyncthingRunnable.bindNetwork();
+                    }
+                    vpnConnected = false;
+                }
             }
         };
 
