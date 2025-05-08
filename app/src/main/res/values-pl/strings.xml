@@ -688,7 +688,6 @@
         <item quantity="many">%d minut</item>
         <item quantity="other">%d minut</item>
     </plurals>
-    <string name="bind_network_title">Powiąż z aktywną siecią</string>
     <string name="device_addresses_invalid">Adresy urządzeń nie są poprawnie sformatowane. Spróbuj ponownie. Więcej informacji znajdziesz w dokumentacji Syncthing.</string>
     <string name="folder_type">Typ folderu</string>
     <string name="exception_known_bug_notice">Napotkano znany błąd, który nie został jeszcze rozwiązany. Aby uzyskać więcej informacji, zobacz %1$s/%2$s. Prosimy o dokładny opis tego, co wydarzyło się wcześniej.</string>

@@ -379,7 +379,6 @@
     <string name="sync_duration_minutes_summary">%1$s минути</string>
     <string name="behaviour_autostart_title">Автоматично стартиране</string>
     <string name="behaviour_autostart_summary">Автоматично стартиране на приложението при стартиране на операционната система.</string>
-    <string name="bind_network_title">Привързване към текущата мрежа</string>
     <string name="expert_mode_title">Режим за експерти</string>
     <string name="download_support_bundle_failed">Грешка при изтегляне на пакет за поддръжка. Проверете дневника.</string>
     <string name="undo_ignored_devices_folders_title">Отмяна на пренебрегнатите устройства и папки</string>

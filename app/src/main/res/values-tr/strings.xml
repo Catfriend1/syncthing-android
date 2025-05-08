@@ -617,7 +617,6 @@
         <item quantity="one">%d dakika</item>
         <item quantity="other">%d dakika</item>
     </plurals>
-    <string name="bind_network_title">Etkin ağa bağla</string>
     <string name="config_create_failed">Yapılandırmayı oluşturma başarısız. Logcat çıktısını gözden geçirin.</string>
     <string name="device_addresses_invalid">Cihaz adresleri doğru olarak biçimlendirilmemiş. Lütfen tekrar deneyin. Daha fazla bilgi için Syncthing belgelerine bakın.</string>
     <string name="folder_type">Klasör Türü</string>
