@@ -368,19 +368,13 @@ public class FolderActivity extends SyncthingActivity {
         // Determine directory initialUri for SAF file picker dialog.
         // This has to be android.net.Uri as it implements a Parcelable.
         android.net.Uri initialUri = null;
-        
-        android.net.Uri defaultShareRootPath = Uri.parse(FileUtils.convertFromDocumentUriToTreeUri(FileUtils.getInternalStorageRootUri()) + "/syncthing");
-        if (FileUtils.directoryUriExists(FolderActivity.this, defaultShareRootPath)) {
-            initialUri = defaultShareRootPath;
+        android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA);
+        if (FileUtils.directoryUriExists(FolderActivity.this, externalFilesDirUri)) {
+            initialUri = externalFilesDirUri;
         } else {
-            android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA);
-            if (FileUtils.directoryUriExists(FolderActivity.this, externalFilesDirUri)) {
-                initialUri = externalFilesDirUri;
-            } else {
-                android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
-                if (FileUtils.directoryUriExists(FolderActivity.this, internalFilesDirUri)) {
-                    initialUri = internalFilesDirUri;
-                }
+            android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
+            if (FileUtils.directoryUriExists(FolderActivity.this, internalFilesDirUri)) {
+                initialUri = internalFilesDirUri;
             }
         }
         if (initialUri != null) {
