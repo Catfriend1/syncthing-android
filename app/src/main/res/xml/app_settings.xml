@@ -168,14 +168,6 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
-        <!-- Bind network -->
-        <CheckBoxPreference
-            android:key="bind_network"
-            android:title="@string/bind_network_title"
-            android:summary="@string/bind_network_summary"
-            android:singleLineTitle="false"
-            android:defaultValue="true" />
-
     </PreferenceScreen>
 
     <PreferenceScreen

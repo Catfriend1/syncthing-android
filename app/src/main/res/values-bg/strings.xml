@@ -379,7 +379,6 @@
     <string name="sync_duration_minutes_summary">%1$s минути</string>
     <string name="behaviour_autostart_title">Автоматично стартиране</string>
     <string name="behaviour_autostart_summary">Автоматично стартиране на приложението при стартиране на операционната система.</string>
-    <string name="bind_network_title">Привързване към текущата мрежа</string>
     <string name="expert_mode_title">Режим за експерти</string>
     <string name="download_support_bundle_failed">Грешка при изтегляне на пакет за поддръжка. Проверете дневника.</string>
     <string name="undo_ignored_devices_folders_title">Отмяна на пренебрегнатите устройства и папки</string>
@@ -550,7 +549,6 @@
     <string name="state_cleaning">Почистване на версии</string>
     <string name="state_sync_preparing">Подготовка за синхронизация</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI по подразбиране не позволява на приложенията да се стартират самостоятелно. От началния екран отворете Настройки → Разрешения → Автоматично стартиране и включете плъзгача за „Syncthing-Fork“.</string>
-    <string name="bind_network_summary">Задължително използване на безжична мрежа, дори ако няма връзка с интернет. Ако не е отметнато, при липса на връзка Syncthing може да използва мобилни данни.</string>
     <string name="webui_debugging_summary">Когато е отметнато започва профилиране, което дава възможност да изтеглите пакет за поддръжка. Промяната на настройката ще рестартира Syncthing веднага.</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Номерът на порта е неприемлив. Въведете порт между %1$d и %2$d.</string>
     <string name="keep_wakelock_while_binary_running_summary">Само за Андроид 5 и предишни. Използвайте тази настройка, само ако възникват неочаквани прекъсвания при работа на батерия. Ще доведе до увеличен разход на батерия.</string>

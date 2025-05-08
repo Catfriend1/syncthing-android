@@ -254,8 +254,6 @@
     <string name="behaviour_autostart_summary">התחל את היישום באופן אוטומטי בעת הפעלת מערכת ההפעלה.</string>
     <string name="use_root_title">הפעל את Syncthing כמשתמש־על</string>
     <string name="use_root_summary">הפעלת Syncthing בתור רוט מאפשרת ליישום לכתוב לתיקיות שאנדרואיד בדרך כלל מגביל להיות נגישות לקריאה בלבד. השתמש בתכונה זו בזהירות.</string>
-    <string name="bind_network_title">קשור לרשת פעילה</string>
-    <string name="bind_network_summary">אלץ להשתמש ברשת WiFi אפילו אם אין חיבור אינטרנט. אם מושבת, Syncthing עשוי להשתמש בנתונים ניידם במקרה זה.</string>
     <string name="expert_mode_title">מצב מומחה</string>
     <string name="expert_mode_summary">הפעלת אפשרות זו תציג אפשרויות תצורה מתקדמות. כדאי שתסתכל על המסמכים של Syncthing תחילה כדי לוודא שאתה יודע איך להשתמש בהן כראוי. הגדרות שגויות עשויות לגרום לריקון הסוללה, מיצוי משאבי מערכת או סנכרון חלקי.</string>
     <string name="preference_language_title">שפה</string>
