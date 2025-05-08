@@ -136,7 +136,7 @@ public class SyncthingRunnable implements Runnable {
      *    Android will auto route the request through the mobile network.
      * 2. User only wants to sync through mobile network, but not use WiFi.
      */
-    public void bindNetwork() {
+    private void bindNetwork() {
         clearBindNetwork();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return;
