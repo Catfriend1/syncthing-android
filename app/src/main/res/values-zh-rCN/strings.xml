@@ -753,4 +753,8 @@
     <string name="start_into_web_gui_summary">启动应用时，打开 Web GUI 而不是打开主屏幕</string>
     <string name="open_source_licenses_summary">显示所使用的开放源代码许可</string>
     <string name="open_source_licenses_title">开放源代码许可</string>
+    <string name="privacy_title">隐私政策</string>
+    <string name="privacy_summary">打开 syncthing-android 的隐私政策，其中涵盖了个人数据的使用（如果有的话），例如位置。</string>
+    <string name="syncthing_forum_title">Syncthing 论坛</string>
+    <string name="syncthing_forum_summary">前往 Syncthing 论坛获取支持</string>
 </resources>
