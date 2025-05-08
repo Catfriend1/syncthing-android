@@ -53,6 +53,20 @@ public class FileUtils {
         INT_MEDIA
     }
 
+    public static android.net.Uri convertFromDocumentUriToTreeUri(Uri documentUri) {
+        // IN: content://com.android.externalstorage.documents/document/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
+        // OUT: content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
+        String authority = documentUri.getAuthority();
+        String documentId = DocumentsContract.getDocumentId(documentUri);
+        return DocumentsContract.buildTreeDocumentUri(authority, documentId);
+    }
+    
+    public static boolean directoryUriExists(Context context, Uri documentUri) {
+        Uri treeUri = convertFromDocumentUriToTreeUri(documentUri);
+        String absPath = getAbsolutePathFromSAFUri(context, treeUri);
+        return new File(absPath).exists();
+    }
+    
     @Nullable
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
@@ -144,7 +158,7 @@ public class FileUtils {
             Log.w(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
             if (volumeId.equals("primary")) {
                 Log.d(TAG, "volumeId == primary");
-                return Environment.getExternalStorageDirectory().getAbsolutePath();
+                return getInternalStorageRootAbsolutePath();
             }
             return "/storage/" + volumeId;
         // }

@@ -10,12 +10,15 @@ SET PACKAGE_NAME=com.github.catfriend1.syncthingandroid.debug
 REM 
 REM 	SET DATA_ROOT=/data/user/0
 SET DATA_ROOT=/data/data
+REM
+echo Enter filter:
+SET /P FILTER=
 REM 
 :loopMe
 cls
 adb shell "su root cat %DATA_ROOT%/%PACKAGE_NAME%/files/config.xml" > "%SCRIPT_PATH%config.xml"
 call :psConvertFileFromCRLFtoLF "%SCRIPT_PATH%config.xml"
-IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml" | findstr /c:"<device id=" /c:"<allowedNetwork>"  | findstr /v /c:"<device id=""""" | ..\psreplace ".*label=" "" | ..\psreplace "path=.*" ""
+IF EXIST "%SCRIPT_PATH%config.xml" TYPE "%SCRIPT_PATH%config.xml" | findstr /i /c:"%FILTER%"  | findstr /v /c:"<device id="""""
 echo.
 pause
 echo.
