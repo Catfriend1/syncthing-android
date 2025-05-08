@@ -365,8 +365,6 @@
     <string name="behaviour_autostart_summary">操作系统启动时自动启动应用。</string>
     <string name="use_root_title">使用超级用户运行 Syncthing</string>
     <string name="use_root_summary">以 Root 运行 Syncthing 允许它写入 Android 通常限制为只读访问的文件夹。请谨慎使用此功能。</string>
-    <string name="bind_network_title">绑定到活动网络</string>
-    <string name="bind_network_summary">即使没有互联网连接，也要强制使用 WiFi。如果禁用，Syncthing 在这种情况下可能会使用移动数据。</string>
     <string name="expert_mode_title">专家模式</string>
     <string name="expert_mode_summary">启用此选项将显示高级配置选项。您应该先查看 Syncthing 文档，以确保您知道如何正确使用它们。不正确的设置可能会导致电池耗尽、系统资源耗尽或同步不完整。</string>
     <string name="preference_language_title">语言</string>

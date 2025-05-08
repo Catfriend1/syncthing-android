@@ -366,8 +366,6 @@
     <string name="behaviour_autostart_summary">Se pornește aplicația în mod automat la pornirea sistemului de operare.</string>
     <string name="use_root_title">Rulează ca root</string>
     <string name="use_root_summary">Rularea Syncthing ca root îi permite să scrie în dosarele în care Android restricționează accesul doar citire. Utilizați această funcție cu precauție.</string>
-    <string name="bind_network_title">Conectare la rețeaua activă</string>
-    <string name="bind_network_summary">Forțează utilizarea WiFi chiar dacă nu există conexiune la internet. Dacă este dezactivată, Syncthing poate folosi datele mobile în acest caz.</string>
     <string name="expert_mode_title">Modul expert</string>
     <string name="expert_mode_summary">Activarea acestei opțiuni va afișa opțiuni de configurare avansate. Ar trebui să aruncați o privire mai întâi la Documentele Syncthing pentru a vă asigura că știți cum să le utilizați corect. Setările incorecte pot cauza descărcarea bateriei, epuizarea resurselor sistemului sau sincronizarea incompletă.</string>
     <string name="preference_language_title">Limbă</string>

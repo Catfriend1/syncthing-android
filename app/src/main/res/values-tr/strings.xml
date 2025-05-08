@@ -555,7 +555,6 @@
     <string name="preference_app_theme_follow_system">Sistemi takip et</string>
     <string name="custom_wifi_ssid_whitelist_empty">Beyaz listeye eklenmiş kablosuz (Wi-Fi) SSID\'si yok. Lütfen ayarlarda bazılarını belirtin.</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: uygulama sürekli olarak karşılama ekranını gösteriyor</string>
-    <string name="bind_network_summary">İnternet bağlantısı olmasa bile kablosuzu (Wi-Fi) kullanmaya zorlar. Eğer etkisizleştirildiyse, Syncthing bu durumda mobil veriyi kullanabilir.</string>
     <string name="run_on_metered_wifi_title">Tarifeli kablosuzda (Wi-Fi) çalıştır</string>
     <string name="folder_label_required">Klasör etiketi boş olmamak zorundadır</string>
     <string name="reason_not_on_battery_power">Telefon pil gücüyle çalışmıyor.</string>
@@ -617,7 +616,6 @@
         <item quantity="one">%d dakika</item>
         <item quantity="other">%d dakika</item>
     </plurals>
-    <string name="bind_network_title">Etkin ağa bağla</string>
     <string name="config_create_failed">Yapılandırmayı oluşturma başarısız. Logcat çıktısını gözden geçirin.</string>
     <string name="device_addresses_invalid">Cihaz adresleri doğru olarak biçimlendirilmemiş. Lütfen tekrar deneyin. Daha fazla bilgi için Syncthing belgelerine bakın.</string>
     <string name="folder_type">Klasör Türü</string>

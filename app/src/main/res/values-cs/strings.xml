@@ -614,8 +614,6 @@
     <string name="sleep_interval_minutes_title">Trvání intervalu synchronizační pauzy</string>
     <string name="web_page_loading">Načítání webové stránky:\n%1$s …</string>
     <string name="behaviour_autostart_title">Automatické spuštění</string>
-    <string name="bind_network_title">Připojit k aktivní síti</string>
-    <string name="bind_network_summary">Vynutit použití WiFi, i když není k dispozici připojení k internetu. Pokud je zakázáno, Syncthing může v tomto případě používat mobilní data.</string>
     <string name="expert_mode_summary">Povolením této možnosti zobrazíte pokročilé možnosti konfigurace. Nejprve byste se měli podívat na Syncthing Docs, abyste se ujistili, že víte, jak je správně používat. Nesprávné nastavení může způsobit vybití baterie, vyčerpání systémových zdrojů nebo neúplnou synchronizaci.</string>
     <string name="download_support_bundle_succeeded">Balíček podpory byl úspěšně stažen do %s.</string>
     <string name="download_support_bundle_failed">Stažení balíčku podpory selhalo. Zkontrolujte protokoly.</string>

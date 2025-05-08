@@ -364,8 +364,6 @@
     <string name="behaviour_autostart_summary">Az alkalmazás automatikus elindítása az operációs rendszer indításakor.</string>
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
     <string name="use_root_summary">A Syncthing root felhasználóként történő futtatása lehetővé teszi, hogy írjon az Android által általában olvasásra korlátozott mappákba. Körültekintően használja ezt a funkciót.</string>
-    <string name="bind_network_title">Kötés az aktív hálózathoz</string>
-    <string name="bind_network_summary">Kényszeríti a WiFi használatát akkor is, ha nincs internetkapcsolat. Ha kikapcsolja, a Syncthing ebben az esetben mobiladatokat használhat.</string>
     <string name="expert_mode_title">Szakértői mód</string>
     <string name="expert_mode_summary">Ha engedélyezi ezt az opciót, akkor megjelennek a speciális konfigurációs lehetőségek. Először érdemes átnézni a Syncthing dokumentációt, hogy megbizonyosodjon arról, hogyan kell ezeket helyesen használni. A helytelen beállítások az akkumulátor lemerülését, a rendszer erőforrásainak elfogyását vagy hiányos szinkronizálást okozhatnak.</string>
     <string name="preference_language_title">Nyelv</string>
