@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.documentfile.provider.DocumentFile;
 
 import com.nutomic.syncthingandroid.R;
 
@@ -60,6 +62,30 @@ public class FileUtils {
         String documentId = DocumentsContract.getDocumentId(documentUri);
         return DocumentsContract.buildTreeDocumentUri(authority, documentId);
     }
+
+    public static boolean directoryUriExists(Context context, Uri documentOrTreeUri) {
+        // Failed query: java.lang.SecurityException: Permission Denial: opening provider com.android.externalstorage.ExternalStorageProvider requires that you obtain access using ACTION_OPEN_DOCUMENT or related APIs
+        Uri treeUri = convertFromDocumentUriToTreeUri(documentOrTreeUri);
+        DocumentFile dir = DocumentFile.fromTreeUri(context, treeUri);
+        if (dir == null || !dir.isDirectory()) {
+            Log.v(TAG, "directoryUriExists: not a directory or null: " + treeUri);
+            return false;
+        }
+        try {
+            Uri docUri = DocumentsContract.buildDocumentUriUsingTree(treeUri,
+                    DocumentsContract.getTreeDocumentId(treeUri));
+            try (Cursor c = context.getContentResolver().query(docUri, null, null, null, null)) {
+                boolean exists = c != null && c.moveToFirst();
+                Log.v(TAG, "directoryUriExists: verified content resolver = " + exists + " for " + docUri);
+                return exists;
+            }
+        } catch (Exception e) {
+            Log.w(TAG, "directoryUriExists: exception verifying URI " + treeUri, e);
+            return false;
+        }
+    }
+
+
     @Nullable
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
