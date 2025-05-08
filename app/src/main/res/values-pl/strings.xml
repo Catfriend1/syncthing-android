@@ -632,7 +632,7 @@
     <string name="preference_app_theme_follow_system">Dopasuj do systemu</string>
     <string name="custom_wifi_ssid_whitelist_empty">Brak identyfikatora SSID Wi-Fi na białej liście. Określ niektóre w ustawieniach.</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplikacja wielokrotnie wyświetla ekran powitalny</string>
-    <string name="bind_network_summary">Wymuś korzystanie z Wi-Fi, nawet jeśli nie ma połączenia z Internetem. Jeśli wyłączono, Syncthing może w tym przypadku korzystać z mobilnej transmisji danych.</string>
+    <string name="bind_network_summary">Wymuś korzystanie z Wi-Fi, nawet jeśli nie ma połączenia z Internetem. Jeśli wyłączono, Syncthing może w tym przypadku korzystać z mobilnej transmisji danych.</string>
     <string name="run_on_metered_wifi_title">Działaj na taryfowych sieciach Wi-Fi</string>
     <string name="reason_not_on_battery_power">Telefon nie jest uruchomiony na zasilaniu bateryjnym.</string>
     <string name="tip_custom_sync_conditions_text">Ta funkcja będzie nadal udoskonalana w przyszłych wersjach. Na razie nie chcieliśmy psuć istniejących konfiguracji i zachowania aplikacji. Dlatego niestandardowe warunki synchronizacji dla określonego typu sieci można ustawić tylko wtedy, gdy najpierw włączysz synchronizację w sieci w globalnych warunkach działania.</string>
