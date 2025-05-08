@@ -2,8 +2,18 @@ plugins {
     id 'ru.vyarus.use-python' version '3.0.0'
 }
 
+def getSourceDateEpoch() {
+    def syncthingSubmoduleDir = new File(project.rootDir, "syncthing/src/github.com/syncthing/syncthing")
+    def sourceDateEpoch = "git log -1 --format=%ct".execute([], syncthingSubmoduleDir).text.trim()
+    return sourceDateEpoch
+}
+
 task buildNative(type: PythonTask) {
     environment "NDK_VERSION", "$ndkVersionShared"
+
+    // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
+    environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
+
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
     command = "-u ./build-syncthing.py"

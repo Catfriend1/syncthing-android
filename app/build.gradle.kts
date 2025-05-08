@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 dependencies {
@@ -17,6 +18,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.annimon:stream:1.2.2")
+    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.code.gson:gson:2.13.0")
     implementation("com.google.dagger:dagger:2.56.2")
