@@ -53,6 +53,13 @@ public class FileUtils {
         INT_MEDIA
     }
 
+    public static android.net.Uri convertFromDocumentUriToTreeUri(Uri documentUri) {
+        // IN: content://com.android.externalstorage.documents/document/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
+        // OUT: content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
+        String authority = documentUri.getAuthority();
+        String documentId = DocumentsContract.getDocumentId(documentUri);
+        return DocumentsContract.buildTreeDocumentUri(authority, documentId);
+    }
     @Nullable
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
@@ -211,14 +218,6 @@ public class FileUtils {
      * API for getExternalFilesDirs(): 19+ (KITKAT+)
      * API for getExternalMediaDirs(): 21+ (LOLLIPOP+)
      */
-    public static android.net.Uri convertFromDocumentUriToTreeUri(Uri documentUri) {
-        // IN: content://com.android.externalstorage.documents/document/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
-        // OUT: content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
-        String authority = documentUri.getAuthority();
-        String documentId = DocumentsContract.getDocumentId(documentUri);
-        return DocumentsContract.buildTreeDocumentUri(authority, documentId);
-    }
-
     public static android.net.Uri getExternalFilesDirUri(Context context, ExternalStorageDirType extDirType) {
         try {
             File externalFilesDir = getExternalFilesDir(context, extDirType, null);
