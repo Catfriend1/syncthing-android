@@ -364,8 +364,9 @@ else:
     ]).strip();
     syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
 
-print('Cleaning go-build cache')
-subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
+if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
+    print('Cleaning go-build cache')
+    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 print('Building syncthing version', syncthingVersion);
 print('SOURCE_DATE_EPOCH=', os.environ['SOURCE_DATE_EPOCH']);
