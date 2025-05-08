@@ -364,15 +364,19 @@ public class FolderActivity extends SyncthingActivity {
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
         // This has to be android.net.Uri as it implements a Parcelable.
-        android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA);
+        android.net.Uri externalFilesDirUri = FileUtils.convertFromDocumentUriToTreeUri(
+                FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA)
+        );
 
         // Display storage access framework directory picker UI.
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         if (externalFilesDirUri != null) {
             intent.putExtra("android.provider.extra.INITIAL_URI", externalFilesDirUri);
         } else {
-            android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
             if (internalFilesDirUri != null) {
+            android.net.Uri internalFilesDirUri = FileUtils.convertFromDocumentUriToTreeUri(
+                    FileUtils.getInternalStorageRootUri()
+            );
                 intent.putExtra("android.provider.extra.INITIAL_URI", internalFilesDirUri);
             }
         }
