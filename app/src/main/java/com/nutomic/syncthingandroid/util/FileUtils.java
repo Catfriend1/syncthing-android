@@ -64,7 +64,6 @@ public class FileUtils {
     public static boolean directoryUriExists(Context context, Uri documentUri) {
         Uri treeUri = convertFromDocumentUriToTreeUri(documentUri);
         String absPath = getAbsolutePathFromSAFUri(context, treeUri);
-        Log.v(TAG, "KATZE + " + absPath);
         return new File(absPath).exists();
     }
     
