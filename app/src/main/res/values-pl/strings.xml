@@ -709,4 +709,6 @@
     <string name="sleep_interval_minutes_title">Czas trwania interwału wstrzymania synchronizacji</string>
     <string name="start_into_web_gui_title">Rozpocznij bezpośrednio w interfejsie sieciowym</string>
     <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz interfejs sieciowy zamiast głównego ekranu</string>
+    <string name="open_source_licenses_title">Licencje open source</string>
+    <string name="open_source_licenses_summary">Pokaż używane licencje open source</string>
 </resources>
