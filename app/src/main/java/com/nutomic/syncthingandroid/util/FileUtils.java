@@ -60,6 +60,14 @@ public class FileUtils {
         String documentId = DocumentsContract.getDocumentId(documentUri);
         return DocumentsContract.buildTreeDocumentUri(authority, documentId);
     }
+    
+    public static boolean directoryUriExists(Context context, Uri documentUri) {
+        Uri treeUri = convertFromDocumentUriToTreeUri(documentUri);
+        String absPath = getAbsolutePathFromSAFUri(context, treeUri);
+        Log.v(TAG, "KATZE + " + absPath);
+        return new File(absPath).exists();
+    }
+    
     @Nullable
     public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
