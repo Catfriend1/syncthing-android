@@ -275,39 +275,22 @@ public class SyncthingService extends Service {
         connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkRequest networkRequest = new NetworkRequest.Builder()
-                .addTransportType(NetworkCapabilities.TRANSPORT_VPN)
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
                 .build();
 
         networkCallback = new ConnectivityManager.NetworkCallback() {
             @Override
             public void onAvailable(@NonNull Network vpnNetwork) {
-                NetworkCapabilities vpnCaps = connectivityManager.getNetworkCapabilities(vpnNetwork);
-                if (vpnCaps != null && vpnCaps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
-                    // Check if VPN is based on the WiFi connection
-                    Network[] allNetworks = connectivityManager.getAllNetworks();
-                    for (Network net : allNetworks) {
-                        if (net.equals(vpnNetwork)) continue;
-
-                        NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(net);
-                        if (caps == null) continue;
-
-                        if (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) &&
-                            caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                            if (mSyncthingRunnable != null) {
-                                Log.d(TAG, "VPN based on WiFi detected – rebinding network");
-                                mSyncthingRunnable.bindNetwork();
-                            }
-                            break;
+                Network[] allNetworks = connectivityManager.getAllNetworks();
+                for (Network net : allNetworks) {
+                    NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(net);
+                    if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
+                        if (mSyncthingRunnable != null) {
+                            Log.d(TAG, "VPN based on WiFi detected – rebinding network");
+                            mSyncthingRunnable.bindNetwork();
                         }
+                        break;
                     }
-                }
-            }
-
-            @Override
-            public void onLost(@NonNull Network network) {
-                Log.d(TAG, "VPN disconnected - rebinding network");
-                if (mSyncthingRunnable != null) {
-                    mSyncthingRunnable.bindNetwork();
                 }
             }
         };
