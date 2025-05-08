@@ -148,6 +148,7 @@ public class SyncthingRunnable implements Runnable {
         boolean runOnWifi = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
         boolean runOnMobileData = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, true);
         if ((runOnWifi && !runOnMobileData) || (!runOnWifi && runOnMobileData)) {
+            Log.d(TAG, "bindNetwork");
             ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             Network network = cm.getActiveNetwork();
             cm.bindProcessToNetwork(network);
@@ -162,6 +163,7 @@ public class SyncthingRunnable implements Runnable {
         if (!bindNetwork) {
             return;
         }
+        Log.d(TAG, "clearBindNetwork");
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm.getBoundNetworkForProcess() != null) {
             cm.bindProcessToNetwork(null);
