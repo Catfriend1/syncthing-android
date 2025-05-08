@@ -540,7 +540,6 @@
     <string name="run_on_whitelisted_wifi_title">지정된 Wi-Fi 네트워크에서 실행</string>
     <string name="sync_duration_minutes_title">동기화 주기</string>
     <string name="behaviour_autostart_summary">운영 체제 시작 시 응용 프로그램을 자동으로 시작합니다.</string>
-    <string name="bind_network_summary">인터넷 연결이 없을 때 WiFi를 사용하도록 강제합니다. 비활성화하면 이 경우에 Syncthing이 모바일 데이터를 사용할 수 있습니다.</string>
     <string name="expert_mode_summary">이 옵션을 활성화하면 고급 설정 옵션이 표시됩니다. 올바르게 사용하는 방법을 알기 위해 먼저 Syncthing 문서를 확인하세요. 설정을 잘못하면 배터리 소모, 시스템 자원 고갈 또는 불완전한 동기화가 발생할 수 있습니다.</string>
     <string name="reason_not_within_time_frame_2">사용자가 \'시간 일정에 따라 실행\'을 활성화했으며 마지막 동기화는 %s 전에 이루어졌습니다.</string>
     <string name="verbose_log_title">상세 기록</string>
@@ -562,7 +561,6 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">네트워크를 선택하려면 위치 기능을 켜 주세요.</string>
     <string name="run_in_flight_mode_title">네트워크 연결 없이 실행</string>
     <string name="use_root_summary">Syncthing을 루트 권한으로 실행하면 Android가 일반적으로 읽기 전용으로 제한하는 폴더에 쓰기 권한을 부여합니다. 이 기능은 주의해서 사용하세요.</string>
-    <string name="bind_network_title">활성화 된 네트워크에 바인딩</string>
     <string name="folder_type_send_receive">송신 &amp; 수신</string>
     <string name="folder_type_send_only">송신 전용</string>
     <string name="folder_type_receive_only">수신 전용</string>

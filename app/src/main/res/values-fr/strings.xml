@@ -460,9 +460,7 @@
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
     <string name="behaviour_autostart_title">Démarrage automatique</string>
     <string name="behaviour_autostart_summary">Démarrage de l\'application en tâche de fond au démarrage du système.</string>
-    <string name="bind_network_title">Lier au réseau actif</string>
     <string name="expert_mode_title">Mode expert</string>
-    <string name="bind_network_summary">Force l\'utilisation du Wi-Fi même s\'il n\'y a pas d\'accès Internet. Si désactivé, Syncthing pourrait utiliser les données mobiles dans ce cas.</string>
     <string name="crash_reporting">Rapports de crash anonymes</string>
     <string name="webui_remote_access_title">Accès GUI à distance</string>
     <string name="webui_username_title">Utilisateur GUI</string>
