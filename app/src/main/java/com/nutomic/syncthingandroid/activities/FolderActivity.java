@@ -363,23 +363,26 @@ public class FolderActivity extends SyncthingActivity {
      */
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
-        // This has to be android.net.Uri as it implements a Parcelable.
-        android.net.Uri externalFilesDirUri = FileUtils.convertFromDocumentUriToTreeUri(
-                FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA)
-        );
-
-        // Display storage access framework directory picker UI.
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        if (externalFilesDirUri != null) {
-            intent.putExtra("android.provider.extra.INITIAL_URI", externalFilesDirUri);
+        
+        // Determine directory initialUri for SAF file picker dialog.
+        // This has to be android.net.Uri as it implements a Parcelable.
+        android.net.Uri initialUri = null;
+        android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA);
+        if (FileUtils.directoryUriExists(FolderActivity.this, externalFilesDirUri)) {
+            initialUri = externalFilesDirUri;
         } else {
-            if (internalFilesDirUri != null) {
-            android.net.Uri internalFilesDirUri = FileUtils.convertFromDocumentUriToTreeUri(
-                    FileUtils.getInternalStorageRootUri()
-            );
-                intent.putExtra("android.provider.extra.INITIAL_URI", internalFilesDirUri);
+            android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
+            if (FileUtils.directoryUriExists(FolderActivity.this, internalFilesDirUri)) {
+                initialUri = internalFilesDirUri;
             }
         }
+        if (initialUri != null) {
+            Log.v(TAG, "onPathViewClick: INITIAL_URI = " + initialUri);
+            intent.putExtra("android.provider.extra.INITIAL_URI", initialUri);
+        }
+
+        // Display storage access framework directory picker UI.
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
         try {
