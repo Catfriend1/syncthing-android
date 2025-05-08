@@ -645,4 +645,6 @@
     <string name="sleep_interval_minutes_title">Eşitleme duraklatma aralığının süresi</string>
     <string name="start_into_web_gui_summary">Uygulamayı başlatırken, ana ekran yerine web Grafiksel Kullanıcı Arayüzü\'nü açar</string>
     <string name="start_into_web_gui_title">Doğrudan web GKA içinde başlat</string>
+    <string name="open_source_licenses_summary">Kullanılan açık kaynak lisanslarını göster</string>
+    <string name="open_source_licenses_title">Açık Kaynak Lisansları</string>
 </resources>
