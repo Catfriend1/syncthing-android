@@ -144,7 +144,7 @@ public class FileUtils {
             Log.w(TAG, "getVolumePath failed for volumeId='" + volumeId + "'");
             if (volumeId.equals("primary")) {
                 Log.d(TAG, "volumeId == primary");
-                return Environment.getExternalStorageDirectory().getAbsolutePath();
+                return getInternalStorageRootAbsolutePath();
             }
             return "/storage/" + volumeId;
         // }
