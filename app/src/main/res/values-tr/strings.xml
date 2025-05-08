@@ -647,4 +647,8 @@
     <string name="start_into_web_gui_title">Doğrudan web GKA içinde başlat</string>
     <string name="open_source_licenses_summary">Kullanılan açık kaynak lisanslarını göster</string>
     <string name="open_source_licenses_title">Açık Kaynak Lisansları</string>
+    <string name="syncthing_forum_title">Syncthing Forumu</string>
+    <string name="privacy_title">Gizlilik İlkesi</string>
+    <string name="syncthing_forum_summary">Syncthing Forumu\'na gidin ve destek alın</string>
+    <string name="privacy_summary">Kişisel verilerin (varsa) kullanımını kapsayan syncthing-android\'in gizlilik ilkesini açın, örn. konum.</string>
 </resources>
