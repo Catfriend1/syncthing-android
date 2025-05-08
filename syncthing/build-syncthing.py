@@ -369,7 +369,7 @@ if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
     subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 print('Building syncthing version', syncthingVersion);
-print('SOURCE_DATE_EPOCH=', os.environ['SOURCE_DATE_EPOCH']);
+print('SOURCE_DATE_EPOCH=[' + os.environ['SOURCE_DATE_EPOCH'] + ']');
 for target in BUILD_TARGETS:
     print('')
     print('*** Building for', target['arch'])
