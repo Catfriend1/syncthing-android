@@ -1247,8 +1247,9 @@ public class SettingsActivity extends SyncthingActivity {
 
         public static boolean clearStVersions(List<Folder> folders) {
             for (Folder folder : folders) {
-                File dir = new File(folder.path);
+                File dir = new File(folder.path + "/" + Constants.FOLDER_NAME_STVERSIONS);
                 if (dir.exists() && dir.isDirectory()) {
+                    Log.d(TAG, "Delete dir: " + dir);
                     deleteContents(dir);
                 }
             }
