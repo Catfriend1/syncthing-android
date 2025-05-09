@@ -937,15 +937,25 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
 
-        // Create marker directory.
-        DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
-        if (dfFolderMarkerDir == null) {
-            Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
-            return;
+        // Create ".stfolder" marker directory.
+        DocumentFile dfFolderMarkerDir = null;
+        for (DocumentFile file : dfFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(FOLDER_MARKER_DIR_NAME)) {
+                dfFolderMarkerDir = file;
+                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strFolderMarkerPath + "'");
+                break;
+            }
         }
-        Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
+        if (dfFolderMarkerDir == null) {
+            dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
+            if (dfFolderMarkerDir == null) {
+                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
+                return;
+            }
+            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
+        }
 
-        // Create "DO_NOT_DELETE" file.
+        // Create ".stfoldder/DO_NOT_DELETE" file.
         DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
         if (dfDoNotDeleteFile == null) {
             Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
@@ -972,12 +982,22 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         // Create ".stversions" directory.
-        DocumentFile dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
-        if (dfStVersionsDir == null) {
-            Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
-            return;
+        DocumentFile dfStVersionsDir = null;
+        for (DocumentFile file : dfFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(Constants.FOLDER_NAME_STVERSIONS)) {
+                dfStVersionsDir = file;
+                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strStVersionsPath + "'");
+                break;
+            }
         }
-        Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
+        if (dfStVersionsDir == null) {
+            dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
+            if (dfStVersionsDir == null) {
+                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
+                return;
+            }
+            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
+        }
 
         // Write ".stversions/.nomedia" file.
         try {
