@@ -959,7 +959,7 @@ public class FolderActivity extends SyncthingActivity {
             }
         }
 
-        // Create .stversions directory.
+        // Create ".stversions" directory.
         DocumentFile dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
         if (dfStVersionsDir == null) {
             Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
