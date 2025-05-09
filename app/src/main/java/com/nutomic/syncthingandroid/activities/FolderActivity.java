@@ -955,7 +955,7 @@ public class FolderActivity extends SyncthingActivity {
             Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
         }
 
-        // Create ".stfoldder/DO_NOT_DELETE" file.
+        // Create ".stfolder/DO_NOT_DELETE" file.
         DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
         if (dfDoNotDeleteFile == null) {
             Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
