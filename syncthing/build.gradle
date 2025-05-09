@@ -2,10 +2,31 @@ plugins {
     id 'ru.vyarus.use-python' version '3.0.0'
 }
 
+def getSyncthingNativeVersion() {
+    def syncthingSubmoduleDir = new File(project.rootDir, "syncthing/src/github.com/syncthing/syncthing")
+    def gitDescribe = "git describe --always".execute([], syncthingSubmoduleDir).text.trim()
+
+    // Take "(versionMajor).(versionMinor).(versionPatch)" without leading "v" and ignore what follows after.
+     def matcher = gitDescribe =~ /v?(\d+)\.(\d+)\.(\d+)(?:-.+)?/
+    if (matcher.matches()) {
+        return "${matcher[0][1]}.${matcher[0][2]}.${matcher[0][3]}"
+    } else {
+        throw new GradleException("getSyncthingNativeVersion: FAILED to extract from '${gitDescribe}'.")
+    }
+}
+
 def getSourceDateEpoch() {
     def syncthingSubmoduleDir = new File(project.rootDir, "syncthing/src/github.com/syncthing/syncthing")
     def sourceDateEpoch = "git log -1 --format=%ct".execute([], syncthingSubmoduleDir).text.trim()
     return sourceDateEpoch
+}
+
+def verifySyncthingNativeVersionMatchesApp() {
+    def syncthingNativeVersion = getSyncthingNativeVersion()
+    def syncthingAppVersion = "${rootProject.ext.get("versionMajor")}.${rootProject.ext.get("versionMinor")}.${rootProject.ext.get("versionPatch")}"
+    if (syncthingNativeVersion != syncthingAppVersion) {
+        throw new GradleException("Checked out SyncthingNative version (${syncthingNativeVersion}) differs from App version (${syncthingAppVersion}). Please verify that the submodule refers to the correct commit.")
+    }
 }
 
 task buildNative(type: PythonTask) {
@@ -13,6 +34,8 @@ task buildNative(type: PythonTask) {
 
     // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
     environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
+    
+    verifySyncthingNativeVersionMatchesApp();
 
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
