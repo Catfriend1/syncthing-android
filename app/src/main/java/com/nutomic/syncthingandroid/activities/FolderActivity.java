@@ -914,6 +914,7 @@ public class FolderActivity extends SyncthingActivity {
             try {
                 new File(strFolderMarkerPath).mkdirs();
                 new File(strStVersionsPath).mkdirs();
+                new File(strStVersionsNoMediaFile).createNewFile();
             } catch (Exception e) {
                 Log.e(TAG, "preCreateFolderStruct: Failed to create using absolute path.", e);
             }
