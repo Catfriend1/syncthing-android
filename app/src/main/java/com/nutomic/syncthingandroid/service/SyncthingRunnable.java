@@ -473,7 +473,7 @@ public class SyncthingRunnable implements Runnable {
         HashMap<String, String> targetEnv = new HashMap<>();
 
         // Set home directory to data folder for web GUI folder picker.
-        targetEnv.put("HOME", FileUtils.getInternalStorageRootAbsolutePath() + "/syncthing");
+        targetEnv.put("HOME", FileUtils.getSyncthingTildeAbsolutePath());
 
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
