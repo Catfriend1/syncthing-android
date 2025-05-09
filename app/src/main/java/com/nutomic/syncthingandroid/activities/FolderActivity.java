@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.DocumentsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -966,6 +967,24 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
         Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
+
+        // Write ".stversions/.nomedia" file.
+        try {
+            Uri fileUri = DocumentsContract.createDocument(
+                    getContentResolver(),
+                    dfStVersionsDir.getUri(),
+                    "application/octet-stream",
+                    ".nomedia"
+            );
+            if (fileUri != null) {
+                OutputStream os = getContentResolver().openOutputStream(fileUri);
+                if (os != null) {
+                    os.close();
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "preCreateFolderStruct: Failed to create " + Constants.FOLDER_NAME_STVERSIONS + "/.nomedia file.", e);
+        }
     }
 
     private void showDiscardDialog(){
