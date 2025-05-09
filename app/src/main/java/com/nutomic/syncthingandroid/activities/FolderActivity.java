@@ -836,7 +836,7 @@ public class FolderActivity extends SyncthingActivity {
 
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
-            preCreateFolderMarker(mFolderUri, mFolder.path);
+            preCreateFolderStruct(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
 
             // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
@@ -882,7 +882,7 @@ public class FolderActivity extends SyncthingActivity {
         return;
     }
 
-    private void preCreateFolderMarker(Uri uriFolderRoot, String absolutePath) {
+    private void preCreateFolderStruct(Uri uriFolderRoot, String absolutePath) {
         /**
          * Normally, syncthing takes care of creating the ".stfolder" marker.
          * This fails on Android 5+ if the syncthing binary only has
@@ -890,8 +890,8 @@ public class FolderActivity extends SyncthingActivity {
          * sendOnly folder. To fix this, we'll precreate the marker using java code.
          */
         final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
-        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
-        
+        String strFolderMarkerPath = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
+
         /**
          * Name of the dummy file created within the marker directory.
          * Creating the file is a workaround for issue #131 where manufacturer
@@ -899,36 +899,45 @@ public class FolderActivity extends SyncthingActivity {
          * the marker directory.
          */
         final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
-        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
+        String strDoNotDeleteFile = strFolderMarkerPath + File.separator + DO_NOT_DELETE_FILE_NAME;
+
+        /**
+         * Precreate .stversions directory so we can put ".nomedia" in place to keep the gallery clean.
+         */
+        final String strStVersionsPath = absolutePath + File.separator + Constants.FOLDER_NAME_STVERSIONS;
 
         // Fall back to classic API if uriFolderRoot is missing. E.g. in case FolderPickerActivity was used which only returns an absolute path.
         if (uriFolderRoot == null) {
-            Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
+            Log.w(TAG, "preCreateFolderStruct: uriFolderRoot == null. Using absolute path.");
+            try {
+            } catch (Exception e) {
+                Log.e(TAG, "preCreateFolderStruct: Failed to create using absolute path.", e);
+            }
             return;
         }
 
         // Derive DocumentFile handle from SAF tree Uri where we have write access.
         DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
         if (dfFolder == null) {
-            Log.w(TAG, "preCreateFolderMarker: dfFolder == null");
+            Log.w(TAG, "preCreateFolderStruct: dfFolder == null");
             return;
         }
 
         // Create marker directory.
         DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
         if (dfFolderMarkerDir == null) {
-            Log.w(TAG, "preCreateFolderMarker: Failed to create directory '" + strFolderMarkerDir + "'");
+            Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
             return;
         }
-        Log.v(TAG, "preCreateFolderMarker: Created directory '" + strFolderMarkerDir + "'");
+        Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
 
         // Create "DO_NOT_DELETE" file.
         DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
         if (dfDoNotDeleteFile == null) {
-            Log.w(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #1");
+            Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
             return;
         }
-        Log.v(TAG, "preCreateFolderMarker: Created file '" + strDoNotDeleteFile + "'");
+        Log.v(TAG, "preCreateFolderStruct: Created file '" + strDoNotDeleteFile + "'");
 
         // Write "DO_NOT_DELETE" text content.
         OutputStream outputStream = null;
@@ -937,16 +946,24 @@ public class FolderActivity extends SyncthingActivity {
             outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
             outputStream.flush();
         } catch (IOException e) {
-            Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
+            Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
         } finally {
             try {
                 if (outputStream != null) {
                     outputStream.close();
                 }
             } catch (IOException e) {
-                Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
+                Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
             }
         }
+
+        // Create .stversions directory.
+        DocumentFile dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
+        if (dfStVersionsDir == null) {
+            Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
+            return;
+        }
+        Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
     }
 
     private void showDiscardDialog(){
