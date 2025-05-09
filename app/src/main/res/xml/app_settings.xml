@@ -291,6 +291,13 @@
             android:persistent="false" />
 
         <Preference
+            android:key="clearStVersions"
+            android:title="@string/clear_stversions_title"
+            android:summary="@string/clear_stversions_summary"
+            android:persistent="false"
+            android:singleLineTitle="false" />
+
+        <Preference
             android:key="downloadSupportBundle"
             android:title="@string/download_support_bundle_title"
             android:persistent="false"
