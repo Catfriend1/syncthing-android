@@ -883,13 +883,25 @@ public class FolderActivity extends SyncthingActivity {
     }
 
     private void preCreateFolderMarker(Uri uriFolderRoot, String absolutePath) {
-
         /**
          * Normally, syncthing takes care of creating the ".stfolder" marker.
          * This fails on Android 5+ if the syncthing binary only has
          * readonly access on the path and the user tries to configure a
          * sendOnly folder. To fix this, we'll precreate the marker using java code.
          */
+        final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
+        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
+        
+        /**
+         * Name of the dummy file created within the marker directory.
+         * Creating the file is a workaround for issue #131 where manufacturer
+         * specific cleaning routines silently wipe out empty directories like
+         * the marker directory.
+         */
+        final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
+        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
+
+        // Fall back to classic API if uriFolderRoot is missing. E.g. in case FolderPickerActivity was used which only returns an absolute path.
         if (uriFolderRoot == null) {
             Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
             return;
@@ -902,10 +914,6 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
 
-        // Marker directory name and full path.
-        final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
-        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
-
         // Create marker directory.
         DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
         if (dfFolderMarkerDir == null) {
@@ -913,15 +921,6 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
         Log.v(TAG, "preCreateFolderMarker: Created directory '" + strFolderMarkerDir + "'");
-
-        /**
-         * Name of the dummy file created within the marker directory.
-         * Creating the file is a workaround for issue #131 where manufacturer
-         * specific cleaning routines silently wipe out empty directories like
-         * the marker directory.
-         */
-        final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
-        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
 
         // Create "DO_NOT_DELETE" file.
         DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
