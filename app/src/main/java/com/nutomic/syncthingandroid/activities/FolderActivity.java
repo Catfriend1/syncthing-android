@@ -1013,6 +1013,7 @@ public class FolderActivity extends SyncthingActivity {
                     os.close();
                 }
             }
+            Log.v(TAG, "preCreateFolderStruct: Created file '" + strStVersionsNoMediaFile + "'");
         } catch (Exception e) {
             Log.e(TAG, "preCreateFolderStruct: Failed to create " + strStVersionsNoMediaFile + " file.", e);
         }
