@@ -1012,6 +1012,7 @@ public class SyncthingService extends Service {
                             // Preferences that are no longer used and left-overs from previous versions of the app.
                             case "first_start":
                             case "advanced_folder_picker":
+                            case "bind_network":
                             case "notification_type":
                             case "notify_crashes":
                             case "suggest_new_folder_root":
