@@ -52,6 +52,9 @@ public class RunConditionMonitor {
     public static final String EXTRA_BEGIN_ACTIVE_TIME_WINDOW =
         "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.BEGIN_ACTIVE_TIME_WINDOW";
 
+    public static final String EXTRA_FORCE_START =
+        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.FORCE_START";
+
     private @Nullable Object mSyncStatusObserverHandle = null;
     private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
         @Override
@@ -110,6 +113,7 @@ public class RunConditionMonitor {
     private Boolean mRunAllowedStopScheduled = false;
 
     private int triggeredSyncDurationS = 10;
+    private Boolean mForceAllowNextRun = false;
 
     @Inject
     SharedPreferences mPreferences;
@@ -269,6 +273,7 @@ public class RunConditionMonitor {
         public void onReceive(Context context, Intent intent) {
             mRunAllowedStopScheduled = false;
             boolean extraBeginActiveTimeWindow = intent.getBooleanExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, false);
+            boolean extraForceStart = intent.getBooleanExtra(EXTRA_FORCE_START, false);
             LogV("SyncTriggerReceiver: onReceive, extraBeginActiveTimeWindow=" + Boolean.toString(extraBeginActiveTimeWindow));
 
             boolean prefRunOnTimeSchedule = mPreferences.getBoolean(Constants.PREF_RUN_ON_TIME_SCHEDULE, false);
@@ -291,6 +296,11 @@ public class RunConditionMonitor {
             if (extraBeginActiveTimeWindow) {
                 // We should immediately start SyncthingNative for TRIGGERED_SYNC_DURATION_SECS.
                 mTimeConditionMatch = true;
+
+                if (extraForceStart) {
+                    mForceAllowNextRun = true;
+                }
+
                 JobUtils.cancelAllScheduledJobs(context);
                 JobUtils.scheduleSyncTriggerServiceJob(
                         context,
@@ -550,6 +560,12 @@ public class RunConditionMonitor {
      */
     private boolean decideShouldRun() {
         mRunDecisionExplanation = "";
+
+        if (mForceAllowNextRun) {
+            mRunDecisionExplanation = res.getString(R.string.reason_force_start);
+            mForceAllowNextRun = false;
+            return true;
+        }
 
         // Get sync condition preferences.
         int prefBtnStateForceStartStop = mPreferences.getInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_NO_FORCE_START_STOP);
