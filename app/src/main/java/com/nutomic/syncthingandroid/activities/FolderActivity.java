@@ -52,6 +52,7 @@ import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -912,7 +913,15 @@ public class FolderActivity extends SyncthingActivity {
         if (uriFolderRoot == null) {
             Log.w(TAG, "preCreateFolderStruct: uriFolderRoot == null. Using absolute path.");
             try {
+                // ".stfolder"
                 new File(strFolderMarkerPath).mkdirs();
+                if (new File(strDoNotDeleteFile).createNewFile()) {
+                    FileWriter writer = new FileWriter(strDoNotDeleteFile);
+                    writer.write(DO_NOT_DELETE_FILE_NAME);
+                    writer.close();
+                }
+
+                // ".stversions"
                 new File(strStVersionsPath).mkdirs();
                 new File(strStVersionsNoMediaFile).createNewFile();
             } catch (Exception e) {
