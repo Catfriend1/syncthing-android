@@ -46,6 +46,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
@@ -65,6 +66,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -144,6 +146,7 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
         private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
         private static final String KEY_WEBUI_DEBUGGING = "webUIDebugging";
+        private static final String KEY_CLEAR_STVERSIONS = "clearStVersions";
         private static final String KEY_DOWNLOAD_SUPPORT_BUNDLE = "downloadSupportBundle";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
         // Settings/Import and Export
@@ -203,6 +206,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
         private CheckBoxPreference mWebUIDebugging;
+        private Preference mClearStVersions;
         private Preference mDownloadSupportBundle;
 
         /* Import and Export */
@@ -351,12 +355,14 @@ public class SettingsActivity extends SyncthingActivity {
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
             mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
             mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
+            mClearStVersions        = findPreference(KEY_CLEAR_STVERSIONS);
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
             mCategorySyncthingOptions = (PreferenceScreen) findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
             mSyncthingApiKey.setOnPreferenceClickListener(this);
+            mClearStVersions.setOnPreferenceClickListener(this);
             mDownloadSupportBundle.setOnPreferenceClickListener(this);
             undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
 
@@ -887,6 +893,20 @@ public class SettingsActivity extends SyncthingActivity {
                         return true;
                     default:
                         return false;
+                case KEY_CLEAR_STVERSIONS:
+                    new AlertDialog.Builder(getActivity())
+                            .setMessage(R.string.clear_stversions_question)
+                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                ConfigRouter config = new ConfigRouter(getActivity());
+                                if (clearStVersions(config.getFolders(null))) {
+                                    Toast.makeText(getActivity(),
+                                            getString(R.string.clear_stversions_done),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, null)
+                            .show();
+                    return true;
                 case KEY_DOWNLOAD_SUPPORT_BUNDLE:
                     onDownloadSupportBundleClick();
                     return true;
@@ -1224,5 +1244,29 @@ public class SettingsActivity extends SyncthingActivity {
             }
             return result;
         }
+
+        public static boolean clearStVersions(List<Folder> folders) {
+            for (Folder folder : folders) {
+                File dir = new File(folder.path + "/" + Constants.FOLDER_NAME_STVERSIONS);
+                if (dir.exists() && dir.isDirectory()) {
+                    Log.d(TAG, "Delete dir: " + dir);
+                    deleteContents(dir);
+                }
+            }
+            return true;
+        }
+
+        private static void deleteContents(File dir) {
+            File[] files = dir.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        deleteContents(file);
+                    }
+                    file.delete();
+                }
+            }
+        }
+
     }
 }

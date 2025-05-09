@@ -478,7 +478,7 @@ public class ConfigXml {
             
             folder.path = getAttributeOrDefault(r, "path", "");
             if (folder.path.startsWith("~/")) {
-                folder.path = folder.path.replaceFirst("^~", FileUtils.getInternalStorageRootAbsolutePath());
+                folder.path = folder.path.replaceFirst("^~", FileUtils.getSyncthingTildeAbsolutePath());
             }
             
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
