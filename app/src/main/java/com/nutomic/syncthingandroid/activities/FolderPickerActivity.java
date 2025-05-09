@@ -126,6 +126,7 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.remove(getExternalFilesDir(null));
             roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             roots.add(Environment.getExternalStorageDirectory());
+            roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
