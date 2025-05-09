@@ -906,6 +906,7 @@ public class FolderActivity extends SyncthingActivity {
          * Precreate .stversions directory so we can put ".nomedia" in place to keep the gallery clean.
          */
         final String strStVersionsPath = absolutePath + File.separator + Constants.FOLDER_NAME_STVERSIONS;
+        final String strStVersionsNoMediaFile = strStVersionsPath + File.separator + ".nomedia";
 
         // Fall back to classic API if uriFolderRoot is missing. E.g. in case FolderPickerActivity was used which only returns an absolute path.
         if (uriFolderRoot == null) {
@@ -983,7 +984,7 @@ public class FolderActivity extends SyncthingActivity {
                 }
             }
         } catch (Exception e) {
-            Log.e(TAG, "preCreateFolderStruct: Failed to create " + Constants.FOLDER_NAME_STVERSIONS + "/.nomedia file.", e);
+            Log.e(TAG, "preCreateFolderStruct: Failed to create " + strStVersionsNoMediaFile + " file.", e);
         }
     }
 
