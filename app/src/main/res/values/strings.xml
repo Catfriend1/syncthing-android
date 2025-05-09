@@ -610,6 +610,11 @@
 
     <string name="webui_debugging_summary">Enable to start profiling and to be able to download a support bundle. Changing this option will restart Syncthing immediately.</string>
 
+    <string name="clear_stversions_title">Empty all versioning folders</string>
+    <string name="clear_stversions_summary">Files are moved to .stversions directory when replaced or deleted by Syncthing. You can probably find and recover accidentially deleted files there, but outdated versions of the files take storage space on your device.</string>
+    <string name="clear_stversions_question">This will delete all previous versions of files handled by Syncthing. Continue\?</string>
+    <string name="clear_stversions_done">Successfully cleared .stversions folders.</string>
+
     <string name="download_support_bundle_title">Download Support Bundle</string>
 
     <!-- Summary shown when the user clicked the download support bundle button -->
