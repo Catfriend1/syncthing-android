@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.DocumentsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -51,6 +52,7 @@ import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -836,7 +838,7 @@ public class FolderActivity extends SyncthingActivity {
 
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
-            preCreateFolderMarker(mFolderUri, mFolder.path);
+            preCreateFolderStruct(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
 
             // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
@@ -882,37 +884,15 @@ public class FolderActivity extends SyncthingActivity {
         return;
     }
 
-    private void preCreateFolderMarker(Uri uriFolderRoot, String absolutePath) {
-
+    private void preCreateFolderStruct(Uri uriFolderRoot, String absolutePath) {
         /**
          * Normally, syncthing takes care of creating the ".stfolder" marker.
          * This fails on Android 5+ if the syncthing binary only has
          * readonly access on the path and the user tries to configure a
          * sendOnly folder. To fix this, we'll precreate the marker using java code.
          */
-        if (uriFolderRoot == null) {
-            Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
-            return;
-        }
-
-        // Derive DocumentFile handle from SAF tree Uri where we have write access.
-        DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
-        if (dfFolder == null) {
-            Log.w(TAG, "preCreateFolderMarker: dfFolder == null");
-            return;
-        }
-
-        // Marker directory name and full path.
         final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
-        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
-
-        // Create marker directory.
-        DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
-        if (dfFolderMarkerDir == null) {
-            Log.w(TAG, "preCreateFolderMarker: Failed to create directory '" + strFolderMarkerDir + "'");
-            return;
-        }
-        Log.v(TAG, "preCreateFolderMarker: Created directory '" + strFolderMarkerDir + "'");
+        String strFolderMarkerPath = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
 
         /**
          * Name of the dummy file created within the marker directory.
@@ -921,15 +901,67 @@ public class FolderActivity extends SyncthingActivity {
          * the marker directory.
          */
         final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
-        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
+        String strDoNotDeleteFile = strFolderMarkerPath + File.separator + DO_NOT_DELETE_FILE_NAME;
 
-        // Create "DO_NOT_DELETE" file.
-        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
-        if (dfDoNotDeleteFile == null) {
-            Log.w(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #1");
+        /**
+         * Precreate .stversions directory so we can put ".nomedia" in place to keep the gallery clean.
+         */
+        final String strStVersionsPath = absolutePath + File.separator + Constants.FOLDER_NAME_STVERSIONS;
+        final String strStVersionsNoMediaFile = strStVersionsPath + File.separator + ".nomedia";
+
+        // Fall back to classic API if uriFolderRoot is missing. E.g. in case FolderPickerActivity was used which only returns an absolute path.
+        if (uriFolderRoot == null) {
+            Log.w(TAG, "preCreateFolderStruct: uriFolderRoot == null. Using absolute path.");
+            try {
+                // ".stfolder"
+                new File(strFolderMarkerPath).mkdirs();
+                if (new File(strDoNotDeleteFile).createNewFile()) {
+                    FileWriter writer = new FileWriter(strDoNotDeleteFile);
+                    writer.write(DO_NOT_DELETE_FILE_NAME);
+                    writer.close();
+                }
+
+                // ".stversions"
+                new File(strStVersionsPath).mkdirs();
+                new File(strStVersionsNoMediaFile).createNewFile();
+            } catch (Exception e) {
+                Log.e(TAG, "preCreateFolderStruct: Failed to create using absolute path.", e);
+            }
             return;
         }
-        Log.v(TAG, "preCreateFolderMarker: Created file '" + strDoNotDeleteFile + "'");
+
+        // Derive DocumentFile handle from SAF tree Uri where we have write access.
+        DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
+        if (dfFolder == null) {
+            Log.w(TAG, "preCreateFolderStruct: dfFolder == null");
+            return;
+        }
+
+        // Create ".stfolder" marker directory.
+        DocumentFile dfFolderMarkerDir = null;
+        for (DocumentFile file : dfFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(FOLDER_MARKER_DIR_NAME)) {
+                dfFolderMarkerDir = file;
+                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strFolderMarkerPath + "'");
+                break;
+            }
+        }
+        if (dfFolderMarkerDir == null) {
+            dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
+            if (dfFolderMarkerDir == null) {
+                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
+                return;
+            }
+            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
+        }
+
+        // Create ".stfolder/DO_NOT_DELETE" file.
+        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
+        if (dfDoNotDeleteFile == null) {
+            Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
+            return;
+        }
+        Log.v(TAG, "preCreateFolderStruct: Created file '" + strDoNotDeleteFile + "'");
 
         // Write "DO_NOT_DELETE" text content.
         OutputStream outputStream = null;
@@ -938,15 +970,52 @@ public class FolderActivity extends SyncthingActivity {
             outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
             outputStream.flush();
         } catch (IOException e) {
-            Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
+            Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
         } finally {
             try {
                 if (outputStream != null) {
                     outputStream.close();
                 }
             } catch (IOException e) {
-                Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
+                Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
             }
+        }
+
+        // Create ".stversions" directory.
+        DocumentFile dfStVersionsDir = null;
+        for (DocumentFile file : dfFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(Constants.FOLDER_NAME_STVERSIONS)) {
+                dfStVersionsDir = file;
+                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strStVersionsPath + "'");
+                break;
+            }
+        }
+        if (dfStVersionsDir == null) {
+            dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
+            if (dfStVersionsDir == null) {
+                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
+                return;
+            }
+            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
+        }
+
+        // Write ".stversions/.nomedia" file.
+        try {
+            Uri fileUri = DocumentsContract.createDocument(
+                    getContentResolver(),
+                    dfStVersionsDir.getUri(),
+                    "application/octet-stream",
+                    ".nomedia"
+            );
+            if (fileUri != null) {
+                OutputStream os = getContentResolver().openOutputStream(fileUri);
+                if (os != null) {
+                    os.close();
+                }
+            }
+            Log.v(TAG, "preCreateFolderStruct: Created file '" + strStVersionsNoMediaFile + "'");
+        } catch (Exception e) {
+            Log.e(TAG, "preCreateFolderStruct: Failed to create " + strStVersionsNoMediaFile + " file.", e);
         }
     }
 
