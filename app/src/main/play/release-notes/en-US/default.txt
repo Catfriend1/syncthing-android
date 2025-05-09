@@ -1,10 +1,12 @@
-Upgrade notes:
-The backup folder location UI preference on the settings screen is now relative to the internal storage root. Before, it was interpreted relative to the "(int-stor)/backups" folder. Please review that setting if you upgrade from a previous release.
-
-Notes:
-We will now prefer CI builds over builds done on a personal device.
-Debug APK signing was upgraded from SHA1 to SHA256 signing.
-We are preparing for GPG signed release artifacts.
-
-Changes:
-Update SyncthingNative to v1.29.6
+* Update README.md by @Catfriend1 in PR #1379
+* Let's differentiate between TRUSTED and UNTRUSTED debug builds. by @Catfriend1 in PR #1382
+* Support floats for fsWatcherDelayS option (fixes #1365) by @Catfriend1 in PR #1384
+* Add license info to Settings / About screen by @Catfriend1 in PR #1385
+* Syncthing Web UI: default HOME env folder = /storage/emulated/0/syncthing (fixes #764) by @Catfriend1 in PR #1386
+* Fix sdcard root path not offered in gear icon folder picker (fixes #1309) by @Catfriend1 in PR #1388
+* Add forum and privacy policy links to Settings/About (fixes #1387) by @Catfriend1 in PR #1389
+* Make release builds reproducible #698 (fixes #1383) by @Catfriend1 in PR #1390
+* Fix SyncthingService going stuck because of improper bind_active_network by @Catfriend1 in PR #1394
+* Add "empty versioning folders" button (fixes #603) by @Catfriend1 in PR #1395
+* Create ".nomedia" in ".stversions" subfolder if a new folder is added (fixes #1396) by @Catfriend1 in PR #1397
+* Offer "Movies" folder in gear-icon folder picker by @Catfriend1
