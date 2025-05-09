@@ -362,9 +362,14 @@ public class FileUtils {
     
     /**
      * Expands the "~" path.
-     * Result: e.g. /storage/emulated/0
+     * Equals SyncthingRunnable env "HOME"
+     * Result: e.g. /storage/emulated/0/syncthing
      */
-    public static String getInternalStorageRootAbsolutePath() {
+    public static String getSyncthingTildeAbsolutePath() {
+        return FileUtils.getInternalStorageRootAbsolutePath() + "/syncthing";
+    }
+    
+    private static String getInternalStorageRootAbsolutePath() {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 
