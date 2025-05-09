@@ -46,6 +46,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
+import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
@@ -65,6 +66,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -892,6 +894,18 @@ public class SettingsActivity extends SyncthingActivity {
                     default:
                         return false;
                 case KEY_CLEAR_STVERSIONS:
+                    new AlertDialog.Builder(getActivity())
+                            .setMessage(R.string.clear_stversions_question)
+                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                ConfigRouter config = new ConfigRouter(getActivity());
+                                if (clearStVersions(config.getFolders(null))) {
+                                    Toast.makeText(getActivity(),
+                                            getString(R.string.clear_stversions_done),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, null)
+                            .show();
                     return true;
                 case KEY_DOWNLOAD_SUPPORT_BUNDLE:
                     onDownloadSupportBundleClick();
@@ -1230,5 +1244,28 @@ public class SettingsActivity extends SyncthingActivity {
             }
             return result;
         }
+
+        public static boolean clearStVersions(List<Folder> folders) {
+            for (Folder folder : folders) {
+                File dir = new File(folder.path);
+                if (dir.exists() && dir.isDirectory()) {
+                    deleteContents(dir);
+                }
+            }
+            return true;
+        }
+
+        private static void deleteContents(File dir) {
+            File[] files = dir.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        deleteContents(file);
+                    }
+                    file.delete();
+                }
+            }
+        }
+
     }
 }
