@@ -21,11 +21,21 @@ def getSourceDateEpoch() {
     return sourceDateEpoch
 }
 
+def verifySyncthingNativeVersionMatchesApp() {
+    def syncthingNativeVersion = getSyncthingNativeVersion()
+    def syncthingNativeExpectedVersion = "${rootProject.ext.get("versionMajor")}.${rootProject.ext.get("versionMinor")}.${rootProject.ext.get("versionPatch")}"
+    if (nativeVersion != expectedVersion) {
+        throw new GradleException("Checked out SyncthingNative version (${nativeVersion}) differs from App version (${expectedVersion}). Please verify that the submodule refers to the correct commit.")
+    }
+}
+
 task buildNative(type: PythonTask) {
     environment "NDK_VERSION", "$ndkVersionShared"
 
     // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
     environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
+    
+    verifySyncthingNativeVersionMatchesApp();
 
     inputs.dir("$projectDir/src/")
     outputs.dir("$projectDir/../app/src/main/jniLibs/")
