@@ -19,8 +19,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.annimon:stream:1.2.2")
-    implementation("com.mikepenz:aboutlibraries:12.1.2")
-    implementation("com.mikepenz:aboutlibraries-compose:12.1.2")
     implementation("com.google.android.material:material:1.9.0")
     implementation("com.google.code.gson:gson:2.13.0")
     implementation("com.google.dagger:dagger:2.56.2")
