@@ -26,14 +26,9 @@ zxing-android-embedded = "4.3.0"
 zxing-core = "3.3.0"
 
 [libraries]
-# Core module (required for accessing library data)
 aboutlibraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "aboutLibraries" }
-# Compose UI modules (choose one or both)
-aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-core", version.ref = "aboutLibraries" } # Common compose core
-aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", version.ref = "aboutLibraries" }      # Material 2 UI
-aboutlibraries-compose-m3 = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "aboutLibraries" }      # Material 3 UI
-# Deprecated View-based UI module
-aboutlibraries-view = { module = "com.mikepenz:aboutlibraries", version.ref = "aboutLibraries" }
+aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-core", version.ref = "aboutLibraries" }
+aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", version.ref = "aboutLibraries" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
