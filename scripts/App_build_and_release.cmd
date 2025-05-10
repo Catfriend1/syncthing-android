@@ -10,7 +10,6 @@ REM
 REM Runtime Variables.
 IF NOT DEFINED ANDROID_SDK_ROOT SET "ANDROID_SDK_ROOT=%SCRIPT_PATH%..\syncthing-android-prereq"
 REM
-REM SET ANDROID_PUBLISHER_CREDENTIALS=%userprofile%\.android\play_key.json"
 REM SET SYNCTHING_RELEASE_STORE_FILE="%userprofile%\.android\signing_key.jks"
 SET SYNCTHING_RELEASE_KEY_ALIAS=Syncthing-Fork
 SET BUILD_FLAVOUR_RELEASE=release
@@ -38,8 +37,6 @@ REM
 echo [INFO] Let's prepare a new "%SYNCTHING_RELEASE_KEY_ALIAS%" release.
 REM
 echo [INFO] Checking release prerequisites ...
-IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [WARN] ANDROID_PUBLISHER_CREDENTIALS file not found. Publishing steps will be skipped later.
-FOR /F "tokens=*" %%i in ('type "%ANDROID_PUBLISHER_CREDENTIALS%" 2^>NUL:') DO SET ANDROID_PUBLISHER_CREDENTIALS=%%i
 REM
 REM User has to enter the signing password if it is not filled in here.
 REM SET SIGNING_PASSWORD=
@@ -86,33 +83,6 @@ IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew deleteUnsupportedPlayTranslations
 REM
 REM Copy build artifacts with correct file name to upload folder.
 call "%SCRIPT_PATH%postbuild_copy_apk.cmd"
-REM
-IF NOT EXIST "%ANDROID_PUBLISHER_CREDENTIALS%" echo [WARN] ANDROID_PUBLISHER_CREDENTIALS not set. Skipping. & goto :eos
-REM
-:askUserReadyToPublish
-SET UI_ANSWER=
-SET /p UI_ANSWER=Are you ready to publish this release to GPlay? [y/n]
-IF NOT "%UI_ANSWER%" == "y" goto :askUserReadyToPublish
-REM
-REM Workaround for play-publisher issue, see https://github.com/Triple-T/gradle-play-publisher/issues/597
-:clearPlayPublisherCache
-IF EXIST "app\build\generated\gpp" rd /s /q "app\build\generated\gpp"
-IF EXIST "app\build\generated\gpp" TASKKILL /F /IM java.exe & sleep 1 & goto :clearPlayPublisherCache
-REM
-REM Publish text and image resources to GPlay
-echo [INFO] Publishing descriptive resources to GPlay ...
-call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Listing
-SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%Listing" exited with code #%RESULT%. & pause & goto :clearPlayPublisherCache
-REM
-REM Publish APK to GPlay
-echo [INFO] Publishing APK to GPlay ...
-REM call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%
-REM SET RESULT=%ERRORLEVEL%
-REM IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publish%BUILD_FLAVOUR_GPLAY%" exited with code #%RESULT%. & goto :eos
-call gradlew --quiet publish%BUILD_FLAVOUR_GPLAY%Bundle
-SET RESULT=%ERRORLEVEL%
-IF NOT "%RESULT%" == "0" echo [ERROR] "gradlew publishBundle" exited with code #%RESULT%. & pause & goto :clearPlayPublisherCache
 REM
 goto :eos
 :eos
