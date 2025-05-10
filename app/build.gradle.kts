@@ -1,42 +1,42 @@
 plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
-    id("com.github.triplet.play") version "3.7.0"
-    id("com.google.android.gms.oss-licenses-plugin")
+    alias(libs.plugins.aboutLibraries)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 dependencies {
-    androidTestImplementation("androidx.annotation:annotation:1.2.0")
-    androidTestImplementation("androidx.test:rules:1.6.1")
-    annotationProcessor("com.google.dagger:dagger-compiler:2.56.2")
-    implementation("androidx.preference:preference:1.2.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("androidx.core:core:1.16.0")
-    implementation("androidx.documentfile:documentfile:1.0.1")
-    implementation("androidx.fragment:fragment:1.8.6")
-    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("com.android.volley:volley:1.2.1")
-    implementation("com.annimon:stream:1.2.2")
-    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("com.google.code.gson:gson:2.13.0")
-    implementation("com.google.dagger:dagger:2.56.2")
-    implementation("com.google.guava:guava:33.4.8-android")
-    // Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
-    implementation("com.google.zxing:core:3.3.0")
-    implementation("com.journeyapps:zxing-android-embedded:4.3.0") { isTransitive = false }
-    implementation("eu.chainfire:libsuperuser:1.1.1")
-    implementation("org.mindrot:jbcrypt:0.4")
-
-    constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.20") {
-            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
-        }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20") {
-            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
-        }
-    }
+    androidTestImplementation(libs.annotation)
+    androidTestImplementation(libs.rules)
+    implementation(libs.aboutlibraries.compose.m2)
+    implementation(libs.aboutlibraries.core)
+    implementation(libs.activity.compose)
+    implementation(libs.android.material)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material)
+    implementation(libs.compose.material.icons.core)
+    implementation(libs.compose.material.icons.extended)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.constraintlayout)
+    implementation(libs.core.ktx)
+    implementation(libs.dagger)
+    implementation(libs.documentfile)
+    implementation(libs.fragment.ktx)
+    implementation(libs.gson)
+    implementation(libs.guava)
+    implementation(libs.jbcrypt)
+    implementation(libs.libsuperuser)
+    implementation(libs.localbroadcastmanager)
+    implementation(libs.preference.ktx)
+    implementation(libs.recyclerview)
+    implementation(libs.stream)
+    implementation(libs.volley)
+    implementation(libs.zxing.android.embedded) { isTransitive = false }
+    implementation(libs.zxing.core)
+    kapt(libs.dagger.compiler)
 }
 
 android {
@@ -51,7 +51,11 @@ android {
     ndkVersion = "${ndkVersionShared}"
 
     namespace = "com.nutomic.syncthingandroid"
-    buildFeatures.dataBinding = true
+
+    buildFeatures {
+        compose = true
+        dataBinding = true
+    }
 
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
@@ -95,6 +99,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
     bundle {
         language {
             enableSplit = false
@@ -120,13 +128,6 @@ android {
         disable += "ExpiringTargetSdkVersion"
         disable += "ExpiredTargetSdkVersion"
     }
-}
-
-play {
-    // Use ANDROID_PUBLISHER_CREDENTIALS environment variable to specify serviceAccountCredentials.
-    track = "beta"
-    resolutionStrategy = com.github.triplet.gradle.androidpublisher.ResolutionStrategy.IGNORE
-    defaultToAppBundles = true
 }
 
 /**
