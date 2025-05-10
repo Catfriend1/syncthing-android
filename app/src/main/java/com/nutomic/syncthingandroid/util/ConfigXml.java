@@ -1079,7 +1079,6 @@ public class ConfigXml {
         options.featureFlag = getContentOrDefault(elementOptions.getElementsByTagName("featureFlag").item(0), options.featureFlag);
         options.connectionLimitEnough = getContentOrDefault(elementOptions.getElementsByTagName("connectionLimitEnough").item(0), options.connectionLimitEnough);
         options.connectionLimitMax = getContentOrDefault(elementOptions.getElementsByTagName("connectionLimitMax").item(0), options.connectionLimitMax);
-        options.insecureAllowOldTLSVersions = getContentOrDefault(elementOptions.getElementsByTagName("insecureAllowOldTLSVersions").item(0), options.insecureAllowOldTLSVersions);
         return options;
     }
 
