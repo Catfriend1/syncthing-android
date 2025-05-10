@@ -5,12 +5,13 @@ plugins {
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 dependencies {
     androidTestImplementation("androidx.annotation:annotation:1.2.0")
     androidTestImplementation("androidx.test:rules:1.6.1")
-    annotationProcessor("com.google.dagger:dagger-compiler:2.56.2")
+    kapt("com.google.dagger:dagger-compiler:2.56.2")
     implementation("androidx.activity:activity-compose:1.10.1")
     implementation("androidx.compose.foundation:foundation:1.8.1")
     implementation("androidx.compose.material:material:1.8.1")
