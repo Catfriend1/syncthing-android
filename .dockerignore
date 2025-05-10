@@ -8,6 +8,9 @@
 # Java class files
 *.class
 
+# Kotlin
+.kotlin/
+
 # generated files
 .gradle/
 app/build/
