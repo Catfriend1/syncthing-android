@@ -15,7 +15,6 @@ import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 class LicenseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             LicenseScreen()
         }
@@ -26,7 +25,6 @@ class LicenseActivity : ComponentActivity() {
 fun LicenseScreen() {
     MaterialTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
-            LibrariesContainer(modifier = Modifier.fillMaxSize())
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
 
             Scaffold(
