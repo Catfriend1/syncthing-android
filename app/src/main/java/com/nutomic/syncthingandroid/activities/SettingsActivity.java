@@ -40,7 +40,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
@@ -960,8 +959,7 @@ public class SettingsActivity extends SyncthingActivity {
                             .show();
                     return true;
                 case KEY_OPEN_SOURCE_LICENSES:
-                    OssLicensesMenuActivity.setActivityTitle(getString(R.string.open_source_licenses_title));
-                    startActivity(new Intent(getActivity(), OssLicensesMenuActivity.class));
+                    startActivity(new Intent(getActivity(), LicenseActivity.class));
                     return true;
             }
         }
