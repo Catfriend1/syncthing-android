@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
-    id("com.mikepenz.aboutlibraries.plugin") version "12.1.2"
     id("org.jetbrains.kotlin.android") version "2.1.0"
+    alias(libs.plugins.aboutLibraries) apply false
 }
 
 dependencies {
