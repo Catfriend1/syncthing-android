@@ -29,6 +29,7 @@ dependencies {
     implementation(libs.jbcrypt)
     implementation(libs.libsuperuser)
     implementation(libs.localbroadcastmanager)
+    implementation(libs.play.services.oss.licenses)
     implementation(libs.preference.ktx)
     implementation(libs.recyclerview)
     implementation(libs.stream)

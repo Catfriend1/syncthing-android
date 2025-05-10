@@ -15,6 +15,7 @@ jbcrypt = "0.4"
 kotlin = "2.1.20"
 libsuperuser = "1.1.1"
 localbroadcastmanager = "1.1.0"
+play-services-oss-licenses = "17.0.0"
 preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
 rules = "1.6.1"
@@ -45,6 +46,7 @@ guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
 libsuperuser = { module = "eu.chainfire:libsuperuser", version.ref = "libsuperuser" }
 localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
+play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
 preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 rules = { module = "androidx.test:rules", version.ref = "rules" }
