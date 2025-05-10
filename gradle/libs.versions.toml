@@ -35,7 +35,7 @@ aboutlibraries-view = { module = "com.mikepenz:aboutlibraries", version.ref = "a
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-material" }
-compose-material = { module = "androidx.activity:activity-compose", version.ref = "compose-material" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
 compose-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "compose-material-icons" }
 compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose-material-icons" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-material" }
