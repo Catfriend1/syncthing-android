@@ -2,10 +2,12 @@ package com.nutomic.syncthingandroid.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
@@ -25,6 +27,21 @@ fun LicenseScreen() {
     MaterialTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             LibrariesContainer(modifier = Modifier.fillMaxSize())
+            val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        navigationIcon = {
+                            IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
+                            }
+                        }
+                    )
+                }
+            ) { paddingValues ->
+                // Der Bildschirminhalt, der nach der Toolbar angezeigt wird
+                LibrariesContainer(modifier = Modifier.fillMaxSize())
+            }
         }
     }
 }
