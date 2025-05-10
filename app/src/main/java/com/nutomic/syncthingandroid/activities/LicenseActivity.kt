@@ -1,17 +1,30 @@
 package com.nutomic.syncthingandroid.activities
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.ComponentActivity
-import com.mikepenz.aboutlibraries.LibsBuilder
-import com.nutomic.syncthingandroid.R
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 
-class LicenseActivity : AppCompatActivity() {
+class LicenseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LibsBuilder()
-            .withActivityTitle("Open Source Lizenzen")
-            .start(this)
+        setContent {
+            LicenseScreen()
+        }
+    }
+}
+
+@Composable
+fun LicenseScreen() {
+    MaterialTheme {
+        Surface(modifier = Modifier.fillMaxSize()) {
+            LibrariesContainer(modifier = Modifier.fillMaxSize())
+        }
     }
 }

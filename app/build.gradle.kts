@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
-    id("org.jetbrains.kotlin.android") version "2.1.0"
+    id("org.jetbrains.kotlin.android") version "2.1.20"
     alias(libs.plugins.aboutLibraries) apply false
 }
 
@@ -30,15 +30,9 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.3.0") { isTransitive = false }
     implementation("eu.chainfire:libsuperuser:1.1.1")
     implementation("org.mindrot:jbcrypt:0.4")
-
-    constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.20") {
-            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
-        }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20") {
-            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
-        }
-    }
+    implementation(libs.aboutlibraries.compose.m2) // Material 2
+    implementation(libs.aboutlibraries.compose.m3) // Material 3
+    implementation(libs.aboutlibraries.core)
 }
 
 android {
@@ -60,7 +54,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "2.1.0"
     }
 
     defaultConfig {
