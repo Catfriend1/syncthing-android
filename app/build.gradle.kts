@@ -59,10 +59,6 @@ android {
         dataBinding = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "2.1.0"
-    }
-
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
         minSdk = 21
