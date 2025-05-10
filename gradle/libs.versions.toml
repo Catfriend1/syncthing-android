@@ -1,4 +1,5 @@
 [versions]
+aboutLibraries = "12.1.2"
 activity-compose = "1.10.1"
 android-material = "1.9.0"
 annotation = "1.2.0"
@@ -15,7 +16,6 @@ jbcrypt = "0.4"
 kotlin = "2.1.20"
 libsuperuser = "1.1.1"
 localbroadcastmanager = "1.1.0"
-play-services-oss-licenses = "17.0.0"
 preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
 rules = "1.6.1"
@@ -26,6 +26,9 @@ zxing-android-embedded = "4.3.0"
 zxing-core = "3.3.0"
 
 [libraries]
+aboutlibraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "aboutLibraries" }
+aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-core", version.ref = "aboutLibraries" }
+aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", version.ref = "aboutLibraries" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -46,7 +49,6 @@ guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
 libsuperuser = { module = "eu.chainfire:libsuperuser", version.ref = "libsuperuser" }
 localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
-play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
 preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 rules = { module = "androidx.test:rules", version.ref = "rules" }
@@ -56,6 +58,7 @@ zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", ve
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxing-core" }
 
 [plugins]
+aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutLibraries" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }

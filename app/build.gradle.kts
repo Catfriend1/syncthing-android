@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
-    id("com.google.android.gms.oss-licenses-plugin")
+    alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
@@ -11,6 +11,8 @@ plugins {
 dependencies {
     androidTestImplementation(libs.annotation)
     androidTestImplementation(libs.rules)
+    implementation(libs.aboutlibraries.compose.m2)
+    implementation(libs.aboutlibraries.core)
     implementation(libs.activity.compose)
     implementation(libs.android.material)
     implementation(libs.compose.foundation)
@@ -29,7 +31,6 @@ dependencies {
     implementation(libs.jbcrypt)
     implementation(libs.libsuperuser)
     implementation(libs.localbroadcastmanager)
-    implementation(libs.play.services.oss.licenses)
     implementation(libs.preference.ktx)
     implementation(libs.recyclerview)
     implementation(libs.stream)
