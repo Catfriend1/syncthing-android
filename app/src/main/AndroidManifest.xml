@@ -247,7 +247,6 @@
         <activity android:name=".activities.LicenseActivity"
             android:label="@string/open_source_licenses_title"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponentsForLicense"
             android:parentActivityName=".activities.SettingsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

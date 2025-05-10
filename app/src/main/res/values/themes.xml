@@ -58,11 +58,4 @@
         <item name="android:windowBackground">@null</item>
         <item name="colorAccent">@android:color/white</item>
     </style>
-
-    <!-- Standard MaterialComponents Thema für die LicenseActivity -->
-    <style name="Theme.MaterialComponentsForLicense" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Dein eigenes Styling für die Lizenz-Aktivität -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorSecondary">@color/primary_dark</item>
-    </style>
 </resources>
