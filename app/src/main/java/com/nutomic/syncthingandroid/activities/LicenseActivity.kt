@@ -32,14 +32,15 @@ fun LicenseScreen() {
             Scaffold(
                 topBar = {
                     TopAppBar(
+                        title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
+                                Icon(Icons.Filled.ArrowBack, contentDescription = stringResource(id = R.string.back))
                             }
                         }
                     )
                 }
             ) { paddingValues ->
-                // Der Bildschirminhalt, der nach der Toolbar angezeigt wird
                 LibrariesContainer(modifier = Modifier.fillMaxSize().padding(paddingValues))
             }
         }
