@@ -1,5 +1,6 @@
 [versions]
 aboutLibraries = "12.1.2"
+kotlin = "2.1.20"
 
 [libraries]
 # Core module (required for accessing library data)
@@ -13,3 +14,5 @@ aboutlibraries-view = { module = "com.mikepenz:aboutlibraries", version.ref = "a
 
 [plugins]
 aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutLibraries" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
