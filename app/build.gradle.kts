@@ -2,24 +2,32 @@ plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
     id("com.github.triplet.play") version "3.7.0"
-    id("com.google.android.gms.oss-licenses-plugin")
+    id("com.mikepenz.aboutlibraries.plugin") version "12.1.2"
+    id("org.jetbrains.kotlin.android") version "2.1.0"
 }
 
 dependencies {
     androidTestImplementation("androidx.annotation:annotation:1.2.0")
     androidTestImplementation("androidx.test:rules:1.6.1")
     annotationProcessor("com.google.dagger:dagger-compiler:2.56.2")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.compose.ui:ui:1.5.4")
+    implementation("androidx.compose.material:material:1.8.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
     implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.core:core:1.16.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.documentfile:documentfile:1.0.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("androidx.fragment:fragment:1.8.6")
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.annimon:stream:1.2.2")
-    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.mikepenz:aboutlibraries:12.1.2")
+    implementation("com.mikepenz:aboutlibraries-compose:12.1.2")
+    implementation("com.google.android.material:material:1.9.0")
     implementation("com.google.code.gson:gson:2.13.0")
     implementation("com.google.dagger:dagger:2.56.2")
     implementation("com.google.guava:guava:33.4.8-android")
@@ -51,7 +59,15 @@ android {
     ndkVersion = "${ndkVersionShared}"
 
     namespace = "com.nutomic.syncthingandroid"
-    buildFeatures.dataBinding = true
+
+    buildFeatures {
+        compose = true
+        dataBinding = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
 
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
@@ -93,6 +109,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     bundle {
