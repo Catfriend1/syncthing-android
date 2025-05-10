@@ -8,10 +8,14 @@
 # Java class files
 *.class
 
+# Kotlin
+.kotlin/
+
 # generated files
 .gradle/
 app/build/
 app/src/main/jniLibs
+build/
 
 # gradle-play-publisher
 .android/

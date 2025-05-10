@@ -1,0 +1,61 @@
+[versions]
+activity-compose = "1.10.1"
+android-material = "1.9.0"
+annotation = "1.2.0"
+compose-material = "1.8.1"
+compose-material-icons = "1.7.8"
+constraintlayout = "2.0.4"
+core-ktx = "1.16.0"
+dagger = "2.56.2"
+documentfile = "1.0.1"
+fragment-ktx = "1.8.6"
+gson = "2.13.0"
+guava = "33.4.8-android"
+jbcrypt = "0.4"
+kotlin = "2.1.20"
+libsuperuser = "1.1.1"
+localbroadcastmanager = "1.1.0"
+play-services-oss-licenses = "17.0.0"
+preference-ktx = "1.2.1"
+recyclerview = "1.4.0"
+rules = "1.6.1"
+stream = "1.2.2"
+volley = "1.2.1"
+zxing-android-embedded = "4.3.0"
+# Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
+zxing-core = "3.3.0"
+
+[libraries]
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-material" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
+compose-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "compose-material-icons" }
+compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose-material-icons" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-material" }
+compose-ui-tooling-preview  = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-material" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+documentfile = { module = "androidx.documentfile:documentfile", version.ref = "documentfile" }
+fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
+libsuperuser = { module = "eu.chainfire:libsuperuser", version.ref = "libsuperuser" }
+localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
+play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
+preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
+recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+rules = { module = "androidx.test:rules", version.ref = "rules" }
+stream = { module = "com.annimon:stream", version.ref = "stream" }
+volley = { module = "com.android.volley:volley", version.ref = "volley" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxing-android-embedded" }
+zxing-core = { module = "com.google.zxing:core", version.ref = "zxing-core" }
+
+[plugins]
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
