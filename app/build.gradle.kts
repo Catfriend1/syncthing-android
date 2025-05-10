@@ -11,8 +11,7 @@ plugins {
 dependencies {
     androidTestImplementation(libs.annotation)
     androidTestImplementation(libs.rules)
-    implementation(libs.aboutlibraries.compose.m2) // Material 2
-    implementation(libs.aboutlibraries.compose.m3) // Material 3
+    implementation(libs.aboutlibraries.compose.m2)
     implementation(libs.aboutlibraries.core)
     implementation(libs.activity.compose)
     implementation(libs.android.material)
