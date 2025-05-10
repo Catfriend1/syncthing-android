@@ -9,8 +9,8 @@ plugins {
 }
 
 dependencies {
-    androidTestImplementation("androidx.annotation:annotation:1.2.0")
-    androidTestImplementation("androidx.test:rules:1.6.1")
+    androidTestImplementation(libs.annotation)
+    androidTestImplementation(libs.rules)
     implementation(libs.aboutlibraries.compose.m2) // Material 2
     implementation(libs.aboutlibraries.compose.m3) // Material 3
     implementation(libs.aboutlibraries.core)
@@ -38,7 +38,7 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.zxing.android.embedded) { isTransitive = false }
     implementation(libs.zxing.core)
-    kapt("com.google.dagger:dagger-compiler:2.56.2")
+    kapt(libs.dagger.compiler)
 }
 
 android {
