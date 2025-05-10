@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("com.github.ben-manes.versions")
-    id("com.github.triplet.play") version "3.7.0"
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
@@ -129,13 +128,6 @@ android {
         disable += "ExpiringTargetSdkVersion"
         disable += "ExpiredTargetSdkVersion"
     }
-}
-
-play {
-    // Use ANDROID_PUBLISHER_CREDENTIALS environment variable to specify serviceAccountCredentials.
-    track = "beta"
-    resolutionStrategy = com.github.triplet.gradle.androidpublisher.ResolutionStrategy.IGNORE
-    defaultToAppBundles = true
 }
 
 /**
