@@ -15,6 +15,7 @@
 .gradle/
 app/build/
 app/src/main/jniLibs
+build/
 
 # gradle-play-publisher
 .android/
