@@ -75,10 +75,6 @@ public class Options {
     public int connectionLimitEnough = 0;
     public int connectionLimitMax = 0;
 
-    // Since v1.17.0
-    // See https://github.com/syncthing/syncthing/pull/7598
-    public boolean insecureAllowOldTLSVersions = false;
-
     // Items that may be temporarily missing because they are empty.
     /**
      * Possible notification IDs:
