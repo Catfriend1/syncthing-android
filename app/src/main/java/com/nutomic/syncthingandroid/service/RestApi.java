@@ -1145,6 +1145,12 @@ public class RestApi {
         }
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
+
+        if (remoteCompletionInfo.completion == 100) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+            if (cacheEntry.getValue().remoteIndexUpdated) {
+            }
+        }
     }
 
     public void setRemoteIndexUpdated(final String deviceId,
