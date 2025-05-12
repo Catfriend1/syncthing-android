@@ -31,6 +31,8 @@ public class Device {
     public boolean paused = false;
     public List<IgnoredFolder> ignoredFolders;
     public boolean autoAcceptFolders = false;
+    public Integer maxRecvKbps = 0;
+    public Integer maxSendKbps = 0;
 
     // Since v1.12.0
     // See https://github.com/syncthing/syncthing/pull/7055
