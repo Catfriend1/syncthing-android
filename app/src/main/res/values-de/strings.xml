@@ -762,4 +762,8 @@
     <string name="privacy_title">Datenschutzerklärung</string>
     <string name="syncthing_forum_summary">Das Syncthing Forum besuchen und Unterstützung ethalten</string>
     <string name="privacy_summary">Die Datenschutzerklärung von syncthing-android öffnen, welche die Verwendung personenbezogener Daten (falls vorhanden), z. B. des Standorts, abdeckt.</string>
+    <string name="clear_stversions_question">Damit werden alle früheren Versionen der von Syncthing verwalteten Dateien gelöscht. Fortfahren?</string>
+    <string name="clear_stversions_done">Erfolgreich .stversions-Ordner geleert.</string>
+    <string name="clear_stversions_title">Alle Versionierungsordner leeren</string>
+    <string name="clear_stversions_summary">Dateien werden in das Verzeichnis .stversions verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden. Versehentlich gelöschte Dateien lassen sich wahrscheinlich dort finden und wiederherstellen, allerdings belegen veraltete Versionen der Dateien Speicherplatz auf diesem Gerät.</string>
 </resources>
