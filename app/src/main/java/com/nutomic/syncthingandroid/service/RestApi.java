@@ -1092,6 +1092,17 @@ public class RestApi {
         return cacheEntry;
     }
 
+    private void sendBroadcastToApps(Intent intent) {
+        String[] packageIdList = {
+            "com.example.syncthingreceiver",
+            "org.decsync.cc"
+        };
+        // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        for (String packageId : packageIdList) {
+            intent.setPackage(packageId);
+            ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(intent, PERMISSION_RECEIVE_SYNC_STATUS);
+        }
+    }
 
     public void sendBroadcastFolderSyncComplete(String deviceId, 
                                                     final Folder folder, 
@@ -1103,8 +1114,7 @@ public class RestApi {
         intent.putExtra("folderLabel", folder.label);
         intent.putExtra("folderPath", folder.path);
         intent.putExtra("folderState", folderStatus.state);
-        // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(intent, PERMISSION_RECEIVE_SYNC_STATUS);
+        sendBroadcastToApps(intent);
     }
 
     /**
