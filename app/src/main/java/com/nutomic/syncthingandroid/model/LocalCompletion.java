@@ -198,6 +198,18 @@ public class LocalCompletion {
         }
     }
 
+    public void setRemoteIndexUpdated(final String folderId,
+                                            final boolean remoteIndexUpdated) {
+        synchronized(mFolderMapLock) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
+            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            cachedFolderStatus.remoteIndexUpdated = remoteIndexUpdated;
+
+            // Add folder or update existing folder entry.
+            mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));
+        }
+    }
+
     /**
      * Returns a deep copy of object.
      *
