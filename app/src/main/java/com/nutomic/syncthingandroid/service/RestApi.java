@@ -1148,7 +1148,10 @@ public class RestApi {
 
         if (remoteCompletionInfo.completion == 100) {
             final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
-            if (cacheEntry.getValue().remoteIndexUpdated) {
+            final FolderStatus folderStatus =  cacheEntry.getKey();
+            final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            if (!folderStatus.state.contains("sync") && 
+                    cachedFolderStatus.remoteIndexUpdated) {
                 mLocalCompletion.setRemoteIndexUpdated(folderId, false);
                 Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
             }
