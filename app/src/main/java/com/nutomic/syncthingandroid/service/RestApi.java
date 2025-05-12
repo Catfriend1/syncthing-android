@@ -1147,6 +1147,10 @@ public class RestApi {
         onTotalSyncCompletionChange();
     }
 
+    public void setRemoteIndexUpdated(final String deviceId,
+                                            final String folderId) {
+    }
+
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {
         // Clear status cache when pausing or resuming the folder.
         mLocalCompletion.setFolderStatus(folderId, newPaused, new FolderStatus());
