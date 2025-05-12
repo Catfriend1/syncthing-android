@@ -85,6 +85,12 @@ public class RestApi {
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     /**
+     * Intents we sent to to other apps that subscribed to us.
+     */
+    private static final String ACTION_NOTIFY_FOLDER_SYNC_COMPLETE =
+            "com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE";
+
+    /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
      */
     private final static Comparator<Folder> FOLDERS_COMPARATOR = (lhs, rhs) -> {
@@ -1080,6 +1086,21 @@ public class RestApi {
         return cacheEntry;
     }
 
+
+    public void sendBroadcastFolderSyncComplete(String deviceId, 
+                                                    final Folder folder, 
+                                                    final FolderStatus folderStatus) {
+        Intent i = new Intent();
+        i.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
+        i.putExtra("deviceId", deviceId);
+        i.putExtra("folderId", folder.id);
+        i.putExtra("folderLabel", folder.label);
+        i.putExtra("folderPath", folder.path);
+        i.putExtra("folderState", folderStatus.state);
+        // i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(i);
+    }
+
     /**
      * Updates cached folder and device completion info according to event data.
      */
@@ -1146,6 +1167,7 @@ public class RestApi {
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
 
+        // Check if a folder completed synchronization on the local or a remote device.
         if (remoteCompletionInfo.completion == 100) {
             final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
             final FolderStatus folderStatus =  cacheEntry.getKey();
@@ -1154,6 +1176,8 @@ public class RestApi {
                     cachedFolderStatus.remoteIndexUpdated) {
                 mLocalCompletion.setRemoteIndexUpdated(folderId, false);
                 Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
+                
+                sendBroadcastFolderSyncComplete(deviceId, folder, folderStatus);
             }
         }
     }
