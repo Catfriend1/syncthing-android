@@ -1096,15 +1096,15 @@ public class RestApi {
     public void sendBroadcastFolderSyncComplete(String deviceId, 
                                                     final Folder folder, 
                                                     final FolderStatus folderStatus) {
-        Intent i = new Intent();
-        i.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
-        i.putExtra("deviceId", deviceId);
-        i.putExtra("folderId", folder.id);
-        i.putExtra("folderLabel", folder.label);
-        i.putExtra("folderPath", folder.path);
-        i.putExtra("folderState", folderStatus.state);
-        // i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(i, PERMISSION_RECEIVE_SYNC_STATUS);
+        Intent intent = new Intent();
+        intent.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
+        intent.putExtra("deviceId", deviceId);
+        intent.putExtra("folderId", folder.id);
+        intent.putExtra("folderLabel", folder.label);
+        intent.putExtra("folderPath", folder.path);
+        intent.putExtra("folderState", folderStatus.state);
+        // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(intent, PERMISSION_RECEIVE_SYNC_STATUS);
     }
 
     /**
