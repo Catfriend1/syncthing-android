@@ -482,7 +482,7 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
      */
     private void onStateChanged(final String folderId, final String newState) {
         mRestApi.updateLocalFolderState(folderId, newState);
-        LogV("onStateChanged: folder=[" + folderId + "], newState=[" + newState + "]");
+        // LogV("onStateChanged: folder=[" + folderId + "], newState=[" + newState + "]");
     }
 
     private static class LoggingAsyncQueryHandler extends AsyncQueryHandler {
