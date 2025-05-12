@@ -220,6 +220,14 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             case "ListenAddressesChanged":
             case "LoginAttempt":
             case "RemoteDownloadProgress":
+                /*
+                onRemoteDownloadProgress(
+                        (String) event.data.get("device"),         // deviceId
+                        (String) event.data.get("folder"),         // folderId
+                        event.data.get("state") == null ? null : new Gson().toJsonTree(event.data.get("state")).getAsJsonObject() 
+                );
+                break;
+                */
             case "RemoteIndexUpdated":
             case "Starting":
             case "StartupComplete":
@@ -476,6 +484,18 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             }
         }
     }
+
+    /*
+    private void onRemoteDownloadProgress(final String deviceId, 
+                                                final String folderId,
+                                                final JsonObject state) {
+        if (state == null) {
+            LogV("onRemoteDownloadProgress: state == null");
+            return;
+        }                        
+        LogV("onRemoteDownloadProgress: state=[" + state + "]");
+    }
+    */
 
     /**
      * Emitted when a folder changes state.
