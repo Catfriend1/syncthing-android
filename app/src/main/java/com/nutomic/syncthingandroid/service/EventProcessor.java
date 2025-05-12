@@ -17,6 +17,7 @@ import android.util.Log;
 import androidx.core.util.Consumer;
 
 import com.annimon.stream.Stream;
+// import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -229,6 +230,12 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 break;
                 */
             case "RemoteIndexUpdated":
+                onRemoteIndexUpdated(
+                        (String) event.data.get("device"),         // deviceId
+                        (String) event.data.get("folder"),         // folderId
+                        event.data.get("items") == null ? 0 : (double) event.data.get("items")
+                );
+                break;
             case "Starting":
             case "StartupComplete":
                 LogV("Ignored event " + event.type + ", data " + event.data);
@@ -497,11 +504,24 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     }
     */
 
+    private void onRemoteIndexUpdated(final String deviceId, 
+                                            final String folderId, 
+                                            final Double items) {
+        if (deviceId == null || folderId == null || items == null) {
+            return;
+        }
+        // LogV("onRemoteIndexUpdated: deviceId=[" + deviceId + "], folder=[" + folderId + "], items=" + items);
+        if (items > 0) {
+            mRestApi.setRemoteIndexUpdated(deviceId, folderId, true);
+        }
+    }
+
     /**
      * Emitted when a folder changes state.
      */
     private void onStateChanged(final String folderId, final String newState) {
         mRestApi.updateLocalFolderState(folderId, newState);
+        // LogV("onStateChanged: folder=[" + folderId + "], newState=[" + newState + "]");
     }
 
     private static class LoggingAsyncQueryHandler extends AsyncQueryHandler {

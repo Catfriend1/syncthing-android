@@ -1145,6 +1145,23 @@ public class RestApi {
         }
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
+
+        if (remoteCompletionInfo.completion == 100) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+            final FolderStatus folderStatus =  cacheEntry.getKey();
+            final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            if (!folderStatus.state.contains("sync") && 
+                    cachedFolderStatus.remoteIndexUpdated) {
+                mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+                Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
+            }
+        }
+    }
+
+    public void setRemoteIndexUpdated(final String deviceId,
+                                            final String folderId,
+                                            final boolean remoteIndexUpdated) {
+        mLocalCompletion.setRemoteIndexUpdated(folderId, remoteIndexUpdated);
     }
 
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {
