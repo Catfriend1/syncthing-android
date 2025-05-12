@@ -809,6 +809,8 @@ public class ConfigXml {
             device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
             device.name = getAttributeOrDefault(r, "name", device.name);
             device.autoAcceptFolders = getContentOrDefault(r.getElementsByTagName("autoAcceptFolders").item(0), device.autoAcceptFolders);
+            device.maxRecvKbps = getContentOrDefault(r.getElementsByTagName("maxRecvKbps").item(0), device.maxRecvKbps);
+            device.maxSendKbps = getContentOrDefault(r.getElementsByTagName("maxSendKbps").item(0), device.maxSendKbps);
             device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
             device.untrusted = getContentOrDefault(r.getElementsByTagName("untrusted").item(0), device.untrusted);
             device.numConnections = getContentOrDefault(r.getElementsByTagName("numConnections").item(0), device.numConnections);
