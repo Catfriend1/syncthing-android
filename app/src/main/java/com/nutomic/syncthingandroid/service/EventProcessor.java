@@ -230,6 +230,12 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
                 break;
                 */
             case "RemoteIndexUpdated":
+                onRemoteIndexUpdated(
+                        (String) event.data.get("device"),         // deviceId
+                        (String) event.data.get("folder"),         // folderId
+                        event.data.get("items") == null ? 0 : (double) event.data.get("items")
+                );
+                break;
             case "Starting":
             case "StartupComplete":
                 LogV("Ignored event " + event.type + ", data " + event.data);
@@ -497,6 +503,15 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         LogV("onRemoteDownloadProgress: state=[" + state + "]");
     }
     */
+
+    private void onRemoteIndexUpdated(final String deviceId, 
+                                            final String folderId, 
+                                            final Double items) {
+        if (deviceId == null || folderId == null || items == null) {
+            return;
+        }
+        LogV("onRemoteIndexUpdated: deviceId=[" + deviceId + "], folder=[" + folderId + "], items=" + items);
+    }
 
     /**
      * Emitted when a folder changes state.
