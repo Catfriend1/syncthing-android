@@ -38,9 +38,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
     <!-- POST_NOTIFICATIONS is required for the foreground service since Android 13 "T" -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <!-- We own this permission and can send broadcast intents to apps subscribing to us -->
-    <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS"/>
 
+    <!--
+        Apps can listen to our notifications about sync progress by subscribing to ACTION_NOTIFY_FOLDER_SYNC_COMPLETE,
+        see RestApi for more details. To do so, they must declare the following in their app manifest.
+        <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS"/>
+    -->
     <permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS" 
             android:label="RECEIVE_SYNC_STATUS" 
             android:protectionLevel="normal">
