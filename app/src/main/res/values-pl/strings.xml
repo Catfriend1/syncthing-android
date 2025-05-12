@@ -713,4 +713,8 @@
     <string name="privacy_title">Polityka prywatności</string>
     <string name="syncthing_forum_summary">Przejdź do forum Syncthing i uzyskaj pomoc</string>
     <string name="privacy_summary">Otwórz politykę prywatności syncthing-android, która zawiera informacje na temat użycia (lub jego braku) danych osobowych, np. lokalizacji.</string>
+    <string name="clear_stversions_summary">Pliki są przenoszone do katalogu .stversions, gdy są zastępowane lub usuwane przez Syncthing. Prawdopodobnie możesz tam znaleźć i odzyskać przypadkowo usunięte pliki, ale przestarzałe wersje plików zajmują miejsce na urządzeniu.</string>
+    <string name="clear_stversions_done">Pomyślnie wyczyszczono foldery .stversions.</string>
+    <string name="clear_stversions_title">Opróżnij wszystkie foldery wersjonowania</string>
+    <string name="clear_stversions_question">Spowoduje to usunięcie wszystkich poprzednich wersji plików obsługiwanych przez Syncthing. Kontynuować?</string>
 </resources>
