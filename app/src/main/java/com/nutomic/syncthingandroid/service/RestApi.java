@@ -91,6 +91,12 @@ public class RestApi {
             "com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE";
 
     /**
+     * Permission for apps receiving our broadcast intents.
+     */
+     private static final String PERMISSION_RECEIVE_SYNC_STATUS =
+    "       com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS";
+
+    /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
      */
     private final static Comparator<Folder> FOLDERS_COMPARATOR = (lhs, rhs) -> {
@@ -1098,7 +1104,7 @@ public class RestApi {
         i.putExtra("folderPath", folder.path);
         i.putExtra("folderState", folderStatus.state);
         // i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(i);
+        ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(i, PERMISSION_RECEIVE_SYNC_STATUS);
     }
 
     /**
