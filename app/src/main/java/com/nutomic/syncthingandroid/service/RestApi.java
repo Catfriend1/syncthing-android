@@ -378,7 +378,7 @@ public class RestApi {
                     // LogV("ORCC: /rest/db/completion: folder=" + folder.id + ", device=" + device.deviceID + ", result=" + result);
                     final CompletionInfo completionInfo = mGson.fromJson(result, CompletionInfo.class);
                     LogV("ORCC: /rest/db/completion: folder=" + folder.id +
-                            ", device=" + device.deviceID +
+                            ", device=" + device.getDisplayName() +
                             ", completion=" + completionInfo.completion +
                             ", needBytes=" + String.format(Locale.getDefault(), "%.0f", completionInfo.needBytes) +
                             ", remoteState=" + completionInfo.remoteState);
