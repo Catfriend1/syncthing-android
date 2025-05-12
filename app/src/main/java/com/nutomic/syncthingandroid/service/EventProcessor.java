@@ -511,6 +511,9 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             return;
         }
         LogV("onRemoteIndexUpdated: deviceId=[" + deviceId + "], folder=[" + folderId + "], items=" + items);
+        if (items > 0) {
+            mRestApi.setRemoteIndexUpdated(deviceId, folderId);
+        }
     }
 
     /**
