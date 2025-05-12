@@ -94,7 +94,7 @@ public class RestApi {
      * Permission for apps receiving our broadcast intents.
      */
      private static final String PERMISSION_RECEIVE_SYNC_STATUS =
-    "       com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS";
+            "com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS";
 
     /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
