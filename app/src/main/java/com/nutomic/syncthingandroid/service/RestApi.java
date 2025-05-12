@@ -1148,7 +1148,9 @@ public class RestApi {
     }
 
     public void setRemoteIndexUpdated(final String deviceId,
-                                            final String folderId) {
+                                            final String folderId,
+                                            final boolean remoteIndexUpdated) {
+        mLocalCompletion.setRemoteIndexUpdated(folderId, remoteIndexUpdated);
     }
 
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {
