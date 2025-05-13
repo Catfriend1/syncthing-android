@@ -49,7 +49,6 @@ public class NotificationHandler {
     private Boolean lastStartForegroundService = false;
     private Boolean appShutdownInProgress = false;
 
-    @TargetApi(23)
     private int FLAG_IMMUTABLE = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) ? PendingIntent.FLAG_IMMUTABLE : 0;
 
     public NotificationHandler(Context context) {
