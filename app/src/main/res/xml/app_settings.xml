@@ -480,6 +480,14 @@
         </Preference>
 
         <Preference
+            android:title="@string/pizza_url_title"
+            android:summary="@string/pizza_url_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/pizza_url" />
+        </Preference>
+
+        <Preference
             android:title="@string/privacy_title"
             android:summary="@string/privacy_summary">
             <intent

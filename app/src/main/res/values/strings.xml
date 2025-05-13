@@ -735,6 +735,11 @@
     <string name="syncthing_forum_summary">Go to the Syncthing Forum and get support</string>
     <string name="syncthing_forum_url" translatable="false">https://forum.syncthing.net/</string>
 
+    <!-- Menu item for pizza -->
+    <string name="pizza_url_title">» Cats love pizza « 😺🍕</string>
+    <string name="pizza_url_summary">With just one tap, you can leave a warm slice of kindness - topped with extra good vibes to keep the cats happily purring along.</string>
+    <string name="pizza_url" translatable="false">https://liberapay.com/cf4friends/donate</string>
+
     <!-- Menu item linking privacy policy -->
     <string name="privacy_title">Privacy Policy</string>
     <string name="privacy_summary">Open syncthing-android\'s privacy policy, which covers usage (if any) of personal data, e.g. location.</string>
