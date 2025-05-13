@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -266,7 +267,9 @@ public class Util {
                 }
             }
             exitCode = shellProc.waitFor();
-            Log.i(TAG, "runShellCommandGetOutput: Exited with code " + exitCode);
+            if (exitCode != 0) {
+                Log.i(TAG, "runShellCommandGetOutput: Exited with code " + exitCode);
+            }
         } catch (IOException | InterruptedException e) {
             Log.w(TAG, "runShellCommandGetOutput: Exception", e);
         } finally {
@@ -475,5 +478,44 @@ public class Util {
         }
         return ZonedDateTime.ofLocal(LocalDateTime.now(), ZoneId.of("UTC"), ZoneOffset.UTC)
                 .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+    }
+    
+    /**
+     * Called by RestApi/setRemoteCompletionInfo after folder completed.
+     */
+    public static void runScriptSet(final String absPath, final String[] scriptArgs) {
+        File scriptFolder = new File(absPath);
+        if (!scriptFolder.exists() || !scriptFolder.isDirectory()) {
+            Log.w(TAG, "runScriptSet: Folder does not exist or is not of type folder: " + absPath);
+            return;
+        }
+
+        // Find all script files within given folder path.
+        File[] scriptFiles = scriptFolder.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase(Locale.ROOT).endsWith(".sh");
+            }
+        });
+        if (scriptFiles == null || scriptFiles.length == 0) {
+            Log.v(TAG, "runScriptSet: No script files found within folder: " + absPath);
+            return;
+        }
+        for (File scriptFile : scriptFiles) {
+            // Build arguments using shell escape.
+            StringBuilder cmdBuilder = new StringBuilder();
+            cmdBuilder.append("cd \"").append(absPath).append("/..\";");
+            cmdBuilder.append("sh \"").append(scriptFile.getAbsolutePath()).append("\"");
+            if (scriptArgs != null) {
+                for (String arg : scriptArgs) {
+                    cmdBuilder.append(" \"").append(arg.replace("\"", "\\\"")).append("\"");
+                }
+            }
+
+            // Execute script.
+            String command = cmdBuilder.toString();
+            // Log.d(TAG, "runScriptSet: Exec [" + command + "]");
+            Log.v(TAG, "runScriptSet: Exec result [" + runShellCommandGetOutput(command, false) + "]");
+        }
     }
 }

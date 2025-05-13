@@ -264,6 +264,10 @@
     <string name="folder_ignore_delete_caption">Ignore Delete</string>
     <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
 
+    <!-- Setting title and description -->
+    <string name="folder_run_script_caption">Run Script</string>
+    <string name="folder_run_script_description">Expert option to run scripts after a folder changes its sync state. Scripts at \'.stfolder/*.sh\' will be executed, other locations are not supported for security considerations.\nExample script call: \'.stfolder/rename-files.sh sync_complete\'</string>
+
     <!-- Setting title -->
     <string name="folder_pause">Pause Folder</string>
 

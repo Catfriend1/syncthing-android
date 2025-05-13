@@ -301,7 +301,7 @@
 
             </LinearLayout>
 
-            <!-- ignoreDelete -->
+            <!-- ignoreDelete mPrefExpertMode -->
             <LinearLayout
                 android:id="@+id/ignoreDeleteContainer"
                 android:layout_width="match_parent"
@@ -328,6 +328,37 @@
                     android:layout_marginTop="-20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:text="@string/folder_ignore_delete_description"
+                    android:focusable="false"/>
+
+            </LinearLayout>
+
+            <!-- runScript mPrefExpertMode -->
+            <LinearLayout
+                android:id="@+id/runScriptContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:focusable="true">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/runScriptSwitch"
+                    style="@style/Widget.Syncthing.TextView.Label.Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:drawableLeftCompat="@drawable/terminal_24dp"
+                    app:drawableStartCompat="@drawable/terminal_24dp"
+                    android:text="@string/folder_run_script_caption" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="-20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="@string/folder_run_script_description"
                     android:focusable="false"/>
 
             </LinearLayout>

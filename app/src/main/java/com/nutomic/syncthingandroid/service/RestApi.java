@@ -51,6 +51,7 @@ import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.FileUtils;
+import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -1192,7 +1193,21 @@ public class RestApi {
                     cachedFolderStatus.remoteIndexUpdated) {
                 mLocalCompletion.setRemoteIndexUpdated(folderId, false);
                 Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
-                
+
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+                Boolean folderRunScriptEnabled = sharedPreferences.getBoolean(
+                    Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(folder.id), false
+                );
+                if (folderRunScriptEnabled) {
+                    Util.runScriptSet(
+                            folder.path + "/" + Constants.FILENAME_STFOLDER, 
+                            new String[]{
+                                    "sync_complete"
+                            }
+                    );
+                }
+
+                // Notify listening third-party apps.
                 sendBroadcastFolderSyncComplete(deviceId, folder, folderStatus);
             }
         }
