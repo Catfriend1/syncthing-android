@@ -755,4 +755,8 @@
     <string name="privacy_summary">打开 syncthing-android 的隐私政策，其中涵盖了个人数据的使用（如果有的话），例如位置。</string>
     <string name="syncthing_forum_title">Syncthing 论坛</string>
     <string name="syncthing_forum_summary">前往 Syncthing 论坛获取支持</string>
+    <string name="clear_stversions_title">清空所有版本控制文件夹</string>
+    <string name="clear_stversions_done">已成功清除 .stversions 文件夹。</string>
+    <string name="clear_stversions_question">这将删除 Syncthing 处理的所有以前版本的文件。是否继续？</string>
+    <string name="clear_stversions_summary">当 Syncthing 替换或删除文件时，文件将移动到 .stversions 目录。您可能会在那里找到并恢复意外删除的文件，但文件的过时版本会占用您设备上的存储空间。</string>
 </resources>

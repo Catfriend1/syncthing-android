@@ -1,5 +1,5 @@
 plugins {
-    id 'ru.vyarus.use-python' version '3.0.0'
+    alias libs.plugins.vyarus.use.python
 }
 
 def getSyncthingNativeVersion() {
