@@ -130,6 +130,7 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private ViewGroup mIgnoreDeleteContainer;
+    private ViewGroup mRunScriptContainer;
     private SwitchCompat mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
@@ -266,6 +267,7 @@ public class FolderActivity extends SyncthingActivity {
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mIgnoreDeleteContainer = findViewById(R.id.ignoreDeleteContainer);
+        mRunScriptContainer = findViewById(R.id.runScriptContainer);
         mIgnoreDelete = findViewById(R.id.ignoreDelete);
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
@@ -347,6 +349,7 @@ public class FolderActivity extends SyncthingActivity {
 
         // Show expert options conditionally.
         mIgnoreDeleteContainer.setVisibility(mPrefExpertMode ? View.VISIBLE : View.GONE);
+        mRunScriptContainer.setVisibility(mPrefExpertMode ? View.VISIBLE : View.GONE);
 
         // Open keyboard on label view in edit mode.
         mLabelView.requestFocus();
