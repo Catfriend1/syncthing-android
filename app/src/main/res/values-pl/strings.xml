@@ -719,4 +719,6 @@
     <string name="clear_stversions_question">Spowoduje to usunięcie wszystkich poprzednich wersji plików obsługiwanych przez Syncthing. Kontynuować?</string>
     <string name="folder_run_script_caption">Uruchom skrypt</string>
     <string name="folder_run_script_description">Opcja ekspercka umożliwiająca uruchamianie skryptów po zmianie stanu synchronizacji folderu. Skrypty w \'.stfolder/*.sh\' zostaną wykonane, inne lokalizacje nie są obsługiwane ze względów bezpieczeństwa.\nPrzykładowe wywołanie skryptu: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="pizza_url_summary">Jednym stuknięciem możesz zostawić po sobie ciepły gest życzliwości, zwieńczony dodatkowymi dobrymi wibracjami, które sprawią, że koty będą radośnie mruczeć.</string>
+    <string name="pizza_url_title">» Koty kochają pizzę « 😺🍕</string>
 </resources>
