@@ -512,7 +512,7 @@ public class Util {
             // Execute script.
             String command = cmdBuilder.toString();
             Log.d(TAG, "runScriptSet: Exec [" + command + "]");
-            runShellCommand(command, false);
+            Log.v(TAG, "runScriptSet: Exec result [" + runShellCommandGetOutput(command, false) + "]");
         }
     }
 }
