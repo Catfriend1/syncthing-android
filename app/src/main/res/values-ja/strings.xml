@@ -4,21 +4,21 @@
     <string name="app_description">オープンで、信頼できる、分散型ファイル同期アプリケーション。</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Syncthing for Android にようこそ</string>
+    <string name="welcome_title">Syncthing for Android へようこそ</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">はじめに</string>
-    <string name="welcome_text">Syncthingはオープンソースのファイル同期アプリケーションです。他のデバイスとデータを共有するには、デバイスリストにデバイスIDを追加します。その後、どのデバイスとどのフォルダを共有するかを選択することができます。 何か問題があればGitHub経由で報告してください。</string>
+    <string name="welcome_text">Syncthingはオープンソースのファイル同期アプリケーションです。他のデバイスとデータを共有するには、そのデバイスのユニークなデバイスIDを自分のデバイスリストに追加する必要があります。その後、どのフォルダをどのデバイスと共有するか選択できます。\n\n問題が発生した場合はGitHubで報告してください。</string>
     <!-- Slide "Storage Permission" -->
-    <string name="storage_permission_title">ストレージアクセス許可</string>
+    <string name="storage_permission_title">ストレージアクセス権限の許可</string>
     <string name="storage_permission_desc">Syncthing はファイル同期を行うためにストレージにアクセスする必要があります。</string>
     <string name="dialog_all_files_access_not_supported">お使いのデバイスがすべてのファイルへのアクセスをサポートしていません</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">バッテリー最適化</string>
-    <string name="toast_ignore_doze_permission_required">このアプリは「ドーズ」の省電力モードが解除されている場合のみ確実に動作します。</string>
+    <string name="toast_ignore_doze_permission_required">このアプリは、「Doze」省電力モードから除外されている場合のみ安定して動作します。</string>
     <string name="dialog_disable_battery_optimizations_not_supported">お使いのデバイスはバッテリーの最適化を無効にできません</string>
     <!-- Slide "Location Permission" -->
-    <string name="location_permission_title">ロケーション（位置情報）アクセスの許可</string>
+    <string name="location_permission_title">位置情報アクセス権限の許可</string>
     <string name="location_permission_desc_api_29">Android 10+のヒント：\"常に許可する\"</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">鍵の生成</string>
@@ -37,7 +37,7 @@
     <string name="ignore">無視</string>
     <string name="page_x_of_y">ページ %1$s / %2$s</string>
     <string name="main_menu">メインメニュー</string>
-    <string name="refresh">再表示</string>
+    <string name="refresh">再読み込み</string>
     <!-- PhotoShootActivity -->
     <string name="photo_shoot_launcher_title">カメラを同期する</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork カメラ</string>
@@ -90,7 +90,7 @@
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">これにより、このデバイスで行われたそのフォルダ内のすべての変更が元に戻されます。続けますか？</string>
     <string name="open_file_manager">ファイルマネージャーを開く</string>
-    <string name="open_file_with">手段を指定してファイルを開く</string>
+    <string name="open_file_with">次からファイルを開く</string>
     <string name="open_file_no_compatible_app">このファイルを開くアプリがありません。</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">互換性のあるファイルマネージャーが見つかりません</string>
@@ -107,7 +107,7 @@
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
     <string name="device_syncing">同期中 (%1$d%%)</string>
     <!-- Indicates that there is no connection to the device -->
-    <string name="device_disconnected">切断中</string>
+    <string name="device_disconnected">切断済み</string>
     <!-- Indicates that the device is paused and does not sync -->
     <string name="device_paused">ポーズ（一時停止）</string>
     <!-- Indicates that devices does not share any folders -->
@@ -116,7 +116,7 @@
     <string name="device_state_unknown">不明</string>
     <!-- Last seen title -->
     <string name="device_last_seen">最後に見たもの:　%1$s</string>
-    <string name="device_last_seen_never">二度としない</string>
+    <string name="device_last_seen_never">決して</string>
     <!-- Title for the listing of shared folders with a colon and space appended -->
     <string name="shared_folders_title_colon">"フォルダ: "</string>
     <!-- Title for current download rate -->
@@ -142,7 +142,7 @@
     <!-- Title for current RAM usage -->
     <string name="ram_usage">メモリ使用量</string>
     <!-- Title for announce server status -->
-    <string name="announce_server">アナウンスサーバー</string>
+    <string name="announce_server">アナウンスサーバーの設定</string>
     <!-- Title for uptime status -->
     <string name="uptime">稼働時間</string>
     <string name="restart">再起動</string>
@@ -236,7 +236,7 @@
     <string name="tip_huawei_device_disconnected_title">Huawei：「デバイス切断」回避策</string>
     <string name="tip_phone_ip_address_syntax">スマートフォンのIPアドレス</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: アプリはスマホ起動時に開始しません。</string>
-    <string name="tip_xiaomi_battery_saver_title">Xiaomi: アプリが繰り返しウェルカム画面を表示する。</string>
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: アプリが繰り返しようこそ画面を表示する。</string>
     <!-- RecentChangesActivity -->
     <string name="no_recent_changes">最近の変更はありません。</string>
     <string name="recent_changes_title">最新の変更点</string>
@@ -553,4 +553,46 @@
     <string name="share_device_id_chooser">次とデバイス ID を共有</string>
     <string name="custom_sync_conditions_title">カスタム同期条件</string>
     <string name="custom_sync_conditions_dialog">同期条件を指定する</string>
+    <string name="notification_permission_title">通知権限の許可</string>
+    <string name="notification_permission_desc">新しいデバイスの接続、フォルダー共有リクエストに関する通知を表示し、サービスを継続して接続された状態に保つために必要です。</string>
+    <string name="photo_shoot_take_picture_failure">写真を撮れなかったか、キャンセルしました。</string>
+    <string name="device_rejected">デバイス「%1$s」が接続を要求しています</string>
+    <string name="delete_unexpected_items">予期しないアイテムを削除する</string>
+    <string name="suggest_file_manager_app_dialog_text">オープンソースのファイルマネージャーアプリ「Material Files」のインストールをお勧めします。アプリストアのページを開きますか？</string>
+    <string name="device_syncing_percent_bytes">同期中 (%1$d%%、%2$s)</string>
+    <string name="device_disconnected_not_synced">切断済み（%1$s 保留中）</string>
+    <string name="folder_fileWatcherDescription">ファイルの変更をOSに通知するよう要求します。無効にすると、1時間ごとの定期的なスキャンにフォールバックします。</string>
+    <string name="folder_ignore_delete_caption">無視して削除</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">既存のフォルダーを「暗号化して受信」に切り替えることはサポートされていません。</string>
+    <string name="autoAcceptFolders">自動承認</string>
+    <string name="tip_custom_sync_conditions_text">この機能は今後のリリースでさらに改善される予定です。現時点では、既存の設定やアプリの動作を壊したくなかったため、特定のネットワークタイプに対するカスタム同期条件は、まずグローバルの実行条件でそのネットワークでの同期を有効にしてからのみ設定できます。</string>
+    <string name="this_device">このデバイス</string>
+    <string name="ssl_cert_invalid_text">%1$s の Web サイトに SSL 暗号化用の無効な証明書があるようです。続行しますか?</string>
+    <string name="ignore_doze_permission_desc">Androidはしばらくすると同期を停止することがあります。これを防ぐには、バッテリーの最適化をオフにしてください。一部のデバイスには、タスクキラーアプリがプリインストールされている場合があります。Syncthingをホワイトリストに追加することをお勧めします。</string>
+    <string name="toast_notification_permission_required">Syncthing では、サービスを継続して接続しておくために通知の許可が必要です。</string>
+    <string name="tip_write_to_sdcard_text">もしUIに「Androidはsyncthingにこのフォルダへの読み取り専用アクセスのみを許可しています」と表示されている場合は、書き込みアクセスを得るために次のパスを使って新しいフォルダを作成してください：\n%1$s/YOUR_FOLDER_NAME\n\n注意：このフォルダは、このアプリをアンインストールするとAndroidによって消去されます。アプリをアンインストールする前に、データを…/Androidフォルダの外の安全な場所に移動してください。</string>
+    <string name="exception_known_bug_notice">まだ解決されていない既知のバグが発生しました。詳細は%1$s/%2$sをご覧ください。事前に発生した事象について、正確な説明をお送りください。</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthingカメラは、写真を撮影してデバイスに保存するためにお客様の同意が必要です。この機能はオプションです。使用するには、許可を与えて「続行」をタップしてください。Syncthingカメラフォルダの設定を行います。</string>
+    <string name="dialog_exit_while_running_as_service_message">ご参考までに：あなたはアプリを「起動時に自動的に開始」するよう設定しています。そのため、アプリは条件が合えばバックグラウンドでいつでも同期や監視を行います。深刻な問題が発生した場合のみ手動で終了してください。それ以外の場合は、設定で「起動時に自動的に開始」を無効にしてください。今すぐデバイスを再起動するまでアプリを終了しますか？</string>
+    <string name="folder_path_readwrite">Android バージョンにより、選択したフォルダーへの読み取りおよび書き込みアクセス権が Syncthing に付与されます。</string>
+    <string name="folder_ignore_delete_description">受信インデックス更新の処理に影響するエキスパートオプションです。設定すると、削除フラグが設定された受信更新は無視されます。詳細は、https://docs.syncthing.net/advanced/folder-ignoredelete.html をご覧ください</string>
+    <string name="tip_huawei_device_disconnected_text">デスクトップでHuawei端末が常に切断と表示される場合は、デスクトップのSyncthing UIを開いてください。「リモートデバイス」に進み、スマートフォンの項目を展開して「編集」をクリックし、「詳細設定」に切り替えます。「アドレス」欄に次のようにスマートフォンのIPアドレスを入力してください：\ntcp4://%1$s, dynamic\nこの方法はHuawei P10で動作確認されています。</string>
+    <string name="discovered_device_list_empty">ローカルネットワーク上でデバイスが見つかりませんでした。このアプリを2台目のスマートフォンで実行してください。パソコン用のインストールファイルは%1$sから入手できます</string>
+    <string name="untrusted_device_explanation">このデバイスと共有されるすべてのフォルダーはパスワードで保護される必要があり、送信されたすべてのデータは指定されたパスワードがなければ読み取れなくなります。</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi MIUIは、デフォルトでアプリの自動起動を許可していません。ホーム画面から「設定」&gt;「権限」&gt;「自動起動」に移動し、「Syncthing-Fork」スライダーを有効にしてください。</string>
+    <string name="local_discovery_disabled">「設定」&gt;「Syncthingオプション」&gt;「ローカル検出」でローカル検出が無効になっています。ローカルネットワーク上のデバイスを検索するには、ローカル検出を有効にしてください。</string>
+    <string name="tip_sync_on_local_network_text">WiFiネットワーク上やWiFiホットスポット経由で接続できるデバイスのみと同期したい場合は、バッテリー消費を抑え、モバイルデータ通信による誤同期を防ぐために「設定/Syncthingオプション」で以下の項目をオフにしてください：\n- NATトラバーサルを有効化\n- グローバルディスカバリー\n- リレーを有効化\n\n「ローカルディスカバリー」だけを有効にしておきます。これにより、端末は同じローカルネットワーク内にある他のデバイスとだけ同期し、外部ネットワークやモバイル通信を使いません。</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUIのバッテリーセーバーシステムアプリは、端末を再起動するたびにアプリの「バッテリー最適化を無視」権限を取り消してしまいます。そのため、アプリが毎回ウェルカム画面を表示し、必要な権限を再度求める現象が発生します。\n解決策としては、ホーム画面でアプリドロワーを開き、「Syncthing-Fork」を長押しして「アプリ情報」を選択し、「バッテリーセーバー」で「制限なし」を選んでください（MIUI 10.3.2.0以降）。</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">注意：SyncthingNative が中断され、何か異常な動作をした場合、それはあなたの責任です。デバイスが許可の付与をサポートしていない場合にのみスキップしてください。本当にスキップしますか？</string>
+    <string name="photo_shoot_take_picture_success">写真を Syncthing カメラ フォルダーに正常に保存しました。</string>
+    <string name="folder_rejected">デバイス「%1$s」がフォルダ「%2$s」を共有しようとしています</string>
+    <string name="advanced_directory_selection">高度なディレクトリ選択</string>
+    <string name="folder_path_readonly">お使いの Android バージョンでは、選択したフォルダーへの読み取り専用アクセスのみが Syncthing に許可されます。</string>
+    <string name="toast_invalid_folder_selected">申し訳ございません。選択したフォルダは使用できません。内部ストレージまたは外部ストレージにあるフォルダを選択してください。</string>
+    <string name="untrusted_device">信頼できないデバイス</string>
+    <string name="tip_ignore_delete_text">スマートフォンで撮影したすべての写真をパソコンにバックアップしたい場合は、「カメラ」フォルダをパソコンと共有してください。パソコン側のSyncthingを開き、フォルダを追加した後、「アクション」＞「詳細設定」＞「カメラ」フォルダに進み、「削除を無視」を有効にして「保存」をクリックします。これで、スマートフォンのカメラフォルダから写真を削除しても、パソコン上にはバックアップが残ります。</string>
+    <string name="ignore_doze_permission_os_notice">Android TV では、バックグラウンドで実行中のアプリが時々終了することが知られています。解決策は Wiki の「%1$s/%2$s」に記載されています。</string>
+    <string name="location_permission_desc">Syncthingは、特定のWi-Fiネットワークでのみ動作するように設定できます。Androidでは、現在接続中のWi-Fiネットワーク名を取得するために位置情報の許可が必要です。この機能を利用したい場合は、上のボタンを押してください。この手順をスキップすることも可能です。詳細はプライバシーポリシーをご覧ください。</string>
+    <string name="deviceEncryptionPasswordHint">信頼できない場合は暗号化パスワードを入力してください</string>
+    <string name="folder_pause">フォルダを一時停止</string>
 </resources>
