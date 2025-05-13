@@ -9,5 +9,9 @@
         android:id="@+id/statusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Waiting for broadcast - see logcat v:* * | grep -i 'SyncStatus'" />
+=======
+        android:text="Waiting for broadcast - see adb logcat v:* * | grep -i 'SyncStatusReceiver'" />
+>>>>>>> main
 </LinearLayout>
