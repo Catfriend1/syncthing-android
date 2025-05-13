@@ -476,4 +476,10 @@ public class Util {
         return ZonedDateTime.ofLocal(LocalDateTime.now(), ZoneId.of("UTC"), ZoneOffset.UTC)
                 .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
+    
+    /**
+     * Called by RestApi/setRemoteCompletionInfo after folder completed.
+     */
+    public static void runScriptSet(final String absPath, final String[] scriptArgs) {
+    }
 }
