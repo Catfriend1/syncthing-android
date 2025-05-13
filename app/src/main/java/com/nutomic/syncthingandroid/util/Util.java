@@ -267,7 +267,9 @@ public class Util {
                 }
             }
             exitCode = shellProc.waitFor();
-            Log.i(TAG, "runShellCommandGetOutput: Exited with code " + exitCode);
+            if (exitCode != 0) {
+                Log.i(TAG, "runShellCommandGetOutput: Exited with code " + exitCode);
+            }
         } catch (IOException | InterruptedException e) {
             Log.w(TAG, "runShellCommandGetOutput: Exception", e);
         } finally {
