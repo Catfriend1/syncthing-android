@@ -1094,7 +1094,7 @@ public class RestApi {
 
     private void sendBroadcastToApps(Intent intent) {
         String[] packageIdList = {
-            "com.example.syncthingreceiver",
+            // "com.example.syncthingreceiver",
             "org.decsync.cc"
         };
         // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
