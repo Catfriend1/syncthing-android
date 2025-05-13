@@ -280,7 +280,8 @@
             android:label="@string/qs_force_label"
             android:icon="@drawable/ic_qs_force"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            tools:targetApi="24">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -290,7 +291,8 @@
             android:label="@string/qs_schedule_label"
             android:icon="@drawable/ic_qs_schedule"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            tools:targetApi="24">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -300,7 +302,8 @@
             android:label="@string/photo_shoot_activity_title"
             android:icon="@drawable/ic_qs_camera"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            tools:targetApi="24">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
