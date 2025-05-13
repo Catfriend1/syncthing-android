@@ -81,6 +81,10 @@ public class Constants {
         return objectPrefixAndId + "_" + "custom_sync_conditions";
     }
 
+    public static String DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(String folderId) {
+        return PREF_OBJECT_PREFIX_FOLDER + folderId + "_" + "run_script";
+    }
+
     public static String DYN_PREF_OBJECT_SYNC_ON_WIFI(String objectPrefixAndId) {
         return objectPrefixAndId + "_" + PREF_RUN_ON_WIFI;
     }
