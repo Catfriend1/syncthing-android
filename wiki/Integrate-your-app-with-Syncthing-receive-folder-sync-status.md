@@ -1,6 +1,6 @@
 # Integrate your app with Syncthing
 
-### Receive when a folder completes its sync progress
+### Receive notification after a folder completed its sync progress
 
 You can receive the folder sync complete event from Syncthing-Fork by using a BroadcastReceiver to subscribe.
 
