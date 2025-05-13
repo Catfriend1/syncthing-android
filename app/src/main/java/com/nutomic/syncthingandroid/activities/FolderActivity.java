@@ -849,6 +849,13 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
 
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putBoolean(
+            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id),
+            mRunScriptSwitch.isChecked()
+        );
+        editor.apply();
+
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
             preCreateFolderStruct(mFolderUri, mFolder.path);
@@ -875,14 +882,10 @@ public class FolderActivity extends SyncthingActivity {
 
         // Save folder specific preferences.
         Log.v(TAG, "onSave: Updating folder with ID = \'" + mFolder.id + "\'");
-        SharedPreferences.Editor editor = mPreferences.edit();
+        editor = mPreferences.edit();
         editor.putBoolean(
             Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + mFolder.id),
             mCustomSyncConditionsSwitch.isChecked()
-        );
-        editor.putBoolean(
-            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id),
-            mRunScriptSwitch.isChecked()
         );
         editor.apply();
 
