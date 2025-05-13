@@ -766,4 +766,6 @@
     <string name="clear_stversions_done">Erfolgreich .stversions-Ordner geleert.</string>
     <string name="clear_stversions_title">Alle Versionierungsordner leeren</string>
     <string name="clear_stversions_summary">Dateien werden in das Verzeichnis .stversions verschoben, wenn sie von Syncthing ersetzt oder gelöscht werden. Versehentlich gelöschte Dateien lassen sich wahrscheinlich dort finden und wiederherstellen, allerdings belegen veraltete Versionen der Dateien Speicherplatz auf diesem Gerät.</string>
+    <string name="folder_run_script_caption">Skript ausführen</string>
+    <string name="folder_run_script_description">Expertenoption zur Ausführung von Skripten, nachdem ein Ordner seinen Synchronisierungsstatus geändert hat. Skripte unter „.stfolder/*.sh“ werden ausgeführt, andere Speicherorte werden aus Sicherheitsgründen nicht unterstützt.\nBeispiel für einen Skriptaufruf: „.stfolder/rename-files.sh sync_complete“</string>
 </resources>
