@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS" />
+
+    <application
+        android:allowBackup="true"
+        android:label="SyncthingReceiverTest"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".SyncStatusReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
