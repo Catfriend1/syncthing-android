@@ -502,7 +502,7 @@ public class Util {
         for (File scriptFile : scriptFiles) {
             // Build arguments using shell escape.
             StringBuilder cmdBuilder = new StringBuilder();
-            cmdBuilder.append("sh \"").append(scriptFile.getAbsolutePath()).append("\"");
+            cmdBuilder.append("cd \"").append(absPath).append("\"; sh \"").append(scriptFile.getAbsolutePath()).append("\"");
             if (scriptArgs != null) {
                 for (String arg : scriptArgs) {
                     cmdBuilder.append(" \"").append(arg.replace("\"", "\\\"")).append("\"");
