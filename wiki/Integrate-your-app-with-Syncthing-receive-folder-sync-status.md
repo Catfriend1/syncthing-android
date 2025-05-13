@@ -5,12 +5,12 @@
 You can receive the folder sync complete event from Syncthing-Fork by using a BroadcastReceiver to subscribe.
 
 Prerequisites:
-- Declare our permission in your AndroidManifest.xml
+- Declare our permission in your "AndroidManifest.xml"
 ```
 <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS" />
 ```
 
-- Add a receiver to your AndroidManifest.xml
+- Add a receiver to your "AndroidManifest.xml"
 ```
 <receiver android:name=".SyncStatusReceiver" android:exported="true">
     <intent-filter>
@@ -18,6 +18,9 @@ Prerequisites:
     </intent-filter>
 </receiver>
 ```
+
+- File a pull request against "service/RestApi.java" to let us add your app's package id as a receiver for the status broadcasts. Refer to function (sendBroadcastToApps)[https://github.com/Catfriend1/syncthing-android/pull/1410/files#diff-9d1c06347ab8710dd078c7e48b627ffaed19cad66df30b9bbad98c5832678309R1097], "packageIdList".
+
 
 Implementation:
 - Wait for the desired notification to arrive in your receiver code.
@@ -38,7 +41,7 @@ public class SyncStatusReceiver extends BroadcastReceiver {
 }
 ```
 
-If you have trouble, compare your implementation to the SyncthingReceiverTestApp:
+If you have trouble, compare your implementation to the "SyncthingReceiverTestApp":
 - Test app: https://github.com/Catfriend1/syncthing-android/releases/download/v1.29.6.1/SyncthingReceiverTestApp.apk
 
 - Test app source: https://github.com/Catfriend1/syncthing-android/tree/main/scripts/debug/SyncthingReceiverTestApp
