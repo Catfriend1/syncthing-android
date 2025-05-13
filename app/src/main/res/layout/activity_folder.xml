@@ -343,7 +343,7 @@
                 android:focusable="true">
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/runScript"
+                    android:id="@+id/runScriptSwitch"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

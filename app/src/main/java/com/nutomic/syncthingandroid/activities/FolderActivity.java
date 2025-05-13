@@ -130,6 +130,7 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private ViewGroup mIgnoreDeleteContainer;
+    private SwitchCompat mRunScriptSwitch;
     private ViewGroup mRunScriptContainer;
     private SwitchCompat mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
@@ -223,6 +224,9 @@ public class FolderActivity extends SyncthingActivity {
                     mFolder.removeDevice(device.deviceID);
                 }
                 mFolderNeedsToUpdate = true;
+            } else if (id == R.id.runScriptSwitch) {
+                // Stored in pref.
+                mFolderNeedsToUpdate = true;
             } else if (id == R.id.ignoreDelete) {
                 mFolder.ignoreDelete = isChecked;
                 mFolderNeedsToUpdate = true;
@@ -268,6 +272,7 @@ public class FolderActivity extends SyncthingActivity {
         mVersioningTypeView = findViewById(R.id.versioningType);
         mIgnoreDeleteContainer = findViewById(R.id.ignoreDeleteContainer);
         mRunScriptContainer = findViewById(R.id.runScriptContainer);
+        mRunScriptSwitch = findViewById(R.id.runScriptSwitch);
         mIgnoreDelete = findViewById(R.id.ignoreDelete);
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
@@ -540,6 +545,7 @@ public class FolderActivity extends SyncthingActivity {
         mFolderPaused.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
         mIgnoreDelete.setOnCheckedChangeListener(null);
+        mRunScriptSwitch.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
@@ -550,6 +556,9 @@ public class FolderActivity extends SyncthingActivity {
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         mFolderPaused.setChecked(mFolder.paused);
         mIgnoreDelete.setChecked(mFolder.ignoreDelete);
+        mRunScriptSwitch.setChecked(mPreferences.getBoolean(
+                Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id), false
+            ));
         findViewById(R.id.editIgnoresContainer).setVisibility(mIsCreateMode ? View.GONE : View.VISIBLE);
 
         // Update views - custom sync conditions.
@@ -585,6 +594,7 @@ public class FolderActivity extends SyncthingActivity {
         mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);
         mIgnoreDelete.setOnCheckedChangeListener(mCheckedListener);
+        mRunScriptSwitch.setOnCheckedChangeListener(mCheckedListener);
     }
 
     @Override
@@ -869,6 +879,10 @@ public class FolderActivity extends SyncthingActivity {
         editor.putBoolean(
             Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + mFolder.id),
             mCustomSyncConditionsSwitch.isChecked()
+        );
+        editor.putBoolean(
+            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id),
+            mRunScriptSwitch.isChecked()
         );
         editor.apply();
 
