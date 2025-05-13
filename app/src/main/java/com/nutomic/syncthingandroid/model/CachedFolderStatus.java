@@ -23,5 +23,7 @@ public class CachedFolderStatus {
     // Example: "2019-11-19T23:28:55.7479276+01:00"
     public String lastItemFinishedTime = "";
 
+    public boolean remoteIndexUpdated = false;
+
     public boolean paused = false;
 }
