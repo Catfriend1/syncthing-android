@@ -1,6 +1,5 @@
 plugins {
     id("com.android.application")
-    id("com.github.ben-manes.versions")
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
