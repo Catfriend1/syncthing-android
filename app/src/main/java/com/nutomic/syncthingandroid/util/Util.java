@@ -494,7 +494,7 @@ public class Util {
         File[] scriptFiles = scriptFolder.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".sh");
+                return name.toLowerCase(Locale.ROOT).endsWith(".sh");
             }
         });
         if (scriptFiles == null || scriptFiles.length == 0) {
