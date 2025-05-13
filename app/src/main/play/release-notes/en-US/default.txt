@@ -1,12 +1,12 @@
-* Update README.md by @Catfriend1 in PR #1379
-* Let's differentiate between TRUSTED and UNTRUSTED debug builds. by @Catfriend1 in PR #1382
-* Support floats for fsWatcherDelayS option (fixes #1365) by @Catfriend1 in PR #1384
-* Add license info to Settings / About screen by @Catfriend1 in PR #1385
-* Syncthing Web UI: default HOME env folder = /storage/emulated/0/syncthing (fixes #764) by @Catfriend1 in PR #1386
-* Fix sdcard root path not offered in gear icon folder picker (fixes #1309) by @Catfriend1 in PR #1388
-* Add forum and privacy policy links to Settings/About (fixes #1387) by @Catfriend1 in PR #1389
-* Make release builds reproducible #698 (fixes #1383) by @Catfriend1 in PR #1390
-* Fix SyncthingService going stuck because of improper bind_active_network by @Catfriend1 in PR #1394
-* Add "empty versioning folders" button (fixes #603) by @Catfriend1 in PR #1395
-* Create ".nomedia" in ".stversions" subfolder if a new folder is added (fixes #1396) by @Catfriend1 in PR #1397
-* Offer "Movies" folder in gear-icon folder picker by @Catfriend1
+* Update dependencies, enable kotlin compiler, migrate to TOML versions config by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1402
+* Switch from oss-licenses-plugin to AboutLicenses plugin (fixes #1400) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1401
+* Remove play publisher plugin and script by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1403
+* remove cfgOption insecureAllowOldTLSVersions by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1404
+* Bump androidx.documentfile:documentfile from 1.0.1 to 1.1.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1408
+* Detect when folder sync has been completed locally or remote by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1406
+* Send an intent when a shared folder finished syncing (fixes #1409) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1410
+* Expert option: Run custom shell script after folder sync completed by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1412
+* model/Device: Add maxRecvKbps, maxSendKbps by @Catfriend1
+* build-syncthing.py: Remove GO BUILDID by @Catfriend1 (fixes #1383)
+* gradle/buildNative: Add verifySyncthingNativeVersionMatchesApp by @Catfriend1
+* Updated settings about screen
