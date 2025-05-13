@@ -502,7 +502,7 @@ public class Util {
         for (File scriptFile : scriptFiles) {
             // Build arguments using shell escape.
             StringBuilder cmdBuilder = new StringBuilder();
-            cmdBuilder.append("\"").append(scriptFile.getAbsolutePath()).append("\"");
+            cmdBuilder.append("sh \"").append(scriptFile.getAbsolutePath()).append("\"");
             if (scriptArgs != null) {
                 for (String arg : scriptArgs) {
                     cmdBuilder.append(" \"").append(arg.replace("\"", "\\\"")).append("\"");
@@ -511,7 +511,7 @@ public class Util {
 
             // Execute script.
             String command = cmdBuilder.toString();
-            Log.d(TAG, "runScriptSet: Exec [" + command + "]");
+            // Log.d(TAG, "runScriptSet: Exec [" + command + "]");
             Log.v(TAG, "runScriptSet: Exec result [" + runShellCommandGetOutput(command, false) + "]");
         }
     }
