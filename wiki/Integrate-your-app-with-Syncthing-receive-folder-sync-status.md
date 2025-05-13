@@ -20,7 +20,11 @@ Prerequisites:
 ```
 
 - File a pull request against "service/RestApi.java" to let us add your app's package id as a receiver for the status broadcasts. Refer to function ["sendBroadcastToApps"](https://github.com/Catfriend1/syncthing-android/blob/main/app/src/main/java/com/nutomic/syncthingandroid/service/RestApi.java), "packageIdList".
-
+```
+String[] packageIdList = {
+    "com.example.syncthingreceiver"
+};
+```
 
 Implementation:
 - Wait for the desired notification to arrive in your receiver code.
