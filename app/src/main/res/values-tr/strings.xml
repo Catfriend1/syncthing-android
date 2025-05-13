@@ -649,4 +649,8 @@
     <string name="privacy_title">Gizlilik İlkesi</string>
     <string name="syncthing_forum_summary">Syncthing Forumu\'na gidin ve destek alın</string>
     <string name="privacy_summary">Kişisel verilerin (varsa) kullanımını kapsayan syncthing-android\'in gizlilik ilkesini açın, örn. konum.</string>
+    <string name="clear_stversions_question">Bu, Syncthing tarafından işlenen dosyaların önceki tüm sürümlerini silecek. Devam edilsin mi?</string>
+    <string name="clear_stversions_title">Tüm sürümlendirme klasörlerini boşalt</string>
+    <string name="clear_stversions_summary">Syncthing ile değiştirildiğinde veya silindiğinde dosyalar .stversions dizinine taşınır. Muhtemelen orada, silinen dosyaları bulabilir ve kurtarabilirsiniz, ancak dosyaların eskimiş sürümleri cihazınızda depolama alanı kaplar.</string>
+    <string name="clear_stversions_done">.stversions klasörleri başarılı olarak temizlendi.</string>
 </resources>
