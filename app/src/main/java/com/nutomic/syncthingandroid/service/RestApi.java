@@ -85,6 +85,18 @@ public class RestApi {
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     /**
+     * Intents we sent to to other apps that subscribed to us.
+     */
+    private static final String ACTION_NOTIFY_FOLDER_SYNC_COMPLETE =
+            "com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE";
+
+    /**
+     * Permission for apps receiving our broadcast intents.
+     */
+     private static final String PERMISSION_RECEIVE_SYNC_STATUS =
+            "com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS";
+
+    /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
      */
     private final static Comparator<Folder> FOLDERS_COMPARATOR = (lhs, rhs) -> {
@@ -378,7 +390,7 @@ public class RestApi {
                     // LogV("ORCC: /rest/db/completion: folder=" + folder.id + ", device=" + device.deviceID + ", result=" + result);
                     final CompletionInfo completionInfo = mGson.fromJson(result, CompletionInfo.class);
                     LogV("ORCC: /rest/db/completion: folder=" + folder.id +
-                            ", device=" + device.deviceID +
+                            ", device=" + device.getDisplayName() +
                             ", completion=" + completionInfo.completion +
                             ", needBytes=" + String.format(Locale.getDefault(), "%.0f", completionInfo.needBytes) +
                             ", remoteState=" + completionInfo.remoteState);
@@ -1080,6 +1092,31 @@ public class RestApi {
         return cacheEntry;
     }
 
+    private void sendBroadcastToApps(Intent intent) {
+        String[] packageIdList = {
+            // "com.example.syncthingreceiver",
+            "org.decsync.cc"
+        };
+        // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        for (String packageId : packageIdList) {
+            intent.setPackage(packageId);
+            ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(intent, PERMISSION_RECEIVE_SYNC_STATUS);
+        }
+    }
+
+    public void sendBroadcastFolderSyncComplete(String deviceId, 
+                                                    final Folder folder, 
+                                                    final FolderStatus folderStatus) {
+        Intent intent = new Intent();
+        intent.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
+        intent.putExtra("deviceId", deviceId);
+        intent.putExtra("folderId", folder.id);
+        intent.putExtra("folderLabel", folder.label);
+        intent.putExtra("folderPath", folder.path);
+        intent.putExtra("folderState", folderStatus.state);
+        sendBroadcastToApps(intent);
+    }
+
     /**
      * Updates cached folder and device completion info according to event data.
      */
@@ -1145,6 +1182,26 @@ public class RestApi {
         }
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
+
+        // Check if a folder completed synchronization on the local or a remote device.
+        if (remoteCompletionInfo.completion == 100) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+            final FolderStatus folderStatus =  cacheEntry.getKey();
+            final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            if (!folderStatus.state.contains("sync") && 
+                    cachedFolderStatus.remoteIndexUpdated) {
+                mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+                Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
+                
+                sendBroadcastFolderSyncComplete(deviceId, folder, folderStatus);
+            }
+        }
+    }
+
+    public void setRemoteIndexUpdated(final String deviceId,
+                                            final String folderId,
+                                            final boolean remoteIndexUpdated) {
+        mLocalCompletion.setRemoteIndexUpdated(folderId, remoteIndexUpdated);
     }
 
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {
