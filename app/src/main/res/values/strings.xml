@@ -674,7 +674,7 @@
     <string name="toast_invalid_http_proxy_address">Input violates proxy syntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
     <string name="broadcast_service_control_title">Service Control by Broadcast</string>
-    <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to force start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
+    <string name="broadcast_service_control_summary">Default: Disabled. Enable to let adb or third-party apps, e.g. automation apps instruct Syncthing to follow run conditions, force start or force stop.</string>
 
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.
