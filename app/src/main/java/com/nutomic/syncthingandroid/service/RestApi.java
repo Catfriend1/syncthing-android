@@ -1107,14 +1107,14 @@ public class RestApi {
 
     public void sendBroadcastFolderSyncComplete(String deviceId, 
                                                     final Folder folder, 
-                                                    final FolderStatus folderStatus) {
+                                                    final String folderState) {
         Intent intent = new Intent();
         intent.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
         intent.putExtra("deviceId", deviceId);
         intent.putExtra("folderId", folder.id);
         intent.putExtra("folderLabel", folder.label);
         intent.putExtra("folderPath", folder.path);
-        intent.putExtra("folderState", folderStatus.state);
+        intent.putExtra("folderState", folderState);
         sendBroadcastToApps(intent);
     }
 
