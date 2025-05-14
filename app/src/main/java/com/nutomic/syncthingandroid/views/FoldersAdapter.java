@@ -232,6 +232,11 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         String itemCountAndFirst = "\u26a0 ";
         itemCountAndFirst += mContext.getResources()
                         .getQuantityString(R.plurals.conflicts, (int) conflictFileCount, conflictFileCount);
+        itemCountAndFirst += "\n\u292e ";
+        itemCountAndFirst += discoveredConflictFiles[0];
+        if (conflictFileCount > 1) {
+            itemCountAndFirst += "\n\u2026";
+        }
 
         binding.conflicts.setText(itemCountAndFirst);
         binding.conflicts.setVisibility(VISIBLE);
