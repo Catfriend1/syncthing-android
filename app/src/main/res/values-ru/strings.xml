@@ -712,7 +712,6 @@ Android требует разрешение доступа к геолокаци
         <item quantity="many">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
         <item quantity="other">Синхронизация: %1$d завершено, %2$d устройств в сети</item>
     </plurals>
-    <string name="reason_broadcast_controlled">Syncthing ожидает команды вещания от сторонних приложений или от ADB. Это поведение можно выключить в Настройках: «Экспериментальные» - «Управление командами вещания».</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor не установлено. Перезапустите приложение или сообщите об этой проблеме, если она не уходит.</string>
     <string name="executable_not_found">Основная программа «%s» отсутствует. Проверьте журналы сборки и работы.</string>
     <string name="state_unshared">Не в общем доступе</string>

@@ -918,7 +918,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
     <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on, grant location permission and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
-    <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' &gt; \'Experimental\' &gt; \'Service Control by Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>
 
     <!-- Sync Conditions Dialog -->

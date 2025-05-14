@@ -624,7 +624,6 @@
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing tillåts köras på roaming och icke-roaming mobildataanslutningar.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing tillåts köras på icke-roaming mobila dataanslutningar. Den aktiva anslutningen är icke-roaming.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing körs inte eftersom du inte tillåtit att det körs på roaming-mobildataanslutningar.</string>
-    <string name="reason_broadcast_controlled">Syncthing lyssnar på sändningar som skickas av en tredjepartsapp eller ADB. Du kan växla tillbaka för att använda de inbyggda körningsvillkoren genom att inaktivera \"Inställningar\" &gt; \"Experimentell\" &gt; \"Tjänstkontroll genom sändning\".</string>
     <string name="syncthing_active_details">Syncthing körs: %1$s</string>
     <string name="no_remote_devices_connected">Inga fjärrenheter anslutna</string>
     <string name="state_local_additions">Lokala tillskott</string>
