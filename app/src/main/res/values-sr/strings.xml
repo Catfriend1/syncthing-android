@@ -223,6 +223,7 @@
     <string name="reason_force_stop">Syncthing није у функцији јер сте га принудили да престане без обзира на услове покретања.</string>
     <string name="folder_type_sendonly">Само пошаљи</string>
     <string name="reason_not_charging">Телефон се не пуни.</string>
+    <string name="reason_broadcast_controlled">Syncthing слуша емисије које шаље апликација треће стране или ADB. Можете се вратити на коришћење уграђених услова покретања онемогућавањем \'Подешавања\' &gt; \'Експериментално\' &gt; \'Контрола услуге путем емисије\'.</string>
     <string name="ignore_doze_permission_title">Оптимизација батерије</string>
     <string name="reason_not_on_wifi">Syncthing је дозвољен да ради на WiFi, али WiFi није повезан или је телефон у режиму лета.</string>
     <string name="folder_type_sendonly_description">Фајлови су заштићени од промена направљених на другим уређајима, али ће промене направљене на овом уређају бити послате остатку кластера.</string>
