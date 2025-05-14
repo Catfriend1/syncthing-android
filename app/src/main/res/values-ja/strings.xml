@@ -595,4 +595,5 @@
     <string name="location_permission_desc">Syncthingは、特定のWi-Fiネットワークでのみ動作するように設定できます。Androidでは、現在接続中のWi-Fiネットワーク名を取得するために位置情報の許可が必要です。この機能を利用したい場合は、上のボタンを押してください。この手順をスキップすることも可能です。詳細はプライバシーポリシーをご覧ください。</string>
     <string name="deviceEncryptionPasswordHint">信頼できない場合は暗号化パスワードを入力してください</string>
     <string name="folder_pause">フォルダを一時停止</string>
+    <string name="folder_run_script_caption">スクリプトを実行</string>
 </resources>

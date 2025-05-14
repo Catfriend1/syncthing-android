@@ -1107,14 +1107,14 @@ public class RestApi {
 
     public void sendBroadcastFolderSyncComplete(String deviceId, 
                                                     final Folder folder, 
-                                                    final FolderStatus folderStatus) {
+                                                    final String folderState) {
         Intent intent = new Intent();
         intent.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
         intent.putExtra("deviceId", deviceId);
         intent.putExtra("folderId", folder.id);
         intent.putExtra("folderLabel", folder.label);
         intent.putExtra("folderPath", folder.path);
-        intent.putExtra("folderState", folderStatus.state);
+        intent.putExtra("folderState", folderState);
         sendBroadcastToApps(intent);
     }
 
@@ -1186,31 +1186,48 @@ public class RestApi {
 
         // Check if a folder completed synchronization on the local or a remote device.
         if (remoteCompletionInfo.completion == 100) {
+            // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+            mLocalCompletion.setDiscoveredConflictFiles(
+                    folderId,
+                    Util.getSyncConflictFiles(folder.path)
+            );
+
             final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
             final FolderStatus folderStatus =  cacheEntry.getKey();
             final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
             if (!folderStatus.state.contains("sync") && 
                     cachedFolderStatus.remoteIndexUpdated) {
                 mLocalCompletion.setRemoteIndexUpdated(folderId, false);
-                Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folderId + "]");
-
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-                Boolean folderRunScriptEnabled = sharedPreferences.getBoolean(
-                    Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(folder.id), false
+                onFolderSyncCompleted(
+                        folder, 
+                        folderStatus.state, 
+                        deviceId
                 );
-                if (folderRunScriptEnabled) {
-                    Util.runScriptSet(
-                            folder.path + "/" + Constants.FILENAME_STFOLDER, 
-                            new String[]{
-                                    "sync_complete"
-                            }
-                    );
-                }
-
-                // Notify listening third-party apps.
-                sendBroadcastFolderSyncComplete(deviceId, folder, folderStatus);
             }
         }
+    }
+
+    public void onFolderSyncCompleted(final Folder folder, 
+                                            final String folderState, 
+                                            final String deviceId) {
+        Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folder.id + "]");
+
+        // Run folder script set if enabled by user pref.
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        Boolean folderRunScriptEnabled = sharedPreferences.getBoolean(
+            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(folder.id), false
+        );
+        if (folderRunScriptEnabled) {
+            Util.runScriptSet(
+                    folder.path + "/" + Constants.FILENAME_STFOLDER, 
+                    new String[]{
+                            "sync_complete"
+                    }
+            );
+        }
+
+        // Notify listening third-party apps.
+        sendBroadcastFolderSyncComplete(deviceId, folder, folderState);
     }
 
     public void setRemoteIndexUpdated(final String deviceId,
