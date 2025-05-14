@@ -1197,6 +1197,31 @@ public class RestApi {
         }
     }
 
+    public void onFolderSyncCompleted(final Folder folder, 
+                                            final FolderStatus folderStatus, 
+                                            final String deviceId) {
+        Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folder.id + "]");
+
+        // Run folder script set if enabled by user pref.
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        Boolean folderRunScriptEnabled = sharedPreferences.getBoolean(
+            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(folder.id), false
+        );
+        if (folderRunScriptEnabled) {
+            Util.runScriptSet(
+                    folder.path + "/" + Constants.FILENAME_STFOLDER, 
+                    new String[]{
+                            "sync_complete"
+                    }
+            );
+        }
+
+        // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+
+        // Notify listening third-party apps.
+        sendBroadcastFolderSyncComplete(deviceId, folder, folderStatus.state);
+    }
+
     public void setRemoteIndexUpdated(final String deviceId,
                                             final String folderId,
                                             final boolean remoteIndexUpdated) {
