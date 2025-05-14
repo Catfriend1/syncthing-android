@@ -6,7 +6,10 @@ Use cases would be to run SyncThing only in special conditions - like at home an
 
 The following intent actions are available:
 * Start Syncthing: com.github.catfriend1.syncthingandroid.action.START
+`adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.START -p com.github.catfriend1.syncthingandroid`
+
 * Stop Syncthing: com.github.catfriend1.syncthingandroid.action.STOP
+`adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.STOP -p com.github.catfriend1.syncthingandroid`
 
 The intents should be set to 'broadcast' rather than starting an activity of service. Note that some apps, e.g. **Llama**, are sensitive to trailing spaces so be careful not to leave any when entering the action.
 
