@@ -68,9 +68,6 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     private static void forceStart(Context context) {
         Log.d(TAG, "forceStart by intent");
-
-        BootReceiver.startServiceCompat(context);
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_START);
