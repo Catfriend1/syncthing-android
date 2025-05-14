@@ -23,6 +23,12 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     /**
      * Start the Syncthing-Service
+     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.FOLLOW -p com.github.catfriend1.syncthingandroid.debug
+     */
+    private static final String ACTION_FOLLOW = "com.github.catfriend1.syncthingandroid.action.FOLLOW";
+
+    /**
+     * Start the Syncthing-Service
      * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.START -p com.github.catfriend1.syncthingandroid.debug
      */
     private static final String ACTION_START = "com.github.catfriend1.syncthingandroid.action.START";
@@ -43,6 +49,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
         String intentAction = intent.getAction();
         if (!getPrefBroadcastServiceControl(context)) {
             switch (intentAction) {
+                case ACTION_FOLLOW:
                 case ACTION_START:
                 case ACTION_STOP:
                     Log.w(TAG, "Ignored intent action \"" + intentAction +
@@ -53,33 +60,19 @@ public class AppConfigReceiver extends BroadcastReceiver {
         }
 
         switch (intentAction) {
+            case ACTION_FOLLOW:
+                Log.d(TAG, "followRunConditions by intent");
+                setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_NO_FORCE_START_STOP);
+                break;
             case ACTION_START:
-                forceStart(context);
+                Log.d(TAG, "forceStart by intent");
+                setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_FORCE_START);
                 break;
             case ACTION_STOP:
-                if (getPrefStartServiceOnBoot(context)) {
-                    mNotificationHandler.showStopSyncthingWarningNotification();
-                } else {
-                    forceStop(context);
-                }
+                Log.d(TAG, "forceStop by intent");
+                setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_FORCE_STOP);
                 break;
         }
-    }
-
-    private static void forceStart(Context context) {
-        Log.d(TAG, "forceStart by intent");
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_START);
-        editor.apply();
-    }
-
-    private static void forceStop(Context context) {
-        Log.d(TAG, "forceStop by intent");
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_STOP);
-        editor.apply();
     }
 
     private static boolean getPrefBroadcastServiceControl(Context context) {
@@ -90,5 +83,18 @@ public class AppConfigReceiver extends BroadcastReceiver {
     private static boolean getPrefStartServiceOnBoot(Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         return sp.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
+    }
+
+    private static void setPrefBtnStateForceStartStopAndNotify (final Context context, 
+                                                                        final Integer newState) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, newState);
+        editor.apply();
+
+        // Notify {@link RunConditionMonitor} that the button's state changed.
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mActivity);
+        Intent intent = new Intent(ACTION_UPDATE_SHOULDRUN_DECISION);
+        localBroadcastManager.sendBroadcast(intent);
     }
 }
