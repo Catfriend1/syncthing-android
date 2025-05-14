@@ -23,11 +23,13 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     /**
      * Start the Syncthing-Service
+     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.START -p com.github.catfriend1.syncthingandroid.debug
      */
     private static final String ACTION_START = "com.github.catfriend1.syncthingandroid.action.START";
 
     /**
      * Stop the Syncthing-Service
+     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.STOP -p com.github.catfriend1.syncthingandroid.debug
      * If startServiceOnBoot is enabled the service must not be stopped. Instead a
      * notification is presented to the user.
      */
@@ -52,16 +54,34 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
         switch (intentAction) {
             case ACTION_START:
-                BootReceiver.startServiceCompat(context);
+                forceStart(context);
                 break;
             case ACTION_STOP:
                 if (getPrefStartServiceOnBoot(context)) {
                     mNotificationHandler.showStopSyncthingWarningNotification();
                 } else {
-                    context.stopService(new Intent(context, SyncthingService.class));
+                    forceStop(context);
                 }
                 break;
         }
+    }
+
+    private static void forceStart(Context context) {
+        BootReceiver.startServiceCompat(context);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_START);
+        editor.apply();
+    }
+
+    private static void forceStop(Context context) {
+        context.stopService(new Intent(context, SyncthingService.class));
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_STOP);
+        editor.apply();
     }
 
     private static boolean getPrefBroadcastServiceControl(Context context) {
