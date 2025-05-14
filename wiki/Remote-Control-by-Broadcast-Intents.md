@@ -5,30 +5,30 @@ SyncThing can be controlled externally by sending Broadcast-Intents. Application
 Use cases would be to run SyncThing only in special conditions - like at home and charging, or once every night, ...
 
 The following intent actions are available:
-* Start Syncthing: com.github.catfriend1.syncthingandroid.action.START
-* Stop Syncthing: com.github.catfriend1.syncthingandroid.action.STOP
+* Let Syncthing Follow Run Conditions: com.github.catfriend1.syncthingandroid.action.FOLLOW
+`adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.FOLLOW -p com.github.catfriend1.syncthingandroid`
+
+* Force Start Syncthing: com.github.catfriend1.syncthingandroid.action.START
+`adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.START -p com.github.catfriend1.syncthingandroid`
+
+* Force Stop Syncthing: com.github.catfriend1.syncthingandroid.action.STOP
+`adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.STOP -p com.github.catfriend1.syncthingandroid`
 
 The intents should be set to 'broadcast' rather than starting an activity of service. Note that some apps, e.g. **Llama**, are sensitive to trailing spaces so be careful not to leave any when entering the action.
 
 Tasker example action to start Syncthing:
 * Action: Send Intent
-> Action: com.github.catfriend1.syncthingandroid.action.START
-
-> Type: None
-
-> Mime type: [ leave empty ]
-
-> Data: [ leave empty ]
-
-> Extra: [ leave empty ]
-
-> Package: com.github.catfriend1.syncthingandroid / for developers: com.github.catfriend1.syncthingandroid.debug
-
-> Class: [ leave empty ]
-
-> Target: Broadcast Receiver
-
-> Description: Start Syncthing
+```
+Action: com.github.catfriend1.syncthingandroid.action.START
+Type: None
+Mime type: [ leave empty ]
+Data: [ leave empty ]
+Extra: [ leave empty ]
+Package: com.github.catfriend1.syncthingandroid / for developers: com.github.catfriend1.syncthingandroid.debug
+Class: [ leave empty ]
+Target: Broadcast Receiver
+Description: Start Syncthing
+```
 
 If Syncthing is configured to *Start automatically on boot* those intents are ignored and the configuration in Syncthing takes precedence over the intents – resulting in ignoring them.
 

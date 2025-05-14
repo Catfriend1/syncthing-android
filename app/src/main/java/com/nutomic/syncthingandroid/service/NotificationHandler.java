@@ -325,23 +325,6 @@ public class NotificationHandler {
         mNotificationManager.cancel(ID_RESTART);
     }
 
-    public void showStopSyncthingWarningNotification() {
-        final String msg = mContext.getString(R.string.appconfig_receiver_background_enabled);
-        NotificationCompat.Builder nb = getNotificationBuilder(mInfoChannel)
-                .setContentText(msg)
-                .setTicker(msg)
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                .setContentTitle(mContext.getText(mContext.getApplicationInfo().labelRes))
-                .setSmallIcon(R.drawable.ic_stat_notify)
-                .setAutoCancel(true)
-                .setContentIntent(PendingIntent.getActivity(mContext, 0,
-                        new Intent(mContext, MainActivity.class),
-                        FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
-
-        nb.setCategory(Notification.CATEGORY_ERROR);
-        mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
-    }
-
     public void showDeviceConnectNotification(String deviceId,
                                                     String deviceName,
                                                     String deviceAddress) {

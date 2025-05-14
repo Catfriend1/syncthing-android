@@ -168,6 +168,12 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="broadcast_service_control"
+            android:title="@string/broadcast_service_control_title"
+            android:summary="@string/broadcast_service_control_summary"
+            android:singleLineTitle="false" />
+
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -423,12 +429,6 @@
             android:singleLineTitle="false"
             android:hint="@string/http_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
-
-        <CheckBoxPreference
-            android:key="broadcast_service_control"
-            android:title="@string/broadcast_service_control_title"
-            android:summary="@string/broadcast_service_control_summary"
-            android:singleLineTitle="false" />
 
         <!-- Only valid for Android < 6 -->
         <CheckBoxPreference

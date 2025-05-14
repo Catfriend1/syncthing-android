@@ -284,7 +284,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
         if (restApi == null) {
             return;
         }
-        LogV("Invoking REST status queries");
+        // LogV("Invoking REST status queries");
 
         // Force a cache-miss to query status of all devices asynchronously.
         restApi.getRemoteDeviceStatus("");
