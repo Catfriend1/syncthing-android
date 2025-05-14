@@ -67,6 +67,8 @@ public class AppConfigReceiver extends BroadcastReceiver {
     }
 
     private static void forceStart(Context context) {
+        Log.d(TAG, "forceStart by intent");
+
         BootReceiver.startServiceCompat(context);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -76,6 +78,8 @@ public class AppConfigReceiver extends BroadcastReceiver {
     }
 
     private static void forceStop(Context context) {
+        Log.d(TAG, "forceStop by intent");
+
         context.stopService(new Intent(context, SyncthingService.class));
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
