@@ -13,21 +13,13 @@ The intents should be set to 'broadcast' rather than starting an activity of ser
 Tasker example action to start Syncthing:
 * Action: Send Intent
 > Action: com.github.catfriend1.syncthingandroid.action.START
-
 > Type: None
-
 > Mime type: [ leave empty ]
-
 > Data: [ leave empty ]
-
 > Extra: [ leave empty ]
-
 > Package: com.github.catfriend1.syncthingandroid / for developers: com.github.catfriend1.syncthingandroid.debug
-
 > Class: [ leave empty ]
-
 > Target: Broadcast Receiver
-
 > Description: Start Syncthing
 
 If Syncthing is configured to *Start automatically on boot* those intents are ignored and the configuration in Syncthing takes precedence over the intents – resulting in ignoring them.
