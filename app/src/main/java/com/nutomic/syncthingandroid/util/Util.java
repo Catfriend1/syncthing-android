@@ -522,7 +522,7 @@ public class Util {
     /**
      * Called by RestApi/setRemoteCompletionInfo after folder completed.
      */
-    public static String getSyncConflictFileCount(final String absPath) {
+    public static String[] getSyncConflictFiles(final String absPath) {
         StringBuilder cmdBuilder = new StringBuilder();
         cmdBuilder.append("cd \"").append(absPath).append("/\";");
         // Unescaped:
@@ -530,6 +530,11 @@ public class Util {
         cmdBuilder.append("find -type f -name \"*\\.sync-conflict-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]-[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]*\" -not -path \"\\.\\/\\" + Constants.FOLDER_NAME_STVERSIONS + "\\/*\" -print | sed \"s~\\\\.\\/~~\"");
         String command = cmdBuilder.toString();
         // Log.v(TAG, "getSyncConflictFileCount: Exec [" + command + "]");
-        return runShellCommandGetOutput(command, false);
+        String output = runShellCommandGetOutput(command, false);
+        // Log.v(TAG, "getSyncConflictFileCount: Exec result [" + output + "]");
+        if (output == null || output.isEmpty()) {
+            return new String[]{};
+        }
+        return output.split("\\n");
     }
 }
