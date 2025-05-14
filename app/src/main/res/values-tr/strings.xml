@@ -655,4 +655,6 @@
     <string name="clear_stversions_done">.stversions klasörleri başarılı olarak temizlendi.</string>
     <string name="folder_run_script_caption">Komut Kodu Çalıştır</string>
     <string name="folder_run_script_description">Bir klasör eşitleme durumunu değiştirdikten sonra komut kodlarını çalıştırmak için uzman seçeneği. \'.stfolder/*.sh\' konumunda olan komut kodları çalıştırılacaktır, güvenlik hususları için diğer yerler desteklenmez.\nÖrnek komut kodu çağrısı: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="pizza_url_title">» Kediler pizzayı sever « 😺🍕</string>
+    <string name="pizza_url_summary">Tek bir dokunuşla, kedilerin mutlu bir şekilde mırlamasını sağlamak için ekstra iyi enerjilerle süslenmiş - sıcak bir iyilik dilimi bırakabilirsiniz.</string>
 </resources>
