@@ -1192,9 +1192,15 @@ public class RestApi {
             if (!folderStatus.state.contains("sync") && 
                     cachedFolderStatus.remoteIndexUpdated) {
                 mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+
+                // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+                mLocalCompletion.setDiscoveredConflictFiles(
+                        folderId,
+                        Util.getSyncConflictFiles(folder.path)
+                );
+
                 onFolderSyncCompleted(
                         folder, 
-                        cachedFolderStatus, 
                         folderStatus.state, 
                         deviceId
                 );
@@ -1203,7 +1209,6 @@ public class RestApi {
     }
 
     public void onFolderSyncCompleted(final Folder folder, 
-                                            final CachedFolderStatus cachedFolderStatus, 
                                             final String folderState, 
                                             final String deviceId) {
         Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folder.id + "]");
@@ -1221,9 +1226,6 @@ public class RestApi {
                     }
             );
         }
-
-        // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
-        cachedFolderStatus.discoveredConflictFiles = Util.getSyncConflictFiles(folder.path);
 
         // Notify listening third-party apps.
         sendBroadcastFolderSyncComplete(deviceId, folder, folderState);
