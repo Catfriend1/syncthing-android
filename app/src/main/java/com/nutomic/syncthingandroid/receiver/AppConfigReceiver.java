@@ -76,9 +76,6 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     private static void forceStop(Context context) {
         Log.d(TAG, "forceStop by intent");
-
-        context.stopService(new Intent(context, SyncthingService.class));
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(Constants.PREF_BTNSTATE_FORCE_START_STOP, Constants.BTNSTATE_FORCE_STOP);
