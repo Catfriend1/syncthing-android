@@ -4,8 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import androidx.preference.PreferenceManager;
 import android.util.Log;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.NotificationHandler;
@@ -13,6 +14,8 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
 import javax.inject.Inject;
+
+import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 
 /**
  * Broadcast-receiver to control and configure Syncthing remotely.
@@ -93,7 +96,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
         editor.apply();
 
         // Notify {@link RunConditionMonitor} that the button's state changed.
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(mActivity);
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
         Intent intent = new Intent(ACTION_UPDATE_SHOULDRUN_DECISION);
         localBroadcastManager.sendBroadcast(intent);
     }
