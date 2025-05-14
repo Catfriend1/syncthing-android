@@ -146,6 +146,12 @@
         <item quantity="other">%1$d / %2$d Files</item>
     </plurals>
 
+    <!-- Format string for conflict file count -->
+    <plurals name="conflicts">
+        <item quantity="one">%1$d conflict</item>
+        <item quantity="other">%1$d conflicts</item>
+    </plurals>
+
     <string name="override_changes">Override changes</string>
 
     <!-- Override Changes Confirmation Dialog -->

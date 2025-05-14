@@ -518,4 +518,23 @@ public class Util {
             Log.v(TAG, "runScriptSet: Exec result [" + runShellCommandGetOutput(command, false) + "]");
         }
     }
+    
+    /**
+     * Called by RestApi/setRemoteCompletionInfo after folder completed.
+     */
+    public static String[] getSyncConflictFiles(final String absPath) {
+        StringBuilder cmdBuilder = new StringBuilder();
+        cmdBuilder.append("cd \"").append(absPath).append("/\";");
+        // Unescaped:
+        //  find -type f -name "*\.sync-conflict-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]-[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]*" -not -path "\.\/\.stversions\/*" -print | sed "s~\\.\/~~"
+        cmdBuilder.append("find -type f -name \"*\\.sync-conflict-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]-[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]*\" -not -path \"\\.\\/\\" + Constants.FOLDER_NAME_STVERSIONS + "\\/*\" -print | sed \"s~\\\\.\\/~~\"");
+        String command = cmdBuilder.toString();
+        // Log.v(TAG, "getSyncConflictFileCount: Exec [" + command + "]");
+        String output = runShellCommandGetOutput(command, false);
+        // Log.v(TAG, "getSyncConflictFileCount: Exec result [" + output + "]");
+        if (output == null || output.isEmpty()) {
+            return new String[]{};
+        }
+        return output.split("\\n");
+    }
 }

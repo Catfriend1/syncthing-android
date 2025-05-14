@@ -210,6 +210,18 @@ public class LocalCompletion {
         }
     }
 
+    public void setDiscoveredConflictFiles(final String folderId,
+                                            final String[] discoveredConflictFiles) {
+        synchronized(mFolderMapLock) {
+            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
+            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+            cachedFolderStatus.discoveredConflictFiles = discoveredConflictFiles;
+
+            // Add folder or update existing folder entry.
+            mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));
+        }
+    }
+
     /**
      * Returns a deep copy of object.
      *
