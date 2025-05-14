@@ -999,16 +999,15 @@ public class SyncthingService extends Service {
                 if (objectFromInputStream instanceof Map) {
                     sharedPrefsMap = (Map<?, ?>) objectFromInputStream;
 
+                    // Store backup folder to restore it back later in the process.
+                    String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "");
+
                     // Prepare a SharedPreferences commit.
                     SharedPreferences.Editor editor = mPreferences.edit();
                     editor.clear();
                     for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
                         String prefKey = (String) e.getKey();
                         switch (prefKey) {
-                            // Preferences that should not be imported as they may be outdated and already changed by the user.
-                            case Constants.PREF_BACKUP_FOLDER_NAME:
-                                LogV("importConfig: Ignoring outdated user pref \"" + prefKey + "\".");
-                                break;
                             // Preferences that are no longer used and left-overs from previous versions of the app.
                             case "first_start":
                             case "advanced_folder_picker":
@@ -1052,6 +1051,7 @@ public class SyncthingService extends Service {
                                 break;
                         }
                     }
+                    editor.putString(Constants.PREF_BACKUP_FOLDER_NAME, backupFolderName);
 
                     /**
                      * If all shared preferences have been added to the commit successfully,
