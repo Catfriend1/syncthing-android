@@ -87,6 +87,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
     private void updateFolderStatusView(ItemFolderListBinding binding, Folder folder) {
         if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
+            binding.conflicts.setVisibility(GONE);
             binding.lastItemFinishedItem.setVisibility(GONE);
             binding.lastItemFinishedTime.setVisibility(GONE);
             binding.items.setVisibility(GONE);
@@ -203,6 +204,8 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             }
         }
 
+        showConflictsUI(binding, cachedFolderStatus.discoveredConflictFiles);
+
         showLastItemFinishedUI(binding, cachedFolderStatus);
 
         binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
@@ -218,7 +221,25 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         setTextOrHide(binding.invalid, folderStatus.invalid);
     }
 
-    private void showLastItemFinishedUI(ItemFolderListBinding binding, final CachedFolderStatus cachedFolderStatus) {
+    private void showConflictsUI(ItemFolderListBinding binding, 
+                                        final String[] discoveredConflictFiles) {
+        Integer conflictFileCount = discoveredConflictFiles.length;
+        if (conflictFileCount == 0) {
+            binding.conflicts.setVisibility(GONE);
+            return;
+        }
+
+        String itemCountAndFirst = "\u26a0 ";
+        itemCountAndFirst += mContext.getResources()
+                        .getQuantityString(R.plurals.conflicts, (int) conflictFileCount, conflictFileCount);
+
+        binding.conflicts.setText(itemCountAndFirst);
+        binding.conflicts.setVisibility(VISIBLE);
+        return;
+    }
+
+    private void showLastItemFinishedUI(ItemFolderListBinding binding, 
+                                                final CachedFolderStatus cachedFolderStatus) {
         if (TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedAction) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedItem) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedTime)) {
