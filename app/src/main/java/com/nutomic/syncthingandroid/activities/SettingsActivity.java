@@ -185,7 +185,6 @@ public class SettingsActivity extends SyncthingActivity {
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
         private CheckBoxPreference mUseRoot;
-        private CheckBoxPreference mBroadcastServiceControl;
 
         /* Syncthing Options */
         private PreferenceScreen   mCategorySyncthingOptions;
@@ -335,8 +334,6 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
             mUseRoot =
                     (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
-            mBroadcastServiceControl =
-                    (CheckBoxPreference) findPreference(Constants.PREF_BROADCAST_SERVICE_CONTROL);
             setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
             /* Syncthing Options */
@@ -667,8 +664,6 @@ public class SettingsActivity extends SyncthingActivity {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
                         mPendingConfig = true;
                     }
-                    break;
-                case Constants.PREF_BROADCAST_SERVICE_CONTROL:
                     break;
             }
             return true;
