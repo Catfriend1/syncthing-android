@@ -431,7 +431,7 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Die Eingabe entspricht nicht der Form „http://[IP/HOSTNAME]:[PORT]“</string>
     <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
-    <string name="broadcast_service_control_summary">Standard: Deaktiviert. Diese Option aktivieren, um den Dienst durch Broadcasts z. B. mit Drittanbieter Automatisierungsapps zu starten und zu stoppen. Hinweis: Nach dem Ändern dieser Option muss die App manuell neu gestartet werden.</string>
+    <string name="broadcast_service_control_summary">Standard: Deaktiviert. Diese Option aktivieren, damit adb oder Anwendungen von Drittanbietern, z. B. Automatisierungsanwendungen, Syncthing anweisen können, den Ausführungsbedingungen zu folgen und den Start oder Stopp zu erzwingen.</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden\? Vorhandene Dateien werden überschrieben.
 \n
