@@ -634,4 +634,8 @@
     <string name="clear_stversions_title">Изпразване на всички папки с версии на файлове</string>
     <string name="folder_run_script_description">Разширена настройка за изпълняване на скриптове, след като дадена папка промени състоянието си на синхронизираност. Ще бъдат изпълнявани скриптове само от папката „.stfolder“, други местоположения не се поддържат от съображения за сигурност.\nПример за изпълняване на скрипт: „.stfolder/rename-files.sh sync_complete</string>
     <string name="syncthing_forum_title">Форум на Syncthing</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d конфликт</item>
+        <item quantity="other">%1$d конфликта</item>
+    </plurals>
 </resources>
