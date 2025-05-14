@@ -770,4 +770,8 @@
     <string name="folder_run_script_description">Expertenoption zur Ausführung von Skripten, nachdem ein Ordner seinen Synchronisierungsstatus geändert hat. Skripte unter „.stfolder/*.sh“ werden ausgeführt, andere Speicherorte werden aus Sicherheitsgründen nicht unterstützt.\nBeispiel für einen Skriptaufruf: „.stfolder/rename-files.sh sync_complete“</string>
     <string name="pizza_url_summary">Mit nur einem Fingertipp können Sie ein warmes Stück Liebenswürdigkeit hinterlassen – gekrönt von besonders guter Atmosphäre, damit die Katzen weiterhin fröhlich schnurren.</string>
     <string name="pizza_url_title">» Katzen lieben Pizza « 😺🍕</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d Konflikt</item>
+        <item quantity="other">%1$d Konflikte</item>
+    </plurals>
 </resources>
