@@ -759,4 +759,8 @@
     <string name="clear_stversions_done">已成功清除 .stversions 文件夹。</string>
     <string name="clear_stversions_question">这将删除 Syncthing 处理的所有以前版本的文件。是否继续？</string>
     <string name="clear_stversions_summary">当 Syncthing 替换或删除文件时，文件将移动到 .stversions 目录。您可能会在那里找到并恢复意外删除的文件，但文件的过时版本会占用您设备上的存储空间。</string>
+    <string name="folder_run_script_caption">运行脚本</string>
+    <string name="folder_run_script_description">文件夹更改同步状态后运行脚本的专家选项。仅执行位于“.stfolder/*.sh”的脚本，出于安全考虑，不支持其他位置的脚本。\n脚本调用示例：“.stfolder/rename-files.sh sync_complete”</string>
+    <string name="pizza_url_title">» 猫咪爱披萨 « 😺🍕</string>
+    <string name="pizza_url_summary">只需轻轻一点，您就能为猫咪们留下一片温暖的爱心 — 撒满正能量，让猫咪们开心呼噜个不停。</string>
 </resources>
