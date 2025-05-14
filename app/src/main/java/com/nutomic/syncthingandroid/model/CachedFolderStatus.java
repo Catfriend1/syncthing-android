@@ -14,7 +14,7 @@ public class CachedFolderStatus {
     /**
      * Accessed by setters
      */
-    // Example: "test1.txt", "subfolder/test2.txt"
+    // Example: "Test1.sync-conflict-20250514-140912-XF3FVSV", "subfolder/Test2.sync-conflict-20250514-140912-XF3FVSV"
     public String[] discoveredConflictFiles = new String[]{};
 
     // Example: "update"
