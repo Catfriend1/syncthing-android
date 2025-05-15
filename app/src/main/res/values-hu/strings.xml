@@ -582,7 +582,6 @@
     <string name="reason_not_nonmetered_wifi">A szinkronizálás nem fut, mivel letiltotta, hogy számlázott WiFi-kapcsolatokon fusson.</string>
     <string name="reason_location_unavailable">A beállításokban engedélyezte a \"Futtatás a kiválasztott WiFi hálózatokon\" opciót. Az Android helymeghatározó szolgáltatásai jelenleg ki vannak kapcsolva. Az Android korlátozásai szerint a Syncthing nem tudja meghatározni az aktuális WiFi hálózat nevét annak eldöntéséhez, hogy fusson-e. Megoldás: Kapcsolja be a helymeghatározást, adja meg a helymeghatározási engedélyt, és csatlakoztassa újra a WiFi-t.</string>
     <string name="reason_on_flight_mode">A Syncthing fut, mivel engedélyezte, hogy fusson, amikor a repülési üzemmód aktív.</string>
-    <string name="reason_broadcast_controlled">A Syncthing egy harmadik féltől származó alkalmazás vagy az ADB által küldött adásokat hallgatja. Visszakapcsolhat a beépített futtatási feltételek használatára a \'Beállítások\' &gt; \'Kísérleti\' &gt; \'Szolgáltatásvezérlés műsorszórással\' letiltásával.</string>
     <string name="reason_run_condition_monitor_not_instantiated">A RunConditionMonitor nincs létrehozva. Kérjük, indítsa újra az alkalmazást, és küldjön hibajelentést, ha a hiba nem szűnik meg az újraindítás után.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Nincsenek fehérlistás WiFi SSID-k. Kérjük, adjon meg néhányat a beállításokban.</string>
@@ -663,7 +662,6 @@
     <string name="state_unshared">Nincs megosztva</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Mappa típusa</string>
     <!-- Displays the current folder type in the folder activity -->

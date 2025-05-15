@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.preference.PreferenceManager;
@@ -868,7 +869,9 @@ public class RestApi {
              * Cache miss.
              * Query the required information so it will be available on a future call to this function.
              */
-            LogV("getRemoteDeviceStatus: Cache miss, deviceId=\"" + deviceId + "\". Performing query.");
+            if (!TextUtils.isEmpty(deviceId)) {
+                LogV("getRemoteDeviceStatus: Cache miss, deviceId=\"" + deviceId + "\". Performing query.");
+            }
             new GetRequest(mContext, mUrl, GetRequest.URI_CONNECTIONS, mApiKey, null, result -> {
                     /**
                      * We got connection status information for ALL devices instead of one.

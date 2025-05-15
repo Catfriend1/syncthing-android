@@ -494,7 +494,6 @@
     <string name="status_outofsync">未同期</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">バックグラウンドでの実行が有効になっている場合、Syncthing の停止はサポートされていません。</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">フォルダタイプ</string>
     <!-- Displays the current folder type in the folder activity -->
