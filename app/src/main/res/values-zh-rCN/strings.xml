@@ -430,7 +430,7 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">请按照“http://[IP/主机名]:[端口]”的格式输入代理地址</string>
     <string name="broadcast_service_control_title">通过广播控制服务</string>
-    <string name="broadcast_service_control_summary">默认值：禁用。启用此选项可通过发送广播来启动和停止服务，例如从第三方自动化应用。注意：更改此选项后，您必须手动重启应用。</string>
+    <string name="broadcast_service_control_summary">默认值：禁用。启用此选项让 adb 或第三方应用，如自动化应用，吩咐 Syncthing 遵照运行条件、强制启动或强制停止。</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。
 \n
@@ -763,4 +763,7 @@
     <string name="folder_run_script_description">文件夹更改同步状态后运行脚本的专家选项。仅执行位于“.stfolder/*.sh”的脚本，出于安全考虑，不支持其他位置的脚本。\n脚本调用示例：“.stfolder/rename-files.sh sync_complete”</string>
     <string name="pizza_url_title">» 猫咪爱披萨 « 😺🍕</string>
     <string name="pizza_url_summary">只需轻轻一点，您就能为猫咪们留下一片温暖的爱心 — 撒满正能量，让猫咪们开心呼噜个不停。</string>
+    <plurals name="conflicts">
+        <item quantity="other">%1$d 个冲突</item>
+    </plurals>
 </resources>

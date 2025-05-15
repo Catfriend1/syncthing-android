@@ -680,7 +680,7 @@
 \nUważaj: ten folder zostanie usunięty przez system Android, jeśli odinstalujesz tę aplikację. Przed odinstalowaniem aplikacji przenieś dane w bezpieczne miejsce poza folderem …/Android.</string>
     <string name="st_reset_deltas_question">Ta akcja powinna być przeprowadzana tylko w wyniku zalecenia zespołu wsparcia.
 \nCzy na pewno chcesz wyczyścić indeksy różnicowe Syncthing?</string>
-    <string name="broadcast_service_control_summary">Wartość domyślna: wyłączona. Włącz tę opcję, aby uruchamiać i zatrzymywać usługę poprzez wysyłanie transmisji, np. z aplikacji do automatyzacji innych dostawców. Uwaga: po zmianie tej opcji należy ręcznie ponownie uruchomić aplikację.</string>
+    <string name="broadcast_service_control_summary">Domyślnie: wyłączone. Włącz, aby umożliwić adb lub aplikacjom innych dostawców (np. aplikacjom automatyzacji) instruowanie Syncthing, aby przestrzegał warunków uruchomienia, wymuszał start lub wymuszał zatrzymanie.</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuta</item>
         <item quantity="few">%d minuty</item>
@@ -721,4 +721,10 @@
     <string name="folder_run_script_description">Opcja ekspercka umożliwiająca uruchamianie skryptów po zmianie stanu synchronizacji folderu. Skrypty w \'.stfolder/*.sh\' zostaną wykonane, inne lokalizacje nie są obsługiwane ze względów bezpieczeństwa.\nPrzykładowe wywołanie skryptu: \'.stfolder/rename-files.sh sync_complete\'</string>
     <string name="pizza_url_summary">Jednym stuknięciem możesz zostawić po sobie ciepły gest życzliwości, zwieńczony dodatkowymi dobrymi wibracjami, które sprawią, że koty będą radośnie mruczeć.</string>
     <string name="pizza_url_title">» Koty kochają pizzę « 😺🍕</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d konflikt</item>
+        <item quantity="few">%1$d konflikty</item>
+        <item quantity="many">%1$d konfliktów</item>
+        <item quantity="other">%1$d konfliktów</item>
+    </plurals>
 </resources>
