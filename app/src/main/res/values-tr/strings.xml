@@ -609,7 +609,7 @@
 \nDikkatli olun: Bu uygulamayı kaldırırsanız, bu klasör Android tarafından silinecek. Uygulamayı kaldırmadan önce verileri, …/Android klasörünün dışına güvenli bir yere taşıyın.</string>
     <string name="st_reset_deltas_question">Bu eylem yalnızca destek ekibimizin önerisine dayanarak yapılmalıdır.
 \nSyncthing\'in delta indekslerini temizlemek istediğinize emin misiniz?</string>
-    <string name="broadcast_service_control_summary">Varsayılan: Etkisizleştirildi. Yayınları göndererek hizmeti başlatmak ve durdurmak için bu seçeneği etkinleştirin, örn. üçüncü taraf otomasyon uygulamalarından. Not: Bu seçeneği değiştirdikten sonra uygulamayı el ile yeniden başlatmak zorundasınız.</string>
+    <string name="broadcast_service_control_summary">Varsayılan: Etkisizleştirildi. Adb veya üçüncü taraf uygulamaların, örn. otomasyon uygulamalarının Syncthing\'e çalıştırma koşullarını takip etmesi, başlatmaya zorlaması veya durdurmaya zorlaması amacıyla talimat vermesine izin vermek için etkinleştirin.</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d dakika</item>
         <item quantity="other">%d dakika</item>
