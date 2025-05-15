@@ -396,7 +396,6 @@
     <string name="status_outofsync">Niezsynchronizowany</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Zatrzymywanie Syncthing nie jest obsługiwane podczas działania w tle.</string>
     <string name="folder_type_sendonly">Tylko wyślij</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maksymalny wiek</string>
@@ -512,7 +511,6 @@
     <string name="tip_custom_sync_conditions_title">Użyj niestandardowych warunków synchronizacji dla folderu/urządzenia</string>
     <string name="download_support_bundle_failed">Pobieranie pakietu obsługi nie powiodło się. Sprawdź dzienniki.</string>
     <string name="app_version_title">Wersja nakładki Syncthing-Fork</string>
-    <string name="reason_broadcast_controlled">Syncthing nasłuchuje transmisji wysyłanych przez aplikację innego dostawcy lub przez ADB. Możesz wrócić do wbudowanych warunków działania, dezaktywując opcję „Kontrola usług poprzez transmisję” w „Ustawienia” &gt; „Eksperymentalne”.</string>
     <string name="folder_type_sendreceive_description">Zawartość tego folderu będzie zarówno wysyłana jak i odbierana z innych urządzeń.</string>
     <string name="tip_write_to_sdcard_title">Obejście problemu: zapisz na zewnętrzniej karcie SD</string>
     <string name="keep_wakelock_while_binary_running_summary">Tylko dla systemu Android 5 lub starszego. Użyj tego ustawienia, jeśli podczas pracy na baterii wystąpią nieoczekiwane rozłączenia. Spowoduje to zwiększone zużycie baterii.</string>
@@ -680,7 +678,7 @@
 \nUważaj: ten folder zostanie usunięty przez system Android, jeśli odinstalujesz tę aplikację. Przed odinstalowaniem aplikacji przenieś dane w bezpieczne miejsce poza folderem …/Android.</string>
     <string name="st_reset_deltas_question">Ta akcja powinna być przeprowadzana tylko w wyniku zalecenia zespołu wsparcia.
 \nCzy na pewno chcesz wyczyścić indeksy różnicowe Syncthing?</string>
-    <string name="broadcast_service_control_summary">Wartość domyślna: wyłączona. Włącz tę opcję, aby uruchamiać i zatrzymywać usługę poprzez wysyłanie transmisji, np. z aplikacji do automatyzacji innych dostawców. Uwaga: po zmianie tej opcji należy ręcznie ponownie uruchomić aplikację.</string>
+    <string name="broadcast_service_control_summary">Domyślnie: wyłączone. Włącz, aby umożliwić adb lub aplikacjom innych dostawców (np. aplikacjom automatyzacji) instruowanie Syncthing, aby przestrzegał warunków uruchomienia, wymuszał start lub wymuszał zatrzymanie.</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minuta</item>
         <item quantity="few">%d minuty</item>
@@ -721,4 +719,10 @@
     <string name="folder_run_script_description">Opcja ekspercka umożliwiająca uruchamianie skryptów po zmianie stanu synchronizacji folderu. Skrypty w \'.stfolder/*.sh\' zostaną wykonane, inne lokalizacje nie są obsługiwane ze względów bezpieczeństwa.\nPrzykładowe wywołanie skryptu: \'.stfolder/rename-files.sh sync_complete\'</string>
     <string name="pizza_url_summary">Jednym stuknięciem możesz zostawić po sobie ciepły gest życzliwości, zwieńczony dodatkowymi dobrymi wibracjami, które sprawią, że koty będą radośnie mruczeć.</string>
     <string name="pizza_url_title">» Koty kochają pizzę « 😺🍕</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d konflikt</item>
+        <item quantity="few">%1$d konflikty</item>
+        <item quantity="many">%1$d konfliktów</item>
+        <item quantity="other">%1$d konfliktów</item>
+    </plurals>
 </resources>
