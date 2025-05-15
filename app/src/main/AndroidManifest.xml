@@ -219,6 +219,7 @@
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
+                <action android:name="com.github.catfriend1.syncthingandroid.action.FOLLOW" />
                 <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
                 <action android:name="com.github.catfriend1.syncthingandroid.action.STOP" />
             </intent-filter>
