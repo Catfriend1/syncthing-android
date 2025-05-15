@@ -220,7 +220,6 @@
     <string name="status_outofsync">Eşitlenmemiş</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Arka planda çalışma etkinken Syncthing\'i durdurma desteklenmiyor.</string>
     <string name="file_versioning">Dosya Sürümlendirme</string>
     <string name="qs_schedule_label">5 dakikalığına çalıştır</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Kamera</string>
@@ -377,7 +376,6 @@
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
     <string name="app_version_title">Syncthing-Fork Sarmalayıcı Sürümü</string>
     <string name="folder_ignore_delete_description">Gelen indeks güncellemelerinin işlenmesini etkileyen uzman seçeneği. Ayarlandığında, silme işareti ayarlıyken gelen güncellemeler yoksayılır. Bkz. https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
-    <string name="reason_broadcast_controlled">Syncthing, üçüncü taraf bir uygulama veya ADB tarafından gönderilen yayınları dinliyor. \'Ayarlar\' &gt; \'Deneysel\' &gt; \'Yayına Göre Hizmet Denetimi\'ni etkisizleştirerek yerleşik çalıştırma koşullarını kullanmaya geri dönebilirsiniz.</string>
     <string name="folder_type_sendreceive_description">Klasör, değişiklikleri hem uzak cihazlara gönderecek hem de onlardan değişiklikleri alacak.</string>
     <string name="tip_write_to_sdcard_title">Harici SD karta yazma geçici çözümü</string>
     <string name="keep_wakelock_while_binary_running_summary">Yalnızca Android 5 veya daha düşüğü için. Pil ile çalışırken beklenmedik bağlantı kesilmeleri yaşarsanız bu ayarı kullanın. Bu, pil tüketiminin artmasına neden olacak.</string>

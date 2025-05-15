@@ -583,7 +583,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing non è in esecuzione perché non lo hai permesso quando sei connesso a WiFi a consumo.</string>
     <string name="reason_location_unavailable">Hai abilitato Esegui su reti Wi-Fi selezionate\' nelle impostazioni. I servizi di localizzazione di Android sono disattivatik. A causa di alcune restrizioni di Android, Syncthing non può rilevare il nome della rete WiFi connessa per capire se può avviarsi. Soluzione: Abilita la posizione, concedi i permessi di posizione e riconnettiti alla rete WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing è in esecuzione perché lo hai permesso quando la modalità aereo è attiva.</string>
-    <string name="reason_broadcast_controlled">Syncthing è in ascolto per broadcast inviati da app di terze parti o ADB. Puoi ripristinare le condizioni di esecuzione predefinite andando in \'Impostazioni\' &gt; \'Sperimentale\' &gt; e disabilitando \'Controlla servizio con Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor non è inizializzato. Sei pregato di riavviare l\'app e di segnalare il bug se l\'errore non scompare dopo il riavvio.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Nessuna rete WiFi è stata messa in whitelist. Per farlo vai nelle impostazioni.</string>
@@ -666,7 +665,6 @@
     <string name="state_unshared">Non condiviso</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Non è possibile arrestare Syncthing quando è abilitato il funzionamento in background.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipo di Cartella</string>
     <!-- Displays the current folder type in the folder activity -->

@@ -396,7 +396,6 @@
     <string name="status_outofsync">Niezsynchronizowany</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Zatrzymywanie Syncthing nie jest obsługiwane podczas działania w tle.</string>
     <string name="folder_type_sendonly">Tylko wyślij</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maksymalny wiek</string>
@@ -512,7 +511,6 @@
     <string name="tip_custom_sync_conditions_title">Użyj niestandardowych warunków synchronizacji dla folderu/urządzenia</string>
     <string name="download_support_bundle_failed">Pobieranie pakietu obsługi nie powiodło się. Sprawdź dzienniki.</string>
     <string name="app_version_title">Wersja nakładki Syncthing-Fork</string>
-    <string name="reason_broadcast_controlled">Syncthing nasłuchuje transmisji wysyłanych przez aplikację innego dostawcy lub przez ADB. Możesz wrócić do wbudowanych warunków działania, dezaktywując opcję „Kontrola usług poprzez transmisję” w „Ustawienia” &gt; „Eksperymentalne”.</string>
     <string name="folder_type_sendreceive_description">Zawartość tego folderu będzie zarówno wysyłana jak i odbierana z innych urządzeń.</string>
     <string name="tip_write_to_sdcard_title">Obejście problemu: zapisz na zewnętrzniej karcie SD</string>
     <string name="keep_wakelock_while_binary_running_summary">Tylko dla systemu Android 5 lub starszego. Użyj tego ustawienia, jeśli podczas pracy na baterii wystąpią nieoczekiwane rozłączenia. Spowoduje to zwiększone zużycie baterii.</string>
