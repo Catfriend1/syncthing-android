@@ -291,7 +291,6 @@
     <string name="status_outofsync">Nesesynchronizováno</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Syncthing nelze zastavit když je povolený běh na pozadí.</string>
     <string name="folder_type_sendonly">Pouze Odesílat</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximální stáří</string>
@@ -597,7 +596,6 @@
     <string name="behaviour_autostart_summary">Spustit aplikaci automaticky při spuštění systému.</string>
     <string name="run_in_flight_mode_summary">Povolení této možnosti způsobí, že Syncthing poběží, i když budete offline. Aktivujte, pokud má vaše zařízení problémy s detekcí ručních připojení Wi-Fi během letového režimu.</string>
     <string name="use_root_summary">Spuštění Syncthing jako root umožňuje zapisovat do složek, které Android normálně omezuje na přístup pouze pro čtení. Tuto funkci používejte opatrně.</string>
-    <string name="reason_broadcast_controlled">Syncthing poslouchá vysílání odesílané aplikací třetí strany nebo ADB. Můžete přepnout zpět a používat vestavěné podmínky běhu deaktivací volby „Nastavení“ &gt; „Experimentální“ &gt; „Řízení služeb vysíláním“.</string>
     <string name="qs_forced_to_stop">Vynuceno zastavení</string>
     <string name="folder_go_up">Přejít nahoru</string>
     <string name="tip_xiaomi_battery_saver_text">Systémová aplikace spořiče baterie Xiaomi MIUI ruší oprávnění aplikace „ignorovat optimalizaci baterie“ při každém restartu telefonu. To způsobí, že aplikace zobrazí uvítací obrazovku a znovu požádá o chybějící oprávnění. Řešení: Na domovské obrazovce otevřete seznam aplikací &gt; dlouze stiskněte \'Syncthing-Fork\' &gt; \'O aplikaci\' &gt; \'Spořič baterie\' a vyberte \'Bez omezení\' (MIUI 10.3.2.0+).</string>

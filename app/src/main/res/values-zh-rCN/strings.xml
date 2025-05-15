@@ -430,7 +430,7 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">请按照“http://[IP/主机名]:[端口]”的格式输入代理地址</string>
     <string name="broadcast_service_control_title">通过广播控制服务</string>
-    <string name="broadcast_service_control_summary">默认值：禁用。启用此选项可通过发送广播来启动和停止服务，例如从第三方自动化应用。注意：更改此选项后，您必须手动重启应用。</string>
+    <string name="broadcast_service_control_summary">默认值：禁用。启用此选项让 adb 或第三方应用，如自动化应用，吩咐 Syncthing 遵照运行条件、强制启动或强制停止。</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。
 \n
@@ -581,7 +581,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing 未运行，因为您不允许它在计量 WiFi 连接上运行。</string>
     <string name="reason_location_unavailable">您在设置中启用了“在选定的 WiFi 网络上运行”。Android 定位服务目前已关闭。根据 Android 的限制，Syncthing 无法确定当前的 WiFi 网络名称以决定是否运行。解决方案：打开定位，授予定位权限并重新连接 WiFi。</string>
     <string name="reason_on_flight_mode">Syncthing 正在运行，因为您允许它在飞行模式处于活动状态时运行。</string>
-    <string name="reason_broadcast_controlled">Syncthing 正在监听第三方应用或 ADB 发送的广播。您可以通过禁用“设置”&gt;“实验性”&gt;“广播服务控制”切换回使用内置运行条件。</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor 未实例化。如果重启后此错误没有消失，请重启应用并提交错误报告。</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">没有 WiFi SSID 被列入白名单。请在设置中指定一些。</string>
@@ -660,7 +659,6 @@
     <string name="state_unshared">非共享</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">启用后台运行时，不支持停止 Syncthing。</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">文件夹类型</string>
     <!-- Displays the current folder type in the folder activity -->
@@ -763,4 +761,7 @@
     <string name="folder_run_script_description">文件夹更改同步状态后运行脚本的专家选项。仅执行位于“.stfolder/*.sh”的脚本，出于安全考虑，不支持其他位置的脚本。\n脚本调用示例：“.stfolder/rename-files.sh sync_complete”</string>
     <string name="pizza_url_title">» 猫咪爱披萨 « 😺🍕</string>
     <string name="pizza_url_summary">只需轻轻一点，您就能为猫咪们留下一片温暖的爱心 — 撒满正能量，让猫咪们开心呼噜个不停。</string>
+    <plurals name="conflicts">
+        <item quantity="other">%1$d 个冲突</item>
+    </plurals>
 </resources>

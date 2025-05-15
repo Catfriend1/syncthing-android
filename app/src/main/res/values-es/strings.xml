@@ -591,7 +591,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing no se está ejecutando porque usted le ha prohibido ejecutarse en conexiones Wifi de uso medido.</string>
     <string name="reason_location_unavailable">Ha activado \"Ejecutar en redes Wifi seleccionadas\" en los ajustes. Los servicios de localización de Android están actualmente desactivados. Según las restricciones de Android, Syncthing no puede determinar el nombre de la red Wifi actual para decidir si debe ejecutarse. Solución: Active la ubicación, conceda el permiso de ubicación y vuelva a conectar el Wifi.</string>
     <string name="reason_on_flight_mode">Syncthing se está ejecutando porque le ha permitido hacerlo cuando el modo avión está activado.</string>
-    <string name="reason_broadcast_controlled">Syncthing está escuchando las transmisiones enviadas por una aplicación de terceros o ADB. Puede volver a utilizar las condiciones de ejecución integradas desactivando \"Ajustes\" &gt; \"Experimental\" &gt; \"Control de Servicios mediante Transmisión\".</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor no está instanciado. Por favor, reinicie la aplicación y presente un informe de error si este error no desaparece después del reinicio.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Ningún SSID de WiFi en la lista blanca. Por favor, especifique algunos en la configuración.</string>
@@ -674,7 +673,6 @@
     <string name="state_unshared">No compartido</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">No está soportado detener Syncthing mientras está activada la ejecución en segundo plano.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipo de Carpeta</string>
     <!-- Displays the current folder type in the folder activity -->
