@@ -343,7 +343,6 @@
     <string name="status_outofsync">Niet gesynchroniseerd</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Syncthing stoppen terwijl uitvoeren in achtergrond is ingeschakeld wordt niet ondersteund.</string>
     <string name="folder_type_sendonly">Enkel versturen</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Maximumleeftijd</string>

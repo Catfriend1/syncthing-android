@@ -579,7 +579,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing đang không chạy vì bạn đã không cho phép chạy khi có kết nối WiFi trả phí.</string>
     <string name="reason_location_unavailable">Bạn đã bật \'Chạy khi có mạng WiFi được chọn\' trong cài đặt. Dịch vụ vị trí của Android hiện đang bị tắt. Theo như hạn chế của Android, Syncthing không thể xác định tên mạng WiFi hiện tại để quyết định xem có nên chạy hay không. Giải pháp: Bật vị trí, cấp quyền vị trí và kết nối lại với WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing đang chạy vì bạn đã cho phép chạy khi chế độ máy bay đang hoạt động.</string>
-    <string name="reason_broadcast_controlled">Syncthing đang lắng nghe truyền phát được một ứng dụng bên thứ ba hoặc ADB gửi đi. Bạn có thể chuyển lại về sử dụng điều kiện chạy được cài sẵn bằng cách tắt \'Cài đặt\' &gt; \'Thử nghiệm\' &gt; \'Điều khiển dịch vụ bằng truyền phát\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor không được khởi tạo. Vui lòng khởi động lại ứng dụng và tạo báo cáo lỗi nếu lỗi này không biến mất sau khi khởi động lại.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Không có SSID WiFi nào được cho phép. Vui lòng chỉ định trong cài đặt.</string>
@@ -658,7 +657,6 @@
     <string name="state_unshared">Không được chia sẻ</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Việc dừng Syncthing không được hỗ trợ khi việc chạy trong nền được bật.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Loại thư mục</string>
     <!-- Displays the current folder type in the folder activity -->

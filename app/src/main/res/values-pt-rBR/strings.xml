@@ -535,7 +535,6 @@
     <string name="state_unshared">Não compartilhado</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Não é possível parar o Syncthing enquanto ele estiver configurado para rodar em segundo plano.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipo de pasta</string>
     <!-- Displays the current folder type in the folder activity -->

@@ -225,7 +225,6 @@
     <string name="status_outofsync">Fora de sincronia</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Parar o Syncthing não é suportado quando está activada a opção para correr em segundo plano.</string>
     <string name="file_versioning">Gestão de versões</string>
     <string name="dialog_all_files_access_not_supported">O seu dispositivo não suporta o acesso a todos os ficheiros</string>
     <string name="introduction">Introdução</string>

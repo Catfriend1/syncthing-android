@@ -489,7 +489,6 @@
     <string name="state_unshared">No compartit</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">No es permet aturar el Syncthing mentre s\'està executant en segon pla.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipus de carpeta</string>
     <!-- Displays the current folder type in the folder activity -->

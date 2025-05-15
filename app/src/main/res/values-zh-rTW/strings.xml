@@ -312,7 +312,6 @@
     <string name="status_outofsync">不同步</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">當開啟在背景執行時，不支援正在停止 Syncthing</string>
     <string name="folder_type_sendonly">僅傳送</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">最常保留時間</string>

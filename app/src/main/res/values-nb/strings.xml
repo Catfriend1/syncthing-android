@@ -210,7 +210,6 @@
     <string name="status_outofsync">Ikke synkronisert</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Du kan ikke stoppe Syncthing når «kjør i bakgrunnen» er skrudd på.</string>
     <string name="file_versioning">Versjonering av filer</string>
     <string name="notification_permission_title">Varslingstillatelse</string>
     <string name="generic_help">Hjelp</string>

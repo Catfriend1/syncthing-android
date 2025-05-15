@@ -542,7 +542,6 @@
     <string name="sttrace_title">Параметри STTRACE</string>
     <string name="open_log_summary">Відкрити вікно журналів Syncthing та Android</string>
     <string name="advanced_storage_path_overview">Огляд шляху зберігання</string>
-    <string name="reason_broadcast_controlled">Syncthing слухає трансляції, надіслані стороннім додатком або ADB. Ви можете повернутися до використання вбудованих умов виконання, вимкнувши \'Налаштування\' &gt; \'Експериментальні\' &gt; \'Керування службою через Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor не ініціалізовано. Будь ласка, перезапустіть додаток і подайте звіт про помилку, якщо ця помилка не зникне після перезапуску.</string>
     <string name="custom_wifi_ssid_whitelist_empty">Жоден WiFi SSID не внесений до білого списку. Будь ласка, вкажіть їх у налаштуваннях.</string>
     <plurals name="device_online_up_to_date">
@@ -574,7 +573,6 @@
     <string name="state_error_message">Помилка (%1$s)</string>
     <string name="state_paused">Призупинено</string>
     <string name="state_unshared">Не поділено</string>
-    <string name="appconfig_receiver_background_enabled">Зупинка Syncthing не підтримується, коли він працює у фоновому режимі.</string>
     <string name="folder_type_receiveonly">Тільки отримання</string>
     <string name="folder_type_receive_encrypted">Отримувати зашифроване</string>
     <string name="folder_type_sendreceive_description">Папка буде як відправляти зміни на віддалені пристрої, так і отримувати їх від них.</string>

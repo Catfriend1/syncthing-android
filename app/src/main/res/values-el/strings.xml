@@ -281,7 +281,6 @@
     <string name="status_outofsync">Μη συγχρονισμένα</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Ο τερματισμός του Syncthing δεν υποστηρίζεται όταν έχει ενεργοποιηθεί η εκτέλεση στο παρασκήνιο.</string>
     <string name="folder_type_sendonly">Μόνο αποστολή</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Μέγιστη ηλικία</string>

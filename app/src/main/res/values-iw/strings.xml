@@ -410,7 +410,6 @@
     <string name="reason_location_unavailable">הפעלת את \'פעל על רשתות WiFi שנבחרו\' בהגדרות. שירותי מיקום של אנדרואיד כרגע כבויים. בהתאם למגבלות של אנדרואיד, Syncthing אינו יכול לקבוע את שם רשת ה־WiFi הנוכחית כדי להחליט אם עליו לפעול. פתרון: הפעל את המיקום, הענק הרשאת מיקום והתחבר מחדש ל־WiFi.</string>
     <string name="reason_on_nonmetered_wifi">היישום Syncthing מורשה לרוץ על חיבורים שלא לפי שימוש. חיבור ה־WiFi הפעיל אינו לפי שימוש.</string>
     <string name="reason_on_flight_mode">היישום Syncthing פועל כי אפשרת לו לפעול כאשר מצב טיסה פעיל.</string>
-    <string name="reason_broadcast_controlled">היישום Syncthing מאזין לשידורים שנשלחו על ידי יישום צד שלישי או ADB. אתה יכול לחזור לתנאי הריצה המובנים על ידי השבתת \'הגדרות\' &gt; \'ניסיוני\' &gt; \'בקרת שירות באמצעות שידור\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">לא נוצר מופע של RunConditionMonitor. נא להפעיל מחדש את היישום ולהגיש דוח באגים אם שגיאה זו אינה נעלמת לאחר ההפעלה מחדש.</string>
     <string name="custom_wifi_ssid_whitelist_empty">אין SSID של WiFi ברשימת המותרים. נא לציין כמה בהגדרות.</string>
     <string name="exit">יציאה</string>
@@ -491,7 +490,6 @@
     <string name="external_versioning_description">פרמטר שורת הפקודה הראשון הוא נתיב התיקייה והפרמטר השני הוא הנתיב היחסי בתיקייה.</string>
     <string name="state_unshared">לא משותף</string>
     <string name="folder_size_format">%1$s מתוך %2$s</string>
-    <string name="appconfig_receiver_background_enabled">עצירת Syncthing אינה נתמכת כאשר פעילות ברקע מופעלת.</string>
     <string name="folder_type">סוג תיקייה</string>
     <string name="folder_type_sendreceive">שליחה &amp; קבלה</string>
     <string name="folder_type_sendonly">שליחה בלבד</string>

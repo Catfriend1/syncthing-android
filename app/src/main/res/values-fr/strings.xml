@@ -349,7 +349,6 @@
     <string name="status_outofsync">Désynchronisé</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">L\'arrêt de Syncthing n\'est pas supporté quand le fonctionnement en tâche de fond est activé.</string>
     <string name="folder_type_sendonly">Envoyer uniquement</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Age maximum</string>
@@ -655,7 +654,6 @@
     <string name="folder_go_up">Remonter</string>
     <string name="reason_wifi_disallowed">Vous n\'avez pas autorisé Syncthing à fonctionner en Wi-Fi ou Ethernet.</string>
     <string name="reason_location_unavailable">Vous avez activé \'Exécuter sur WiFi sélectionnés\' dans les paramètres. La localisation Android est actuellement désactivée. Syncthing ne peut donc pas lire le nom du réseau WiFi pour savoir s\'il est autorisé ou pas. Solution : Activez la localisation, accordez la permission \'Localisation\' et reconnectez le WiFi.</string>
-    <string name="reason_broadcast_controlled">Syncthing écoute les annonces brodcast envoyées par applications tierces ou ADB. Vous pouvez revenir aux conditions initiales en désactivant \'Paramètres\'&gt;\'Expérimental\'&gt;\'Service Control by Broadcast\'.</string>
     <string name="syncthing_active_details">Syncthing fonctionne : %1$s</string>
     <string name="reason_on_mobile_data">Syncthing est autorisé à fonctionner sur les données mobiles.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing ne fonctionne pas car vous lui avez interdit l\'usage des connexions itinérantes.</string>

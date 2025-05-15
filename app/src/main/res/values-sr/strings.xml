@@ -90,7 +90,6 @@
     <string name="keep_wakelock_while_binary_running">Држи CPU будним док Syncthing ради</string>
     <string name="share_activity_title">Сачувај у Syncthing-у</string>
     <string name="reason_mobile_data_disallowed">Syncthing није конфигурисан да ради на мобилним подацима.</string>
-    <string name="appconfig_receiver_background_enabled">Заустављање Syncthing-а није подржано када је позадина укључена.</string>
     <string name="pull_order_type_alphabetic_description">Преузмите фајлове у алфабетском редоследу по имену фајла.</string>
     <string name="type_staggered">Тип: Степенаст</string>
     <string name="tip_sync_on_local_network_title">Синхронизујте само користећи локалну WiFi мрежу</string>
@@ -223,7 +222,6 @@
     <string name="reason_force_stop">Syncthing није у функцији јер сте га принудили да престане без обзира на услове покретања.</string>
     <string name="folder_type_sendonly">Само пошаљи</string>
     <string name="reason_not_charging">Телефон се не пуни.</string>
-    <string name="reason_broadcast_controlled">Syncthing слуша емисије које шаље апликација треће стране или ADB. Можете се вратити на коришћење уграђених услова покретања онемогућавањем \'Подешавања\' &gt; \'Експериментално\' &gt; \'Контрола услуге путем емисије\'.</string>
     <string name="ignore_doze_permission_title">Оптимизација батерије</string>
     <string name="reason_not_on_wifi">Syncthing је дозвољен да ради на WiFi, али WiFi није повезан или је телефон у режиму лета.</string>
     <string name="folder_type_sendonly_description">Фајлови су заштићени од промена направљених на другим уређајима, али ће промене направљене на овом уређају бити послате остатку кластера.</string>

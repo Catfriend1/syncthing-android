@@ -586,7 +586,6 @@
     <string name="reason_not_nonmetered_wifi">Syncthing läuft nicht, weil verboten wurde, dass es bei getakteten WLAN-Verbindungen läuft.</string>
     <string name="reason_location_unavailable">In den Einstellungen ist „In ausgewählten WLAN-Netzwerken starten“ aktiviert. Die Android-Standorterfassung ist derzeit ausgeschaltet. Aufgrund von Android-Beschränkungen kann Syncthing den aktuellen WLAN-Netzwerknamen nicht ermitteln, um zu entscheiden, ob es starten soll. Lösung: Den Standort einschalten, Standortberechtigung erteilen und WLAN erneut verbinden.</string>
     <string name="reason_on_flight_mode">Syncthing läuft, weil erlaubt wurde, dass es bei eingeschaltetem Flugzeugmodus läuft.</string>
-    <string name="reason_broadcast_controlled">Syncthing hört auf Broadcasts, die von einer Drittanbieter-App oder über ADB gesendet werden. Du kannst zu den eingebauten Laufkonditionen zurück wechseln, indem Du unter \'Einstellungen\' &gt; \'Experimentell\' &gt; \'Dienstkontrolle über Broadcast\' deaktivierst.</string>
     <string name="reason_run_condition_monitor_not_instantiated">Laufkonditionen-Überwachung ist nicht instantiiert. Bitte die App neu starten und einen Fehlerbericht erstellen, falls das Problem nach dem Neustart nicht verschwindet.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Es sind keine WLAN-Netzwerknamen auf der Erlaubt-Liste. Bitte welche in den Einstellungen festlegen.</string>
@@ -667,7 +666,6 @@
     <string name="state_unshared">Ungeteilt</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Syncthing zu stoppen wird nicht unterstützt, solange das Ausführen im Hintergrund aktiviert ist.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Ordnertyp</string>
     <!-- Displays the current folder type in the folder activity -->

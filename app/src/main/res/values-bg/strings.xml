@@ -271,7 +271,6 @@
     <string name="folder_fileWatcherDescription">Операционната система известява при промяна на файловете. Ако е изключено използва ежечасно обхождане.</string>
     <string name="folder_pause">Пауза на папката</string>
     <string name="state_paused">На пауза</string>
-    <string name="appconfig_receiver_background_enabled">Спиране на Syncthing не се поддържа, при работа във фонов режим.</string>
     <string name="folder_type_sendreceive">Изпраща и получава</string>
     <string name="folder_type_sendonly">Само изпраща</string>
     <string name="folder_type_receive_encrypted">Получава шифровани данни</string>
@@ -500,7 +499,6 @@
     <string name="reason_location_unavailable">Включили сте „Работи на избрани безжични мрежи“ в настройките, но местоположението е изключено. Според ограниченията на Андроид, Syncthing няма достъп до името на мрежата, за да определи дали да работи. Решение: включете местоположението, дайте разрешение за достъп и отново включете безжичната мрежа.</string>
     <string name="reason_wifi_disallowed">Syncthing не може да работи в безжични и кабелни мрежи.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing може да работи в домашни мрежи за мобилни данни. Текущата мрежа е такава.</string>
-    <string name="reason_broadcast_controlled">Syncthing слуша за сигнали от друго приложение или ADB. Можете да превключите към условията за работа като изключите Настройки → Експериментални → Управление на услугата чрез външни сигнали.</string>
     <string name="config_read_failed">Грешка при четене на настройките. Препоръчително е да създадете резервно копие на данните от синхронизираните папки, след това да изчистите данните на приложението от настройките на Андроид и го стартирайте отново.</string>
     <plurals name="file_name_title">
         <item quantity="one">Име на файла</item>

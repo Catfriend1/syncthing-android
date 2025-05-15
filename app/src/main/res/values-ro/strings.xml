@@ -627,7 +627,6 @@
     <string name="state_unshared">Nepartajat</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">Nu este posibilă oprirea Syncthing atunci când rularea în fundal este activată.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tip dosar</string>
     <!-- Displays the current folder type in the folder activity -->

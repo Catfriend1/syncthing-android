@@ -281,7 +281,6 @@
     <string name="status_outofsync">동기화 오류</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
-    <string name="appconfig_receiver_background_enabled">백그라운드에서 실행이 활성화되어 있을 때는 Syncthing 중단은 지원되지 않습니다.</string>
     <string name="folder_type_sendonly">송신 전용</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">최대 저장 기간</string>
@@ -651,7 +650,6 @@
     <string name="reason_on_nonmetered_wifi">Syncthing은 무료 WiFi 연결에서 실행될 수 있습니다. 현재 활성화 된 WiFi 연결은 무료입니다.</string>
     <string name="reason_not_nonmetered_wifi">유료 WiFi 연결에서 Syncthing이 실행되지 않도록 설정했기 때문에 Syncthing이 실행되지 않습니다.</string>
     <string name="reason_location_unavailable">설정에서 \'선택한 WiFi 네트워크에서 실행\'을 활성화했습니다. 현재 Android 위치 서비스가 꺼져 있습니다. Android 제한 사항에 따라 Syncthing은 실행 여부를 결정하기 위한 현재 WiFi 네트워크 이름을 확인할 수 없습니다. 해결 방법: 위치 서비스를 켜고, 위치 권한을 부여한 후 WiFi에 다시 연결하세요.</string>
-    <string name="reason_broadcast_controlled">Syncthing은 서드파티 앱 또는 ADB에서 보내는 브로드캐스팅을 수신하고 있습니다. \'설정\' &gt; \'실험실\' &gt; \'브로드캐스팅을 통한 서비스 제어\'를 비활성화하여 기본 실행 조건으로 돌아갈 수 있습니다.</string>
     <string name="syncthing_active_details">Syncthing이 실행 중입니다: %1$s</string>
     <string name="reason_on_flight_mode">비행기 모드가 활성화되었을 때 Syncthing이 실행되도록 설정했기 때문에 Syncthing이 실행 중입니다.</string>
     <plurals name="device_online_up_to_date">

@@ -1,8 +1,8 @@
 **Important Notice**
-Since version v0.14.54.8, remote control by broadcast intents has to be enabled under "Settings" > "Experimental" before syncthing listens to broadcast intents sent by third-party automation apps.
+Remote control by broadcast intents has to be enabled under "Settings" > "Behaviour" before Syncthing listens to broadcast intents sent by third-party automation apps.
 
-SyncThing can be controlled externally by sending Broadcast-Intents. Applications like **Tasker**, **Llama** or **Automate** now can _start_ or _stop_ Syncthing on behalf of the user.
-Use cases would be to run SyncThing only in special conditions - like at home and charging, or once every night, ...
+Syncthing can be controlled externally by sending Broadcast-Intents. Applications like **Tasker**, **Llama** or **Automate** now can _start_ or _stop_ Syncthing on behalf of the user.
+Use cases would be to run Syncthing only in special conditions - like at home and charging, or once every night, ...
 
 The following intent actions are available:
 * Let Syncthing Follow Run Conditions: com.github.catfriend1.syncthingandroid.action.FOLLOW
