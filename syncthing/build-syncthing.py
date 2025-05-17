@@ -34,12 +34,6 @@ BUILD_TARGETS = [
     {
         'arch': 'arm',
         'goarch': 'arm',
-        'jni_dir': 'armeabi',
-        'cc': 'armv7a-linux-androideabi{}-clang',
-    },
-    {
-        'arch': 'arm',
-        'goarch': 'arm',
         'jni_dir': 'armeabi-v7a',
         'cc': 'armv7a-linux-androideabi{}-clang',
     },
