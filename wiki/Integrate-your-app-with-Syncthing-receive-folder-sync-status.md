@@ -46,7 +46,7 @@ public class SyncStatusReceiver extends BroadcastReceiver {
 ```
 
 If you have trouble, compare your implementation to the "SyncthingReceiverTestApp":
-- Test app: https://github.com/Catfriend1/syncthing-android/releases/download/v1.29.6.1/SyncthingReceiverTestApp.apk
+- Test app: https://github.com/Catfriend1/syncthing-android/releases/download/v1.29.6.4/SyncthingReceiverTestApp.apk
 
 - Test app source: https://github.com/Catfriend1/syncthing-android/tree/main/scripts/debug/SyncthingReceiverTestApp
 ```
