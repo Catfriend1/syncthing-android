@@ -4,34 +4,32 @@
     <string name="app_description">O aplicație de sincronizare de fișiere în mod deschis, de încredere și descentralizat.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Bine ați venit la Syncthing pentru Android</string>
+    <string name="welcome_title">Bine ai venit la Syncthing pentru Android</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducere</string>
-    <string name="welcome_text">Syncthing este o aplicație, cu cod-sursă deschis de sincronizare a fișierelor. Pentru a partaja date cu alte dispozitive, trebuie să le adăugați ID-ul unic de dispozitiv la lista dumneavoastră de dispozitive. După aceea puteți selecta care directoare le veți partaja cu care dispozitive.
-\n
-\nVă rugăm să raportați orice problemă întâlniți, prin intermediul GitHub.</string>
+    <string name="welcome_text">Syncthing este o aplicație, cu cod-sursă deschis de sincronizare a fișierelor. Pentru a partaja date cu alte dispozitive, trebuie să le adaugi ID-ul unic de dispozitiv în lista dispozitivelor. După aceea poți selecta ce dosare le vei partaja cu care dispozitive. \n \nRaportează orice problemă întâlnită, prin intermediul GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permisiune de stocare</string>
     <string name="storage_permission_desc">Syncthing trebuie să acceseze spațiul de stocare pentru a realiza sincronizarea fișierelor.</string>
-    <string name="dialog_all_files_access_not_supported">Dispozitivul dvs. nu acceptă accesul la toate fișierele</string>
+    <string name="dialog_all_files_access_not_supported">Dispozitivul nu acceptă accesul la toate fișierele</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimizare baterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV este cunoscut pentru oprirea ocazională a aplicațiilor atunci când rulează în fundal. O soluție este disponibilă la \'%1$s/%2$s\'.</string>
-    <string name="ignore_doze_permission_desc">Android poate opri sincronizarea după ceva timp. Pentru a preveni acest lucru, dezactivați optimizarea bateriei. Unele dispozitive au preinstalate aplicații suplimentare pentru oprirea sarcinilor. Ar trebui, de asemenea, să adăugați Syncthing în lista lor albă.</string>
+    <string name="ignore_doze_permission_desc">Android poate opri sincronizarea după ceva timp. Pentru a preveni acest lucru, dezactivează optimizarea bateriei. Unele dispozitive au preinstalate aplicații suplimentare pentru oprirea sarcinilor. Ar trebui, de asemenea, să adaugi Syncthing în lista lor albă.</string>
     <string name="toast_ignore_doze_permission_required">Această aplicație funcționează în mod normal numai dacă este exclusă din modul de economisire a energiei „doze”.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Dispozitivul dumneavoastră nu suportă dezactivarea optimizărilor de baterie</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Dispozitivul nu suportă dezactivarea optimizărilor de baterie</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permisiune locație</string>
-    <string name="location_permission_desc">Syncthing poate fi configurat pentru a funcționa în rețelele Wi-Fi selectate. Android necesită ca aplicația să aibă permisiunea locației pentru a putea citi numele rețelei Wi-Fi activă. Dacă doriți să utilizați această caracteristică, apăsați butonul de mai sus. Puteți omite acest pas. Consultați politica noastră de confidențialitate pentru mai multe detalii.</string>
-    <string name="location_permission_desc_api_29">Sfat pentru Android 10+: „Permiteți tot timpul”</string>
+    <string name="location_permission_desc">Syncthing poate fi configurat pentru a funcționa în rețelele Wi-Fi selectate. Android necesită ca aplicația să aibă permisiunea locației pentru a putea citi numele rețelei Wi-Fi activă. Dacă dorești să utilizezi această caracteristică, apasă butonul de mai sus. Poți omite acest pas. Consultă politica noastră de confidențialitate pentru mai multe detalii.</string>
+    <string name="location_permission_desc_api_29">Sfat pentru Android 10+: „Permite tot timpul”</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generare cheie</string>
     <string name="key_generation_success">Cheile securizate pentru schimbul de date privat au fost generate cu succes.</string>
     <!-- Generic texts used everywhere -->
     <string name="back">Înapoi</string>
-    <string name="cont">Continuare</string>
-    <string name="finish">Terminat</string>
+    <string name="cont">Continuă</string>
+    <string name="finish">Finalizare</string>
     <string name="generic_example">Exemplu</string>
     <string name="generic_error">Eroare</string>
     <string name="generic_help">Ajutor</string>
@@ -46,80 +44,77 @@
     <!-- PhotoShootActivity -->
     <string name="photo_shoot_launcher_title">Sync. Camera</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
-    <string name="photo_shoot_intro_welcome_title">Bine ați venit la Syncthing Camera</string>
+    <string name="photo_shoot_intro_welcome_title">Bine ai venit la Syncthing Camera</string>
     <string name="photo_shoot_intro_permission_title">Permisiuni necesare</string>
     <string name="photo_shoot_intro_no_camera">Ne pare rău, acest dispozitiv nu are o cameră foto.</string>
     <string name="photo_shoot_intro_missing_permissions">Pentru a continua, avem nevoie de permisiunea de a accesa stocarea și camera.</string>
-    <string name="grant_storage_permission">Acordați permisiunea de stocare</string>
-    <string name="grant_camera_permission">Acordați permisiunea de acces a camerei</string>
-    <string name="photo_shoot_intro_permission_desc">Syncthing Camera necesită consimțământul dvs. pentru a realiza fotografii și a le stoca pe dispozitiv. Această caracteristică este opțională. Pentru a o utiliza, acordați permisiunile și atingeți „Continuare”. Vom configura un dosar pentru Syncthing Camera pe care îl puteți partaja cu alte dispozitive Syncthing ulterior.</string>
+    <string name="grant_storage_permission">Acordă permisiunea de stocare</string>
+    <string name="grant_camera_permission">Acordă permisiunea de acces a camerei</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing Camera necesită consimțământul pentru a realiza fotografii și a le stoca pe dispozitiv. Această caracteristică este opțională. Pentru a o utiliza, acordă permisiunile și atinge „Continuare”. Vom configura un dosar pentru Syncthing Camera pe care îl poți partaja cu alte dispozitive Syncthing ulterior.</string>
     <string name="photo_shoot_take_picture_success">Imaginea a fost salvată cu succes în dosarul Syncthing Camera.</string>
-    <string name="photo_shoot_take_picture_failure">Nu s-a putut face o fotografie sau ați anulat.</string>
+    <string name="photo_shoot_take_picture_failure">Nu s-a putut face o fotografie sau ai anulat.</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
     <!-- MainActivity -->
     <!-- Main bottom navigation view -->
-    <string name="activity_main_bottom_navigation_rescan_all">Rescanați toate</string>
+    <string name="activity_main_bottom_navigation_rescan_all">Rescanează toate</string>
     <!-- Main menu button -->
-    <string name="open_main_menu">Deschideți Meniul principal</string>
-    <string name="close_main_menu">Închideți Meniul principal</string>
+    <string name="open_main_menu">Deschide Meniul principal</string>
+    <string name="close_main_menu">Închide Meniul principal</string>
     <!-- Exception dialog message -->
-    <string name="exception_known_bug_notice">A fost întâlnită o eroare cunoscută care nu a fost încă rezolvată. Consultați %1$s/%2$s pentru mai multe informații. Vă rugăm să ne lăsați o descriere precisă a celor întâmplate dinainte.</string>
+    <string name="exception_known_bug_notice">A fost întâlnită o eroare cunoscută care nu a fost încă rezolvată. Consultă %1$s/%2$s pentru mai multe informații. Lasă-ne o descriere precisă a celor întâmplate dinainte.</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
-    <string name="dialog_exit_while_running_as_service_title">Confirmați închiderea aplicației</string>
-    <string name="dialog_exit_while_running_as_service_message">Pentru atenția dumneavoastră: Ați configurat ca aplicația să pornească automat la pornire. Prin urmare, ea monitorizează condițiile de rulare și se sincronizează în fundal oricând se potrivesc condițiile. Ar trebui să o închideți manual numai dacă aveți probleme grave. În caz contrar, dezactivați „Start automat la pornire” în setări. Ați dori să renunțați acum până la repornirea dispozitivului\?</string>
+    <string name="dialog_exit_while_running_as_service_title">Confirmă închiderea aplicației</string>
+    <string name="dialog_exit_while_running_as_service_message">Notă: Ai configurat ca aplicația să ruleze automat la pornire. Prin urmare, ea monitorizează condițiile de rulare și se sincronizează în fundal oricând se potrivesc condițiile. Ar trebui să o închizi manual numai dacă ai probleme grave. În caz contrar, dezactivează „Rulare automată la pornire” în setări. Ai dori să renunți acum până la repornirea dispozitivului?</string>
     <!-- Title of the "add folder" menu action -->
-    <string name="add_folder">Adăugare director</string>
+    <string name="add_folder">Adaugă dosar</string>
     <!-- Title of the "share device id" menu action -->
     <string name="share_device_id">Partajare ID dispozitiv</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Trimite ID-ul dispozitivul prin</string>
-    <string name="usage_reporting_dialog_title">Permite trimiterea unui raport de utilizare anonim\?</string>
-    <string name="usage_reporting_dialog_description">Raportul de utilizare este trimis zilnic în mod criptat. Este folosit pentru a urmări platformele comune, mărimile directoarelor și versiunile aplicației. Dacă datele raportate se schimbă veți fi întrebat din nou.
-\n
-\nStatisticile cumulate sunt disponibile public la https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_title">Permiți trimiterea unui raport de utilizare anonim?</string>
+    <string name="usage_reporting_dialog_description">Raportul de utilizare este trimis zilnic în mod criptat. Este folosit pentru a urmări platformele comune, mărimile directoarelor și versiunile aplicației. Dacă datele raportate se schimbă vei fi întrebat din nou. \n \nStatisticile cumulate sunt disponibile public la https://data.syncthing.net.</string>
     <string name="yes">Da</string>
     <string name="no">Nu</string>
-    <string name="open_website">Deschide site</string>
+    <string name="open_website">Deschide pagina web</string>
     <string name="toast_write_storage_permission_required">Permisiunea de scriere pe spațiul de stocare este necesară acestei aplicații</string>
     <string name="device_rejected">Dispozitivul \"%1$s\" dorește să se conecteze</string>
-    <string name="folder_rejected">Dispozitivul \"%1$s\" dorește să partajeze directorul \"%2$s\"</string>
+    <string name="folder_rejected">Dispozitivul \"%1$s\" dorește să partajeze dosarul \"%2$s\"</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
     <string name="web_gui_creating_key">Se generează cheile de securitate. Poate dura câteva minute</string>
     <!-- FolderListFragment -->
-    <string name="folders_fragment_title">Directoare</string>
+    <string name="folders_fragment_title">Dosare</string>
     <!-- Shown if no folders exist -->
-    <string name="folder_list_empty">Nici un director găsit</string>
+    <string name="folder_list_empty">Nici un dosar găsit</string>
     <!-- Format string for folder file count -->
     <plurals name="files">
         <item quantity="one">%1$d / %2$d fișier</item>
         <item quantity="few">%1$d / %2$d fișiere</item>
         <item quantity="other">%1$d / %2$d de fișiere</item>
     </plurals>
-    <string name="override_changes">Suprascrie schimbări</string>
+    <string name="override_changes">Suprascrie modificările</string>
     <!-- Override Changes Confirmation Dialog -->
-    <string name="override_changes_question">Aceasta va anula toate modificările aduse celorlalte dispozitive care distribuie acest dosar. Continuați\?</string>
-    <string name="revert_local_changes">Întoarceți modificările locale</string>
-    <string name="delete_unexpected_items">Ștergeți elementele neașteptate</string>
+    <string name="override_changes_question">Aceasta va anula toate modificările aduse celorlalte dispozitive care distribuie acest dosar. Continui?</string>
+    <string name="revert_local_changes">Întoarce modificările locale</string>
+    <string name="delete_unexpected_items">Șterge elementele neașteptate</string>
     <!-- Revert Local Changes Confirmation Dialog -->
-    <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continuați\?</string>
+    <string name="revert_local_changes_question">Aceasta va anula toate modificările făcute pe acest dispozitiv în dosarul respectiv. Continui?</string>
     <string name="open_file_manager">Deschide managerul de fișiere</string>
-    <string name="open_file_with">Deschideți fișierul cu</string>
+    <string name="open_file_with">Deschide fișierul cu</string>
     <string name="open_file_no_compatible_app">Nu a fost găsită nicio aplicație care să deschidă fișierul.</string>
     <!-- Suggest File Manager App Dialog -->
     <string name="suggest_file_manager_app_dialog_title">Nu a fost găsită nicio aplicație manager de fișiere compatibilă</string>
-    <string name="suggest_file_manager_app_dialog_text">Vă recomandăm să instalați aplicația open-source de gestionare a fișierelor „Material Files”. Doriți să deschideți pagina magazinului de aplicații\?</string>
+    <string name="suggest_file_manager_app_dialog_text">Îți recomandăm să instalezi aplicația open-source de gestionare a fișierelor „Material Files”. Dorești să deschizi pagina magazinului de aplicații?</string>
     <!-- DeviceListFragment -->
     <!-- Devices tab title -->
     <string name="devices_fragment_title">Dispozitive</string>
     <!-- Shown if no devices are configured in add folder dialog -->
-    <string name="devices_list_empty">Nu sunt configurate dispozitive. Atingeți pentru a adăuga un dispozitiv nou.</string>
+    <string name="devices_list_empty">Nu sunt configurate dispozitive. Atinge pentru a adăuga un dispozitiv nou.</string>
     <!-- Shown in ListView if no devices are configured -->
-    <string name="no_devices_configured">Nu sunt configurate dispozitive.
-\nÎncepeți prin adăugarea unui dispozitiv.</string>
-    <string name="deviceEncryptionPasswordHint">Dacă nu aveți încredere, introduceți parola de criptare</string>
+    <string name="no_devices_configured">Nu sunt configurate dispozitive. \nÎncepe prin adăugarea unui dispozitiv.</string>
+    <string name="deviceEncryptionPasswordHint">Dacă nu ai încredere, introdu parola de criptare</string>
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Actualizat</string>
     <!-- Indicates that the device is currently syncing. Parameter is sync percentage -->
@@ -142,7 +137,7 @@
     <!-- Title for current download rate -->
     <string name="download_title">Descărcare</string>
     <!-- Title for current upload rate -->
-    <string name="upload_title">Încarcă</string>
+    <string name="upload_title">Încărcare</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Stare</string>
     <string name="button_follow_run_conditions">URMĂREȘTE CONDIȚIILE DE RULARE</string>
@@ -166,71 +161,71 @@
     <!-- Title for uptime status -->
     <string name="uptime">Durata funcționării</string>
     <string name="restart">Repornire</string>
-    <string name="dialog_confirm_restart">Doriți să reporniți Syncthing\?</string>
+    <string name="dialog_confirm_restart">Dorești să repornești Syncthing?</string>
     <!-- FolderActivity -->
     <!-- Setting title -->
-    <string name="folder_id">ID director</string>
+    <string name="folder_id">ID dosar</string>
     <!-- Setting title -->
-    <string name="folder_label">Etichetă director</string>
+    <string name="folder_label">Etichetă dosar</string>
     <!-- Setting title -->
-    <string name="directory">Director</string>
+    <string name="directory">Dosar</string>
     <string name="advanced_directory_selection">Selectare avansată a dosarului</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorizează schimbările</string>
     <string name="folder_fileWatcherDescription">Se cere sistemului să notifice despre schimbarea fișierelor. Dacă este dezactivat se folosește scanarea o dată pe oră.</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignorare Ștergere</string>
-    <string name="folder_ignore_delete_description">Opțiune de expert care afectează gestionarea actualizărilor de indexuri primite. Când este setat, actualizările primite marcate ca ștergere sunt ignorate. Consultați https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="folder_ignore_delete_description">Opțiune de expert care afectează gestionarea actualizărilor de indexuri primite. Când este setat, actualizările primite marcate ca ștergere sunt ignorate. Consultă https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
-    <string name="folder_pause">Întrerupe director</string>
+    <string name="folder_pause">Întrerupe dosarul</string>
     <!-- Setting title -->
     <string name="devices">Dispozitive</string>
     <!-- Setting title -->
     <string name="keep_versions">Păstrează versiunile</string>
     <!-- Setting title -->
-    <string name="delete_folder">Șterge director</string>
+    <string name="delete_folder">Șterge dosarul</string>
     <!-- Title for FolderSettingsFragment in create mode -->
-    <string name="create_folder">Creează director</string>
+    <string name="create_folder">Creează dosarul</string>
     <!-- Title for FolderSettingsFragment in edit mode -->
-    <string name="edit_folder">Editare director</string>
+    <string name="edit_folder">Editează dosarul</string>
     <!-- Menu item to confirm folder creation -->
-    <string name="create">Creeare</string>
+    <string name="create">Creează</string>
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Chiar doriți să ștergeți acest director din Syncthing\?</string>
+    <string name="remove_folder_confirm">Chiar dorești să ștergi acest dosar din Syncthing?</string>
     <!-- Toast shown when trying to create a folder with an empty ID -->
-    <string name="folder_id_required">ID-ul directorului nu poate fi gol</string>
+    <string name="folder_id_required">ID-ul dosarului nu poate fi gol</string>
     <!-- Toast shown when trying to create a folder with an empty label -->
     <string name="folder_label_required">Eticheta dosarului nu trebuie să fie goală</string>
     <!-- Toast shown when trying to create a folder with an empty path -->
-    <string name="folder_path_required">Calea directorului nu poate fi goală</string>
-    <string name="dialog_discard_changes">Eliminăm schimbările dumneavoastră\?</string>
+    <string name="folder_path_required">Calea dosarului nu poate fi goală</string>
+    <string name="dialog_discard_changes">Renunți la modificări?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">Versiunea dumneavoastră de Android a permis Synthing numai acces citire pentru directorul selectat.</string>
+    <string name="folder_path_readonly">Versiunea de Android permite Synthing numai acces citire pentru dosarul selectat.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
-    <string name="folder_path_readwrite">Versiunea dumneavoastră de Android a permis Synthing acces citire și scriere pentru directorul selectat.</string>
+    <string name="folder_path_readwrite">Versiunea de Android a permis Synthing acces citire și scriere pentru dosarul selectat.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
-    <string name="toast_invalid_folder_selected">Ne pare rău. Directorul selectat nu poate fi folosit. Vă rugăm să alegeți un director localizat pe stocarea internă sau externă.</string>
+    <string name="toast_invalid_folder_selected">Ne pare rău. Dosarul selectat nu poate fi folosit. Alege un dosar localizat pe stocarea internă sau externă.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Comutarea dosarelor existente la „Primește criptat” nu este acceptată.</string>
-    <string name="ignore_patterns">Ignoră șabloane</string>
+    <string name="ignore_patterns">Șabloane de ignorare</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">ID dispozitiv</string>
     <!-- Status title -->
-    <string name="discovered_devices_title">Dispozitive descoperite - Atingeți pentru a selecta</string>
+    <string name="discovered_devices_title">Dispozitive descoperite - Atinge pentru a selecta</string>
     <!-- Status text -->
-    <string name="discovered_device_list_empty">Descoperirea locală nu a găsit niciun dispozitiv în rețeaua locală. Rulați această aplicație pe un al doilea telefon. Fișierele de instalare pentru computere sunt disponibile la: %1$s</string>
+    <string name="discovered_device_list_empty">Descoperirea locală nu a găsit niciun dispozitiv în rețeaua locală. Rulează această aplicație pe un al doilea telefon. Fișierele de instalare pentru computere sunt disponibile la: %1$s</string>
     <!-- Status text -->
-    <string name="local_discovery_disabled">Ați dezactivat descoperirea locală în „Setări”&gt; „Opțiuni de sincronizare”&gt; „Descoperire locală”. Activați pentru a permite căutarea dispozitivelor în rețeaua locală.</string>
+    <string name="local_discovery_disabled">Ai dezactivat descoperirea locală în „Setări”&gt; „Opțiuni de sincronizare”&gt; „Descoperire locală”. Activează pentru a permite căutarea dispozitivelor în rețeaua locală.</string>
     <!-- Setting title -->
     <string name="name">Nume</string>
     <!-- Setting title -->
     <string name="folders">Dosare</string>
     <!-- Setting title -->
-    <string name="addresses">Adresă</string>
+    <string name="addresses">Adrese</string>
     <!-- Setting title -->
-    <string name="current_address">Adresă curentă</string>
+    <string name="current_address">Adresa curentă</string>
     <!-- Setting title -->
-    <string name="compression">Compresie</string>
+    <string name="compression">Comprimare</string>
     <!-- Strings representing compression options -->
     <string name="compress_never">Niciodată</string>
     <string name="compress_metadata">Metadate</string>
@@ -238,58 +233,50 @@
     <!-- Setting title -->
     <string name="introducer">Prezentator</string>
     <!-- Setting title -->
-    <string name="pause_device">Întrerupe dispozitiv</string>
+    <string name="pause_device">Întrerupe dispozitivul</string>
     <!-- Setting title -->
     <string name="untrusted_device">Dispozitiv nesigur</string>
     <string name="untrusted_device_explanation">Toate dosarele partajate cu acest dispozitiv trebuie să fie protejate printr-o parolă, astfel încât toate datele trimise să nu poată fi citite fără parola dată.</string>
     <!-- ActionBar item -->
-    <string name="delete_device">Șterge dispozitiv</string>
-    <string name="add_device">Adaugă dispozitiv</string>
+    <string name="delete_device">Șterge dispozitivul</string>
+    <string name="add_device">Adaugă un dispozitiv</string>
     <!-- Menu item to confirm adding a device -->
     <string name="add">Adaugă</string>
     <!-- Title for DeviceSettingsFragment in edit mode -->
     <string name="edit_device">Editare dispozitiv</string>
     <!-- Dialog shown when attempting to remove a device -->
-    <string name="remove_device_confirm">Sigur doriți să eliminați acest dispozitiv\?</string>
+    <string name="remove_device_confirm">Sigur dorești să elimini acest dispozitiv?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
     <string name="device_id_required">ID-ul dispozitivului nu poate fi gol</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
-    <string name="device_id_invalid">ID-ul dispozitivului nu este formatat corect. Încercați din nou și introduceți codul corect.</string>
+    <string name="device_id_invalid">ID-ul dispozitivului nu este formatat corect. Încearcă din nou și introdu codul corect.</string>
     <!-- Toast shown when trying to create a device with an empty name -->
     <string name="device_name_required">Numele dispozitivului nu trebuie să fie gol</string>
     <!-- Toast shown when trying to create a device with invalid addresses -->
-    <string name="device_addresses_invalid">Adresele dispozitivului nu sunt formatate corect. Încercați din nou. Consultați documentele Syncthing pentru mai multe informații.</string>
+    <string name="device_addresses_invalid">Adresele dispozitivului nu sunt formatate corect. Încearcă din nou. Consultă documentele Syncthing pentru mai multe informații.</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanare cod QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Doriți să instalați aplicația „Binary Eye” din F-Droid\?</string>
+    <string name="install_barcode_scanner_app_message">Această funcție necesită o aplicație pentru scanarea codurilor de bare. Dorești să instalezi aplicația „Binary Eye” din F-Droid?</string>
     <!-- Shown if no folders are configured -->
-    <string name="folders_list_empty">Niciun dosar configurat. Atingeți pentru a adăuga un dosar nou.</string>
+    <string name="folders_list_empty">Niciun dosar configurat. Atinge pentru a adăuga un dosar nou.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">Nu s-a obținut acces root</string>
     <!-- TipsAndTricks activity -->
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Sfaturi și trucuri</string>
     <string name="tip_write_to_sdcard_title">Soluția pentru scrierea pe cardul SD extern</string>
-    <string name="tip_write_to_sdcard_text">Dacă vedeți un mesaj care afirmă că „Android acordă acces doar în citire pentru syncthing” la un anumit dosar, creați un nou dosar folosind această cale pentru a obține acces la scriere:
-\n%1$s/NUMELE_DOSARULUI
-\nFiți atenți: acest dosar va fi șters de Android dacă dezinstalați această aplicație. Înainte de a dezinstala aplicația, mutați datele într-un loc sigur în afara dosarului …/Android.</string>
-    <string name="tip_sync_on_local_network_title">Sincronizați doar utilizând rețeaua locală WiFi</string>
-    <string name="tip_sync_on_local_network_text">Dacă doriți să sincronizați doar cu dispozitivele localizate în rețeaua WiFi locală sau accesibile prin WiFi hotspot, puteți reduce consumul de baterie și puteți evita sincronizarea accidentală prin datele mobile, dezactivând următoarele opțiuni în „Setări/Opțiuni Syncthing”:
-\n- Activare traversare NAT
-\n- Descoperire globală
-\n- Activare retransmitere
-\nLăsați doar „Descoperirea locală” activată.</string>
-    <string name="tip_custom_sync_conditions_title">Utilizați condiții de sincronizare personalizate per dosar/dispozitiv</string>
-    <string name="tip_custom_sync_conditions_text">Această caracteristică va fi îmbunătățită în versiunile viitoare. Deocamdată, nu am dorit să modificăm configurațiile existente și comportamentul aplicației. De aceea, condițiile de sincronizare personalizate pentru un anumit tip de rețea pot fi setate numai dacă activați mai întâi sincronizarea în rețea în condițiile de rulare globală.</string>
-    <string name="tip_ignore_delete_title">Faceți copii de rezervă a imaginilor din telefon pe computer\?</string>
-    <string name="tip_ignore_delete_text">Dacă doriți ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajați dosarul „Cameră” cu computerul. Deschideți Syncthing pe computer, adăugați dosarul și accesați „Acțiuni” &gt; „Avansat” &gt; „Cameră foto”. Activați „Ignorare ștergere” și faceți clic pe „Salvați”. Acum puteți șterge imaginile din dosarul camerei dvs. de pe telefon și acestea vor rămâne copiate pe computer.</string>
+    <string name="tip_write_to_sdcard_text">Dacă vezi un mesaj care afirmă că „Android acordă acces doar în citire pentru syncthing” la un anumit dosar, creează un nou dosar folosind această cale pentru a obține acces la scriere: \n%1$s/NUMELE_DOSARULUI \nFii atent: acest dosar va fi șters de Android dacă dezinstalezi această aplicație. Înainte de a dezinstala aplicația, mută datele într-un loc sigur în afara dosarului …/Android.</string>
+    <string name="tip_sync_on_local_network_title">Sincronizare doar utilizând rețeaua locală WiFi</string>
+    <string name="tip_sync_on_local_network_text">Dacă dorești sincronizarea doar cu dispozitivele localizate în rețeaua WiFi locală sau accesibile prin WiFi hotspot, poți reduce consumul de baterie și poți evita sincronizarea accidentală prin datele mobile, dezactivând următoarele opțiuni în „Setări/Opțiuni Syncthing”: \n- Activare traversare NAT \n- Descoperire globală \n- Activare retransmitere \nLasă doar „Descoperirea locală” activată.</string>
+    <string name="tip_custom_sync_conditions_title">Utilizează condiții de sincronizare personalizate per dosar/dispozitiv</string>
+    <string name="tip_custom_sync_conditions_text">Această caracteristică va fi îmbunătățită în versiunile viitoare. Deocamdată, nu am dorit să modificăm configurațiile existente și comportamentul aplicației. De aceea, condițiile de sincronizare personalizate pentru un anumit tip de rețea pot fi setate numai dacă activezi mai întâi sincronizarea în rețea în condițiile de rulare globală.</string>
+    <string name="tip_ignore_delete_title">Faci copii de rezervă a imaginilor din telefon pe computer?</string>
+    <string name="tip_ignore_delete_text">Dacă dorești ca toate imaginile făcute pe telefon să fie copiate pe un computer, partajează dosarul „Cameră” cu computerul. Deschide Syncthing pe computer, adaugă dosarul și accesează „Acțiuni” &gt; „Avansat” &gt; „Cameră foto”. Activează „Ignorare ștergere” și fă clic pe „Salvează”. Acum poți șterge imaginile din dosarul camerei de pe telefon și acestea vor rămâne copiate pe computer.</string>
     <string name="tip_huawei_device_disconnected_title">Soluție pentru Huawei: „dispozitiv deconectat”</string>
-    <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este deconectat, deschideți Syncthing de pe desktop. Accesați „dispozitive de la distanță”, extindeți intrarea telefonului, faceți clic pe „Editare”, treceți la „Avansat”. Introduceți adresa IP a telefonului în „Adrese” ca aceasta:
-\ntcp4://%1$s, dinamic
-\nA fost confirmată funcționarea pentru: Huawei P10</string>
-    <string name="tip_xiaomi_autostart_title">Xiaomi: aplicația nu rulează de la pornire</string>
-    <string name="tip_xiaomi_autostart_text">MIUI de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesați „Setări” &gt; \"Aplicații\" &gt; „Permisiuni” &gt; „Pornire automată” și activați glisorul „Syncthing-Fork”.</string>
+    <string name="tip_huawei_device_disconnected_text">Dacă desktop-ul raportează constant că dispozitivul Huawei este deconectat, deschide Syncthing de pe desktop. Accesează „dispozitive de la distanță”, extinde intrarea telefonului, fă clic pe „Editare”, treci la „Avansat”. Introdu adresa IP a telefonului în „Adrese” ca aceasta: \ntcp4://%1$s, dinamic \nA fost confirmată funcționarea pentru: Huawei P10</string>
+    <string name="tip_xiaomi_autostart_title">Xiaomi: aplicația nu rulează la pornire</string>
+    <string name="tip_xiaomi_autostart_text">MIUI de la Xiaomi nu permite aplicațiilor să pornească singure în mod implicit. Din ecranul de pornire, accesează „Setări” &gt; \"Aplicații\" &gt; „Permisiuni” &gt; „Pornire automată” și activează glisorul „Syncthing-Fork”.</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplicația arată în mod repetat ecranul de bun venit</string>
     <string name="tip_xiaomi_battery_saver_text">Aplicația de sistem pentru economisirea bateriei instalată în MIUI de la Xiaomi revocă permisiunea aplicației „ignoră optimizarea bateriei” la fiecare repornire a telefonului. Acest lucru face ca aplicația să afișeze ecranul de bun venit și să solicite din nou permisiunea obligatorie care lipsește. Soluție: din ecranul de pornire, deschideți sertarul aplicațiilor &gt; apăsați lung „Syncthing-Fork” &gt; „Informații aplicație” &gt; „Economisire baterie” și selectați „Nicio restricție” (MIUI 10.3.2.0+).</string>
     <!-- RecentChangesActivity -->
@@ -307,12 +294,12 @@
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviz de securitate</string>
     <!-- Dialog message if an invalid ssl certificate was detected -->
-    <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continuați\?</string>
+    <string name="ssl_cert_invalid_text">Site-ul web %1$s pare să aibă un certificat nevalid pentru criptarea SSL. Continui?</string>
     <!-- Text for WebViewActivity loading page -->
     <string name="web_page_loading">Se încarcă pagina web:
 \n%1$s …</string>
     <!-- Text for WebViewActivity openBrowser action button -->
-    <string name="open_in_browser">Deschideți în browser</string>
+    <string name="open_in_browser">Deschide în browser</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Setări</string>
     <string name="category_run_conditions">Condiții de rulare</string>
@@ -326,27 +313,27 @@
     <string name="category_syncthing_options_summary">Acest meniu este disponibil numai dacă Syncthing rulează.</string>
     <string name="category_backup">Import și Export</string>
     <string name="category_debug">Depanare</string>
-    <string name="category_experimental">Experimental</string>
+    <string name="category_experimental">Experimentale</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condiții de rulare</string>
-    <string name="run_conditions_summary">Utilizați următoarele opțiuni pentru a decide când va rula Syncthing.</string>
+    <string name="run_conditions_summary">Utilizează următoarele opțiuni pentru a decide când va rula Syncthing.</string>
     <string name="run_on_mobile_data_title">Rulare cu datele mobile</string>
-    <string name="run_on_mobile_data_summary">Rulează atunci când dispozitivul este conectat prin intermediul rețelei de date mobile. Avertisment: aceasta poate consuma o mulțime de date din planul de date al operatorului dvs. mobil dacă sincronizați cantități mari de date.</string>
+    <string name="run_on_mobile_data_summary">Rulează atunci când dispozitivul este conectat prin intermediul rețelei de date mobile. Avertisment: aceasta poate consuma o mulțime de date din planul de date al operatorului mobil dacă sincronizezi cantități mari de date.</string>
     <string name="run_on_roaming_title">Rulare în roaming</string>
-    <string name="run_on_roaming_summary">Permite aplicației Syncthing să utilizeze datele mobile în roaming. (!) Vă rugăm să trimiteți feedback la GitHub dacă acest lucru funcționează corect.</string>
+    <string name="run_on_roaming_summary">Permite aplicației Syncthing să utilizeze datele mobile în roaming. (!) Trimite feedback la GitHub dacă acest lucru funcționează corect.</string>
     <string name="run_on_wifi_title">Rulare în Wi-Fi</string>
     <string name="run_on_wifi_summary">Rulează atunci când dispozitivul este conectat la o rețea Wi-Fi sau Ethernet.</string>
     <string name="run_on_metered_wifi_title">Rulează în Wi-Fi contorizat</string>
-    <string name="run_on_metered_wifi_summary">Rulează atunci când dispozitivul este conectat la o rețea Wi-Fi contorizată, de ex. o rețea hotspot. Atenție: aceasta poate consuma o mare parte din planul dvs. de date dacă sincronizați o mulțime de date.</string>
+    <string name="run_on_metered_wifi_summary">Rulează atunci când dispozitivul este conectat la o rețea Wi-Fi contorizată, de ex. o rețea hotspot. Atenție: aceasta poate consuma o mare parte din planul de date dacă sincronizezi o mulțime de date.</string>
     <string name="run_on_whitelisted_wifi_title">Rulează în rețele Wi-Fi specificate</string>
-    <string name="specify_wifi_ssid_whitelist">Selectați rețelele Wi-Fi</string>
+    <string name="specify_wifi_ssid_whitelist">Selectează rețelele Wi-Fi</string>
     <string name="run_on_whitelisted_wifi_networks">Rețele Wi-Fi selectate: %1$s</string>
-    <string name="wifi_ssid_whitelist_empty">Nu sunt specificate rețele Wi-Fi. Faceți clic pentru a specifica rețele.</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">VA rugăm să activați Wi-Fi pentru a selecta rețelele.</string>
+    <string name="wifi_ssid_whitelist_empty">Nu sunt specificate rețele Wi-Fi. Fă clic pentru a specifica rețele.</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Activează Wi-Fi pentru a selecta rețelele.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">Activează locația pentru a selecta rețele.</string>
-    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiteți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Trebuie să permiți accesul la LOCAȚIE pentru a putea folosi această caracteristică.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Necesită permisiunea</string>
-    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Începând cu Android 8.1, este necesar accesul la locație pentru a putea citii numele rețelei Wi-Fi. Această caracteristică poate fi folosită doar dacă acordați această permisiune.</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Începând cu Android 8.1, este necesar accesul la locație pentru a putea citii numele rețelei Wi-Fi. Această caracteristică poate fi folosită doar dacă acorzi această permisiune.</string>
     <string name="power_source_title">Rulează atunci când dispozitivul este alimentat de</string>
     <string name="power_source_ac_and_battery_power">încărcător și baterie.</string>
     <string name="power_source_ac_power">încărcător.</string>
@@ -356,9 +343,9 @@
     <string name="respect_master_sync_title">Se respectă setarea Android „Sincronizare automată a datelor”</string>
     <string name="respect_master_sync_summary">Se dezactivează Syncthing atunci când sincronizarea automată este dezactivată.</string>
     <string name="run_in_flight_mode_title">Rulează fără conexiune la rețea</string>
-    <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când sunteți offline. Activați dacă dispozitivul dvs. are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
+    <string name="run_in_flight_mode_summary">Activarea acestei opțiuni va face ca Syncthing să ruleze chiar și atunci când ești offline. Activează dacă dispozitivul are probleme în detectarea conexiunilor Wi-Fi în modul Avion.</string>
     <string name="run_on_time_schedule_title">Rulează în funcție de programul de timp</string>
-    <string name="run_on_time_schedule_summary">Activarea acestei opțiuni va încerca să sincronizeze pentru o durată configurată dacă sunt îndeplinite condițiile de rulare și ultima sincronizare a avut loc acum mai mult de 1 oră. Acest lucru poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Reține: acest lucru poate lăsa fișiere temporare incomplete în urmă până la următoarea sincronizare programată.</string>
+    <string name="run_on_time_schedule_summary">La activarea acestei opțiuni se va încerca sincronizarea pentru o durată configurată, dacă se îndeplinesc condițiile de rulare și dacă a trecut o perioadă de interval specificată de la ultima sincronizare. Acest lucru poate economisi multă baterie, dar necesită ca partenerii de sincronizare să fie online. Reține: acest lucru poate lăsa fișiere temporare incomplete în urmă până la următoarea sincronizare programată.</string>
     <string name="sync_duration_minutes_title">Durata ciclului de sincronizare</string>
     <string name="sync_duration_minutes_summary">%1$s minute</string>
     <!-- Preferences - Behaviour -->
@@ -419,7 +406,7 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Textul nu respectă sintaxa proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Controlul serviciului prin Broadcast</string>
-    <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activați această opțiune pentru a porni și opri serviciul prin trimiterea de mesaje Broadcast, de ex. din aplicații terțe de automatizare. Notă: trebuie să reporniți aplicația manual după modificarea acestei opțiuni.</string>
+    <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activează pentru a lăsa ADB sau aplicații terțe, de ex. aplicațiile de automatizare instruiesc Syncthing pentru a urma condițiile de rulare, pornire forțată sau oprire forțată.</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Chiar doriți să exportați configurația\? Fișierele existente vor fi suprascrise.
 \n
@@ -558,8 +545,8 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Ieșire</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing rulează</string>
-    <string name="syncthing_active_details">Syncthing rulează: %1$s</string>
+    <string name="syncthing_active">Rulează</string>
+    <string name="syncthing_active_details">Rulează: %1$s</string>
     <string name="no_remote_devices_connected">Nu sunt conectate dispozitive la distanță</string>
     <plurals name="device_online_up_to_date">
         <item quantity="one">%1$d dispozitiv online și actualizat</item>
@@ -571,8 +558,8 @@
         <item quantity="few">Sincronizare: %1$d%% complet, %2$d dispozitive online</item>
         <item quantity="other">Sincronizare: %1$d%% complet, %2$d dispozitive online</item>
     </plurals>
-    <string name="syncthing_disabled">Syncthing în pauză</string>
-    <string name="syncthing_terminated">Syncthing a fost închis</string>
+    <string name="syncthing_disabled">Suspendat</string>
+    <string name="syncthing_terminated">Stopat</string>
     <string name="config_create_failed">Creerea fișierului de configurare a eșuat</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">Un fișier de configurare esențial pentru această operație lipsește</string>
@@ -580,7 +567,7 @@
     <string name="default_android_camera_folder_label">Android Camera</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotografii</string>
-    <string name="notification_crash_title">Syncthing s-a oprit neașteptat %1$s</string>
+    <string name="notification_crash_title">S-a oprit neașteptat (codul opririi %1$s)</string>
     <string name="notifications_persistent_channel">Syncthing este activ</string>
     <string name="notification_persistent_waiting_channel">Monitorizare condiții rulare</string>
     <string name="notifications_other_channel">Alte notificări</string>
@@ -704,4 +691,69 @@
     <string name="qs_following_run_conditions">Urmărind condițiile de rulare</string>
     <string name="qs_schedule_label">Rulează pentru 5 minute</string>
     <string name="qs_schedule_disabled">Orar dezactivat</string>
+    <string name="start_into_web_gui_title">Pornește direct în GUI Web</string>
+    <string name="start_into_web_gui_summary">Când pornește aplicația, se deschide GUI Web în loc de ecranul principal</string>
+    <string name="config_export_failed">Nu a fost posibilă exportarea configurației, verifică jurnalul logcat.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing are permisiunea să ruleze prin conexiuni de date mobile în roaming și fără roaming.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing are permisiunea să ruleze prin conexiuni de date mobile non-roaming. Conexiunea activă nu este roaming.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing nu rulează din cauza că ai refuzat rularea prin conexiunile de date mobile în roaming.</string>
+    <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Rulează pentru %1$d minute</string>
+    <string name="notification_crash_text">Clic pentru jurnale (%1$s)</string>
+    <string name="notification_permission_desc">Necesară pentru a afișa notificări cu privire la conexiunile dispozitivelor noi, cererile de partajare a dosarelor și pentru a menține serviciul pornit și conectat.</string>
+    <string name="notification_permission_title">Permisiune de notificare</string>
+    <string name="autoAcceptFolders">Acceptare automată</string>
+    <string name="invalid_port_number" tools:ignore="PluralsCandidate">Numărul port-ului nu este valabil. Introdu o valoare între %1$d și %2$d.</string>
+    <string name="keep_wakelock_while_binary_running_summary">Numai pentru Android 5 sau mai mic. Utilizează această setare dacă experimentezi deconectări neașteptate în timp ce funcționează pe baterie. Acest lucru va duce la creșterea consumului bateriei.</string>
+    <string name="verbose_log_summary">Activarea acestei opțiuni va ajuta la generarea jurnalelor de depanare la un nivel foarte detaliat.</string>
+    <string name="log_to_file_title">Jurnalizare în fișier</string>
+    <string name="reason_on_flight_mode">Syncthing rulează deoarece i-ai permis să funcționeze atunci când modul avion este activ.</string>
+    <string name="open_source_licenses_title">Licențe open source</string>
+    <string name="open_source_licenses_summary">Afișează licențele open source utilizate</string>
+    <string name="reason_on_mobile_data">Syncthing are permisiunea să ruleze cu date mobile.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing are permisiunea să ruleze prin rețeaua WiFi curentă.</string>
+    <string name="webui_username_title">Nume utilizator UI web</string>
+    <string name="webui_password_title">Parola UI Web</string>
+    <string name="webui_debugging_title">Depanare WebUI</string>
+    <string name="webui_debugging_summary">Activează pentru a începe profilarea și pentru a putea descărca un pachet de asistență. Modificarea acestei opțiuni va reporni imediat sincronizarea.</string>
+    <string name="clear_stversions_done">Dosarele .stversions golite cu succes.</string>
+    <string name="download_support_bundle_succeeded">Pachetul de asistență descărcat cu succes în %s.</string>
+    <string name="download_support_bundle_failed">Descărcare eșuată a pachetului de asistență. Verifică jurnalele.</string>
+    <string name="backup_folder_name">Numele dosarului copiei de rezervă</string>
+    <string name="reason_wifi_disallowed">Syncthing nu are permisiunea să ruleze prin WiFi sau Ethernet.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing nu rulează deoarece ai refuzat rularea prin conexiuni WiFi contorizate.</string>
+    <string name="clear_stversions_title">Golește toate dosarele de versiuni</string>
+    <string name="syncthing_forum_summary">Accesează forumul de Syncthing și obține sprijin</string>
+    <string name="privacy_summary">Deschide Politica de confidențialitate Syncthing, care acoperă utilizarea (dacă există) a datelor cu caracter personal, de ex. locația.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing nu rulează, deoarece numele actual al rețelei WiFi nu este în lista albă.</string>
+    <string name="pizza_url_title">» Pisicile adoră pizza « 😺🍕</string>
+    <string name="reason_not_on_mobile_data">Syncthing are permisiunea să ruleze prin conexiunea de date mobile, dar datele mobile nu sunt activate.</string>
+    <string name="reason_on_wifi">Syncthing are permisiunea să ruleze prin WiFi și WiFi este conectat în prezent.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing are permisiunea să ruleze prin conexiuni WiFi nelimitate. Conexiunea WiFi activă este nelimitată.</string>
+    <string name="webui_tcp_port_unavailable">WebUi TCP Port %s ocupat. A doua instanță?</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d conflict</item>
+        <item quantity="few">%1$d conflicte</item>
+        <item quantity="other">%1$d conflicte</item>
+    </plurals>
+    <string name="folder_run_script_caption">Rulează un script</string>
+    <string name="folder_run_script_description">Opțiunea expert pentru a rula script-uri după ce un dosar își schimbă starea de sincronizare. Script-urile din \'.stfolder/*.sh\' vor fi executate, alte locații nu sunt acceptate din considerente de securitate.\nExemplu de script: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="clear_stversions_summary">Fișierele sunt mutate în dosarul .stversions atunci când sunt înlocuite sau șterse prin sincronizare. Probabil poți găsi și recupera fișierele șterse accidental acolo, dar versiunile învechite ale fișierelor ocupă spațiu de stocare pe dispozitiv.</string>
+    <string name="clear_stversions_question">Aceasta va șterge toate versiunile anterioare de fișiere gestionate de Syncthing. Continui?</string>
+    <string name="download_support_bundle_title">Descarcă pachetul de asistență</string>
+    <string name="verbose_log_title">Jurnal detaliat</string>
+    <string name="log_to_file_summary">Jurnalul SyncthingNative va fi scris în fișier.</string>
+    <string name="syncthing_forum_title">Forumul Syncthing</string>
+    <string name="privacy_title">Politica de confidențialitate</string>
+    <string name="os_open_file_limit">Limita de fișiere deschise Android</string>
+    <string name="reason_not_on_wifi">Syncthing are permisiunea să ruleze prin WiFi, dar WiFi nu este conectat sau telefonul este în modul avion.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing are permisiunea să ruleze prin conexiuni WiFi contorizate și nelimitate.</string>
+    <string name="reason_location_unavailable">Ai activat „Rulează prin rețelele WiFi selectate” în setări. Serviciile de locație Android sunt în prezent dezactivate. Conform restricțiilor Android, sincronizarea nu poate determina numele actual al rețelei WiFi pentru a decide dacă ar trebui să ruleze. Soluție: Pornește locația, acordă permisiunea locației și reconectează-te la WiFi.</string>
+    <string name="config_read_failed">Nu a reușit citirea configurației. Ia în considerare copierea de rezervă a datelor din dosarele de sincronizare, apoi șterge datele acestei aplicații din setările Android și lanseaz-o din nou.</string>
+    <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
+    <string name="executable_not_found">Executabilul de bază \"%s\" lipsește. Verifică jurnalele build și logcat.</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Atenție: Dacă SyncthingNative este întrerupt și face ceva ciudat, ești de vină. Omite doar în cazul în care dispozitivul nu acceptă acordarea permisiunii. Chiar omiți?</string>
+    <string name="toast_notification_permission_required">Syncthing necesită permisiunea de notificare pentru a-și menține serviciul pornit și conectat.</string>
+    <string name="download_support_bundle_in_progress">Pregătirea descărcării pachetului de asistență…</string>
+    <string name="app_version_title">Versiunea Syncthing-Fork Wrapper</string>
+    <string name="sleep_interval_minutes_title">Durata intervalului de pauză de sincronizare</string>
 </resources>

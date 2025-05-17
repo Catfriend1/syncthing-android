@@ -1,38 +1,38 @@
-Fork francisé de Syncthing-Android wrapper pour Syncthing qui amène des améliorations majeures comme :
+Fork francisé de Syncthing-Android wrapper pour Syncthing qui amène des améliorations majeures comme :
 * Partages, Appareils et vue globale du processus de synchronisation facilement lus depuis le GUI.
-* "Syncthing Camera" - une fonctionnalité optionelle (avec une permission optionnelle pour utiliser l'appareil photo) qui vous permet de prendre des photos avec un ami ou partenaire, ... depuis deux téléphones vers un dossier partagé et privé Syncthing. Donc sans stockkage cloud dans la recette. - FONCTION ACTUELLEMENT EN BETA TEST -
+* "Syncthing Camera" - une fonctionnalité optionnelle (avec une permission optionnelle pour utiliser l'appareil photo) qui vous permet de prendre des photos avec un ami ou partenaire, ... depuis deux téléphones vers un dossier partagé et privé Syncthing. Donc sans stockage cloud dans la recette. - FONCTION ACTUELLEMENT EN BETA TEST -
 * "Planning d'exécution" pour économiser encore plus la batterie.
-* Individual sync conditions can be applied per device and per folder
-* Recent changes UI, click to open files.
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* "Battery eater" problem is fixed.
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+* Conditions de synchronisation Individuelles possibles par appareil pair et partage
+* Interface utilisateur pour les changement récents, cliquer pour ouvrir les fichiers.
+* Modifications de configuration des appareils pair et partages possible même si Syncthing est arrêté
+* L'IU indique la raison de l'état d'exécution de Syncthing.
+* Problème de "Surconsommation batterie" résolu.
+* Découverte d'autres appareils Syncthing sur le même réseau et possibilité d'ajout facile, comme sur les versions PC.
+* Support de la synchronisation bidirectionnelle sur carte SD externe depuis Android 11.
 
-Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+Syncthing-Fork pour Android est un adaptateur pour Syncthing qui fournit une interface Android plus adaptée que celle au standard Web intégrée nativement.. Syncthing remplace les services propriétaires de synchronisation/cloud par un système ouvert, digne de confiance et décentralisé. Vos données sont uniquement les vôtres et vous avez le contrôle intégral des quelles et de là où elles sont, d'avec qui vous les partagez et de comment elles sont transmises via l'Internet.
 
-Goals of the fork:
-* Develop and try out enhancements together with the community.
-* Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-* Make enhancements configurable in the UI, users should be able to turn them on and off
+Objectifs de cette adaptation :
+* Développement et tests d'améliorations en collaboration avec la communauté ouverte des utilisateurs/développeurs.
+* Publication plus fréquentes des mises à jour pour identifier et corriger les bugs induits par les changements dans le sous-module syncthing.
+* Rendre les améliorations configurables dans l'IU : les utilisateurs doivent pouvoir les activer ou les désactiver.
 
-Comparison between upstream and fork at the time of writing this:
-* Both contain the syncthing binary built from the official source at GitHub
-* Syncing functionality and reliability depends on the syncthing binary submodule version.
-* Le fork suit la version officielle et parfois elle adopte mes améliorations.
+Comparaison entre l'original et l'adaptation au ment de cette rédaction :
+* Les deux contiennent le binaire compilé à partir du code source original disponible sur GitHub
+* La fonctionnalité de Synchronisation et sa fiabilité dépendent de la version du sous-module binaire.
+* L'adaptation suit la version officielle, qui parfois adopte elle-même mes améliorations.
 * La stratégie et la fréquence de mise à jour sont différentes.
-* Seul le wrapper contenant le GUI Android UI est concerné par le fork.
+* L'adaptation ne concerne que l'IU Android.
 
-Site web : https://github.com/Catfriend1/syncthing-android
+Site web : https://github.com/Catfriend1/syncthing-android
 
-Code source : https://github.com/Catfriend1/syncthing-android
+Code source : https://github.com/Catfriend1/syncthing-android
 
-Comment Syncthing écrit sur les SD card externes : https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Comment Syncthing écrit sur les SD card externes : https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ et articles utiles : https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ et articles utiles : https://github.com/Catfriend1/syncthing-android/wiki
 
-Questions: https://github.com/Catfriend1/syncthing-android/issues
+Questions : https://github.com/Catfriend1/syncthing-android/issues
 
 Merci d'aider à
-La traduction : https://hosted.weblate.org/projects/syncthing/android/catfriend1
+La traduction : https://hosted.weblate.org/projects/syncthing/android/catfriend1

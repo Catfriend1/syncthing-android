@@ -432,7 +432,7 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">La entrada infringe la sintaxis de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
-    <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para iniciar y detener el servicio mediante el envío de transmisiones, por ejemplo, desde aplicaciones de automatización de terceros. Nota: Tiene que reiniciar la aplicación manualmente después de cambiar esta opción.</string>
+    <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para permitir a adb o a otras aplicaciones, por ej. aplicaciones de automatización comandar a Syncthing para seguir condiciones, forzar su arranque o su parada.</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.
 \n
@@ -761,4 +761,22 @@
     <string name="sleep_interval_minutes_title">Duración del intervalo de pausa de sincronización</string>
     <string name="start_into_web_gui_title">Iniciar directamente en la interfaz web</string>
     <string name="start_into_web_gui_summary">Cuando se inicia la apliación, cargar la interfaz web en lugar de la pantalla principal</string>
+    <string name="open_source_licenses_title">Licencias de Código Abierto</string>
+    <string name="syncthing_forum_title">Foro de Syncthing</string>
+    <string name="folder_run_script_caption">Ejecutar \"script\"</string>
+    <string name="clear_stversions_title">Vaciar todas las carpetas de versiones</string>
+    <string name="privacy_title">Política de privacidad</string>
+    <string name="open_source_licenses_summary">Mostrar las licencias de código abierto empleadas</string>
+    <string name="clear_stversions_question">Esto borrará todas las versiones anteriores de los ficheros manejados con Syncthing. ¿Deseas continuar?</string>
+    <string name="clear_stversions_done">Carpeta .stversions limpiada con éxito.</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d conflicto</item>
+        <item quantity="many">%1$d conflictos</item>
+        <item quantity="other">%1$d conflictos</item>
+    </plurals>
+    <string name="syncthing_forum_summary">Entra en el foro de Syncthing y consigue ayuda</string>
+    <string name="clear_stversions_summary">Los ficheros se mueven al directorio .stversions cuando son reemplazados o eliminados por Syncthing. Probablemente puedes encontrar ahí y recuperar archivos que hayan sido accidentalmente eliminados, pero las versiones anteriores de los ficheros ocupan espacio en tu dispositivo.</string>
+    <string name="privacy_summary">Abre la política de privacidad de syncthing-android, que cubre el uso (si acaso) de datos personales, por ej. localización.</string>
+    <string name="pizza_url_title">» A los gatos les encanta la pizza « 😺🍕</string>
+    <string name="folder_run_script_description">"Opción avanzada para ejecutar \"scripts\" tras detectar cambios  en su estado de sincronismo. Los \"scripts\" en \'.stfolder/*.sh\' serán procesados, no se soportan otras ubicaciones por razones de seguridad.\nUn ejemplo de \"script\": \'.stfolder/rename-files.sh sync_complete\'"</string>
 </resources>
