@@ -758,7 +758,7 @@
     <string name="open_source_licenses_summary">Verwendete Open-Source-Lizenzen anzeigen</string>
     <string name="syncthing_forum_title">Syncthing Forum</string>
     <string name="privacy_title">Datenschutzerklärung</string>
-    <string name="syncthing_forum_summary">Das Syncthing Forum besuchen und Unterstützung ethalten</string>
+    <string name="syncthing_forum_summary">Das Syncthing-Forum besuchen und Unterstützung erhalten</string>
     <string name="privacy_summary">Die Datenschutzerklärung von syncthing-android öffnen, welche die Verwendung personenbezogener Daten (falls vorhanden), z. B. des Standorts, abdeckt.</string>
     <string name="clear_stversions_question">Damit werden alle früheren Versionen der von Syncthing verwalteten Dateien gelöscht. Fortfahren?</string>
     <string name="clear_stversions_done">Erfolgreich .stversions-Ordner geleert.</string>

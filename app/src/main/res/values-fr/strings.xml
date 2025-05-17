@@ -687,4 +687,23 @@
     <string name="sleep_interval_minutes_title">Durée de l\'intervalle de suspension de la synchronisation</string>
     <string name="start_into_web_gui_title">Démarrer directement l\'interface web</string>
     <string name="start_into_web_gui_summary">Lancer l\'interface web au démarrage plutôt que l\'écran principal</string>
+    <string name="open_source_licenses_title">Licences open-source</string>
+    <string name="open_source_licenses_summary">Afficher les licences open-sources utilisées</string>
+    <string name="clear_stversions_title">Vider toutes les corbeilles/dossiers de versions</string>
+    <string name="syncthing_forum_summary">Aller sur le Forum des utilisateurs de Syncthing pour obtenir de l\'assistance</string>
+    <string name="folder_run_script_caption">Exécuter le script</string>
+    <string name="syncthing_forum_title">Forum Syncthing (en anglais)</string>
+    <string name="privacy_summary">Consulter la politique de confidentialité de syncthing-android qui concerne l\'utilisation (éventuelle) de données personnelles, par exemple la géolocalisation.</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d conflit</item>
+        <item quantity="many">%1$d conflits</item>
+        <item quantity="other">%1$d conflits</item>
+    </plurals>
+    <string name="folder_run_script_description">Option pour expert permettant de lancer des scripts suite au changement d\'état de synchronisation d\'un partage. Les scripts dans \'.stfolder/*.sh\' seront exécutés ; les autres emplacements ne sont pas autorisés par mesure de sécurité.\nExemple d\'appel de script : \'.stfolder/renomme-fichiers.sh sync_complete\'</string>
+    <string name="pizza_url_title">» Chats pizzavores « 😺🍕</string>
+    <string name="clear_stversions_summary">Les fichiers sont déplacés vers le répertoire .stversions à l\'occasion d\'un remplacement/renommage ou suppression par Syncthing. Vous pouvez probablement y retrouver des fichiers accidentellement perdus, mais les très vieilles suppressions prennent de la place dans le stockage de votre appareil : vous pouvez régler une durée de péremption au-delà de laquelle les suppressions sont vraiment définitives.</string>
+    <string name="clear_stversions_question">Ceci va purger toutes les corbeilles gérées par Syncthing. Continuer ?</string>
+    <string name="privacy_title">Politique de confidentialité</string>
+    <string name="clear_stversions_done">Toutes les corbeilles .stversions ont été vidées avec succès.</string>
+    <string name="pizza_url_summary">Juste une caresse comme tranche de sympathie - cerise sur le gâteau, les chat continueront de ronronner.</string>
 </resources>
