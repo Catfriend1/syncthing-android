@@ -1,3 +1,4 @@
+* Fix missing library error on app start
 * Show sync conflicts on the folder tab (fixes #1130) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1416
 * Persist backup folder setting on restore, restoring from backup is not wise (fixes #1375) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1417
 * Allow follow run conditions, force start/stop using service control broadcasts (fixes #1192) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1418
