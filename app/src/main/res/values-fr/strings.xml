@@ -564,7 +564,7 @@
     <string name="pull_order_oldest_first">Plus anciens d\'abord</string>
     <string name="pull_order_newest_first">Plus récents d\'abord</string>
     <string name="broadcast_service_control_title">Contrôle du service par Broadcast (annonces)</string>
-    <string name="broadcast_service_control_summary">Désactivé par défaut. Activer pour permettre le démarrage et l\'arrêt du service par annonces, par exemple depuis des applis d\'automatisation tierces. Il faut redémarrer l\'application pour la prise en compte.</string>
+    <string name="broadcast_service_control_summary">Désactivé par défaut. Activer pour permettre à ADB ou applications tierces de demander à Syncthing de se conformer aux conditions d\'exécution, ou de s\'exécuter en mode marche forcée, ou encore de forcer l\'arrêt.</string>
     <string name="reason_force_start">Syncthing fonctionne car vous avez forcé le démarrage sans égard aux conditions d\'exécution.</string>
     <string name="reason_force_stop">Syncthing est arrêté car vous avez forcé l\'arrêt sans égard aux conditions d\'exécution.</string>
     <string name="reason_not_on_battery_power">L\'appareil ne fonctionne pas sur batterie.</string>
