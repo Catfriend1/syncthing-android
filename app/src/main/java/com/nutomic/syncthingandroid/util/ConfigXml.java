@@ -169,6 +169,22 @@ public class ConfigXml {
                 .putString(Constants.PREF_WEBUI_PASSWORD, getApiKey())
                 .apply();
 
+        //  Allow debug and release to run in parallel for testing purposes.
+        if (Constants.isDebuggable(mContext)) {
+            // Set alternative gui listen port.
+            changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
+
+            // Set alternative data listen port.
+            Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
+            if (elementOptions != null) {
+                changed = setConfigElement(elementOptions, "listenAddress", new String[]{
+                                "tcp://:22001",
+                                "dynamic+https://relays.syncthing.net/endpoint"
+                        }
+                ) || changed;
+            }
+        }
+
         // Save changes if we made any.
         if (changed) {
             saveChanges();
@@ -1034,7 +1050,19 @@ public class ConfigXml {
             Log.e(TAG, "getOptions: elementOptions == null. Returning defaults.");
             return options;
         }
+
         // options.listenAddresses
+        NodeList listenAddressNodes = elementOptions.getElementsByTagName("listenAddress");
+        List<String> listenAddressesList = new ArrayList<>();
+        for (int i = 0; i < listenAddressNodes.getLength(); i++) {
+            Node addressNode = listenAddressNodes.item(i);
+            String addressText = addressNode.getTextContent().trim();
+            if (!addressText.isEmpty()) {
+                listenAddressesList.add(addressText);
+            }
+        }
+        options.listenAddresses = listenAddressesList.toArray(new String[0]);
+
         // options.globalAnnounceServers
         options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), options.globalAnnounceEnabled);
         options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), options.localAnnounceEnabled);
@@ -1126,6 +1154,26 @@ public class ConfigXml {
             return true;
         }
         return false;
+    }
+
+    private boolean setConfigElement(Element parent, String tagName, String[] textArray) {
+        NodeList existingNodes = parent.getElementsByTagName(tagName);
+        List<Node> toRemove = new ArrayList<>();
+        for (int i = 0; i < existingNodes.getLength(); i++) {
+            Node node = existingNodes.item(i);
+            if (node.getParentNode() == parent) {
+                toRemove.add(node);
+            }
+        }
+        for (Node node : toRemove) {
+            parent.removeChild(node);
+        }
+        for (String text : textArray) {
+            Element newElement = mConfig.createElement(tagName);
+            newElement.setTextContent(text);
+            parent.appendChild(newElement);
+        }
+        return (!toRemove.isEmpty() || textArray.length > 0);
     }
 
     private Element getGuiElement() {
