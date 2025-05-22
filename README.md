@@ -58,7 +58,7 @@ See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/s
 
 ## Building and Development Notes
 
-See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md)
+See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).
 
 ## License
 
