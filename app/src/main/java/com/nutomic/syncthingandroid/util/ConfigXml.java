@@ -175,7 +175,14 @@ public class ConfigXml {
             changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
 
             // Set alternative data listen port.
-            Options options = getOptions();
+            Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
+            if (elementOptions != null) {
+                changed = setConfigElement(elementOptions, "listenAddress", new String[]{
+                                "tcp://:22001",
+                                "dynamic+https://relays.syncthing.net/endpoint"
+                        }
+                ) || changed;
+            }
         }
 
         // Save changes if we made any.
@@ -1147,6 +1154,26 @@ public class ConfigXml {
             return true;
         }
         return false;
+    }
+
+    private boolean setConfigElement(Element parent, String tagName, String[] textArray) {
+        NodeList existingNodes = parent.getElementsByTagName(tagName);
+        List<Node> toRemove = new ArrayList<>();
+        for (int i = 0; i < existingNodes.getLength(); i++) {
+            Node node = existingNodes.item(i);
+            if (node.getParentNode() == parent) {
+                toRemove.add(node);
+            }
+        }
+        for (Node node : toRemove) {
+            parent.removeChild(node);
+        }
+        for (String text : textArray) {
+            Element newElement = mConfig.createElement(tagName);
+            newElement.setTextContent(text);
+            parent.appendChild(newElement);
+        }
+        return (!toRemove.isEmpty() || textArray.length > 0);
     }
 
     private Element getGuiElement() {
