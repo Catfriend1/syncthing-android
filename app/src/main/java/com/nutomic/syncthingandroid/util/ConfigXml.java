@@ -169,6 +169,9 @@ public class ConfigXml {
                 .putString(Constants.PREF_WEBUI_PASSWORD, getApiKey())
                 .apply();
 
+        // Set alternative gui listen port to allow debug and release to run in parallel for testing purposes.
+        changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
+
         // Save changes if we made any.
         if (changed) {
             saveChanges();
