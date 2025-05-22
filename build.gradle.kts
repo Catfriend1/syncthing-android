@@ -15,7 +15,7 @@ buildscript {
         set("versionMajor", 1)
         set("versionMinor", 29)
         set("versionPatch", 6)
-        set("versionWrapper", 4)
+        set("versionWrapper", 5)
     }
 
     repositories {
