@@ -169,8 +169,14 @@ public class ConfigXml {
                 .putString(Constants.PREF_WEBUI_PASSWORD, getApiKey())
                 .apply();
 
-        // Set alternative gui listen port to allow debug and release to run in parallel for testing purposes.
-        changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
+        //  Allow debug and release to run in parallel for testing purposes.
+        if (Constants.isDebuggable(mContext)) {
+            // Set alternative gui listen port.
+            changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
+
+            // Set alternative data listen port.
+            Options options = getOptions();
+        }
 
         // Save changes if we made any.
         if (changed) {
@@ -1037,7 +1043,20 @@ public class ConfigXml {
             Log.e(TAG, "getOptions: elementOptions == null. Returning defaults.");
             return options;
         }
+
         // options.listenAddresses
+        NodeList listenAddressNodes = elementOptions.getElementsByTagName("listenAddress");
+        List<String> listenAddressesList = new ArrayList<>();
+        for (int i = 0; i < listenAddressNodes.getLength(); i++) {
+            Node addressNode = listenAddressNodes.item(i);
+            String addressText = addressNode.getTextContent().trim();
+            if (!addressText.isEmpty()) {
+                listenAddressesList.add(addressText);
+                Log.e(TAG, "x:[" + addressText + "]");
+            }
+        }
+        options.listenAddresses = listenAddressesList.toArray(new String[0]);
+
         // options.globalAnnounceServers
         options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), options.globalAnnounceEnabled);
         options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), options.localAnnounceEnabled);
