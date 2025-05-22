@@ -180,17 +180,17 @@
     <string name="custom_sync_conditions_description">يسمح لك بتحديد استثناءات لشروط التشغيل العامة.</string>
     <string name="custom_sync_conditions_dialog">تحديد شروط المزامنة</string>
     <plurals name="syncthing_active_syncing_device_online">
-        <item quantity="zero">جاري المزامنة: %1$d%% مكتمل، جهاز واحد (%2$d) متصل</item>
-        <item quantity="one">جاري المزامنة: %1$d%% مكتمل، %2$d أجهزة متصلة</item>
-        <item quantity="two"></item>
-        <item quantity="few"></item>
-        <item quantity="many"></item>
-        <item quantity="other"></item>
+        <item quantity="zero">Syncing: %1$d%% complete, %2$d device online</item>
+        <item quantity="one">مزامنة: %1$d%% مكتمل، %2$d جهاز متصل بالإنترنت</item>
+        <item quantity="two">مزامنة: %1$d%% مكتمل، %2$d جهازان متصلان بالإنترنت</item>
+        <item quantity="few">مزامنة: %1$d%% مكتمل، %2$d أجهزة متصلة بالإنترنت</item>
+        <item quantity="many">مزامنة: %1$d%% مكتمل، %2$d جهازا متصلا بالإنترنت</item>
+        <item quantity="other">مزامنة: %1$d%% مكتمل، %2$d جهاز متصل بالإنترنت</item>
     </plurals>
     <string name="devices_list_empty">لا توجد أجهزة مكوّنة. انقر لإضافة جهاز جديد.</string>
     <string name="reason_mobile_data_disallowed">Syncthing غير مكوّن للتشغيل على اتصال بيانات الجوال.</string>
     <string name="reason_on_roaming_nonroaming_mobile_data">يُسمح لـ Syncthing بالتشغيل على اتصالات بيانات الجوال أثناء التجوال وبدونه.</string>
-    <string name="enable_relaying">تمكين الترحيل</string>
+    <string name="enable_relaying">تفعيل الترحيل</string>
     <string name="usage_reporting">الإبلاغ المجهول عن الاستخدام</string>
     <string name="crash_reporting">الإبلاغ المجهول عن الأعطال</string>
     <string name="webui_tcp_port_title">منفذ TCP لواجهة المستخدم الرسومية للويب</string>
@@ -211,12 +211,12 @@
     <string name="syncthing_active_details">قيد التشغيل: %1$s</string>
     <string name="browse">تصفح</string>
     <plurals name="device_online_up_to_date">
-        <item quantity="zero">جهاز واحد (%1$d) متصل ومحدّث</item>
-        <item quantity="one">%1$d أجهزة متصلة ومحدّثة</item>
-        <item quantity="two"></item>
-        <item quantity="few"></item>
-        <item quantity="many"></item>
-        <item quantity="other"></item>
+        <item quantity="zero">%1$d جهاز متصل ومحدّث</item>
+        <item quantity="one">جهاز واحد (%1$d) متصل ومحدّث</item>
+        <item quantity="two">جهازين متصلين ومحدثين</item>
+        <item quantity="few">%1$d أجهزة متصلة ومحدّثة</item>
+        <item quantity="many">%1$d جهازًا متصلًا ومحدثًا</item>
+        <item quantity="other">%1$d جهاز متصل ومحدث</item>
     </plurals>
     <string name="syncthing_terminated">تم الإنهاء</string>
     <string name="folder_run_script_caption">تشغيل برنامج نصي</string>
@@ -252,7 +252,7 @@
     <string name="executable_not_found">الملف التنفيذي الأساسي %s مفقود. تحقق من البناء وإخراج logcat.</string>
     <string name="default_android_camera_folder_label">كاميرا أندرويد</string>
     <string name="notification_persistent_waiting_channel">مراقبة شروط التشغيل</string>
-    <string name="restart_title">إعادة التشغيل مطلوبة</string>
+    <string name="restart_title">مطلوب إعادة التشغيل</string>
     <string name="versions_path">مسار الإصدارات</string>
     <string name="no_recent_changes">لا توجد تغييرات حديثة.</string>
     <string name="modified_by_device">الجهاز: %1$s</string>
@@ -404,20 +404,20 @@
         <item quantity="other">تم نسخ %1$d ملف إلى المجلد \"%2$s\"، %3$d موجودة بالفعل</item>
     </plurals>
     <plurals name="copy_success">
-        <item quantity="zero">تم نسخ ملف واحد (%1$d) إلى المجلد %2$s</item>
-        <item quantity="one">تم نسخ %1$d ملفات إلى المجلد %2$s</item>
-        <item quantity="two"></item>
-        <item quantity="few"></item>
-        <item quantity="many"></item>
-        <item quantity="other"></item>
+        <item quantity="zero">لم يتم نسخ أي ملف إلى المجلد %2$s</item>
+        <item quantity="one">تم نسخ %1$d ملف إلى المجلد %2$s</item>
+        <item quantity="two">تم نسخ ملفين إلى المجلد %2$s</item>
+        <item quantity="few">تم نسخ %1$d ملفات إلى المجلد %2$s</item>
+        <item quantity="many">تم نسخ %1$d ملف إلى المجلد %2$s</item>
+        <item quantity="other">تم نسخ %1$d ملف إلى المجلد %2$s</item>
     </plurals>
     <plurals name="file_name_title">
-        <item quantity="zero">اسم الملف</item>
-        <item quantity="one">قائمة الملفات</item>
-        <item quantity="two"></item>
-        <item quantity="few"></item>
-        <item quantity="many"></item>
-        <item quantity="other"></item>
+        <item quantity="zero">لا ملف</item>
+        <item quantity="one">اسم الملف</item>
+        <item quantity="two">اسم الملفين</item>
+        <item quantity="few">قائمةأسماء الملفات</item>
+        <item quantity="many">قائمةأسماء الملفات</item>
+        <item quantity="other">قائمة أسماء الملفات</item>
     </plurals>
     <plurals name="conflicts">
         <item quantity="zero">تعارض (%1$d)</item>
@@ -551,11 +551,11 @@
     <string name="reason_not_within_time_frame_2">لقد قمت بتمكين التشغيل وفقًا لجدول زمني وكانت المزامنة الأخيرة منذ %s.</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="zero">دقيقة واحدة (%d)</item>
-        <item quantity="one">%d دقائق</item>
-        <item quantity="two"></item>
-        <item quantity="few"></item>
-        <item quantity="many"></item>
-        <item quantity="other"></item>
+        <item quantity="one">%d دقيقة</item>
+        <item quantity="two">دقيقتين</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقيقة</item>
+        <item quantity="other">%d دقيقة</item>
     </plurals>
     <string name="reason_not_on_battery_power">الهاتف لا يعمل على طاقة البطارية.</string>
     <string name="reason_not_while_power_saving">Syncthing ليس قيد التشغيل لأن الهاتف حاليًا في وضع توفير الطاقة.</string>
