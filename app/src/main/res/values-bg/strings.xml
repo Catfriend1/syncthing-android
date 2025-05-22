@@ -410,7 +410,7 @@
     <string name="webui_remote_access_summary">Когато е отметнато е разрешен достъпа до уеб интерфейса от друго устройство. Тогава можете да влезете с потребител „syncthing“ и ключа за ППИ като парола. По подразбиране: изключено (най-сигурно)</string>
     <string name="download_support_bundle_title">Изтегляне на пакет за поддръжка</string>
     <string name="download_support_bundle_succeeded">Пакетът за поддръжка е изтеглен в %s.</string>
-    <string name="broadcast_service_control_summary">Подразбирано: Изключено. Когато е отметнато пускате и спирате услугата чрез изпращане на външни сигнали, например от приложения за автоматизация на трети страни. Забележка: Трябва да рестартирате приложението ръчно, след като промените тази настройка.</string>
+    <string name="broadcast_service_control_summary">Подразбирано: Изключено. Когато е отметнато дава възможност на adb или други приложения напр. приложения за автоматизиране да дават инструкции на Syncthing да спазва условията за работа, насилствено да спира или работи.</string>
     <string name="log_to_file_summary">Извежданата информация от SyncthingNative ще бъде запазвана във файл.</string>
     <string name="open_issue_tracker_summary">Отваряне на системата за проследяване на дефекти в %1$s</string>
     <string name="advanced_storage_path_overview">Разширен преглед на пътя на хранилището</string>
