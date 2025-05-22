@@ -1052,7 +1052,6 @@ public class ConfigXml {
             String addressText = addressNode.getTextContent().trim();
             if (!addressText.isEmpty()) {
                 listenAddressesList.add(addressText);
-                Log.e(TAG, "x:[" + addressText + "]");
             }
         }
         options.listenAddresses = listenAddressesList.toArray(new String[0]);
