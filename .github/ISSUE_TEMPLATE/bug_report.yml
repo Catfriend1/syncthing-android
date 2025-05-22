@@ -1,0 +1,100 @@
+name: Bug Report
+description: Report a bug with as much detail as possible to help us reproduce it.
+title: "[Bug] "
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please fill out the following fields as completely as possible.
+
+  - type: input
+    id: issue_description
+    attributes:
+      label: Description of the issue
+      description: A clear and concise description of what the bug is and what you expected to happen.
+      placeholder: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Open the app
+        2. Click on the first folder
+        3. Edit option A
+        4. ...
+        5. I expected that the option is saved. I experienced the app crashed instead.
+    validations:
+      required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: App version
+      placeholder: e.g. v1.2.3.4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install_source
+    attributes:
+      label: App install source - see wiki for details on release channels
+      options:
+        - F-Droid release build
+        - GitHub trusted debug build
+        - GitHub untrusted debug build
+        - GitHub release build
+        - Google Play Store release build
+    validations:
+      required: true
+
+  - type: input
+    id: android_version
+    attributes:
+      label: Android version
+      placeholder: e.g. Android 11
+    validations:
+      required: true
+
+  - type: input
+    id: rom_vendor
+    attributes:
+      label: ROM vendor
+      placeholder: e.g. LineageOS, Stock, Xiaomi.EU
+    validations:
+      required: true
+
+  - type: input
+    id: device_manufacturer
+    attributes:
+      label: Device manufacturer
+      placeholder: e.g. Samsung, Xiaomi, Huawei
+    validations:
+      required: false
+
+  - type: input
+    id: device_model
+    attributes:
+      label: Device model
+      placeholder: e.g. SM-G960F, H815
+    validations:
+      required: false
+
+  - type: textarea
+    id: device_platform_info
+    attributes:
+      label: Device platform info (optional)
+      description: Output of `adb shell "getprop | grep ro.product"`.
+      render: shell
+
+  - type: textarea
+    id: android_log
+    attributes:
+      label: Android log (logcat)
+      description: On Windows, run [adb_get_log.cmd](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/adb_get_log.cmd). On Linux, run `adb logcat *:V`.
+      render: shell
