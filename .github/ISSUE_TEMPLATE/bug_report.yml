@@ -43,7 +43,7 @@ body:
   - type: dropdown
     id: install_source
     attributes:
-      label: App installed from
+      label: App install source - see wiki for details on release channels
       options:
         - F-Droid release build
         - GitHub trusted debug build
@@ -89,12 +89,12 @@ body:
     id: device_platform_info
     attributes:
       label: Device platform info (optional)
-      description: Output of `adb shell "getprop | grep ro.product"` (if available).
+      description: Output of `adb shell "getprop | grep ro.product"`.
       render: shell
 
   - type: textarea
     id: android_log
     attributes:
       label: Android log (logcat)
-      description: Output of `adb logcat` or from a logging app like MatLog.
+      description: On Windows, run [adb_get_log.cmd](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/adb_get_log.cmd). On Linux, run `adb logcat *:V`.
       render: shell
