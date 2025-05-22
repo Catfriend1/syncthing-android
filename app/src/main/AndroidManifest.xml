@@ -42,9 +42,10 @@
     <!--
         Apps can listen to our notifications about sync progress by subscribing to ACTION_NOTIFY_FOLDER_SYNC_COMPLETE,
         see RestApi for more details. To do so, they must declare the following in their app manifest.
+        <uses-permission android:name="com.github.catfriend1.syncthingandroid.debug.permission.RECEIVE_SYNC_STATUS"/>
         <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS"/>
     -->
-    <permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS" 
+    <permission android:name="${applicationId}.permission.RECEIVE_SYNC_STATUS" 
             android:label="RECEIVE_SYNC_STATUS" 
             android:protectionLevel="normal">
     </permission>
