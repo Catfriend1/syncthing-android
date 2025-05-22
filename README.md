@@ -49,13 +49,6 @@ Switching is easier than you may think!
 
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
 
-## Goal of the forked version
-
-- Develop and try out enhancements together
-- Release the wrapper more frequently to identify and fix bugs together caused by changes in the syncthing submodule
-- Make enhancements configurable in the settings UI, e.g. users should be able to turn them on and off
-- Let's get ready for newer Android versions that put limits on background syncing tools. We need your bug reports as detailed as possible
-
 ## Building and Development Notes
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).
