@@ -1,0 +1,89 @@
+name: Bug Report
+description: Report a bug with as much detail as possible to help us reproduce it.
+title: "[Bug] "
+labels: [bug]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please fill out the following fields as completely as possible.
+
+  - type: input
+    id: issue_description
+    attributes:
+      label: Description of the issue
+      description: A clear and concise description of what the bug is and what you expected to happen.
+      placeholder: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Open the app
+        2. ...
+        3. Bug appears
+    validations:
+      required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: App version
+      placeholder: e.g. 1.2.3.4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install_source
+    attributes:
+      label: App installed from
+      options:
+        - GitHub (signed APK)
+        - F-Droid
+        - Google Play Store
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: android_version
+    attributes:
+      label: Android version
+      placeholder: e.g. Android 11 / LineageOS 18.1
+    validations:
+      required: true
+
+  - type: input
+    id: device_manufacturer
+    attributes:
+      label: Device manufacturer
+      placeholder: e.g. Samsung, Xiaomi, Huawei
+    validations:
+      required: false
+
+  - type: input
+    id: device_model
+    attributes:
+      label: Device model
+      placeholder: e.g. SM-G960F, MI 8, H815
+    validations:
+      required: false
+
+  - type: textarea
+    id: device_platform_info
+    attributes:
+      label: Device platform info (optional)
+      description: Output of `adb shell "getprop | grep ro.product"` (if available).
+      render: shell
+
+  - type: textarea
+    id: android_log
+    attributes:
+      label: Android log (logcat)
+      description: Output of `adb logcat` or from a logging app like MatLog.
+      render: shell
