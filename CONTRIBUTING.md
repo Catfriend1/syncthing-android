@@ -22,8 +22,11 @@ You can get logs in various ways:
 
  - Log window in the app: Settings -> Open Log -> Android Log
 
- - Install [adb](http://www.howtogeek.com/125769/how-to-install-and-use-abd-the-android-debug-bridge-utility/), 
-   and run `adb logcat`. To see only info about crashes, run `adb logcat -s *:E`.
+ - Install [adb](http://www.howtogeek.com/125769/how-to-install-and-use-abd-the-android-debug-bridge-utility/)
+ 
+ - On Windows: Run [adb_get_log.cmd](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/adb_get_log.cmd) to grab the log while you reproduce the problem. Please mention the timestamp when the problem occured.
+ 
+ - On Linux: Run `adb logcat *:V`. To see only info about crashes, run `adb logcat -s *:E`.
 
  - Using one of the various "logcat apps" on Google Play and F-Droid
 

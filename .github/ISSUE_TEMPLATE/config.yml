@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: ✨ Request a new Feature
+    url: https://forum.syncthing.net/
+    about: To share your ideas to improve Syncthing-Fork, let's enjoy discussing them with the Syncthing Community on the forum instead of creating an issue here.
+
+  - name: 💬 Support Request or Ask a Question
+    url: https://forum.syncthing.net/
+    about: For general questions or support, please use the Syncthing Community Forum instead of creating an issue here.
