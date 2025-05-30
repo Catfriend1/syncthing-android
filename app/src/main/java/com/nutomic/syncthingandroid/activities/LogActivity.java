@@ -149,7 +149,7 @@ public class LogActivity extends SyncthingActivity {
         private String getLog(final boolean syncthingLog) {
             String output;
             if (syncthingLog) {
-                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time -s SyncthingNativeCode", false);
+                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 200000 -v time -s SyncthingNativeCode", false);
             } else {
                 // Get Android log.
                 output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time *:i ps:s art:s", false);
