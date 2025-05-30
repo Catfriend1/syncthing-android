@@ -310,6 +310,9 @@ public class ConfigXml {
             // Set 'hashers' (see https://github.com/syncthing/syncthing-android/issues/384) on the
             // given folder.
             changed = setConfigElement(r, "hashers", "1") || changed;
+
+            // Disable fsync calls to optimize performance on Android 11+.
+            changed = setConfigElement(r, "disableFsync", true) || changed;
         }
 
         /* Section - GUI */
