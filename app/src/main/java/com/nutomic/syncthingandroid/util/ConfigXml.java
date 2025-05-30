@@ -274,7 +274,12 @@ public class ConfigXml {
     }
 
     public String getWebUIUsername() {
-        return getGuiElement().getElementsByTagName("user").item(0).getTextContent();
+        Node userNode = getGuiElement().getElementsByTagName("user").item(0);
+        if (userNode != null) {
+            String username = userNode.getTextContent();
+            return username != null ? username : "";
+        }
+        return "";
     }
 
     public String getWebUIPassword() {
