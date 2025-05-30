@@ -1189,14 +1189,16 @@ public class RestApi {
 
         // Check if a folder completed synchronization on the local or a remote device.
         if (remoteCompletionInfo.completion == 100) {
-            // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
-            mLocalCompletion.setDiscoveredConflictFiles(
-                    folderId,
-                    Util.getSyncConflictFiles(folder.path)
-            );
-
             final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
             final FolderStatus folderStatus =  cacheEntry.getKey();
+            if (!folderStatus.state.contains("sync")) {
+                // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+                mLocalCompletion.setDiscoveredConflictFiles(
+                        folderId,
+                        Util.getSyncConflictFiles(folder.path)
+                );
+            }
+
             final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
             if (!folderStatus.state.contains("sync") && 
                     cachedFolderStatus.remoteIndexUpdated) {
