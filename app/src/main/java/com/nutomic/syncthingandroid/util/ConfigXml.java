@@ -312,7 +312,7 @@ public class ConfigXml {
             changed = setConfigElement(r, "hashers", "1") || changed;
 
             // Disable fsync calls to optimize performance on Android 11+.
-            changed = setConfigElement(r, "disableFsync", true) || changed;
+            changed = setConfigElement(r, "disableFsync", (new Folder()).disableFsync) || changed;
         }
 
         /* Section - GUI */
