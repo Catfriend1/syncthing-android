@@ -57,7 +57,7 @@ public class SyncthingRunnable implements Runnable {
 
     private Boolean ENABLE_VERBOSE_LOG = false;
     private Boolean LOG_TO_FILE = false;
-    private static final int LOG_FILE_MAX_LINES = 10;
+    private static final int LOG_FILE_MAX_LINES = 200000;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
     private final Context mContext;
