@@ -137,10 +137,8 @@ public class LogActivity extends SyncthingActivity {
             if (logActivity.mShareIntent != null) {
                 logActivity.mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, log);
             }
-            if (!logActivity.mSyncthingLog) {
-                // Scroll Android log to bottom.
-                logActivity.mScrollView.post(() -> logActivity.mScrollView.scrollTo(0, logActivity.mLog.getBottom()));
-            }
+            // Scroll to bottom
+            logActivity.mScrollView.post(() -> logActivity.mScrollView.scrollTo(0, logActivity.mLog.getBottom()));
         }
 
         /**
