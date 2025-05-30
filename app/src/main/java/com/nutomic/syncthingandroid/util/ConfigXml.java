@@ -151,9 +151,6 @@ public class ConfigXml {
             }
         }
 
-        // Set default folder to the "camera" folder: path and name
-        changed = addDcimDefaultFolder() || changed;
-
         /* Section - GUI */
         Element gui = getGuiElement();
         if (gui == null) {
@@ -274,7 +271,12 @@ public class ConfigXml {
     }
 
     public String getWebUIUsername() {
-        return getGuiElement().getElementsByTagName("user").item(0).getTextContent();
+        Node userNode = getGuiElement().getElementsByTagName("user").item(0);
+        if (userNode != null) {
+            String username = userNode.getTextContent();
+            return username != null ? username : "";
+        }
+        return "";
     }
 
     public String getWebUIPassword() {
@@ -354,14 +356,14 @@ public class ConfigXml {
 
         // Disable "startBrowser" because it applies to desktop environments and cannot start a mobile browser app.
         Options defaultOptions = new Options();
-        changed = setConfigElement(options, "startBrowser", Boolean.toString(defaultOptions.startBrowser)) || changed;
+        changed = setConfigElement(options, "startBrowser", defaultOptions.startBrowser) || changed;
         changed = setConfigElement(options, "databaseTuning", defaultOptions.databaseTuning) || changed;
 
         /**
          * Disable Syncthing's NAT feature because it causes kernel oops on some buggy kernels.
          */
         if (Constants.osHasKernelBugIssue505()) {
-            Boolean natEnabledChanged = setConfigElement(options, "natEnabled", Boolean.toString(false));
+            Boolean natEnabledChanged = setConfigElement(options, "natEnabled", false);
             if (natEnabledChanged) {
                 Log.d(TAG, "Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
                 changed = true;
@@ -624,20 +626,20 @@ public class ConfigXml {
                 setConfigElement(r, "copiers", Integer.toString(folder.copiers));
                 setConfigElement(r, "hashers", Integer.toString(folder.hashers));
                 setConfigElement(r, "order", folder.order);
-                setConfigElement(r, "paused", Boolean.toString(folder.paused));
-                setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
-                setConfigElement(r, "copyOwnershipFromParent", Boolean.toString(folder.copyOwnershipFromParent));
+                setConfigElement(r, "paused", folder.paused);
+                setConfigElement(r, "ignoreDelete", folder.ignoreDelete);
+                setConfigElement(r, "copyOwnershipFromParent", folder.copyOwnershipFromParent);
                 setConfigElement(r, "modTimeWindowS", Integer.toString(folder.modTimeWindowS));
                 setConfigElement(r, "blockPullOrder", folder.blockPullOrder);
-                setConfigElement(r, "disableFsync", Boolean.toString(folder.disableFsync));
+                setConfigElement(r, "disableFsync", folder.disableFsync);
                 setConfigElement(r, "maxConcurrentWrites", Integer.toString(folder.maxConcurrentWrites));
                 setConfigElement(r, "maxConflicts", Integer.toString(folder.maxConflicts));
                 setConfigElement(r, "copyRangeMethod", folder.copyRangeMethod);
-                setConfigElement(r, "caseSensitiveFS", Boolean.toString(folder.caseSensitiveFS));
-                setConfigElement(r, "syncOwnership", Boolean.toString(folder.syncOwnership));
-                setConfigElement(r, "sendOwnership", Boolean.toString(folder.sendOwnership));
-                setConfigElement(r, "syncXattrs", Boolean.toString(folder.syncXattrs));
-                setConfigElement(r, "sendXattrs", Boolean.toString(folder.sendXattrs));
+                setConfigElement(r, "caseSensitiveFS", folder.caseSensitiveFS);
+                setConfigElement(r, "syncOwnership", folder.syncOwnership);
+                setConfigElement(r, "sendOwnership", folder.sendOwnership);
+                setConfigElement(r, "syncXattrs", folder.syncXattrs);
+                setConfigElement(r, "sendXattrs", folder.sendXattrs);
                 setConfigElement(r, "filesystemType", folder.filesystemType);
 
                 // Update devices that share this folder.
@@ -731,7 +733,7 @@ public class ConfigXml {
             Element r = (Element) nodeFolders.item(i);
             if (getAttributeOrDefault(r, "id", "").equals(folderId))
             {
-                setConfigElement(r, "paused", Boolean.toString(paused));
+                setConfigElement(r, "paused", paused);
                 break;
             }
         }
@@ -931,9 +933,9 @@ public class ConfigXml {
                     r.setAttribute("introducer", Boolean.toString(device.introducer));
                     r.setAttribute("name", device.name);
 
-                    setConfigElement(r, "autoAcceptFolders", Boolean.toString(device.autoAcceptFolders));
-                    setConfigElement(r, "paused", Boolean.toString(device.paused));
-                    setConfigElement(r, "untrusted", Boolean.toString(device.untrusted));
+                    setConfigElement(r, "autoAcceptFolders", device.autoAcceptFolders);
+                    setConfigElement(r, "paused", device.paused);
+                    setConfigElement(r, "untrusted", device.untrusted);
                     setConfigElement(r, "numConnections", Integer.toString(device.numConnections));
 
                     // Addresses
@@ -1038,9 +1040,9 @@ public class ConfigXml {
         setConfigElement(elementGui, "password", gui.password);
         setConfigElement(elementGui, "apikey", gui.apiKey);
         setConfigElement(elementGui, "theme", gui.theme);
-        setConfigElement(elementGui, "insecureAdminAccess", Boolean.toString(gui.insecureAdminAccess));
-        setConfigElement(elementGui, "insecureAllowFrameLoading", Boolean.toString(gui.insecureAllowFrameLoading));
-        setConfigElement(elementGui, "insecureSkipHostCheck", Boolean.toString(gui.insecureSkipHostCheck));
+        setConfigElement(elementGui, "insecureAdminAccess", gui.insecureAdminAccess);
+        setConfigElement(elementGui, "insecureAllowFrameLoading", gui.insecureAllowFrameLoading);
+        setConfigElement(elementGui, "insecureSkipHostCheck", gui.insecureSkipHostCheck);
     }
 
     public Options getOptions() {
@@ -1121,7 +1123,7 @@ public class ConfigXml {
                 Element r = (Element) node;
                 if (getAttributeOrDefault(r, "id", "").equals(deviceId))
                 {
-                    setConfigElement(r, "paused", Boolean.toString(paused));
+                    setConfigElement(r, "paused", paused);
                     break;
                 }
             }
@@ -1141,6 +1143,10 @@ public class ConfigXml {
             parentElement.removeChild(prev);
         }
         parentElement.removeChild(childElement);
+    }
+
+    private boolean setConfigElement(Element parent, String tagName, Boolean newValue) {
+        return setConfigElement(parent, tagName, Boolean.toString(newValue));
     }
 
     private boolean setConfigElement(Element parent, String tagName, String textContent) {
@@ -1250,62 +1256,6 @@ public class ConfigXml {
         LogV("addSyncthingCameraFolder: Adding folder to config [" + folder.path + "]");
         addFolder(folder);
         return true;
-    }
-
-    /**
-     * Change default folder id to camera and path to camera folder path.
-     * Returns if changes to the config have been made.
-     */
-    private boolean addDcimDefaultFolder() {
-        String dcimPath = Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
-        /**
-         * Do not create the folder in Syncthing, if ".stfolder" already exists.
-         * The user might then have two Syncthing app installations running side by side
-         * or he is just setting things up from scratch (and knows how to create a folder).
-         */
-        if ((new File (dcimPath + "/" + Constants.FILENAME_STFOLDER)).exists()) {
-            Log.v(TAG, "addDcimDefaultFolder: " + Constants.FILENAME_STFOLDER + " from previous installation detected. Will not create the folder in Syncthing for safety reasons.");
-            return false;
-        }
-
-        // Prepare folder element.
-        String deviceModel = Build.MODEL
-                .replace(" ", "_")
-                .toLowerCase(Locale.US)
-                .replaceAll("[^a-z0-9_-]", "");
-        String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
-        Folder folder = new Folder();
-        folder.minDiskFree = new Folder.MinDiskFree();
-        folder.id = mContext.getString(R.string.default_folder_id, defaultFolderId);
-        folder.label = mContext.getString(R.string.default_android_camera_folder_label);
-        folder.path = dcimPath;
-
-        // Add versioning.
-        folder.versioning = new Folder.Versioning();
-        folder.versioning.type = "trashcan";
-        folder.versioning.params.put("cleanoutDays", Integer.toString(14));
-        folder.versioning.cleanupIntervalS = 3600;
-        folder.versioning.fsPath = "";
-        folder.versioning.fsType = "basic";
-
-        // Add folder to config.
-        Log.v(TAG, "addDcimDefaultFolder: Adding folder to config [" + folder.path + "]");
-        addFolder(folder);
-        return true;
-    }
-
-    /**
-     * Generates a random String with a given length
-     */
-    private String generateRandomString(int length) {
-        char[] chars = "abcdefghjkmnpqrstuvwxyz123456789".toCharArray();
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; ++i) {
-            sb.append(chars[random.nextInt(chars.length)]);
-        }
-        return sb.toString();
     }
 
     /**
