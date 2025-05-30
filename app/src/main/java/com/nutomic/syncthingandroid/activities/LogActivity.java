@@ -1,20 +1,24 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.core.view.MenuItemCompat;
-import androidx.appcompat.widget.ShareActionProvider;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.core.content.FileProvider;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.Util;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -73,21 +77,13 @@ public class LogActivity extends SyncthingActivity {
         MenuItem switchLog = menu.findItem(R.id.switch_logs);
         switchLog.setTitle(mSyncthingLog ? R.string.view_android_log : R.string.view_syncthing_log);
 
-        // Add the share button
-        MenuItem shareItem = menu.findItem(R.id.menu_share);
-        ShareActionProvider actionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        mShareIntent = new Intent();
-        mShareIntent.setAction(Intent.ACTION_SEND);
-        mShareIntent.setType("text/plain");
-        mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, mLog.getText());
-        actionProvider.setShareIntent(mShareIntent);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.switch_logs) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.switch_logs) {
             mSyncthingLog = !mSyncthingLog;
             if (mSyncthingLog) {
                 item.setTitle(R.string.view_android_log);
@@ -98,6 +94,7 @@ public class LogActivity extends SyncthingActivity {
             }
             updateLog();
             return true;
+        } else if (itemId == R.id.menu_share_log_file) {
         }
         return super.onOptionsItemSelected(item);
     }
