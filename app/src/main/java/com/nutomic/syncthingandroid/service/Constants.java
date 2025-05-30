@@ -263,7 +263,7 @@ public class Constants {
         return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);
     }
 
-    static File getLogFile(Context context) {
+    public static File getLogFile(Context context) {
         return new File(context.getFilesDir(), "syncthing.log");
     }
 
