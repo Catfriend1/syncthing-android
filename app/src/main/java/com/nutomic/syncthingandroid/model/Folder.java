@@ -60,7 +60,7 @@ public class Folder {
     // see PR #6587: "inorder", "random", "standard"
     public String blockPullOrder = "standard";
     // see PR #6588
-    public Boolean disableFsync = false;
+    public Boolean disableFsync = true;
     // see PR #6573
     public int maxConcurrentWrites = 2;
 
