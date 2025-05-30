@@ -151,9 +151,6 @@ public class ConfigXml {
             }
         }
 
-        // Set default folder to the "camera" folder: path and name
-        changed = addDcimDefaultFolder() || changed;
-
         /* Section - GUI */
         Element gui = getGuiElement();
         if (gui == null) {
@@ -1259,62 +1256,6 @@ public class ConfigXml {
         LogV("addSyncthingCameraFolder: Adding folder to config [" + folder.path + "]");
         addFolder(folder);
         return true;
-    }
-
-    /**
-     * Change default folder id to camera and path to camera folder path.
-     * Returns if changes to the config have been made.
-     */
-    private boolean addDcimDefaultFolder() {
-        String dcimPath = Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
-        /**
-         * Do not create the folder in Syncthing, if ".stfolder" already exists.
-         * The user might then have two Syncthing app installations running side by side
-         * or he is just setting things up from scratch (and knows how to create a folder).
-         */
-        if ((new File (dcimPath + "/" + Constants.FILENAME_STFOLDER)).exists()) {
-            Log.v(TAG, "addDcimDefaultFolder: " + Constants.FILENAME_STFOLDER + " from previous installation detected. Will not create the folder in Syncthing for safety reasons.");
-            return false;
-        }
-
-        // Prepare folder element.
-        String deviceModel = Build.MODEL
-                .replace(" ", "_")
-                .toLowerCase(Locale.US)
-                .replaceAll("[^a-z0-9_-]", "");
-        String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
-        Folder folder = new Folder();
-        folder.minDiskFree = new Folder.MinDiskFree();
-        folder.id = mContext.getString(R.string.default_folder_id, defaultFolderId);
-        folder.label = mContext.getString(R.string.default_android_camera_folder_label);
-        folder.path = dcimPath;
-
-        // Add versioning.
-        folder.versioning = new Folder.Versioning();
-        folder.versioning.type = "trashcan";
-        folder.versioning.params.put("cleanoutDays", Integer.toString(14));
-        folder.versioning.cleanupIntervalS = 3600;
-        folder.versioning.fsPath = "";
-        folder.versioning.fsType = "basic";
-
-        // Add folder to config.
-        Log.v(TAG, "addDcimDefaultFolder: Adding folder to config [" + folder.path + "]");
-        addFolder(folder);
-        return true;
-    }
-
-    /**
-     * Generates a random String with a given length
-     */
-    private String generateRandomString(int length) {
-        char[] chars = "abcdefghjkmnpqrstuvwxyz123456789".toCharArray();
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; ++i) {
-            sb.append(chars[random.nextInt(chars.length)]);
-        }
-        return sb.toString();
     }
 
     /**
