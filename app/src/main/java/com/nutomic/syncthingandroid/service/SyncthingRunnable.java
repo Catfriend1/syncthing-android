@@ -57,7 +57,7 @@ public class SyncthingRunnable implements Runnable {
 
     private Boolean ENABLE_VERBOSE_LOG = false;
     private Boolean LOG_TO_FILE = false;
-    private static final int LOG_FILE_MAX_LINES = 10;
+    private static final int LOG_FILE_MAX_LINES = 200000;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
     private final Context mContext;
@@ -449,7 +449,7 @@ public class SyncthingRunnable implements Runnable {
             int lineCount = lnr.getLineNumber();
             lnr.close();
 
-            File tempFile = new File(FileUtils.getExternalFilesDir(mContext, null), "syncthing.log.tmp");
+            File tempFile = new File(mContext.getFilesDir().toString(), "syncthing.log.tmp");
 
             BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -477,10 +477,6 @@ public class SyncthingRunnable implements Runnable {
 
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
-        File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
-        if (externalFilesDir != null) {
-            targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
-        }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {

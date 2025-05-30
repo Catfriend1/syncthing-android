@@ -1,20 +1,24 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.core.view.MenuItemCompat;
-import androidx.appcompat.widget.ShareActionProvider;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.core.content.FileProvider;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.Util;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -73,21 +77,13 @@ public class LogActivity extends SyncthingActivity {
         MenuItem switchLog = menu.findItem(R.id.switch_logs);
         switchLog.setTitle(mSyncthingLog ? R.string.view_android_log : R.string.view_syncthing_log);
 
-        // Add the share button
-        MenuItem shareItem = menu.findItem(R.id.menu_share);
-        ShareActionProvider actionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        mShareIntent = new Intent();
-        mShareIntent.setAction(Intent.ACTION_SEND);
-        mShareIntent.setType("text/plain");
-        mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, mLog.getText());
-        actionProvider.setShareIntent(mShareIntent);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.switch_logs) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.switch_logs) {
             mSyncthingLog = !mSyncthingLog;
             if (mSyncthingLog) {
                 item.setTitle(R.string.view_android_log);
@@ -97,6 +93,37 @@ public class LogActivity extends SyncthingActivity {
                 setTitle(R.string.android_log_title);
             }
             updateLog();
+            return true;
+        } else if (itemId == R.id.menu_share_log_file) {
+            // ToDo
+            /*
+            if (mSyncthingLog) {
+                File logFile = Constants.getLogFile(this);
+                if (!logFile.exists()) {
+                    Toast.makeText(this, getString(R.string.share_log_file_missing), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                Uri contentUri = FileProvider.getUriForFile(
+                    this,
+                    getPackageName() + ".provider",
+                    logFile
+                );
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_log_file)));
+            } else {
+                // Android log
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, mLog.getText());
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_short_log_via)));
+            }
+            */
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -149,7 +176,7 @@ public class LogActivity extends SyncthingActivity {
         private String getLog(final boolean syncthingLog) {
             String output;
             if (syncthingLog) {
-                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time -s SyncthingNativeCode", false);
+                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 200000 -v time -s SyncthingNativeCode", false);
             } else {
                 // Get Android log.
                 output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time *:i ps:s art:s", false);
