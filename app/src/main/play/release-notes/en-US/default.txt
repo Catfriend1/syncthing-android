@@ -1,12 +1,1 @@
-Updated release signing key which was over 5 years old for security reasons.
-
-To upgrade from a previous release:
-
-* Slide out the menu > Import and Export > Export config
-* Exit app
-* Uninstall app - if Android asks, do NOT keep data (this refers to app data, not your synced files)
-* (Re-)Install app using the latest release
-* Complete the welcome slides
-* Slide out the menu > Import and Export > Import config
-
-If you run into problems, please check issue #1442.
+Hotfix release to address UI lags affecting some users. Only update if you have trouble with UI lag.
