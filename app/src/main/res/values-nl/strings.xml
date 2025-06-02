@@ -8,9 +8,7 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introductie</string>
-    <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing. Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen.
-\n
-\nAls je problemen tegenkomt, meld ze dan via GitHub.</string>
+    <string name="welcome_text">Syncthing is een open-bron-bestandssynchronisatietoepassing. Om gegevens met andere apparaten te delen moet je hun unieke apparaat-ID toevoegen aan de lijst met apparaten. Daarna kan je kiezen welke mappen je met welke apparaten wilt delen. \n\nAls je problemen tegenkomt, meld ze dan via GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Opslagmachtiging</string>
     <string name="storage_permission_desc">Synchting heeft toegang nodig tot je bestanden om ze te kunnen synchroniseren.</string>
@@ -29,7 +27,7 @@
     <string name="generic_example">Voorbeeld</string>
     <string name="generic_error">Fout</string>
     <string name="generic_help">Hulp</string>
-    <string name="grant_permission">Machtiging verlene</string>
+    <string name="grant_permission">Machtiging verlenen</string>
     <string name="permission_granted">Machtiging verleend</string>
     <string name="reason">Reden:</string>
     <string name="accept">Accepteren</string>
@@ -40,14 +38,12 @@
     <string name="share_device_id">Apparaat-ID delen</string>
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Apparaat-ID versturen naar</string>
-    <string name="usage_reporting_dialog_title">Anoniem gebruiksrapportage toestaan\?</string>
-    <string name="usage_reporting_dialog_description">Het versleuteld gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zal je deze dialoog opnieuw te zien krijgen.
-\n
-\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
+    <string name="usage_reporting_dialog_title">Anonieme gebruiksrapportage toestaan?</string>
+    <string name="usage_reporting_dialog_description">Het versleutelde gebruiksrapport wordt dagelijks verzonden. Het wordt gebruikt om veelgebruikte platformen, mapgroottes en applicatieversies te volgen. Indien de gerapporteerde gegevensset wordt veranderd zul je deze dialoog opnieuw te zien krijgen. \n\nDe geaggregeerde statistieken zijn publiek beschikbaar op https://data.syncthing.net.</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="open_website">Website openen</string>
-    <string name="toast_write_storage_permission_required">Schrijftoegang is vereist voor deze applicatie</string>
+    <string name="toast_write_storage_permission_required">Deze app vereist schrijftoegang</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
@@ -85,7 +81,7 @@
     <!-- Same as upload_title with a colon and space appended -->
     <string name="upload_title_colon">"Upload: "</string>
     <!-- Title for current RAM usage -->
-    <string name="ram_usage">RAM-gebrui</string>
+    <string name="ram_usage">RAM-gebruik</string>
     <!-- Title for announce server status -->
     <string name="announce_server">Mededelingsserver</string>
     <string name="restart">Herstarten</string>
@@ -121,14 +117,14 @@
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Het mappad mag niet leeg zijn</string>
     <string name="dialog_discard_changes">Wijzigingen verwerpen\?</string>
-    <string name="ignore_patterns">Patronen negeren</string>
+    <string name="ignore_patterns">Patronen om te negeren</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Apparaat-ID</string>
     <!-- Setting title -->
     <string name="name">Naam</string>
     <!-- Setting title -->
-    <string name="addresses">Adres</string>
+    <string name="addresses">Adressen</string>
     <!-- Setting title -->
     <string name="current_address">Huidig adres</string>
     <!-- Setting title -->
@@ -151,7 +147,7 @@
     <!-- Dialog shown when attempting to remove a device -->
     <string name="remove_device_confirm">Weet je zeker dat je dit apparaat wil verwijderen\?</string>
     <!-- Toast shown when trying to create a device with an empty ID -->
-    <string name="device_id_required">De apparaat-ID kan niet leeg zijn</string>
+    <string name="device_id_required">De apparaat-ID mag niet leeg zijn</string>
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">QR-code scannen</string>
     <!-- Toast show if we could not get root permissions -->
@@ -404,13 +400,13 @@
     <string name="location_permission_desc">Syncthing kan worden geconfigureerd om te werken op geselecteerde Wi-Fi-netwerken. Android vereist dat de app locatie-toestemming heeft om de naam van het actieve Wi-Fi-netwerk te lezen. Als je deze functie wilt gebruiken, druk dan op de knop hierboven. Je kunt deze stap overslaan. Zie ons privacybeleid voor meer informatie.</string>
     <string name="ignore_doze_permission_os_notice">Android TV\'s staan erom bekend dat ze af en toe de app beëindigen wanneer deze op de achtergrond draait. Een oplossing is beschikbaar op de wiki bij ‘%1$s/%2$s’.</string>
     <string name="ignore_doze_permission_desc">Android kan na enige tijd stoppen met synchroniseren. Schakel batterijoptimalisatie uit om dit te voorkomen. Sommige apparaten hebben extra taakdodende apps voorgeïnstalleerd. Je moet Syncthing ook toevoegen aan hun witte lijst.</string>
-    <string name="exception_known_bug_notice">Er is een bekende bug gevonden die nog niet is opgelost. Zie %1$s/%2$s voor meer informatie. Laat vooraf een precieze beschrijving achter van wat er is gebeurd.</string>
+    <string name="exception_known_bug_notice">Er is een bekende bug gevonden die nog niet is opgelost. Zie %1$s/%2$s voor meer informatie. Verschaf ons a.u.b. een nauwkeurige beschrijving van wat hiervoor gebeurde.</string>
     <string name="page_x_of_y">Pagina %1$s van %2$s</string>
     <string name="photo_shoot_intro_missing_permissions">Wij hebben toestemming voor opslag en camera\'s nodig om door te gaan.</string>
     <string name="location_permission_desc_api_29">Tip voor Android 10+: “Altijd toestaan”</string>
     <string name="photo_shoot_intro_permission_title">Vereiste machtigingen</string>
     <string name="photo_shoot_intro_no_camera">Sorry, dit apparaat heeft geen camera.</string>
-    <string name="dialog_exit_while_running_as_service_message">Ter overweging: Je hebt de app geconfigureerd om automatisch te starten bij het opstarten. Daarom controleert het de run-condities en synchroniseert het op elk moment op de achtergrond wanneer de condities overeenkomen. Je moet alleen handmatig stoppen als je tegen ernstige problemen aanloopt. Schakel anders ‘Automatisch starten bij opstarten’ uit in de instellingen. Wil je nu stoppen totdat het apparaat opnieuw is opgestart?</string>
+    <string name="dialog_exit_while_running_as_service_message">Ter overweging: Je hebt de app geconfigureerd om automatisch te starten bij het opstarten. Daarom controleert het de run-condities en synchroniseert het op elk moment op de achtergrond wanneer de condities overeenkomen. Je moet alleen handmatig stoppen als je tegen ernstige problemen aanloopt. Schakel anders ‘Automatisch starten bij opstarten’ uit in de instellingen. Wil je nu stoppen totdat het apparaat opnieuw wordt opgestart?</string>
     <string name="notification_permission_desc">Vereist om meldingen weer te geven over nieuwe apparaatverbindingen, aanvragen voor het delen van mappen en om de service levend en verbonden te houden.</string>
     <string name="main_menu">Hoofdmenu</string>
     <string name="dialog_exit_while_running_as_service_title">Bevestigen om app te verlaten</string>
@@ -418,16 +414,16 @@
     <string name="override_changes_question">Hierdoor worden alle wijzigingen ongedaan gemaakt die zijn aangebracht op de andere apparaten die deze map delen. Doorgaan?</string>
     <string name="open_file_with">Open bestand met</string>
     <string name="revert_local_changes_question">Hiermee worden alle wijzigingen ongedaan gemaakt die op dit apparaat in die map zijn gemaakt. Doorgaan?</string>
-    <string name="button_force_stop">STOPPEN FORCEREN.\nUITVOERWAARDEN NEGEREN</string>
+    <string name="button_force_stop">STOP FORCEREN.\nUITVOERINGSVOORWAARDEN NEGEREN</string>
     <string name="uptime">Uptime</string>
     <string name="discovered_devices_title">Ontdekte apparaten - Tik om te selecteren</string>
-    <string name="toast_invalid_folder_selected">Sorry. De geselecteerde map kan niet worden gebruikt. Selecteer een map op het interne of externe geheugen.</string>
+    <string name="toast_invalid_folder_selected">Sorry. De geselecteerde map kan niet worden gebruikt. Selecteer een map in de interne of externe opslag.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Bestaande mappen omschakelen naar ‘Versleuteld ontvangen’ wordt niet ondersteund.</string>
     <string name="folders">Mappen</string>
     <string name="autoAcceptFolders">Automatisch accepteren</string>
     <string name="untrusted_device">Niet-vertrouwd apparaat</string>
     <string name="device_name_required">De apparaatnaam mag niet leeg zijn</string>
-    <string name="folders_list_empty">Geen mappen geconfigureerd. Tik op om een nieuwe map toe te voegen.</string>
+    <string name="folders_list_empty">Geen mappen geconfigureerd. Tik om een nieuwe map toe te voegen.</string>
     <string name="tip_sync_on_local_network_title">Synchroniseer alleen via het lokale WiFi-netwerk</string>
     <string name="tip_custom_sync_conditions_title">Gebruik per map/apparaat aangepaste synchronisatievoorwaarden</string>
     <string name="tip_phone_ip_address_syntax">TELEFOON_IP_ADRES</string>
@@ -457,20 +453,20 @@
     <string name="category_debug">Probleemoplossing</string>
     <string name="suggest_file_manager_app_dialog_text">We raden je aan om de open-source bestandsbeheer-app ‘Material Files’ te installeren. Wil je de app store openen?</string>
     <string name="device_id_invalid">De apparaat-ID is niet correct geformatteerd. Probeer het opnieuw en voer de juiste ID in.</string>
-    <string name="button_force_start">START FORCEREN. \nUITVOERWAARDEN NEGEREN</string>
+    <string name="button_force_start">START FORCEREN.\nUITVOERINGSVOORWAARDEN NEGEREN</string>
     <string name="folder_path_readonly">Je Android versie geeft Syncthing alleen lees-toegang tot de geselecteerde map.</string>
     <string name="folder_path_readwrite">Je Android versie geeft Syncthing lees- en schrijftoegang tot de geselecteerde map.</string>
-    <string name="button_follow_run_conditions">UITVOERWAARDEN VOLGEN</string>
-    <string name="deviceEncryptionPasswordHint">Als het niet vertrouwt is, voer dan het coderingswachtwoord in</string>
+    <string name="button_follow_run_conditions">UITVOERINGSVOORWAARDEN OPVOLGEN</string>
+    <string name="deviceEncryptionPasswordHint">Als het niet vertrouwd is, voer dan een versleutelingswachtwoord in</string>
     <string name="status_fragment_title">Status</string>
-    <string name="devices_list_empty">Geen apparaten geconfigureerd. Tik op om een nieuw apparaat toe te voegen.</string>
+    <string name="devices_list_empty">Geen apparaten geconfigureerd. Tik om een nieuw apparaat toe te voegen.</string>
     <string name="no_devices_configured">Geen apparaten geconfigureerd. \nBegin nu met het toevoegen van een apparaat.</string>
     <string name="shared_folders_title_colon">"Mappen: "</string>
     <string name="device_syncing_percent_bytes">Synchroniseren (%1$d%%, %2$s)</string>
     <string name="device_state_unused">Ongebruikt</string>
     <string name="syncthing_has_crashed">Syncthing is vastgelopen.</string>
     <string name="untrusted_device_explanation">Alle mappen die worden gedeeld met dit apparaat moeten worden beveiligd met een wachtwoord, zodat alle verzonden gegevens onleesbaar zijn zonder het opgegeven wachtwoord.</string>
-    <string name="discovered_device_list_empty">Lokale ontdekking heeft geen apparaten gevonden op het lokale netwerk. Voer deze app uit op een tweede telefoon. Installatiebestanden voor computers zijn beschikbaar op: %1$s</string>
+    <string name="discovered_device_list_empty">Lokale detectie heeft geen apparaten gevonden op het lokale netwerk. Voer deze app uit op een tweede telefoon. Installatiebestanden voor computers zijn beschikbaar op: %1$s</string>
     <string name="tip_custom_sync_conditions_text">Deze functie zal nog worden verbeterd in toekomstige releases. Voor nu wilden we bestaande configuraties en app-gedrag niet verbreken. Daarom kunnen aangepaste synchronisatievoorwaarden voor een bepaald type netwerk alleen worden ingesteld als je synchronisatie op het netwerk eerst inschakelt in de globale run conditions.</string>
     <string name="tip_ignore_delete_title">Foto\'s back-uppen van telefoon naar computer?</string>
     <string name="advanced_directory_selection">Geavanceerde mappenselectie</string>
@@ -496,4 +492,14 @@
     <string name="run_on_mobile_data_title">Draaien op mobiele data</string>
     <string name="run_on_roaming_title">Uitvoeren tijdens roaming</string>
     <string name="run_on_metered_wifi_summary">Uitvoeren wanneer het apparaat is verbonden met een Wi-Fi-netwerk met een meter, bijvoorbeeld een hotspot of een gekoppeld netwerk. Let op: Dit kan een groot deel van je data-abonnement in beslag nemen als je veel gegevens synchroniseert.</string>
+    <string name="photo_shoot_take_picture_success">Foto succesvol opgeslagen in de Syncthing Camera folder.</string>
+    <string name="default_syncthing_camera_folder_label"></string>
+    <string name="activity_main_bottom_navigation_rescan_all">Alles opnieuw scannen</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d conflict</item>
+        <item quantity="other">%1$d conflicten</item>
+    </plurals>
+    <string name="folder_run_script_description">Geavanceerde optie om scripts uit te voeren nadat de sync-status van een map is gewijzigd. Scripts met naampatroon \".stfolder/*.sh\" zullen worden uitgevoerd; andere locaties worden om veiligheidsredenen niet ondersteund.\nVoorbeeld van een script-aanroep: \".stfolder/rename-files.sh sync_complete\"</string>
+    <string name="photo_shoot_take_picture_failure">Het nemen van een foto is mislukt of afgebroken.</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing Camera heeft uw toestemming nodig om foto\'s te nemen en op uw apparaat op te slaan. Deze functie is optioneel. Geef de toestemmingen om hem te activeren en tik op \"Doorgaan\". We zullen een Syncthing Camera folder aanmaken die u later kunt delen met andere Syncthing apparaten.</string>
 </resources>
