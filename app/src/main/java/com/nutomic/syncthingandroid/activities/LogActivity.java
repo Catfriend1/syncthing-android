@@ -200,11 +200,12 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("W/ActivityThread") ||
                             logline.contains("I/Adreno") ||
-                            logline.contains("AssistStructure") ||
+                            logline.contains("/AssistStructure") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/Choreographer") ||
                             logline.contains("W/chmod") ||
                             logline.contains("/chromium") ||
+                            logline.contains("/ContentCaptureHelper") ||
                             logline.contains("/ContentCatcher") ||
                             logline.contains("/cr_AwContents") ||
                             logline.contains("/cr_base") ||
@@ -219,6 +220,8 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("W/Gralloc3") ||
+                            logline.contains("W/HWUI") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
@@ -231,6 +234,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/sh") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("I/System.out") ||
+                            logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("I/WebViewFactory") ||
