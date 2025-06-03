@@ -493,7 +493,6 @@
     <string name="run_on_roaming_title">Uitvoeren tijdens roaming</string>
     <string name="run_on_metered_wifi_summary">Uitvoeren wanneer het apparaat is verbonden met een Wi-Fi-netwerk met een meter, bijvoorbeeld een hotspot of een gekoppeld netwerk. Let op: Dit kan een groot deel van je data-abonnement in beslag nemen als je veel gegevens synchroniseert.</string>
     <string name="photo_shoot_take_picture_success">Foto succesvol opgeslagen in de Syncthing Camera folder.</string>
-    <string name="default_syncthing_camera_folder_label"></string>
     <string name="activity_main_bottom_navigation_rescan_all">Alles opnieuw scannen</string>
     <plurals name="conflicts">
         <item quantity="one">%1$d conflict</item>
