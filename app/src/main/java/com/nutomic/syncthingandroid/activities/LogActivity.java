@@ -99,35 +99,14 @@ public class LogActivity extends SyncthingActivity {
             updateLog();
             return true;
         } else if (itemId == R.id.menu_share_log_file) {
-            // ToDo
-            /*
             if (mSyncthingLog) {
-                File logFile = Constants.getLogFile(this);
-                if (!logFile.exists()) {
-                    Toast.makeText(this, getString(R.string.share_log_file_missing), Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-
-                Uri contentUri = FileProvider.getUriForFile(
-                    this,
-                    getPackageName() + ".provider",
-                    logFile
-                );
-
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_log_file)));
+                File syncthingLog = Constants.getSyncthingLogFile(this);
+                shareLogFile(syncthingLog);
             } else {
-                // Android log
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, mLog.getText());
-                startActivity(Intent.createChooser(shareIntent, getString(R.string.share_short_log_via)));
+                File androidLog = Constants.getAndroidLogFile(this);
+                // ToDo Overwrite with logcat output.
+                shareLogFile(androidLog);
             }
-            */
             return true;
         }
         return super.onOptionsItemSelected(item);
