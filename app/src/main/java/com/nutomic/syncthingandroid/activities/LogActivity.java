@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,7 +20,10 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -244,6 +248,33 @@ public class LogActivity extends SyncthingActivity {
                 it.set(logline);
             }
             return TextUtils.join("\n", list.toArray(new String[0]));
+        }
+    }
+
+    /**
+     * Stores ignore list for given folder.
+     */
+    public void writeLogFile(final String absoluteFn, String logContent) {
+        File file;
+        FileOutputStream fileOutputStream = null;
+        try {
+            file = new File(absoluteFn);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(logContent.getBytes(StandardCharsets.UTF_8));
+            fileOutputStream.flush();
+        } catch (IOException e) {
+            Log.w(TAG, "writeLogFile: Failed to write '" + absoluteFn + "' #1", e);
+        } finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "writeLogFile: Failed to write '" + absoluteFn + "' #2", e);
+            }
         }
     }
 
