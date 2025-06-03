@@ -772,4 +772,6 @@
         <item quantity="one">%1$d Konflikt</item>
         <item quantity="other">%1$d Konflikte</item>
     </plurals>
+    <string name="share_log_file_missing">Die zu teilende Protokolldatei fehlt.</string>
+    <string name="share_log_file">Protokolldatei teilen</string>
 </resources>
