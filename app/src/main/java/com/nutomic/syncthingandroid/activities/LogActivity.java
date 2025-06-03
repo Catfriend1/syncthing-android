@@ -20,7 +20,9 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.charset.StandardCharsets;
@@ -267,8 +269,31 @@ public class LogActivity extends SyncthingActivity {
      * Read or write log file.
      */
     private static String readLogFile(final File file) {
-        // ToDo
-        return "Test";
+        String content = "";
+        FileInputStream fileInputStream = null;
+        try {
+            if (file.exists()) {
+                fileInputStream = new FileInputStream(file);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
+                byte[] data = new byte[(int) file.length()];
+                fileInputStream.read(data);
+                content = new String(data, StandardCharsets.UTF_8);
+            } else {
+                // File not found.
+                Log.e(TAG, "readLogFile: File missing '" + file.toString() + "'");
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "readLogFile: Failed to read '" + file.toString() + "' #1", e);
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "readLogFile: Failed to read '" + file.toString() + "' #2", e);
+            }
+        }
+        return content;
     }
 
     private static void writeLogFile(final File file, String logContent) {
