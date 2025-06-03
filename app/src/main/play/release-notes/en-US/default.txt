@@ -1,1 +1,1 @@
-Updated SyncthingNative to v1.29.7
+Improve log file share by file provider (fixes #1454) (#1459)
