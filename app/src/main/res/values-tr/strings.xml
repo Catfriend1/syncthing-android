@@ -659,4 +659,6 @@
         <item quantity="one">%1$d çakışma</item>
         <item quantity="other">%1$d çakışma</item>
     </plurals>
+    <string name="share_log_file_missing">Paylaşılacak günlük dosyası eksik.</string>
+    <string name="share_log_file">Günlük dosyasını paylaş</string>
 </resources>
