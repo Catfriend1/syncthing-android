@@ -820,6 +820,10 @@
     <string name="syncthing_log_title">Syncthing Log</string>
     <string name="android_log_title">Android Log</string>
 
+    <string name="share_log_file_missing">The logfile to share is missing.</string>
+
+    <string name="share_log_file">Share log file</string>
+
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">View Android Log</string>
 

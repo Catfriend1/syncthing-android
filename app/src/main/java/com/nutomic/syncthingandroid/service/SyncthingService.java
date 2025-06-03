@@ -987,6 +987,7 @@ public class SyncthingService extends Service {
                             case "first_start":
                             case "advanced_folder_picker":
                             case "bind_network":
+                            case "log_to_file":
                             case "notification_type":
                             case "notify_crashes":
                             case "suggest_new_folder_root":
