@@ -133,6 +133,27 @@ public class LogActivity extends SyncthingActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private boolean shareLogFile(final File logFile) {
+        if (!logFile.exists()) {
+            Toast.makeText(this, getString(R.string.share_log_file_missing), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        Uri contentUri = FileProvider.getUriForFile(
+            this,
+            getPackageName() + ".provider",
+            logFile
+        );
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_log_file)));
+        return true;
+    }
+
     private void updateLog() {
         if (mFetchLogTask != null) {
             mFetchLogTask.cancel(true);
