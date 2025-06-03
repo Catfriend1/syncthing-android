@@ -267,7 +267,7 @@ public class Constants {
      */
     public static File getAndroidLogFile(Context context) {
         // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/cache/android.log
-        return new File(context.getFilesDir(), "android.log");
+        return new File(context.getCacheDir(), "android.log");
     }
 
     public static File getSyncthingLogFile(Context context) {
