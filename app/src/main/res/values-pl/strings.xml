@@ -725,4 +725,6 @@
         <item quantity="many">%1$d konfliktów</item>
         <item quantity="other">%1$d konfliktów</item>
     </plurals>
+    <string name="share_log_file_missing">Brakuje pliku dziennika do udostępnienia.</string>
+    <string name="share_log_file">Udostępnij plik dziennika</string>
 </resources>
