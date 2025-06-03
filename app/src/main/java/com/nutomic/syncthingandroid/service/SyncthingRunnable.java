@@ -104,13 +104,13 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
