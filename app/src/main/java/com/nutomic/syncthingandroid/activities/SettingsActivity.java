@@ -378,7 +378,6 @@ public class SettingsActivity extends SyncthingActivity {
 
             /* Troubleshooting */
             Preference verboseLog                   = findPreference(Constants.PREF_VERBOSE_LOG);
-            Preference logToFile                    = findPreference(Constants.PREF_LOG_TO_FILE);
             Preference openIssueTracker             = findPreference(KEY_OPEN_ISSUE_TRACKER);
             Preference debugFacilitiesEnabled       = findPreference(Constants.PREF_DEBUG_FACILITIES_ENABLED);
             Preference environmentVariables         = findPreference(Constants.PREF_ENVIRONMENT_VARIABLES);
@@ -386,7 +385,6 @@ public class SettingsActivity extends SyncthingActivity {
             Preference stResetDeltas                = findPreference("st_reset_deltas");
 
             verboseLog.setOnPreferenceClickListener(this);
-            logToFile.setOnPreferenceClickListener(this);
             openIssueTracker.setOnPreferenceClickListener(this);
             debugFacilitiesEnabled.setOnPreferenceChangeListener(this);
             environmentVariables.setOnPreferenceChangeListener(this);
@@ -850,14 +848,6 @@ public class SettingsActivity extends SyncthingActivity {
             final Intent intent;
             switch (preference.getKey()) {
                 case Constants.PREF_VERBOSE_LOG:
-                    getAppRestartConfirmationDialog(getActivity())
-                            .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
-                                // Revert.
-                                ((CheckBoxPreference) preference).setChecked(!((CheckBoxPreference) preference).isChecked());
-                            })
-                            .show();
-                    return true;
-                case Constants.PREF_LOG_TO_FILE:
                     getAppRestartConfirmationDialog(getActivity())
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                                 // Revert.
