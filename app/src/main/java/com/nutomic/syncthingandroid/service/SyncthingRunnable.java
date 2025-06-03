@@ -477,7 +477,6 @@ public class SyncthingRunnable implements Runnable {
 
         // Set config, key and database directory.
         targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
-        targetEnv.put("STLOGFLAGS", "0");
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
