@@ -219,12 +219,15 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
+                            logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
-                            logline.contains("W/Gralloc3") ||
+                            logline.contains("W/Gralloc") ||
                             logline.contains("W/HWUI") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
+                            logline.contains("W/libsyncthingnat") ||
+                            logline.contains("W/netstat") ||
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
