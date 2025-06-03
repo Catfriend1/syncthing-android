@@ -1,1 +1,1 @@
-Hotfix release to address UI lags affecting some users. Only update if you have trouble with UI lag.
+Updated SyncthingNative to v1.29.7
