@@ -248,6 +248,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("I/Timeline") ||
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("I/WebViewFactory") ||
+                            logline.contains("WindowOnBackDispatcher") ||
                             logline.contains("I/X509Util") ||
                             logline.contains("/zygote") ||
                             logline.contains("/zygote64")
