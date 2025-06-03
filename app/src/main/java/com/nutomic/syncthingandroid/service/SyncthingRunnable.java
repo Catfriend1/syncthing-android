@@ -56,14 +56,14 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
-    private Boolean LOG_TO_FILE = false;
-    private static final int LOG_FILE_MAX_LINES = 10;
+    private Boolean IS_DEBUGGABLE = false;
+    private static final int LOG_FILE_MAX_LINES = 200000;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
     private final Context mContext;
     private final File mSyncthingBinary;
     private String[] mCommand;
-    private final File mLogFile;
+    private final File mSyncthingLogFile;
     private final boolean mUseRoot;
 
     @Inject
@@ -88,11 +88,11 @@ public class SyncthingRunnable implements Runnable {
     public SyncthingRunnable(Context context, Command command) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
-        LOG_TO_FILE = mPreferences.getBoolean(Constants.PREF_LOG_TO_FILE, false);
+        IS_DEBUGGABLE = Constants.isDebuggable(context);
         mContext = context;
         // Example: mSyncthingBinary="/data/app/com.github.catfriend1.syncthingandroid.debug-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/libsyncthingnative.so"
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
-        mLogFile = Constants.getLogFile(mContext);
+        mSyncthingLogFile = Constants.getSyncthingLogFile(mContext);
 
         // Get preferences relevant to starting syncthing core.
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
@@ -104,13 +104,13 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -134,7 +134,7 @@ public class SyncthingRunnable implements Runnable {
         String capturedStdOut = "";
 
         // Trim Syncthing log.
-        trimLogFile();
+        trimSyncthingLogFile();
 
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
@@ -194,8 +194,8 @@ public class SyncthingRunnable implements Runnable {
                         br.close();
                 }
             } else {
-                lInfo = log(process.getInputStream(), Log.INFO, LOG_TO_FILE);
-                lWarn = log(process.getErrorStream(), Log.WARN, LOG_TO_FILE);
+                lInfo = log(process.getInputStream(), Log.INFO);
+                lWarn = log(process.getErrorStream(), Log.WARN);
             }
 
             niceSyncthing();
@@ -404,20 +404,21 @@ public class SyncthingRunnable implements Runnable {
      *
      * @param is       The stream to log.
      * @param priority The priority level.
-     * @param saveLog  True if the log should be stored to {@link #mLogFile}.
+     * @param saveLog  True if the log should be stored to {@link #mSyncthingLogFile}.
      */
-    private Thread log(final InputStream is, final int priority, final boolean saveLog) {
+    private Thread log(final InputStream is, final int priority) {
         Thread t = new Thread(() -> {
             BufferedReader br = null;
             try {
                 br = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
                 String line;
                 while ((line = br.readLine()) != null) {
-                    Log.println(priority, TAG_NATIVE, line);
-
-                    if (saveLog) {
-                        Files.append(line + "\n", mLogFile, Charsets.UTF_8);
+                    if (IS_DEBUGGABLE) {
+                        String lineWithoutTimestamp = line.replaceFirst("\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2} ?", "");
+                        Log.println(priority, TAG_NATIVE, lineWithoutTimestamp);
                     }
+                    // Always output SynchtingNative's output to "syncthing.log".
+                    Files.append(line + "\n", mSyncthingLogFile, Charsets.UTF_8);
                 }
             } catch (IOException e) {
                 Log.w(TAG, "Failed to read Syncthing's command line output", e);
@@ -437,21 +438,21 @@ public class SyncthingRunnable implements Runnable {
     /**
      * Only keep last {@link #LOG_FILE_MAX_LINES} lines in log file, to avoid bloat.
      */
-    private void trimLogFile() {
-        if (!mLogFile.exists()) {
+    private void trimSyncthingLogFile() {
+        if (!mSyncthingLogFile.exists()) {
             return;
         }
 
         try {
-            LineNumberReader lnr = new LineNumberReader(new FileReader(mLogFile));
+            LineNumberReader lnr = new LineNumberReader(new FileReader(mSyncthingLogFile));
             lnr.skip(Long.MAX_VALUE);
 
             int lineCount = lnr.getLineNumber();
             lnr.close();
 
-            File tempFile = new File(FileUtils.getExternalFilesDir(mContext, null), "syncthing.log.tmp");
+            File tempFile = new File(mContext.getFilesDir().toString(), "syncthing.log.tmp");
 
-            BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
+            BufferedReader reader = new BufferedReader(new FileReader(mSyncthingLogFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
             String currentLine;
@@ -463,7 +464,7 @@ public class SyncthingRunnable implements Runnable {
             }
             writer.close();
             reader.close();
-            tempFile.renameTo(mLogFile);
+            tempFile.renameTo(mSyncthingLogFile);
         } catch (IOException e) {
             Log.w(TAG, "Failed to trim log file", e);
         }
@@ -477,10 +478,6 @@ public class SyncthingRunnable implements Runnable {
 
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
-        File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
-        if (externalFilesDir != null) {
-            targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
-        }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {

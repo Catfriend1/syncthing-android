@@ -1,21 +1,31 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.core.view.MenuItemCompat;
-import androidx.appcompat.widget.ShareActionProvider;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.core.content.FileProvider;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.util.Util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -28,15 +38,20 @@ public class LogActivity extends SyncthingActivity {
 
     private final static String TAG = "LogActivity";
 
+    private static final int ANDROID_LOG_FILE_MAX_LINES = 2000;
+
     /**
      * Show Android Log by default.
      */
-    private boolean mSyncthingLog = false;
+    private boolean mShowSyncthingLog = false;
 
     private TextView mLog;
     private AsyncTask mFetchLogTask = null;
     private ScrollView mScrollView;
     private Intent mShareIntent;
+   
+    private String androidLogContent = "";   
+    private String syncthingLogContent = "";
 
     /**
      * Initialize Log.
@@ -49,20 +64,20 @@ public class LogActivity extends SyncthingActivity {
         setTitle(R.string.android_log_title);
 
         if (savedInstanceState != null) {
-            mSyncthingLog = savedInstanceState.getBoolean("syncthingLog");
+            mShowSyncthingLog = savedInstanceState.getBoolean("showSyncthingLog");
             invalidateOptionsMenu();
         }
 
         mLog = findViewById(R.id.log);
         mScrollView = findViewById(R.id.scroller);
 
-        updateLog();
+        fetchAndViewLog();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("syncthingLog", mSyncthingLog);
+        outState.putBoolean("showSyncthingLog", mShowSyncthingLog);
     }
 
     @Override
@@ -71,38 +86,60 @@ public class LogActivity extends SyncthingActivity {
         inflater.inflate(R.menu.log_list, menu);
 
         MenuItem switchLog = menu.findItem(R.id.switch_logs);
-        switchLog.setTitle(mSyncthingLog ? R.string.view_android_log : R.string.view_syncthing_log);
-
-        // Add the share button
-        MenuItem shareItem = menu.findItem(R.id.menu_share);
-        ShareActionProvider actionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        mShareIntent = new Intent();
-        mShareIntent.setAction(Intent.ACTION_SEND);
-        mShareIntent.setType("text/plain");
-        mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, mLog.getText());
-        actionProvider.setShareIntent(mShareIntent);
+        switchLog.setTitle(mShowSyncthingLog ? R.string.view_android_log : R.string.view_syncthing_log);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.switch_logs) {
-            mSyncthingLog = !mSyncthingLog;
-            if (mSyncthingLog) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.switch_logs) {
+            mShowSyncthingLog = !mShowSyncthingLog;
+            if (mShowSyncthingLog) {
                 item.setTitle(R.string.view_android_log);
                 setTitle(R.string.syncthing_log_title);
             } else {
                 item.setTitle(R.string.view_syncthing_log);
                 setTitle(R.string.android_log_title);
             }
-            updateLog();
+            fetchAndViewLog();
+            return true;
+        } else if (itemId == R.id.menu_share_log_file) {
+            if (mShowSyncthingLog) {
+                File syncthingLog = Constants.getSyncthingLogFile(this);
+                shareLogFile(syncthingLog);
+            } else {
+                File androidLog = Constants.getAndroidLogFile(this);
+                shareLogFile(androidLog);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateLog() {
+    private boolean shareLogFile(final File logFile) {
+        if (!logFile.exists()) {
+            Toast.makeText(this, getString(R.string.share_log_file_missing), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        Uri contentUri = FileProvider.getUriForFile(
+            this,
+            getPackageName() + ".provider",
+            logFile
+        );
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_log_file)));
+        return true;
+    }
+
+    private void fetchAndViewLog() {
         if (mFetchLogTask != null) {
             mFetchLogTask.cancel(true);
         }
@@ -110,33 +147,40 @@ public class LogActivity extends SyncthingActivity {
         mFetchLogTask = new UpdateLogTask(this).execute();
     }
 
-    private static class UpdateLogTask extends AsyncTask<Void, Void, String> {
+    private static class UpdateLogTask extends AsyncTask<Void, Void, Void> {
         private WeakReference<LogActivity> refLogActivity;
 
         UpdateLogTask(LogActivity context) {
             refLogActivity = new WeakReference<>(context);
         }
 
-        protected String doInBackground(Void... params) {
+        protected Void doInBackground(Void... voids) {
             // Get a reference to the activity if it is still there.
             LogActivity logActivity = refLogActivity.get();
             if (logActivity == null || logActivity.isFinishing()) {
                 cancel(true);
-                return "";
+                return null;
             }
-            return getLog(logActivity.mSyncthingLog);
+
+            // Get Android log.
+            logActivity.androidLogContent = getAndroidLog();
+            writeLogFile(Constants.getAndroidLogFile(logActivity), logActivity.androidLogContent);
+
+            // Get SyncthingNative log.
+            logActivity.syncthingLogContent = readLogFile(Constants.getSyncthingLogFile(logActivity));
+            return null;
         }
 
-        protected void onPostExecute(String log) {
+        protected void onPostExecute(Void aVoid) {
             // Get a reference to the activity if it is still there.
             LogActivity logActivity = refLogActivity.get();
             if (logActivity == null || logActivity.isFinishing()) {
                 return;
             }
-            logActivity.mLog.setText(log);
-            if (logActivity.mShareIntent != null) {
-                logActivity.mShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, log);
-            }
+
+            // Show one of the two logs available.
+            logActivity.mLog.setText(logActivity.mShowSyncthingLog ? logActivity.syncthingLogContent : logActivity.androidLogContent);
+
             // Scroll to bottom
             logActivity.mScrollView.post(() -> logActivity.mScrollView.scrollTo(0, logActivity.mLog.getBottom()));
         }
@@ -146,14 +190,8 @@ public class LogActivity extends SyncthingActivity {
          *
          * @param syncthingLog Filter on Syncthing's native messages.
          */
-        private String getLog(final boolean syncthingLog) {
-            String output;
-            if (syncthingLog) {
-                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time -s SyncthingNativeCode", false);
-            } else {
-                // Get Android log.
-                output = Util.runShellCommandGetOutput("/system/bin/logcat -t 900 -v time *:i ps:s art:s", false);
-            }
+        private String getAndroidLog() {
+            String output = Util.runShellCommandGetOutput("/system/bin/logcat -t " + Integer.toString(ANDROID_LOG_FILE_MAX_LINES) + " -v time *:i ps:s art:s", false);
 
             // Filter Android log.
             output = output.replaceAll("I/SyncthingNativeCode", "");
@@ -169,11 +207,12 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("W/ActivityThread") ||
                             logline.contains("I/Adreno") ||
-                            logline.contains("AssistStructure") ||
+                            logline.contains("/AssistStructure") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/Choreographer") ||
                             logline.contains("W/chmod") ||
                             logline.contains("/chromium") ||
+                            logline.contains("/ContentCaptureHelper") ||
                             logline.contains("/ContentCatcher") ||
                             logline.contains("/cr_AwContents") ||
                             logline.contains("/cr_base") ||
@@ -187,10 +226,15 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
+                            logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("W/Gralloc") ||
+                            logline.contains("W/HWUI") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
+                            logline.contains("W/libsyncthingnat") ||
+                            logline.contains("W/netstat") ||
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
@@ -200,9 +244,11 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/sh") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("I/System.out") ||
+                            logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("I/WebViewFactory") ||
+                            logline.contains("WindowOnBackDispatcher") ||
                             logline.contains("I/X509Util") ||
                             logline.contains("/zygote") ||
                             logline.contains("/zygote64")
@@ -217,6 +263,59 @@ public class LogActivity extends SyncthingActivity {
                 it.set(logline);
             }
             return TextUtils.join("\n", list.toArray(new String[0]));
+        }
+    }
+
+    /**
+     * Read or write log file.
+     */
+    private static String readLogFile(final File file) {
+        String content = "";
+        FileInputStream fileInputStream = null;
+        try {
+            if (file.exists()) {
+                fileInputStream = new FileInputStream(file);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
+                byte[] data = new byte[(int) file.length()];
+                fileInputStream.read(data);
+                content = new String(data, StandardCharsets.UTF_8);
+            } else {
+                // File not found.
+                Log.e(TAG, "readLogFile: File missing '" + file.toString() + "'");
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "readLogFile: Failed to read '" + file.toString() + "' #1", e);
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "readLogFile: Failed to read '" + file.toString() + "' #2", e);
+            }
+        }
+        return content;
+    }
+
+    private static void writeLogFile(final File file, String logContent) {
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(logContent.getBytes(StandardCharsets.UTF_8));
+            fileOutputStream.flush();
+        } catch (IOException e) {
+            Log.w(TAG, "writeLogFile: Failed to write '" + file.toString() + "' #1", e);
+        } finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "writeLogFile: Failed to write '" + file.toString() + "' #2", e);
+            }
         }
     }
 

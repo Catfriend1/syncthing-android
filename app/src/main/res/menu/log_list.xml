@@ -8,8 +8,8 @@
         android:title="@string/view_android_log" />
 
       <item
-        android:id="@+id/menu_share"
-        android:title="@string/share_title"
+        android:id="@+id/menu_share_log_file"
+        android:title="@string/share_log_file"
         app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider" />
 
 </menu>

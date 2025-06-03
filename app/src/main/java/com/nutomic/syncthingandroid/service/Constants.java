@@ -62,7 +62,6 @@ public class Constants {
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
-    public static final String PREF_LOG_TO_FILE                 = "log_to_file";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";
     public static final String PREF_DEBUG_FACILITIES_ENABLED    = "debug_facilities_enabled";
 
@@ -263,7 +262,16 @@ public class Constants {
         return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);
     }
 
-    static File getLogFile(Context context) {
+    /**
+     * Log file storage locations.
+     */
+    public static File getAndroidLogFile(Context context) {
+        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/cache/android.log
+        return new File(context.getCacheDir(), "android.log");
+    }
+
+    public static File getSyncthingLogFile(Context context) {
+        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/files/syncthing.log
         return new File(context.getFilesDir(), "syncthing.log");
     }
 
