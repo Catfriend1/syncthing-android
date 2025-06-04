@@ -210,6 +210,7 @@ public class SettingsActivity extends SyncthingActivity {
 
         /* Import and Export */
         private EditTextPreference mBackupFolderName;
+        private EditTextPreference mBackupPassword;
 
         /* Experimental options */
         private CheckBoxPreference mUseWakelock;
@@ -375,6 +376,13 @@ public class SettingsActivity extends SyncthingActivity {
             mBackupFolderName = (EditTextPreference) findPreference(Constants.PREF_BACKUP_FOLDER_NAME);
             mBackupFolderName.setSummary(mBackupFolderName.getText());
             mBackupFolderName.setOnPreferenceChangeListener(this);
+
+            mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);
+            String backupPassword = mBackupPassword.getText();
+            if (!backupPassword.isEmpty()) {
+                mBackupPassword.setSummary(backupPassword + "\n\n" + getString(R.string.backup_password_summary));
+            }
+            mBackupPassword.setOnPreferenceChangeListener(this);
 
             /* Troubleshooting */
             Preference verboseLog                   = findPreference(Constants.PREF_VERBOSE_LOG);
@@ -794,6 +802,9 @@ public class SettingsActivity extends SyncthingActivity {
             switch (preference.getKey()) {
                 case Constants.PREF_BACKUP_FOLDER_NAME:
                     preference.setSummary((String) o);
+                    break;
+                case Constants.PREF_BACKUP_PASSWORD:
+                    preference.setSummary((String) o + "\n\n" + getString(R.string.backup_password_summary));
                     break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
