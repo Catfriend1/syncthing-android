@@ -697,7 +697,8 @@
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
-    <string name="config_import_failed">Config import failed. Go to Settings-Troubleshooting-Open log to see details.</string>
+    <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
+    <string name="config_import_failed_no_path">Config import failed. Go to Settings-Troubleshooting-Open log to see details.</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
     <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>

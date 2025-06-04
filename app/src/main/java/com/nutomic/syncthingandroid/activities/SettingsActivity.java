@@ -1154,7 +1154,7 @@ public class SettingsActivity extends SyncthingActivity {
 
             if (!actionSucceeded) {
                 Toast.makeText(syncthingActivity,
-                        getString(R.string.config_import_failed),
+                        getString(R.string.config_import_failed_no_path),
                         Toast.LENGTH_LONG
                 ).show();
                 return;
