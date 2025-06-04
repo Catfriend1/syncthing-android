@@ -209,11 +209,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.
-\n
-\nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés. \n \nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
