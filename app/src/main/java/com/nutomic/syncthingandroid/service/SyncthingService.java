@@ -861,7 +861,7 @@ public class SyncthingService extends Service {
 
             Constants.getSharedPrefsFile(this),
 
-            new File(this.getFilesDir(), Constants.INDEX_DB_FOLDER)
+            Constants.getIndexDbFolder(this)
         );
 
         // If user set one, apply a password and encrypt the zip file.

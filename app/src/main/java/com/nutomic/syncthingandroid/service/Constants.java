@@ -234,7 +234,11 @@ public class Constants {
     /**
      * Name of the folder containing the index database.
      */
-    public static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
+    private static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
+
+    public static File getIndexDbFolder(Context context) {
+        return new File(context.getFilesDir(), INDEX_DB_FOLDER);
+    }
 
     /**
      * Name of the public HTTPS CA file in the data directory.
