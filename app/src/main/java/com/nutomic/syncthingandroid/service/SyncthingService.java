@@ -948,7 +948,7 @@ public class SyncthingService extends Service {
             return false;
         }
 
-        // Check if ZIP contains required files.
+        // Open ZIP file.
         try {
             // If user set one, get password to decrypt the zip file.
             String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
@@ -962,6 +962,7 @@ public class SyncthingService extends Service {
                 }
             }
 
+            // Check if ZIP archive contains required files.
             List<String> checkFiles = Arrays.asList(
                 Constants.CONFIG_FILE,
 
@@ -974,6 +975,11 @@ public class SyncthingService extends Service {
             for (final String checkFile : checkFiles) {
                 zipFile.getFileHeader(checkFile);
             }
+
+            // Test if supplied encryption password is correct.
+            String cacheDir = this.getCacheDir().getAbsolutePath();
+            zipFile.extractFile(Constants.SHARED_PREFS_FILE, cacheDir);
+            new File(cacheDir, Constants.SHARED_PREFS_FILE).delete();
         } catch (ZipException e) {
             Log.e(TAG, "importConfig: Failed to open zip, " + e.getMessage());
             return false;

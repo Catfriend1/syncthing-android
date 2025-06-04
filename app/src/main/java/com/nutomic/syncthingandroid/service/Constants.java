@@ -263,7 +263,7 @@ public class Constants {
      * Do not use getCacheDir() because the path to import will then be wrong as
      * zipFile.extractAll will write to getFilesDir().
      */
-    private static final String SHARED_PREFS_FILE = "sharedpreferences.dat";
+    public static final String SHARED_PREFS_FILE = "sharedpreferences.dat";
 
     public static File getSharedPrefsFile(Context context) {
         return new File(context.getFilesDir(), SHARED_PREFS_FILE);
