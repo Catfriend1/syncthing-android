@@ -1098,6 +1098,7 @@ public class SettingsActivity extends SyncthingActivity {
                 Toast.makeText(syncthingActivity,
                         getString(R.string.config_export_failed),
                         Toast.LENGTH_LONG).show();
+                startActivity(new Intent(syncthingActivity, LogActivity.class));
                 return;
             }
             Toast.makeText(
@@ -1157,6 +1158,7 @@ public class SettingsActivity extends SyncthingActivity {
                         getString(R.string.config_import_failed_no_path),
                         Toast.LENGTH_LONG
                 ).show();
+                startActivity(new Intent(syncthingActivity, LogActivity.class));
                 return;
             }
             Toast.makeText(syncthingActivity,
