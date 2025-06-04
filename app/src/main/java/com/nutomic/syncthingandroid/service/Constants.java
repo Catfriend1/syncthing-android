@@ -206,7 +206,7 @@ public class Constants {
     /**
      * File in the config folder we write to temporarily before renaming to CONFIG_FILE.
      */
-    static final String CONFIG_TEMP_FILE = "config.xml.tmp";
+    private static final String CONFIG_TEMP_FILE = "config.xml.tmp";
 
     public static File getConfigTempFile(Context context) {
         return new File(context.getFilesDir(), CONFIG_TEMP_FILE);
@@ -256,9 +256,21 @@ public class Constants {
     /**
      * Name of the export file holding the SharedPreferences backup.
      */
-    static final String SHARED_PREFS_EXPORT_FILE = "sharedpreferences.dat";
+    private static final String SHARED_PREFS_FILE = "sharedpreferences.dat";
 
-    static File getSyncthingBinary(Context context) {
+    public static File getSharedPrefsFile(Context context) {
+        return new File(context.getCacheDir(), SHARED_PREFS_FILE);
+    }
+
+    /**
+     * Name of the export zip file.
+     */
+    public static final String ZIP_EXPORT_FILE = "backup.zip";
+
+    /**
+     * Get libsyncthingnative.so absolute path and filename.
+     */
+    public static File getSyncthingBinary(Context context) {
         return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);
     }
 
