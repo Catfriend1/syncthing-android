@@ -434,11 +434,9 @@
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
     <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para permitir a adb o a otras aplicaciones, por ej. aplicaciones de automatización comandar a Syncthing para seguir condiciones, forzar su arranque o su parada.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.
-\n
-\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Se sobreescribirán los ficheros existentes. \n \n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración\? Se sobrescribirán los archivos existentes.</string>
+    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración? Se sobrescribirán los archivos existentes.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">Exportación de configuración fallida, compruebe la salida de logcat.</string>
     <string name="import_config">Importar configuración</string>
