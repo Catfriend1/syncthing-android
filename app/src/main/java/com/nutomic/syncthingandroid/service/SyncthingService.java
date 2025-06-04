@@ -961,6 +961,19 @@ public class SyncthingService extends Service {
                     return false;
                 }
             }
+
+            List<String> checkFiles = Arrays.asList(
+                Constants.CONFIG_FILE,
+
+                Constants.PRIVATE_KEY_FILE,
+                Constants.PUBLIC_KEY_FILE,
+
+                Constants.HTTPS_CERT_FILE,
+                Constants.HTTPS_KEY_FILE
+            );
+            for (final String checkFile : checkFiles) {
+                zipFile.getFileHeader(checkFile);
+            }
         } catch (ZipException e) {
             Log.e(TAG, "importConfig: Failed to open zip, " + e.getMessage());
             return false;
@@ -1005,7 +1018,7 @@ public class SyncthingService extends Service {
 
             Constants.getSharedPrefsFile(this)
         );
-        for (File checkPath : checkPaths) {
+        for (final File checkPath : checkPaths) {
             if (!checkPath.exists()) {
                 Log.e(TAG, "importConfig: Missing file after extraction [" + checkPath.getName() + "]");
                 failSuccess = false;
