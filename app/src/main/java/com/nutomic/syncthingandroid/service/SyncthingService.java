@@ -41,6 +41,7 @@ import java.util.Set;
 import javax.inject.Inject;
 
 import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.model.enums.CompressionLevel;
 import net.lingala.zip4j.model.enums.CompressionMethod;
@@ -952,28 +953,28 @@ public class SyncthingService extends Service {
                 }
                 zipFile.extractAll(this.getFilesDir().getAbsolutePath());
             }
-        // Import config, privateKey and/or publicKey.
-        try {
-            File config = new File(importPath, Constants.CONFIG_FILE);
-            File privateKey = new File(importPath, Constants.PRIVATE_KEY_FILE);
-            File publicKey = new File(importPath, Constants.PUBLIC_KEY_FILE);
-            File httpsCert = new File(importPath, Constants.HTTPS_CERT_FILE);
-            File httpsKey = new File(importPath, Constants.HTTPS_KEY_FILE);
-
-            // Check if necessary files for import are available.
-            if (config.exists() && privateKey.exists() && publicKey.exists()) {
-                Files.copy(config, Constants.getConfigFile(this));
-                Files.copy(privateKey, Constants.getPrivateKeyFile(this));
-                Files.copy(publicKey, Constants.getPublicKeyFile(this));
-                Files.copy(httpsCert, Constants.getHttpsCertFile(this));
-                Files.copy(httpsKey, Constants.getHttpsKeyFile(this));
-            } else {
-                Log.e(TAG, "importConfig: config, privateKey and/or publicKey files missing");
-                failSuccess = false;
-            }
-        } catch (IOException e) {
+        } catch (ZipException e) {
             Log.w(TAG, "importConfig: Failed to import config", e);
             failSuccess = false;
+        }
+
+        // Check if necessary files are present after extraction.
+        List<File> checkPaths = Arrays.asList(
+            Constants.getConfigFile(this),
+
+            Constants.getPrivateKeyFile(this),
+            Constants.getPublicKeyFile(this),
+
+            Constants.getHttpsCertFile(this),
+            Constants.getHttpsKeyFile(this),
+
+            Constants.getSharedPrefsFile(this)
+        );
+        for (File checkPath : checkPaths) {
+            if (!checkPath.exists()) {
+                Log.e(TAG, "importConfig: Missing file after extraction [" + checkPath.getName() + "]");
+                failSuccess = false;
+            }
         }
 
         if (failSuccess) {
