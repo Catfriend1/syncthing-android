@@ -686,14 +686,14 @@
     <string name="dialog_confirm_import">Do you really want to import a new configuration\? Existing files will be overwritten.</string>
 
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Config was exported to %1$s</string>
+    <string name="config_export_successful">Config was exported to %1$s. Please make sure to remember the password for a later import.</string>
     <string name="config_export_failed">Config export failed, check logcat output.</string>
 
     <string name="import_config">Import Configuration</string>
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
-    <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
+    <string name="config_import_failed">Config import failed, make sure files are in %1$s and the correct password was specified.</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
     <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>
