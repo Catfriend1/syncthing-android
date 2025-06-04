@@ -426,9 +426,7 @@
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilitare per consentire ad adb o ad app di terze parti, ad esempio app di automazione, di istruire Syncthing a seguire le condizioni di esecuzione, forzare l\'avvio o forzare l\'arresto.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti.
-\n
-\nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
+    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti. \n \nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Importare una nuova configurazione? I files esistenti verranno sovrascritti.</string>
     <!-- Toast shown after config was exported -->
