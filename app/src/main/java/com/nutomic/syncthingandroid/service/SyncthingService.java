@@ -930,6 +930,29 @@ public class SyncthingService extends Service {
             shutdown(State.DISABLED);
         }
 
+        // If user set one, get password to decrypt the zip file.
+        String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+
+        // Decompress zip file.
+        try {
+            File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
+            File restoreTarget = new File(this.getFilesDir());
+            if (!zipFilePath.exists()) {
+                Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
+                failSuccess = false;
+            } else {
+                ZipFile zipFile;
+                if (zipEncryptionPassword.isEmpty()) {
+                    zipFile = new ZipFile(zipFilePath);
+                } else {
+                    zipFile = new ZipFile(zipFilePath, zipEncryptionPassword.toCharArray());
+                    if (!zipFile.isEncrypted()) {
+                        Log.e(TAG, "importConfig: ZIP file is not encrypted, but password was specified in settings screen. Try to specify an empty password temporarily.");
+                        failSuccess = false;
+                    }
+                }
+                zipFile.extractAll();
+            }
         // Import config, privateKey and/or publicKey.
         try {
             File config = new File(importPath, Constants.CONFIG_FILE);
