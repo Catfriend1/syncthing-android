@@ -149,11 +149,9 @@
     <string name="keep_wakelock_while_binary_running">Buat CPU tetap aktif saat Syncthing berjalan</string>
     <string name="use_tor_title">Gunakan Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Anda yakin ingin mengekspor konfigurasi\? Berkas yang ada akan ditimpa.
-\n
-\nPERINGATAN| Aplikasi lain mungkin bisa membaca kunci privat dari lokasi backup dan menggunakannya untuk mengunduh/mengubah berkas terselaraskan.</string>
+    <string name="dialog_confirm_export">Anda yakin ingin mengekspor konfigurasi? Berkas yang ada akan ditimpa. \n \nPERINGATAN| Aplikasi lain mungkin bisa membaca kunci privat dari lokasi backup dan menggunakannya untuk mengunduh/mengubah berkas terselaraskan.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Anda yakin ingin mengimpor konfigurasi baru\? Berkas yang ada akan ditimpa.</string>
+    <string name="dialog_confirm_import">Anda yakin ingin mengimpor konfigurasi baru? Berkas yang ada akan ditimpa.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Impor Konfigurasi</string>
     <!-- Toast shown after config was imported -->
