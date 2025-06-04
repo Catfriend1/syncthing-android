@@ -31,6 +31,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -813,30 +814,16 @@ public class SyncthingService extends Service {
             shutdown(State.DISABLED);
         }
 
-        // Copy config, privateKey and/or publicKey to export path.
+        // Create export dir if non-existant.
         exportPath.mkdirs();
-        try {
-            Files.copy(Constants.getConfigFile(this),
-                    new File(exportPath, Constants.CONFIG_FILE));
-            Files.copy(Constants.getPrivateKeyFile(this),
-                    new File(exportPath, Constants.PRIVATE_KEY_FILE));
-            Files.copy(Constants.getPublicKeyFile(this),
-                    new File(exportPath, Constants.PUBLIC_KEY_FILE));
-            Files.copy(Constants.getHttpsCertFile(this),
-                    new File(exportPath, Constants.HTTPS_CERT_FILE));
-            Files.copy(Constants.getHttpsKeyFile(this),
-                    new File(exportPath, Constants.HTTPS_KEY_FILE));
-        } catch (IOException e) {
-            Log.w(TAG, "Failed to export config", e);
-            failSuccess = false;
-        }
+        File targetZip = new File(exportPath, Constants.ZIP_EXPORT_FILE);
 
         // Export SharedPreferences.
         File file;
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            file = new File(exportPath, Constants.SHARED_PREFS_EXPORT_FILE);
+            file = Constants.getSharedPrefsFile(this);
             fileOutputStream = new FileOutputStream(file);
             if (!file.exists()) {
                 file.createNewFile();
@@ -861,32 +848,43 @@ public class SyncthingService extends Service {
             }
         }
 
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Log.d(TAG, "exportConfig: Exporting index database");
-            Path databaseSourcePath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-            Path databaseExportPath = Paths.get(exportPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseExportPath)) {
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseExportPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseExportPath + "'" + e);
+        // Make a list of files to backup.
+        List<File> includePaths = Arrays.asList(
+            Constants.getConfigFile(this),
+
+            Constants.getPrivateKeyFile(this),
+            Constants.getPublicKeyFile(this),
+
+            Constants.getHttpsCertFile(this),
+            Constants.getHttpsKeyFile(this),
+
+            Constants.getSharedPrefsFile(this),
+
+            new File(this.getFilesDir(), Constants.INDEX_DB_FOLDER)
+        );
+
+        // Collect files to an encrypted zip file.
+        try {
+
+            ZipParameters parameters = new ZipParameters();
+            parameters.setCompressionMethod(CompressionMethod.DEFLATE);
+            parameters.setCompressionLevel(CompressionLevel.NORMAL);
+            parameters.setEncryptionMethod(EncryptionMethod.AES);
+            parameters.setAesKeyStrength(AesKeyStrength.KEY_STRENGTH_256);
+
+            // Add files.
+            for (File includePath : includePaths) {
+                if (includePath.exists()) {
+                    if (includePath.isFile()) {
+                        zipFile.addFile(includePath, parameters);
+                    } else if (includePath.isDirectory()) {
+                        zipFile.addFolder(includePath, parameters);
+                    }
                 }
             }
-            try {
-                java.nio.file.Files.walk(databaseSourcePath).forEach(source -> {
-                    try {
-                        java.nio.file.Files.copy(source, databaseExportPath.resolve(databaseSourcePath.relativize(source)));
-                    } catch (IOException e) {
-                        Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseExportPath + "'");
-                    }
-                 });
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to copy directory '" + databaseSourcePath + "' to '" + databaseExportPath + "'");
-            }
+        } catch (Exception e) {
+            Log.w(TAG, "Failed to export config", e);
+            failSuccess = false;
         }
         Log.d(TAG, "exportConfig END");
 
