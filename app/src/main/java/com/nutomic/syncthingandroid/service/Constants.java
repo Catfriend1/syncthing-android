@@ -58,7 +58,7 @@ public class Constants {
     public static final String PREF_WEBUI_PASSWORD              = "webui_password";
 
     // Preferences - Import and Export
-    public static final String PREF_BACKUP_FOLDER_NAME          = "backup_folder_name";
+    public static final String PREF_BACKUP_REL_PATH_TO_ZIP      = "backup_rel_path_to_zip";
     public static final String PREF_BACKUP_PASSWORD             = "backup_password";
 
     // Preferences - Troubleshooting
@@ -268,11 +268,6 @@ public class Constants {
     public static File getSharedPrefsFile(Context context) {
         return new File(context.getFilesDir(), SHARED_PREFS_FILE);
     }
-
-    /**
-     * Name of the export zip file.
-     */
-    public static final String ZIP_EXPORT_FILE = "backup.zip";
 
     /**
      * Get libsyncthingnative.so absolute path and filename.

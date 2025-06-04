@@ -322,11 +322,11 @@
         android:title="@string/category_backup">
 
         <EditTextPreference
-            android:key="backup_folder_name"
-            android:title="@string/backup_folder_name"
+            android:key="backup_rel_path_to_zip"
+            android:title="@string/backup_rel_path_to_zip"
             android:summary="@null"
             android:persistent="true"
-            android:defaultValue="backups/syncthing"
+            android:defaultValue="backups/syncthing/config.zip"
             android:inputType="textNoSuggestions" />
 
         <EditTextPreference

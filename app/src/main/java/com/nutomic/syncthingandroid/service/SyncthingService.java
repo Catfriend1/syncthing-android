@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -798,13 +799,25 @@ public class SyncthingService extends Service {
     }
 
     /**
+     * Get backup zip file.
+     * Default: /storage/emulated0/backups/syncthing/config.zip
+     */
+    private final File getBackupZipFile() {
+        String relPathToZip = mPreferences.getString(
+                Constants.PREF_BACKUP_REL_PATH_TO_ZIP,
+                "backups/syncthing/config.zip"
+        );
+        return new File(Environment.getExternalStorageDirectory(), relPathToZip);
+    }
+
+    /**
      * Exports the local config and keys to {@link Constants#EXPORT_PATH}.
      *
      * Test with Android Virtual Device using emulator.
      * cls & adb shell su 0 "ls -a -l -R /data/data/com.github.catfriend1.syncthingandroid.debug/files; echo === SDCARD ===; ls -a -l -R /storage/emulated/0/backups/syncthing"
      *
      */
-    public boolean exportConfig(final File exportPath) {
+    public boolean exportConfig() {
         Boolean failSuccess = true;
         Log.d(TAG, "exportConfig BEGIN");
 
@@ -814,8 +827,8 @@ public class SyncthingService extends Service {
         }
 
         // Create export dir if non-existant.
-        exportPath.mkdirs();
-        File targetZip = new File(exportPath, Constants.ZIP_EXPORT_FILE);
+        File targetZip = getBackupZipFile();
+        targetZip.getParentFile().mkdirs();
 
         // Export SharedPreferences.
         File sharedPreferencesFile = null;
@@ -924,9 +937,9 @@ public class SyncthingService extends Service {
      *
      * @return True if the import was successful, false otherwise (eg if files aren't found).
      */
-    public boolean importConfig(final File importPath) {
+    public boolean importConfig() {
         // Check if ZIP exists.
-        File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
+        File zipFilePath = getBackupZipFile();
         if (!zipFilePath.exists()) {
             Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
             return false;
@@ -1033,7 +1046,7 @@ public class SyncthingService extends Service {
                 sharedPrefsMap = (Map<?, ?>) objectFromInputStream;
 
                 // Store backup folder to restore it back later in the process.
-                String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "");
+                String relPathToZip = mPreferences.getString(Constants.PREF_BACKUP_REL_PATH_TO_ZIP, "");
                 String backupPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
 
                 // Prepare a SharedPreferences commit.
@@ -1045,6 +1058,7 @@ public class SyncthingService extends Service {
                         // Preferences that are no longer used and left-overs from previous versions of the app.
                         case "first_start":
                         case "advanced_folder_picker":
+                        case "backup_folder_name":
                         case "bind_network":
                         case "log_to_file":
                         case "notification_type":
@@ -1086,7 +1100,7 @@ public class SyncthingService extends Service {
                             break;
                     }
                 }
-                editor.putString(Constants.PREF_BACKUP_FOLDER_NAME, backupFolderName);
+                editor.putString(Constants.PREF_BACKUP_REL_PATH_TO_ZIP, relPathToZip);
                 editor.putString(Constants.PREF_BACKUP_PASSWORD, backupPassword);
 
                 /**
