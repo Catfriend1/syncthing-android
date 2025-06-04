@@ -680,9 +680,7 @@
     <string name="broadcast_service_control_summary">Default: Disabled. Enable to let adb or third-party apps, e.g. automation apps instruct Syncthing to follow run conditions, force start or force stop.</string>
 
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.
-\n
-\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
+    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.</string>
 
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Do you really want to import a new configuration\? Existing files will be overwritten.</string>
