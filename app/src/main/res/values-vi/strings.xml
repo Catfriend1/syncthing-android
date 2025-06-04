@@ -432,11 +432,9 @@
     <string name="broadcast_service_control_title">Điều khiển dịch vụ bằng truyền phát</string>
     <string name="broadcast_service_control_summary">Mặc định: Tắt. Hãy bật tùy chọn này để bắt đầu và dừng dịch vụ bằng cách gửi truyền phát, vd: từ các ứng dụng tự động hóa của bên thứ ba. Lưu ý: Bạn phải khởi động lại ứng dụng theo cách thủ công sau khi thay đổi tùy chọn này.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình\? Các tập tin hiện thời sẽ bị ghi đè.
-\n
-\nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
+    <string name="dialog_confirm_export">Có chắc là bạn muốn xuất cấu hình? Các tập tin hiện thời sẽ bị ghi đè. \n \nCẢNH BÁO! Các ứng dụng khác có thể đọc được khoá riêng tư từ vị trí sao lưu và dùng nó để tải về/chỉnh sửa các tập tin đã đồng bộ.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới\? Các tập tin hiện tại sẽ bị chép đè lên.</string>
+    <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới? Các tập tin hiện tại sẽ bị chép đè lên.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">Xuất thiết lập thất bại, hãy kiểm tra đầu ra nhật ký.</string>
     <string name="import_config">Nhập cấu hình</string>
