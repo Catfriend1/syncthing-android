@@ -307,11 +307,9 @@ Android требует разрешение доступа к геолокаци
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Данные не соответствуют синтаксису прокси \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию\? Существующие файлы будут перезаписаны.
-\n
-\nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
+    <string name="dialog_confirm_export">Вы точно хотите экспортировать конфигурацию? Существующие файлы будут перезаписаны. \n \nОСТОРОЖНО! Другие приложения могут иметь возможность считать приватный ключ из резервной копии и использовать его, чтобы загрузить/изменить синхронизируемые файлы.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию\? Существующие файлы будут перезаписаны.</string>
+    <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию? Существующие файлы будут перезаписаны.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Импорт настроек</string>
     <!-- Toast shown after config was imported -->
