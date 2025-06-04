@@ -433,11 +433,9 @@
     <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
     <string name="broadcast_service_control_summary">Standard: Deaktiviert. Diese Option aktivieren, damit adb oder Anwendungen von Drittanbietern, z. B. Automatisierungsanwendungen, Syncthing anweisen können, den Ausführungsbedingungen zu folgen und den Start oder Stopp zu erzwingen.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden\? Vorhandene Dateien werden überschrieben.
-\n
-\nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
+    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden? Vorhandene Dateien werden überschrieben. \n \nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden\? Die vorhandene Konfiguration wird überschrieben.</string>
+    <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden? Die vorhandene Konfiguration wird überschrieben.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">Konfigurationsexport fehlgeschlagen, bitte die Logcat-Ausgabe prüfen.</string>
     <string name="import_config">Konfiguration importieren</string>
