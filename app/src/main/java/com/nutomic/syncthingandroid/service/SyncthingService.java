@@ -864,6 +864,7 @@ public class SyncthingService extends Service {
         );
 
         // If user set one, apply a password and encrypt the zip file.
+        String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
 
         // Compress files to zip file.
         try {
