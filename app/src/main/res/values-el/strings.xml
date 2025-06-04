@@ -161,17 +161,13 @@
     <string name="keep_wakelock_while_binary_running">Διατήρηση της CPU σε ενεργό κατάσταση όσο εκτελείται το Syncthing</string>
     <string name="use_tor_title">Χρήση του Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Σίγουρα επιθυμείτε να εξάγετε τις ρυθμίσεις σας; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.
-\n
-\nΠΡΟΣΟΧΗ! Οι άλλες εφαρμογές ενδέχεται να μπορούν να διαβάσουν το ιδιωτικό κλειδί από την τοποθεσία του αντιγράφου ασφαλείας και να το χρησιμοποιήσουν για τη λήψη/τροποποίηση των συγχρονισμένων αρχείων.</string>
+    <string name="dialog_confirm_export">Σίγουρα επιθυμείτε να εξάγετε τις ρυθμίσεις σας; Τυχόν υπάρχοντα αρχεία θα διαγραφούν. \n \nΠΡΟΣΟΧΗ! Οι άλλες εφαρμογές ενδέχεται να μπορούν να διαβάσουν το ιδιωτικό κλειδί από την τοποθεσία του αντιγράφου ασφαλείας και να το χρησιμοποιήσουν για τη λήψη/τροποποίηση των συγχρονισμένων αρχείων.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Σίγουρα επιθυμείτε να εισάγετε τις νέες ρυθμίσεις; Τυχόν υπάρχοντα αρχεία θα διαγραφούν.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Οι ρυθμίσεις εξήχθησαν στο %1$s</string>
     <string name="import_config">Εισαγωγή ρυθμίσεων</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Οι ρυθμίσεις εισήχθησαν</string>
-    <string name="config_import_failed">Η εισαγωγή ρυθμίσεων απέτυχε, σιγουρευτείτε ότι τα αρχεία βρίσκονται στο %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Επιλογές STTRACE</string>
     <string name="environment_variables">Μεταβλητές περιβάλλοντος</string>

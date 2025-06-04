@@ -434,18 +434,14 @@
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
     <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para permitir a adb o a otras aplicaciones, por ej. aplicaciones de automatización comandar a Syncthing para seguir condiciones, forzar su arranque o su parada.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración\? Se sobreescribirán los ficheros existentes.
-\n
-\n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Se sobreescribirán los ficheros existentes. \n \n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración\? Se sobrescribirán los archivos existentes.</string>
+    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración? Se sobrescribirán los archivos existentes.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">La configuración fue exportada a %1$s</string>
     <string name="config_export_failed">Exportación de configuración fallida, compruebe la salida de logcat.</string>
     <string name="import_config">Importar configuración</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuración importada</string>
-    <string name="config_import_failed">Importación de la configuración fallida, comprueba que los ficheros están en %1$s</string>
     <string name="dialog_settings_restart_app_title">Reinicio requerido</string>
     <string name="dialog_settings_restart_app_question">El cambio de esta opción requiere un reinicio inmediato de la aplicación. Todos los demás cambios serán descartados. ¿Continuar\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -753,7 +749,6 @@
     <string name="webui_username_title">Nombre de usuario de la interfaz web</string>
     <string name="autoAcceptFolders">Aceptar automáticamente</string>
     <string name="webui_password_title">Contraseña de la interfaz de usuario web</string>
-    <string name="backup_folder_name">Nombre de la carpeta de copia de seguridad</string>
     <string name="notification_permission_desc">Requerido para mostrar notificaciones sobre nuevas conexiones de dispositivos, peticiones de uso compartido de carpetas y para mantener el servicio activo y conectado.</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Ejecutar durante %1$d minutos</string>
     <string name="toast_notification_permission_required">La sincronización requiere el permiso de notificación para mantener su servicio activo y conectado.</string>

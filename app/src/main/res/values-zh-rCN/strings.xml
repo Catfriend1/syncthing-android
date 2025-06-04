@@ -432,18 +432,14 @@
     <string name="broadcast_service_control_title">通过广播控制服务</string>
     <string name="broadcast_service_control_summary">默认值：禁用。启用此选项让 adb 或第三方应用，如自动化应用，吩咐 Syncthing 遵照运行条件、强制启动或强制停止。</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。
-\n
-\n警告！其他应用程序可能会从备份位置读取私钥，并使用它来下载/修改同步的文件。</string>
+    <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。 \n \n警告！其他应用程序可能会从备份位置读取私钥，并使用它来下载/修改同步的文件。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">是否确定要导入新配置？现有文件将会覆盖。</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">配置已导出到 %1$s</string>
     <string name="config_export_failed">配置导出失败，请检查日志文档。</string>
     <string name="import_config">导入配置</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">配置已导入</string>
-    <string name="config_import_failed">配置导入失败，请确保文件位于 %1$s</string>
     <string name="dialog_settings_restart_app_title">需要重启</string>
     <string name="dialog_settings_restart_app_question">更改此选项需要立即重启本应用。将会丢弃所有其他更改。是否继续？</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -738,7 +734,6 @@
     <string name="webui_username_title">Web UI 用户名</string>
     <string name="autoAcceptFolders">自动接受</string>
     <string name="webui_password_title">Web UI 密码</string>
-    <string name="backup_folder_name">备份文件夹名</string>
     <string name="notification_permission_desc">需要显示有关新设备连接、文件夹共享请求的通知，并保持服务活动和连接。</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">运行 %1$d 分钟</string>
     <string name="notification_permission_title">通知权限</string>
@@ -764,4 +759,6 @@
     <plurals name="conflicts">
         <item quantity="other">%1$d 个冲突</item>
     </plurals>
+    <string name="share_log_file">分享日志文件</string>
+    <string name="share_log_file_missing">缺少要分享的日志文件。</string>
 </resources>

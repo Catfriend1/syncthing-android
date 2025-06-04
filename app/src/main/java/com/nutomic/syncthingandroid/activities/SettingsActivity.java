@@ -14,7 +14,6 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.CheckBoxPreference;
@@ -209,7 +208,8 @@ public class SettingsActivity extends SyncthingActivity {
         private Preference mDownloadSupportBundle;
 
         /* Import and Export */
-        private EditTextPreference mBackupFolderName;
+        private EditTextPreference mBackupRelPathToZip;
+        private EditTextPreference mBackupPassword;
 
         /* Experimental options */
         private CheckBoxPreference mUseWakelock;
@@ -372,9 +372,13 @@ public class SettingsActivity extends SyncthingActivity {
             Preference importConfig = findPreference("import_config");
             importConfig.setOnPreferenceClickListener(this);
 
-            mBackupFolderName = (EditTextPreference) findPreference("backup_folder_name");
-            mBackupFolderName.setSummary(mBackupFolderName.getText());
-            mBackupFolderName.setOnPreferenceChangeListener(this);
+            mBackupRelPathToZip = (EditTextPreference) findPreference(Constants.PREF_BACKUP_REL_PATH_TO_ZIP);
+            mBackupRelPathToZip.setSummary(mBackupRelPathToZip.getText());
+            mBackupRelPathToZip.setOnPreferenceChangeListener(this);
+
+            mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);;
+            onPreferenceChange(mBackupPassword, mBackupPassword.getText());
+            mBackupPassword.setOnPreferenceChangeListener(this);
 
             /* Troubleshooting */
             Preference verboseLog                   = findPreference(Constants.PREF_VERBOSE_LOG);
@@ -792,8 +796,15 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object o) {
             switch (preference.getKey()) {
-                case Constants.PREF_BACKUP_FOLDER_NAME:
+                case Constants.PREF_BACKUP_REL_PATH_TO_ZIP:
                     preference.setSummary((String) o);
+                    break;
+                case Constants.PREF_BACKUP_PASSWORD:
+                    if (((String) o).isEmpty()) {
+                        preference.setSummary(getString(R.string.backup_password_not_set));
+                    } else {
+                        preference.setSummary(getString(R.string.backup_password_set, (String) o));
+                    }
                     break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
@@ -1042,27 +1053,16 @@ public class SettingsActivity extends SyncthingActivity {
         }
 
         /**
-         * Get backup folder
-         * Default: /storage/emulated0/backups/syncthing
-         */
-        private final File getBackupFolder() {
-            String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "backups/syncthing");
-            return new File(Environment.getExternalStorageDirectory() + "/" + backupFolderName);
-        }
-
-        /**
          * Performs export of settings, config and database in the background.
          */
         private static class ExportConfigTask extends AsyncTask<Void, String, Void> {
             private WeakReference<SettingsFragment> refSettingsFragment;
             private WeakReference<SyncthingService> refSyncthingService;
             Boolean actionSucceeded = false;
-            File backupFolder;
 
             ExportConfigTask(SettingsFragment context, SyncthingService service) {
                 refSettingsFragment = new WeakReference<>(context);
                 refSyncthingService = new WeakReference<>(service);
-                backupFolder = context.getBackupFolder();
             }
 
             @Override
@@ -1072,7 +1072,7 @@ public class SettingsActivity extends SyncthingActivity {
                     cancel(true);
                     return null;
                 }
-                actionSucceeded = syncthingService.exportConfig(backupFolder);
+                actionSucceeded = syncthingService.exportConfig();
                 return null;
             }
 
@@ -1082,14 +1082,14 @@ public class SettingsActivity extends SyncthingActivity {
                 if (settingsFragment == null) {
                     return;
                 }
-                settingsFragment.afterConfigExport(actionSucceeded, backupFolder);
+                settingsFragment.afterConfigExport(actionSucceeded);
             }
         }
 
         /**
          * Called by {@link SyncthingService#exportConfig} after config export.
          */
-        private void afterConfigExport(Boolean actionSucceeded, final File backupFolder) {
+        private void afterConfigExport(Boolean actionSucceeded) {
             SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
             if (syncthingActivity == null || syncthingActivity.isFinishing()) {
                 return;
@@ -1099,11 +1099,14 @@ public class SettingsActivity extends SyncthingActivity {
                 Toast.makeText(syncthingActivity,
                         getString(R.string.config_export_failed),
                         Toast.LENGTH_LONG).show();
+                startActivity(new Intent(syncthingActivity, LogActivity.class));
                 return;
             }
-            Toast.makeText(syncthingActivity,
-                    getString(R.string.config_export_successful,
-                    backupFolder.getAbsolutePath().replace("/storage/emulated/0/", "[/]")), Toast.LENGTH_LONG).show();
+            Toast.makeText(
+                    syncthingActivity,
+                    getString(R.string.config_export_successful_no_path),
+                    Toast.LENGTH_LONG
+            ).show();
             syncthingActivity.finish();
         }
 
@@ -1114,12 +1117,10 @@ public class SettingsActivity extends SyncthingActivity {
             private WeakReference<SettingsFragment> refSettingsFragment;
             private WeakReference<SyncthingService> refSyncthingService;
             Boolean actionSucceeded = false;
-            File backupFolder;
 
             ImportConfigTask(SettingsFragment context, SyncthingService service) {
                 refSettingsFragment = new WeakReference<>(context);
                 refSyncthingService = new WeakReference<>(service);
-                backupFolder = context.getBackupFolder();
             }
 
             @Override
@@ -1129,7 +1130,7 @@ public class SettingsActivity extends SyncthingActivity {
                     cancel(true);
                     return null;
                 }
-                actionSucceeded = syncthingService.importConfig(backupFolder);
+                actionSucceeded = syncthingService.importConfig();
                 return null;
             }
 
@@ -1140,14 +1141,14 @@ public class SettingsActivity extends SyncthingActivity {
                 if (settingsFragment == null) {
                     return;
                 }
-                settingsFragment.afterConfigImport(actionSucceeded, backupFolder);
+                settingsFragment.afterConfigImport(actionSucceeded);
             }
         }
 
         /**
          * Called by {@link SyncthingService#importConfig} after config import.
          */
-        private void afterConfigImport(Boolean actionSucceeded, final File backupFolder) {
+        private void afterConfigImport(Boolean actionSucceeded) {
             SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
             if (syncthingActivity == null || syncthingActivity.isFinishing()) {
                 return;
@@ -1155,9 +1156,11 @@ public class SettingsActivity extends SyncthingActivity {
 
             if (!actionSucceeded) {
                 Toast.makeText(syncthingActivity,
-                    getString(R.string.config_import_failed,
-                    backupFolder.getAbsolutePath().replace("/storage/emulated/0/", "[/]")), Toast.LENGTH_LONG).show();
-                    return;
+                        getString(R.string.config_import_failed_no_path),
+                        Toast.LENGTH_LONG
+                ).show();
+                startActivity(new Intent(syncthingActivity, LogActivity.class));
+                return;
             }
             Toast.makeText(syncthingActivity,
                 getString(R.string.config_imported_successful), Toast.LENGTH_LONG).show();
@@ -1216,7 +1219,7 @@ public class SettingsActivity extends SyncthingActivity {
          * Calculates the size of the syncthing database on disk.
          */
         private String getDatabaseSize() {
-            String dbPath = mContext.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER;
+            String dbPath = Constants.getIndexDbFolder(mContext).getAbsolutePath();
             String result = Util.runShellCommandGetOutput("/system/bin/du -sh " + dbPath, false);
             if (TextUtils.isEmpty(result)) {
                 return "N/A";

@@ -209,17 +209,13 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.
-\n
-\nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés. \n \nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">La configuration a été importée</string>
-    <string name="config_import_failed">Echec de l\'import de la configuration, assurez-vous que les fichiers sont dans %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Options STTRACE</string>
     <string name="environment_variables">Variables d\'environnement</string>
@@ -393,7 +389,7 @@
     <string name="open_file_no_compatible_app">Pas d\'application trouvée pour ouvrir ce fichier.</string>
     <string name="suggest_file_manager_app_dialog_title">Pas d\'application Gestionnaire de fichiers compatible trouvée</string>
     <string name="suggest_file_manager_app_dialog_text">Nous recommandons l\'installation du Gestionnaire de fichiers open-source \'Material Files\'. Voulez-vous ouvrir sa page de magasin d\'applications ?</string>
-    <string name="deviceEncryptionPasswordHint">Entrez ici un mot de passe de chiffrement \nsi vous ne lui faites pas confiance (il ne pourra pas les déchiffrer mais pourra les retransmettre à un appareil tiers qui pourrait connaître ce mot de passe... ou pas)</string>
+    <string name="deviceEncryptionPasswordHint">Mot de passe de chiffrement si non fiable</string>
     <string name="no_devices_configured">Pas d\'appareil configuré.
 \nCommencez par en ajouter un maintenant.</string>
     <string name="device_syncing_percent_bytes">Synchronise (%1$d%%, %2$s)</string>
@@ -510,7 +506,6 @@
     <string name="qs_schedule_disabled">Planning désactivé</string>
     <string name="pull_order_random">Aléatoire</string>
     <string name="undo_ignored_devices_folders_done">Liste purgée.</string>
-    <string name="backup_folder_name">Nom du répertoire de sauvegarde</string>
     <string name="run_on_whitelisted_wifi_summary">Activer la liste blanche des réseaux WiFi permis pour la synchronisation.</string>
     <string name="notification_permission_title">Permission de notifications</string>
     <string name="notification_permission_desc">Nécessaire pour afficher les notifications de nouveaux appareils, nouveaux partages et pour garder le service actif et connecté.</string>
@@ -703,4 +698,6 @@
     <string name="privacy_title">Politique de confidentialité</string>
     <string name="clear_stversions_done">Toutes les corbeilles .stversions ont été vidées avec succès.</string>
     <string name="pizza_url_summary">Juste une caresse comme tranche de sympathie - cerise sur le gâteau, les chat continueront de ronronner.</string>
+    <string name="share_log_file">Journal de partage</string>
+    <string name="share_log_file_missing">Le fichier journal à partager est absent.</string>
 </resources>
