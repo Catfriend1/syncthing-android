@@ -228,8 +228,9 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/DecorView") ||
                             logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("/FrameTracker") ||
                             logline.contains("W/Gralloc") ||
-                            logline.contains("W/HWUI") ||
+                            logline.contains("/HWUI") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
