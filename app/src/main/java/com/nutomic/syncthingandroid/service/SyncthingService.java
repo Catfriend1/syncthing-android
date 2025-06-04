@@ -863,14 +863,24 @@ public class SyncthingService extends Service {
             new File(this.getFilesDir(), Constants.INDEX_DB_FOLDER)
         );
 
-        // Collect files to an encrypted zip file.
-        try {
+        // If user set one, apply a password and encrypt the zip file.
 
+        // Compress files to zip file.
+        try {
             ZipParameters parameters = new ZipParameters();
             parameters.setCompressionMethod(CompressionMethod.DEFLATE);
             parameters.setCompressionLevel(CompressionLevel.NORMAL);
-            parameters.setEncryptionMethod(EncryptionMethod.AES);
-            parameters.setAesKeyStrength(AesKeyStrength.KEY_STRENGTH_256);
+
+            ZipFile zipFile;
+            if (zipEncryptionPassword.isEmpty()) {
+                zipFile = new ZipFile(targetZip);
+                parameters.setEncryptFiles(false);
+            } else {
+                zipFile = new ZipFile(targetZip, zipEncryptionPassword.toCharArray());
+                parameters.setEncryptFiles(true);
+                parameters.setEncryptionMethod(EncryptionMethod.AES);
+                parameters.setAesKeyStrength(AesKeyStrength.KEY_STRENGTH_256);
+            }
 
             // Add files.
             for (File includePath : includePaths) {
