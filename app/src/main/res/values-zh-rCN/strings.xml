@@ -764,4 +764,6 @@
     <plurals name="conflicts">
         <item quantity="other">%1$d 个冲突</item>
     </plurals>
+    <string name="share_log_file">分享日志文件</string>
+    <string name="share_log_file_missing">缺少要分享的日志文件。</string>
 </resources>
