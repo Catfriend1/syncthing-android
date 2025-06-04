@@ -938,6 +938,9 @@ public class SyncthingService extends Service {
      * @return True if the import was successful, false otherwise (eg if files aren't found).
      */
     public boolean importConfig() {
+        ZipFile zipFile = null;
+        Log.d(TAG, "importConfig PRECHECK");
+
         // Check if ZIP exists.
         File zipFilePath = getBackupZipFile();
         if (!zipFilePath.exists()) {
@@ -945,48 +948,49 @@ public class SyncthingService extends Service {
             return false;
         }
 
+        // Check if ZIP contains required files.
+        try {
+            // If user set one, get password to decrypt the zip file.
+            String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+            if (zipEncryptionPassword.isEmpty()) {
+                zipFile = new ZipFile(zipFilePath);
+            } else {
+                zipFile = new ZipFile(zipFilePath, zipEncryptionPassword.toCharArray());
+                if (!zipFile.isEncrypted()) {
+                    Log.e(TAG, "importConfig: ZIP file is not encrypted, but password was specified in settings screen. Try to specify an empty password temporarily.");
+                    return false;
+                }
+            }
+        } catch (ZipException e) {
+            Log.e(TAG, "importConfig: Failed to open zip, " + e.getMessage());
+            return false;
+        }
+
+        // Shutdown SyncthingNative.
         Boolean failSuccess = true;
         Log.d(TAG, "importConfig BEGIN");
-
         if (mCurrentState != State.DISABLED) {
             // Shutdown synchronously.
             shutdown(State.DISABLED);
         }
 
         // Remove database folder if it exists.
-        if (failSuccess) {
-            File databasePath = Constants.getIndexDbFolder(this);
-            if (databasePath.exists()) {
-                Log.d(TAG, "importConfig: Clearing index database");
-                try {
-                    FileUtils.deleteDirectoryRecursively(databasePath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databasePath.getAbsolutePath() + "'" + e);
-                }
+        File databasePath = Constants.getIndexDbFolder(this);
+        if (databasePath.exists()) {
+            Log.d(TAG, "importConfig: Clearing index database");
+            try {
+                FileUtils.deleteDirectoryRecursively(databasePath);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to delete directory '" + databasePath.getAbsolutePath() + "'" + e);
             }
         }
 
-        if (failSuccess) {
-            // If user set one, get password to decrypt the zip file.
-            String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
-
-            // Decompress zip file.
-            try {
-                ZipFile zipFile;
-                if (zipEncryptionPassword.isEmpty()) {
-                    zipFile = new ZipFile(zipFilePath);
-                } else {
-                    zipFile = new ZipFile(zipFilePath, zipEncryptionPassword.toCharArray());
-                    if (!zipFile.isEncrypted()) {
-                        Log.e(TAG, "importConfig: ZIP file is not encrypted, but password was specified in settings screen. Try to specify an empty password temporarily.");
-                        failSuccess = false;
-                    }
-                }
-                zipFile.extractAll(this.getFilesDir().getAbsolutePath());
-            } catch (ZipException e) {
-                Log.e(TAG, "importConfig: Failed to import config, " + e.getMessage());
-                failSuccess = false;
-            }
+        // Decompress zip file.
+        try {
+            zipFile.extractAll(this.getFilesDir().getAbsolutePath());
+        } catch (ZipException e) {
+            Log.e(TAG, "importConfig: Failed to extract zip, " + e.getMessage());
+            failSuccess = false;
         }
 
         // Check if necessary files are present after extraction.
