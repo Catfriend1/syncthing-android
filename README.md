@@ -16,21 +16,6 @@ See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wi
 
 "nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into his mission. It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the spirit of open source.
 
-## Major enhancements in this fork are
-
-- Folder, device and overall sync progress can easily be read off the UI.
-- "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. (deprecated)
-- "Sync every hour" to save even more battery
-- Individual sync conditions can be applied per device and per folder (for expert users).
-- Recent changes UI, click to open files.
-- Changes to folder and device config can be made regardless if syncthing is running or not.
-- UI explains why syncthing is running or not.
-- "Battery eater" problem is fixed.
-- Discover other Syncthing devices on the same network and easily add them.
-- Supports two-way synchronization on external sd cards since Android 11.
-- Supports encrypted folders on untrusted devices.
-- Partial Android 15+ support regarding the run condition monitor due to Android restrictions. Feel free to PR and help here :-).
-
 ## Switching from the (now deprecated) official version
 
 Switching is easier than you may think!
@@ -38,12 +23,14 @@ Switching is easier than you may think!
 - On Syncthing on the official app, go into the settings and create a backup.
 - Confirm you can see that backup in your files.
 - Now stop the official app entirely using the system app settings for Syncthing (force stop the app basically - we need to ensure it's not running).
+- Install Syncthing-Fork [v1.29.7.1](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.7.1)
 - Now start Syncthing-Fork.
 - In the Syncthing-Fork settings, restore the backup you created earlier.
 - Like magic, everything should be as it was in Syncthing official.
 - Confirm everything looks good.
 - Uninstall the official Syncthing app.
 - Delete the syncthing configuration backup from `backups/syncthing`.
+- Upgrade to the [latest Syncthing-Fork version](https://github.com/Catfriend1/syncthing-android/releases/latest)
 
 ## Privacy Policy
 

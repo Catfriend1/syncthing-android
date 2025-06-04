@@ -268,17 +268,13 @@
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
     <string name="use_tor_title">Korzystaj z sieci Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wyeksportować ustawienia\? Istniejące pliki zostaną zastąpione.
-\n
-\nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
+    <string name="dialog_confirm_export">Wyeksportować ustawienia? Istniejące pliki zostaną zastąpione. \n \nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Zaimportować nowe ustawienia\? Istniejące pliki zostaną zastąpione.</string>
+    <string name="dialog_confirm_import">Zaimportować nowe ustawienia? Istniejące pliki zostaną zastąpione.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Wyeksportowano ustawienia do %1$s</string>
     <string name="import_config">Importuj ustawienia</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Zaimportowano ustawienia</string>
-    <string name="config_import_failed">Import konfiguracji nie powiódł się. Upewnij się, że pliki znajdują się w %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opcje STTRACE</string>
     <string name="environment_variables">Zmienne środowiskowe</string>
@@ -484,7 +480,6 @@
     <string name="api_key_copied_to_clipboard">Klucz API Syncthing skopiowano do schowka</string>
     <string name="folder_type_receive_encrypted_description">Przechowuje i synchronizuje tylko zaszyfrowane dane. Foldery na wszystkich podłączonych urządzeniach muszą mieć ustawione to samo hasło lub być typu „Odbierz zaszyfrowane”.</string>
     <string name="reason_not_within_time_frame_2">Włączono opcję „Uruchamiaj zgodnie z harmonogramem”, a ostatnia synchronizacja miała miejsce %s temu.</string>
-    <string name="backup_folder_name">Nazwa folderu kopii zapasowej</string>
     <string name="notification_crash_text">Kliknij, aby wyświetlić dzienniki (%1$s)</string>
     <string name="pull_order">Kolejność pobierania plików</string>
     <string name="toast_invalid_socks_proxy_address">Podana wartość nie zgadza się ze składnią: \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
@@ -725,4 +720,6 @@
         <item quantity="many">%1$d konfliktów</item>
         <item quantity="other">%1$d konfliktów</item>
     </plurals>
+    <string name="share_log_file_missing">Brakuje pliku dziennika do udostępnienia.</string>
+    <string name="share_log_file">Udostępnij plik dziennika</string>
 </resources>

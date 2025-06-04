@@ -15,6 +15,7 @@ guava = "33.4.8-android"
 jbcrypt = "0.4"
 kotlin = "2.1.21"
 libsuperuser = "1.1.1"
+lingala-zip4j = "2.11.5"
 localbroadcastmanager = "1.1.0"
 preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
@@ -49,6 +50,7 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
 libsuperuser = { module = "eu.chainfire:libsuperuser", version.ref = "libsuperuser" }
+lingala-zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "lingala-zip4j" }
 localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
 preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -29,8 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -38,6 +38,14 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
+
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.model.enums.CompressionLevel;
+import net.lingala.zip4j.model.enums.CompressionMethod;
+import net.lingala.zip4j.model.enums.EncryptionMethod;
+import net.lingala.zip4j.model.enums.AesKeyStrength;
 
 /**
  * Holds the native syncthing instance and provides an API to access it.
@@ -791,13 +799,25 @@ public class SyncthingService extends Service {
     }
 
     /**
+     * Get backup zip file.
+     * Default: /storage/emulated0/backups/syncthing/config.zip
+     */
+    private final File getBackupZipFile() {
+        String relPathToZip = mPreferences.getString(
+                Constants.PREF_BACKUP_REL_PATH_TO_ZIP,
+                "backups/syncthing/config.zip"
+        );
+        return new File(Environment.getExternalStorageDirectory(), relPathToZip);
+    }
+
+    /**
      * Exports the local config and keys to {@link Constants#EXPORT_PATH}.
      *
      * Test with Android Virtual Device using emulator.
      * cls & adb shell su 0 "ls -a -l -R /data/data/com.github.catfriend1.syncthingandroid.debug/files; echo === SDCARD ===; ls -a -l -R /storage/emulated/0/backups/syncthing"
      *
      */
-    public boolean exportConfig(final File exportPath) {
+    public boolean exportConfig() {
         Boolean failSuccess = true;
         Log.d(TAG, "exportConfig BEGIN");
 
@@ -806,33 +826,19 @@ public class SyncthingService extends Service {
             shutdown(State.DISABLED);
         }
 
-        // Copy config, privateKey and/or publicKey to export path.
-        exportPath.mkdirs();
-        try {
-            Files.copy(Constants.getConfigFile(this),
-                    new File(exportPath, Constants.CONFIG_FILE));
-            Files.copy(Constants.getPrivateKeyFile(this),
-                    new File(exportPath, Constants.PRIVATE_KEY_FILE));
-            Files.copy(Constants.getPublicKeyFile(this),
-                    new File(exportPath, Constants.PUBLIC_KEY_FILE));
-            Files.copy(Constants.getHttpsCertFile(this),
-                    new File(exportPath, Constants.HTTPS_CERT_FILE));
-            Files.copy(Constants.getHttpsKeyFile(this),
-                    new File(exportPath, Constants.HTTPS_KEY_FILE));
-        } catch (IOException e) {
-            Log.w(TAG, "Failed to export config", e);
-            failSuccess = false;
-        }
+        // Create export dir if non-existant.
+        File targetZip = getBackupZipFile();
+        targetZip.getParentFile().mkdirs();
 
         // Export SharedPreferences.
-        File file;
+        File sharedPreferencesFile = null;
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            file = new File(exportPath, Constants.SHARED_PREFS_EXPORT_FILE);
-            fileOutputStream = new FileOutputStream(file);
-            if (!file.exists()) {
-                file.createNewFile();
+            sharedPreferencesFile = Constants.getSharedPrefsFile(this);
+            fileOutputStream = new FileOutputStream(sharedPreferencesFile);
+            if (!sharedPreferencesFile.exists()) {
+                sharedPreferencesFile.createNewFile();
             }
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(mPreferences.getAll());
@@ -854,32 +860,58 @@ public class SyncthingService extends Service {
             }
         }
 
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Log.d(TAG, "exportConfig: Exporting index database");
-            Path databaseSourcePath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-            Path databaseExportPath = Paths.get(exportPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseExportPath)) {
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseExportPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseExportPath + "'" + e);
+        // Make a list of files to backup.
+        List<File> includePaths = Arrays.asList(
+            Constants.getConfigFile(this),
+
+            Constants.getPrivateKeyFile(this),
+            Constants.getPublicKeyFile(this),
+
+            Constants.getHttpsCertFile(this),
+            Constants.getHttpsKeyFile(this),
+
+            Constants.getSharedPrefsFile(this),
+
+            Constants.getIndexDbFolder(this)
+        );
+
+        // If user set one, apply a password and encrypt the zip file.
+        String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+
+        // Compress files to zip file.
+        try {
+            ZipParameters parameters = new ZipParameters();
+            parameters.setCompressionMethod(CompressionMethod.DEFLATE);
+            parameters.setCompressionLevel(CompressionLevel.NORMAL);
+
+            ZipFile zipFile;
+            if (zipEncryptionPassword.isEmpty()) {
+                zipFile = new ZipFile(targetZip);
+                parameters.setEncryptFiles(false);
+            } else {
+                zipFile = new ZipFile(targetZip, zipEncryptionPassword.toCharArray());
+                parameters.setEncryptFiles(true);
+                parameters.setEncryptionMethod(EncryptionMethod.AES);
+                parameters.setAesKeyStrength(AesKeyStrength.KEY_STRENGTH_256);
+            }
+
+            // Add files.
+            for (File includePath : includePaths) {
+                if (includePath.exists()) {
+                    if (includePath.isFile()) {
+                        zipFile.addFile(includePath, parameters);
+                    } else if (includePath.isDirectory()) {
+                        zipFile.addFolder(includePath, parameters);
+                    }
                 }
             }
-            try {
-                java.nio.file.Files.walk(databaseSourcePath).forEach(source -> {
-                    try {
-                        java.nio.file.Files.copy(source, databaseExportPath.resolve(databaseSourcePath.relativize(source)));
-                    } catch (IOException e) {
-                        Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseExportPath + "'");
-                    }
-                 });
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to copy directory '" + databaseSourcePath + "' to '" + databaseExportPath + "'");
+
+            if (sharedPreferencesFile != null && sharedPreferencesFile.exists()) {
+                sharedPreferencesFile.delete();
             }
+        } catch (Exception e) {
+            Log.w(TAG, "exportConfig: Failed to export config, " + e.getMessage());
+            failSuccess = false;
         }
         Log.d(TAG, "exportConfig END");
 
@@ -905,42 +937,109 @@ public class SyncthingService extends Service {
      *
      * @return True if the import was successful, false otherwise (eg if files aren't found).
      */
-    public boolean importConfig(final File importPath) {
+    public boolean importConfig() {
+        ZipFile zipFile = null;
+        Log.d(TAG, "importConfig PRECHECK");
+
+        // Check if ZIP exists.
+        File zipFilePath = getBackupZipFile();
+        if (!zipFilePath.exists()) {
+            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present at '" + zipFilePath.getAbsolutePath() + "' as specified in the settings screen.");
+            return false;
+        }
+
+        // Open ZIP file.
+        try {
+            // If user set one, get password to decrypt the zip file.
+            String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+            if (zipEncryptionPassword.isEmpty()) {
+                zipFile = new ZipFile(zipFilePath);
+            } else {
+                zipFile = new ZipFile(zipFilePath, zipEncryptionPassword.toCharArray());
+                if (!zipFile.isEncrypted()) {
+                    Log.e(TAG, "importConfig: ZIP file is not encrypted, but password was specified in settings screen. Try to specify an empty password temporarily.");
+                    return false;
+                }
+            }
+
+            // Check if ZIP archive contains required files.
+            List<String> checkFiles = Arrays.asList(
+                Constants.CONFIG_FILE,
+
+                Constants.PRIVATE_KEY_FILE,
+                Constants.PUBLIC_KEY_FILE,
+
+                Constants.HTTPS_CERT_FILE,
+                Constants.HTTPS_KEY_FILE
+            );
+            for (final String checkFile : checkFiles) {
+                if (zipFile.getFileHeader(checkFile) == null) {
+                    Log.e(TAG, "importConfig: Required file not found inside zip [" + checkFile + "]");
+                    return false;
+                }
+            }
+
+            // Test if supplied encryption password is correct.
+            String cacheDir = this.getCacheDir().getAbsolutePath();
+            zipFile.extractFile(Constants.SHARED_PREFS_FILE, cacheDir);
+            new File(cacheDir, Constants.SHARED_PREFS_FILE).delete();
+        } catch (ZipException e) {
+            Log.e(TAG, "importConfig: Failed to open zip, " + e.getMessage());
+            return false;
+        }
+
+        // Shutdown SyncthingNative.
         Boolean failSuccess = true;
         Log.d(TAG, "importConfig BEGIN");
-
         if (mCurrentState != State.DISABLED) {
             // Shutdown synchronously.
             shutdown(State.DISABLED);
         }
 
-        // Import config, privateKey and/or publicKey.
-        try {
-            File config = new File(importPath, Constants.CONFIG_FILE);
-            File privateKey = new File(importPath, Constants.PRIVATE_KEY_FILE);
-            File publicKey = new File(importPath, Constants.PUBLIC_KEY_FILE);
-            File httpsCert = new File(importPath, Constants.HTTPS_CERT_FILE);
-            File httpsKey = new File(importPath, Constants.HTTPS_KEY_FILE);
-
-            // Check if necessary files for import are available.
-            if (config.exists() && privateKey.exists() && publicKey.exists()) {
-                Files.copy(config, Constants.getConfigFile(this));
-                Files.copy(privateKey, Constants.getPrivateKeyFile(this));
-                Files.copy(publicKey, Constants.getPublicKeyFile(this));
-                Files.copy(httpsCert, Constants.getHttpsCertFile(this));
-                Files.copy(httpsKey, Constants.getHttpsKeyFile(this));
-            } else {
-                Log.e(TAG, "importConfig: config, privateKey and/or publicKey files missing");
-                failSuccess = false;
+        // Remove database folder if it exists.
+        File databasePath = Constants.getIndexDbFolder(this);
+        if (databasePath.exists()) {
+            Log.d(TAG, "importConfig: Clearing index database");
+            try {
+                FileUtils.deleteDirectoryRecursively(databasePath);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to delete directory '" + databasePath.getAbsolutePath() + "'" + e);
             }
-        } catch (IOException e) {
-            Log.w(TAG, "importConfig: Failed to import config", e);
+        }
+
+        // Decompress zip file.
+        try {
+            zipFile.extractAll(this.getFilesDir().getAbsolutePath());
+        } catch (ZipException e) {
+            Log.e(TAG, "importConfig: Failed to extract zip, " + e.getMessage());
             failSuccess = false;
         }
 
-        if (failSuccess) {
-            failSuccess = failSuccess && importConfigSharedPrefs(importPath);
-            failSuccess = failSuccess && importConfigDatabase(importPath);
+        // Check if necessary files are present after extraction.
+        List<File> checkPaths = Arrays.asList(
+            Constants.getConfigFile(this),
+
+            Constants.getPrivateKeyFile(this),
+            Constants.getPublicKeyFile(this),
+
+            Constants.getHttpsCertFile(this),
+            Constants.getHttpsKeyFile(this),
+
+            Constants.getSharedPrefsFile(this)
+        );
+        for (final File checkPath : checkPaths) {
+            if (!checkPath.exists()) {
+                Log.e(TAG, "importConfig: Missing file after extraction [" + checkPath.getName() + "]");
+                failSuccess = false;
+            }
+        }
+        
+        // Import shared preferences.
+        File sharedPreferencesFile = Constants.getSharedPrefsFile(this);
+        if (sharedPreferencesFile.exists()) {
+            Log.d(TAG, "importConfig: Importing shared preferences");
+            failSuccess = failSuccess && importConfigSharedPrefs(sharedPreferencesFile);
+            sharedPreferencesFile.delete();
         }
         Log.d(TAG, "importConfig END");
 
@@ -958,102 +1057,85 @@ public class SyncthingService extends Service {
         return failSuccess;
     }
 
-    public boolean importConfigSharedPrefs(final File importPath) {
+    private boolean importConfigSharedPrefs(final File file) {
         Boolean failSuccess = true;
-        File file;
         FileInputStream fileInputStream = null;
         ObjectInputStream objectInputStream = null;
         Map<?, ?> sharedPrefsMap = null;
         try {
-            file = new File(importPath, Constants.SHARED_PREFS_EXPORT_FILE);
-            if (file.exists()) {
-                // Read, deserialize shared preferences.
-                fileInputStream = new FileInputStream(file);
-                objectInputStream = new ObjectInputStream(fileInputStream);
-                Object objectFromInputStream = objectInputStream.readObject();
-                if (objectFromInputStream instanceof Map) {
-                    sharedPrefsMap = (Map<?, ?>) objectFromInputStream;
+            
+            // Read, deserialize shared preferences.
+            fileInputStream = new FileInputStream(file);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+            Object objectFromInputStream = objectInputStream.readObject();
+            if (objectFromInputStream instanceof Map) {
+                sharedPrefsMap = (Map<?, ?>) objectFromInputStream;
 
-                    // Store backup folder to restore it back later in the process.
-                    String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "");
+                // Store backup folder to restore it back later in the process.
+                String relPathToZip = mPreferences.getString(Constants.PREF_BACKUP_REL_PATH_TO_ZIP, "");
+                String backupPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
 
-                    // Prepare a SharedPreferences commit.
-                    SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.clear();
-                    for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
-                        String prefKey = (String) e.getKey();
-                        switch (prefKey) {
-                            // Preferences that are no longer used and left-overs from previous versions of the app.
-                            case "first_start":
-                            case "advanced_folder_picker":
-                            case "bind_network":
-                            case "log_to_file":
-                            case "notification_type":
-                            case "notify_crashes":
-                            case "suggest_new_folder_root":
-                            case "use_legacy_hashing":
-                            case "pref_current_language":
-                            case "restartOnWakeup":
-                                LogV("importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
-                                break;
-                            // Cached information which is not available on SettingsActivity.
-                            case Constants.PREF_BTNSTATE_FORCE_START_STOP:
-                            case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
-                            case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
-                            case Constants.PREF_LAST_BINARY_VERSION:
-                            case Constants.PREF_LOCAL_DEVICE_ID:
-                            case Constants.PREF_LAST_RUN_TIME:
-                                LogV("importConfig: Ignoring cache pref \"" + prefKey + "\".");
-                                break;
-                            default:
-                                Log.i(TAG, "importConfig: Adding pref \"" + prefKey + "\" to commit ...");
-
-                                // The editor only provides typed setters.
-                                if (e.getValue() instanceof Boolean) {
-                                    editor.putBoolean(prefKey, (Boolean) e.getValue());
-                                } else if (e.getValue() instanceof String) {
-                                    editor.putString(prefKey, (String) e.getValue());
-                                } else if (e.getValue() instanceof Integer) {
-                                    editor.putInt(prefKey, (Integer) e.getValue());
-                                } else if (e.getValue() instanceof Float) {
-                                    editor.putFloat(prefKey, (Float) e.getValue());
-                                } else if (e.getValue() instanceof Long) {
-                                    editor.putLong(prefKey, (Long) e.getValue());
-                                } else if (e.getValue() instanceof Set) {
-                                    editor.putStringSet(prefKey, asSet((Set<?>) e.getValue(), String.class));
-                                } else {
-                                    Log.w(TAG, "importConfig: SharedPref type " + e.getValue().getClass().getName() + " is unknown");
-                                }
-                                break;
-                        }
-                    }
-                    editor.putString(Constants.PREF_BACKUP_FOLDER_NAME, backupFolderName);
-
-                    /**
-                     * If all shared preferences have been added to the commit successfully,
-                     * apply the commit.
-                     */
-                    failSuccess = failSuccess && editor.commit();
-                } else {
-                    Log.e(TAG, "importConfig: Invalid object stream");
-                }
-            } else {
-                // File not found.
-                Log.w(TAG, "importConfig: SharedPreferences file missing. This is expected if you migrate from the official app to the forked app.");
-
-                // Parse XML and use apiKey for PREF_WEBUI_PASSWORD as that was the default in the other app.
-                afterFreshServiceInstanceStart();
-                String apiKeyFromXml = mConfig.getApiKey();
-
-                /**
-                 * Don't fail as the file might be expectedly missing when users migrate
-                 * to the forked app. Clear cached info like the local deviceID from prefs.
-                 */
+                // Prepare a SharedPreferences commit.
                 SharedPreferences.Editor editor = mPreferences.edit();
                 editor.clear();
-                // Fix issue 1189
-                editor.putString(Constants.PREF_WEBUI_PASSWORD, apiKeyFromXml);
-                editor.apply();
+                for (Map.Entry<?, ?> e : sharedPrefsMap.entrySet()) {
+                    String prefKey = (String) e.getKey();
+                    switch (prefKey) {
+                        // Preferences that are no longer used and left-overs from previous versions of the app.
+                        case "first_start":
+                        case "advanced_folder_picker":
+                        case "backup_folder_name":
+                        case "bind_network":
+                        case "log_to_file":
+                        case "notification_type":
+                        case "notify_crashes":
+                        case "suggest_new_folder_root":
+                        case "use_legacy_hashing":
+                        case "pref_current_language":
+                        case "restartOnWakeup":
+                            LogV("importConfig: Ignoring deprecated pref \"" + prefKey + "\".");
+                            break;
+                        // Cached information which is not available on SettingsActivity.
+                        case Constants.PREF_BTNSTATE_FORCE_START_STOP:
+                        case Constants.PREF_DEBUG_FACILITIES_AVAILABLE:
+                        case Constants.PREF_EVENT_PROCESSOR_LAST_SYNC_ID:
+                        case Constants.PREF_LAST_BINARY_VERSION:
+                        case Constants.PREF_LOCAL_DEVICE_ID:
+                        case Constants.PREF_LAST_RUN_TIME:
+                            LogV("importConfig: Ignoring cache pref \"" + prefKey + "\".");
+                            break;
+                        default:
+                            Log.i(TAG, "importConfig: Adding pref \"" + prefKey + "\" to commit ...");
+
+                            // The editor only provides typed setters.
+                            if (e.getValue() instanceof Boolean) {
+                                editor.putBoolean(prefKey, (Boolean) e.getValue());
+                            } else if (e.getValue() instanceof String) {
+                                editor.putString(prefKey, (String) e.getValue());
+                            } else if (e.getValue() instanceof Integer) {
+                                editor.putInt(prefKey, (Integer) e.getValue());
+                            } else if (e.getValue() instanceof Float) {
+                                editor.putFloat(prefKey, (Float) e.getValue());
+                            } else if (e.getValue() instanceof Long) {
+                                editor.putLong(prefKey, (Long) e.getValue());
+                            } else if (e.getValue() instanceof Set) {
+                                editor.putStringSet(prefKey, asSet((Set<?>) e.getValue(), String.class));
+                            } else {
+                                Log.w(TAG, "importConfig: SharedPref type " + e.getValue().getClass().getName() + " is unknown");
+                            }
+                            break;
+                    }
+                }
+                editor.putString(Constants.PREF_BACKUP_REL_PATH_TO_ZIP, relPathToZip);
+                editor.putString(Constants.PREF_BACKUP_PASSWORD, backupPassword);
+
+                /**
+                 * If all shared preferences have been added to the commit successfully,
+                 * apply the commit.
+                 */
+                failSuccess = failSuccess && editor.commit();
+            } else {
+                Log.e(TAG, "importConfig: Invalid object stream");
             }
         } catch (IOException | ClassNotFoundException e) {
             Log.e(TAG, "importConfig: Failed to import SharedPreferences #1", e);
@@ -1068,38 +1150,6 @@ public class SyncthingService extends Service {
                 }
             } catch (IOException e) {
                 Log.e(TAG, "importConfig: Failed to import SharedPreferences #2", e);
-            }
-        }
-        return failSuccess;
-    }
-
-    public boolean importConfigDatabase(final File importPath) {
-        boolean failSuccess = true;
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Path databaseImportPath = Paths.get(importPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseImportPath)) {
-                Log.d(TAG, "importConfig: Importing index database");
-                Path databaseTargetPath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseTargetPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseTargetPath + "'" + e);
-                }
-                try {
-                    java.nio.file.Files.walk(databaseImportPath).forEach(source -> {
-                        try {
-                            java.nio.file.Files.copy(source, databaseTargetPath.resolve(databaseImportPath.relativize(source)));
-                        } catch (IOException e) {
-                            Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseTargetPath + "'");
-                        }
-                     });
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to copy directory '" + databaseImportPath + "' to '" + databaseTargetPath + "'");
-                }
             }
         }
         return failSuccess;

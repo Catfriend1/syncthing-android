@@ -78,7 +78,6 @@
     <string name="socks_proxy_address_title">وكيل SOCKS5</string>
     <string name="import_config">استيراد التكوين</string>
     <string name="config_imported_successful">تم استيراد التكوين</string>
-    <string name="config_import_failed">فشل استيراد التكوين، تأكد من وجود الملفات في %1$s</string>
     <string name="st_reset_deltas_question">يجب تنفيذ هذا الإجراء فقط بناءً على توصية من فريق الدعم لدينا. \nهل أنت متأكد أنك تريد مسح فهارس دلتا الخاصة بـ Syncthing؟</string>
     <string name="verbose_log_title">سجل مفصل</string>
     <string name="verbose_log_summary">سيساعد تمكين هذا الخيار في إنشاء سجلات تصحيح الأخطاء بمستوى تفصيلي للغاية.</string>
@@ -151,7 +150,6 @@
     <string name="preference_language_summary">تغيير لغة التطبيق</string>
     <string name="webui_username_title">اسم مستخدم واجهة المستخدم الرسومية للويب</string>
     <string name="download_support_bundle_succeeded">تم تنزيل حزمة الدعم بنجاح إلى %s.</string>
-    <string name="backup_folder_name">اسم مجلد النسخ الاحتياطي</string>
     <string name="export_config">تصدير التكوين</string>
     <string name="do_not_use_proxy">لا يوجد وكيل (بروكسي) مكوّن.</string>
     <string name="toast_invalid_http_proxy_address">الإدخال يخالف صيغة الوكيل \'http://[IP/HOSTNAME]:[PORT]\'</string>
@@ -357,7 +355,6 @@
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">الإذن مطلوب</string>
     <string name="power_source_title">التشغيل عندما يكون الجهاز مزودًا بالطاقة بواسطة</string>
     <string name="global_announce_server">خوادم الاكتشاف العالمية</string>
-    <string name="config_export_successful">تم تصدير التكوين إلى %1$s</string>
     <string name="create_folder_failed">فشل إنشاء المجلد</string>
     <string name="folder_go_up">الانتقال للأعلى</string>
     <string name="syncthing_log_title">سجل Syncthing</string>

@@ -433,14 +433,12 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva. VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
+    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
     <string name="config_export_failed">A konfiguráció exportálása sikertelen, ellenőrizze a hibanaplót.</string>
     <string name="import_config">Konfiguráció importálása</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
-    <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
     <string name="dialog_settings_restart_app_title">Újraindítás szükséges</string>
     <string name="dialog_settings_restart_app_question">Ennek az beállításnak a megváltoztatása az alkalmazás azonnali újraindítását igényli. Minden más módosítás elvetésre kerül. Tovább\?</string>
     <!-- Title for the preference to set STTRACE parameters -->

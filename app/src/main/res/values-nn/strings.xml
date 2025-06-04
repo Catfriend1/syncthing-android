@@ -134,17 +134,13 @@
     <string name="export_config">Eksporter innstillingar</string>
     <string name="keep_wakelock_while_binary_running">Hald prosessoren vaken medan Syncthing køyrer</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vil du verkeleg eksportere innstillingane\? Eksisterande filer vil verte skrivne over.
-\n
-\nÅTVARING: Andre appar kan vere i stand til å lese den private nøkkelen frå tryggingskopien, og bruke den til å laste ned eller endre synkroniserte filer.</string>
+    <string name="dialog_confirm_export">Vil du verkeleg eksportere innstillingane? Eksisterande filer vil verte skrivne over. \n \nÅTVARING: Andre appar kan vere i stand til å lese den private nøkkelen frå tryggingskopien, og bruke den til å laste ned eller endre synkroniserte filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vil du verkeleg importere ei ny innstillingsfil\? Eksisterande filer vil verte skrivne over.</string>
+    <string name="dialog_confirm_import">Vil du verkeleg importere ei ny innstillingsfil? Eksisterande filer vil verte skrivne over.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Innstillingar vart eksportert til %1$s</string>
     <string name="import_config">Importer innstillingar</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Innstillingar vart importerte</string>
-    <string name="config_import_failed">Import av innstillingar mislukkast. Pass på at filene er i %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Nullstill database</string>
     <!-- Syncthing was reset -->
