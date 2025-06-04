@@ -910,7 +910,7 @@ public class SyncthingService extends Service {
                 sharedPreferencesFile.delete();
             }
         } catch (Exception e) {
-            Log.w(TAG, "exportConfig: Failed to export config", e);
+            Log.w(TAG, "exportConfig: Failed to export config, " + e.getMessage());
             failSuccess = false;
         }
         Log.d(TAG, "exportConfig END");
@@ -984,7 +984,7 @@ public class SyncthingService extends Service {
                 }
                 zipFile.extractAll(this.getFilesDir().getAbsolutePath());
             } catch (ZipException e) {
-                Log.e(TAG, "importConfig: Failed to import config", e);
+                Log.e(TAG, "importConfig: Failed to import config, " + e.getMessage());
                 failSuccess = false;
             }
         }
