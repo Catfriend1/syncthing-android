@@ -164,9 +164,7 @@
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud Syncthing běží</string>
     <string name="use_tor_title">Použít Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci\? Existující soubory budou přepsány.
-\n
-\nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
+    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány. \n \nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravdu chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
     <!-- Toast shown after config was exported -->
