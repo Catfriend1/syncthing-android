@@ -894,7 +894,7 @@ public class SyncthingService extends Service {
                 }
             }
         } catch (Exception e) {
-            Log.w(TAG, "Failed to export config", e);
+            Log.w(TAG, "exportConfig: Failed to export config", e);
             failSuccess = false;
         }
         Log.d(TAG, "exportConfig END");
