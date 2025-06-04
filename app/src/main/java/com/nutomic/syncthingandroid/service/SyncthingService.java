@@ -1004,7 +1004,7 @@ public class SyncthingService extends Service {
         ObjectInputStream objectInputStream = null;
         Map<?, ?> sharedPrefsMap = null;
         try {
-            file = new File(importPath, Constants.SHARED_PREFS_EXPORT_FILE);
+            file = Constants.getSharedPrefsFile(this);
             if (file.exists()) {
                 // Read, deserialize shared preferences.
                 fileInputStream = new FileInputStream(file);
@@ -1015,6 +1015,7 @@ public class SyncthingService extends Service {
 
                     // Store backup folder to restore it back later in the process.
                     String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "");
+                    String backupPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
 
                     // Prepare a SharedPreferences commit.
                     SharedPreferences.Editor editor = mPreferences.edit();
@@ -1067,6 +1068,7 @@ public class SyncthingService extends Service {
                         }
                     }
                     editor.putString(Constants.PREF_BACKUP_FOLDER_NAME, backupFolderName);
+                    editor.putString(Constants.PREF_BACKUP_PASSWORD, backupPassword);
 
                     /**
                      * If all shared preferences have been added to the commit successfully,
@@ -1127,17 +1129,6 @@ public class SyncthingService extends Service {
                     FileUtils.deleteDirectoryRecursively(databaseTargetPath);
                 } catch (IOException e) {
                     Log.e(TAG, "Failed to delete directory '" + databaseTargetPath + "'" + e);
-                }
-                try {
-                    java.nio.file.Files.walk(databaseImportPath).forEach(source -> {
-                        try {
-                            java.nio.file.Files.copy(source, databaseTargetPath.resolve(databaseImportPath.relativize(source)));
-                        } catch (IOException e) {
-                            Log.e(TAG, "Failed to copy file '" + source + "' to '" + databaseTargetPath + "'");
-                        }
-                     });
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to copy directory '" + databaseImportPath + "' to '" + databaseTargetPath + "'");
                 }
             }
         }
