@@ -146,11 +146,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Желаете ли да внесете нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Настройките са изнесени в %1$s</string>
     <string name="import_config">Внасяне на настройки</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Настройките са внесени</string>
-    <string name="config_import_failed">Грешка при внасяне на настройките. Уверете се, че файловете са в %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Нулиране на хранилището</string>
     <!-- Syncthing was reset -->
@@ -444,7 +442,6 @@
     <string name="webui_debugging_title">Отстраняване на грешки от интерфейса за уеб</string>
     <string name="download_support_bundle_in_progress">Подготовка на пакет за поддръжка…</string>
     <string name="undo_ignored_devices_folders_question">По този начин ще отмените предишнитете си решения да пренебрегнете устройства и папки. Желаете ли да продължите?</string>
-    <string name="backup_folder_name">Име на папката за резервни копия</string>
     <string name="config_export_failed">Грешка при изнасяне на настройните, проверете в дневника.</string>
     <string name="dialog_settings_restart_app_title">Необходим е рестарт</string>
     <string name="st_reset_deltas_title">Нулиране на промените на индексите</string>

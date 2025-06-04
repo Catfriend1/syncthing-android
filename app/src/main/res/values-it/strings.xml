@@ -426,18 +426,14 @@
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilitare per consentire ad adb o ad app di terze parti, ad esempio app di automazione, di istruire Syncthing a seguire le condizioni di esecuzione, forzare l\'avvio o forzare l\'arresto.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti.
-\n
-\nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
+    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti. \n \nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Importare una nuova configurazione? I files esistenti verranno sovrascritti.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Config è stata esportata in %1$s</string>
     <string name="config_export_failed">Impossibile esportare la configurazione, controlla il logcat.</string>
     <string name="import_config">Importa Configurazione</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configurazione importata</string>
-    <string name="config_import_failed">Importazione della configurazione fallita. Assicurarsi che i file siano in %1$s</string>
     <string name="dialog_settings_restart_app_title">Riavvio necessario</string>
     <string name="dialog_settings_restart_app_question">La modifica di questa opzione richiede il riavvio immediato dell\'app. Tutti gli altri cambiamenti verranno ignoranti. Vuoi continuare\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -745,7 +741,6 @@
     <string name="notification_permission_desc">Necessario per mostrare notifiche relative a nuove connessioni di dispositivi, richieste di condivisione di cartelle e per mantenere il servizio vivo e connesso.</string>
     <string name="toast_notification_permission_required">Syncthing richiede il permesso di notifica per mantenere il servizio in vita e connesso.</string>
     <string name="notification_permission_title">Autorizzazione di notifica</string>
-    <string name="backup_folder_name">Nome cartella di backup</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Attenzione: Se SyncthingNative viene interrotto e fa qualcosa di strano, la responsabilità è vostra. Saltate solo se il vostro dispositivo non supporta l\'autorizzazione. Saltare davvero?</string>
     <string name="autoAcceptFolders">Auto Accetta</string>
     <string name="webui_username_title">Utente Web UI</string>

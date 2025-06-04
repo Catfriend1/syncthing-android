@@ -362,17 +362,13 @@
     <string name="toast_invalid_http_proxy_address">Entrada viola sintaxe do proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_summary">Padrão: Desativado. Ative esta opção para iniciar e parar o serviço enviando broadcasts, por exemplo. de aplicativos de automação de terceiros. Nota: Você precisa reiniciar o aplicativo manualmente após alterar esta opção.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Quer mesmo exportar a configuração\? Arquivos existentes serão sobrescritos.
-\n
-\nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
+    <string name="dialog_confirm_export">Quer mesmo exportar a configuração? Arquivos existentes serão sobrescritos. \n \nAVISO! Outros aplicativos poderão ler a chave privada do arquivo de backup e usá-la para ler e escrever seus arquivos sincronizados.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração\? Arquivos existentes serão sobrescritos.</string>
+    <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração? Arquivos existentes serão sobrescritos.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">A configuração foi salva em %1$s</string>
     <string name="import_config">Importar configuração</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A configuração foi importada</string>
-    <string name="config_import_failed">A importação falhou. Verifique se os arquivos estão em %1$s</string>
     <string name="dialog_settings_restart_app_title">Reinício necessário</string>
     <string name="dialog_settings_restart_app_question">Para alterar essa opção, é necessário reiniciar o aplicativo imediatamente. Todas as outras alterações serão descartadas. Continuar\?</string>
     <!-- Title for the preference to set STTRACE parameters -->

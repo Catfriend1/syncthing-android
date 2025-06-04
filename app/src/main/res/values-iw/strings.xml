@@ -298,7 +298,6 @@
     <string name="undo_ignored_devices_folders_title">בטל התעלמות מהתקנים ותיקיות</string>
     <string name="undo_ignored_devices_folders_question">זה יבטל החלטות קודמות להתעלם מהתקנים ותיקיות. להמשיך?</string>
     <string name="undo_ignored_devices_folders_done">החלטות בוטלו בהצלחה.</string>
-    <string name="backup_folder_name">שם תיקיית גיבוי</string>
     <string name="export_config">ייצא תצורה</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">מספר יציאה אינו חוקי. נא להזין יציאה בין %1$d ו־%2$d.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">ערך קלט אינו חוקי. נא להזין ערך בין %1$d ו־%2$d.</string>
@@ -314,11 +313,9 @@
     <string name="toast_invalid_http_proxy_address">הקלט מפר את תחביר הפרוקסי \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">בקרת שירות באמצעות שידור</string>
     <string name="dialog_confirm_import">האם אתה באמת רוצה לייבא תצורה חדשה? קבצים קיימים יידרסו.</string>
-    <string name="config_export_successful">התצורה יוצאה אל %1$s</string>
     <string name="config_export_failed">ייצוא התצורה נכשל, בדוק פלט logcat.</string>
     <string name="import_config">ייבא תצורה</string>
     <string name="config_imported_successful">התצורה יובאה</string>
-    <string name="config_import_failed">ייבוא התצורה נכשל, וודא שהקבצים נמצאים ב־%1$s</string>
     <string name="dialog_settings_restart_app_title">נדרשת הפעלה מחדש</string>
     <string name="dialog_settings_restart_app_question">שינוי אפשרות זו דורש הפעלה מחדש מיידית של היישום. כל השינויים האחרים יושלכו. להמשיך?</string>
     <string name="sttrace_title">אפשרויות STTRACE</string>

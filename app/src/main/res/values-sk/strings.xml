@@ -119,13 +119,11 @@
     <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
     <string name="export_config">Exportovať Konfiguráciu</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu\? Existujúce súbory budú prepísané.</string>
+    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu? Existujúce súbory budú prepísané.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Konfigurácia bola exportovaná do %1$s</string>
     <string name="import_config">Importovať Konfiguráciu</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurácia bola importovaná</string>
-    <string name="config_import_failed">Import konfigurácie zlyhal. Prosím, overte, že sú súbory dostupné v %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Resetovať Databázu</string>
     <!-- Syncthing was reset -->

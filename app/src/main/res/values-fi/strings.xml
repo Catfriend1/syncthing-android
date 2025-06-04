@@ -291,17 +291,13 @@
     <string name="use_tor_title">Käytä Tor-verkkoa</string>
     <string name="broadcast_service_control_title">Palvelun hallinta lähetetyillä komennoilla (Broadcasts)</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi\? Vanhat tiedostot ylikirjoitetaan.
-\n
-\nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
+    <string name="dialog_confirm_export">Haluatko varmasti viedä asetuksesi? Vanhat tiedostot ylikirjoitetaan. \n \nVAROITUS! Muut sovellukset saattavat voida lukea yksityisen avaimen varmuuskopiosta ja käyttää sitä synkronoitujan tiedostojen lataamiseen tai muokkaamiseen.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset\? Vanhat tiedostot ylikirjoitetaan.</string>
+    <string name="dialog_confirm_import">Haluatko varmasti tuoda uudet asetukset? Vanhat tiedostot ylikirjoitetaan.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Asetukset vietiin kansioon %1$s</string>
     <string name="import_config">Tuo asetukset</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Asetukset tuotiin</string>
-    <string name="config_import_failed">Asetusten tuonti epäonnistui. Varmista, että tiedostot ovat kansiossa %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Nollaa tietokanta</string>
     <!-- Syncthing was reset -->

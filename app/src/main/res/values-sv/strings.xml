@@ -299,17 +299,13 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration\? Befintliga filer kommer att skrivas över.
-\n
-\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
+    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över. \n \nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration\? Befintliga filer kommer att skrivas över.</string>
+    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Konfiguration exporterades till %1$s</string>
     <string name="import_config">Importera konfiguration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen importerades</string>
-    <string name="config_import_failed">Konfigurations importering misslyckades, se till att filerna finns i %1$s</string>
     <string name="dialog_settings_restart_app_title">Omstart krävs</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE-alternativ</string>
@@ -546,7 +542,6 @@
     <string name="webui_password_title">Lösenord för webbgränssnittet</string>
     <string name="webui_debugging_title">Felsökning för webbgränssnittet</string>
     <string name="download_support_bundle_failed">Det gick inte att hämta supportpaketet. Kontrollera loggarna.</string>
-    <string name="backup_folder_name">Säkerhetskopieringsmappens namn</string>
     <string name="current_path">Aktuell sökväg: %1$s</string>
     <string name="executable_not_found">Körbar kärna \"%s\" saknas. Kontrollera bygg- och logcat-utmatningen.</string>
     <string name="state_up_to_date">Uppdaterad</string>
