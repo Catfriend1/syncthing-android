@@ -433,7 +433,7 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva. VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
+    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">A konfiguráció exportálása sikertelen, ellenőrizze a hibanaplót.</string>
     <string name="import_config">Konfiguráció importálása</string>
