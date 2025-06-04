@@ -299,11 +299,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration\? Befintliga filer kommer att skrivas över.
-\n
-\nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
+    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över. \n \nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration\? Befintliga filer kommer att skrivas över.</string>
+    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importera konfiguration</string>
     <!-- Toast shown after config was imported -->
