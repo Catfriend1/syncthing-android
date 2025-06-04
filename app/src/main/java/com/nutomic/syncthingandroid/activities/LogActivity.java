@@ -247,6 +247,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/sh") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("/studio.deploy") ||
+                            logline.contains("/SurfaceSyncGroup") ||
                             logline.contains("I/System.out") ||
                             logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
