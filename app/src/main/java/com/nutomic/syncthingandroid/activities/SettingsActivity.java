@@ -1102,6 +1102,7 @@ public class SettingsActivity extends SyncthingActivity {
             }
             Toast.makeText(
                     syncthingActivity,
+                    getString(R.string.config_export_successful),
                     Toast.LENGTH_LONG
             ).show();
             syncthingActivity.finish();
@@ -1153,6 +1154,7 @@ public class SettingsActivity extends SyncthingActivity {
 
             if (!actionSucceeded) {
                 Toast.makeText(syncthingActivity,
+                        getString(R.string.config_import_failed),
                         Toast.LENGTH_LONG
                 ).show();
                 return;
