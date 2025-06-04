@@ -973,7 +973,10 @@ public class SyncthingService extends Service {
                 Constants.HTTPS_KEY_FILE
             );
             for (final String checkFile : checkFiles) {
-                zipFile.getFileHeader(checkFile);
+                if (zipFile.getFileHeader(checkFile) == null) {
+                    Log.e(TAG, "importConfig: Required file not found inside zip [" + checkFile + "]");
+                    return false;
+                }
             }
 
             // Test if supplied encryption password is correct.
