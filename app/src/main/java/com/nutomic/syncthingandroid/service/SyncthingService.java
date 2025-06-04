@@ -818,14 +818,14 @@ public class SyncthingService extends Service {
         File targetZip = new File(exportPath, Constants.ZIP_EXPORT_FILE);
 
         // Export SharedPreferences.
-        File file;
+        File sharedPreferencesFile = null;
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            file = Constants.getSharedPrefsFile(this);
-            fileOutputStream = new FileOutputStream(file);
-            if (!file.exists()) {
-                file.createNewFile();
+            sharedPreferencesFile = Constants.getSharedPrefsFile(this);
+            fileOutputStream = new FileOutputStream(sharedPreferencesFile);
+            if (!sharedPreferencesFile.exists()) {
+                sharedPreferencesFile.createNewFile();
             }
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(mPreferences.getAll());
@@ -891,6 +891,10 @@ public class SyncthingService extends Service {
                         zipFile.addFolder(includePath, parameters);
                     }
                 }
+            }
+
+            if (sharedPreferencesFile != null && sharedPreferencesFile.exists()) {
+                sharedPreferencesFile.delete();
             }
         } catch (Exception e) {
             Log.w(TAG, "exportConfig: Failed to export config", e);
