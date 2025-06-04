@@ -379,7 +379,7 @@ public class SettingsActivity extends SyncthingActivity {
             mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);
             String backupPassword = mBackupPassword.getText();
             if (!backupPassword.isEmpty()) {
-                mBackupPassword.setSummary(backupPassword + "\n\n" + getString(R.string.backup_password_summary));
+                mBackupPassword.setSummary(backupPassword);
             }
             mBackupPassword.setOnPreferenceChangeListener(this);
 
@@ -803,7 +803,7 @@ public class SettingsActivity extends SyncthingActivity {
                     preference.setSummary((String) o);
                     break;
                 case Constants.PREF_BACKUP_PASSWORD:
-                    preference.setSummary((String) o + "\n\n" + getString(R.string.backup_password_summary));
+                    preference.setSummary((String) o);
                     break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
