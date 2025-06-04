@@ -143,9 +143,7 @@
     <string name="keep_wakelock_while_binary_running">Syncthing çalışırken işlemciyi uyanık tut</string>
     <string name="use_tor_title">Tor kullan</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.
-\n
-\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme konumundan okuyabilir ve eşzamanlanan dosyaları indirmek/değiştirmek için kullanabilir.</string>
+    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır. \n \nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme konumundan okuyabilir ve eşzamanlanan dosyaları indirmek/değiştirmek için kullanabilir.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Yeni bir yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
     <!-- Toast shown after config was exported -->
