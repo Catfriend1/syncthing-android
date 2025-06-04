@@ -1018,7 +1018,7 @@ public class SyncthingService extends Service {
         return failSuccess;
     }
 
-    public boolean importConfigSharedPrefs(final File file) {
+    private boolean importConfigSharedPrefs(final File file) {
         Boolean failSuccess = true;
         FileInputStream fileInputStream = null;
         ObjectInputStream objectInputStream = null;
