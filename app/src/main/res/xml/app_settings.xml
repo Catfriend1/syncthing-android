@@ -321,23 +321,45 @@
         android:key="category_import_export"
         android:title="@string/category_backup">
 
-        <EditTextPreference
-            android:key="backup_folder_name"
-            android:title="@string/backup_folder_name"
-            android:summary="@null"
-            android:persistent="true"
-            android:defaultValue="backups/syncthing"
-            android:inputType="textNoSuggestions" />
+        <PreferenceCategory android:title="@string/preference_category_explanation">
+            <Preference
+                android:persistent="false"
+                android:selectable="false"
+                android:key="backup_password_summary"
+                android:title="@string/backup_password_summary"
+                android:summary="@null"
+                android:singleLineTitle="false" />
+        </PreferenceCategory>
 
-        <Preference
-            android:key="export_config"
-            android:persistent="false"
-            android:title="@string/export_config" />
+        <PreferenceCategory android:title="@string/preference_category_prepare">
+            <EditTextPreference
+                android:key="backup_rel_path_to_zip"
+                android:title="@string/backup_rel_path_to_zip"
+                android:summary="@null"
+                android:persistent="true"
+                android:defaultValue="backups/syncthing/config.zip"
+                android:inputType="textNoSuggestions" />
 
-        <Preference
-            android:key="import_config"
-            android:persistent="false"
-            android:title="@string/import_config" />
+            <EditTextPreference
+                android:key="backup_password"
+                android:title="@string/backup_password_title"
+                android:summary="@null"
+                android:persistent="true"
+                android:defaultValue=""
+                android:inputType="textNoSuggestions" />
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/preference_category_actions">
+            <Preference
+                android:key="export_config"
+                android:persistent="false"
+                android:title="@string/export_config" />
+
+            <Preference
+                android:key="import_config"
+                android:persistent="false"
+                android:title="@string/import_config" />
+        </PreferenceCategory>
 
     </PreferenceScreen>
 

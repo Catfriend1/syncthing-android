@@ -349,15 +349,18 @@ public class FileUtils {
 
     /**
      * Deletes a directory recursively.
-     * java.nio.file library is available since API level 26, see
-     * https://developer.android.com/reference/java/nio/file/package-summary
      */
-    @TargetApi(26)
-    public static void deleteDirectoryRecursively(java.nio.file.Path pathToDelete) throws IOException {
-        java.nio.file.Files.walk(pathToDelete)
-            .sorted(Comparator.reverseOrder())
-            .map(java.nio.file.Path::toFile)
-            .forEach(File::delete);
+    public static boolean deleteDirectoryRecursively(File dir) throws IOException {
+        if (dir == null || !dir.exists()) return false;
+        if (dir.isFile()) return dir.delete();
+
+        File[] entries = dir.listFiles();
+        if (entries != null) {
+            for (File entry : entries) {
+                deleteDirectoryRecursively(entry);
+            }
+        }
+        return dir.delete();
     }
     
     /**

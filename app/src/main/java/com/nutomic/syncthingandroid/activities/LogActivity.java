@@ -207,6 +207,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("W/ActivityThread") ||
                             logline.contains("I/Adreno") ||
+                            logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/Choreographer") ||
@@ -228,8 +229,9 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/DecorView") ||
                             logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("/FrameTracker") ||
                             logline.contains("W/Gralloc") ||
-                            logline.contains("W/HWUI") ||
+                            logline.contains("/HWUI") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
@@ -239,10 +241,13 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
                             logline.contains("I/Perf") ||
+                            logline.contains("/re-initialized") ||
                             logline.contains("/RenderThread") ||
                             logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
                             logline.contains("/StrictMode") ||
+                            logline.contains("/studio.deploy") ||
+                            logline.contains("/SurfaceSyncGroup") ||
                             logline.contains("I/System.out") ||
                             logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
