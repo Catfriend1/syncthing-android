@@ -338,11 +338,9 @@
     <string name="http_proxy_address_title">HTTP(S) プロキシ</string>
     <string name="broadcast_service_control_title">ブロードキャストによるサービス制御</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか\? 既存のファイルは上書きされます。
-\n
-\n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
+    <string name="dialog_confirm_export">設定をエクスポートしてもよろしいですか? 既存のファイルは上書きされます。 \n \n警告! 他のアプリケーションが、バックアップ先の秘密鍵を読み取り、同期したファイルをダウンロード/変更するために使用することができるかもしれません。</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか\? 既存のファイルは上書きされます。</string>
+    <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか? 既存のファイルは上書きされます。</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">設定情報のエクスポートに失敗しました。logcatの出力を確認して下さい。</string>
     <string name="import_config">設定のインポート</string>
