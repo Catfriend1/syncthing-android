@@ -30,7 +30,7 @@ Switching is easier than you may think!
 - Confirm everything looks good.
 - Uninstall the official Syncthing app.
 - Delete the syncthing configuration backup from `backups/syncthing`.
-- Upgrade to the [latest Syncthing-Fork version](https://github.com/Catfriend1/syncthing-android/releases/tag/latest)
+- Upgrade to the [latest Syncthing-Fork version](https://github.com/Catfriend1/syncthing-android/releases/latest)
 
 ## Privacy Policy
 
