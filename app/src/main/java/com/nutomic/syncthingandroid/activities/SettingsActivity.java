@@ -376,11 +376,8 @@ public class SettingsActivity extends SyncthingActivity {
             mBackupRelPathToZip.setSummary(mBackupRelPathToZip.getText());
             mBackupRelPathToZip.setOnPreferenceChangeListener(this);
 
-            mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);
-            String backupPassword = mBackupPassword.getText();
-            if (!backupPassword.isEmpty()) {
-                mBackupPassword.setSummary(backupPassword);
-            }
+            mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);;
+            onPreferenceChange(mBackupPassword, mBackupPassword.getText());
             mBackupPassword.setOnPreferenceChangeListener(this);
 
             /* Troubleshooting */
@@ -803,7 +800,11 @@ public class SettingsActivity extends SyncthingActivity {
                     preference.setSummary((String) o);
                     break;
                 case Constants.PREF_BACKUP_PASSWORD:
-                    preference.setSummary((String) o);
+                    if (((String) o).isEmpty()) {
+                        preference.setSummary(getString(R.string.backup_password_not_set));
+                    } else {
+                        preference.setSummary(getString(R.string.backup_password_set, (String) o));
+                    }
                     break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
