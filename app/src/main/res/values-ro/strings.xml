@@ -408,11 +408,9 @@
     <string name="broadcast_service_control_title">Controlul serviciului prin Broadcast</string>
     <string name="broadcast_service_control_summary">Implicit: Dezactivat. Activează pentru a lăsa ADB sau aplicații terțe, de ex. aplicațiile de automatizare instruiesc Syncthing pentru a urma condițiile de rulare, pornire forțată sau oprire forțată.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Chiar doriți să exportați configurația\? Fișierele existente vor fi suprascrise.
-\n
-\nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
+    <string name="dialog_confirm_export">Chiar doriți să exportați configurația? Fișierele existente vor fi suprascrise. \n \nATENȚIE! Alte aplicații vor putea să citească cheia privată din locația copiei de rezervă și să o folosească pentru a descărca/modifica fișierele sincronizate.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă\? Fișierele existente vor fi suprascrise.</string>
+    <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă? Fișierele existente vor fi suprascrise.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importă configurația</string>
     <!-- Toast shown after config was imported -->
