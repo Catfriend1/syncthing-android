@@ -393,7 +393,7 @@
     <string name="open_file_no_compatible_app">Pas d\'application trouvée pour ouvrir ce fichier.</string>
     <string name="suggest_file_manager_app_dialog_title">Pas d\'application Gestionnaire de fichiers compatible trouvée</string>
     <string name="suggest_file_manager_app_dialog_text">Nous recommandons l\'installation du Gestionnaire de fichiers open-source \'Material Files\'. Voulez-vous ouvrir sa page de magasin d\'applications ?</string>
-    <string name="deviceEncryptionPasswordHint">Entrez ici un mot de passe de chiffrement \nsi vous ne lui faites pas confiance (il ne pourra pas les déchiffrer mais pourra les retransmettre à un appareil tiers qui pourrait connaître ce mot de passe... ou pas)</string>
+    <string name="deviceEncryptionPasswordHint">Mot de passe de chiffrement si non fiable</string>
     <string name="no_devices_configured">Pas d\'appareil configuré.
 \nCommencez par en ajouter un maintenant.</string>
     <string name="device_syncing_percent_bytes">Synchronise (%1$d%%, %2$s)</string>
@@ -703,4 +703,6 @@
     <string name="privacy_title">Politique de confidentialité</string>
     <string name="clear_stversions_done">Toutes les corbeilles .stversions ont été vidées avec succès.</string>
     <string name="pizza_url_summary">Juste une caresse comme tranche de sympathie - cerise sur le gâteau, les chat continueront de ronronner.</string>
+    <string name="share_log_file">Journal de partage</string>
+    <string name="share_log_file_missing">Le fichier journal à partager est absent.</string>
 </resources>
