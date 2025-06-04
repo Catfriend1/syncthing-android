@@ -647,7 +647,7 @@
     <string name="backup_rel_path_to_zip">Relative path to backup archive</string>
 
     <string name="backup_password_title">Backup protection password</string>
-    <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your backup during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nLeft blank, other apps are potentially able to read and manipulate your Syncthing configuration. Exposing the configuration could potentially allow an attacker to gain access to your files.</string>
+    <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your backup during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nNot using a password, other apps are potentially able to read and manipulate your Syncthing configuration. Exposing the configuration carries the risk a bad actor may gain unauthorized access to your files using stolen config exports.</string>
 
     <string name="export_config">Export Configuration</string>
 
