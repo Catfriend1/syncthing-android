@@ -134,11 +134,9 @@
     <string name="export_config">Eksporter innstillinger</string>
     <string name="keep_wakelock_while_binary_running">Hold prosessoren våken mens Syncthing kjører</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene\? Eksisterende filer vil bli overskrevet.
-\n
-\nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
+    <string name="dialog_confirm_export">Ønsker du virkelig å eksportere innstillingene? Eksisterende filer vil bli overskrevet. \n \nADVARSEL! Andre applikasjoner kan være i stand til å lese den private nøkkelen fra sikkerhetskopien og bruke den til å laste ned eller endre synkroniserte filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger\? Eksisterende filer vil bli skrevet over.</string>
+    <string name="dialog_confirm_import">Er du sikker på at du vil importere innstillinger? Eksisterende filer vil bli skrevet over.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importer instillinger</string>
     <!-- Toast shown after config was imported -->
