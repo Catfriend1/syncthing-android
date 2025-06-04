@@ -931,16 +931,32 @@ public class SyncthingService extends Service {
             shutdown(State.DISABLED);
         }
 
-        // If user set one, get password to decrypt the zip file.
-        String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+        // Check if ZIP exists.
+        File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
+        if (!zipFilePath.exists()) {
+            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
+            failSuccess = false;
+        }
 
-        // Decompress zip file.
-        try {
-            File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
-            if (!zipFilePath.exists()) {
-                Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
-                failSuccess = false;
-            } else {
+        // Remove database folder if it exists.
+        if (failSuccess) {
+            File databasePath = Constants.getIndexDbFolder(this);
+            if (databasePath.exists()) {
+                Log.d(TAG, "importConfig: Clearing index database");
+                try {
+                    FileUtils.deleteDirectoryRecursively(databasePath);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to delete directory '" + databasePath.getAbsolutePath() + "'" + e);
+                }
+            }
+        }
+
+        if (failSuccess) {
+            // If user set one, get password to decrypt the zip file.
+            String zipEncryptionPassword = mPreferences.getString(Constants.PREF_BACKUP_PASSWORD, "");
+
+            // Decompress zip file.
+            try {
                 ZipFile zipFile;
                 if (zipEncryptionPassword.isEmpty()) {
                     zipFile = new ZipFile(zipFilePath);
@@ -952,10 +968,10 @@ public class SyncthingService extends Service {
                     }
                 }
                 zipFile.extractAll(this.getFilesDir().getAbsolutePath());
+            } catch (ZipException e) {
+                Log.w(TAG, "importConfig: Failed to import config", e);
+                failSuccess = false;
             }
-        } catch (ZipException e) {
-            Log.w(TAG, "importConfig: Failed to import config", e);
-            failSuccess = false;
         }
 
         // Check if necessary files are present after extraction.
@@ -976,10 +992,8 @@ public class SyncthingService extends Service {
                 failSuccess = false;
             }
         }
-
         if (failSuccess) {
             failSuccess = failSuccess && importConfigSharedPrefs(importPath);
-            failSuccess = failSuccess && importConfigDatabase(importPath);
         }
         Log.d(TAG, "importConfig END");
 
@@ -1109,27 +1123,6 @@ public class SyncthingService extends Service {
                 }
             } catch (IOException e) {
                 Log.e(TAG, "importConfig: Failed to import SharedPreferences #2", e);
-            }
-        }
-        return failSuccess;
-    }
-
-    public boolean importConfigDatabase(final File importPath) {
-        boolean failSuccess = true;
-        /**
-         * java.nio.file library is available since API level 26, see
-         * https://developer.android.com/reference/java/nio/file/package-summary
-         */
-        if (Build.VERSION.SDK_INT >= 26) {
-            Path databaseImportPath = Paths.get(importPath.getAbsolutePath() + "/" + Constants.INDEX_DB_FOLDER);
-            if (java.nio.file.Files.exists(databaseImportPath)) {
-                Log.d(TAG, "importConfig: Importing index database");
-                Path databaseTargetPath = Paths.get(this.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER);
-                try {
-                    FileUtils.deleteDirectoryRecursively(databaseTargetPath);
-                } catch (IOException e) {
-                    Log.e(TAG, "Failed to delete directory '" + databaseTargetPath + "'" + e);
-                }
             }
         }
         return failSuccess;
