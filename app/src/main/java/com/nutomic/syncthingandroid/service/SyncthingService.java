@@ -941,7 +941,7 @@ public class SyncthingService extends Service {
         // Check if ZIP exists.
         File zipFilePath = getBackupZipFile();
         if (!zipFilePath.exists()) {
-            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
+            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present at '" + zipFilePath.getAbsolutePath() + "' as specified in the settings screen.");
             return false;
         }
 
