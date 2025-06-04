@@ -215,11 +215,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">La configuration a été importée</string>
-    <string name="config_import_failed">Echec de l\'import de la configuration, assurez-vous que les fichiers sont dans %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Options STTRACE</string>
     <string name="environment_variables">Variables d\'environnement</string>
@@ -510,7 +508,6 @@
     <string name="qs_schedule_disabled">Planning désactivé</string>
     <string name="pull_order_random">Aléatoire</string>
     <string name="undo_ignored_devices_folders_done">Liste purgée.</string>
-    <string name="backup_folder_name">Nom du répertoire de sauvegarde</string>
     <string name="run_on_whitelisted_wifi_summary">Activer la liste blanche des réseaux WiFi permis pour la synchronisation.</string>
     <string name="notification_permission_title">Permission de notifications</string>
     <string name="notification_permission_desc">Nécessaire pour afficher les notifications de nouveaux appareils, nouveaux partages et pour garder le service actif et connecté.</string>

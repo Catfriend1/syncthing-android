@@ -136,11 +136,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">¿Realmente quiere importar una nueva configuración\? Los archivos existentes se sobreescribirán.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Configuración exportada a %1$s</string>
     <string name="import_config">Importar Configuración</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuración importada</string>
-    <string name="config_import_failed">Importar la configuración falló, asegúrese que los archivos están en %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Reiniciar Base de Datos</string>
     <!-- Syncthing was reset -->

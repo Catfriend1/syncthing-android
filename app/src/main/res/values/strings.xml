@@ -641,9 +641,6 @@
     <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue\?</string>
     <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
-    <!-- to-delete -->
-    <string name="backup_folder_name">Backup folder name</string>
-
     <string name="backup_rel_path_to_zip">Relative path to config archive</string>
 
     <string name="backup_password_title">Config protection password</string>
@@ -697,10 +694,6 @@
     <string name="preference_category_prepare">Prepare</string>
 
     <!-- Toast shown after config was exported -->
-
-    <!-- to-delete -->
-    <string name="config_export_successful">Config was exported to %1$s</string>
-
     <string name="config_export_successful_no_path">Config was exported. Please make sure to remember the password for a later import.</string>
     <string name="config_export_failed">Config export failed. Go to Settings-Troubleshooting-Open log to see details.</string>
 
@@ -708,9 +701,6 @@
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
-
-    <!-- to-delete -->
-    <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
 
     <string name="config_import_failed_no_path">Config import failed. Go to Settings-Troubleshooting-Open log to see details.</string>
 

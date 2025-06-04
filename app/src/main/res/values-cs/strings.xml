@@ -170,11 +170,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravdu chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Nastavení bylo zálohováno do %1$s</string>
     <string name="import_config">Nahrát nastavení</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Nastavení bylo nahráno</string>
-    <string name="config_import_failed">Nahrání nastavení selhalo, ujistěte se, že soubory jsou v %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Možnosti STTRACE</string>
     <string name="environment_variables">Proměnné prostředí</string>
@@ -505,7 +503,6 @@
     <string name="webui_debugging_summary">Povolením spustíte profilování a budete moci stáhnout balíček podpory. Změna této možnosti okamžitě restartuje Syncthing.</string>
     <string name="download_support_bundle_title">Stáhnout balíček podpory</string>
     <string name="undo_ignored_devices_folders_title">Vrátit zpět ignorovaná zařízení a složky</string>
-    <string name="backup_folder_name">Název složky zálohy</string>
     <string name="socks_proxy_address_title">SOCKS5 proxy</string>
     <string name="keep_wakelock_while_binary_running_summary">Pouze pro Android 5 nebo nižší. Toto nastavení použijte, pokud při provozu na baterii zaznamenáte neočekávané odpojení. To bude mít za následek zvýšenou spotřebu baterie.</string>
     <string name="http_proxy_address_title">HTTP(S) proxy</string>

@@ -166,11 +166,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">정말 새로운 설정을 불러오시겠습니까? 기존 파일을 덮어씁니다.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">설정을 %1$s 로 내보내기했습니다</string>
     <string name="import_config">설정 불러오기</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">설정을 불러왔습니다</string>
-    <string name="config_import_failed">설정을 불러오지 못했습니다, 파일이 %1$s에 있는지 확인해 주세요</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 옵션</string>
     <string name="environment_variables">환경 변수</string>
@@ -466,7 +464,6 @@
     <string name="undo_ignored_devices_folders_title">기기 및 폴더 무시 취소</string>
     <string name="undo_ignored_devices_folders_question">이 작업은 이전의 기기 및 폴더 무시 설정을 취소합니다. 계속하시겠습니까?</string>
     <string name="undo_ignored_devices_folders_done">설정이 성공적으로 취소되었습니다.</string>
-    <string name="backup_folder_name">백업 폴더 이름</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">포트 번호가 유효하지 않습니다. %1$d와 %2$d 사이의 포트를 입력하세요.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">입력값이 유효하지 않습니다. %1$d과 %2$d 사이의 값을 입력해주세요.</string>
     <string name="use_proxy">프록시를 통해 연결</string>

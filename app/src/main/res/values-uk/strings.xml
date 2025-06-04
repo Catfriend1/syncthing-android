@@ -126,7 +126,6 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Ви справді бажаєте імпортувати нові налаштування? Існуючі файли буде перезаписано.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Налаштування експортовано в %1$s</string>
     <string name="import_config">Імпортувати налаштування</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Налаштування імпортовано</string>
@@ -211,7 +210,6 @@
     <string name="copy_exception">Під час надання доступу сталася помилка, деталі шукайте у журналі додатку</string>
     <string name="cleanout_after_description">Кількість днів, протягом яких видалені файли залишатимуться у Кошику. Нуль означає завжди</string>
     <string name="app_description">Відкритий, надійний додаток для децентралізованої синхронізації файлів.</string>
-    <string name="config_import_failed">Не вдалося імпортувати налаштування. Переконайтеся, що файли знаходяться у %1$s</string>
     <string name="override_changes">Перезапиши зміни</string>
     <string name="folder_fileWatcher">Відстежувати зміни</string>
     <string name="app_name">Syncthing-Fork</string>
@@ -432,7 +430,6 @@
     <string name="download_support_bundle_title">Завантажити пакет підтримки</string>
     <string name="undo_ignored_devices_folders_title">Скасувати ігнорування пристроїв і тек</string>
     <string name="undo_ignored_devices_folders_done">Ігнорування скасовано.</string>
-    <string name="backup_folder_name">Ім\'я теки резервної копії</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Введене значення невірне. Будь ласка, введіть значення між %1$d та %2$d.</string>
     <string name="use_tor_summary">Примусово пропускайте весь трафік через Tor для підвищення конфіденційності. Потрібен Orbot. Вимикає параметри проксі.</string>
     <string name="socks_proxy_address_title">Проксі SOCKS5</string>

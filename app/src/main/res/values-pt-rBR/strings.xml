@@ -368,11 +368,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Quer mesmo importar uma nova configuração\? Arquivos existentes serão sobrescritos.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">A configuração foi salva em %1$s</string>
     <string name="import_config">Importar configuração</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A configuração foi importada</string>
-    <string name="config_import_failed">A importação falhou. Verifique se os arquivos estão em %1$s</string>
     <string name="dialog_settings_restart_app_title">Reinício necessário</string>
     <string name="dialog_settings_restart_app_question">Para alterar essa opção, é necessário reiniciar o aplicativo imediatamente. Todas as outras alterações serão descartadas. Continuar\?</string>
     <!-- Title for the preference to set STTRACE parameters -->

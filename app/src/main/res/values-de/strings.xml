@@ -439,12 +439,10 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden\? Die vorhandene Konfiguration wird überschrieben.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Konfiguration exportiert nach %1$s</string>
     <string name="config_export_failed">Konfigurationsexport fehlgeschlagen, bitte die Logcat-Ausgabe prüfen.</string>
     <string name="import_config">Konfiguration importieren</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfiguration importiert</string>
-    <string name="config_import_failed">Import fehlgeschlagen, Dateien werden in %1$s erwartet</string>
     <string name="dialog_settings_restart_app_title">Neustart erforderlich</string>
     <string name="dialog_settings_restart_app_question">Das Ändern dieser Option erfordert einen sofortigen Neustart der App. Alle anderen Änderungen werden verworfen. Fortsetzen\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -746,7 +744,6 @@
     <string name="dialog_confirm_skip_ignore_doze_permission">Vorsicht: Wenn SyncthingNative unterbrochen wird und etwas Seltsames tut, sind Sie schuld. Den Vorgang nur überspringen, wenn das Gerät die Erteilung der Berechtigung nicht unterstützt. Wirklich überspringen?</string>
     <string name="autoAcceptFolders">Automatisch annehmen</string>
     <string name="webui_password_title">Web-UI Passwort</string>
-    <string name="backup_folder_name">Backup-Ordnername</string>
     <string name="notification_permission_desc">Erforderlich, um Benachrichtigungen über neue Geräteverbindungs- und Ordnerfreigabeanfragen anzuzeigen sowie den Dienst aktiv und verbunden zu halten.</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Für %1$d Minuten ausführen</string>
     <string name="notification_permission_title">Benachrichtigungsrecht</string>

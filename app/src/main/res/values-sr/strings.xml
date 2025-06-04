@@ -75,7 +75,6 @@
     <string name="reason_not_within_time_frame">Омогућили сте \'Ради према временском распореду\' и последња синхронизација је била пре мање од сат времена.</string>
     <string name="undo_ignored_devices_folders_done">Успешно опозване одлуке.</string>
     <string name="complete_welcome_wizard_first">Прво, покрените апликацију из фиоке апликација и завршите добродошлицу пре него што делите фајлове.</string>
-    <string name="backup_folder_name">Име резервне фасцикле</string>
     <string name="folder_title">Фасцикла</string>
     <string name="copy_exception">Дошло је до грешке током дељења, проверите логове апликације</string>
     <string name="web_gui_creating_key">Генерисање сигурних кључева. Ово може потрајати неколико минута…</string>
@@ -332,7 +331,6 @@
     <string name="behaviour_autostart_summary">Аутоматски покрени апликацију при покретању оперативног система.</string>
     <string name="use_root_title">Покрени Syncthing као суперкорисник</string>
     <string name="preference_language_title">Језик</string>
-    <string name="config_export_successful">Конфигурација је извозена у %1$s</string>
     <string name="config_export_failed">Извоз конфигурације није успео, проверите лог излаз.</string>
     <string name="import_config">Увоз конфигурације</string>
     <string name="config_imported_successful">Конфигурација је увезена</string>
@@ -402,7 +400,6 @@
     <string name="folder_pause">Пауза фасцикле</string>
     <string name="run_on_time_schedule_title">Покрени према временском распореду</string>
     <string name="download_title_colon">"Преузми: "</string>
-    <string name="config_import_failed">Увоз конфигурације није успео, уверите се да су фајлови у %1$s</string>
     <string name="folder_fileWatcher">Пратите промене</string>
     <string name="folder_ignore_delete_caption">Игнориши обрисано</string>
     <string name="compress_never">Никада</string>

@@ -414,11 +414,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Chiar doriți să importați o configurație nouă\? Fișierele existente vor fi suprascrise.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Configurația a fost exportată în %1$s</string>
     <string name="import_config">Importă configurația</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configurația a fost importată</string>
-    <string name="config_import_failed">Importarea configurației a eșuat, asigurați-vă că fișierele sunt în %1$s</string>
     <string name="dialog_settings_restart_app_title">Repornire necesară</string>
     <string name="dialog_settings_restart_app_question">Modificarea acestei opțiuni necesită o repornire imediată a aplicației. Toate celelalte modificări vor fi anulate. Continuați\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -718,7 +716,6 @@
     <string name="clear_stversions_done">Dosarele .stversions golite cu succes.</string>
     <string name="download_support_bundle_succeeded">Pachetul de asistență descărcat cu succes în %s.</string>
     <string name="download_support_bundle_failed">Descărcare eșuată a pachetului de asistență. Verifică jurnalele.</string>
-    <string name="backup_folder_name">Numele dosarului copiei de rezervă</string>
     <string name="reason_wifi_disallowed">Syncthing nu are permisiunea să ruleze prin WiFi sau Ethernet.</string>
     <string name="reason_not_nonmetered_wifi">Syncthing nu rulează deoarece ai refuzat rularea prin conexiuni WiFi contorizate.</string>
     <string name="clear_stversions_title">Golește toate dosarele de versiuni</string>

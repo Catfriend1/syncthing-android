@@ -313,11 +313,9 @@ Android требует разрешение доступа к геолокаци
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Действительно хотите импортировать новую конфигурацию\? Существующие файлы будут перезаписаны.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Настройки экспортированы в %1$s</string>
     <string name="import_config">Импорт настроек</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Настройки импортированы</string>
-    <string name="config_import_failed">Неудачное импортирование настроек, убедитесь что файлы находятся в %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Параметры STTRACE</string>
     <string name="environment_variables">Переменные окружения</string>
@@ -580,7 +578,6 @@ Android требует разрешение доступа к геолокаци
     <string name="download_support_bundle_title">Загрузить пакет поддержки</string>
     <string name="download_support_bundle_in_progress">Подготовка загрузки пакета поддержки …</string>
     <string name="download_support_bundle_succeeded">Пакет поддержки загружен в %s.</string>
-    <string name="backup_folder_name">Имя папки резервной копии</string>
     <string name="undo_ignored_devices_folders_title">Отменить игнорирование устройств и папок</string>
     <string name="undo_ignored_devices_folders_question">Это отменит предыдущие решения об игнорировании устройств и папок. Продолжить?</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Недопустимый номер порта. Введите порт от %1$d до %2$d.</string>

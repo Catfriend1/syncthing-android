@@ -310,12 +310,10 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration\? Eksisterende filer vil gå tabt.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Konfigurationen blev eksporteret til %1$s</string>
     <string name="config_export_failed">Eksportering af konfigurering fejlede, tjek logcat output.</string>
     <string name="import_config">Importer Konfiguration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen blev importeret</string>
-    <string name="config_import_failed">Import af konfigurationen slog fjel, vær sikker på at filer er i %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Debug Muligheder</string>
     <string name="environment_variables">Miljøvariabler</string>

@@ -344,12 +344,10 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">新しい設定をインポートしてもよろしいですか\? 既存のファイルは上書きされます。</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">設定を %1$s にエクスポートしました</string>
     <string name="config_export_failed">設定情報のエクスポートに失敗しました。logcatの出力を確認して下さい。</string>
     <string name="import_config">設定のインポート</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">設定をインポートしました</string>
-    <string name="config_import_failed">設定のインポートに失敗しました。%1$s にファイルがあるか確認してください</string>
     <string name="dialog_settings_restart_app_title">再起動が必要</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE オプション</string>

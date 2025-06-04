@@ -197,11 +197,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">你確認要匯入新的設定？已存在的檔案將會被覆蓋。</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">設定匯出到 %1$s</string>
     <string name="import_config">匯入設定</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">設定已匯入</string>
-    <string name="config_import_failed">設定匯入失敗，請確認檔案在 %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 選項</string>
     <string name="environment_variables">環境變數</string>

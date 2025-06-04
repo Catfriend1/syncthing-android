@@ -149,11 +149,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Yeni bir yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Yapılandırma %1$s konumuna aktarıldı</string>
     <string name="import_config">Yapılandırmayı İçe Aktar</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Yapılandırma içe aktarıldı</string>
-    <string name="config_import_failed">Yapılandırmayı içe aktarma başarısız oldu, dosyaların %1$s içinde olduğundan emin olun</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Veritabanını Sıfırla</string>
     <!-- Syncthing was reset -->
@@ -344,7 +342,6 @@
     <string name="api_key_copied_to_clipboard">Syncthing API anahtarı panoya kopyalandı</string>
     <string name="folder_type_receive_encrypted_description">Yalnızca şifrelenmiş verileri depolar ve eşitler. Bağlı tüm cihazlardaki klasörlerin aynı parolayla ayarlanması veya \'Şifrelenmiş Al\' türünde olması da gerekir.</string>
     <string name="reason_not_within_time_frame_2">\'Zaman planına göre çalıştır\'ı etkinleştirdiniz ve son eşitleme %s önceydi.</string>
-    <string name="backup_folder_name">Yedekleme klasörü adı</string>
     <string name="share_activity_title">Syncthing\'e Kaydet</string>
     <string name="notification_crash_text">Günlükler için tıklayın (%1$s)</string>
     <string name="pull_order">Dosya Çekme Sırası</string>

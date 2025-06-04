@@ -211,11 +211,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren\? Bestaande bestanden zullen worden overschreven.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Configuratie is geëxporteerd naar %1$s</string>
     <string name="import_config">Configuratie importeren</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuratie geïmporteerd</string>
-    <string name="config_import_failed">Importeren van configuratie mislukt, zorg dat de bestanden zich in %1$s bevinden</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE-opties</string>
     <string name="environment_variables">Omgevingsvariabelen</string>

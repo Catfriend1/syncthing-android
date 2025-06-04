@@ -140,11 +140,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Vil du verkeleg importere ei ny innstillingsfil\? Eksisterande filer vil verte skrivne over.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Innstillingar vart eksportert til %1$s</string>
     <string name="import_config">Importer innstillingar</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Innstillingar vart importerte</string>
-    <string name="config_import_failed">Import av innstillingar mislukkast. Pass på at filene er i %1$s</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Nullstill database</string>
     <!-- Syncthing was reset -->

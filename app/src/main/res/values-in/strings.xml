@@ -155,11 +155,9 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Anda yakin ingin mengimpor konfigurasi baru\? Berkas yang ada akan ditimpa.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Konfig sudah diekspor ke %1$s</string>
     <string name="import_config">Impor Konfigurasi</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfig sudah diimpor</string>
-    <string name="config_import_failed">Impor konfig gagal, pastikan berkasnya dalam %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Opsi STTRACE</string>
     <!-- Title for the preference to reset Syncthing indexes -->

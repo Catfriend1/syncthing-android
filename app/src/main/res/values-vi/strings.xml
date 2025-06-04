@@ -438,12 +438,10 @@
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Có chắc là bạn muốn nhập cấu hình mới\? Các tập tin hiện tại sẽ bị chép đè lên.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful">Cấu hình đã được xuất vào %1$s</string>
     <string name="config_export_failed">Xuất thiết lập thất bại, hãy kiểm tra đầu ra nhật ký.</string>
     <string name="import_config">Nhập cấu hình</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Cấu hình đã được nhập</string>
-    <string name="config_import_failed">Nhập c.hình th.bại, hãy chắc rằng các t.tin nằm trong %1$s</string>
     <string name="dialog_settings_restart_app_title">Yêu cầu khởi động lại</string>
     <string name="dialog_settings_restart_app_question">Việc thay đổi tùy chọn này yêu cầu khởi động lại ứng dụng ngay lập tức. Tất cả các thay đổi khác sẽ bị bỏ đi. Tiếp tục\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
