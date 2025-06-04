@@ -205,11 +205,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Invoer is geen correcte proxysyntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren\? Bestaande bestanden worden overschreven.
-\n
-\nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
+    <string name="dialog_confirm_export">Wil je je configuratie echt exporteren? Bestaande bestanden worden overschreven. \n \nWAARSCHUWING: Andere apps kunnen mogelijkerwijs bij de geheime sleutel van de back-up en gesyncte bestanden downloaden/wijzigen.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren\? Bestaande bestanden zullen worden overschreven.</string>
+    <string name="dialog_confirm_import">Wil je een nieuwe configuratie echt importeren? Bestaande bestanden zullen worden overschreven.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Configuratie importeren</string>
     <!-- Toast shown after config was imported -->
