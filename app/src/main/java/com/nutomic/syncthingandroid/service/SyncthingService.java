@@ -936,7 +936,6 @@ public class SyncthingService extends Service {
         // Decompress zip file.
         try {
             File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
-            File restoreTarget = new File(this.getFilesDir());
             if (!zipFilePath.exists()) {
                 Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
                 failSuccess = false;
@@ -951,7 +950,7 @@ public class SyncthingService extends Service {
                         failSuccess = false;
                     }
                 }
-                zipFile.extractAll();
+                zipFile.extractAll(this.getFilesDir().getAbsolutePath());
             }
         // Import config, privateKey and/or publicKey.
         try {
