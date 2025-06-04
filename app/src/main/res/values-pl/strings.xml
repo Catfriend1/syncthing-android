@@ -268,11 +268,9 @@
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
     <string name="use_tor_title">Korzystaj z sieci Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wyeksportować ustawienia\? Istniejące pliki zostaną zastąpione.
-\n
-\nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
+    <string name="dialog_confirm_export">Wyeksportować ustawienia? Istniejące pliki zostaną zastąpione. \n \nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Zaimportować nowe ustawienia\? Istniejące pliki zostaną zastąpione.</string>
+    <string name="dialog_confirm_import">Zaimportować nowe ustawienia? Istniejące pliki zostaną zastąpione.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importuj ustawienia</string>
     <!-- Toast shown after config was imported -->
