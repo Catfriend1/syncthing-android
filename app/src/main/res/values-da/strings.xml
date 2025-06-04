@@ -304,11 +304,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Input overtræder proxy syntaks \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer\? Eksisterende filer vil gå tabt.
-\n
-\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
+    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt. \n \nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration\? Eksisterende filer vil gå tabt.</string>
+    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration? Eksisterende filer vil gå tabt.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">Eksportering af konfigurering fejlede, tjek logcat output.</string>
     <string name="import_config">Importer Konfiguration</string>
