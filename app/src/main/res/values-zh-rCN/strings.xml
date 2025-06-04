@@ -432,9 +432,7 @@
     <string name="broadcast_service_control_title">通过广播控制服务</string>
     <string name="broadcast_service_control_summary">默认值：禁用。启用此选项让 adb 或第三方应用，如自动化应用，吩咐 Syncthing 遵照运行条件、强制启动或强制停止。</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。
-\n
-\n警告！其他应用程序可能会从备份位置读取私钥，并使用它来下载/修改同步的文件。</string>
+    <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。 \n \n警告！其他应用程序可能会从备份位置读取私钥，并使用它来下载/修改同步的文件。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">是否确定要导入新配置？现有文件将会覆盖。</string>
     <!-- Toast shown after config was exported -->
