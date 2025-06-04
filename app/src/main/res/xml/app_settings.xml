@@ -329,6 +329,14 @@
             android:defaultValue="backups/syncthing"
             android:inputType="textNoSuggestions" />
 
+        <EditTextPreference
+            android:key="backup_password"
+            android:title="@string/backup_password_title"
+            android:summary="@string/backup_password_summary"
+            android:persistent="true"
+            android:defaultValue=""
+            android:inputType="textNoSuggestions" />
+
         <Preference
             android:key="export_config"
             android:persistent="false"
