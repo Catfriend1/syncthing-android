@@ -119,7 +119,7 @@
     <string name="usage_reporting">Povoliť Anonymné Hlásenia o Používaní</string>
     <string name="export_config">Exportovať Konfiguráciu</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu\? Existujúce súbory budú prepísané.</string>
+    <string name="dialog_confirm_import">Naozaj chcete importova konfiguráciu? Existujúce súbory budú prepísané.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importovať Konfiguráciu</string>
     <!-- Toast shown after config was imported -->
