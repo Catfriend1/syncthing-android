@@ -1102,7 +1102,7 @@ public class SettingsActivity extends SyncthingActivity {
             }
             Toast.makeText(
                     syncthingActivity,
-                    getString(R.string.config_export_successful),
+                    getString(R.string.config_export_successful_no_path),
                     Toast.LENGTH_LONG
             ).show();
             syncthingActivity.finish();
