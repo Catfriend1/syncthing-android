@@ -921,19 +921,19 @@ public class SyncthingService extends Service {
      * @return True if the import was successful, false otherwise (eg if files aren't found).
      */
     public boolean importConfig(final File importPath) {
+        // Check if ZIP exists.
+        File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
+        if (!zipFilePath.exists()) {
+            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
+            return false;
+        }
+
         Boolean failSuccess = true;
         Log.d(TAG, "importConfig BEGIN");
 
         if (mCurrentState != State.DISABLED) {
             // Shutdown synchronously.
             shutdown(State.DISABLED);
-        }
-
-        // Check if ZIP exists.
-        File zipFilePath = new File(importPath, Constants.ZIP_EXPORT_FILE);
-        if (!zipFilePath.exists()) {
-            Log.e(TAG, "importConfig: ZIP file is missing. Please check if it is present in the path specified in the settings screen.");
-            failSuccess = false;
         }
 
         // Remove database folder if it exists.
