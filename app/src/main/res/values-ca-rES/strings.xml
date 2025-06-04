@@ -325,11 +325,9 @@
     <string name="toast_invalid_http_proxy_address">No compleix la sintaxi de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">Control del Servei per Difusió</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Realment voleu exportar la configuració\? Es sobreescriuran els fitxers existents.
-\n
-\nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
+    <string name="dialog_confirm_export">Realment voleu exportar la configuració? Es sobreescriuran els fitxers existents. \n \nAVÍS! Altres aplicacions podrien llegir la clau privada emmagatzemada a la còpia de seguretat i utilitzar-la per descarregar o modificar fitxers sincronitzats.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Realment voleu importar una nova configuració\? Es sobreescriuran els fitxers existents.</string>
+    <string name="dialog_confirm_import">Realment voleu importar una nova configuració? Es sobreescriuran els fitxers existents.</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">Ha fallat la exportació de la configuració, comproveu el fitxer de registre.</string>
     <string name="import_config">Importa la configuració</string>
