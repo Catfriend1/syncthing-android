@@ -996,6 +996,7 @@ public class SyncthingService extends Service {
         if (sharedPreferencesFile.exists()) {
             Log.d(TAG, "importConfig: Importing shared preferences");
             failSuccess = failSuccess && importConfigSharedPrefs(sharedPreferencesFile);
+            sharedPreferencesFile.delete();
         }
         Log.d(TAG, "importConfig END");
 
