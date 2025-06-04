@@ -372,7 +372,7 @@ public class SettingsActivity extends SyncthingActivity {
             Preference importConfig = findPreference("import_config");
             importConfig.setOnPreferenceClickListener(this);
 
-            mBackupFolderName = (EditTextPreference) findPreference("backup_folder_name");
+            mBackupFolderName = (EditTextPreference) findPreference(Constants.PREF_BACKUP_FOLDER_NAME);
             mBackupFolderName.setSummary(mBackupFolderName.getText());
             mBackupFolderName.setOnPreferenceChangeListener(this);
 
