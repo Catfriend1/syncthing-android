@@ -432,11 +432,11 @@
     <string name="broadcast_service_control_title">通过广播控制服务</string>
     <string name="broadcast_service_control_summary">默认值：禁用。启用此选项让 adb 或第三方应用，如自动化应用，吩咐 Syncthing 遵照运行条件、强制启动或强制停止。</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">是否确定要导出您的配置？现有文件将会覆盖。 \n \n警告！其他应用程序可能会从备份位置读取私钥，并使用它来下载/修改同步的文件。</string>
+    <string name="dialog_confirm_export">是否确定要导出您的配置？现有存档将被覆盖。</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">是否确定要导入新配置？现有文件将会覆盖。</string>
+    <string name="dialog_confirm_import">是否确定要导入该配置？现有设置，包括共享文件夹和设备将被替换。</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_failed">配置导出失败，请检查日志文档。</string>
+    <string name="config_export_failed">配置导出失败了。请转到\"设置-故障排除-打开日志”查看详情。</string>
     <string name="import_config">导入配置</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">配置已导入</string>
@@ -761,4 +761,14 @@
     </plurals>
     <string name="share_log_file">分享日志文件</string>
     <string name="share_log_file_missing">缺少要分享的日志文件。</string>
+    <string name="preference_category_actions">操作</string>
+    <string name="preference_category_prepare">准备</string>
+    <string name="config_import_failed_no_path">配置导入失败了。请转到\"设置-故障排除-打开日志”查看详情。</string>
+    <string name="backup_rel_path_to_zip">配置存档的相对路径</string>
+    <string name="backup_password_title">配置保护密码</string>
+    <string name="backup_password_set">✅ 设置了密码： %1$s</string>
+    <string name="backup_password_not_set">⚠ 未设置密码。</string>
+    <string name="preference_category_explanation">解释</string>
+    <string name="config_export_successful_no_path">导出了配置。请确保记得此密码用于之后的导入。</string>
+    <string name="backup_password_summary">ℹ️推荐：\n建议导入时输入用以在导出和解密期间加密配置的强密码。 将此密码存放在安全地方用于恢复过程。 你需要这个密码来使用导入功能。\n\n⚠️ 不推荐：\n不使用密码，,其他应用可能可以读取并篡改 Syncthing 配置。暴露配置可能有让坏蛋使用窃取的配置导出文件获得对文件未经授权的访问的风险。</string>
 </resources>
