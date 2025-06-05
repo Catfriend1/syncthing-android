@@ -209,9 +209,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les fichiers existants seront écrasés. \n \nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les archives existantes seront écrasées.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration ? Les paramètres existants seront écrasés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres existants ainsi que les dossiers partagés et la liste des appareils sera remplacée.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
@@ -235,7 +235,7 @@
 \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>
-    <string name="category_about">A propos</string>
+    <string name="category_about">À propos</string>
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Ouvrir le journal</string>
     <!-- Summary for the log activity -->
@@ -464,7 +464,7 @@
     <string name="download_support_bundle_succeeded">Kit d\'assistance téléchargé vers %s.</string>
     <string name="download_support_bundle_failed">Échec du téléchargement du kit d\'assistance. Vérifier les logs.</string>
     <string name="undo_ignored_devices_folders_question">Permet de purger la liste des appareils et partages ignorés. Continuer ?</string>
-    <string name="config_export_failed">Échec de l\'exportation de la configuration, vérifiez le journal système (logcat).</string>
+    <string name="config_export_failed">Échec de l\'exportation de la configuration. Pour voir les détails, accédez à : Paramètres, Dépannage, Ouvrir le journal.</string>
     <string name="dialog_settings_restart_app_title">Redémarrage nécessaire</string>
     <string name="dialog_settings_restart_app_question">Le changement de cette option requiert le redémarrage immédiat de Syncthing. Tous les autres changements seront ignorés. Continuer ?</string>
     <string name="verbose_log_summary">Pour débogage détaillé.</string>
@@ -692,12 +692,22 @@
         <item quantity="other">%1$d conflits</item>
     </plurals>
     <string name="folder_run_script_description">Option pour expert permettant de lancer des scripts suite au changement d\'état de synchronisation d\'un partage. Les scripts dans \'.stfolder/*.sh\' seront exécutés ; les autres emplacements ne sont pas autorisés par mesure de sécurité.\nExemple d\'appel de script : \'.stfolder/renomme-fichiers.sh sync_complete\'</string>
-    <string name="pizza_url_title">» Chats pizzavores « 😺🍕</string>
+    <string name="pizza_url_title">« Chats pizzavores » 😺🍕</string>
     <string name="clear_stversions_summary">Les fichiers sont déplacés vers le répertoire .stversions à l\'occasion d\'un remplacement/renommage ou suppression par Syncthing. Vous pouvez probablement y retrouver des fichiers accidentellement perdus, mais les très vieilles suppressions prennent de la place dans le stockage de votre appareil : vous pouvez régler une durée de péremption au-delà de laquelle les suppressions sont vraiment définitives.</string>
     <string name="clear_stversions_question">Ceci va purger toutes les corbeilles gérées par Syncthing. Continuer ?</string>
     <string name="privacy_title">Politique de confidentialité</string>
     <string name="clear_stversions_done">Toutes les corbeilles .stversions ont été vidées avec succès.</string>
-    <string name="pizza_url_summary">Juste une caresse comme tranche de sympathie - cerise sur le gâteau, les chat continueront de ronronner.</string>
+    <string name="pizza_url_summary">Avec juste un appui, vous pouvez laisser une caresse comme chaleureuse marque de sympathie — cerise sur le gâteau, les chat continueront de ronronner.</string>
     <string name="share_log_file">Journal de partage</string>
     <string name="share_log_file_missing">Le fichier journal à partager est absent.</string>
+    <string name="backup_rel_path_to_zip">Chemin relatif à l\'archive de configuration</string>
+    <string name="backup_password_title">Mot de passe de protection de configuration</string>
+    <string name="backup_password_summary">ℹ️ Recommandé :\nEntrez un mot de passe robuste qui sera utilisé pour chiffrer votre configuration durant l\'exportation et la déchiffrer durant l\'importation. Conservez ce mot de passe en sécurité pour le processus de récupération. Vous en aurez besoin pour utiliser la fonctionnalité d\'importation.\n\n⚠️ Non recommandé :\nNe pas utiliser de mot de passe, d\'autres applications pourront potentiellement lire et manipuler votre configuration Syncthing. Une configuration exposée fait courir le risque qu\'un acteur malveillant obtienne un accès non autorisé à vos fichiers en utilisant des exports de configuration dérobés.</string>
+    <string name="backup_password_set">✅ Mot de passe défini : %1$s</string>
+    <string name="backup_password_not_set">⚠ Mot de passe non défini.</string>
+    <string name="preference_category_actions">Actions</string>
+    <string name="preference_category_explanation">Explication</string>
+    <string name="preference_category_prepare">Préparation</string>
+    <string name="config_import_failed_no_path">Échec de l\'importation de la configuration. Pour voir les détails, accédez à : Paramètres, Dépannage, Ouvrir le journal.</string>
+    <string name="config_export_successful_no_path">La configuration a été exportée. Assurez-vous de mémoriser le mot de passe pour un import ultérieur.</string>
 </resources>
