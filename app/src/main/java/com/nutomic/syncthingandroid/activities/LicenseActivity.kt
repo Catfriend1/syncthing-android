@@ -36,6 +36,10 @@ fun LicenseScreen() {
     MaterialTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+            val context = LocalContext.current
+            val libraries by rememberLibraries {
+                context.assets.open("aboutlibraries.json").bufferedReader().use { it.readText() }
+            }
 
             Scaffold(
                 topBar = {
@@ -49,7 +53,12 @@ fun LicenseScreen() {
                     )
                 }
             ) { paddingValues ->
-                LibrariesContainer(modifier = Modifier.fillMaxSize().padding(paddingValues))
+                LibrariesContainer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    libraries = libraries
+                )
             }
         }
     }
