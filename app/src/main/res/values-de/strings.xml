@@ -433,11 +433,11 @@
     <string name="broadcast_service_control_title">Dienstkontrolle über Broadcast</string>
     <string name="broadcast_service_control_summary">Standard: Deaktiviert. Diese Option aktivieren, damit adb oder Anwendungen von Drittanbietern, z. B. Automatisierungsanwendungen, Syncthing anweisen können, den Ausführungsbedingungen zu folgen und den Start oder Stopp zu erzwingen.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden? Vorhandene Dateien werden überschrieben. \n \nACHTUNG! Andere Anwendungen können möglicherweise den privaten Schlüssel im Backupverzeichnis lesen und dazu verwenden, um synchronisierte Dateien herunterzuladen und zu verändern.</string>
+    <string name="dialog_confirm_export">Soll die Konfiguration wirklich exportiert werden? Das vorhandene Archiv wird überschrieben.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Soll wirklich eine neue Konfiguration importiert werden? Die vorhandene Konfiguration wird überschrieben.</string>
+    <string name="dialog_confirm_import">Soll die Konfiguration wirklich importiert werden? Vorhandene Einstellungen einschließlich der geteilten Ordner und Geräteliste werden ersetzt.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_failed">Konfigurationsexport fehlgeschlagen, bitte die Logcat-Ausgabe prüfen.</string>
+    <string name="config_export_failed">Der Export der Konfiguration ist fehlgeschlagen. Gehen Sie zu Einstellungen&gt;Fehlerbehebung&gt;Protokoll öffnen, um Details zu sehen.</string>
     <string name="import_config">Konfiguration importieren</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfiguration importiert</string>
@@ -769,4 +769,14 @@
     </plurals>
     <string name="share_log_file_missing">Die zu teilende Protokolldatei fehlt.</string>
     <string name="share_log_file">Protokolldatei teilen</string>
+    <string name="backup_password_set">✅ Passwort gesetzt: %1$s</string>
+    <string name="backup_password_not_set">⚠ Passwort nicht gesetzt.</string>
+    <string name="preference_category_actions">Aktionen</string>
+    <string name="preference_category_prepare">Vorbereiten</string>
+    <string name="config_export_successful_no_path">Konfiguration wurde exportiert. Bitte das Passwort für einen späteren Import merken.</string>
+    <string name="backup_rel_path_to_zip">Relativer Pfad zum Konfigurationsarchiv</string>
+    <string name="backup_password_title">Passwort für den Konfigurationsschutz</string>
+    <string name="backup_password_summary">ℹ️ Empfohlen:\nGeben Sie ein sicheres Passwort ein, um Ihre Konfiguration beim Export zu verschlüsseln und beim Import zu entschlüsseln. Bewahren Sie dieses Passwort für den Wiederherstellungsprozess an einem sicheren Ort auf. Sie benötigen es, um die Importfunktion zu nutzen.\n\n⚠️ Nicht empfohlen:\nWenn Sie kein Passwort verwenden, können andere Anwendungen möglicherweise Ihre Syncthing-Konfiguration lesen und manipulieren. Die Preisgabe der Konfiguration birgt das Risiko, dass ein bösartiger Akteur mit gestohlenen Konfigurationsexporten unbefugten Zugriff auf Ihre Dateien erhält.</string>
+    <string name="preference_category_explanation">Erklärung</string>
+    <string name="config_import_failed_no_path">Der Import der Konfiguration ist fehlgeschlagen. Gehen Sie zu Einstellungen&gt;Fehlerbehebung&gt;Protokoll öffnen, um Details zu sehen.</string>
 </resources>
