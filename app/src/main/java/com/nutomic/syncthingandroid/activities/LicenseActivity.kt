@@ -13,8 +13,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -51,7 +51,10 @@ fun LicenseScreen() {
                         title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
-                                Icon(Icons.Filled.ArrowBack, contentDescription = stringResource(id = R.string.back))
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = stringResource(id = R.string.back)
+                                )
                             }
                         }
                     )
