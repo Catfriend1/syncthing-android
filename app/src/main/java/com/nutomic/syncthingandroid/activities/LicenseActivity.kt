@@ -16,9 +16,12 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.mikepenz.aboutlibraries.ui.compose.rememberLibraries
 import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 import com.nutomic.syncthingandroid.R
 
@@ -38,7 +41,7 @@ fun LicenseScreen() {
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
             val context = LocalContext.current
             val libraries by rememberLibraries {
-                context.assets.open("aboutlibraries.json").bufferedReader().use { it.readText() }
+                context.assets.open("files/aboutlibraries.json").bufferedReader().use { it.readText() }
             }
 
             Scaffold(
