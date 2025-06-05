@@ -41,7 +41,8 @@ fun LicenseScreen() {
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
             val context = LocalContext.current
             val libraries by rememberLibraries {
-                context.assets.open("files/aboutlibraries.json").bufferedReader().use { it.readText() }
+                val inputStream = context.resources.openRawResource(R.raw.aboutlibraries)
+                inputStream.bufferedReader().use { it.readText() }
             }
 
             Scaffold(
