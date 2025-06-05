@@ -13,12 +13,15 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.mikepenz.aboutlibraries.ui.compose.rememberLibraries
 import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 import com.nutomic.syncthingandroid.R
 
@@ -36,6 +39,11 @@ fun LicenseScreen() {
     MaterialTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+            val context = LocalContext.current
+            val libraries by rememberLibraries {
+                val inputStream = context.resources.openRawResource(R.raw.aboutlibraries)
+                inputStream.bufferedReader().use { it.readText() }
+            }
 
             Scaffold(
                 topBar = {
@@ -43,13 +51,21 @@ fun LicenseScreen() {
                         title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
-                                Icon(Icons.Filled.ArrowBack, contentDescription = stringResource(id = R.string.back))
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = stringResource(id = R.string.back)
+                                )
                             }
                         }
                     )
                 }
             ) { paddingValues ->
-                LibrariesContainer(modifier = Modifier.fillMaxSize().padding(paddingValues))
+                LibrariesContainer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    libraries = libraries
+                )
             }
         }
     }
