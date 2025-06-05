@@ -633,4 +633,7 @@
         <item quantity="one">%1$d конфликт</item>
         <item quantity="other">%1$d конфликта</item>
     </plurals>
+    <string name="backup_password_not_set">⚠ Парола не е зададена.</string>
+    <string name="backup_rel_path_to_zip">Относителен път до архива с настройки</string>
+    <string name="backup_password_title">Парола за защита на настройките</string>
 </resources>
