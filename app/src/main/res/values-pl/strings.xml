@@ -268,9 +268,9 @@
     <string name="keep_wakelock_while_binary_running">Utrzymywanie wybudzonego CPU podczas działania</string>
     <string name="use_tor_title">Korzystaj z sieci Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Wyeksportować ustawienia? Istniejące pliki zostaną zastąpione. \n \nUWAGA! Inne programy mogą odczytać klucz prywatny z lokalizacji kopii zapasowej i użyć go by pobrać bądź zmodyfikować synchronizowane pliki.</string>
+    <string name="dialog_confirm_export">Czy na pewno chcesz wyeksportować konfigurację? Istniejące archiwum zostanie nadpisane.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Zaimportować nowe ustawienia? Istniejące pliki zostaną zastąpione.</string>
+    <string name="dialog_confirm_import">Czy na pewno chcesz zaimportować konfigurację? Istniejące ustawienia, w tym udostępnione foldery i lista urządzeń, zostaną zastąpione.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importuj ustawienia</string>
     <!-- Toast shown after config was imported -->
@@ -537,7 +537,7 @@
     <string name="broadcast_service_control_title">Kontrola usług poprzez transmisję</string>
     <string name="pull_order_type_oldestFirst_description">Pobierz pliki według czasu modyfikacji. Najpierw najstarsze.</string>
     <string name="webui_tcp_port_unavailable">Port TCP interfejsu internetowego %s zajęty. Druga instancja?</string>
-    <string name="config_export_failed">Eksport konfiguracji nie powiódł się, sprawdź dane wyjściowe logcat.</string>
+    <string name="config_export_failed">Eksport konfiguracji nie powiódł się. Przejdź do Ustawienia-Diagnozowanie błędów-Otwórz dziennik, aby zobaczyć szczegóły.</string>
     <string name="web_page_loading">Ładowanie strony internetowej:
 \n%1$s …</string>
     <string name="advanced_storage_path_overview">Podsumowanie ścieżek zaawansowanego dostępu do plików</string>
@@ -722,4 +722,14 @@
     </plurals>
     <string name="share_log_file_missing">Brakuje pliku dziennika do udostępnienia.</string>
     <string name="share_log_file">Udostępnij plik dziennika</string>
+    <string name="backup_rel_path_to_zip">Ścieżka względna do archiwum konfiguracji</string>
+    <string name="backup_password_summary">ℹ️ Zalecane:\nWprowadź silne hasło używane do szyfrowania konfiguracji podczas eksportu i odszyfrowywania podczas importu. Przechowuj to hasło w bezpiecznym miejscu na potrzeby procesu odzyskiwania. Będzie ono potrzebne do korzystania z funkcji importu.\n\n⚠️ Niezalecane:\nNieużywanie hasła, ponieważ inne aplikacje mogą potencjalnie odczytać i manipulować konfiguracją Syncthing. Ujawnienie konfiguracji niesie ze sobą ryzyko, że osoba nieuczciwa uzyska nieautoryzowany dostęp do plików za pomocą skradzionych eksportów konfiguracji.</string>
+    <string name="config_export_successful_no_path">Konfiguracja została wyeksportowana. Upewnij się, że pamiętasz hasło do późniejszego importu.</string>
+    <string name="backup_password_title">Hasło zabezpieczające konfigurację</string>
+    <string name="backup_password_set">✅ Hasło ustawione: %1$s</string>
+    <string name="backup_password_not_set">⚠ Hasło nieustawione.</string>
+    <string name="preference_category_prepare">Przygotuj</string>
+    <string name="config_import_failed_no_path">Import konfiguracji nie powiódł się. Przejdź do Ustawienia-Diagnozowanie błędów-Otwórz dziennik, aby zobaczyć szczegóły.</string>
+    <string name="preference_category_actions">Działania</string>
+    <string name="preference_category_explanation">Wyjaśnienie</string>
 </resources>
