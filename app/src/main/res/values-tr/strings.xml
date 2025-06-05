@@ -143,9 +143,9 @@
     <string name="keep_wakelock_while_binary_running">Syncthing çalışırken işlemciyi uyanık tut</string>
     <string name="use_tor_title">Tor kullan</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır. \n \nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme konumundan okuyabilir ve eşzamanlanan dosyaları indirmek/değiştirmek için kullanabilir.</string>
+    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Yeni bir yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
+    <string name="dialog_confirm_import">Yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Paylaşılan klasörler ve cihazlar listesi dahil varolan ayarlar değiştirilecektir.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Yapılandırmayı İçe Aktar</string>
     <!-- Toast shown after config was imported -->
@@ -414,7 +414,7 @@
     <string name="broadcast_service_control_title">Yayına Göre Hizmet Denetimi</string>
     <string name="pull_order_type_oldestFirst_description">Dosyaları değişiklik zamanına göre sıralanmış çekin. Sırasıyla önce en eski olan.</string>
     <string name="webui_tcp_port_unavailable">Web Arayüzü TCP bağlantı noktası %s meşgul. İkinci örnek mi?</string>
-    <string name="config_export_failed">Yapılandırmayı dışa aktarma başarısız oldu, logcat çıktısını gözden geçirin.</string>
+    <string name="config_export_failed">Yapılandırmayı dışa aktarma başarısız oldu. Ayrıntıları görmek için Ayarlar-Sorun Giderme-Günlüğü Aç\'a gidin.</string>
     <string name="simple_file_versioning_description">Dosyalar, Syncthing tarafından değiştirildiğinde veya silindiğinde, .stversions dizini içindeki tarih damgalı sürümlere taşınır.</string>
     <string name="web_page_loading">Web sayfası yükleniyor:
 \n%1$s …</string>
@@ -656,4 +656,14 @@
     </plurals>
     <string name="share_log_file_missing">Paylaşılacak günlük dosyası eksik.</string>
     <string name="share_log_file">Günlük dosyasını paylaş</string>
+    <string name="backup_password_title">Yapılandırma koruma parolası</string>
+    <string name="preference_category_actions">Eylemler</string>
+    <string name="preference_category_prepare">Hazırlık</string>
+    <string name="config_export_successful_no_path">Yapılandırma dışa aktarıldı. Lütfen daha sonraki bir içe aktarma için parolayı hatırladığınızdan emin olun.</string>
+    <string name="config_import_failed_no_path">Yapılandırmayı içe aktarma başarısız oldu. Ayrıntıları görmek için Ayarlar-Sorun Giderme-Günlüğü Aç\'a gidin.</string>
+    <string name="backup_password_not_set">⚠ Parola ayarlı değil.</string>
+    <string name="backup_password_set">✅ Parola şuna ayarlı: %1$s</string>
+    <string name="backup_rel_path_to_zip">Yapılandırma arşivine göreceli yol</string>
+    <string name="preference_category_explanation">Açıklama</string>
+    <string name="backup_password_summary">ℹ️ Önerilir:\nDışa aktarma sırasında yapılandırmanızı şifrelemek için kullanılacak güçlü bir parola girin ve içe aktarmada şifresini çözün. Bu parolayı kurtarma işlemi için güvenli bir yerde tutun. İçe aktarma özelliğini kullanmak için buna ihtiyacınız olacak.\n\n⚠️ Önerilmez:\nParola kullanmamak, diğer uygulamalar potansiyel olarak Syncthing yapılandırmanızı okuyabilir ve kandırabilir. Yapılandırmanın ortaya çıkması, kötü bir aktörün çalınan yapılandırma dışa aktarmalarını kullanarak dosyalarınıza yetkisiz erişim elde etme riski taşır.</string>
 </resources>
