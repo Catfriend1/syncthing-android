@@ -142,9 +142,9 @@
     <string name="export_config">Изнасяне на настройките</string>
     <string name="use_tor_title">Използване на Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Желаете ли настройките да бъдат изнесени? Съществуващите файлове ще бъдат презаписани.\n\nВНИМАНИЕ!!!\nДруги приложения могат да получат достъп до частния ключ от резервното копие, а чрез него да изтеглят и променят синхронизирани файлове.</string>
+    <string name="dialog_confirm_export">Желаете ли настройките да бъдат изнесени? Съществуващият архив ще бъде презаписан.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Желаете ли да внесете нови настройки? Съществуващите файлове ще бъдат презаписани.</string>
+    <string name="dialog_confirm_import">Желаете ли да внесете настройки? Съществуващите настройки, включително споделените папки и устройства ще бъдат заменени.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Внасяне на настройки</string>
     <!-- Toast shown after config was imported -->
@@ -442,7 +442,7 @@
     <string name="webui_debugging_title">Отстраняване на грешки от интерфейса за уеб</string>
     <string name="download_support_bundle_in_progress">Подготовка на пакет за поддръжка…</string>
     <string name="undo_ignored_devices_folders_question">По този начин ще отмените предишнитете си решения да пренебрегнете устройства и папки. Желаете ли да продължите?</string>
-    <string name="config_export_failed">Грешка при изнасяне на настройните, проверете в дневника.</string>
+    <string name="config_export_failed">Грешка при изнасяне на настройките. За подробности посетете Настройки → Отстраняване на дефекти → Отваряне на дневника.</string>
     <string name="dialog_settings_restart_app_title">Необходим е рестарт</string>
     <string name="st_reset_deltas_title">Нулиране на промените на индексите</string>
     <string name="api_key_copied_to_clipboard">Ключът за ППИ на Syncthing е копиран</string>
@@ -636,4 +636,13 @@
     <string name="backup_password_not_set">⚠ Парола не е зададена.</string>
     <string name="backup_rel_path_to_zip">Относителен път до архива с настройки</string>
     <string name="backup_password_title">Парола за защита на настройките</string>
+    <string name="preference_category_explanation">Обяснение</string>
+    <string name="preference_category_actions">Действия</string>
+    <string name="preference_category_prepare">Подготовка</string>
+    <string name="config_import_failed_no_path">Грешка при внасяне на настройките. За подробности посетете Настройки → Отстраняване на дефекти → Отваряне на дневника.</string>
+    <string name="backup_password_set">✅ Зададена парола: %1$s</string>
+    <string name="share_log_file">Споделяне на дневник</string>
+    <string name="config_export_successful_no_path">Настройките са изнесени. Запомнете паролата при последващо внасяне.</string>
+    <string name="share_log_file_missing">Дневникът, който ще споделяте липсва.</string>
+    <string name="backup_password_summary">ℹ️ Препоръчително:\nВъведете силна парола, която ще бъде използвана за шифроване на настройките при изнасяне и разшифроване при внасяне. Пазете паролата на сигурно място, в случай на необходимост от внасяне на настройките. Трябва да използвате възможността за внасяне.\n\n⚠️ Непрепоръчително:\nДа не използвате парола. В този случай е възможно други приложения да получат достъп и да променят настройките на Syncthing. Достъпът до настройките носи риска от несанкциониран достъп до вашите файлове, използвайки откраднатите настройки.</string>
 </resources>
