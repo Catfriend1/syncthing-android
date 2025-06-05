@@ -426,11 +426,11 @@
     <string name="broadcast_service_control_title">Controlla servizio con Broadcast</string>
     <string name="broadcast_service_control_summary">Predefinito: Disabilitato. Abilitare per consentire ad adb o ad app di terze parti, ad esempio app di automazione, di istruire Syncthing a seguire le condizioni di esecuzione, forzare l\'avvio o forzare l\'arresto.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Esportare la configurazione? I files esistenti verranno sovrascritti. \n \nATTENZIONE! Le altre applicazioni potrebbero essere in grado di leggere la chiave privata dalla locazione di backup e usarla per scaricare/modificare i files sincronizzati.</string>
+    <string name="dialog_confirm_export">Vuoi davvero esportare la tua configurazione? L\'archivio esistente verrà sovrascritto.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Importare una nuova configurazione? I files esistenti verranno sovrascritti.</string>
+    <string name="dialog_confirm_import">Vuoi davvero importare la configurazione? Le impostazioni esistenti, comprese le cartelle condivise e l\'elenco dei dispositivi, verranno sostituite.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_failed">Impossibile esportare la configurazione, controlla il logcat.</string>
+    <string name="config_export_failed">Esportazione della configurazione non riuscita. Vai in Impostazioni-Risoluzione dei problemi-Apri log per visualizzare i dettagli.</string>
     <string name="import_config">Importa Configurazione</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configurazione importata</string>
@@ -461,7 +461,7 @@
     <string name="log_to_file_title">Log su file</string>
     <string name="log_to_file_summary">L\'output di SyncthingNative verrà scritto su un file.</string>
     <!-- Settings item that opens the log activity -->
-    <string name="open_log">Apri Registro</string>
+    <string name="open_log">Apri Log</string>
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Apre la finestra di log di Syncthing e Android</string>
     <!-- Settings item that opens issue tracker -->
@@ -503,7 +503,7 @@
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">Mostra Registro di Android</string>
     <!-- Title of the "log Syncthing" menu button -->
-    <string name="view_syncthing_log">Mostra Registro di Syncthing</string>
+    <string name="view_syncthing_log">Mostra Log di Syncthing</string>
     <string name="retrieving_logs">Recupero log…</string>
     <!-- Title of the "share log" menu button -->
     <string name="share_title">Condividi</string>
@@ -766,4 +766,16 @@
     </plurals>
     <string name="pizza_url_summary">Con un solo tocco puoi lasciare un caloroso gesto di gentilezza, arricchito da vibrazioni positive che faranno sì che i gatti facciano le fusa allegramente.</string>
     <string name="folder_run_script_description">Opzione avanzata per eseguire script dopo che una cartella ha modificato il suo stato di sincronizzazione. Verranno eseguiti gli script in \'.stfolder/*.sh\'; altre posizioni non sono supportate per motivi di sicurezza.\nEsempio di chiamata allo script: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="backup_rel_path_to_zip">Percorso relativo all\'archivio di configurazione</string>
+    <string name="backup_password_title">Password di protezione della configurazione</string>
+    <string name="backup_password_set">✅ Password impostata: %1$s</string>
+    <string name="backup_password_not_set">⚠ Password non impostata.</string>
+    <string name="preference_category_actions">Azioni</string>
+    <string name="preference_category_explanation">Spiegazione</string>
+    <string name="preference_category_prepare">Preparare</string>
+    <string name="config_export_successful_no_path">La configurazione è stata esportata. Assicurati di ricordare la password per un\'importazione successiva.</string>
+    <string name="config_import_failed_no_path">Esportazione della configurazione non riuscita. Vai in Impostazioni-Risoluzione dei problemi-Apri log per visualizzare i dettagli.</string>
+    <string name="share_log_file">Condividi file di log</string>
+    <string name="share_log_file_missing">Manca il file di log da condividere.</string>
+    <string name="backup_password_summary">ℹ️ Consigliato:\nInserisci una password complessa utilizzata per crittografare la configurazione durante l\'esportazione e decrittografarla durante l\'importazione. Conserva questa password in un luogo sicuro per il processo di recupero. Ti servirà per utilizzare la funzione di importazione.\n\n⚠️ Sconsigliato:\nSenza l\'utilizzo di una password, altre app potrebbero potenzialmente leggere e manipolare la configurazione di Syncthing. L\'esposizione della configurazione comporta il rischio che un malintenzionato possa ottenere un accesso non autorizzato ai tuoi file utilizzando esportazioni di configurazioni rubate.</string>
 </resources>
