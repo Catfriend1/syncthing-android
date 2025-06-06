@@ -1216,23 +1216,23 @@ public class RestApi {
         }
 
         // Execute planned workloads.
-        if (planGetSyncConflictFiles) {
-            // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
-            mLocalCompletion.setDiscoveredConflictFiles(
-                    folderId,
-                    Util.getSyncConflictFiles(folder.path)
-            );
-        }
+        executorService.execute(() -> {
+            if (planGetSyncConflictFiles) {
+                // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+                mLocalCompletion.setDiscoveredConflictFiles(
+                        folderId,
+                        Util.getSyncConflictFiles(folder.path)
+                );
+            }
 
-        if (planOnFolderSyncCompleted) {
-            executorService.execute(() -> {
+            if (planOnFolderSyncCompleted) {
                 onFolderSyncCompleted(
                         folder, 
                         folderStatus.state, 
                         deviceId
                 );
-            });
-        }
+            }
+        });
     }
 
     public void onFolderSyncCompleted(final Folder folder, 
