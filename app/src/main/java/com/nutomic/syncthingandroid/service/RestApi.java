@@ -71,6 +71,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -173,6 +175,8 @@ public class RestApi {
     private Boolean hasShutdown = false;
 
     private Gson mGson;
+
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Inject NotificationHandler mNotificationHandler;
 
@@ -593,6 +597,7 @@ public class RestApi {
      */
     public void shutdown() {
         hasShutdown = true;
+        executorService.shutdown();
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_SHUTDOWN, mApiKey,
                 null, null, null);
     }
