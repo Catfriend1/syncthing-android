@@ -1216,8 +1216,10 @@ public class RestApi {
         }
 
         // Execute planned workloads.
+        final Boolean finalPlanGetSyncConflictFiles = planGetSyncConflictFiles;
+        final Boolean finalPlanOnFolderSyncCompleted = planOnFolderSyncCompleted;
         executorService.execute(() -> {
-            if (planGetSyncConflictFiles) {
+            if (finalPlanGetSyncConflictFiles) {
                 // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
                 mLocalCompletion.setDiscoveredConflictFiles(
                         folderId,
@@ -1225,7 +1227,7 @@ public class RestApi {
                 );
             }
 
-            if (planOnFolderSyncCompleted) {
+            if (finalPlanOnFolderSyncCompleted) {
                 onFolderSyncCompleted(
                         folder, 
                         folderStatus.state, 
