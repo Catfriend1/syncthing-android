@@ -1192,27 +1192,44 @@ public class RestApi {
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
 
-        // Check if a folder completed synchronization on the local or a remote device.
+        /**
+         * Check if a folder completed synchronization on the local or a remote device.
+         * Plan finisher workloads that need to run after folder completion.
+         * They will be offloaded to a separate thread later.
+        **/
+        Boolean planGetSyncConflictFiles = false;
+        Boolean planOnFolderSyncCompleted = false;
+
+        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+        final FolderStatus folderStatus =  cacheEntry.getKey();
+        final Boolean folderIsSyncing = folderStatus.state.contains("sync");
         if (remoteCompletionInfo.completion == 100) {
-            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
-            final FolderStatus folderStatus =  cacheEntry.getKey();
-            if (!folderStatus.state.contains("sync")) {
-                // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
-                mLocalCompletion.setDiscoveredConflictFiles(
-                        folderId,
-                        Util.getSyncConflictFiles(folder.path)
-                );
+            if (!folderIsSyncing) {
+                planGetSyncConflictFiles = true;
 
                 final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
                 if (cachedFolderStatus.remoteIndexUpdated) {
                     mLocalCompletion.setRemoteIndexUpdated(folderId, false);
-                    onFolderSyncCompleted(
-                            folder, 
-                            folderStatus.state, 
-                            deviceId
-                    );
+                    planOnFolderSyncCompleted = true;
                 }
             }
+        }
+
+        // Execute planned workloads.
+        if (planGetSyncConflictFiles) {
+            // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
+            mLocalCompletion.setDiscoveredConflictFiles(
+                    folderId,
+                    Util.getSyncConflictFiles(folder.path)
+            );
+        }
+
+        if (planOnFolderSyncCompleted) {
+            onFolderSyncCompleted(
+                    folder, 
+                    folderStatus.state, 
+                    deviceId
+            );
         }
     }
 
