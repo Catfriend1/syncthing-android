@@ -71,6 +71,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -173,6 +175,8 @@ public class RestApi {
     private Boolean hasShutdown = false;
 
     private Gson mGson;
+
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Inject NotificationHandler mNotificationHandler;
 
@@ -593,6 +597,7 @@ public class RestApi {
      */
     public void shutdown() {
         hasShutdown = true;
+        executorService.shutdown();
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_SHUTDOWN, mApiKey,
                 null, null, null);
     }
@@ -1187,11 +1192,34 @@ public class RestApi {
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
 
-        // Check if a folder completed synchronization on the local or a remote device.
+        /**
+         * Check if a folder completed synchronization on the local or a remote device.
+         * Plan finisher workloads that need to run after folder completion.
+         * They will be offloaded to a separate thread later.
+        **/
+        Boolean planGetSyncConflictFiles = false;
+        Boolean planOnFolderSyncCompleted = false;
+
+        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
+        final FolderStatus folderStatus =  cacheEntry.getKey();
+        final Boolean folderIsSyncing = folderStatus.state.contains("sync");
         if (remoteCompletionInfo.completion == 100) {
-            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
-            final FolderStatus folderStatus =  cacheEntry.getKey();
-            if (!folderStatus.state.contains("sync")) {
+            if (!folderIsSyncing) {
+                planGetSyncConflictFiles = true;
+
+                final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+                if (cachedFolderStatus.remoteIndexUpdated) {
+                    mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+                    planOnFolderSyncCompleted = true;
+                }
+            }
+        }
+
+        // Execute planned workloads.
+        final Boolean finalPlanGetSyncConflictFiles = planGetSyncConflictFiles;
+        final Boolean finalPlanOnFolderSyncCompleted = planOnFolderSyncCompleted;
+        executorService.execute(() -> {
+            if (finalPlanGetSyncConflictFiles) {
                 // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
                 mLocalCompletion.setDiscoveredConflictFiles(
                         folderId,
@@ -1199,23 +1227,20 @@ public class RestApi {
                 );
             }
 
-            final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
-            if (!folderStatus.state.contains("sync") && 
-                    cachedFolderStatus.remoteIndexUpdated) {
-                mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+            if (finalPlanOnFolderSyncCompleted) {
                 onFolderSyncCompleted(
                         folder, 
                         folderStatus.state, 
                         deviceId
                 );
             }
-        }
+        });
     }
 
     public void onFolderSyncCompleted(final Folder folder, 
                                             final String folderState, 
                                             final String deviceId) {
-        Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folder.id + "]");
+        Log.d(TAG, "onFolderSyncCompleted: Completed folder=[" + folder.id + "]");
 
         // Run folder script set if enabled by user pref.
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
