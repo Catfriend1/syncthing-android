@@ -8,3 +8,7 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Open your file manager, e.g. Material Files
 - Browse to "(InternalStorage)/backups/syncthing"
 - Delete all "*.pem", "*.xml" files because they contain an outdated and unencrypted config from prior exports.
+
+## What's Changed
+* Disable android backup integration by @Catfriend1 in #1470
+* After folders complete, run additional workloads in a seperate thread by @Catfriend1 in #1471
