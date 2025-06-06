@@ -1225,18 +1225,20 @@ public class RestApi {
         }
 
         if (planOnFolderSyncCompleted) {
-            onFolderSyncCompleted(
-                    folder, 
-                    folderStatus.state, 
-                    deviceId
-            );
+            executorService.execute(() -> {
+                onFolderSyncCompleted(
+                        folder, 
+                        folderStatus.state, 
+                        deviceId
+                );
+            });
         }
     }
 
     public void onFolderSyncCompleted(final Folder folder, 
                                             final String folderState, 
                                             final String deviceId) {
-        Log.d(TAG, "setRemoteCompletionInfo: Completed folder=[" + folder.id + "]");
+        Log.d(TAG, "onFolderSyncCompleted: Completed folder=[" + folder.id + "]");
 
         // Run folder script set if enabled by user pref.
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
