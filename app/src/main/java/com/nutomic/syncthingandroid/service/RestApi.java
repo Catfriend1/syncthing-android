@@ -1202,17 +1202,16 @@ public class RestApi {
                         folderId,
                         Util.getSyncConflictFiles(folder.path)
                 );
-            }
 
-            final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
-            if (!folderStatus.state.contains("sync") && 
-                    cachedFolderStatus.remoteIndexUpdated) {
-                mLocalCompletion.setRemoteIndexUpdated(folderId, false);
-                onFolderSyncCompleted(
-                        folder, 
-                        folderStatus.state, 
-                        deviceId
-                );
+                final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
+                if (cachedFolderStatus.remoteIndexUpdated) {
+                    mLocalCompletion.setRemoteIndexUpdated(folderId, false);
+                    onFolderSyncCompleted(
+                            folder, 
+                            folderStatus.state, 
+                            deviceId
+                    );
+                }
             }
         }
     }
