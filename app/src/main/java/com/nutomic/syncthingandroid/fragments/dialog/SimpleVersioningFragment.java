@@ -29,28 +29,33 @@ public class SimpleVersioningFragment extends Fragment {
     }
 
     private void fillArguments() {
-        if (missingParameters()){
+        if (!mArguments.containsKey("keep")){
             mArguments.putString("keep", "5");
         }
-    }
-
-    private boolean missingParameters() {
-        return !mArguments.containsKey("keep");
+        if (!mArguments.containsKey("cleanoutDays")){
+            mArguments.putString("cleanoutDays", "0");
+        }
     }
 
     //a NumberPickerFragment is nested in the fragment_simple_versioning layout, the values for it are update below.
     private void updateNumberPicker() {
-        NumberPickerFragment numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_simple_versioning");
-        numberPicker.updateNumberPicker(100000, 1, getKeepVersions());
+        NumberPickerFragment numberPicker;
+
+        numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_simple_versioning_keep");
+        numberPicker.updateNumberPicker(100000, 1, Integer.valueOf(mArguments.getString("keep")));
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> updateKeepVersions((String.valueOf(newVal))));
+
+        numberPicker = (NumberPickerFragment) getChildFragmentManager().findFragmentByTag("numberpicker_simple_versioning_cleanoutdays");
+        numberPicker.updateNumberPicker(100, 0, Integer.valueOf(mArguments.getString("cleanoutDays")));
+        numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> updateCleanoutDays((String.valueOf(newVal))));
+    }
+
+    private void updateCleanoutDays(String newValue) {
+        mArguments.putString("cleanoutDays", newValue);
     }
 
     private void updateKeepVersions(String newValue) {
         mArguments.putString("keep", newValue);
-    }
-
-    private int getKeepVersions() {
-         return Integer.valueOf(mArguments.getString("keep"));
     }
 
 }
