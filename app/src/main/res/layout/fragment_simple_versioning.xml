@@ -15,6 +15,7 @@
             android:text="@string/simple_file_versioning_description"
             android:layout_margin="10dp" />
 
+        <!-- keepVersions -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,17 +28,43 @@
             android:textStyle="bold" />
 
         <fragment
-            android:id="@+id/fragment"
+            android:id="@+id/fragment_numberpicker_simple_versioning_keep"
             android:name="com.nutomic.syncthingandroid.fragments.NumberPickerFragment"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:tag="numberpicker_simple_versioning"
+            android:tag="numberpicker_simple_versioning_keep"
             tools:layout="@layout/numberpicker_fragment" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/keep_versions_description"
+            android:layout_margin="10dp" />
+
+        <!-- cleanoutDays -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/clean_out_after"
+            android:textAlignment="center"
+            android:textColor="?attr/colorControlNormal"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"/>
+
+        <fragment
+            android:id="@+id/fragment_numberpicker_simple_versioning_cleanoutdays"
+            android:name="com.nutomic.syncthingandroid.fragments.NumberPickerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:tag="numberpicker_simple_versioning_cleanoutdays"
+            tools:layout="@layout/numberpicker_fragment" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cleanout_after_description"
             android:layout_margin="10dp" />
 
     </LinearLayout>
