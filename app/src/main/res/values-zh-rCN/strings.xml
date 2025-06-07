@@ -434,7 +434,7 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">是否确定要导出您的配置？现有存档将被覆盖。</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">是否确定要导入该配置？现有设置，包括共享文件夹和设备将被替换。</string>
+    <string name="dialog_confirm_import">是否确定要导入该配置？现有设置，包括共享文件夹和设备列表将被替换。</string>
     <!-- Toast shown after config was exported -->
     <string name="config_export_failed">配置导出失败了。请转到\"设置-故障排除-打开日志”查看详情。</string>
     <string name="import_config">导入配置</string>
