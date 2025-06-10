@@ -218,8 +218,8 @@
     <string name="devices_list_empty">לא הוגדרו התקנים. הקש כדי להוסיף התקן חדש.</string>
     <string name="restart">הפעלה מחדש</string>
     <string name="dialog_confirm_restart">האם אתה רוצה להפעיל מחדש את Syncthing?</string>
-    <string name="broadcast_service_control_summary">ברירת מחדל: מושבתת. הפעל אפשרות זו כדי להתחיל ולעצור את השירות על ידי שליחת שידורים, למשל מתוך יישומי אוטומציה של צד שלישי. הערה: עליך להפעיל מחדש את היישום באופן ידני לאחר שינוי אפשרות זו.</string>
-    <string name="dialog_confirm_export">האם אתה באמת רוצה לייצא את התצורה שלך? קבצים קיימים יידרסו. \n \nאזהרה! ייתכן שיישומים אחרים יוכלו לקרוא את המפתח הפרטי ממיקום הגיבוי ולהשתמש בו כדי להוריד/לשנות קבצים מסונכרנים.</string>
+    <string name="broadcast_service_control_summary">ברירת מחדל: מושבתת. הפעל כדי לאפשר ל-adb או יישומי צד שלישי, למשל יישומי אוטומציה להנחות את Syncthing לעקוב אחר תנאי ריצה, לכפות התחלה או לכפות עצירה.</string>
+    <string name="dialog_confirm_export">האם אתה באמת רוצה לייצא את התצורה שלך? הארכיון הקיים יידרס.</string>
     <string name="current_path">נתיב נוכחי: %1$s</string>
     <string name="st_reset_deltas_question">פעולה זו צריכה להתבצע רק על בסיס המלצה מצוות התמיכה שלנו. \nהאם אתה בטוח שברצונך לנקות אינדקסי דלתה של Syncthing?</string>
     <string name="create_fs_folder">צור תיקייה חדשה</string>
@@ -312,8 +312,8 @@
     <string name="http_proxy_address_title">פרוקסי HTTP(S)</string>
     <string name="toast_invalid_http_proxy_address">הקלט מפר את תחביר הפרוקסי \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <string name="broadcast_service_control_title">בקרת שירות באמצעות שידור</string>
-    <string name="dialog_confirm_import">האם אתה באמת רוצה לייבא תצורה חדשה? קבצים קיימים יידרסו.</string>
-    <string name="config_export_failed">ייצוא התצורה נכשל, בדוק פלט logcat.</string>
+    <string name="dialog_confirm_import">האם אתה באמת רוצה לייבא את התצורה? הגדרות קיימות כולל תיקיות משותפות ורשימת התקנים יוחלפו.</string>
+    <string name="config_export_failed">ייצוא התצורה נכשל. עבור להגדרות-פתרון בעיות-פתיחת יומן כדי לראות פרטים.</string>
     <string name="import_config">ייבא תצורה</string>
     <string name="config_imported_successful">התצורה יובאה</string>
     <string name="dialog_settings_restart_app_title">נדרשת הפעלה מחדש</string>
@@ -331,7 +331,7 @@
     <string name="verbose_log_summary">הפעלת אפשרות זו תעזור ליצור יומני דיבג ברמה מאוד מפורטת.</string>
     <string name="log_to_file_title">רשום לקובץ</string>
     <string name="log_to_file_summary">הפלט של SyncthingNative ייכתב לקובץ.</string>
-    <string name="open_log">פתח יומן</string>
+    <string name="open_log">פתיחת יומן</string>
     <string name="open_log_summary">פתח את חלון היומנים של Syncthing ואנדרואיד</string>
     <string name="report_issue_title">דווח על בעיה</string>
     <string name="open_issue_tracker_summary">פתח את מערכת מעקב הבעיות של Syncthing-Fork בכתובת %1$s</string>
@@ -533,4 +533,35 @@
     <string name="qs_schedule_disabled">לוח הזמנים מושבת</string>
     <string name="start_into_web_gui_title">התחל ישירות בממשק רשת גרפי</string>
     <string name="start_into_web_gui_summary">כשמתחילים את היישום, פתח את ממשק הרשת הגרפי במקום המסך הראשי</string>
+    <string name="config_import_failed_no_path">ייבוא תצורה נכשל. עבור להגדרות-פתרון בעיות-פתיחת יומן כדי לראות פרטים.</string>
+    <string name="clear_stversions_title">ריקון כל התיקיות של ניהול גרסאות</string>
+    <string name="open_source_licenses_title">רישיונות קוד פתוח</string>
+    <string name="folder_run_script_description">אפשרות מומחה להרצת סקריפטים לאחר שתיקייה משנה את מצב הסנכרון שלה. סקריפטים ב-\'.stfolder/*.sh\' יבוצעו, מיקומים אחרים אינם נתמכים מטעמי אבטחה.\nקריאת סקריפט לדוגמה: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="clear_stversions_summary">קבצים מועברים לתיקיית .stversions כאשר הם מוחלפים או נמחקים על ידי Syncthing. ייתכן שתוכל למצוא ולשחזר קבצים שנמחקו בטעות שם, אבל גרסאות ישנות של הקבצים תופסות שטח אחסון בהתקן שלך.</string>
+    <string name="preference_category_actions">פעולות</string>
+    <string name="pizza_url_title">» חתולים אוהבים פיצה « 😺🍕</string>
+    <string name="syncthing_forum_summary">עבור אל פורום Syncthing וקבל תמיכה</string>
+    <string name="pizza_url_summary">באמצעות הקשה אחת בלבד, אתה יכול להותיר פרוסה חמה של אדיבות - בתוספת אנרגיות טובות כדי שהחתולים ימשיכו לגרגר בשמחה.</string>
+    <string name="privacy_summary">פתח את מדיניות הפרטיות של Syncthing-אנדרואיד, אשר מכסה שימוש (אם בכלל) של נתונים אישיים, למשל מיקום.</string>
+    <string name="privacy_title">מדיניות פרטיות</string>
+    <string name="folder_run_script_caption">הרצת סקריפט</string>
+    <string name="syncthing_forum_title">פורום Syncthing</string>
+    <string name="open_source_licenses_summary">הצג את הרישיונות קוד פתוח בשימוש</string>
+    <string name="clear_stversions_question">פעולה זו תמחק את כל הגרסאות הישנות של קבצים המטופלים על ידי Syncthing. להמשיך?</string>
+    <string name="clear_stversions_done">תיקיות .stversions נוקו בהצלחה.</string>
+    <plurals name="conflicts">
+        <item quantity="one">התנגשות %1$d</item>
+        <item quantity="two">%1$d התנגשויות</item>
+        <item quantity="other">%1$d התנגשויות</item>
+    </plurals>
+    <string name="backup_rel_path_to_zip">נתיב יחסי לארכיון תצורה</string>
+    <string name="backup_password_title">סיסמת הגנת תצורה</string>
+    <string name="backup_password_set">✅ סיסמה הוגדרה: %1$s</string>
+    <string name="backup_password_not_set">⚠ סיסמה לא הוגדרה.</string>
+    <string name="config_export_successful_no_path">התצורה יוצאה. נא לוודא לזכור את הסיסמה עבור ייבוא בהמשך.</string>
+    <string name="preference_category_prepare">הכנה</string>
+    <string name="share_log_file_missing">הקובץ יומן לשיתוף חסר.</string>
+    <string name="share_log_file">שיתוף קובץ יומן</string>
+    <string name="preference_category_explanation">הסבר</string>
+    <string name="backup_password_summary">ℹ️ מומלץ:\nהזן סיסמה חזקה אשר תשמש להצפנת התצורה שלך במהלך הייצוא והפענוח בייבוא. שמור את הסיסמה במקום בטוח עבור תהליך השחזור. תצטרך אותה כדי להשתמש בתכונת הייבוא.\n\n⚠️ לא מומלץ:\nלא להשתמש בסיסמה, יישומים אחרים עשויים לקרוא ולהשפיע על תצורת ה-Syncthing שלך. חשיפת התצורה נושאת סיכון שגורם רע עשוי להשיג גישה לא מורשת לקבצים שלך באמצעות ייצוא תצורה שנגנב.</string>
 </resources>
