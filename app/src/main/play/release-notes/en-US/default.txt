@@ -1,14 +1,4 @@
-⚠️ Breaking change:
-The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
-
-ℹ️ Action required:
-- Please go to "Settings - Import and Export"
-- Set an individual password, be sure to remember it
-- Click "Export Configuration" and confirm
-- Open your file manager, e.g. Material Files
-- Browse to "(InternalStorage)/backups/syncthing"
-- Delete all "*.pem", "*.xml" files because they contain an outdated and unencrypted config from prior exports.
-
 ## What's Changed
-* Disable android backup integration by @Catfriend1 in #1470
-* After folders complete, run additional workloads in a seperate thread by @Catfriend1 in #1471
+* Updated dependencies
+* Updated translations
+* Set BUILD_HOST (F-Droid builds only)
