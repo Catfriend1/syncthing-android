@@ -2414,11 +2414,173 @@ Builds:
       - sdkmanager "ndk;$ndkversion"
       - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
 
+  - versionName: 1.29.6.1
+    versionCode: 1290601
+    commit: ae4c0d0f4844d41f16d961b00ae34c2344937346
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.6.2
+    versionCode: 1290602
+    commit: f0211d7781e5df01bc3f4e387ffcc9822360ac65
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.6.4
+    versionCode: 1290604
+    commit: 3ca9e0e031eff372c3aefda73416aa0b0e3da80d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.6.5
+    versionCode: 1290605
+    commit: 5e54e19b0eeca1fea2b8799b3164386b1ad6d85f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.7.1
+    versionCode: 1290701
+    commit: d6facb8b431007824330f9549a63b258e9a77cc8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.7.3
+    versionCode: 1290703
+    commit: 941ea11bd55460491f104f25b6ae59163a28807d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+
+  - versionName: 1.29.7.4
+    versionCode: 1290704
+    commit: 
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - export BUILD_HOST=f-droid.org
+
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.29.6.0
-CurrentVersionCode: 1290600
+CurrentVersion: 1.29.7.4
+CurrentVersionCode: 1290704

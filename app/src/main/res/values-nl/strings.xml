@@ -497,4 +497,5 @@
     <string name="folder_run_script_description">Geavanceerde optie om scripts uit te voeren nadat de sync-status van een map is gewijzigd. Scripts met naampatroon \".stfolder/*.sh\" zullen worden uitgevoerd; andere locaties worden om veiligheidsredenen niet ondersteund.\nVoorbeeld van een script-aanroep: \".stfolder/rename-files.sh sync_complete\"</string>
     <string name="photo_shoot_take_picture_failure">Het nemen van een foto is mislukt of afgebroken.</string>
     <string name="photo_shoot_intro_permission_desc">Syncthing Camera heeft uw toestemming nodig om foto\'s te nemen en op uw apparaat op te slaan. Deze functie is optioneel. Geef de toestemmingen om hem te activeren en tik op \"Doorgaan\". We zullen een Syncthing Camera folder aanmaken die u later kunt delen met andere Syncthing apparaten.</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
 </resources>
