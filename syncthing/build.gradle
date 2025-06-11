@@ -34,7 +34,11 @@ task buildNative(type: PythonTask) {
 
     // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
     environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
-    
+    if (System.getenv("fdroidserver") != null) {
+        environment "BUILD_HOST", "f-droid.org"
+        environment "BUILD_USER", "build"
+    }
+
     verifySyncthingNativeVersionMatchesApp();
 
     inputs.dir("$projectDir/src/")
