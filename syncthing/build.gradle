@@ -34,10 +34,8 @@ task buildNative(type: PythonTask) {
 
     // Required to get reproducible builds, see https://github.com/Catfriend1/syncthing-android/issues/1383
     environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
-    if (System.getenv("fdroidserver") != null) {
-        environment "BUILD_HOST", "build"
-        environment "BUILD_USER", "build"
-    }
+    environment "BUILD_HOST", "Catfriend1-syncthing-android"
+    environment "BUILD_USER", "reproducible-build"
 
     verifySyncthingNativeVersionMatchesApp();
 
