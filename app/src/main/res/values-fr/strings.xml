@@ -211,7 +211,7 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les archives existantes seront écrasées.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres existants ainsi que les dossiers partagés et la liste des appareils sera remplacée.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres existants ainsi que la liste des partages et des appareils seront remplacés.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
@@ -410,7 +410,7 @@
     <string name="toast_invalid_folder_selected">Désolé. Le répertoire sélectionné ne peut pas être utilisé. Veuillez choisir un répertoire situé sur le stockage interne ou externe.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Modifier un partage existant vers \'Réception chiffrée\' n\'est pas supporté.</string>
     <string name="untrusted_device">Appareil non fiable</string>
-    <string name="untrusted_device_explanation">Tous les dossiers partagés avec cet appareil doivent être protégés par un mot de passe, de sorte que toutes les données envoyées soient illisibles sans le dit mot de passe.</string>
+    <string name="untrusted_device_explanation">Tous les partages avec cet appareil doivent être protégés par un mot de passe, de sorte que toutes les données envoyées soient illisibles sans le dit mot de passe.</string>
     <string name="device_id_invalid">L\'ID de l\'appareil n\'est pas formaté correctement. Veuillez réessayer et saisir l\'ID correct.</string>
     <string name="device_name_required">Le nom de l\'appareil ne doit pas être vide</string>
     <string name="device_addresses_invalid">Les adresses de l\'appareil ne sont pas formatées correctement. Merci de réessayer. Consultez la documentation de Syncthing sur le site officiel.</string>
@@ -626,9 +626,7 @@
     <string name="tip_xiaomi_battery_saver_text">L\'économiseur de batterie du Xiaomi MIUI retire l\'autorisation \'Ignorer l\'optimisation de batterie\' à l\'application à chaque reboot. Cela provoque l\'affichage systématique de l\'écran de bienvenue et la demande pour la permission manquante. Appuyez longuement sur l\'icône \'Syncthing-Fork\'&gt;\'App info\'&gt;\'Économiseur de batterie\' et choisissez \'Aucune restrictions\' (MIUI 10.3.2.0+).</string>
     <string name="preference_app_theme_follow_light">Clair</string>
     <string name="run_on_metered_wifi_summary">Exécuter sur les réseaux Wi-Fi avec quota, c\'est à dire les hotspots ou via un partage de connexion. Attention : ceci peut rapidement consommer une grosse partie du quota, le votre sur un hotspot, ou celui du partageur de connexion.</string>
-    <string name="tip_write_to_sdcard_text">Si vous voyez que l\'interface graphique indique que \'Android n\'accorde que la lecture seule\' à un dossier particulier, créez un nouveau répertoire en utilisant le chemin suivant pour obtenir aussi l\'accès en écriture :
-\n%1$s/Votre-nom-de-répertoire
-\nSoyez vigilant : ce répertoire sera détruit par Android si vous désinstallez cette application. Avant de désinstaller Syncthing, déplacez ce répertoire en dehors du répertoire .../Android.</string>
+    <string name="tip_write_to_sdcard_text">Si vous voyez que l\'interface graphique indique que \'Android n\'accorde que la lecture seule\' à un partage particulier, créez un nouveau partage en utilisant le chemin suivant pour obtenir aussi l\'accès en écriture : \n%1$s/Votre-nom-de-répertoire \nSoyez vigilant : ce répertoire sera détruit par Android si vous désinstallez cette application. Avant de désinstaller Syncthing, déplacez ce répertoire en dehors du répertoire .../Android.</string>
     <string name="tip_sync_on_local_network_text">Si vous souhaitez ne synchroniser avec d\'autres appareils du réseau local ou accessibles via votre connexion Wi-Fi, vous pouvez diminuer l\'usage de la batterie et/ou empêcher l\'utilisation des \'données mobiles\' de votre forfait en désactivant les options suivantes dans les \'Paramètres\' :
 \n- Activer la traversée NAT
 \n- Découverte globale
