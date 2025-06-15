@@ -1,4 +1,1 @@
-## What's Changed
-* Updated dependencies
-* Updated translations
-* Set BUILD_HOST (F-Droid builds only)
+Update SyncthingNative to v2.0.0-rc.21
