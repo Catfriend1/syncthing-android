@@ -1,5 +1,5 @@
 [versions]
-aboutLibraries = "12.2.1"
+aboutLibraries = "12.2.3"
 activity-compose = "1.10.1"
 android-material = "1.9.0"
 annotation = "1.2.0"
