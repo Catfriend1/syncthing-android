@@ -651,4 +651,6 @@
     <string name="state_unshared">Nesdíleno</string>
     <string name="folder_type_receive_encrypted">Přijímat šifrovaně</string>
     <string name="pull_order_type_random">Náhodně</string>
+    <string name="start_into_web_gui_title">Spustit přímo do Syncthing GUI</string>
+    <string name="start_into_web_gui_summary">Při spouštění aplikace, otevřít Syncthing GUI namísto hlavní obrazovky</string>
 </resources>
