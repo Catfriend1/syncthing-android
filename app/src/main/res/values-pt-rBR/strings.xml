@@ -609,4 +609,23 @@
     <string name="local_discovery_disabled">Você desativou a descoberta local em \'Configurações\' &gt; \'Opções do Syncthing\' &gt; \'Descoberta Local\'. Ative-a para buscar dispositivos na rede local.</string>
     <string name="photo_shoot_intro_permission_desc">A Câmera Syncthing requer seu consentimento para tirar fotos e armazená-las no seu dispositivo. Essa função é opcional. Para usá-la, conceda as permissões e toque em \"Continuar\". Nós iremos configurar uma pasta para a Câmera Syncthing para você, que você pode compartilhar com outros dispositivos Syncthing depois.</string>
     <string name="exception_known_bug_notice">Um bug conhecido que não foi resolvido ainda ocorreu. Veja %1$s/%2$s para mais informações. Por favor, nos deixe uma descrição precisa do que aconteceu antes disso acontecer.</string>
+    <string name="run_on_mobile_data_summary">Execute quando o dispositivo estiver conectado via rede de dados móveis. Aviso: Isso pode consumir muitos dados do seu plano de dados da operadora se você sincronizar grandes quantidades de dados.</string>
+    <string name="run_on_roaming_title">Corra enquanto estiver em roaming</string>
+    <string name="run_on_roaming_summary">Permitir que o Syncthing use dados móveis em roaming. (!) Envie um feedback para o GitHub se isso funcionar corretamente.</string>
+    <string name="run_on_wifi_summary">Executar quando o dispositivo estiver conectado a uma rede Wi-Fi ou Ethernet.</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Ative a localização para selecionar redes.</string>
+    <string name="respect_battery_saving_summary">Desabilite o Syncthing se a economia de bateria estiver ativa.</string>
+    <string name="folder_run_script_caption">Executar script</string>
+    <string name="tip_xiaomi_autostart_text">A MIUI da Xiaomi não permite que aplicativos iniciem sozinhos por padrão. Na tela inicial, acesse \"Configurações\" &gt; \"Permissões\" &gt; \"Inicialização Automática\" e ative o controle deslizante \"Syncthing-Fork\".</string>
+    <string name="tip_huawei_device_disconnected_title">Huawei: solução alternativa para \'dispositivo desconectado\'</string>
+    <string name="device_addresses_invalid">Os endereços do dispositivo não estão formatados corretamente. Tente novamente. Consulte a documentação do Syncthing para mais informações.</string>
+    <string name="install_barcode_scanner_app_message">Isso requer um aplicativo de leitura de código de barras. Gostaria de instalar o aplicativo \"Binary Eye\" do F-Droid?</string>
+    <string name="tip_write_to_sdcard_title">Solução alternativa para gravar em cartão SD externo</string>
+    <string name="tip_write_to_sdcard_text">Se a interface do usuário informar que \"O Android concede acesso somente leitura ao Syncthing\" para uma determinada pasta, crie uma nova pasta usando este caminho para obter acesso de gravação:\n%1$s/NOME_DA_SUA_PASTA\nAtenção: esta pasta será apagada pelo Android se você desinstalar este aplicativo. Antes de desinstalar o aplicativo, mova os dados para um local seguro fora da pasta …/Android.</string>
+    <string name="tip_phone_ip_address_syntax">ENDEREÇO_IP_DO_TELEFONE</string>
+    <string name="tip_xiaomi_battery_saver_title">Xiaomi: aplicativo mostra tela de boas-vindas repetidamente</string>
+    <string name="power_source_title">Executar quando o dispositivo estiver ligado</string>
+    <string name="folder_run_script_description">Opção avançada para executar scripts após uma pasta alterar seu estado de sincronização. Scripts em \'.stfolder/*.sh\' serão executados; outros locais não são suportados por questões de segurança.\nExemplo de chamada de script: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="tip_ignore_delete_text">Se quiser fazer backup de todas as fotos tiradas no seu celular em um computador, compartilhe a pasta \"Câmera\" com o computador. Abra o Syncthing no computador, adicione a pasta e vá em \"Ações\" &gt; \"Avançado\" &gt; pasta \"Câmera\". Ative \"Ignorar Exclusão\" e clique em \"Salvar\". Agora você pode excluir fotos da pasta da câmera do celular e elas permanecerão armazenadas no computador.</string>
+    <string name="tip_huawei_device_disconnected_text">Se o seu computador relata constantemente que o seu dispositivo Huawei está desconectado, abra a interface do Syncthing no seu computador. Vá para \"Dispositivos remotos\", expanda a entrada do telefone, clique em \"Editar\" e alterne para \"Avançado\". Insira o endereço IP do seu telefone em \"Endereços\" como este:\ntcp4://%1$s, dinâmico\nFuncionamento confirmado para: Huawei P10</string>
 </resources>
