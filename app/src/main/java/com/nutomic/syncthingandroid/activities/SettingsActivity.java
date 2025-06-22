@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Insets;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.WindowInsets;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
@@ -38,6 +40,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.common.base.Joiner;
@@ -486,6 +489,17 @@ public class SettingsActivity extends SyncthingActivity {
                     root.addView(toolbar, 0);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
+
+                    root.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                        @NonNull
+                        @Override
+                        public WindowInsets onApplyWindowInsets(@NonNull View view, @NonNull WindowInsets insets) {
+                            Insets statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars());
+                            view.setBackgroundColor(ContextCompat.getColor(syncthingActivity, R.color.primary));
+                            view.setPadding(0, statusBarInsets.top, 0, 0);
+                            return insets;
+                        }
+                    });
                 } catch (Exception e) {
                     /**
                      * The above code has been verified working but due to known bugs in the
