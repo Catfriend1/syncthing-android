@@ -4,17 +4,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.graphics.Insets;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.view.View;
-import android.view.WindowInsets;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -54,16 +48,6 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
         }
-
-        findViewById(android.R.id.content).setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-            @NonNull
-            @Override
-            public WindowInsets onApplyWindowInsets(@NonNull View view, @NonNull WindowInsets insets) {
-                Insets statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                view.setPadding(0, statusBarInsets.top, 0, 0);
-                return insets;
-            }
-        });
     }
 
     @Override
