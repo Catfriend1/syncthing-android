@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-// import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
