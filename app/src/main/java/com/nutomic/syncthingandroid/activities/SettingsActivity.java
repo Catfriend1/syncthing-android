@@ -30,10 +30,8 @@ import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import android.widget.Space;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -483,32 +481,26 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
-                    mCurrentPrefScreenDialog.getWindow().setFlags(
-                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                    );
-                    mCurrentPrefScreenDialog.getWindow().setStatusBarColor(
-                        ContextCompat.getColor(getContext(), R.color.primary)
-                    );
-                    SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
-                    LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
-
                     TypedValue typedValue = new TypedValue();
                     int actionBarHeight = 0;
                     if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
                         actionBarHeight = TypedValue.complexToDimensionPixelSize(
                                 typedValue.data, getResources().getDisplayMetrics());
                     }
+                    root.setPadding(
+                        root.getPaddingLeft(),
+                        actionBarHeight,
+                        root.getPaddingRight(),
+                        root.getPaddingBottom()
+                    );
+                    root.setBackgroundColor(
+                        ContextCompat.getColor(getContext(), R.color.primary)
+                    );
 
-                    Space topSpace = new Space(getContext());
-                    topSpace.setLayoutParams(new LinearLayout.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT, actionBarHeight));
-                    topSpace.setBackgroundColor(
-                            ContextCompat.getColor(getContext(), R.color.primary));
-                    root.addView(topSpace, 0);
-
+                    SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+                    LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, 1);
+                    root.addView(toolbar, 0);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {
