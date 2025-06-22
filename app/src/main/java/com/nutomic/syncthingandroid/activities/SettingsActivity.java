@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import android.widget.Space;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -482,8 +483,21 @@ public class SettingsActivity extends SyncthingActivity {
                     }
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
+
+                    TypedValue typedValue = new TypedValue();
+                    int actionBarHeight = 0;
+                    if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
+                        actionBarHeight = TypedValue.complexToDimensionPixelSize(
+                                typedValue.data, getResources().getDisplayMetrics());
+                    }
+
+                    Space topSpace = new Space(getContext());
+                    topSpace.setLayoutParams(new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, actionBarHeight));
+                    root.addView(topSpace, 0);
+
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, 0);
+                    root.addView(toolbar, 1);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {
