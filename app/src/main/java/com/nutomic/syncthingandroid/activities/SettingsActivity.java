@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Space;
@@ -39,6 +40,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.common.base.Joiner;
@@ -481,6 +483,13 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
+                    mCurrentPrefScreenDialog.getWindow().setFlags(
+                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                    );
+                    mCurrentPrefScreenDialog.getWindow().setStatusBarColor(
+                        ContextCompat.getColor(getContext(), R.color.primary)
+                    );
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
 
@@ -494,6 +503,8 @@ public class SettingsActivity extends SyncthingActivity {
                     Space topSpace = new Space(getContext());
                     topSpace.setLayoutParams(new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, actionBarHeight));
+                    topSpace.setBackgroundColor(
+                            ContextCompat.getColor(getContext(), R.color.primary));
                     root.addView(topSpace, 0);
 
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
