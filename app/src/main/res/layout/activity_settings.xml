@@ -18,8 +18,6 @@
                 tools:context="com.nutomic.syncthingandroid.activities.SettingsActivity"
                 tools:showIn="@layout/activity_settings">
 
-            
-
             <include layout="@layout/widget_toolbar" />
 
             <LinearLayout
