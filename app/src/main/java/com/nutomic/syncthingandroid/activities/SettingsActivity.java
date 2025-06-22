@@ -487,20 +487,21 @@ public class SettingsActivity extends SyncthingActivity {
                         actionBarHeight = TypedValue.complexToDimensionPixelSize(
                                 typedValue.data, getResources().getDisplayMetrics());
                     }
-                    root.setPadding(
-                        root.getPaddingLeft(),
-                        actionBarHeight,
-                        root.getPaddingRight(),
-                        root.getPaddingBottom()
-                    );
-                    root.setBackgroundColor(
+
+                    View statusBarColorView = new View(getContext());
+                    statusBarColorView.setLayoutParams(new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        actionBarHeight
+                    ));
+                    statusBarColorView.setBackgroundColor(
                         ContextCompat.getColor(getContext(), R.color.primary)
                     );
+                    root.addView(statusBarColorView, 0);
 
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, 0);
+                    root.addView(toolbar, 1);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {
