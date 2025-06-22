@@ -481,27 +481,31 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
-                    TypedValue typedValue = new TypedValue();
-                    int actionBarHeight = 0;
-                    if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
-                        actionBarHeight = TypedValue.complexToDimensionPixelSize(
-                                typedValue.data, getResources().getDisplayMetrics());
-                    }
 
-                    View statusBarColorView = new View(getContext());
-                    statusBarColorView.setLayoutParams(new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        actionBarHeight
-                    ));
-                    statusBarColorView.setBackgroundColor(
-                        ContextCompat.getColor(getContext(), R.color.primary)
-                    );
-                    root.addView(statusBarColorView, 0);
+                    Integer order = 0;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+                        TypedValue typedValue = new TypedValue();
+                        int actionBarHeight = 0;
+                        if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
+                            actionBarHeight = TypedValue.complexToDimensionPixelSize(
+                                    typedValue.data, getResources().getDisplayMetrics());
+                        }
+
+                        View statusBarColorView = new View(getContext());
+                        statusBarColorView.setLayoutParams(new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            actionBarHeight
+                        ));
+                        statusBarColorView.setBackgroundColor(
+                            ContextCompat.getColor(getContext(), R.color.primary)
+                        );
+                        root.addView(statusBarColorView, order++);
+                    }
 
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, 1);
+                    root.addView(toolbar, order);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {
