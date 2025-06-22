@@ -30,7 +30,6 @@ import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -484,15 +483,13 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
-                    Window window = mCurrentPrefScreenDialog.getWindow();
-                    if (window != null) {
-                        window.getDecorView().setSystemUiVisibility(
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        );
-                        window.setStatusBarColor(
-                            ContextCompat.getColor(getContext(), R.color.primary)
-                        );
-                    }
+                    mCurrentPrefScreenDialog.getWindow().setFlags(
+                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                    );
+                    mCurrentPrefScreenDialog.getWindow().setStatusBarColor(
+                        ContextCompat.getColor(getContext(), R.color.primary)
+                    );
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
 
