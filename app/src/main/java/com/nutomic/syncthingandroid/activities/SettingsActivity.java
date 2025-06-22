@@ -489,16 +489,6 @@ public class SettingsActivity extends SyncthingActivity {
                     root.addView(toolbar, 0);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
-
-                    root.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-                        @NonNull
-                        @Override
-                        public WindowInsets onApplyWindowInsets(@NonNull View view, @NonNull WindowInsets insets) {
-                            Insets statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                            view.setPadding(0, statusBarInsets.top, 0, 0);
-                            return insets;
-                        }
-                    });
                 } catch (Exception e) {
                     /**
                      * The above code has been verified working but due to known bugs in the
