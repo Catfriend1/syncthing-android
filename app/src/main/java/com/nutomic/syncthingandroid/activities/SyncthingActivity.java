@@ -60,7 +60,6 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
             @Override
             public WindowInsets onApplyWindowInsets(@NonNull View view, @NonNull WindowInsets insets) {
                 Insets statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                view.setBackgroundColor(ContextCompat.getColor(SyncthingActivity.this, R.color.primary));
                 view.setPadding(0, statusBarInsets.top, 0, 0);
                 return insets;
             }

@@ -495,7 +495,6 @@ public class SettingsActivity extends SyncthingActivity {
                         @Override
                         public WindowInsets onApplyWindowInsets(@NonNull View view, @NonNull WindowInsets insets) {
                             Insets statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                            view.setBackgroundColor(ContextCompat.getColor(syncthingActivity, R.color.primary));
                             view.setPadding(0, statusBarInsets.top, 0, 0);
                             return insets;
                         }
