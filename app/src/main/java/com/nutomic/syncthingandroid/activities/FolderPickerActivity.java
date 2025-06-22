@@ -126,7 +126,7 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.remove(getExternalFilesDir(null));
             roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
                 // Add "/storage/emulated/0/Android/data"
                 roots.add(getExternalFilesDir(null).getParentFile().getParentFile());
 
