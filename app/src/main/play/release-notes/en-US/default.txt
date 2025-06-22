@@ -1,1 +1,1 @@
-Update SyncthingNative to v2.0.0-rc.21
+Update SyncthingNative to v2.0.0-rc.22
