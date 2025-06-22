@@ -383,7 +383,7 @@
     <string name="use_root_summary">يسمح تشغيل Syncthing بصلاحيات الجذر (root) بالكتابة في المجلدات التي يقيدها أندرويد عادةً للوصول للقراءة فقط. استخدم هذه الميزة بحذر.</string>
     <string name="versioning_type_none">لا شيء</string>
     <string name="versioning_type_trashcan">سلة المهملات</string>
-    <string name="config_export_failed">فشل تصدير التكوين، تحقق من إخراج logcat.</string>
+    <string name="config_export_failed">فشل تصدير التكوين. انتقل إلى الإعدادات-استكشاف الأخطاء وإصلاحها-افتح السجل لمعرفة التفاصيل.</string>
     <string name="toast_invalid_environment_variables">القيمة ليست سلسلة متغير بيئة صالحة</string>
     <string name="st_reset_deltas_done">تمت إعادة تعيين فهارس دلتا الخاصة بـ Syncthing بنجاح</string>
     <string name="category_about">حول</string>
@@ -522,8 +522,8 @@
     <string name="st_reset_deltas_title">إعادة تعيين فهارس دلتا</string>
     <string name="log_to_file_title">تسجيل إلى ملف</string>
     <string name="log_to_file_summary">سيتم كتابة إخراج SyncthingNative إلى ملف.</string>
-    <string name="dialog_confirm_export">هل تريد حقًا تصدير التكوين الخاص بك؟ سيتم الكتابة فوق الملفات الموجودة. \n \nتحذير! قد تتمكن التطبيقات الأخرى من قراءة المفتاح الخاص من موقع النسخ الاحتياطي واستخدامه لتنزيل/تعديل الملفات المتزامنة.</string>
-    <string name="dialog_confirm_import">هل تريد حقًا استيراد تكوين جديد؟ سيتم الكتابة فوق الملفات الموجودة.</string>
+    <string name="dialog_confirm_export">هل تريد حقاً تصدير التكوين الخاص بك؟ ستتم الكتابة فوق الأرشيف الموجود.</string>
+    <string name="dialog_confirm_import">هل تريد حقاً استيراد التكوين؟ سيتم استبدال الإعدادات الحالية بما في ذلك المجلدات المشتركة وقائمة الأجهزة.</string>
     <string name="dialog_settings_restart_app_title">إعادة التشغيل مطلوبة</string>
     <string name="st_reset_database_title">إعادة تعيين قاعدة البيانات</string>
     <string name="st_reset_database_question">يجب تنفيذ هذا الإجراء فقط بناءً على توصية من فريق الدعم لدينا. \nهل أنت متأكد أنك تريد مسح قاعدة بيانات Syncthing؟</string>
@@ -581,4 +581,16 @@
     <string name="qs_schedule_label">تشغيل لمدة 5 دقائق</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">تشغيل لمدة %1$d دقائق</string>
     <string name="folder_rejected">الجهاز \"%1$s\" يريد مشاركة المجلد \"%2$s\"</string>
+    <string name="backup_rel_path_to_zip">المسار النسبي لأرشيف التكوين</string>
+    <string name="backup_password_title">تكوين كلمة الحماية</string>
+    <string name="backup_password_set">✅ تم تعيين كلمة المرور: %1$s</string>
+    <string name="backup_password_not_set">⚠لم يتم تعيين كلمة المرور.</string>
+    <string name="preference_category_actions">الإجراءات</string>
+    <string name="preference_category_explanation">الشرح</string>
+    <string name="preference_category_prepare">تجهيز</string>
+    <string name="config_export_successful_no_path">تم تصدير التكوين. يرجى التأكد من تذكر كلمة المرور لاستيرادها لاحقاً.</string>
+    <string name="config_import_failed_no_path">فشل استيراد التكوين. انتقل إلى الإعدادات-استكشاف الأخطاء وإصلاحها-افتح السجل لمعرفة التفاصيل.</string>
+    <string name="share_log_file_missing">ملف السجل للمشاركة مفقود.</string>
+    <string name="share_log_file">مشاركة ملف السجل</string>
+    <string name="backup_password_summary">ℹ️ موصى به:\nأدخل كلمة مرور قوية تُستخدم لتشفير التهيئة أثناء التصدير وفك التشفير عند الاستيراد. احتفظ بكلمة المرور هذه في مكان آمن لعملية الاسترداد. ستحتاج إليها لاستخدام ميزة الاستيراد.\n\n⚠️ غير مستحسن:\nعدم استخدام كلمة مرور، من المحتمل أن تكون التطبيقات الأخرى قادرة على قراءة تكوين Syncthing الخاص بك والتلاعب به. ينطوي تعريض التهيئة على خطر أن يتمكن فاعل سيء من الوصول غير المصرح به إلى ملفاتك باستخدام صادرات التهيئة المسروقة.</string>
 </resources>
