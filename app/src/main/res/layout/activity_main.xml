@@ -1,55 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-    <LinearLayout
+    <include layout="@layout/base_appbar"/>
+
+    <androidx.drawerlayout.widget.DrawerLayout 
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginTop="?attr/actionBarSize">
 
-        <include layout="@layout/widget_toolbar" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?colorPrimary"
-            android:elevation="@dimen/toolbar_elevation"
-            android:theme="@style/ThemeOverlay.Syncthing.Toolbar" />
-
-        <RelativeLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation_view"
-                android:background="@color/bottom_navigation_bar"
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:itemIconTint="@android:color/white"
-                app:itemTextColor="@android:color/white"
-                app:menu="@menu/bottom_navigation_view_folder"/>
-        </RelativeLayout>
+                <include layout="@layout/widget_toolbar" />
 
-    </LinearLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?colorPrimary"
+                    android:elevation="@dimen/toolbar_elevation"
+                    android:theme="@style/ThemeOverlay.Syncthing.Toolbar" />
 
-    <FrameLayout
-        android:id="@+id/drawer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="?android:windowBackground"
-        android:clickable="true"
-        android:elevation="16dp"
-        android:focusable="true" />
-</androidx.drawerlayout.widget.DrawerLayout>
+                <RelativeLayout
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.bottomnavigation.BottomNavigationView
+                        android:id="@+id/bottom_navigation_view"
+                        android:background="@color/bottom_navigation_bar"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:itemIconTint="@android:color/white"
+                        app:itemTextColor="@android:color/white"
+                        app:menu="@menu/bottom_navigation_view_folder"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="?android:windowBackground"
+            android:clickable="true"
+            android:elevation="16dp"
+            android:focusable="true" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
