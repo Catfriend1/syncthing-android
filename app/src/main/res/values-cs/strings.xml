@@ -653,4 +653,11 @@
     <string name="pull_order_type_random">Náhodně</string>
     <string name="start_into_web_gui_title">Spustit přímo do Syncthing GUI</string>
     <string name="start_into_web_gui_summary">Při spouštění aplikace, otevřít Syncthing GUI namísto hlavní obrazovky</string>
+    <string name="open_source_licenses_title">Licence Open Source</string>
+    <string name="open_source_licenses_summary">Ukázat využité licence open source</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d konflikt</item>
+        <item quantity="few">%1$d konflikty</item>
+        <item quantity="other">%1$d konfliktů</item>
+    </plurals>
 </resources>
