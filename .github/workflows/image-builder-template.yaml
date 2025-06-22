@@ -11,9 +11,6 @@ on:
         required: false
 
 env:
-  # Our build metadata
-  BUILD_USER: android-builder
-  BUILD_HOST: github.syncthing.net
   # template var
   image: ghcr.io/catfriend1/syncthing-android-builder
 
