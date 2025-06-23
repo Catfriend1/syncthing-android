@@ -38,7 +38,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-public class PhotoShootActivity extends AppCompatActivity {
+public class PhotoShootActivity extends ThemedAppCompatActivity {
 
     private static String TAG = "PhotoShootActivity";
 

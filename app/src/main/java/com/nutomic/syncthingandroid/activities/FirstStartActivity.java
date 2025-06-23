@@ -55,7 +55,7 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-public class FirstStartActivity extends AppCompatActivity {
+public class FirstStartActivity extends ThemedAppCompatActivity {
 
     private static String TAG = "FirstStartActivity";
     private static final int REQUEST_COARSE_LOCATION = 141;
