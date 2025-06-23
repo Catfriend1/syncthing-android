@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <include layout="@layout/widget_toolbar" />
 
         <com.google.android.material.tabs.TabLayout
@@ -35,6 +40,8 @@
                 app:itemTextColor="@android:color/white"
                 app:menu="@menu/bottom_navigation_view_folder"/>
         </RelativeLayout>
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/drawer"
