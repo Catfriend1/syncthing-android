@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.nutomic.syncthingandroid.activities.SettingsActivity"
+        tools:context=".activities.SettingsActivity"
         tools:showIn="@layout/activity_settings">
 
     <include layout="@layout/widget_toolbar" />
