@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -58,8 +59,25 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
             ViewGroup contentView = findViewById(android.R.id.content);
             if (contentView.getChildCount() > 0) {
-                ViewGroup rootLayout = (ViewGroup) contentView.getChildAt(0);
-                addStatusBarSpacer(rootLayout);
+                // DrawerLayout
+                ViewGroup drawerLayout = (ViewGroup) contentView.getChildAt(0);
+                // Dein LinearLayout ist der erste Child des Drawers
+                ViewGroup verticalLayout = (ViewGroup) drawerLayout.getChildAt(0);
+
+                // Spacer-View oben einfügen
+                View statusBarSpacer = new View(this);
+                int statusBarHeight = getStatusBarHeight();
+                statusBarSpacer.setLayoutParams(
+                    new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        statusBarHeight
+                    )
+                );
+                statusBarSpacer.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.primary)
+                );
+
+                verticalLayout.addView(statusBarSpacer, 0); // Index 0 -> vor Toolbar
             }
         }
     }
@@ -101,6 +119,17 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         return (getService() != null)
                 ? getService().getApi()
                 : null;
+    }
+
+    private int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier(
+            "status_bar_height", "dimen", "android"
+        );
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 
     /**
