@@ -52,19 +52,6 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        View appBarContainer = findViewById(R.id.appBarContainer);
-        if (appBarContainer != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(appBarContainer, (v, insets) -> {
-                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.statusBars());
-                v.setPadding(
-                    v.getPaddingLeft(),
-                    systemBars.top,
-                    v.getPaddingRight(),
-                    v.getPaddingBottom()
-                );
-                return insets;
-            });
-        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
