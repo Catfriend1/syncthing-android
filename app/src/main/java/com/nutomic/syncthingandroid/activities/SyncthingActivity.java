@@ -113,24 +113,15 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
                 : null;
     }
 
-    private int getStatusBarHeight() {
-        int result = 0;
-        int resourceId = getResources().getIdentifier(
-            "status_bar_height", "dimen", "android"
-        );
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
-
+    /**
+     * Adds a top color bar (colorPrimary) to the given layout, matching the actionBarHeight.
+     */
     private void addSpacerIfNeeded(ViewGroup parent) {
         View statusBarSpacer = new View(this);
-        int statusBarHeight = getStatusBarHeight();
         statusBarSpacer.setLayoutParams(
             new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                statusBarHeight
+                getStatusBarHeight()
             )
         );
         statusBarSpacer.setBackgroundColor(
@@ -139,28 +130,13 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         parent.addView(statusBarSpacer, 0);
     }
 
-    /**
-     * Adds a top color bar (colorPrimary) to the given layout, matching the actionBarHeight.
-     */
-    public void addStatusBarSpacer(ViewGroup root) {
+    private final int getStatusBarHeight() {
         TypedValue typedValue = new TypedValue();
-        int actionBarHeight = 0;
+        int statusBarHeight = 0;
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
-            actionBarHeight = TypedValue.complexToDimensionPixelSize(
+            statusBarHeight = TypedValue.complexToDimensionPixelSize(
                     typedValue.data, getResources().getDisplayMetrics());
         }
-
-        View statusBarColorView = new View(this);
-        statusBarColorView.setLayoutParams(
-                new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    actionBarHeight
-                )
-        );
-        statusBarColorView.setBackgroundColor(
-                ContextCompat.getColor(this, R.color.primary)
-        );
-
-        root.addView(statusBarColorView, 0);
+        return statusBarHeight;
     }
 }
