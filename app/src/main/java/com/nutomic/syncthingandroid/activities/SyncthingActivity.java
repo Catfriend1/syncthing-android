@@ -57,7 +57,7 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
             actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             ViewGroup contentView = findViewById(android.R.id.content);
             if (contentView.getChildCount() > 0) {
                 View topLevel = contentView.getChildAt(0);
