@@ -128,7 +128,7 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
             )
         );
         statusBarSpacer.setBackgroundColor(
-            ContextCompat.getColor(this, R.color.primary)
+            ContextCompat.getColor(this, R.color.primary_dark)
         );
         parent.addView(statusBarSpacer, 0);
     }
