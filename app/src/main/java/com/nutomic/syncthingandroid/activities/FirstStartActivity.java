@@ -1,7 +1,6 @@
 package com.nutomic.syncthingandroid.activities;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -518,7 +517,7 @@ public class FirstStartActivity extends AppCompatActivity {
     }
 
     @SuppressLint("InlinedApi")
-    @TargetApi(23)
+    @RequiresApi(23)
     private void requestIgnoreDozePermission() {
         Boolean intentFailed = false;
         Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
