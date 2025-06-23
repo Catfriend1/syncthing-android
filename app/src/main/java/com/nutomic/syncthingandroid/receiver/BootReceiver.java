@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.receiver;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;

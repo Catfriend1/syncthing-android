@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.util;
 
-import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
