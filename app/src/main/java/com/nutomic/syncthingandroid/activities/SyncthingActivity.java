@@ -135,7 +135,7 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         parent.addView(statusBarSpacer, 0);
     }
 
-    private final int getStatusBarHeight() {
+    public final int getStatusBarHeight() {
         TypedValue typedValue = new TypedValue();
         int statusBarHeight = 0;
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
