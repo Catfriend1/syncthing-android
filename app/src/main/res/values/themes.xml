@@ -24,19 +24,12 @@
         <item name="android:spinnerItemStyle">@style/Widget.Syncthing.TextView.SpinnerItem</item>
         <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
 
-        <!-- Overridden by themes-v35 -->
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="Theme.Syncthing" parent="Theme.Syncthing.Base">
         <!-- DialogTheme produces weird background on 4.4, so we only use it on API 21+ -->
         <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
-    </style>
-
-    <style name="Theme.Syncthing.Translucent">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
     <!-- Button themes -->

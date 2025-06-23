@@ -38,7 +38,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-public class PhotoShootActivity extends AppCompatActivity {
+public class PhotoShootActivity extends ThemedAppCompatActivity {
 
     private static String TAG = "PhotoShootActivity";
 
@@ -79,12 +79,6 @@ public class PhotoShootActivity extends AppCompatActivity {
             Log.v(TAG, "User completed intro and consented before. Warp to take a picture.");
             openCameraIntent();
             return;
-        }
-
-        // Make notification bar transparent (API level 21+)
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
         // Show photo shoot intro UI to request required permissions.
