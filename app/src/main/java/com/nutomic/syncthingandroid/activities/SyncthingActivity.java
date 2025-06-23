@@ -10,6 +10,7 @@ import android.os.IBinder;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.WindowCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -29,10 +30,8 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // Opt-in to edge-to-edge
-            getWindow().setDecorFitsSystemWindows(false);
-        }
+        // Opt-in to edge-to-edge
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
     }
 
     /**
