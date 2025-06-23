@@ -32,13 +32,6 @@
         <item name="alertDialogTheme">@style/Theme.Syncthing.Dialog</item>
     </style>
 
-    <style name="Theme.Syncthing.Translucent">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation</item>
-    </style>
-
     <!-- Button themes -->
     <style name="Theme.Syncthing.GreyButton" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:textColor">@color/btn_welcome_slide_color</item>
