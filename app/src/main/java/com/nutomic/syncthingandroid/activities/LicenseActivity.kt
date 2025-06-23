@@ -51,8 +51,8 @@ fun LicenseScreen() {
                 val inputStream = context.resources.openRawResource(R.raw.aboutlibraries)
                 inputStream.bufferedReader().use { it.readText() }
             }
-            val baseModifier = Modifier.fillMaxSize()
 
+            val baseModifier = Modifier.fillMaxSize()
             val modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
                 baseModifier.then(Modifier.windowInsetsPadding(WindowInsets.statusBars))
             } else {
@@ -75,7 +75,7 @@ fun LicenseScreen() {
                 }
             ) { paddingValues ->
                 LibrariesContainer(
-                    modifier = baseModifier,
+                    modifier = modifier,
                     libraries = libraries
                 )
             }
