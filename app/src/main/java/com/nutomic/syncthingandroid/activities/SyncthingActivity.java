@@ -7,8 +7,14 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.TypedValue;
+import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -47,6 +53,14 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+            ViewGroup contentView = findViewById(android.R.id.content);
+            if (contentView.getChildCount() > 0) {
+                ViewGroup rootLayout = (ViewGroup) contentView.getChildAt(0);
+                addStatusBarSpacer(rootLayout);
+            }
         }
     }
 
@@ -87,5 +101,30 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         return (getService() != null)
                 ? getService().getApi()
                 : null;
+    }
+
+    /**
+     * Adds a top color bar (colorPrimary) to the given layout, matching the actionBarHeight.
+     */
+    public void addStatusBarSpacer(ViewGroup root) {
+        TypedValue typedValue = new TypedValue();
+        int actionBarHeight = 0;
+        if (getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
+            actionBarHeight = TypedValue.complexToDimensionPixelSize(
+                    typedValue.data, getResources().getDisplayMetrics());
+        }
+
+        View statusBarColorView = new View(this);
+        statusBarColorView.setLayoutParams(
+                new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    actionBarHeight
+                )
+        );
+        statusBarColorView.setBackgroundColor(
+                ContextCompat.getColor(this, R.color.primary)
+        );
+
+        root.addView(statusBarColorView, 0);
     }
 }
