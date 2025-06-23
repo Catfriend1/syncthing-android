@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -59,25 +60,16 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
             ViewGroup contentView = findViewById(android.R.id.content);
             if (contentView.getChildCount() > 0) {
-                // DrawerLayout
-                ViewGroup drawerLayout = (ViewGroup) contentView.getChildAt(0);
-                // Dein LinearLayout ist der erste Child des Drawers
-                ViewGroup verticalLayout = (ViewGroup) drawerLayout.getChildAt(0);
-
-                // Spacer-View oben einfügen
-                View statusBarSpacer = new View(this);
-                int statusBarHeight = getStatusBarHeight();
-                statusBarSpacer.setLayoutParams(
-                    new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        statusBarHeight
-                    )
-                );
-                statusBarSpacer.setBackgroundColor(
-                    ContextCompat.getColor(this, R.color.primary)
-                );
-
-                verticalLayout.addView(statusBarSpacer, 0); // Index 0 -> vor Toolbar
+                View topLevel = contentView.getChildAt(0);
+                if (topLevel instanceof DrawerLayout) {
+                    DrawerLayout drawerLayout = (DrawerLayout) topLevel;
+                    ViewGroup verticalLayout = (ViewGroup) drawerLayout.getChildAt(0);
+                    addSpacerIfNeeded(verticalLayout);
+                } else if (topLevel instanceof LinearLayout) {
+                    addSpacerIfNeeded((LinearLayout) topLevel);
+                } else if (topLevel instanceof RelativeLayout) {
+                    addSpacerIfNeeded((RelativeLayout) topLevel);
+                }
             }
         }
     }
