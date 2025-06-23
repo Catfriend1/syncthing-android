@@ -1,6 +1,5 @@
 package com.nutomic.syncthingandroid.activities
 
-import android.os.Build
 import android.os.Bundle
 
 import androidx.activity.ComponentActivity
