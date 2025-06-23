@@ -10,8 +10,6 @@ import android.os.IBinder;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -33,9 +31,6 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
 
         // Opt-in to edge-to-edge
         getWindow().setDecorFitsSystemWindows(false);
-        WindowInsetsControllerCompat insetsController = new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
-        insetsController.setAppearanceLightStatusBars(true);
-        insetsController.setAppearanceLightNavigationBars(true);
     }
 
     /**
