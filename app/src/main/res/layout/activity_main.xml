@@ -52,5 +52,4 @@
         android:clickable="true"
         android:elevation="16dp"
         android:focusable="true" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
