@@ -5,6 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/primary_dark"
         tools:context=".activities.SettingsActivity"
         tools:showIn="@layout/activity_settings">
 
@@ -13,6 +14,7 @@
     <LinearLayout
         android:id="@+id/prefFragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="?android:windowBackground" />
 </LinearLayout>

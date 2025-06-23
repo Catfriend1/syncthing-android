@@ -12,6 +12,7 @@ dependencies {
     implementation(libs.aboutlibraries.compose.m2)
     implementation(libs.aboutlibraries.core)
     implementation(libs.activity.compose)
+    implementation(libs.activity.ktx)
     implementation(libs.android.material)
     implementation(libs.compose.foundation)
     implementation(libs.compose.material)

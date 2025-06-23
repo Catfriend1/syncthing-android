@@ -55,7 +55,7 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-public class FirstStartActivity extends AppCompatActivity {
+public class FirstStartActivity extends ThemedAppCompatActivity {
 
     private static String TAG = "FirstStartActivity";
     private static final int REQUEST_COARSE_LOCATION = 141;
@@ -151,12 +151,6 @@ public class FirstStartActivity extends AppCompatActivity {
             Log.d(TAG, "We (no longer?) have a valid Syncthing config and will attempt to generate a fresh config.");
         }
 
-        // Make notification bar transparent (API level 21+)
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-
         // Show first start welcome wizard UI.
         setContentView(R.layout.activity_first_start);
         mViewPager = (CustomViewPager) findViewById(R.id.view_pager);
@@ -202,9 +196,6 @@ public class FirstStartActivity extends AppCompatActivity {
 
         // Add bottom dots
         addBottomDots(0);
-
-        // Make notification bar transparent
-        changeStatusBarColor();
 
         mViewPagerAdapter = new ViewPagerAdapter();
         mViewPager.setAdapter(mViewPagerAdapter);
@@ -397,17 +388,6 @@ public class FirstStartActivity extends AppCompatActivity {
 
         }
     };
-
-    /**
-     * Making notification bar transparent
-     */
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
-    }
 
     /**
      * View pager adapter

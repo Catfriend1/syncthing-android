@@ -1,16 +1,13 @@
 package com.nutomic.syncthingandroid.activities
 
-import android.os.Build
 import android.os.Bundle
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.WindowInsets
+import androidx.core.view.WindowCompat
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.IconButton
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -35,6 +32,10 @@ import com.nutomic.syncthingandroid.R
 class LicenseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Opt-in to edge-to-edge
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             LicenseScreen()
         }
@@ -55,11 +56,6 @@ fun LicenseScreen() {
             Scaffold(
                 topBar = {
                     TopAppBar(
-                      modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-                            Modifier.windowInsetsPadding(WindowInsets.statusBars)
-                        } else {
-                            Modifier
-                        },
                         title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {

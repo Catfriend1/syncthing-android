@@ -458,17 +458,10 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
-
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
-                    Integer order = 0;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-                        syncthingActivity.addSpacerIfNeeded(root);
-                        order++;
-                    }
-
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, order);
+                    root.addView(toolbar, 0);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {
