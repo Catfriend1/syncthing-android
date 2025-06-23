@@ -586,17 +586,6 @@ public class MainActivity extends SyncthingActivity
 
         params.width = min(minScreenWidth - actionBarSize, 5 * actionBarSize);
         drawerContainer.requestLayout();
-
-        ViewCompat.setOnApplyWindowInsetsListener(drawerContainer, (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(
-                v.getPaddingLeft(),
-                systemBars.top,
-                v.getPaddingRight(),
-                systemBars.bottom
-            );
-            return insets;
-        });
     }
 
     /**
