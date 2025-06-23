@@ -34,7 +34,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -582,6 +586,17 @@ public class MainActivity extends SyncthingActivity
 
         params.width = min(minScreenWidth - actionBarSize, 5 * actionBarSize);
         drawerContainer.requestLayout();
+
+        ViewCompat.setOnApplyWindowInsetsListener(drawerContainer, (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(
+                v.getPaddingLeft(),
+                systemBars.top,
+                v.getPaddingRight(),
+                systemBars.bottom
+            );
+            return insets;
+        });
     }
 
     /**
