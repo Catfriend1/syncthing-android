@@ -21,23 +21,21 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import androidx.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -243,25 +241,6 @@ public class SettingsActivity extends SyncthingActivity {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
             setHasOptionsMenu(true);
-        }
-
-        /**
-         * The ActionBar overlaps the preferences view.
-         * Move the preferences view below the ActionBar.
-         */
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = super.onCreateView(inflater, container, savedInstanceState);
-            int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
-            int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
-            TypedValue tv = new TypedValue();
-            if (container.getContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
-            {
-                // Calculate ActionBar height
-                int actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
-                view.setPadding(horizontalMargin, actionBarHeight, horizontalMargin, verticalMargin);
-            }
-            return view;
         }
 
         /**
@@ -479,10 +458,17 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
+
                     SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
+                    Integer order = 0;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+                        syncthingActivity.addSpacerIfNeeded(root);
+                        order++;
+                    }
+
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
                     Toolbar toolbar = (Toolbar) layoutInflater.inflate(R.layout.widget_toolbar, root, false);
-                    root.addView(toolbar, 0);
+                    root.addView(toolbar, order);
                     toolbar.setTitle(((PreferenceScreen) preference).getTitle());
                     registerActionBar(toolbar);
                 } catch (Exception e) {

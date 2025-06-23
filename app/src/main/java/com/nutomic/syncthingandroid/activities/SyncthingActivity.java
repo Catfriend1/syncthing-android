@@ -7,9 +7,15 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.TypedValue;
+import android.widget.ScrollView;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-// import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -48,6 +54,26 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            ViewGroup contentView = findViewById(android.R.id.content);
+            if (contentView.getChildCount() > 0) {
+                View topLevel = contentView.getChildAt(0);
+                if (topLevel instanceof DrawerLayout) {
+                    DrawerLayout drawerLayout = (DrawerLayout) topLevel;
+                    ViewGroup verticalLayout = (ViewGroup) drawerLayout.getChildAt(0);
+                    addSpacerIfNeeded(verticalLayout);
+                } else if (topLevel instanceof ScrollView) {
+                    ScrollView scrollView = (ScrollView) topLevel;
+                    View child = scrollView.getChildAt(0);
+                    if (child instanceof ViewGroup) {
+                        addSpacerIfNeeded((ViewGroup) child); 
+                    }
+                } else {
+                    addSpacerIfNeeded((ViewGroup) topLevel);
+                }
+            }
         }
     }
 
@@ -88,5 +114,32 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         return (getService() != null)
                 ? getService().getApi()
                 : null;
+    }
+
+    /**
+     * Adds a top color bar (colorPrimary) to the given layout, matching the actionBarHeight.
+     */
+    public void addSpacerIfNeeded(ViewGroup parent) {
+        View statusBarSpacer = new View(this);
+        statusBarSpacer.setLayoutParams(
+            new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                getStatusBarHeight()
+            )
+        );
+        statusBarSpacer.setBackgroundColor(
+            ContextCompat.getColor(this, R.color.primary_dark)
+        );
+        parent.addView(statusBarSpacer, 0);
+    }
+
+    public final int getStatusBarHeight() {
+        TypedValue typedValue = new TypedValue();
+        int statusBarHeight = 0;
+        if (getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
+            statusBarHeight = TypedValue.complexToDimensionPixelSize(
+                    typedValue.data, getResources().getDisplayMetrics());
+        }
+        return statusBarHeight;
     }
 }

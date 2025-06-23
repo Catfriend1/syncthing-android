@@ -1,4 +1,4 @@
 ## What's Changed
+* Android 16 support
 * Updated dependencies
 * Updated translations
-* Set BUILD_HOST (F-Droid builds only)

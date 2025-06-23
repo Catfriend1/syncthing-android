@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context="com.nutomic.syncthingandroid.activities.ShareActivity">
+    tools:context=".activities.ShareActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
