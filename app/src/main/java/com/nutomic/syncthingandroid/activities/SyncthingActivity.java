@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -65,10 +66,14 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
                     DrawerLayout drawerLayout = (DrawerLayout) topLevel;
                     ViewGroup verticalLayout = (ViewGroup) drawerLayout.getChildAt(0);
                     addSpacerIfNeeded(verticalLayout);
-                } else if (topLevel instanceof LinearLayout) {
-                    addSpacerIfNeeded((LinearLayout) topLevel);
-                } else if (topLevel instanceof RelativeLayout) {
-                    addSpacerIfNeeded((RelativeLayout) topLevel);
+                } else if (topLevel instanceof ScrollView) {
+                    ScrollView scrollView = (ScrollView) topLevel;
+                    View child = scrollView.getChildAt(0);
+                    if (child instanceof ViewGroup) {
+                        addSpacerIfNeeded((ViewGroup) child); 
+                    }
+                } else {
+                    addSpacerIfNeeded((ViewGroup) topLevel);
                 }
             }
         }
