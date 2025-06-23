@@ -52,16 +52,14 @@ fun LicenseScreen() {
                 inputStream.bufferedReader().use { it.readText() }
             }
 
-            val baseModifier = Modifier.fillMaxSize()
-            val modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-                baseModifier.then(Modifier.windowInsetsPadding(WindowInsets.statusBars))
-            } else {
-                baseModifier
-            }
-
             Scaffold(
                 topBar = {
                     TopAppBar(
+                      modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                            Modifier.windowInsetsPadding(WindowInsets.statusBars)
+                        } else {
+                            Modifier
+                        },
                         title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
@@ -75,7 +73,9 @@ fun LicenseScreen() {
                 }
             ) { paddingValues ->
                 LibrariesContainer(
-                    modifier = modifier,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
                     libraries = libraries
                 )
             }
