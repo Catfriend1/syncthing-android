@@ -42,7 +42,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -447,17 +446,6 @@ public class MainActivity extends SyncthingActivity
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true);
         }
-
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(MenuItem item) {
-                    if (item.getItemId() == R.id.bottom_navigation_item_rescan_all) {
-                        // rescanAll();
-                    }
-                    return true;
-                }
-        });
     }
 
     @Override
