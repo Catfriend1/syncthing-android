@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 
@@ -28,8 +29,10 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Opt-in to edge-to-edge
-        getWindow().setDecorFitsSystemWindows(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Opt-in to edge-to-edge
+            getWindow().setDecorFitsSystemWindows(false);
+        }
     }
 
     /**
