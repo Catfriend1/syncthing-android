@@ -7,13 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.IconButton
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -41,10 +36,6 @@ class LicenseActivity : ComponentActivity() {
 
         // Opt-in to edge-to-edge
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, window.decorView).apply {
-            isAppearanceLightStatusBars = true
-            isAppearanceLightNavigationBars = true
-        }
 
         setContent {
             LicenseScreen()
@@ -66,11 +57,6 @@ fun LicenseScreen() {
             Scaffold(
                 topBar = {
                     TopAppBar(
-                      modifier = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-                            Modifier.windowInsetsPadding(WindowInsets.statusBars)
-                        } else {
-                            Modifier
-                        },
                         title = { Text(stringResource(id = R.string.open_source_licenses_title)) },
                         navigationIcon = {
                             IconButton(onClick = { backDispatcher?.onBackPressed()  }) {
