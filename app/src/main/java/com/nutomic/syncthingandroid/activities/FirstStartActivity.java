@@ -441,6 +441,10 @@ public class FirstStartActivity extends AppCompatActivity {
                 btnGrantIgnoreDozePerm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                            // We will never reach here, but fix lint.
+                            return;
+                        }
                         requestIgnoreDozePermission();
                     }
                 });
