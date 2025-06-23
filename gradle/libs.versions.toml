@@ -1,6 +1,6 @@
 [versions]
 aboutLibraries = "12.2.3"
-activity-compose = "1.10.1"
+activity = "1.10.1"
 android-material = "1.9.0"
 annotation = "1.2.0"
 compose-material = "1.8.2"
@@ -31,7 +31,8 @@ zxing-core = "3.3.0"
 aboutlibraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "aboutLibraries" }
 aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-core", version.ref = "aboutLibraries" }
 aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", version.ref = "aboutLibraries" }
-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-material" }
