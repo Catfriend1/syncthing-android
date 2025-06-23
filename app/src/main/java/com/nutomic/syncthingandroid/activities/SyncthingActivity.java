@@ -132,6 +132,21 @@ public abstract class SyncthingActivity extends ThemedAppCompatActivity implemen
         return result;
     }
 
+    private void addSpacerIfNeeded(ViewGroup parent) {
+        View statusBarSpacer = new View(this);
+        int statusBarHeight = getStatusBarHeight();
+        statusBarSpacer.setLayoutParams(
+            new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                statusBarHeight
+            )
+        );
+        statusBarSpacer.setBackgroundColor(
+            ContextCompat.getColor(this, R.color.primary)
+        );
+        parent.addView(statusBarSpacer, 0);
+    }
+
     /**
      * Adds a top color bar (colorPrimary) to the given layout, matching the actionBarHeight.
      */
