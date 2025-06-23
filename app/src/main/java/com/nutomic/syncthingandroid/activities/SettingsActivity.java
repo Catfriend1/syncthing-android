@@ -481,19 +481,12 @@ public class SettingsActivity extends SyncthingActivity {
                     } else {
                         root = (LinearLayout) mCurrentPrefScreenDialog.findViewById(android.R.id.list).getParent();
                     }
-                    SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
 
+                    SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
                     Integer order = 0;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-                        View statusBarColorView = new View(getContext());
-                        statusBarColorView.setLayoutParams(new LinearLayout.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            syncthingActivity.getStatusBarHeight()
-                        ));
-                        statusBarColorView.setBackgroundColor(
-                            ContextCompat.getColor(getContext(), R.color.primary)
-                        );
-                        root.addView(statusBarColorView, order++);
+                        syncthingActivity.addSpacerIfNeeded(root);
+                        order++;
                     }
 
                     LayoutInflater layoutInflater = syncthingActivity.getLayoutInflater();
