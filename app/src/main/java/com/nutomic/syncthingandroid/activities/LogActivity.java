@@ -204,12 +204,20 @@ public class LogActivity extends SyncthingActivity {
                 String logline = it.next();
                 if (
                             logline.contains("--- beginning of ") ||
+                            logline.contains("/AbsListViewStubImpl") ||
                             logline.contains("W/ActionBarDrawerToggle") ||
-                            logline.contains("W/ActivityThread") ||
-                            logline.contains("I/Adreno") ||
+                            logline.contains("/ActivityThread") ||
+                            logline.contains("/Adreno") ||
+                            logline.contains("/AdrenoUtils") ||
+                            logline.contains("/AiRecognition") ||
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
+                            logline.contains("/AudioCapabilities") ||
+                            logline.contains("/BLASTBufferQueue_Java") ||
+                            logline.contains("/BinderMonitor") ||
                             logline.contains("I/chatty") ||
+                            logline.contains("/CameraExtImplXiaoMi") ||
+                            logline.contains("/CameraManagerGlobal") ||
                             logline.contains("/Choreographer") ||
                             logline.contains("W/chmod") ||
                             logline.contains("/chromium") ||
@@ -218,43 +226,83 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_AwContents") ||
                             logline.contains("/cr_base") ||
                             logline.contains("/cr_BrowserStartup") ||
+                            logline.contains("/cr_CachingUmaRecorder") ||
                             logline.contains("/cr_ChildProcessConn") ||
                             logline.contains("/cr_ChildProcLH") ||
+                            logline.contains("/cr_CombinedPProvider") ||
                             logline.contains("/cr_CrashFileManager") ||
                             logline.contains("/cr_LibraryLoader") ||
                             logline.contains("/cr_media") ||
                             logline.contains("/cr_MediaCodecUtil") ||
+                            logline.contains("/cr_PolicyProvider") ||
+                            logline.contains("/cr_VAUtil") ||
+                            logline.contains("/cr_WVCFactoryProvider") ||
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
-                            logline.contains("/EGL") ||                      
+                            logline.contains("/DpmTcmClient") ||
+                            logline.contains("/EditorStubImpl") ||
+                            logline.contains("/EGL") ||
+                            logline.contains("/EpFrameworkFactory") ||
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("/FeatureParser") ||
+                            logline.contains("/FenceTime") ||
+                            logline.contains("E/FileUtils err") ||
+                            logline.contains("/FloatingActionMode") ||
+                            logline.contains("/ForceDarkHelperStubImpl") ||
+                            logline.contains("/FrameEvents") ||
+                            logline.contains("/FramePredict") ||
                             logline.contains("/FrameTracker") ||
-                            logline.contains("W/Gralloc") ||
+                            logline.contains("/Gralloc") ||
+                            logline.contains("/HandWritingStubImpl") ||
                             logline.contains("/HWUI") ||
+                            logline.contains("/IInputConnectionWrapper") ||
+                            logline.contains("/ImeTracker") ||
+                            logline.contains("/ImeBackDispatcher") ||
+                            logline.contains("/ImeFocusController") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
+                            logline.contains("/InsetsController") ||
+                            logline.contains("/InsetsSourceConsumer") ||
+                            logline.contains("/JavaheapMonitor") ||
+                            logline.contains("E/LB") ||
+                            logline.contains("W/Looper") ||
                             logline.contains("/libEGL") ||
+                            logline.contains("/libMiGL") ||
+                            logline.contains("W/libc") ||
                             logline.contains("W/libsyncthingnat") ||
+                            logline.contains("/MessageMonitor") ||
+                            logline.contains("/MIUI") ||
+                            logline.contains("/MiInputConsumer") ||
+                            logline.contains("/Miui") ||
+                            logline.contains("/NativeTurboSchedManager") ||
                             logline.contains("W/netstat") ||
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
-                            logline.contains("I/Perf") ||
+                            logline.contains("/Perf") ||
                             logline.contains("/re-initialized") ||
+                            logline.contains("/RemoteInputConnectionImpl") ||
+                            logline.contains("/RenderInspector") ||
                             logline.contains("/RenderThread") ||
                             logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
+                            logline.contains("W/Settings") ||
+                            logline.contains("/SplineOverScroller") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("/studio.deploy") ||
+                            logline.contains("/SurfaceComposerClient") ||
                             logline.contains("/SurfaceSyncGroup") ||
                             logline.contains("I/System.out") ||
                             logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
+                            logline.contains("I/VRI") ||
                             logline.contains("/VideoCapabilities") ||
+                            logline.contains("/ViewRootImpl") ||
                             logline.contains("I/WebViewFactory") ||
                             logline.contains("WindowOnBackDispatcher") ||
                             logline.contains("I/X509Util") ||
+                            logline.contains("/ziparchive") ||
                             logline.contains("/zygote") ||
                             logline.contains("/zygote64")
                         ) {
