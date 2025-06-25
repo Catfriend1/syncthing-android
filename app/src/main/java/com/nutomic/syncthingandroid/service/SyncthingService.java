@@ -967,10 +967,7 @@ public class SyncthingService extends Service {
                 Constants.CONFIG_FILE,
 
                 Constants.PRIVATE_KEY_FILE,
-                Constants.PUBLIC_KEY_FILE,
-
-                Constants.HTTPS_CERT_FILE,
-                Constants.HTTPS_KEY_FILE
+                Constants.PUBLIC_KEY_FILE
             );
             for (final String checkFile : checkFiles) {
                 if (zipFile.getFileHeader(checkFile) == null) {
