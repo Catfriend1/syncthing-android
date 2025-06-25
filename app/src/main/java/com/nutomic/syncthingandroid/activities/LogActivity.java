@@ -211,7 +211,10 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/AiRecognition") ||
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
+                            logline.contains("/AudioCapabilities") ||
                             logline.contains("I/chatty") ||
+                            logline.contains("/CameraExtImplXiaoMi") ||
+                            logline.contains("/CameraManagerGlobal") ||
                             logline.contains("/Choreographer") ||
                             logline.contains("W/chmod") ||
                             logline.contains("/chromium") ||
@@ -222,10 +225,12 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_BrowserStartup") ||
                             logline.contains("/cr_ChildProcessConn") ||
                             logline.contains("/cr_ChildProcLH") ||
+                            logline.contains("/cr_CombinedPProvider") ||
                             logline.contains("/cr_CrashFileManager") ||
                             logline.contains("/cr_LibraryLoader") ||
                             logline.contains("/cr_media") ||
                             logline.contains("/cr_MediaCodecUtil") ||
+                            logline.contains("/cr_VAUtil") ||
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
@@ -256,6 +261,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/libsyncthingnat") ||
                             logline.contains("/MessageMonitor") ||
                             logline.contains("/MIUI") ||
+                            logline.contains("/MiInputConsumer") ||
                             logline.contains("/Miui") ||
                             logline.contains("/NativeTurboSchedManager") ||
                             logline.contains("W/netstat") ||
@@ -270,6 +276,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
                             logline.contains("W/Settings") ||
+                            logline.contains("/SplineOverScroller") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("/studio.deploy") ||
                             logline.contains("/SurfaceSyncGroup") ||
