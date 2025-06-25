@@ -223,6 +223,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_AwContents") ||
                             logline.contains("/cr_base") ||
                             logline.contains("/cr_BrowserStartup") ||
+                            logline.contains("/cr_CachingUmaRecorder") ||
                             logline.contains("/cr_ChildProcessConn") ||
                             logline.contains("/cr_ChildProcLH") ||
                             logline.contains("/cr_CombinedPProvider") ||
@@ -230,7 +231,9 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/cr_LibraryLoader") ||
                             logline.contains("/cr_media") ||
                             logline.contains("/cr_MediaCodecUtil") ||
+                            logline.contains("/cr_PolicyProvider") ||
                             logline.contains("/cr_VAUtil") ||
+                            logline.contains("/cr_WVCFactoryProvider") ||
                             logline.contains("I/ConfigStore") ||
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
