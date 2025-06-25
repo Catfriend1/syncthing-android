@@ -213,6 +213,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
                             logline.contains("/AudioCapabilities") ||
+                            logline.contains("/BLASTBufferQueue_Java") ||
                             logline.contains("/BinderMonitor") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/CameraExtImplXiaoMi") ||
@@ -260,6 +261,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/ImeBackDispatcher") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
+                            logline.contains("/InsetsController") ||
                             logline.contains("/JavaheapMonitor") ||
                             logline.contains("E/LB") ||
                             logline.contains("W/Looper") ||
