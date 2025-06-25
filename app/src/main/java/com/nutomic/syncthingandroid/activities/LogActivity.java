@@ -205,7 +205,7 @@ public class LogActivity extends SyncthingActivity {
                 if (
                             logline.contains("--- beginning of ") ||
                             logline.contains("W/ActionBarDrawerToggle") ||
-                            logline.contains("W/ActivityThread") ||
+                            logline.contains("/ActivityThread") ||
                             logline.contains("I/Adreno") ||
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
@@ -229,19 +229,27 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/DecorView") ||
                             logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("/FenceTime") ||
+                            logline.contains("/FrameEvents") ||
                             logline.contains("/FrameTracker") ||
                             logline.contains("W/Gralloc") ||
+                            logline.contains("/HandWritingStubImpl") ||
                             logline.contains("/HWUI") ||
+                            logline.contains("/ImeTracker") ||
+                            logline.contains("/ImeBackDispatcher") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/libEGL") ||
+                            logline.contains("W/libc") ||
                             logline.contains("W/libsyncthingnat") ||
+                            logline.contains("/MIUI") ||
                             logline.contains("W/netstat") ||
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
                             logline.contains("I/Perf") ||
                             logline.contains("/re-initialized") ||
+                            logline.contains("/RemoteInputConnectionImpl") ||
                             logline.contains("/RenderThread") ||
                             logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
@@ -252,6 +260,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
                             logline.contains("/VideoCapabilities") ||
+                            logline.contains("/ViewRootImpl") ||
                             logline.contains("I/WebViewFactory") ||
                             logline.contains("WindowOnBackDispatcher") ||
                             logline.contains("I/X509Util") ||
