@@ -57,6 +57,9 @@ BUILD_TARGETS = [
     }
 ]
 
+# If building locally for Android studio tests, build only required arch.
+if os.environ.get('COMPUTERNAME', '') == 'NET2019':
+    BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] in ('arm64', 'x86_64')]
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -340,9 +343,6 @@ for target in BUILD_TARGETS:
     subprocess.check_call([go_bin, 'mod', 'download'], cwd=syncthing_dir)
     subprocess.check_call(
                               [go_bin, 'version'],
-                              env=environ, cwd=syncthing_dir)
-    subprocess.check_call(
-                              [go_bin, 'run', 'build.go', 'version'],
                               env=environ, cwd=syncthing_dir)
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android',
