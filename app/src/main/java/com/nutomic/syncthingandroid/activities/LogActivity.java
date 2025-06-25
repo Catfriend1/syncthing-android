@@ -253,7 +253,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/FrameEvents") ||
                             logline.contains("/FramePredict") ||
                             logline.contains("/FrameTracker") ||
-                            logline.contains("W/Gralloc") ||
+                            logline.contains("/Gralloc") ||
                             logline.contains("/HandWritingStubImpl") ||
                             logline.contains("/HWUI") ||
                             logline.contains("/IInputConnectionWrapper") ||
