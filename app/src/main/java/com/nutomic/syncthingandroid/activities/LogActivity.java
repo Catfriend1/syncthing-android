@@ -207,11 +207,13 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/AbsListViewStubImpl") ||
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("/ActivityThread") ||
-                            logline.contains("I/Adreno") ||
+                            logline.contains("/Adreno") ||
+                            logline.contains("/AdrenoUtils") ||
                             logline.contains("/AiRecognition") ||
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
                             logline.contains("/AudioCapabilities") ||
+                            logline.contains("/BinderMonitor") ||
                             logline.contains("I/chatty") ||
                             logline.contains("/CameraExtImplXiaoMi") ||
                             logline.contains("/CameraManagerGlobal") ||
@@ -242,6 +244,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/EGL") ||
                             logline.contains("/EpFrameworkFactory") ||
                             logline.contains("/eglCodecCommon") ||
+                            logline.contains("/FeatureParser") ||
                             logline.contains("/FenceTime") ||
                             logline.contains("E/FileUtils err") ||
                             logline.contains("/FloatingActionMode") ||
@@ -252,12 +255,14 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/Gralloc") ||
                             logline.contains("/HandWritingStubImpl") ||
                             logline.contains("/HWUI") ||
+                            logline.contains("/IInputConnectionWrapper") ||
                             logline.contains("/ImeTracker") ||
                             logline.contains("/ImeBackDispatcher") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/JavaheapMonitor") ||
                             logline.contains("E/LB") ||
+                            logline.contains("W/Looper") ||
                             logline.contains("/libEGL") ||
                             logline.contains("/libMiGL") ||
                             logline.contains("W/libc") ||
@@ -271,7 +276,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/ngandroid.debu") ||
                             logline.contains("/OpenGLRenderer") ||
                             logline.contains("/PacProxySelector") ||
-                            logline.contains("I/Perf") ||
+                            logline.contains("/Perf") ||
                             logline.contains("/re-initialized") ||
                             logline.contains("/RemoteInputConnectionImpl") ||
                             logline.contains("/RenderInspector") ||
