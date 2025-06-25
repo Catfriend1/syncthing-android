@@ -208,6 +208,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("W/ActionBarDrawerToggle") ||
                             logline.contains("/ActivityThread") ||
                             logline.contains("I/Adreno") ||
+                            logline.contains("/AiRecognition") ||
                             logline.contains("/androidtc") ||
                             logline.contains("/AssistStructure") ||
                             logline.contains("I/chatty") ||
@@ -229,10 +230,13 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
                             logline.contains("/DpmTcmClient") ||
+                            logline.contains("/EditorStubImpl") ||  
                             logline.contains("/EGL") ||                      
                             logline.contains("/eglCodecCommon") ||
                             logline.contains("/FenceTime") ||
                             logline.contains("E/FileUtils err") ||
+                            logline.contains("/FloatingActionMode") ||
+                            logline.contains("/ForceDarkHelperStubImpl") ||
                             logline.contains("/FrameEvents") ||
                             logline.contains("/FramePredict") ||
                             logline.contains("/FrameTracker") ||
@@ -243,11 +247,13 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/ImeBackDispatcher") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
+                            logline.contains("/JavaheapMonitor") ||
                             logline.contains("E/LB") ||
                             logline.contains("/libEGL") ||
                             logline.contains("/libMiGL") ||
                             logline.contains("W/libc") ||
                             logline.contains("W/libsyncthingnat") ||
+                            logline.contains("/MessageMonitor") ||
                             logline.contains("/MIUI") ||
                             logline.contains("/Miui") ||
                             logline.contains("/NativeTurboSchedManager") ||
@@ -262,6 +268,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/RenderThread") ||
                             logline.contains("/ResourceType") ||
                             logline.contains("W/sh") ||
+                            logline.contains("W/Settings") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("/studio.deploy") ||
                             logline.contains("/SurfaceSyncGroup") ||
@@ -273,6 +280,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("I/WebViewFactory") ||
                             logline.contains("WindowOnBackDispatcher") ||
                             logline.contains("I/X509Util") ||
+                            logline.contains("/ziparchive") ||
                             logline.contains("/zygote") ||
                             logline.contains("/zygote64")
                         ) {
