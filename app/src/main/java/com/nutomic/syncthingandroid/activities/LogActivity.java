@@ -230,8 +230,9 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/dalvikvm") ||
                             logline.contains("/DecorView") ||
                             logline.contains("/DpmTcmClient") ||
-                            logline.contains("/EditorStubImpl") ||  
-                            logline.contains("/EGL") ||                      
+                            logline.contains("/EditorStubImpl") ||
+                            logline.contains("/EGL") ||
+                            logline.contains("/EpFrameworkFactory") ||
                             logline.contains("/eglCodecCommon") ||
                             logline.contains("/FenceTime") ||
                             logline.contains("E/FileUtils err") ||
