@@ -259,9 +259,11 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/IInputConnectionWrapper") ||
                             logline.contains("/ImeTracker") ||
                             logline.contains("/ImeBackDispatcher") ||
+                            logline.contains("/ImeFocusController") ||
                             logline.contains("/InputEventReceiver") ||
                             logline.contains("/InputMethodManager") ||
                             logline.contains("/InsetsController") ||
+                            logline.contains("/InsetsSourceConsumer") ||
                             logline.contains("/JavaheapMonitor") ||
                             logline.contains("E/LB") ||
                             logline.contains("W/Looper") ||
@@ -289,10 +291,12 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/SplineOverScroller") ||
                             logline.contains("/StrictMode") ||
                             logline.contains("/studio.deploy") ||
+                            logline.contains("/SurfaceComposerClient") ||
                             logline.contains("/SurfaceSyncGroup") ||
                             logline.contains("I/System.out") ||
                             logline.contains("W/TextView") ||
                             logline.contains("I/Timeline") ||
+                            logline.contains("I/VRI") ||
                             logline.contains("/VideoCapabilities") ||
                             logline.contains("/ViewRootImpl") ||
                             logline.contains("I/WebViewFactory") ||
