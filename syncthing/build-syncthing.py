@@ -57,6 +57,9 @@ BUILD_TARGETS = [
     }
 ]
 
+# If building locally for Android studio tests, build only required arch.
+if os.environ.get('COMPUTERNAME', '') == 'NET2019':
+    BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] == 'x86_64']
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
