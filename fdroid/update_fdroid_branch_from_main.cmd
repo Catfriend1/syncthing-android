@@ -27,6 +27,9 @@ echo [INFO] VERSION_CODE=[%VERSION_CODE%]
 :: Write "versionName" and "versionCode" to "build.gradle".
 TYPE "%APP_BUILD_GRADLE%" 2>NUL: | psreplace "\sversionCode = .*" " versionCode = %VERSION_CODE%" | psreplace "\sversionName = .*" " versionName = `%VERSION_NAME%`" "%APP_BUILD_GRADLE%"
 ::
+echo [INFO] Done.
+pause
+::
 goto :eof
 
 
