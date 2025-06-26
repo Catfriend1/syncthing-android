@@ -18,7 +18,7 @@ SET DRY_RUN=0
 call :runGit fetch --all
 ::
 IF "%DRY_RUN%" == "0" call :runGit checkout fdroid
-IF "%DRY_RUN%" == "0" call :runGit pull origin main
+IF "%DRY_RUN%" == "0" call :runGit merge --no-commit main
 ::
 call :readVersionFromVersionsGradle
 echo [INFO] VERSION_NAME=[%VERSION_NAME%]
