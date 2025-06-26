@@ -8,6 +8,7 @@ attrib +h .idea
 attrib +h .kotlin
 attrib +h app\build
 attrib +h build
+attrib +h syncthing\pkg
 timeout 3
 ::
 goto :eof
