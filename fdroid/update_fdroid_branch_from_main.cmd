@@ -1,20 +1,17 @@
 @echo off
 setlocal enabledelayedexpansion
 SET SCRIPT_PATH=%~dps0
-cd /d "%SCRIPT_PATH%"
+cd /d "%SCRIPT_PATH%.."
 cls
-title Syncthing-Fork - Update F-Droid Mirror Repo from main
+title Update "fdroid" with "main" branch
 REM
 REM Runtime Variables.
 SET APP_BUILD_GRADLE=%~dps0app\build.gradle.kts
 REM
 call :runGit fetch --all
 REM
-git remote remove upstream 2>NUL:
-call :runGit remote add upstream https://github.com/Catfriend1/syncthing-android.git
-call :runGit pull upstream main
-REM :runGit merge {commit_id}
-REM :runGit reset --hard head~1
+call :runGit checkout fdroid
+call :runGit pull origin main
 REM
 call :readVersionFromVersionsGradle
 echo [INFO] applicationId="%APPLICATION_ID%"
