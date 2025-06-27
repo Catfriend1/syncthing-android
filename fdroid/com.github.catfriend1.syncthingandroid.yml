@@ -2590,16 +2590,25 @@ Builds:
       - apt-get install -y -t bookworm-backports golang-go
     gradle:
       - yes
+    srclibs:
+      - go@go1.23.0
     prebuild:
+      - export goVersion=$(grep "ENV GO_VERSION" ../docker/Dockerfile | cut -d "="
+        -f2)
+      - '[[ $goVersion ]] || exit 1'
+      - git -C $$go$$ checkout -f go$goVersion
       - sed -i -e '/signingConfig/,+2d' build.gradle.kts
       - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e 's|go_bin = which("go");|go_bin = "$$go$$/bin/go"|' ../syncthing/build-syncthing.py
     scanignore:
       - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
     build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
       - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
         -f 4)
       - sdkmanager "ndk;$ndkversion"
-      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
 
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
