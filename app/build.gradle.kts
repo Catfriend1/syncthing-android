@@ -61,7 +61,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.github.catfriend1.syncthingandroid"
+        applicationId = "com.syncthingfork"
         minSdk = 21
         targetSdk = 36
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
