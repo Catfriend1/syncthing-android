@@ -32,13 +32,17 @@ Switching is easier than you may think!
 - Delete the syncthing configuration backup from `backups/syncthing`.
 - Upgrade to the [latest Syncthing-Fork version](https://github.com/Catfriend1/syncthing-android/releases/latest)
 
-## Privacy Policy
+## Wiki and Useful Articles
 
-See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
+Our knowledge base is published [here](https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme).
 
 ## Building and Development Notes
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).
+
+## Privacy Policy
+
+See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).
 
 ## License
 
