@@ -2588,7 +2588,7 @@ Builds:
       - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
         libtool pkg-config rename shtool
       - apt-get install -y -t bookworm-backports golang-go
-    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    output: build/outputs/apk/release/app-release-unsigned.apk
     srclibs:
       - go@go1.23.0
     prebuild:
