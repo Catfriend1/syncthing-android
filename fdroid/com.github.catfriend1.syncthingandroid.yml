@@ -2611,7 +2611,7 @@ Builds:
         -f 4)
       - sdkmanager "ndk;$ndkversion"
       - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
-      - gradle buildRelease
+      - gradle assembleRelease
 
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
