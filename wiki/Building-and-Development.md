@@ -23,8 +23,16 @@ python3 scripts/install_minimum_android_sdk_prerequisites.py
 # Build.
 export ANDROID_HOME=~/git/syncthing-android-prereq
 ./gradlew buildNative
+#
+# Flavor: debug
 ./gradlew lintDebug
 ./gradlew assembleDebug
+#
+# Flavor: release
+## Remember to setup signing first
+## or remove the section "signingConfigs" from "app/build.gradle.kts" for an unsigned build.
+./gradlew lintRelease
+./gradlew assembleRelease
 ```
 
 To clean up all files generated during build, use the following commands:
