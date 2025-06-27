@@ -1,8 +1,9 @@
 Categories:
+  - Cloud Storage & File Sync
   - Internet
 License: MPL-2.0
 WebSite: https://github.com/Catfriend1/syncthing-android/wiki
-SourceCode: https://github.com/Catfriend1/syncthing-android-fdroid
+SourceCode: https://github.com/Catfriend1/syncthing-android
 IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
 Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
 Changelog: https://github.com/Catfriend1/syncthing-android/releases
@@ -11,7 +12,7 @@ Liberapay: cf4friends
 AutoName: Syncthing-Fork
 
 RepoType: git
-Repo: https://github.com/Catfriend1/syncthing-android-fdroid.git
+Repo: https://github.com/Catfriend1/syncthing-android.git
 
 Builds:
   - versionName: 0.14.50.rc2.6
@@ -2554,7 +2555,7 @@ Builds:
 
   - versionName: 1.29.7.4
     versionCode: 1290704
-    commit: 
+    commit: 9ee947b33298886c5688c53abd1b8dd02ac8f083
     subdir: app
     submodules: true
     sudo:
@@ -2574,13 +2575,37 @@ Builds:
         -f 4)
       - sdkmanager "ndk;$ndkversion"
       - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
-      - export BUILD_HOST=f-droid.org
+      - export BUILD_HOST=build
+      - export BUILD_USER=build
+
+  - versionName: 1.29.7.5
+    versionCode: 1290705
+    commit: 6e3783867abfefa3c2629b877168618023ccaab4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
 
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.29.7.4
-CurrentVersionCode: 1290704
+UpdateCheckMode: Tags ^v[a-z0-9.]*-fdroid$
+CurrentVersion: 1.29.7.5
+CurrentVersionCode: 1290705
