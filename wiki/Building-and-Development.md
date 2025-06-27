@@ -31,6 +31,7 @@ export ANDROID_HOME=~/git/syncthing-android-prereq
 # Flavor: release
 ## Remember to setup signing first
 ## or remove the section "signingConfigs" from "app/build.gradle.kts" for an unsigned build.
+### sed -i -e '/signingConfig/,+2d' "app/build.gradle.kts"
 ./gradlew lintRelease
 ./gradlew assembleRelease
 ```
