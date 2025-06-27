@@ -34,6 +34,13 @@ To clean up all files generated during build, use the following commands:
 
 ### Build on Windows
 
+You may want to add the following folder exceptions to your antivirus solution if the build process takes too long and you intend to develop regularly.
+
+```bash
+%LocalAppData%\go-build
+```
+
+
 ```bash
 ::
 :: Install prerequisites.
