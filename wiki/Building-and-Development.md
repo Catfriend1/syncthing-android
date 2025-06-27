@@ -14,13 +14,15 @@ apt-get -y install gcc git openjdk-17-jdk python3 unzip
 # Clone repository.
 mkdir -p ~/git && cd ~/git
 git clone https://github.com/Catfriend1/syncthing-android.git --recursive
-## git stash && git pull origin Catfriend1-patch-1 && git checkout Catfriend1-patch-1
 #
-# Build
+# Install prerequisites.
 cd ~/git/syncthing-android
+## git stash && git pull origin Catfriend1-patch-1 && git checkout Catfriend1-patch-1
 python3 scripts/install_minimum_android_sdk_prerequisites.py
-./gradlew buildNative
+#
+# Build.
 export ANDROID_HOME=~/git/syncthing-android-prereq
+./gradlew buildNative
 ./gradlew lintDebug
 ./gradlew assembleDebug
 ```
