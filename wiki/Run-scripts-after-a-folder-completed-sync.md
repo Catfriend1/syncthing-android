@@ -6,14 +6,14 @@ Example script call:
 >  cd /storage/emulated/0/DCIM/Camera/.stfolder/..; sh /storage/emulated/0/DCIM/Camera/.stfolder/rename-files.sh sync_complete
 
 Demo scripts:
-- [demo1.sh](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/android/testFolder/.stfolder/demo1.sh)
+- demo1.sh
 ``` bash
 #!/bin/sh
 echo "[INFO] Demo 1: param1=[${1}], pwd=[$(pwd)]"
 exit 0
 ```
 
-- [demo2.sh](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/android/testFolder/.stfolder/demo2.sh)
+- demo2.sh
 ``` bash
 #!/bin/sh
 echo "[INFO] Demo 2"
