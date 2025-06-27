@@ -1,5 +1,5 @@
-### UPDATE 2020/07/08
-Android 11 is being expected to be the first version since 4.4 that supports writing to external SD card again using Syncthing. Stay tuned.
+### TL;DR
+Android 11 is the first version since 4.4 that supports writing to external SD card again using Syncthing. That's why the app requests the  "access all files and manage external storage" permission on first usage.
 
 ### Why SD card use together with Syncthing requires special attention
 According to Google's document:
