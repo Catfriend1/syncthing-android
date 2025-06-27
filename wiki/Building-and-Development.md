@@ -34,11 +34,19 @@ export ANDROID_HOME=~/git/syncthing-android-prereq
 ### sed -i -e '/signingConfig/,+2d' "app/build.gradle.kts"
 ./gradlew lintRelease
 ./gradlew assembleRelease
-```
-
-To clean up all files generated during build, use the following commands:
-
-```bash
+#
+# Artifacts: Grab output APK.
+## Flavor: debug
+cp "app/build/outputs/apk/debug/app-debug.apk" "/mnt/x/app-debug.apk"
+##
+## Flavor: release
+cp "app/build/outputs/apk/release/app-release.apk" "/mnt/x/app-release.apk"
+##
+## Flavor: release-unsigned
+cp "app/build/outputs/apk/release/app-release-unsigned.apk" "/mnt/x/app-release-unsigned.apk"
+#
+# Cleanup.
+## To clean up all files generated during build, use the following commands.
 ./gradlew cleanNative
 ./gradlew clean
 ```
@@ -66,8 +74,8 @@ git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 ::
 :: Build
 cd /d "YOUR_CLONED_GIT_ROOT"
-SyncthingNative_update_and_build
-App_build_and_release
+scripts\SyncthingNative_update_and_build
+scripts\App_build_and_release
 ```
 
 ## Development Notes
