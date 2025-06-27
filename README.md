@@ -34,7 +34,7 @@ Switching is easier than you may think!
 
 ## Wiki and Useful Articles
 
-Our knowledge base is published [here](https://github.com/Catfriend1/syncthing-android/tree/Catfriend1-patch-1/wiki#readme).
+Our knowledge base is published [here](https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme).
 
 ## Building and Development Notes
 
