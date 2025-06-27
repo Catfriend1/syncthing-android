@@ -36,12 +36,14 @@ To clean up all files generated during build, use the following commands:
 
 You may want to add the following folder exceptions to your antivirus solution if the build process takes too long and you intend to develop regularly.
 
+Exception list
 ```bash
 %LocalAppData%\go-build
 ```
 
-
-```bash build-windows.cmd
+build-windows.cmd
+```bash
+@echo off
 ::
 :: Install prerequisites.
 winget install --accept-source-agreements --source winget --exact --id "Git.MinGit" --scope machine
