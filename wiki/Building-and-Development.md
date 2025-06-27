@@ -41,7 +41,7 @@ You may want to add the following folder exceptions to your antivirus solution i
 ```
 
 
-```bash
+```bash build-windows.cmd
 ::
 :: Install prerequisites.
 winget install --accept-source-agreements --source winget --exact --id "Git.MinGit" --scope machine
