@@ -2588,7 +2588,8 @@ Builds:
       - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
         libtool pkg-config rename shtool
       - apt-get install -y -t bookworm-backports golang-go
-    output: build/outputs/apk/release/app-release-unsigned.apk
+    gradle:
+      - yes
     srclibs:
       - go@go1.23.0
     prebuild:
@@ -2598,20 +2599,16 @@ Builds:
       - git -C $$go$$ checkout -f go$goVersion
       - sed -i -e '/signingConfig/,+2d' build.gradle.kts
       - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
-      - gradle clean
+      - sed -i -e 's|go_bin = which("go");|go_bin = "$$go$$/bin/go"|' ../syncthing/build-syncthing.py
     scanignore:
       - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
     build:
       - pushd $$go$$/src
       - ./make.bash
       - popd
-      - export GOPATH=$$go$$
-      - export PATH="$GOPATH/bin:$PATH"
       - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
         -f 4)
       - sdkmanager "ndk;$ndkversion"
-      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
-      - gradle assembleRelease
 
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
