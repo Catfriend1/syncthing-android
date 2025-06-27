@@ -2593,7 +2593,8 @@ Builds:
     srclibs:
       - go@go1.23.0
     prebuild:
-      - export goVersion=$(grep "ENV GO_VERSION" "docker/Dockerfile" | cut -d "=" -f2)
+      - export goVersion=$(grep "ENV GO_VERSION" "docker/Dockerfile" | cut -d "="
+        -f2)
       - '[[ $goVersion ]] || exit 1'
       - git -C $$go$$ checkout -f go$goVersion
       - sed -i -e '/signingConfig/,+2d' build.gradle.kts
