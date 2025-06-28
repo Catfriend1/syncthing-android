@@ -976,30 +976,11 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         // Create ".stfolder/DO_NOT_DELETE" file.
-        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
-        if (dfDoNotDeleteFile == null) {
-            Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
-            return;
-        }
-        Log.v(TAG, "preCreateFolderStruct: Created file '" + strDoNotDeleteFile + "'");
-
-        // Write "DO_NOT_DELETE" text content.
-        OutputStream outputStream = null;
-        try {
-            outputStream = getContentResolver().openOutputStream(dfDoNotDeleteFile.getUri());
-            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
-            outputStream.flush();
-        } catch (IOException e) {
-            Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
-        } finally {
-            try {
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
-            }
-        }
+        safCreateFile(dfFolderMarkerDir.getUri(),
+                            "text/plain",
+                            DO_NOT_DELETE_FILE_NAME,
+                            DO_NOT_DELETE_FILE_NAME
+        );
 
         // Create ".stversions" directory.
         DocumentFile dfStVersionsDir = null;
