@@ -1022,7 +1022,7 @@ public class FileUtils {
         }
 
         String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileNameAndExtension);
-        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileNameAndExtension);
+        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
 
         String fileName = fileNameAndExtension;
         int dotIndex = fileNameAndExtension.lastIndexOf('.');
