@@ -984,6 +984,28 @@ public class FileUtils {
         return (fileMimeType == null) ? "" : fileMimeType;
     }
 
+    public final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
+                                                        final String folderName) {
+        if (parentFolder == null) {
+            Log.w(TAG, "safCreateDirectory: parentFolder == null");
+            return null;
+        }
+        DocumentFile dfNewFolder = null;
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(folderName)) {
+                Log.v(TAG, "safCreateDirectory: Directory already exists '" + folderName + "'");
+                return file;
+            }
+        }
+        dfNewFolder = parentFolder.createDirectory(folderName);
+        if (dfNewFolder == null) {
+            Log.w(TAG, "safCreateDirectory: Failed to create directory '" + folderName + "'");
+            return null;
+        }
+        Log.v(TAG, "safCreateDirectory: Created directory '" + folderName + "'");
+        return dfNewFolder;
+    }
+
     /**
      * Open file in compatible app.
      */
