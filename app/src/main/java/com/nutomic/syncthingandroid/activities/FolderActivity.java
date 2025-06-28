@@ -957,7 +957,7 @@ public class FolderActivity extends SyncthingActivity {
         DocumentFile  dfFolderMarkerDir = safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
         if (dfFolderMarkerDir != null) {
             // Create ".stfolder/DO_NOT_DELETE" file.
-            safCreateFile(dfFolderMarkerDir.getUri(),
+            safCreateFile(dfFolderMarkerDir,
                                 "text/plain",
                                 DO_NOT_DELETE_FILE_NAME,
                                 DO_NOT_DELETE_FILE_NAME
@@ -968,7 +968,7 @@ public class FolderActivity extends SyncthingActivity {
         DocumentFile  dfStVersionsDir = safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
         if (dfStVersionsDir != null) {
             // Write ".stversions/.nomedia" file.
-            safCreateFile(dfStVersionsDir.getUri(),
+            safCreateFile(dfStVersionsDir,
                                 "application/octet-stream",
                                 ".nomedia",
                                 ""
@@ -998,16 +998,23 @@ public class FolderActivity extends SyncthingActivity {
         return dfNewFolder;
     }
 
-    private final boolean safCreateFile(final Uri parentFolderUri,
+    private final boolean safCreateFile(final DocumentFile parentFolder,
                                             final String fileMimeType,
                                             final String fileName,
                                             final String content) {
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isFile() && file.getName().equals(fileName)) {
+                Log.v(TAG, "safCreateFile: File already exists '" + fileName + "'");
+                return true;
+            }
+        }
+
         boolean failSuccess = false;
         OutputStream outputStream = null;
         try {
             Uri fileUri = DocumentsContract.createDocument(
                     getContentResolver(),
-                    parentFolderUri,
+                    parentFolder.getUri(),
                     fileMimeType,
                     fileName
             );
