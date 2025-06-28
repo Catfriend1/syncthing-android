@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.DocumentsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -53,9 +52,6 @@ import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -954,17 +950,17 @@ public class FolderActivity extends SyncthingActivity {
         DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
 
         // Create ".stfolder" directory.
-        DocumentFile  dfFolderMarkerDir = safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
+        DocumentFile dfFolderMarkerDir = FileUtils.safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
         if (dfFolderMarkerDir != null) {
             // Create ".stfolder/DO_NOT_DELETE.txt" file.
-            FileUtils.safCreateFile(dfFolderMarkerDir, DO_NOT_DELETE_FILE_NAME + ".txt", DO_NOT_DELETE_FILE_NAME);
+            FileUtils.safCreateFile(this, dfFolderMarkerDir, DO_NOT_DELETE_FILE_NAME + ".txt", DO_NOT_DELETE_FILE_NAME);
         }
 
         // Create ".stversions" directory.
-        DocumentFile  dfStVersionsDir = safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
+        DocumentFile dfStVersionsDir = FileUtils.safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
         if (dfStVersionsDir != null) {
             // Create ".stversions/.nomedia" file.
-            FileUtils.safCreateFile(dfStVersionsDir, ".nomedia", "");
+            FileUtils.safCreateFile(this, dfStVersionsDir, ".nomedia", "");
         }
     }
 
