@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.DocumentsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -53,9 +52,6 @@ import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -952,90 +948,19 @@ public class FolderActivity extends SyncthingActivity {
 
         // Derive DocumentFile handle from SAF tree Uri where we have write access.
         DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
-        if (dfFolder == null) {
-            Log.w(TAG, "preCreateFolderStruct: dfFolder == null");
-            return;
-        }
 
-        // Create ".stfolder" marker directory.
-        DocumentFile dfFolderMarkerDir = null;
-        for (DocumentFile file : dfFolder.listFiles()) {
-            if (file.isDirectory() && file.getName().equals(FOLDER_MARKER_DIR_NAME)) {
-                dfFolderMarkerDir = file;
-                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strFolderMarkerPath + "'");
-                break;
-            }
-        }
-        if (dfFolderMarkerDir == null) {
-            dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
-            if (dfFolderMarkerDir == null) {
-                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
-                return;
-            }
-            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
-        }
-
-        // Create ".stfolder/DO_NOT_DELETE" file.
-        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
-        if (dfDoNotDeleteFile == null) {
-            Log.w(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #1");
-            return;
-        }
-        Log.v(TAG, "preCreateFolderStruct: Created file '" + strDoNotDeleteFile + "'");
-
-        // Write "DO_NOT_DELETE" text content.
-        OutputStream outputStream = null;
-        try {
-            outputStream = getContentResolver().openOutputStream(dfDoNotDeleteFile.getUri());
-            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
-            outputStream.flush();
-        } catch (IOException e) {
-            Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
-        } finally {
-            try {
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "preCreateFolderStruct: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
-            }
+        // Create ".stfolder" directory.
+        DocumentFile dfFolderMarkerDir = FileUtils.safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
+        if (dfFolderMarkerDir != null) {
+            // Create ".stfolder/DO_NOT_DELETE.txt" file.
+            FileUtils.safCreateFile(this, dfFolderMarkerDir, DO_NOT_DELETE_FILE_NAME + ".txt", DO_NOT_DELETE_FILE_NAME);
         }
 
         // Create ".stversions" directory.
-        DocumentFile dfStVersionsDir = null;
-        for (DocumentFile file : dfFolder.listFiles()) {
-            if (file.isDirectory() && file.getName().equals(Constants.FOLDER_NAME_STVERSIONS)) {
-                dfStVersionsDir = file;
-                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strStVersionsPath + "'");
-                break;
-            }
-        }
-        if (dfStVersionsDir == null) {
-            dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
-            if (dfStVersionsDir == null) {
-                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
-                return;
-            }
-            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
-        }
-
-        // Write ".stversions/.nomedia" file.
-        try {
-            Uri fileUri = DocumentsContract.createDocument(
-                    getContentResolver(),
-                    dfStVersionsDir.getUri(),
-                    "application/octet-stream",
-                    ".nomedia"
-            );
-            if (fileUri != null) {
-                OutputStream os = getContentResolver().openOutputStream(fileUri);
-                if (os != null) {
-                    os.close();
-                }
-            }
-            Log.v(TAG, "preCreateFolderStruct: Created file '" + strStVersionsNoMediaFile + "'");
-        } catch (Exception e) {
-            Log.e(TAG, "preCreateFolderStruct: Failed to create " + strStVersionsNoMediaFile + " file.", e);
+        DocumentFile dfStVersionsDir = FileUtils.safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
+        if (dfStVersionsDir != null) {
+            // Create ".stversions/.nomedia" file.
+            FileUtils.safCreateFile(this, dfStVersionsDir, ".nomedia", "");
         }
     }
 
