@@ -956,91 +956,16 @@ public class FolderActivity extends SyncthingActivity {
         // Create ".stfolder" directory.
         DocumentFile  dfFolderMarkerDir = safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
         if (dfFolderMarkerDir != null) {
-            // Create ".stfolder/DO_NOT_DELETE" file.
-            safCreateFile(dfFolderMarkerDir,
-                                "text/plain",
-                                DO_NOT_DELETE_FILE_NAME,
-                                DO_NOT_DELETE_FILE_NAME
-            );
+            // Create ".stfolder/DO_NOT_DELETE.txt" file.
+            FileUtils.safCreateFile(dfFolderMarkerDir, DO_NOT_DELETE_FILE_NAME + ".txt", DO_NOT_DELETE_FILE_NAME);
         }
 
         // Create ".stversions" directory.
         DocumentFile  dfStVersionsDir = safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
         if (dfStVersionsDir != null) {
-            // Write ".stversions/.nomedia" file.
-            safCreateFile(dfStVersionsDir,
-                                "application/octet-stream",
-                                ".nomedia",
-                                ""
-            );
+            // Create ".stversions/.nomedia" file.
+            FileUtils.safCreateFile(dfStVersionsDir, ".nomedia", "");
         }
-    }
-
-    private final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
-                                                        final String folderName) {
-        if (parentFolder == null) {
-            Log.w(TAG, "safCreateDirectory: parentFolder == null");
-            return null;
-        }
-        DocumentFile dfNewFolder = null;
-        for (DocumentFile file : parentFolder.listFiles()) {
-            if (file.isDirectory() && file.getName().equals(folderName)) {
-                Log.v(TAG, "safCreateDirectory: Directory already exists '" + folderName + "'");
-                return file;
-            }
-        }
-        dfNewFolder = parentFolder.createDirectory(folderName);
-        if (dfNewFolder == null) {
-            Log.w(TAG, "safCreateDirectory: Failed to create directory '" + folderName + "'");
-            return null;
-        }
-        Log.v(TAG, "safCreateDirectory: Created directory '" + folderName + "'");
-        return dfNewFolder;
-    }
-
-    private final boolean safCreateFile(final DocumentFile parentFolder,
-                                            final String fileMimeType,
-                                            final String fileName,
-                                            final String content) {
-        for (DocumentFile file : parentFolder.listFiles()) {
-            if (file.isFile() && file.getName().equals(fileName)) {
-                Log.v(TAG, "safCreateFile: File already exists '" + fileName + "'");
-                return true;
-            }
-        }
-
-        boolean failSuccess = false;
-        OutputStream outputStream = null;
-        try {
-            Uri fileUri = DocumentsContract.createDocument(
-                    getContentResolver(),
-                    parentFolder.getUri(),
-                    fileMimeType,
-                    fileName
-            );
-            if (fileUri == null) {
-                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #1");
-                return false;
-            }
-            outputStream = getContentResolver().openOutputStream(fileUri);
-            if (!content.isEmpty()) {
-                outputStream.write(content.getBytes(StandardCharsets.ISO_8859_1));
-            }
-            outputStream.flush();
-            Log.v(TAG, "safCreateFile: Created file '" + fileName + "'");
-            failSuccess = true;
-        } catch (Exception e) {
-            Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #2", e);
-        } finally {
-            try {
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #3", e);
-            }
-        }
-        return failSuccess;
     }
 
     private void showDiscardDialog(){
