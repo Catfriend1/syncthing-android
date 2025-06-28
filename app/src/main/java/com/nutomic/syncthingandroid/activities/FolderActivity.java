@@ -1020,6 +1020,9 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         // Write ".stversions/.nomedia" file.
+        safCreateFile(dfStVersionsDir.getUri(), ".nomedia", "");
+    }
+
     private final boolean safCreateFile(final Uri parentFolderUri,
                                             final String fileName,
                                             final String content) {
