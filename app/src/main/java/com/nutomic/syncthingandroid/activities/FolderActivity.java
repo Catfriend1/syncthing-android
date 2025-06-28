@@ -1020,10 +1020,16 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         // Write ".stversions/.nomedia" file.
-        safCreateFile(dfStVersionsDir.getUri(), ".nomedia", "");
+        safCreateFile(dfStVersionsDir.getUri(),
+                            "application/octet-stream",
+                            ".nomedia",
+                            ""
+        );
+    }
     }
 
     private final boolean safCreateFile(final Uri parentFolderUri,
+                                            final String fileMimeType,
                                             final String fileName,
                                             final String content) {
         boolean failSuccess = false;
@@ -1032,7 +1038,7 @@ public class FolderActivity extends SyncthingActivity {
             Uri fileUri = DocumentsContract.createDocument(
                     getContentResolver(),
                     parentFolderUri,
-                    "application/octet-stream",
+                    fileMimeType,
                     fileName
             );
             if (fileUri == null) {
