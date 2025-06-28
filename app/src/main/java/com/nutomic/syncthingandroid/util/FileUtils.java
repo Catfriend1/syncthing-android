@@ -989,7 +989,7 @@ public class FileUtils {
     }
 
     public static final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
-                                                        final String folderName) {
+                                                                final String folderName) {
         if (parentFolder == null) {
             Log.w(TAG, "safCreateDirectory: parentFolder == null");
             return null;
@@ -1010,10 +1010,10 @@ public class FileUtils {
         return dfNewFolder;
     }
 
-    public static final boolean safCreateFile(Context context,
-                                            final DocumentFile parentFolder,
-                                            final String fileName,
-                                            final String content) {
+    public static final boolean safCreateFile(final Context context,
+                                                    final DocumentFile parentFolder,
+                                                    final String fileName,
+                                                    final String content) {
         for (DocumentFile file : parentFolder.listFiles()) {
             if (file.isFile() && file.getName().equals(fileName)) {
                 Log.v(TAG, "safCreateFile: File already exists '" + fileName + "'");
