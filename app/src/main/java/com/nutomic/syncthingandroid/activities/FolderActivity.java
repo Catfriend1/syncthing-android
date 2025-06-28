@@ -1020,23 +1020,41 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         // Write ".stversions/.nomedia" file.
+    private final boolean safCreateFile(final Uri parentFolderUri,
+                                            final String fileName,
+                                            final String content) {
+        boolean failSuccess = false;
+        OutputStream outputStream = null;
         try {
             Uri fileUri = DocumentsContract.createDocument(
                     getContentResolver(),
-                    dfStVersionsDir.getUri(),
+                    parentFolderUri,
                     "application/octet-stream",
-                    ".nomedia"
+                    fileName
             );
-            if (fileUri != null) {
-                OutputStream os = getContentResolver().openOutputStream(fileUri);
-                if (os != null) {
-                    os.close();
-                }
+            if (fileUri == null) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #1");
+                return false;
             }
-            Log.v(TAG, "preCreateFolderStruct: Created file '" + strStVersionsNoMediaFile + "'");
+            outputStream = getContentResolver().openOutputStream(fileUri);
+            if (!content.isEmpty()) {
+                outputStream.write(content.getBytes(StandardCharsets.ISO_8859_1));
+            }
+            outputStream.flush();
+            Log.v(TAG, "safCreateFile: Created file '" + fileName + "'");
+            failSuccess = true;
         } catch (Exception e) {
-            Log.e(TAG, "preCreateFolderStruct: Failed to create " + strStVersionsNoMediaFile + " file.", e);
+            Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #2", e);
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #3", e);
+            }
         }
+        return failSuccess;
     }
 
     private void showDiscardDialog(){
