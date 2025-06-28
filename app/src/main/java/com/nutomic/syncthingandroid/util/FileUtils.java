@@ -1012,17 +1012,23 @@ public class FileUtils {
 
     public static final boolean safCreateFile(final Context context,
                                                     final DocumentFile parentFolder,
-                                                    final String fileName,
+                                                    final String fileNameAndExtension,
                                                     final String content) {
         for (DocumentFile file : parentFolder.listFiles()) {
-            if (file.isFile() && file.getName().equals(fileName)) {
-                Log.v(TAG, "safCreateFile: File already exists '" + fileName + "'");
+            if (file.isFile() && file.getName().equals(fileNameAndExtension)) {
+                Log.v(TAG, "safCreateFile: File already exists '" + fileNameAndExtension + "'");
                 return true;
             }
         }
 
-        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileName);
-        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
+        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileNameAndExtension);
+        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileNameAndExtension);
+
+        String fileName = fileNameAndExtension;
+        int dotIndex = fileNameAndExtension.lastIndexOf('.');
+        if (dotIndex > 0) {
+            fileName = fileNameAndExtension.substring(0, dotIndex);
+        }
 
         boolean failSuccess = false;
         OutputStream outputStream = null;
@@ -1034,7 +1040,7 @@ public class FileUtils {
                     fileName
             );
             if (fileUri == null) {
-                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #1");
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #1");
                 return false;
             }
             outputStream = context.getContentResolver().openOutputStream(fileUri);
@@ -1042,17 +1048,17 @@ public class FileUtils {
                 outputStream.write(content.getBytes(StandardCharsets.ISO_8859_1));
             }
             outputStream.flush();
-            Log.v(TAG, "safCreateFile: Created file '" + fileName + "', type '" + fileMimeType + "'");
+            Log.v(TAG, "safCreateFile: Created file '" + fileNameAndExtension + "', type '" + fileMimeType + "'");
             failSuccess = true;
         } catch (Exception e) {
-            Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #2", e);
+            Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #2", e);
         } finally {
             try {
                 if (outputStream != null) {
                     outputStream.close();
                 }
             } catch (IOException e) {
-                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #3", e);
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #3", e);
             }
         }
         return failSuccess;
