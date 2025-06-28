@@ -18,15 +18,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.documentfile.provider.DocumentFile;
 
 import com.nutomic.syncthingandroid.R;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -63,21 +67,21 @@ public class FileUtils {
         return DocumentsContract.buildTreeDocumentUri(authority, documentId);
     }
     
-    public static boolean directoryUriExists(Context context, Uri documentUri) {
+    public static boolean directoryUriExists(final Context context, Uri documentUri) {
         Uri treeUri = convertFromDocumentUriToTreeUri(documentUri);
         String absPath = getAbsolutePathFromSAFUri(context, treeUri);
         return new File(absPath).exists();
     }
     
     @Nullable
-    public static String getAbsolutePathFromSAFUri(Context context, @Nullable final Uri safResultUri) {
+    public static String getAbsolutePathFromSAFUri(final Context context, @Nullable final Uri safResultUri) {
         Uri treeUri = DocumentsContract.buildDocumentUriUsingTree(safResultUri,
             DocumentsContract.getTreeDocumentId(safResultUri));
         return getAbsolutePathFromTreeUri(context, treeUri);
     }
 
     @Nullable
-    public static String getAbsolutePathFromTreeUri(Context context, @Nullable final Uri treeUri) {
+    public static String getAbsolutePathFromTreeUri(final Context context, @Nullable final Uri treeUri) {
         if (treeUri == null) {
             Log.w(TAG, "getAbsolutePathFromTreeUri: called with treeUri == null");
             return null;
@@ -148,7 +152,7 @@ public class FileUtils {
     }
 
     @SuppressLint("ObsoleteSdkInt")
-    private static String getVolumePath(final String volumeId, Context context) {
+    private static String getVolumePath(final String volumeId, final Context context) {
         try {
             if (HOME_VOLUME_NAME.equals(volumeId)) {
                 Log.v(TAG, "getVolumePath: isHomeVolume");
@@ -203,11 +207,11 @@ public class FileUtils {
         // return null;
     }
 
-    public static File getExternalFilesDir(Context context, String type) {
+    public static File getExternalFilesDir(final Context context, String type) {
         return getExternalFilesDir(context, ExternalStorageDirType.DATA, type);
     }
 
-    public static File getExternalFilesDir(Context context, ExternalStorageDirType extDirType, String type) {
+    public static File getExternalFilesDir(final Context context, ExternalStorageDirType extDirType, String type) {
         /**
          * Determine the app's private data folder on external storage if present.
          * e.g. "/storage/abcd-efgh/Android/data/[PACKAGE_NAME]/files"
@@ -262,7 +266,7 @@ public class FileUtils {
      * API for getExternalFilesDirs(): 19+ (KITKAT+)
      * API for getExternalMediaDirs(): 21+ (LOLLIPOP+)
      */
-    public static android.net.Uri getExternalFilesDirUri(Context context, ExternalStorageDirType extDirType) {
+    public static android.net.Uri getExternalFilesDirUri(final Context context, ExternalStorageDirType extDirType) {
         try {
             File externalFilesDir = getExternalFilesDir(context, extDirType, null);
             if (externalFilesDir == null) {
@@ -664,6 +668,7 @@ public class FileUtils {
         mimeTypes.put("mvc", "application/x-miva-compiled");
         mimeTypes.put("mxp", "application/x-mmxp");
         mimeTypes.put("nc", "application/x-netcdf");
+        mimeTypes.put("nomedia", "application/octet-stream");
         mimeTypes.put("nsc", "video/x-ms-asf");
         mimeTypes.put("nws", "message/rfc822");
         mimeTypes.put("ocx", "application/octet-stream");
@@ -983,10 +988,86 @@ public class FileUtils {
         return (fileMimeType == null) ? "" : fileMimeType;
     }
 
+    public static final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
+                                                                final String folderName) {
+        if (parentFolder == null) {
+            Log.w(TAG, "safCreateDirectory: parentFolder == null");
+            return null;
+        }
+        DocumentFile dfNewFolder = null;
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(folderName)) {
+                Log.v(TAG, "safCreateDirectory: Directory already exists '" + folderName + "'");
+                return file;
+            }
+        }
+        dfNewFolder = parentFolder.createDirectory(folderName);
+        if (dfNewFolder == null) {
+            Log.w(TAG, "safCreateDirectory: Failed to create directory '" + folderName + "'");
+            return null;
+        }
+        Log.v(TAG, "safCreateDirectory: Created directory '" + folderName + "'");
+        return dfNewFolder;
+    }
+
+    public static final boolean safCreateFile(final Context context,
+                                                    final DocumentFile parentFolder,
+                                                    final String fileNameAndExtension,
+                                                    final String content) {
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isFile() && file.getName().equals(fileNameAndExtension)) {
+                Log.v(TAG, "safCreateFile: File already exists '" + fileNameAndExtension + "'");
+                return true;
+            }
+        }
+
+        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileNameAndExtension);
+        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
+
+        String fileName = fileNameAndExtension;
+        int dotIndex = fileNameAndExtension.lastIndexOf('.');
+        if (dotIndex > 0) {
+            fileName = fileNameAndExtension.substring(0, dotIndex);
+        }
+
+        boolean failSuccess = false;
+        OutputStream outputStream = null;
+        try {
+            Uri fileUri = DocumentsContract.createDocument(
+                    context.getContentResolver(),
+                    parentFolder.getUri(),
+                    fileMimeType,
+                    fileName
+            );
+            if (fileUri == null) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #1");
+                return false;
+            }
+            outputStream = context.getContentResolver().openOutputStream(fileUri);
+            if (!content.isEmpty()) {
+                outputStream.write(content.getBytes(StandardCharsets.ISO_8859_1));
+            }
+            outputStream.flush();
+            Log.v(TAG, "safCreateFile: Created file '" + fileNameAndExtension + "', type '" + fileMimeType + "'");
+            failSuccess = true;
+        } catch (Exception e) {
+            Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #2", e);
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileNameAndExtension + "' #3", e);
+            }
+        }
+        return failSuccess;
+    }
+
     /**
      * Open file in compatible app.
      */
-    public static void openFile(Context context, String fullPathAndFilename) {
+    public static void openFile(final Context context, String fullPathAndFilename) {
         Uri fileUri = Uri.parse(fullPathAndFilename);
         String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileUri.toString());
         String mimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
@@ -1020,7 +1101,7 @@ public class FileUtils {
     /**
      * Open folder in compatible file manager app.
      */
-    public static void openFolder(Context context, String folderPath) {
+    public static void openFolder(final Context context, String folderPath) {
         PackageManager pm = context.getPackageManager();
 
         // Try to find a compatible file manager app supporting the "resource/folder" Uri type.
@@ -1054,7 +1135,7 @@ public class FileUtils {
         suggestFileManagerApp(context);
     }
 
-    private static void suggestFileManagerApp(Context context) {
+    private static void suggestFileManagerApp(final Context context) {
         AlertDialog mSuggestFileManagerAppDialog = new AlertDialog.Builder(context)
                 .setTitle(R.string.suggest_file_manager_app_dialog_title)
                 .setMessage(R.string.suggest_file_manager_app_dialog_text)

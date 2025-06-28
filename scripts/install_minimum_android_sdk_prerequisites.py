@@ -147,7 +147,7 @@ if platform.system() not in SUPPORTED_PYTHON_PLATFORMS:
     fail('Unsupported python platform %s. Supported platforms: %s', platform.system(),
          ', '.join(SUPPORTED_PYTHON_PLATFORMS))
 
-prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
+prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
 
 # Check if "sdk-manager" of sdk-tools package is available.
 sdk_manager_bin = which("sdkmanager")
