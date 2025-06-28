@@ -18,15 +18,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.documentfile.provider.DocumentFile;
 
 import com.nutomic.syncthingandroid.R;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -984,7 +988,7 @@ public class FileUtils {
         return (fileMimeType == null) ? "" : fileMimeType;
     }
 
-    public final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
+    public static final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
                                                         final String folderName) {
         if (parentFolder == null) {
             Log.w(TAG, "safCreateDirectory: parentFolder == null");
@@ -1004,6 +1008,54 @@ public class FileUtils {
         }
         Log.v(TAG, "safCreateDirectory: Created directory '" + folderName + "'");
         return dfNewFolder;
+    }
+
+    public static final boolean safCreateFile(Context context,
+                                            final DocumentFile parentFolder,
+                                            final String fileName,
+                                            final String content) {
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isFile() && file.getName().equals(fileName)) {
+                Log.v(TAG, "safCreateFile: File already exists '" + fileName + "'");
+                return true;
+            }
+        }
+
+        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(fileName);
+        final String fileMimeType = FileUtils.getMimeTypeFromFileExtension(fileExtension);
+
+        boolean failSuccess = false;
+        OutputStream outputStream = null;
+        try {
+            Uri fileUri = DocumentsContract.createDocument(
+                    context.getContentResolver(),
+                    parentFolder.getUri(),
+                    fileMimeType,
+                    fileName
+            );
+            if (fileUri == null) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #1");
+                return false;
+            }
+            outputStream = context.getContentResolver().openOutputStream(fileUri);
+            if (!content.isEmpty()) {
+                outputStream.write(content.getBytes(StandardCharsets.ISO_8859_1));
+            }
+            outputStream.flush();
+            Log.v(TAG, "safCreateFile: Created file '" + fileName + "', type '" + fileMimeType + "'");
+            failSuccess = true;
+        } catch (Exception e) {
+            Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #2", e);
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "safCreateFile: Failed to create file '" + fileName + "' #3", e);
+            }
+        }
+        return failSuccess;
     }
 
     /**
