@@ -664,6 +664,7 @@ public class FileUtils {
         mimeTypes.put("mvc", "application/x-miva-compiled");
         mimeTypes.put("mxp", "application/x-mmxp");
         mimeTypes.put("nc", "application/x-netcdf");
+        mimeTypes.put("nomedia", "application/octet-stream");
         mimeTypes.put("nsc", "video/x-ms-asf");
         mimeTypes.put("nws", "message/rfc822");
         mimeTypes.put("ocx", "application/octet-stream");
