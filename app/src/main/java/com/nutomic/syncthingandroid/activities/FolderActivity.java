@@ -952,61 +952,50 @@ public class FolderActivity extends SyncthingActivity {
 
         // Derive DocumentFile handle from SAF tree Uri where we have write access.
         DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
-        if (dfFolder == null) {
-            Log.w(TAG, "preCreateFolderStruct: dfFolder == null");
-            return;
-        }
 
-        // Create ".stfolder" marker directory.
-        DocumentFile dfFolderMarkerDir = null;
-        for (DocumentFile file : dfFolder.listFiles()) {
-            if (file.isDirectory() && file.getName().equals(FOLDER_MARKER_DIR_NAME)) {
-                dfFolderMarkerDir = file;
-                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strFolderMarkerPath + "'");
-                break;
-            }
+        // Create ".stfolder" directory.
+        DocumentFile  dfFolderMarkerDir = safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
+        if (dfFolderMarkerDir != null) {
+            // Create ".stfolder/DO_NOT_DELETE" file.
+            safCreateFile(dfFolderMarkerDir.getUri(),
+                                "text/plain",
+                                DO_NOT_DELETE_FILE_NAME,
+                                DO_NOT_DELETE_FILE_NAME
+            );
         }
-        if (dfFolderMarkerDir == null) {
-            dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
-            if (dfFolderMarkerDir == null) {
-                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strFolderMarkerPath + "'");
-                return;
-            }
-            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strFolderMarkerPath + "'");
-        }
-
-        // Create ".stfolder/DO_NOT_DELETE" file.
-        safCreateFile(dfFolderMarkerDir.getUri(),
-                            "text/plain",
-                            DO_NOT_DELETE_FILE_NAME,
-                            DO_NOT_DELETE_FILE_NAME
-        );
 
         // Create ".stversions" directory.
-        DocumentFile dfStVersionsDir = null;
-        for (DocumentFile file : dfFolder.listFiles()) {
-            if (file.isDirectory() && file.getName().equals(Constants.FOLDER_NAME_STVERSIONS)) {
-                dfStVersionsDir = file;
-                Log.v(TAG, "preCreateFolderStruct: Directory already exists '" + strStVersionsPath + "'");
-                break;
-            }
+        DocumentFile  dfStVersionsDir = safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
+        if (dfStVersionsDir != null) {
+            // Write ".stversions/.nomedia" file.
+            safCreateFile(dfStVersionsDir.getUri(),
+                                "application/octet-stream",
+                                ".nomedia",
+                                ""
+            );
         }
-        if (dfStVersionsDir == null) {
-            dfStVersionsDir = dfFolder.createDirectory(Constants.FOLDER_NAME_STVERSIONS);
-            if (dfStVersionsDir == null) {
-                Log.w(TAG, "preCreateFolderStruct: Failed to create directory '" + strStVersionsPath + "'");
-                return;
-            }
-            Log.v(TAG, "preCreateFolderStruct: Created directory '" + strStVersionsPath + "'");
-        }
-
-        // Write ".stversions/.nomedia" file.
-        safCreateFile(dfStVersionsDir.getUri(),
-                            "application/octet-stream",
-                            ".nomedia",
-                            ""
-        );
     }
+
+    private final DocumentFile safCreateDirectory(final DocumentFile parentFolder,
+                                                        final String folderName) {
+        if (parentFolder == null) {
+            Log.w(TAG, "safCreateDirectory: parentFolder == null");
+            return null;
+        }
+        DocumentFile dfNewFolder = null;
+        for (DocumentFile file : parentFolder.listFiles()) {
+            if (file.isDirectory() && file.getName().equals(folderName)) {
+                Log.v(TAG, "safCreateDirectory: Directory already exists '" + folderName + "'");
+                return file;
+            }
+        }
+        dfNewFolder = parentFolder.createDirectory(folderName);
+        if (dfNewFolder == null) {
+            Log.w(TAG, "safCreateDirectory: Failed to create directory '" + folderName + "'");
+            return null;
+        }
+        Log.v(TAG, "safCreateDirectory: Created directory '" + folderName + "'");
+        return dfNewFolder;
     }
 
     private final boolean safCreateFile(final Uri parentFolderUri,
