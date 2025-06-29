@@ -667,5 +667,5 @@
     <string name="clear_stversions_question">Toto odstraní všechny předchozí verze souborů. Chcete pokračovat?</string>
     <string name="clear_stversions_done">Složky .stversions byly úspěšně vyčištěny.</string>
     <string name="pizza_url_title">» Kočičky milujou pizzu « 😺🍕</string>
-    <string name="pizza_url_summary">Jediným klepnutím můžete zanechat vřelý plátek laskavosti - doplněný s extra dobrou atmosférou, aby kočičky šťastně vrněly.</string>
+    <string name="pizza_url_summary">S jediným klepnutím můžete zanechat vřelý plátek laskavosti - doplněný s extra dobrou atmosférou, aby kočičky šťastně vrněly.</string>
 </resources>
