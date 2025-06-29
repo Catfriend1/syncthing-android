@@ -58,6 +58,7 @@ You may want to add the following folder exceptions to your antivirus solution i
 Exception list
 ```bash
 %LocalAppData%\go-build
+%userprofile%\.gradle\caches
 ```
 
 build-windows.cmd

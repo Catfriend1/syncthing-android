@@ -491,7 +491,7 @@ public class SyncthingRunnable implements Runnable {
 
         // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            targetEnv.put("ANDROID_NET_GATEWAY_IPV4", getGatewayIpV4(mContext));
+            targetEnv.put("FALLBACK_NET_GATEWAY_IPV4", getGatewayIpV4(mContext));
         }
 
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
