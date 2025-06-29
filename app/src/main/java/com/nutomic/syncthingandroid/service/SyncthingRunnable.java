@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
+import android.net.RouteInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.MulticastLock;
 import android.os.Build;
@@ -12,6 +16,8 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
@@ -30,6 +36,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -480,6 +488,12 @@ public class SyncthingRunnable implements Runnable {
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
+
+        // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            targetEnv.put("ANDROID_NET_GATEWAY_IPV4", getGatewayIpV4(mContext));
+        }
+
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
@@ -562,5 +576,23 @@ public class SyncthingRunnable implements Runnable {
         if (ENABLE_VERBOSE_LOG) {
             Log.v(TAG, logMessage);
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public static String getGatewayIpV4(final Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network activeNetwork = cm.getActiveNetwork();
+        if (activeNetwork == null) return null;
+
+        LinkProperties props = cm.getLinkProperties(activeNetwork);
+        if (props == null) return null;
+
+        for (RouteInfo route : props.getRoutes()) {
+            InetAddress gateway = route.getGateway();
+            if (route.isDefaultRoute() && gateway instanceof Inet4Address) {
+                return gateway.getHostAddress();
+            }
+        }
+        return null;
     }
 }
