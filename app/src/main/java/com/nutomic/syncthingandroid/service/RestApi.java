@@ -1218,6 +1218,15 @@ public class RestApi {
         // Execute planned workloads.
         final Boolean finalPlanGetSyncConflictFiles = planGetSyncConflictFiles;
         final Boolean finalPlanOnFolderSyncCompleted = planOnFolderSyncCompleted;
+        if (executorService.isShutdown()) {
+            // We are on the way to shutdown SynchtingNative.
+            return;
+        }
+        if (!finalPlanGetSyncConflictFiles && !finalPlanOnFolderSyncCompleted) {
+            // No work to do.
+            return;
+        }
+
         executorService.execute(() -> {
             if (finalPlanGetSyncConflictFiles) {
                 // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
