@@ -1,4 +1,1 @@
-## What's Changed
-* Android 16 support
-* Updated dependencies
-* Updated translations
+Update SyncthingNative to v2.0.0-rc.22
