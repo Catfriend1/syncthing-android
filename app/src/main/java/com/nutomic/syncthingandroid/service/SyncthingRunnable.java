@@ -106,19 +106,19 @@ public class SyncthingRunnable implements Runnable {
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
         switch (command) {
             case deviceid:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--device-id"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "device-id"};
                 break;
             case generate:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "generate"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--no-browser"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "debug", "reset-database"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "serve", "--debug-reset-delta-idxs"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -484,10 +484,15 @@ public class SyncthingRunnable implements Runnable {
         // Set home directory to data folder for web GUI folder picker.
         targetEnv.put("HOME", FileUtils.getSyncthingTildeAbsolutePath());
 
+        // Set config, key and database directory.
+        targetEnv.put("STHOMEDIR", mContext.getFilesDir().toString());
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
+
+        // Since Syncthing v2+: purge deletes from database after 1 year.
+        targetEnv.put("STDBDELETERETENTIONINTERVAL", "8766h");
 
         // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
