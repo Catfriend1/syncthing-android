@@ -492,7 +492,7 @@ public class SyncthingRunnable implements Runnable {
         // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             final String gatewayIpV4 = getGatewayIpV4(mContext);
-            if (gatewayIp != null) {
+            if (gatewayIpV4 != null) {
                 targetEnv.put("FALLBACK_NET_GATEWAY_IPV4", gatewayIpV4);
             }
         }
