@@ -166,7 +166,7 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány. \n \nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Opravdu chcete importovat novou konfiguraci? Existující soubory budou přepsány.</string>
+    <string name="dialog_confirm_import">Opravdu chcete importovat konfiguraci? Existující nastavení včetně sdílených složek a seznam zařízení budou nahrazeny.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Nahrát nastavení</string>
     <!-- Toast shown after config was imported -->
@@ -394,7 +394,7 @@
     <string name="folder_rejected">Zařízení „%1$s“ chce sdílet složku „%2$s“</string>
     <string name="override_changes_question">Tím zrušíte všechny změny provedené v ostatních zařízeních sdílejících tuto složku. Pokračovat?</string>
     <string name="category_backup">Import a Export</string>
-    <string name="notification_permission_title">Oprávnění k zmánením</string>
+    <string name="notification_permission_title">Oprávnění k ozmánením</string>
     <string name="reason">Důvod:</string>
     <string name="accept">Příjmout</string>
     <string name="page_x_of_y">Stránka %1$s z %2$s</string>
@@ -615,7 +615,7 @@
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Číslo portu není platné. Zadejte port mezi %1$d a %2$d.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Vstupní hodnota není platná. Zadejte hodnotu mezi %1$d a %2$d.</string>
     <string name="use_proxy">Připojit prostřednictvím proxy</string>
-    <string name="config_export_failed">Export konfigurace selhal, zkontrolujte výstup logcat.</string>
+    <string name="config_export_failed">Export konfigurace selhal. Jděte do Nastavení-Odstraňování problémů-Otevřít log pro důvod selhání.</string>
     <string name="verbose_log_title">Podrobný protokol</string>
     <string name="log_to_file_summary">Výstup SyncthingNative bude zapsán do souboru.</string>
     <string name="open_issue_tracker_summary">Otevřete nástroj pro sledování problémů Syncthing-Fork na adrese %1$s</string>
@@ -660,4 +660,12 @@
         <item quantity="few">%1$d konflikty</item>
         <item quantity="other">%1$d konfliktů</item>
     </plurals>
+    <string name="config_import_failed_no_path">Import konfigurace selhal. Jděte do Nastavení-Odstraňování problémů-Otevřít log pro důvod selhání.</string>
+    <string name="share_log_file">Sdílet logový soubor</string>
+    <string name="clear_stversions_title">Vymazat všechny složky starých verzích souborů</string>
+    <string name="clear_stversions_summary">Soubory jsou přesunuty do složky .stversions když jsou nahrazeny nebo odstraněny. Můžete pravděpodobně najít a obnovit omylem odstraněné soubory, ale staré verze souborů zabírají místo na vašem zařízení.</string>
+    <string name="clear_stversions_question">Toto odstraní všechny předchozí verze souborů. Chcete pokračovat?</string>
+    <string name="clear_stversions_done">Složky .stversions byly úspěšně vyčištěny.</string>
+    <string name="pizza_url_title">» Kočičky milujou pizzu « 😺🍕</string>
+    <string name="pizza_url_summary">S jediným klepnutím můžete zanechat vřelý plátek laskavosti - doplněný s extra dobrou atmosférou, aby kočičky šťastně vrněly.</string>
 </resources>
