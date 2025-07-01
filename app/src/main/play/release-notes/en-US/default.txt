@@ -1,2 +1,3 @@
 ## What's Changed
 * Updated SyncthingNative to v1.30.0
+* Fix crash referring to libsyncthingnative.so
