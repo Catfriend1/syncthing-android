@@ -1,4 +1,2 @@
 ## What's Changed
-* Android 16 support
-* Updated dependencies
-* Updated translations
+* Updated SyncthingNative to v1.30.0

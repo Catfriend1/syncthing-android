@@ -501,7 +501,7 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
     }
 
     @SuppressLint("InlinedApi")
-    @RequiresApi(23)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestIgnoreDozePermission() {
         Boolean intentFailed = false;
         Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
