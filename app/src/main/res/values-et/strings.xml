@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="ignore_doze_permission_title">Akukasutuse optimeerimine</string>
+    <string name="back">Tagasi</string>
+    <string name="cont">Jätka</string>
+    <string name="finish">Lõpeta</string>
+    <string name="generic_example">Näide</string>
+    <string name="generic_error">Viga</string>
+    <string name="generic_help">Abiteave</string>
+    <string name="grant_permission">Anna vastavad õigused</string>
+    <string name="permission_granted">Õigused on olemas</string>
+    <string name="reason">Põhjus:</string>
+    <string name="accept">Nõustu</string>
+    <string name="ignore">Eira</string>
+    <string name="page_x_of_y">Leht %1$s / %2$s</string>
+    <string name="main_menu">Põhimenüü</string>
+    <string name="refresh">Värskenda andmeid</string>
 </resources>
