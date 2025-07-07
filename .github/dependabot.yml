@@ -19,9 +19,6 @@ updates:
   - dependency-name: com.android.tools.build:gradle
     versions:
     - "> 3.6.3"
-  - dependency-name: com.github.triplet.play
-    versions:
-    - "> 2.8.0"
   - dependency-name: com.google.android.material:material
     versions:
     - "> 1.0.0"
