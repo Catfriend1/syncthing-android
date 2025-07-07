@@ -597,8 +597,8 @@
         <item quantity="other">%1$d Geräte online und aktuell</item>
     </plurals>
     <plurals name="syncthing_active_syncing_device_online">
-        <item quantity="one">Synce: %1$d %% fertig, %2$d Gerät online</item>
-        <item quantity="other">Synce: %1$d %% fertig, %2$d Geräte online</item>
+        <item quantity="one">Sync: %1$d %% fertig, %2$d Gerät online</item>
+        <item quantity="other">Sync: %1$d %% fertig, %2$d Geräte online</item>
     </plurals>
     <string name="syncthing_disabled">Schläft</string>
     <string name="syncthing_terminated">Beendet</string>
