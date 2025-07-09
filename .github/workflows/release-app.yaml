@@ -1,7 +1,7 @@
 name: Release App
 
 permissions:
-  contents: read
+  contents: write
   packages: read
 
 on:
