@@ -13,11 +13,6 @@ on:
       - main
       - release
 
-env:
-  # Our build metadata
-  BUILD_USER: android-builder
-  BUILD_HOST: github.syncthing.net
-
 jobs:
   build:
     name: Debug Build
