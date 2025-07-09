@@ -18,6 +18,10 @@ jobs:
   release:
     name: Release Build and Publish
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      actions: write
     container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
       - uses: actions/checkout@v4
