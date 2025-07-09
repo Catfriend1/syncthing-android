@@ -13,19 +13,10 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+\.[0-9]+'
 
-env:
-  # Our build metadata
-  BUILD_USER: android-builder
-  BUILD_HOST: github.syncthing.net
-
 jobs:
   release:
     name: Release Build and Publish
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      actions: write
     container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
       - uses: actions/checkout@v4
