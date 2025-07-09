@@ -2,7 +2,7 @@ name: Build App
 
 permissions:
   contents: read
-  actions: write
+  packages: read
 
 on:
   pull_request:
