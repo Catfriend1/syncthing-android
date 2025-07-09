@@ -1,5 +1,9 @@
 name: Release App
 
+permissions:
+  contents: read
+  packages: read
+
 on:
   push:
     # Cannot filter on both branches (release) and tags - it's ORed
