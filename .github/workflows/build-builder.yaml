@@ -10,6 +10,7 @@ jobs:
   build-image:
     permissions:
       contents: read
+      packages: write
     if: github.event_name == 'pull_request'
     uses: ./.github/workflows/image-builder-template.yaml
     with:
@@ -18,6 +19,7 @@ jobs:
   push-image:
     permissions:
       contents: read
+      packages: write
     if: github.event_name == 'workflow_dispatch'
     uses: ./.github/workflows/image-builder-template.yaml
     secrets:
