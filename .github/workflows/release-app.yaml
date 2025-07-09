@@ -1,5 +1,9 @@
 name: Release App
 
+permissions:
+  contents: write
+  packages: read
+
 on:
   push:
     # Cannot filter on both branches (release) and tags - it's ORed
@@ -8,11 +12,6 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+\.[0-9]+'
-
-env:
-  # Our build metadata
-  BUILD_USER: android-builder
-  BUILD_HOST: github.syncthing.net
 
 jobs:
   release:

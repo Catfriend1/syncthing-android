@@ -1,5 +1,9 @@
 name: Build App
 
+permissions:
+  contents: read
+  packages: read
+
 on:
   pull_request:
   push:
@@ -8,11 +12,6 @@ on:
       - fdroid
       - main
       - release
-
-env:
-  # Our build metadata
-  BUILD_USER: android-builder
-  BUILD_HOST: github.syncthing.net
 
 jobs:
   build:
