@@ -63,7 +63,6 @@ android {
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
         minSdk = 21
-        targetSdk = 36
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
         testApplicationId = "com.github.catfriend1.syncthingandroid.test"
@@ -128,10 +127,12 @@ android {
             useLegacyPackaging = true
         }
     }
+
     lint {
         abortOnError = true
         disable += "ExpiringTargetSdkVersion"
         disable += "ExpiredTargetSdkVersion"
+        targetSdk = 36
     }
 }
 
