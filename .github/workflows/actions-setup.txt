@@ -37,12 +37,12 @@ docker push ghcr.io/catfriend1/syncthing-android-builder:latest
 #
 # Add repository strings: https://github.com/Catfriend1/syncthing-android/settings/secrets/actions
 ## DEBUG_KEYSTORE_B64
-### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:USERPROFILE} + '\.android\debug.keystore'))" > "X:\debug.keystore.b64"
+### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:ANDROID_USER_HOME} + '\debug.keystore'))"
 ## SIGNING_KEYSTORE_JKS_BASE64
-### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:USERPROFILE} + '\.android\catfriend1.jks'))" > "X:\catfriend1.jks.b64"
+### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes(${env:ANDROID_USER_HOME} + '\catfriend1.jks'))"
 ## SIGNING_PASSWORD
 ### [PWD]
 ## GNUPG_SIGNING_KEY_BASE64
-### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes('X:\Catfriend1_SECRET.asc'))" > "X:\Catfriend1_SECRET.asc.b64"
+### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes('X:\Catfriend1_SECRET.asc'))"
 ## GHCR_TOKEN
 ### %GHP%
