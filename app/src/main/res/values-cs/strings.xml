@@ -567,7 +567,7 @@
     <string name="preference_app_theme_follow_dark">Tmavé</string>
     <string name="tips_and_tricks_title">Rady &amp; tipy</string>
     <string name="tip_sync_on_local_network_text">Pokud chcete synchronizovat pouze se zařízeními, která se nacházejí v místní síti WiFi nebo jsou dostupná prostřednictvím hotspotu WiFi, můžete snížit spotřebu baterie a vyhnout se náhodné synchronizaci přes mobilní data vypnutím následujících možností v části „Nastavení/Možnosti synchronizace“:\n- Povolit obcházení NAT\n- Globální zjišťování \n- Povolit přenos\nPonechte povolenou pouze možnost „Local discovery“.</string>
-    <string name="category_user_interface">Uživateslké rozhraní</string>
+    <string name="category_user_interface">Uživatelské rozhraní</string>
     <string name="tip_write_to_sdcard_text">Pokud se v uživatelském rozhraní zobrazí hlášení, že „Android uděluje synchronizaci přístup pouze pro čtení“ k určité složce, vytvořte novou složku pomocí této cesty, abyste získali přístup pro zápis:\n%1$s/YOUR_FOLDER_NAME.\nBuďte opatrní: Pokud tuto aplikaci odinstalujete, systém Android tuto složku vymaže. Před odinstalováním aplikace přesuňte data na bezpečné místo mimo složku .../Android.</string>
     <string name="preference_app_theme_follow_system">Podle systému</string>
     <string name="local_discovery_disabled">Místní zjišťování jste zakázali v nabídce „Nastavení“ &gt; „Možnosti synchronizace“ &gt; „Místní zjišťování“. Povolte jej, abyste mohli vyhledávat zařízení v místní síti.</string>
