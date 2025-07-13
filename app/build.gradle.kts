@@ -46,7 +46,6 @@ android {
     val versionWrapper: kotlin.Int by rootProject.extra
 
     compileSdk = 36
-    buildToolsVersion = "36.0.0"
     ndkVersion = "${ndkVersionShared}"
 
     namespace = "com.nutomic.syncthingandroid"
