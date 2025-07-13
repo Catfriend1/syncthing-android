@@ -252,7 +252,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Ukončit</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Běží</string>
+    <string name="syncthing_active">Spuštěno</string>
     <string name="config_create_failed">Vytváření konfiguračního souboru selhalo. Zkontrolujte výstup logcat.</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto</string>
@@ -339,7 +339,7 @@
     <string name="st_reset_database_question">Tato akce by měla být provedena pouze na základě doporučení naší podpory.
 \nSkutečně chcete vymazat databázi Syncthing?</string>
     <string name="st_reset_deltas_title">Resetovat rejstříky přírůstků</string>
-    <string name="syncthing_terminated">Zastaveno</string>
+    <string name="syncthing_terminated">Ukončeno</string>
     <string name="config_file_missing">Soubor s nastaveními nezbytný pro fungování nebyl nalezen</string>
     <string name="notifications_persistent_channel">Syncthing je aktivní</string>
     <string name="storage_permission_title">Oprávnění pro přístup k úložišti</string>
@@ -427,7 +427,7 @@
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Přepnutí existujících složek na „Přijímat šifrovaně“ není podporováno.</string>
     <string name="no_recent_changes">Žádné nedávné změny.</string>
     <string name="dialog_settings_restart_app_title">Vyžadován restart</string>
-    <string name="syncthing_active_details">Běží: %1$s</string>
+    <string name="syncthing_active_details">Spuštěno: %1$s</string>
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojeno</item>
         <item quantity="few">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojena</item>
@@ -518,7 +518,7 @@
     <string name="reason_not_nonroaming_mobile_data">Syncthing neběží, protože jste zakázali spuštění na roamingových mobilních datových připojeních.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor bnemá vytvořenu instance. Pokud tato chyba po restartu aplikace nezmizí, odešlete prosím hlášení o chybě.</string>
     <string name="custom_wifi_ssid_whitelist_empty">Žádné WiFi sítě na seznamu povolených. Přidejte nějaké v nastavení.</string>
-    <string name="syncthing_disabled">Neběží</string>
+    <string name="syncthing_disabled">Pozastaveno</string>
     <string name="config_read_failed">Načtení konfigurace se nezdařilo. Zvažte zálohování dat ze složek pro synchronizaci, poté vymažte data této aplikace a znovu ji spusťte.</string>
     <string name="default_android_camera_folder_label">Fotoaparát Android</string>
     <string name="notification_out_of_disk_space">SD karta je plná. Soubor %1$s</string>
