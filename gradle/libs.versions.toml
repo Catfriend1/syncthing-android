@@ -3,7 +3,7 @@
 min-sdk = "21"
 aboutLibraries = "12.2.4"
 activity = "1.10.1"
-android-material = "1.9.0"
+android-material = "1.12.0"
 compose-material = "1.8.3"
 compose-material-icons = "1.7.8"
 constraintlayout = "2.0.4"
