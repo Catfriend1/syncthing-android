@@ -8,6 +8,6 @@ fi
 
 echo "Prepopulating gradle and go build/pkg cache"
 cd syncthing-android
-./gradlew --no-daemon lint buildNative
+./gradlew --no-daemon lintDebug buildNative
 cd ..
 rm -rf syncthing-android
