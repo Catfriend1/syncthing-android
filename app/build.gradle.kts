@@ -45,10 +45,9 @@ android {
     val versionPatch: kotlin.Int by rootProject.extra
     val versionWrapper: kotlin.Int by rootProject.extra
 
-    compileSdk = 36
-    ndkVersion = "${ndkVersionShared}"
-
+    compileSdk = libs.versions.compile.sdk.get().toInt()
     namespace = "com.nutomic.syncthingandroid"
+    ndkVersion = "${ndkVersionShared}"
 
     buildFeatures {
         compose = true
@@ -58,6 +57,7 @@ android {
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
         minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
     }
@@ -122,7 +122,7 @@ android {
 
     lint {
         abortOnError = true
-        targetSdk = 36
+        targetSdk = libs.versions.target.sdk.get().toInt()
     }
 }
 
