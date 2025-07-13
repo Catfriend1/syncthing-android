@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.android.application)
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
@@ -9,8 +7,6 @@ plugins {
 }
 
 dependencies {
-    androidTestImplementation(libs.annotation)
-    androidTestImplementation(libs.rules)
     implementation(libs.aboutlibraries.compose.m2)
     implementation(libs.aboutlibraries.core)
     implementation(libs.activity.compose)
@@ -49,11 +45,9 @@ android {
     val versionPatch: kotlin.Int by rootProject.extra
     val versionWrapper: kotlin.Int by rootProject.extra
 
-    compileSdk = 36
-    buildToolsVersion = "36.0.0"
-    ndkVersion = "${ndkVersionShared}"
-
+    compileSdk = libs.versions.compile.sdk.get().toInt()
     namespace = "com.nutomic.syncthingandroid"
+    ndkVersion = "${ndkVersionShared}"
 
     buildFeatures {
         compose = true
@@ -62,11 +56,10 @@ android {
 
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
-        minSdk = 21
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
-        testApplicationId = "com.github.catfriend1.syncthingandroid.test"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -97,13 +90,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlin {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
         }
     }
 
@@ -119,7 +112,6 @@ android {
         }
     }
 
-
     packaging {
         jniLibs {
             // Otherwise libsyncthing.so doesn't appear where it should in installs
@@ -130,9 +122,7 @@ android {
 
     lint {
         abortOnError = true
-        disable += "ExpiringTargetSdkVersion"
-        disable += "ExpiredTargetSdkVersion"
-        targetSdk = 36
+        targetSdk = libs.versions.target.sdk.get().toInt()
     }
 }
 

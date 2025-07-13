@@ -1,6 +1,5 @@
 name: 🐞 Bug Report
 description: Report a bug with as much detail as possible to help us reproduce it.
-title: "[Bug] "
 labels: []
 assignees: []
 body:
