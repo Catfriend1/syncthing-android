@@ -62,7 +62,7 @@ android {
 
     defaultConfig {
         applicationId = "com.github.catfriend1.syncthingandroid"
-        minSdk = 21
+        minSdk = libs.versions.min.sdk.get().toInt()
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
         testApplicationId = "com.github.catfriend1.syncthingandroid.test"

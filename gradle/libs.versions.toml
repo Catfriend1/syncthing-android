@@ -1,4 +1,6 @@
 [versions]
+# Android SDK versions
+min-sdk = "21"
 aboutLibraries = "12.2.4"
 activity = "1.10.1"
 android-material = "1.9.0"

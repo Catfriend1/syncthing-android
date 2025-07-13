@@ -58,7 +58,7 @@ BUILD_TARGETS = [
 ]
 
 # If building locally for Android studio tests, build only required arch.
-if os.environ.get('COMPUTERNAME', '') == 'NET2019':
+if os.environ.get('BUILD_FOR_AVD', '') == '1':
     BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] in ('arm64', 'x86_64')]
 
 def fail(message, *args, **kwargs):
@@ -67,13 +67,13 @@ def fail(message, *args, **kwargs):
 
 
 def get_min_sdk(project_dir):
-    with open(os.path.join(project_dir, 'app', 'build.gradle.kts')) as file_handle:
+    with open(os.path.join(project_dir, 'gradle', 'libs.versions.toml')) as file_handle:
         for line in file_handle:
-            tokens = list(filter(None, line.split()))
-            if len(tokens) == 3 and tokens[0] == 'minSdk':
-                return int(tokens[2])
+            tokens = list(filter(None, line.split('"')))
+            if len(tokens) == 3 and tokens[0] == 'min-sdk = ':
+                return int(tokens[1])
 
-    fail('Failed to find minSdkVersion')
+    fail('Failed to find min-sdk')
 
 def which_raw(program):
     import os
