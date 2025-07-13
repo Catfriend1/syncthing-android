@@ -36,7 +36,7 @@ jobs:
 
       - name: Setup Android NDK
         run: |
-          ANDROID_NDK_VERSION=28.0.13004108
+          ANDROID_NDK_VERSION=r28
           ANDROID_NDK_ZIP="android-ndk-${ANDROID_NDK_VERSION}-linux.zip"
           ANDROID_NDK_URL="https://dl.google.com/android/repository/${ANDROID_NDK_ZIP}"
           wget "$ANDROID_NDK_URL"
