@@ -4,6 +4,7 @@ min-sdk = "21"
 aboutLibraries = "12.2.4"
 activity = "1.10.1"
 android-material = "1.12.0"
+android-gradle-plugin = "8.11.1"
 compose-material = "1.8.3"
 compose-material-icons = "1.7.8"
 constraintlayout = "2.2.1"
@@ -33,6 +34,7 @@ aboutlibraries-compose-core = { module = "com.mikepenz:aboutlibraries-compose-co
 aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", version.ref = "aboutLibraries" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-material" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
@@ -61,6 +63,7 @@ zxing-core = { module = "com.google.zxing:core", version.ref = "zxing-core" }
 
 [plugins]
 aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutLibraries" }
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
