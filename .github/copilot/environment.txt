@@ -1,0 +1,4 @@
+https://github.com/Catfriend1/syncthing-android/settings/environments
+    copilot
+        COPILOT_AGENT_FIREWALL_ALLOW_LIST_ADDITIONS
+            dl.google.com,maven.org,jitpack.io,repo.gradle.org,services.gradle.org
