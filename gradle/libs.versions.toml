@@ -4,7 +4,6 @@ min-sdk = "21"
 aboutLibraries = "12.2.4"
 activity = "1.10.1"
 android-material = "1.9.0"
-annotation = "1.2.0"
 compose-material = "1.8.3"
 compose-material-icons = "1.7.8"
 constraintlayout = "2.0.4"
@@ -21,7 +20,6 @@ lingala-zip4j = "2.11.5"
 localbroadcastmanager = "1.1.0"
 preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
-rules = "1.6.1"
 stream = "1.2.2"
 volley = "1.2.1"
 vyarus-use-python = "4.1.0"
@@ -36,7 +34,6 @@ aboutlibraries-compose-m2 = { module = "com.mikepenz:aboutlibraries-compose", ve
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
-annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-material" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
 compose-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "compose-material-icons" }
@@ -57,7 +54,6 @@ lingala-zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "lingala-zip
 localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
 preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
-rules = { module = "androidx.test:rules", version.ref = "rules" }
 stream = { module = "com.annimon:stream", version.ref = "stream" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxing-android-embedded" }

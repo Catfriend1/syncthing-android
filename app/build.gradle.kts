@@ -7,8 +7,6 @@ plugins {
 }
 
 dependencies {
-    androidTestImplementation(libs.annotation)
-    androidTestImplementation(libs.rules)
     implementation(libs.aboutlibraries.compose.m2)
     implementation(libs.aboutlibraries.core)
     implementation(libs.activity.compose)
@@ -63,8 +61,6 @@ android {
         minSdk = libs.versions.min.sdk.get().toInt()
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
-        testApplicationId = "com.github.catfriend1.syncthingandroid.test"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
