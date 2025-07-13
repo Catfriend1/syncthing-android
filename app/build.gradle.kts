@@ -123,8 +123,6 @@ android {
 
     lint {
         abortOnError = true
-        disable += "ExpiringTargetSdkVersion"
-        disable += "ExpiredTargetSdkVersion"
         targetSdk = 36
     }
 }
