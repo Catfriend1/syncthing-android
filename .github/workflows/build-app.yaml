@@ -35,10 +35,11 @@ jobs:
         run: |
           set -eu
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "COMMIT_HASH=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+            COMMIT_HASH_LONG="${{ github.event.pull_request.head.sha }}"
           else
-            echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
+            COMMIT_HASH_LONG="${{ github.sha }}"
           fi
+          echo "COMMIT_HASH=${COMMIT_HASH_LONG:0:7}" >> $GITHUB_ENV
 
       - name: setup-debug-signing
         run: |
