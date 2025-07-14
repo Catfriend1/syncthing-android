@@ -18,7 +18,7 @@ jobs:
       contents: read
 
     env:
-      IS_COPILOT: true
+      COPILOT_BUILDTOOLS_DIR: /tmp/copilot-build-tools
 
     steps:
       - name: Checkout code including submodules
@@ -49,10 +49,10 @@ jobs:
           ANDROID_NDK_VERSION=r28
           ANDROID_NDK_ZIP="android-ndk-${ANDROID_NDK_VERSION}-linux.zip"
           ANDROID_NDK_URL="https://dl.google.com/android/repository/${ANDROID_NDK_ZIP}"
-          wget -q "$ANDROID_NDK_URL"
-          unzip -q "$ANDROID_NDK_ZIP" -d $HOME
-          echo "ANDROID_NDK_HOME=$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
-          echo "$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_PATH
+          mkdir -p "$COPILOT_BUILDTOOLS_DIR"
+          wget -q "$ANDROID_NDK_URL" -O "$COPILOT_BUILDTOOLS_DIR/$ANDROID_NDK_ZIP"
+          unzip -q "$COPILOT_BUILDTOOLS_DIR/$ANDROID_NDK_ZIP" -d "$COPILOT_BUILDTOOLS_DIR"
+          echo "ANDROID_NDK_HOME=$COPILOT_BUILDTOOLS_DIR/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
 
       - name: Cache Gradle packages
         uses: actions/cache@v3
