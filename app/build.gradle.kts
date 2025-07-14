@@ -143,10 +143,14 @@ tasks.register<Delete>("deleteUnsupportedPlayTranslations") {
 }
 
 project.afterEvaluate {
-    android.buildTypes.forEach {
-        val capitalizedName = it.name.replaceFirstChar { ch -> ch.uppercase() }
-        tasks.named("merge${capitalizedName}JniLibFolders") {
-            dependsOn(":syncthing:buildNative")
+    val isCopilot = System.getenv("IS_COPILOT")?.toBoolean() ?: false
+
+    if (!isCopilot) {
+        android.buildTypes.forEach {
+            val capitalizedName = it.name.replaceFirstChar { ch -> ch.uppercase() }
+            tasks.named("merge${capitalizedName}JniLibFolders") {
+                dependsOn(":syncthing:buildNative")
+            }
         }
     }
 }
