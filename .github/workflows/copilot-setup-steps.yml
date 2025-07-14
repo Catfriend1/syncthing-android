@@ -46,7 +46,7 @@ jobs:
           ANDROID_NDK_VERSION=r28
           ANDROID_NDK_ZIP="android-ndk-${ANDROID_NDK_VERSION}-linux.zip"
           ANDROID_NDK_URL="https://dl.google.com/android/repository/${ANDROID_NDK_ZIP}"
-          wget "$ANDROID_NDK_URL"
+          wget -q "$ANDROID_NDK_URL"
           unzip -q "$ANDROID_NDK_ZIP" -d $HOME
           echo "ANDROID_NDK_HOME=$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
           echo "$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_PATH
