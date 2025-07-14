@@ -40,10 +40,6 @@ dependencies {
 
 android {
     val ndkVersionShared = rootProject.extra.get("ndkVersionShared")
-    val versionMajor: kotlin.Int by rootProject.extra
-    val versionMinor: kotlin.Int by rootProject.extra
-    val versionPatch: kotlin.Int by rootProject.extra
-    val versionWrapper: kotlin.Int by rootProject.extra
 
     compileSdk = libs.versions.compile.sdk.get().toInt()
     namespace = "com.nutomic.syncthingandroid"
@@ -58,8 +54,8 @@ android {
         applicationId = "com.github.catfriend1.syncthingandroid"
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
-        versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionWrapper
-        versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${versionWrapper}"
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
     }
 
     signingConfigs {
@@ -142,9 +138,33 @@ tasks.register<Delete>("deleteUnsupportedPlayTranslations") {
     )
 }
 
-project.afterEvaluate {
-    val isCopilot = System.getenv("IS_COPILOT")?.toBoolean() ?: false
+tasks.register("validateAppVersionCode") {
+    doFirst {
+        val versionName = libs.versions.version.name.get()
+        val versionCode = libs.versions.version.code.get().toInt()
 
+        val parts = versionName.split(".")
+        if (parts.size != 4) {
+            throw GradleException("Invalid versionName format: '$versionName'. Expected format 'major.minor.patch.wrapper'.")
+        }
+
+        val calculatedCode = parts[0].toInt() * 1_000_000 +
+                             parts[1].toInt() * 10_000 +
+                             parts[2].toInt() * 100 +
+                             parts[3].toInt()
+
+        if (calculatedCode != versionCode) {
+            throw GradleException("Version mismatch: Calculated versionCode ($calculatedCode) does not match declared versionCode ($versionCode). Please review 'gradle/libs.versions.toml'.")
+        }
+    }
+}
+
+project.afterEvaluate {
+    tasks.matching { it.name.startsWith("assemble") || it.name.startsWith("bundle") }.configureEach {
+        dependsOn("validateAppVersionCode")
+    }
+
+    val isCopilot = System.getenv("IS_COPILOT")?.toBoolean() ?: false
     if (!isCopilot) {
         android.buildTypes.forEach {
             val capitalizedName = it.name.replaceFirstChar { ch -> ch.uppercase() }
