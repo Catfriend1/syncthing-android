@@ -123,6 +123,9 @@ public class WebViewActivity extends SyncthingActivity {
             mWebView.stopLoading();
             mWebView.loadUrl(webPageUrl);
         }
+        
+        // Register the OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     /**
@@ -158,16 +161,6 @@ public class WebViewActivity extends SyncthingActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mWebView.canGoBack()) {
-            mWebView.goBack();
-        } else {
-            finish();
-            super.onBackPressed();
-        }
     }
 
     @Override
