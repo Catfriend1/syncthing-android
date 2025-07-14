@@ -32,15 +32,11 @@ jobs:
             exit 1
           fi
 
-      - name: Get app version from build.gradle.kts
+      - name: Get app version from libs.versions.toml
         id: get_version
         run: |
           set -eu
-          VERSION_MAJOR=$(grep 'set("versionMajor"' build.gradle.kts | grep -o '[0-9]\+')
-          VERSION_MINOR=$(grep 'set("versionMinor"' build.gradle.kts | grep -o '[0-9]\+')
-          VERSION_PATCH=$(grep 'set("versionPatch"' build.gradle.kts | grep -o '[0-9]\+')
-          VERSION_WRAPPER=$(grep 'set("versionWrapper"' build.gradle.kts | grep -o '[0-9]\+')
-          VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH.$VERSION_WRAPPER"
+          VERSION=$(grep 'version-name = ' gradle/libs.versions.toml | cut -d '"' -f 2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Get commit hash
