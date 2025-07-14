@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -143,6 +144,19 @@ public class FolderActivity extends SyncthingActivity {
 
     private Dialog mDeleteDialog;
     private Dialog mDiscardDialog;
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (mFolderNeedsToUpdate) {
+                showDiscardDialog();
+            } else {
+                // Let default behavior handle it
+                setEnabled(false);
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        }
+    };
 
     private final TextWatcher mTextWatcher = new TextWatcherAdapter() {
         @Override
@@ -354,6 +368,9 @@ public class FolderActivity extends SyncthingActivity {
 
         // Open keyboard on label view in edit mode.
         mLabelView.requestFocus();
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {
@@ -474,16 +491,6 @@ public class FolderActivity extends SyncthingActivity {
         }
 
         return bundle;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mFolderNeedsToUpdate) {
-            showDiscardDialog();
-        }
-        else {
-            super.onBackPressed();
-        }
     }
 
     @Override
@@ -616,7 +623,7 @@ public class FolderActivity extends SyncthingActivity {
             showDeleteDialog();
             return true;
         } else if (itemId == android.R.id.home) {
-            onBackPressed();
+            mBackPressedCallback.handleOnBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);

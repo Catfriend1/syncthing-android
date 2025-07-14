@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -120,6 +121,23 @@ public class MainActivity extends SyncthingActivity
     @Inject SharedPreferences mPreferences;
 
     private final Handler mUIRefreshHandler = new Handler();
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                // Close drawer on back button press.
+                closeDrawer();
+            } else {
+                /**
+                 * Leave MainActivity in its state as the home button was pressed.
+                 * This will avoid waiting for the loading spinner when getting back
+                 * and give changes to do UI updates based on EventProcessor in the future.
+                 */
+                moveTaskToBack(true);
+            }
+        }
+    };
 
     private Runnable mUIRefreshRunnable = new Runnable() {
         @Override
@@ -253,6 +271,9 @@ public class MainActivity extends SyncthingActivity
         }
 
         onNewIntent(getIntent());
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
     
     
@@ -547,22 +568,6 @@ public class MainActivity extends SyncthingActivity
             return true;
         }
         return super.onKeyDown(keyCode, e);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            // Close drawer on back button press.
-            closeDrawer();
-        } else {
-            /**
-             * Leave MainActivity in its state as the home button was pressed.
-             * This will avoid waiting for the loading spinner when getting back
-             * and give changes to do UI updates based on EventProcessor in the future.
-             */
-            moveTaskToBack(true);
-        }
-        super.onBackPressed();
     }
 
     /**

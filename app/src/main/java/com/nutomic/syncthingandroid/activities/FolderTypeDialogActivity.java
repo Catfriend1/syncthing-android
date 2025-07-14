@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nutomic.syncthingandroid.R;
@@ -21,6 +22,14 @@ public class FolderTypeDialogActivity extends ThemedAppCompatActivity {
     public static final String EXTRA_RESULT_FOLDER_TYPE = "com.github.catfriend1.syncthingandroid.activities.FolderTypeDialogActivity.EXTRA_RESULT_FOLDER_TYPE";
 
     private String selectedType;
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            saveConfiguration();
+            finish();
+        }
+    };
 
     private static final List<String> mTypes = Arrays.asList(
         Constants.FOLDER_TYPE_SEND_RECEIVE,
@@ -38,6 +47,9 @@ public class FolderTypeDialogActivity extends ThemedAppCompatActivity {
         }
         initiateFinishBtn();
         initiateSpinner();
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void initiateFinishBtn() {
@@ -70,11 +82,5 @@ public class FolderTypeDialogActivity extends ThemedAppCompatActivity {
                 // This is not allowed.
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        saveConfiguration();
-        super.onBackPressed();
     }
 }

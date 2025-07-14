@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -124,6 +125,19 @@ public class DeviceActivity extends SyncthingActivity {
     private Dialog mDeleteDialog;
     private Dialog mDiscardDialog;
     private Dialog mCompressionDialog;
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (mDeviceNeedsToUpdate) {
+                showDiscardDialog();
+            } else {
+                // Let default behavior handle it
+                setEnabled(false);
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        }
+    };
 
     private final DialogInterface.OnClickListener mCompressionEntrySelectedListener = new DialogInterface.OnClickListener() {
         @Override
@@ -313,6 +327,9 @@ public class DeviceActivity extends SyncthingActivity {
         // Show expert options conditionally.
         Boolean prefExpertMode = mPreferences.getBoolean(Constants.PREF_EXPERT_MODE, false);
         mCompressionContainer.setVisibility(prefExpertMode ? View.VISIBLE : View.GONE);
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {
@@ -360,16 +377,6 @@ public class DeviceActivity extends SyncthingActivity {
                 });
                 asyncQueryDiscoveredDevices(restApi);
             }
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mDeviceNeedsToUpdate) {
-            showDiscardDialog();
-        }
-        else {
-            super.onBackPressed();
         }
     }
 
@@ -489,7 +496,7 @@ public class DeviceActivity extends SyncthingActivity {
             showDeleteDialog();
             return true;
         } else if (itemId == android.R.id.home) {
-            onBackPressed();
+            mBackPressedCallback.handleOnBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);

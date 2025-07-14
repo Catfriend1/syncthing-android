@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -29,6 +30,14 @@ public class VersioningDialogActivity extends ThemedAppCompatActivity {
 
     private Bundle mArguments;
 
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            saveConfiguration();
+            finish();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,9 @@ public class VersioningDialogActivity extends ThemedAppCompatActivity {
         updateFragmentView(mTypes.indexOf(getIntent().getExtras().getString("type")));
         initiateFinishBtn();
         initiateSpinner();
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void initiateFinishBtn() {
@@ -125,11 +137,5 @@ public class VersioningDialogActivity extends ThemedAppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBundle("arguments", mCurrentFragment.getArguments());
-    }
-
-    @Override
-    public void onBackPressed() {
-        saveConfiguration();
-        super.onBackPressed();
     }
 }

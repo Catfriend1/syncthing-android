@@ -22,6 +22,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
+
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
@@ -65,6 +67,17 @@ public class WebGuiActivity extends SyncthingActivity
     private X509Certificate mCaCert;
 
     private ConfigXml mConfig;
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+            } else {
+                finish();
+            }
+        }
+    };
 
     /**
      * Hides the loading screen and shows the WebView once it is fully loaded.
@@ -158,6 +171,9 @@ public class WebGuiActivity extends SyncthingActivity
         } else {
             startService(serviceIntent);
         }
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     @Override
@@ -184,16 +200,6 @@ public class WebGuiActivity extends SyncthingActivity
                 headers.put("Authorization", "Basic " + b64Credentials);
                 mWebView.loadUrl(mConfig.getWebGuiUrl().toString(), headers);
             }
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mWebView.canGoBack()) {
-            mWebView.goBack();
-        } else {
-            finish();
-            super.onBackPressed();
         }
     }
 
