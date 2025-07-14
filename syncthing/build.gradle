@@ -23,7 +23,12 @@ def getSourceDateEpoch() {
 
 def verifySyncthingNativeVersionMatchesApp() {
     def syncthingNativeVersion = getSyncthingNativeVersion()
-    def syncthingAppVersion = "${rootProject.ext.get("versionMajor")}.${rootProject.ext.get("versionMinor")}.${rootProject.ext.get("versionPatch")}"
+    def syncthingAppVersion = libs.versions.version.name
+        .get()
+        .split("\\.")
+        .toList()
+        .subList(0, 3)
+        .join(".")
     if (syncthingNativeVersion != syncthingAppVersion) {
         throw new GradleException("Checked out SyncthingNative version (${syncthingNativeVersion}) differs from App version (${syncthingAppVersion}). Please verify that the submodule refers to the correct commit.")
     }
