@@ -34,9 +34,11 @@ jobs:
         id: get_commit_hash
         run: |
           set -eu
-          git config --system --add safe.directory '*'
-          COMMIT_HASH=$(git rev-parse --short --verify HEAD)
-          echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "COMMIT_HASH=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+          else
+            echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
+          fi
 
       - name: setup-debug-signing
         run: |
