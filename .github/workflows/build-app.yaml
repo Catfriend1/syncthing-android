@@ -39,7 +39,8 @@ jobs:
           else
             COMMIT_HASH_LONG="${{ github.sha }}"
           fi
-          echo "COMMIT_HASH=${COMMIT_HASH_LONG:0:7}" >> $GITHUB_ENV
+          COMMIT_HASH_SHORT=$(echo "$COMMIT_HASH_LONG" | cut -c1-7)
+          echo "COMMIT_HASH=${COMMIT_HASH_SHORT}" >> $GITHUB_ENV
 
       - name: setup-debug-signing
         run: |
