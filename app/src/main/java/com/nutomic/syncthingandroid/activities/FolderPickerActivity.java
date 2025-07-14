@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -73,6 +74,14 @@ public class FolderPickerActivity extends SyncthingActivity
      */
     private File mLocation;
 
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            setResult(Activity.RESULT_CANCELED);
+            finish();
+        }
+    };
+
     public static Intent createIntent(Context context, String initialDirectory, @Nullable String rootDirectory) {
         Intent intent = new Intent(context, FolderPickerActivity.class);
 
@@ -108,6 +117,9 @@ public class FolderPickerActivity extends SyncthingActivity
             return;
         }
         displayRoot();
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     /**
@@ -319,12 +331,6 @@ public class FolderPickerActivity extends SyncthingActivity
      * If we already are in the list of roots, or if we are directly in the only
      * root folder, we cancel.
      */
-    @Override
-    public void onBackPressed() {
-        setResult(Activity.RESULT_CANCELED);
-        finish();
-        super.onBackPressed();
-    }
 
     /**
      * Displays a list of all available roots, or if there is only one root, the

@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 
 import com.nutomic.syncthingandroid.R;
@@ -38,6 +39,17 @@ public class WebViewActivity extends SyncthingActivity {
 
     private Boolean isRunningOnTV = false;
     private String webPageUrl = "";
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+            } else {
+                finish();
+            }
+        }
+    };
 
     /**
      * Hides the loading screen and shows the WebView once it is fully loaded.
@@ -111,6 +123,9 @@ public class WebViewActivity extends SyncthingActivity {
             mWebView.stopLoading();
             mWebView.loadUrl(webPageUrl);
         }
+        
+        // Register the OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     /**
@@ -146,16 +161,6 @@ public class WebViewActivity extends SyncthingActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mWebView.canGoBack()) {
-            mWebView.goBack();
-        } else {
-            finish();
-            super.onBackPressed();
-        }
     }
 
     @Override
