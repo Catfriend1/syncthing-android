@@ -17,6 +17,8 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -77,6 +79,14 @@ public class SyncConditionsActivity extends SyncthingActivity {
 
     @Inject
     SharedPreferences mPreferences;
+
+    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            setResult(Activity.RESULT_OK);
+            finish();
+        }
+    };
 
     public static Intent createIntent(Context context, String objectPrefixAndId, String objectReadableName) {
         Intent intent = new Intent(context, SyncConditionsActivity.class);
@@ -196,6 +206,9 @@ public class SyncConditionsActivity extends SyncthingActivity {
          * the switches here would else not be saved back to the prefs.
          */
         mUnsavedChanges = true;
+
+        // Register OnBackPressedCallback
+        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private final CompoundButton.OnCheckedChangeListener mCheckedListener =
@@ -263,21 +276,11 @@ public class SyncConditionsActivity extends SyncthingActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                mBackPressedCallback.handleOnBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    /**
-     * Cancel without saving changes.
-     */
-    @Override
-    public void onBackPressed() {
-        setResult(Activity.RESULT_OK);
-        finish();
-        super.onBackPressed();
     }
 
 }
