@@ -17,6 +17,9 @@ jobs:
     permissions:
       contents: read
 
+    env:
+      IS_COPILOT: true
+
     steps:
       - name: Checkout code including submodules
         uses: actions/checkout@v4
