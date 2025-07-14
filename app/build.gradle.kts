@@ -40,10 +40,6 @@ dependencies {
 
 android {
     val ndkVersionShared = rootProject.extra.get("ndkVersionShared")
-    val versionMajor: kotlin.Int by rootProject.extra
-    val versionMinor: kotlin.Int by rootProject.extra
-    val versionPatch: kotlin.Int by rootProject.extra
-    val versionWrapper: kotlin.Int by rootProject.extra
 
     compileSdk = libs.versions.compile.sdk.get().toInt()
     namespace = "com.nutomic.syncthingandroid"
@@ -58,8 +54,8 @@ android {
         applicationId = "com.github.catfriend1.syncthingandroid"
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
-        versionCode = 1300001
-        versionName = "1.30.0.1"
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
     }
 
     signingConfigs {
