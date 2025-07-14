@@ -1,9 +1,5 @@
 ## Copilot Coding Agent Configuration
 
-If running in coding agent (padawan) mode on GitHub, make sure to use the
-`report_progress` tool to push commits to the remote repository. Do not attempt
-to use git push as you do not have write access to the repository directly.
-
 We use Java 21 (eclipse-temurin:21-jdk-jammy) to build the app via gradle.
 
 If you do gradle tasks, you need to prefix them by the following env var to decrease build time. If you forget to set the env var "IS_COPILOT" to "true", the gradle buildNative task will execute which is not required for your work.
