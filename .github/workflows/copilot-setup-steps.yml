@@ -18,10 +18,15 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout code
+      - name: Checkout code including submodules
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - name: Fetch full history and tags in submodules
+        run: |
+          git submodule foreach 'git fetch --unshallow || true'
+          git submodule foreach 'git fetch --tags'
 
       - name: Setup Java 21
         uses: actions/setup-java@v4
@@ -33,13 +38,15 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.24.1'
+          cache: true
+          cache-dependency-path: syncthing/src/github.com/syncthing/syncthing/go.sum
 
       - name: Setup Android NDK
         run: |
           ANDROID_NDK_VERSION=r28
           ANDROID_NDK_ZIP="android-ndk-${ANDROID_NDK_VERSION}-linux.zip"
           ANDROID_NDK_URL="https://dl.google.com/android/repository/${ANDROID_NDK_ZIP}"
-          wget "$ANDROID_NDK_URL"
+          wget -q "$ANDROID_NDK_URL"
           unzip -q "$ANDROID_NDK_ZIP" -d $HOME
           echo "ANDROID_NDK_HOME=$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
           echo "$HOME/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_PATH
