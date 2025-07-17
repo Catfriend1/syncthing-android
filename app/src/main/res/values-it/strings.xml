@@ -96,7 +96,7 @@
         <item quantity="many">%1$d / %2$d file</item>
         <item quantity="other">%1$d / %2$d file</item>
     </plurals>
-    <string name="override_changes">Sovrascrivi modifiche</string>
+    <string name="override_changes">Ignora le Modifiche</string>
     <!-- Override Changes Confirmation Dialog -->
     <string name="override_changes_question">Annullerà tutte le modifiche fatte sugli altri dispositivi che condividono questa cartella. Vuoi procedere\?</string>
     <string name="revert_local_changes">Ripristina modifiche locali</string>
@@ -778,4 +778,5 @@
     <string name="share_log_file">Condividi file di log</string>
     <string name="share_log_file_missing">Manca il file di log da condividere.</string>
     <string name="backup_password_summary">ℹ️ Consigliato:\nInserisci una password complessa utilizzata per crittografare la configurazione durante l\'esportazione e decrittografarla durante l\'importazione. Conserva questa password in un luogo sicuro per il processo di recupero. Ti servirà per utilizzare la funzione di importazione.\n\n⚠️ Sconsigliato:\nSenza l\'utilizzo di una password, altre app potrebbero potenzialmente leggere e manipolare la configurazione di Syncthing. L\'esposizione della configurazione comporta il rischio che un malintenzionato possa ottenere un accesso non autorizzato ai tuoi file utilizzando esportazioni di configurazioni rubate.</string>
+    <string name="pizza_url_title">» I gatti adorano la pizza « 😺🍕</string>
 </resources>

@@ -328,7 +328,7 @@
     <string name="category_debug">Fehlerbehebung</string>
     <string name="category_experimental">Experimentell</string>
     <!-- Preference screen - Run conditions -->
-    <string name="run_conditions_title">Laufkonditionen</string>
+    <string name="run_conditions_title">Betriebsbedingungen</string>
     <string name="run_conditions_summary">Folgenden Optionen verwenden, um zu bestimmen, wann Syncthing läuft.</string>
     <string name="run_on_mobile_data_title">Bei mobiler Datenverbindung starten</string>
     <string name="run_on_mobile_data_summary">Starten, wenn das Gerät über das mobile Datennetzwerk verbunden ist. Warnung: Wenn große Datenmengen synchronisiert werden, kann dies zu einem hohen Verbrauch des verfügbaren Datenvolumens führen.</string>

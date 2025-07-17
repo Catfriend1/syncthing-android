@@ -237,7 +237,7 @@
         <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
-    <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy</string>
+    <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy aplikace</string>
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Sdílení souborů…</string>
     <plurals name="file_name_title">
@@ -394,7 +394,7 @@
     <string name="folder_rejected">Zařízení „%1$s“ chce sdílet složku „%2$s“</string>
     <string name="override_changes_question">Tím zrušíte všechny změny provedené v ostatních zařízeních sdílejících tuto složku. Pokračovat?</string>
     <string name="category_backup">Import a Export</string>
-    <string name="notification_permission_title">Oprávnění k ozmánením</string>
+    <string name="notification_permission_title">Oprávnění k oznámením</string>
     <string name="reason">Důvod:</string>
     <string name="accept">Příjmout</string>
     <string name="page_x_of_y">Stránka %1$s z %2$s</string>
@@ -507,8 +507,8 @@
     <string name="broadcast_service_control_title">Řízení služeb vysíláním</string>
     <string name="broadcast_service_control_summary">Výchozí: Vypnuto. Povolte tuto možnost, pokud chcete umožnit nástrojům jako ADB nebo aplikacím třetích stran (např. automatizačním aplikacím) ovlivňovat chování Syncthingu – např. řídit podmínky spuštění, vynuceně spustit nebo zastavit proces.</string>
     <string name="dialog_settings_restart_app_question">Změna této možnosti vyžaduje okamžitý restart aplikace. Všechny ostatní změny budou zahozeny. Pokračovat?</string>
-    <string name="verbose_log_summary">Povolení této možnosti pomůže generovat protokoly ladění na velmi podrobné úrovni.</string>
-    <string name="log_to_file_title">Protokol do souboru</string>
+    <string name="verbose_log_summary">Povolení této možnosti pomůže generovat logy ladění na velmi podrobné úrovni.</string>
+    <string name="log_to_file_title">Log do souboru</string>
     <string name="app_version_title">Verze Syncthing-Fork Wrapper</string>
     <string name="syncthing_api_key">Syncthing API Key (kliknutím zkopírujete)</string>
     <string name="syncthing_database_size">Velikost databáze Syncthing</string>
@@ -602,21 +602,21 @@
     <string name="advanced_storage_path_overview">Pokročilý přehled cesty k úložišti</string>
     <string name="current_path">Aktuální cesta: %1$s</string>
     <string name="reason_on_wifi">Syncthing může běžet na WiFi a WiFi je aktuálně připojeno.</string>
-    <string name="notification_crash_text">Zobrazit protokoly (%1$s)</string>
+    <string name="notification_crash_text">Zobrazit logy (%1$s)</string>
     <string name="folder_type_receive_encrypted_description">Ukládá a synchronizuje pouze šifrovaná data. Složky na všech připojených zařízeních musí být nastaveny se stejným heslem nebo musí být také typu „Přijímat šifrovaně“.</string>
     <string name="sleep_interval_minutes_title">Trvání intervalu synchronizační pauzy</string>
     <string name="web_page_loading">Načítání webové stránky:\n%1$s …</string>
     <string name="behaviour_autostart_title">Automatické spuštění</string>
     <string name="expert_mode_summary">Povolením této možnosti zobrazíte pokročilé možnosti konfigurace. Nejprve byste se měli podívat na Syncthing Docs, abyste se ujistili, že víte, jak je správně používat. Nesprávné nastavení může způsobit vybití baterie, vyčerpání systémových zdrojů nebo neúplnou synchronizaci.</string>
     <string name="download_support_bundle_succeeded">Balíček podpory byl úspěšně stažen do %s.</string>
-    <string name="download_support_bundle_failed">Stažení balíčku podpory selhalo. Zkontrolujte protokoly.</string>
+    <string name="download_support_bundle_failed">Stažení balíčku podpory selhalo. Zkontrolujte logy.</string>
     <string name="undo_ignored_devices_folders_question">Tímto budou předchozí rozhodnutí o ignorování zařízení a složek vrácena zpět. Pokračovat?</string>
     <string name="undo_ignored_devices_folders_done">Rozhodnutí úspěšně vzata zpět.</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Číslo portu není platné. Zadejte port mezi %1$d a %2$d.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Vstupní hodnota není platná. Zadejte hodnotu mezi %1$d a %2$d.</string>
     <string name="use_proxy">Připojit prostřednictvím proxy</string>
     <string name="config_export_failed">Export konfigurace selhal. Jděte do Nastavení-Odstraňování problémů-Otevřít log pro důvod selhání.</string>
-    <string name="verbose_log_title">Podrobný protokol</string>
+    <string name="verbose_log_title">Podrobný log</string>
     <string name="log_to_file_summary">Výstup SyncthingNative bude zapsán do souboru.</string>
     <string name="open_issue_tracker_summary">Otevřete nástroj pro sledování problémů Syncthing-Fork na adrese %1$s</string>
     <string name="complete_welcome_wizard_first">Nejprve spusťte aplikaci a před sdílením souborů dokončete uvítacího průvodce.</string>
@@ -683,5 +683,5 @@
     <string name="syncthing_forum_summary">Získat pomoc na fóru Syncthing</string>
     <string name="privacy_title">Zásady ochrany soukromí</string>
     <string name="privacy_summary">Otevřete zásady ochrany soukromí Syncthing-Android, které popisují používání (pokud existuje) osobních údajů, například polohy.</string>
-    <string name="share_log_file_missing">Chybí soubor protokolu pro sdílení.</string>
+    <string name="share_log_file_missing">Chybí soubor logu pro sdílení.</string>
 </resources>
