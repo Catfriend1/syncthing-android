@@ -2610,11 +2610,79 @@ Builds:
         -f 4)
       - sdkmanager "ndk;$ndkversion"
 
+  - versionName: 1.30.0.1
+    versionCode: 1300001
+    commit: 6746c397b133465d0ff37f7eeabfe72c75f742fc
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.23.0
+    prebuild:
+      - export goVersion=$(grep "ENV GO_VERSION" ../docker/Dockerfile | cut -d "="
+        -f2)
+      - '[[ $goVersion ]] || exit 1'
+      - git -C $$go$$ checkout -f go$goVersion
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e 's|go_bin = which("go");|go_bin = "$$go$$/bin/go"|' ../syncthing/build-syncthing.py
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+
+  - versionName: 1.30.0.2
+    versionCode: 1300002
+    commit: 05819c5cd9a188811c09f662cc1e202a04f77caa
+    subdir: app
+    submodules: true
+    sudo:
+      - echo "deb https://deb.debian.org/debian trixie main" > /etc/apt/sources.list.d/trixie.list
+      - apt-get update
+      - apt-get install -y -t trixie openjdk-21-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.23.0
+    prebuild:
+      - export goVersion=$(grep "ENV GO_VERSION" ../docker/Dockerfile | cut -d "="
+        -f2)
+      - '[[ $goVersion ]] || exit 1'
+      - git -C $$go$$ checkout -f go$goVersion
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e 's|go_bin = which("go");|go_bin = "$$go$$/bin/go"|' ../syncthing/build-syncthing.py
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*-fdroid$
-CurrentVersion: 1.29.7.5
-CurrentVersionCode: 1290705
+UpdateCheckData: gradle/libs.versions.toml|version-code\s=\s"(\d+)"|.|version-name\s=\s"(.*)"
+CurrentVersion: 1.30.0.2
+CurrentVersionCode: 1300002

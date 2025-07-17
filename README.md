@@ -40,6 +40,15 @@ Our knowledge base is published [here](https://github.com/Catfriend1/syncthing-a
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).
 
+## Aknowledgements
+
+This project was forked from [syncthing/syncthing-android](https://github.com/syncthing/syncthing-android).
+
+Special thanks to the former maintainers:
+
+- [imsodin](https://github.com/imsodin)
+- [nutomic](https://github.com/nutomic)
+
 ## Privacy Policy
 
 See our document on privacy: [privacy-policy.md](https://github.com/Catfriend1/syncthing-android/blob/main/privacy-policy.md).

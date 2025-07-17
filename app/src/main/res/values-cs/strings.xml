@@ -29,7 +29,7 @@
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Generování bezpečnostních klíčů. Toto může trvat pár minut.</string>
+    <string name="web_gui_creating_key">Generování bezpečnostních klíčů. Toto může trvat pár minut…</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Složky</string>
     <!-- Shown if no folders exist -->
@@ -164,7 +164,7 @@
     <string name="keep_wakelock_while_binary_running">Udržovat CPU aktivní pokud Syncthing běží</string>
     <string name="use_tor_title">Použít Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Existující soubory budou přepsány. \n \nVAROVÁNÍ! Ostatní aplikace budou moci číst váš soukromý klíč ze zálohy a použít ho ke stahování/úpravám synchronizovaných souborů.</string>
+    <string name="dialog_confirm_export">Opravdu chcete exportovat svou konfiguraci? Stávající archiv bude přepsán.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">Opravdu chcete importovat konfiguraci? Existující nastavení včetně sdílených složek a seznam zařízení budou nahrazeny.</string>
     <!-- Toast shown after config was exported -->
@@ -237,7 +237,7 @@
         <item quantity="other">%1$d souborů zkopírováno do složky \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
-    <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy</string>
+    <string name="copy_exception">Při sdílení došlo k chybě, zkontroluje logy aplikace</string>
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Sdílení souborů…</string>
     <plurals name="file_name_title">
@@ -252,15 +252,15 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Ukončit</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing běží</string>
-    <string name="config_create_failed">Vytváření konfiguračního souboru selhalo</string>
+    <string name="syncthing_active">Spuštěno</string>
+    <string name="config_create_failed">Vytváření konfiguračního souboru selhalo. Zkontrolujte výstup logcat.</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-foto</string>
-    <string name="notification_crash_title">Syncthing spadl %1$s</string>
+    <string name="notification_crash_title">Došlo k chybě (kód ukončení: %1$s)</string>
     <string name="notifications_other_channel">Ostatní upozornění</string>
     <!-- RestApi -->
     <!-- Title of the notification shown when a restart is needed -->
-    <string name="restart_title">Vyžadováno restartování</string>
+    <string name="restart_title">Vyžadován restart</string>
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
@@ -272,7 +272,7 @@
     <string name="file_size_unit_KiB">KiB</string>
     <string name="file_size_unit_MiB">MiB</string>
     <string name="file_size_unit_GiB">GiB</string>
-    <string name="file_size_unit_TiB">TiB</string>
+    <string name="file_size_unit_TiB">TB</string>
     <!-- Strings representing units for transfer rates, from smallest to largest -->
     <string name="transfer_rate_unit_B_s">B/s</string>
     <string name="transfer_rate_unit_KiB_s">KiB/s</string>
@@ -304,7 +304,7 @@
 \nJsou použity následující intervaly: za první hodinu jsou ponechány verze pro každých 30 sekund, za první den jsou ponechány verze pro každou hodinu, za prvních 30 dní jsou ponechány verze pro každý den a do nejvyššího nastaveného stáří jsou ponechány verze pro každý týden.</string>
     <string name="maximum_age_description">Maximální doba pro zachování verze (dny, zapsáním hodnoty 0 bude ponecháno navždy).</string>
     <string name="versions_path_description">Cesta pro ukládání verzí (ponechte prázdné pro výchozí adresář .stversions ve sdíleném adresáři).</string>
-    <string name="cleanout_after_description">Počet dní, po který budou soubory uchovány v koši. Nula znamená navždy.</string>
+    <string name="cleanout_after_description">Počet dní, po který budou soubory uchovány v koši. Nula znamená navždy</string>
     <string name="external_versioning_description">První parametr příkazové řádky je cesta k adresáři, druhý je relativní cesta v témže adresáři.</string>
     <string name="no_versioning_description">Pro povolení verzování vyberte jeho typ.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
@@ -339,7 +339,7 @@
     <string name="st_reset_database_question">Tato akce by měla být provedena pouze na základě doporučení naší podpory.
 \nSkutečně chcete vymazat databázi Syncthing?</string>
     <string name="st_reset_deltas_title">Resetovat rejstříky přírůstků</string>
-    <string name="syncthing_terminated">Syncthing byl ukončen</string>
+    <string name="syncthing_terminated">Ukončeno</string>
     <string name="config_file_missing">Soubor s nastaveními nezbytný pro fungování nebyl nalezen</string>
     <string name="notifications_persistent_channel">Syncthing je aktivní</string>
     <string name="storage_permission_title">Oprávnění pro přístup k úložišti</string>
@@ -394,7 +394,7 @@
     <string name="folder_rejected">Zařízení „%1$s“ chce sdílet složku „%2$s“</string>
     <string name="override_changes_question">Tím zrušíte všechny změny provedené v ostatních zařízeních sdílejících tuto složku. Pokračovat?</string>
     <string name="category_backup">Import a Export</string>
-    <string name="notification_permission_title">Oprávnění k ozmánením</string>
+    <string name="notification_permission_title">Oprávnění k oznámením</string>
     <string name="reason">Důvod:</string>
     <string name="accept">Příjmout</string>
     <string name="page_x_of_y">Stránka %1$s z %2$s</string>
@@ -427,7 +427,7 @@
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Přepnutí existujících složek na „Přijímat šifrovaně“ není podporováno.</string>
     <string name="no_recent_changes">Žádné nedávné změny.</string>
     <string name="dialog_settings_restart_app_title">Vyžadován restart</string>
-    <string name="syncthing_active_details">Syncthing běží: %1$s</string>
+    <string name="syncthing_active_details">Spuštěno: %1$s</string>
     <plurals name="syncthing_active_syncing_device_online">
         <item quantity="one">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojeno</item>
         <item quantity="few">Synchronizace: %1$d%% hotovo, %2$d zařízení je připojena</item>
@@ -505,10 +505,10 @@
     <string name="keep_wakelock_while_binary_running_summary">Pouze pro Android 5 nebo nižší. Toto nastavení použijte, pokud při provozu na baterii zaznamenáte neočekávané odpojení. To bude mít za následek zvýšenou spotřebu baterie.</string>
     <string name="http_proxy_address_title">HTTP(S) proxy</string>
     <string name="broadcast_service_control_title">Řízení služeb vysíláním</string>
-    <string name="broadcast_service_control_summary">Výchozí: Zakázáno. Povolením této možnosti spustíte a zastavíte službu odesíláním broadcastu, např. z automatizačních aplikací třetích stran. Poznámka: Po změně této možnosti musíte aplikaci restartovat ručně.</string>
+    <string name="broadcast_service_control_summary">Výchozí: Vypnuto. Povolte tuto možnost, pokud chcete umožnit nástrojům jako ADB nebo aplikacím třetích stran (např. automatizačním aplikacím) ovlivňovat chování Syncthingu – např. řídit podmínky spuštění, vynuceně spustit nebo zastavit proces.</string>
     <string name="dialog_settings_restart_app_question">Změna této možnosti vyžaduje okamžitý restart aplikace. Všechny ostatní změny budou zahozeny. Pokračovat?</string>
-    <string name="verbose_log_summary">Povolení této možnosti pomůže generovat protokoly ladění na velmi podrobné úrovni.</string>
-    <string name="log_to_file_title">Protokol do souboru</string>
+    <string name="verbose_log_summary">Povolení této možnosti pomůže generovat logy ladění na velmi podrobné úrovni.</string>
+    <string name="log_to_file_title">Log do souboru</string>
     <string name="app_version_title">Verze Syncthing-Fork Wrapper</string>
     <string name="syncthing_api_key">Syncthing API Key (kliknutím zkopírujete)</string>
     <string name="syncthing_database_size">Velikost databáze Syncthing</string>
@@ -518,7 +518,7 @@
     <string name="reason_not_nonroaming_mobile_data">Syncthing neběží, protože jste zakázali spuštění na roamingových mobilních datových připojeních.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor bnemá vytvořenu instance. Pokud tato chyba po restartu aplikace nezmizí, odešlete prosím hlášení o chybě.</string>
     <string name="custom_wifi_ssid_whitelist_empty">Žádné WiFi sítě na seznamu povolených. Přidejte nějaké v nastavení.</string>
-    <string name="syncthing_disabled">Syncthing neběží</string>
+    <string name="syncthing_disabled">Pozastaveno</string>
     <string name="config_read_failed">Načtení konfigurace se nezdařilo. Zvažte zálohování dat ze složek pro synchronizaci, poté vymažte data této aplikace a znovu ji spusťte.</string>
     <string name="default_android_camera_folder_label">Fotoaparát Android</string>
     <string name="notification_out_of_disk_space">SD karta je plná. Soubor %1$s</string>
@@ -567,7 +567,7 @@
     <string name="preference_app_theme_follow_dark">Tmavé</string>
     <string name="tips_and_tricks_title">Rady &amp; tipy</string>
     <string name="tip_sync_on_local_network_text">Pokud chcete synchronizovat pouze se zařízeními, která se nacházejí v místní síti WiFi nebo jsou dostupná prostřednictvím hotspotu WiFi, můžete snížit spotřebu baterie a vyhnout se náhodné synchronizaci přes mobilní data vypnutím následujících možností v části „Nastavení/Možnosti synchronizace“:\n- Povolit obcházení NAT\n- Globální zjišťování \n- Povolit přenos\nPonechte povolenou pouze možnost „Local discovery“.</string>
-    <string name="category_user_interface">Uživateslké rozhraní</string>
+    <string name="category_user_interface">Uživatelské rozhraní</string>
     <string name="tip_write_to_sdcard_text">Pokud se v uživatelském rozhraní zobrazí hlášení, že „Android uděluje synchronizaci přístup pouze pro čtení“ k určité složce, vytvořte novou složku pomocí této cesty, abyste získali přístup pro zápis:\n%1$s/YOUR_FOLDER_NAME.\nBuďte opatrní: Pokud tuto aplikaci odinstalujete, systém Android tuto složku vymaže. Před odinstalováním aplikace přesuňte data na bezpečné místo mimo složku .../Android.</string>
     <string name="preference_app_theme_follow_system">Podle systému</string>
     <string name="local_discovery_disabled">Místní zjišťování jste zakázali v nabídce „Nastavení“ &gt; „Možnosti synchronizace“ &gt; „Místní zjišťování“. Povolte jej, abyste mohli vyhledávat zařízení v místní síti.</string>
@@ -602,21 +602,21 @@
     <string name="advanced_storage_path_overview">Pokročilý přehled cesty k úložišti</string>
     <string name="current_path">Aktuální cesta: %1$s</string>
     <string name="reason_on_wifi">Syncthing může běžet na WiFi a WiFi je aktuálně připojeno.</string>
-    <string name="notification_crash_text">Zobrazit protokoly (%1$s)</string>
+    <string name="notification_crash_text">Zobrazit logy (%1$s)</string>
     <string name="folder_type_receive_encrypted_description">Ukládá a synchronizuje pouze šifrovaná data. Složky na všech připojených zařízeních musí být nastaveny se stejným heslem nebo musí být také typu „Přijímat šifrovaně“.</string>
     <string name="sleep_interval_minutes_title">Trvání intervalu synchronizační pauzy</string>
     <string name="web_page_loading">Načítání webové stránky:\n%1$s …</string>
     <string name="behaviour_autostart_title">Automatické spuštění</string>
     <string name="expert_mode_summary">Povolením této možnosti zobrazíte pokročilé možnosti konfigurace. Nejprve byste se měli podívat na Syncthing Docs, abyste se ujistili, že víte, jak je správně používat. Nesprávné nastavení může způsobit vybití baterie, vyčerpání systémových zdrojů nebo neúplnou synchronizaci.</string>
     <string name="download_support_bundle_succeeded">Balíček podpory byl úspěšně stažen do %s.</string>
-    <string name="download_support_bundle_failed">Stažení balíčku podpory selhalo. Zkontrolujte protokoly.</string>
+    <string name="download_support_bundle_failed">Stažení balíčku podpory selhalo. Zkontrolujte logy.</string>
     <string name="undo_ignored_devices_folders_question">Tímto budou předchozí rozhodnutí o ignorování zařízení a složek vrácena zpět. Pokračovat?</string>
     <string name="undo_ignored_devices_folders_done">Rozhodnutí úspěšně vzata zpět.</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Číslo portu není platné. Zadejte port mezi %1$d a %2$d.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Vstupní hodnota není platná. Zadejte hodnotu mezi %1$d a %2$d.</string>
     <string name="use_proxy">Připojit prostřednictvím proxy</string>
     <string name="config_export_failed">Export konfigurace selhal. Jděte do Nastavení-Odstraňování problémů-Otevřít log pro důvod selhání.</string>
-    <string name="verbose_log_title">Podrobný protokol</string>
+    <string name="verbose_log_title">Podrobný log</string>
     <string name="log_to_file_summary">Výstup SyncthingNative bude zapsán do souboru.</string>
     <string name="open_issue_tracker_summary">Otevřete nástroj pro sledování problémů Syncthing-Fork na adrese %1$s</string>
     <string name="complete_welcome_wizard_first">Nejprve spusťte aplikaci a před sdílením souborů dokončete uvítacího průvodce.</string>
@@ -629,7 +629,7 @@
         <item quantity="other">%d minut</item>
     </plurals>
     <string name="reason_not_charging">Telefon se nenabíjí.</string>
-    <string name="reason_not_on_battery_power">Telefon neběží z baterie.</string>
+    <string name="reason_not_on_battery_power">Telefon je připojen k nabíječce.</string>
     <string name="reason_not_while_power_saving">Syncthing neběží, protože je telefon aktuálně v režimu šetření energie.</string>
     <string name="reason_not_while_auto_sync_data_disabled">Syncthing neběží, protože Android má momentálně vypnutou funkci „Synchronizace dat“.</string>
     <string name="reason_mobile_data_disallowed">Syncthing není nakonfigurován pro spuštění na mobilním datovém připojení.</string>
@@ -668,4 +668,20 @@
     <string name="clear_stversions_done">Složky .stversions byly úspěšně vyčištěny.</string>
     <string name="pizza_url_title">» Kočičky milujou pizzu « 😺🍕</string>
     <string name="pizza_url_summary">S jediným klepnutím můžete zanechat vřelý plátek laskavosti - doplněný s extra dobrou atmosférou, aby kočičky šťastně vrněly.</string>
+    <string name="folder_run_script_caption">Spustit skript</string>
+    <string name="folder_run_script_description">Expertní volba pro spuštění skriptů po změně stavu synchronizace složky.Skripty umístěné ve složce \'.stfolder/*.sh\' budou spuštěny. Jiné umístění skriptů není podporováno z bezpečnostních důvodů.\nPříklad spuštění skriptu: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="backup_rel_path_to_zip">Relativní cesta k archivu s konfigurací</string>
+    <string name="backup_password_title">Heslo k zabezpečení nastavení</string>
+    <string name="backup_password_summary">ℹ️ Doporučeno:\nZadejte silné heslo, které bude použito k zašifrování vaší konfigurace při exportu a k jejímu dešifrování při importu. Toto heslo si bezpečně uložte – budete ho potřebovat při obnově konfigurace a při použití funkce importu.\n\n⚠️ Nedoporučeno:\nNepoužít žádné heslo. V takovém případě mohou jiné aplikace potenciálně číst nebo upravovat vaši konfiguraci Syncthingu. Zpřístupnění konfigurace nese riziko, že útočník může získat neoprávněný přístup k vašim souborům pomocí odcizeného exportu nastavení.</string>
+    <string name="backup_password_set">✅ Heslo nastaveno: %1$s</string>
+    <string name="backup_password_not_set">⚠ Heslo nenastaveno.</string>
+    <string name="preference_category_actions">Akce</string>
+    <string name="preference_category_explanation">Informace</string>
+    <string name="preference_category_prepare">Připravit</string>
+    <string name="config_export_successful_no_path">Konfigurace byla exportována. Prosím, nezapomeňte heslo pro pozdější import.</string>
+    <string name="syncthing_forum_title">Fórum Syncthing</string>
+    <string name="syncthing_forum_summary">Získat pomoc na fóru Syncthing</string>
+    <string name="privacy_title">Zásady ochrany soukromí</string>
+    <string name="privacy_summary">Otevřete zásady ochrany soukromí Syncthing-Android, které popisují používání (pokud existuje) osobních údajů, například polohy.</string>
+    <string name="share_log_file_missing">Chybí soubor logu pro sdílení.</string>
 </resources>
