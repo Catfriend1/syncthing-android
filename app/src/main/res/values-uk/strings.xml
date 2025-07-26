@@ -646,8 +646,9 @@
     <string name="share_log_file">Поділитись файлом журналу</string>
     <string name="preference_category_actions">Дії</string>
     <string name="preference_category_explanation">Пояснення</string>
-    <string name="preference_category_prepare">Підготовка</string>
+    <string name="preference_category_prepare">Підготуйте</string>
     <string name="config_export_successful_no_path">Конфігурацію експортовано. Будь ласка, запам\'ятайте пароль для подальшого імпорту.</string>
     <string name="config_import_failed_no_path">Не вдалося імпортувати конфігурацію. Перейдіть до Налаштування &gt; Усунення несправностей &gt; Відкрити журнал, щоб переглянути деталі.</string>
     <string name="open_source_licenses_title">Ліцензії відкритого коду</string>
+    <string name="share_log_file_missing">Відсутній файл журналу для спільного використання.</string>
 </resources>
