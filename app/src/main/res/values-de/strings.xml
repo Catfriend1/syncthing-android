@@ -67,7 +67,7 @@
     <string name="exception_known_bug_notice">Ein bekannter Fehler, der noch nicht behoben wurde, ist aufgetreten. Mehr Details dazu unter %1$s/%2$s. Wir bitten um eine genaue Beschreibung dessen was zuvor .</string>
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Beenden der App bestätigen</string>
-    <string name="dialog_exit_while_running_as_service_message">Zur Erinnerung: Syncthing wurde eingerichtet, automatisch beim Hochfahren zu starten. Deshalb überwacht es die Laufkonditionen und synchronisiert, wenn die Bedingungen zutreffen. Es sollte nur manuell beendet werden, falls man größere Probleme feststellt. Andernfalls „Automatisch beim Hochfahren starten“ in den Einstellungen ausschalten. Soll es jetzt beendet werden, bis das Gerät neu gestartet wurde?</string>
+    <string name="dialog_exit_while_running_as_service_message">Zur Erinnerung: Syncthing wurde eingerichtet, automatisch beim Hochfahren zu starten. Deshalb überwacht es die Ausführungsbedingungen und synchronisiert, wenn die Bedingungen zutreffen. Es sollte nur manuell beendet werden, falls man größere Probleme feststellt. Andernfalls „Automatisch beim Hochfahren starten“ in den Einstellungen ausschalten. Soll es jetzt beendet werden, bis das Gerät neu gestartet wurde?</string>
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Ordner hinzufügen</string>
     <!-- Title of the "share device id" menu action -->
@@ -144,11 +144,9 @@
     <string name="upload_title">Upload</string>
     <!-- StatusFragment -->
     <string name="status_fragment_title">Status</string>
-    <string name="button_follow_run_conditions">Laufkonditionen befolgen</string>
-    <string name="button_force_start">Start erzwingen
-\nLaufkonditionen ignorieren</string>
-    <string name="button_force_stop">Stopp erzwingen
-\nLaufkonditionen ignorieren</string>
+    <string name="button_follow_run_conditions">Ausführungsbedingungen befolgen</string>
+    <string name="button_force_start">Start erzwingen \nAusführungsbedingungen ignorieren</string>
+    <string name="button_force_stop">Stopp erzwingen \nAusführungsbedingungen ignorieren</string>
     <string name="syncthing_starting">Syncthing wird gestartet.</string>
     <string name="syncthing_running">Syncthing läuft.</string>
     <string name="syncthing_not_running">Syncthing läuft nicht.</string>
@@ -280,7 +278,7 @@
 \n- Weiterleitung aktivieren
 \nNur die „Lokale Gerätesuche“ eingeschaltet lassen.</string>
     <string name="tip_custom_sync_conditions_title">Sync-Bedingungen pro Ordner/Gerät festlegen</string>
-    <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Derzeit wollten wir die bestehenden Konfigurationen und das Verhalten der App nicht beeinträchtigen. Deshalb können die individuellen Sync-Bedingungen für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Laufkonditionen aktiviert wurde.</string>
+    <string name="tip_custom_sync_conditions_text">Diese Funktion wird in zukünftigen Releases weiter verbessert. Derzeit wollten wir die bestehenden Konfigurationen und das Verhalten der App nicht beeinträchtigen. Deshalb können die individuellen Sync-Bedingungen für einen bestimmten Netzwerktyp erst festgelegt werden, wenn dieser Netzwerktyp vorher in den globalen Ausführungsbedingungen aktiviert wurde.</string>
     <string name="tip_ignore_delete_title">Bilder vom Telefon auf den Computer sichern\?</string>
     <string name="tip_ignore_delete_text">Wenn alle vom Telefon gemachten Bilder auf einen Computer gesichert werden sollen, den Ordner „Kamera“ mit dem Computer teilen. Syncthing auf dem Computer öffnen, den Ordner hinzufügen und zu „Aktionen“ &gt; „Erweitert“ &gt; „Kamera“-Ordner gehen. „Löschen ignorieren“ aktivieren und „Speichern“ klicken. Nun lassen sich Bilder aus dem Kamera-Ordner vom Telefon löschen und sie bleiben auf dem Computer gesichert.</string>
     <string name="tip_huawei_device_disconnected_title">Huawei: Workaround für „Gerät getrennt“</string>
@@ -315,7 +313,7 @@
     <string name="open_in_browser">In Browser öffnen</string>
     <!-- SettingsFragment -->
     <string name="settings_title">Einstellungen</string>
-    <string name="category_run_conditions">Laufkonditionen</string>
+    <string name="category_run_conditions">Ausführungsbedingungen</string>
     <string name="category_user_interface">Benutzeroberfläche</string>
     <string name="preference_app_theme_title">Thema</string>
     <string name="preference_app_theme_follow_system">Dem System folgen</string>
@@ -328,7 +326,7 @@
     <string name="category_debug">Fehlerbehebung</string>
     <string name="category_experimental">Experimentell</string>
     <!-- Preference screen - Run conditions -->
-    <string name="run_conditions_title">Betriebsbedingungen</string>
+    <string name="run_conditions_title">Ausführungsbedingungen</string>
     <string name="run_conditions_summary">Folgenden Optionen verwenden, um zu bestimmen, wann Syncthing läuft.</string>
     <string name="run_on_mobile_data_title">Bei mobiler Datenverbindung starten</string>
     <string name="run_on_mobile_data_summary">Starten, wenn das Gerät über das mobile Datennetzwerk verbunden ist. Warnung: Wenn große Datenmengen synchronisiert werden, kann dies zu einem hohen Verbrauch des verfügbaren Datenvolumens führen.</string>
@@ -358,7 +356,7 @@
     <string name="run_in_flight_mode_title">Ohne Netzwerkverbindung starten</string>
     <string name="run_in_flight_mode_summary">Durch Aktivieren der Option wird Syncthing auch dann laufen, wenn das Gerät offline ist. Dies aktivieren, wenn das Telefon Probleme beim Erkennen von manuell hergestellten WLAN-Verbindungen im Flugmodus hat.</string>
     <string name="run_on_time_schedule_title">Gemäß Zeitplan synchronisieren</string>
-    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für eine konfigurierte Dauer zu synchronisieren, wenn die Laufbedingungen erfüllt sind und seit der letzten Synchronisierung ein bestimmter Zeitraum verstrichen ist. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
+    <string name="run_on_time_schedule_summary">Durch Aktivieren dieser Option wird versucht, stündlich für eine konfigurierte Dauer zu synchronisieren, wenn die Ausführungsbedingungen erfüllt sind und seit der letzten Synchronisierung ein bestimmter Zeitraum verstrichen ist. Dies kann eine Menge Batterie einsparen, erfordert jedoch, dass Synchronisierungspartner online sind. Hinweis: Dies kann unvollständige temporäre Dateien zurücklassen, bis die nächste geplante Synchronisierung stattfindet und abgeschlossen ist.</string>
     <string name="sync_duration_minutes_title">Dauer des Synchronisationszyklus</string>
     <string name="sync_duration_minutes_summary">%1$s Minuten</string>
     <!-- Preferences - Behaviour -->
@@ -550,8 +548,8 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">Unterordner</string>
     <!-- RunConditionMonitor -->
-    <string name="reason_force_start">Syncthing läuft, weil Sie den Start unabhängig von den Laufkonditionen erzwungen haben.</string>
-    <string name="reason_force_stop">Syncthing schläft, weil der Stopp unabhängig von den Laufkonditionen erzwungen wurde.</string>
+    <string name="reason_force_start">Syncthing läuft, weil Sie den Start unabhängig von den Ausführungsbedingungen erzwungen haben.</string>
+    <string name="reason_force_stop">Syncthing schläft, weil der Stopp unabhängig von den Ausführungsbedingungen erzwungen wurde.</string>
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Es ist „Gemäß Zeitplan synchronisieren“ aktiviert und die letzte Synchronisierung ist nicht länger als eine Stunde her.</string>
     <string name="reason_not_within_time_frame_2">Es ist „Gemäß Zeitplan synchronisieren“ aktiviert und die letzte Synchronisierung war vor %s.</string>
@@ -617,7 +615,7 @@
     <string name="notification_crash_title">Abgestürzt (Exitcode %1$s)</string>
     <string name="notification_crash_text">Klick für Protokolle (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing läuft</string>
-    <string name="notification_persistent_waiting_channel">Laufkonditionen werden überwacht</string>
+    <string name="notification_persistent_waiting_channel">Ausführungsbedingungen werden überwacht</string>
     <string name="notifications_other_channel">Andere Benachrichtigungen</string>
     <!-- EventProcessor -->
     <string name="notification_out_of_disk_space">SD-Karte ist voll. Datei %1$s</string>
@@ -729,13 +727,13 @@
     <string name="share_device_id_chooser">Geräte-ID teilen mit</string>
     <string name="run_on_whitelisted_wifi_summary">Die Erlaubt-Liste einschalten, um die Synchronisation auf die ausgewählten WLAN-Netzwerke zu beschränken.</string>
     <string name="custom_sync_conditions_title">Individuelle Sync-Bedingungen</string>
-    <string name="custom_sync_conditions_description">Erlaubt Ausnahmen zu den übergeordneten Laufkonditionen festzulegen.</string>
+    <string name="custom_sync_conditions_description">Erlaubt Ausnahmen zu den übergeordneten Ausführungsbedingungen festzulegen.</string>
     <string name="custom_sync_conditions_dialog">Sync-Bedingungen festlegen</string>
     <!-- Quick Setting icon names and labels -->
     <string name="qs_force_label">Start erzwingen</string>
     <string name="qs_forced_to_run">Start erzwungen</string>
     <string name="qs_forced_to_stop">Stopp erzwungen</string>
-    <string name="qs_following_run_conditions">Befolgt Laufkonditionen</string>
+    <string name="qs_following_run_conditions">Befolgt Ausführungsbedingungen</string>
     <string name="qs_schedule_label">Für 5 Minuten ausführen</string>
     <string name="qs_schedule_disabled">Zeitplan deaktiviert</string>
     <string name="webui_username_title">Web-UI Benutzername</string>
