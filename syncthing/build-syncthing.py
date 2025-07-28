@@ -21,20 +21,19 @@ PLATFORM_DIRS = {
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 FILENAME_SYNCTHING_BINARY = 'libsyncthingnative.so'
 
-GO_VERSION = '1.24.1'
-GO_EXPECTED_SHASUM_LINUX = 'cb2396bae64183cdccf81a9a6df0aea3bce9511fc21469fb89a0c00470088073'
-GO_EXPECTED_SHASUM_WINDOWS = '95666b551453209a2b8869d29d177285ff9573af10f085d961d7ae5440f645ce'
+GO_VERSION = '1.22.5'
+GO_EXPECTED_SHASUM_LINUX = '904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0'
+GO_EXPECTED_SHASUM_WINDOWS = '59968438b8d90f108fd240d4d2f95b037e59716995f7409e0a322dcb996e9f42'
 
-NDK_VERSION = 'r28'
-NDK_EXPECTED_SHASUM_LINUX = '894f469c5192a116d21f412de27966140a530ebc'
-NDK_EXPECTED_SHASUM_WINDOWS = 'f79a00c721dc5c15b2bf093d7bb2af96496a42b2'
+NDK_VERSION = 'r27'
+NDK_EXPECTED_SHASUM_LINUX = '5e5cd517bdb98d7e0faf2c494a3041291e71bdcc'
+NDK_EXPECTED_SHASUM_WINDOWS = '0ea2756e6815356831bda3af358cce4cdb6a981e'
 
-# The values here must correspond with those in ../docker/prebuild.sh
 BUILD_TARGETS = [
     {
         'arch': 'arm',
         'goarch': 'arm',
-        'jni_dir': 'armeabi-v7a',
+        'jni_dir': 'armeabi',
         'cc': 'armv7a-linux-androideabi{}-clang',
     },
     {
@@ -57,9 +56,6 @@ BUILD_TARGETS = [
     }
 ]
 
-# If building locally for Android studio tests, build only required arch.
-if os.environ.get('BUILD_FOR_AVD', '') == '1':
-    BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] in ('arm64', 'x86_64')]
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -67,13 +63,13 @@ def fail(message, *args, **kwargs):
 
 
 def get_min_sdk(project_dir):
-    with open(os.path.join(project_dir, 'gradle', 'libs.versions.toml')) as file_handle:
+    with open(os.path.join(project_dir, 'app', 'build.gradle')) as file_handle:
         for line in file_handle:
-            tokens = list(filter(None, line.split('"')))
-            if len(tokens) == 3 and tokens[0] == 'min-sdk = ':
+            tokens = list(filter(None, line.split()))
+            if len(tokens) == 2 and tokens[0] == 'minSdkVersion':
                 return int(tokens[1])
 
-    fail('Failed to find min-sdk')
+    fail('Failed to find minSdkVersion')
 
 def which_raw(program):
     import os
@@ -110,6 +106,57 @@ def change_permissions_recursive(path, mode):
             os.chmod(dir, mode)
         for file in [os.path.join(root, f) for f in files]:
             os.chmod(file, mode)
+
+def install_git():
+    import os
+    import zipfile
+    import hashlib
+
+    if sys.version_info[0] >= 3:
+        from urllib.request import urlretrieve
+    else:
+        from urllib import urlretrieve
+
+    if not os.path.isdir(prerequisite_tools_dir):
+        os.makedirs(prerequisite_tools_dir)
+
+    if sys.platform == 'win32':
+        url =               'https://github.com/git-for-windows/git/releases/download/v2.19.0.windows.1/MinGit-2.19.0-64-bit.zip'
+        expected_shasum =   '424d24b5fc185a9c5488d7872262464f2facab4f1d4693ea8008196f14a3c19b'
+        zip_fullfn = prerequisite_tools_dir + os.path.sep + 'mingit.zip';
+    else:
+        print('Portable on-demand git installation is currently not supported on linux.')
+        return None
+
+    # Download MinGit.
+    url_base_name = os.path.basename(url)
+    if not os.path.isfile(zip_fullfn):
+        print('Downloading MinGit to:', zip_fullfn)
+        zip_fullfn = urlretrieve(url, zip_fullfn)[0]
+    print('Downloaded MinGit to:', zip_fullfn)
+
+    # Verify SHA-256 checksum of downloaded files.
+    with open(zip_fullfn, 'rb') as f:
+        contents = f.read()
+        found_shasum = hashlib.sha256(contents).hexdigest()
+        print("SHA-256:", zip_fullfn, "%s" % found_shasum)
+    if found_shasum != expected_shasum:
+        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
+    print("[ok] Checksum of", zip_fullfn, "matches expected value.")
+
+    # Proceed with extraction of the MinGit.
+    if not os.path.isfile(prerequisite_tools_dir + os.path.sep + 'mingit' + os.path.sep + 'LICENSE.txt'):
+        print("Extracting MinGit ...")
+        # This will go to a subfolder "mingit" in the current path.
+        zip = zipfile.ZipFile(zip_fullfn, 'r')
+        zip.extractall(prerequisite_tools_dir + os.path.sep + 'mingit')
+        zip.close()
+
+    # Add "mingit/cmd" to the PATH.
+    git_bin_path = prerequisite_tools_dir + os.path.sep + 'mingit' + os.path.sep + 'cmd'
+    print('Adding to PATH:', git_bin_path)
+    os.environ["PATH"] += os.pathsep + git_bin_path
+
 
 def install_go():
     import os
@@ -179,25 +226,18 @@ def write_file(fullfn, text):
 def get_ndk_ready():
     if os.environ.get('ANDROID_NDK_HOME', ''):
         return
-    ndk_env_vars_defined = True
-    if not os.environ.get('NDK_VERSION', ''):
-        print('NDK_VERSION is NOT defined.')
-        ndk_env_vars_defined = False
-    if not os.environ.get('ANDROID_HOME', ''):
-        print('ANDROID_HOME is NOT defined.')
-        ndk_env_vars_defined = False
-    if not ndk_env_vars_defined:
-        print('ANDROID_NDK_HOME or NDK_VERSION and ANDROID_HOME environment variable must be defined.')
+    if not (os.environ.get('NDK_VERSION', '') and os.environ.get('ANDROID_SDK_ROOT', '')):
+        print('ANDROID_NDK_HOME env var is not defined. Then, NDK_VERSION and ANDROID_SDK_ROOT env vars must be defined.')
         install_ndk()
         return
-    os.environ["ANDROID_NDK_HOME"] = os.path.join(os.environ['ANDROID_HOME'], 'ndk', os.environ['NDK_VERSION'])
+    os.environ["ANDROID_NDK_HOME"] = os.path.join(os.environ['ANDROID_SDK_ROOT'], 'ndk', os.environ['NDK_VERSION'])
     return
 
 
 def install_ndk():
-    import hashlib
     import os
     import zipfile
+    import hashlib
 
     if sys.version_info[0] >= 3:
         from urllib.request import urlretrieve
@@ -237,13 +277,26 @@ def install_ndk():
     if not os.path.isfile(ndk_home_path + os.path.sep + "NOTICE"):
         print("Extracting NDK ...")
         # This will go to a subfolder "android-ndk-rXY" in the current path.
-        if sys.platform == 'win32':
-            zip = zipfile.ZipFile(zip_fullfn, 'r')
-            zip.extractall(prerequisite_tools_dir)
-            zip.close()
-        else:
-            from subprocess import STDOUT
-            subprocess.check_output(['unzip', '-q', zip_fullfn, '-d', prerequisite_tools_dir], stderr=STDOUT)
+        zip = zipfile.ZipFile(zip_fullfn, 'r')
+        zip.extractall(prerequisite_tools_dir)
+        zip.close()
+
+    # Linux only - Set executable permission on files.
+    if platform.system() == 'Linux':
+        print("Setting permissions on NDK executables ...")
+        change_permissions_recursive(ndk_home_path, 0o755);
+        #
+        # Fix NDK r23 bug with incomplete path and arguments when calling "clang".
+        ndk_bin_clang = os.path.join(
+            ndk_home_path,
+            'toolchains',
+            'llvm',
+            'prebuilt',
+            PLATFORM_DIRS[platform.system()],
+            'bin',
+            'clang'
+        )
+        write_file (ndk_bin_clang, '`dirname $0`/clang-14 "$@"')
 
     # Add "ANDROID_NDK_HOME" environment variable.
     print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
@@ -263,19 +316,21 @@ syncthing_dir = os.path.join(module_dir, 'src', 'github.com', 'syncthing', 'sync
 prerequisite_tools_dir = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "syncthing-android-prereq"
 min_sdk = get_min_sdk(project_dir)
 
-# print ('Info: min_sdk = ' + str(min_sdk))
-
 # Check if git is available.
 git_bin = which("git");
 if not git_bin:
-    fail('Error: git is not available on the PATH.')
-
+    print('Warning: git is not available on the PATH.')
+    install_git();
+    # Retry: Check if git is available.
+    git_bin = which("git");
+    if not git_bin:
+        fail('Error: git is not available on the PATH.')
 print('git_bin=\'' + git_bin + '\'')
 
 # Check if go is available.
 go_bin = which("go");
 if not go_bin:
-    print('Info: go is not available on the PATH. Trying install_go')
+    print('Warning: go is not available on the PATH.')
     install_go();
     # Retry: Check if go is available.
     go_bin = which("go");
@@ -312,12 +367,10 @@ else:
     ]).strip();
     syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
 
-if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
-    print('Cleaning go-build cache')
-    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
+print('Cleaning go-build cache')
+subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 print('Building syncthing version', syncthingVersion);
-print('SOURCE_DATE_EPOCH=[' + os.environ['SOURCE_DATE_EPOCH'] + ']');
 for target in BUILD_TARGETS:
     print('')
     print('*** Building for', target['arch'])
@@ -337,12 +390,14 @@ for target in BUILD_TARGETS:
         'GOPATH': module_dir,
         'GO111MODULE': 'on',
         'CGO_ENABLED': '1',
-        'EXTRA_LDFLAGS': '-buildid=',
     })
 
     subprocess.check_call([go_bin, 'mod', 'download'], cwd=syncthing_dir)
     subprocess.check_call(
                               [go_bin, 'version'],
+                              env=environ, cwd=syncthing_dir)
+    subprocess.check_call(
+                              [go_bin, 'run', 'build.go', 'version'],
                               env=environ, cwd=syncthing_dir)
     subprocess.check_call([
                               go_bin, 'run', 'build.go', '-goos', 'android',

@@ -22,7 +22,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -31,7 +30,6 @@ import androidx.core.content.ContextCompat;
 import com.google.common.collect.Sets;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
@@ -74,14 +72,6 @@ public class FolderPickerActivity extends SyncthingActivity
      */
     private File mLocation;
 
-    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
-        @Override
-        public void handleOnBackPressed() {
-            setResult(Activity.RESULT_CANCELED);
-            finish();
-        }
-    };
-
     public static Intent createIntent(Context context, String initialDirectory, @Nullable String rootDirectory) {
         Intent intent = new Intent(context, FolderPickerActivity.class);
 
@@ -117,9 +107,6 @@ public class FolderPickerActivity extends SyncthingActivity
             return;
         }
         displayRoot();
-
-        // Register OnBackPressedCallback
-        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     /**
@@ -138,7 +125,6 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.remove(getExternalFilesDir(null));
             roots.remove(null);      // getExternalFilesDirs may return null for an ejected SDcard.
             roots.add(Environment.getExternalStorageDirectory());
-            roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
@@ -146,9 +132,9 @@ public class FolderPickerActivity extends SyncthingActivity
             roots.add(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS));
 
             // Add paths where we might have read-only access.
-            File[] mountedStoragePaths = FileUtils.getMountedStoragePathsAsFileArray();
-            if (mountedStoragePaths != null) {
-                Collections.addAll(roots, mountedStoragePaths);
+            File[] storageRootFiles = new File("/storage/").listFiles();
+            if (storageRootFiles != null) {
+                Collections.addAll(roots, storageRootFiles);
             }
             roots.add(new File("/"));
         }
@@ -331,6 +317,11 @@ public class FolderPickerActivity extends SyncthingActivity
      * If we already are in the list of roots, or if we are directly in the only
      * root folder, we cancel.
      */
+    @Override
+    public void onBackPressed() {
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
 
     /**
      * Displays a list of all available roots, or if there is only one root, the

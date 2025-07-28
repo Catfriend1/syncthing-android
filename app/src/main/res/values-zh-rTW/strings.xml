@@ -191,13 +191,17 @@
     <string name="keep_wakelock_while_binary_running">當 Syncthing 正在執行時，保持 CPU 清醒</string>
     <string name="use_tor_title">使用 Tor</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">你確認要匯出你的設定？已存在的檔案將會被覆蓋。 \n \n警告！其他的應用程式也許能從備份位置讀取私鑰，並且利用它來下載、修改同步的檔案。</string>
+    <string name="dialog_confirm_export">你確認要匯出你的設定？已存在的檔案將會被覆蓋。
+\n
+\n警告！其他的應用程式也許能從備份位置讀取私鑰，並且利用它來下載、修改同步的檔案。</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">你確認要匯入新的設定？已存在的檔案將會被覆蓋。</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">設定匯出到 %1$s</string>
     <string name="import_config">匯入設定</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">設定已匯入</string>
+    <string name="config_import_failed">設定匯入失敗，請確認檔案在 %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 選項</string>
     <string name="environment_variables">環境變數</string>
@@ -308,6 +312,7 @@
     <string name="status_outofsync">不同步</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">當開啟在背景執行時，不支援正在停止 Syncthing</string>
     <string name="folder_type_sendonly">僅傳送</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">最常保留時間</string>

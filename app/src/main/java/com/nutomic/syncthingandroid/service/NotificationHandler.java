@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -48,6 +49,7 @@ public class NotificationHandler {
     private Boolean lastStartForegroundService = false;
     private Boolean appShutdownInProgress = false;
 
+    @TargetApi(23)
     private int FLAG_IMMUTABLE = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) ? PendingIntent.FLAG_IMMUTABLE : 0;
 
     public NotificationHandler(Context context) {
@@ -198,18 +200,7 @@ public class NotificationHandler {
          */
         int idToShow = syncthingRunning ? ID_PERSISTENT : ID_PERSISTENT_WAITING;
         int idToCancel = syncthingRunning ? ID_PERSISTENT_WAITING : ID_PERSISTENT;
-        
-        Intent openAppIntent = new Intent(mContext, MainActivity.class);
-        
-        Intent exitIntent = new Intent(mContext, MainActivity.class);
-        exitIntent.setAction(MainActivity.ACTION_EXIT);
-        PendingIntent exitPendingIntent = PendingIntent.getActivity(
-                    mContext,
-                    0,
-                    exitIntent,
-                    FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
-        );
-        
+        Intent intent = new Intent(mContext, MainActivity.class);
         NotificationChannel channel = syncthingRunning ? mPersistentChannel : mPersistentChannelWaiting;
         NotificationCompat.Builder builder = getNotificationBuilder(channel)
                 .setContentTitle(text)
@@ -217,13 +208,12 @@ public class NotificationHandler {
                 .setOngoing(true)
                 .setOnlyAlertOnce(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
-                .setContentIntent(PendingIntent.getActivity(mContext, 0, openAppIntent, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
-                .addAction(R.drawable.baseline_close_24, mContext.getString(R.string.exit), exitPendingIntent);
+                .setContentIntent(PendingIntent.getActivity(mContext, 0, intent, FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
         if (!appShutdownInProgress) {
             if (startForegroundService) {
                 Log.v(TAG, "Starting foreground service or updating notification");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                    service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                    service.startForeground(idToShow, builder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
                 } else {
                     service.startForeground(idToShow, builder.build());
                 }
@@ -322,6 +312,23 @@ public class NotificationHandler {
 
     public void cancelRestartNotification() {
         mNotificationManager.cancel(ID_RESTART);
+    }
+
+    public void showStopSyncthingWarningNotification() {
+        final String msg = mContext.getString(R.string.appconfig_receiver_background_enabled);
+        NotificationCompat.Builder nb = getNotificationBuilder(mInfoChannel)
+                .setContentText(msg)
+                .setTicker(msg)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                .setContentTitle(mContext.getText(mContext.getApplicationInfo().labelRes))
+                .setSmallIcon(R.drawable.ic_stat_notify)
+                .setAutoCancel(true)
+                .setContentIntent(PendingIntent.getActivity(mContext, 0,
+                        new Intent(mContext, MainActivity.class),
+                        FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));
+
+        nb.setCategory(Notification.CATEGORY_ERROR);
+        mNotificationManager.notify(ID_STOP_BACKGROUND_WARNING, nb.build());
     }
 
     public void showDeviceConnectNotification(String deviceId,

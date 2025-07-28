@@ -6,7 +6,6 @@
     <uses-feature android:name="android.software.leanback" android:required="false" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.hardware.location.gps" android:required="false" />
-    <uses-feature android:name="android.hardware.wifi" android:required="false" />
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
@@ -27,7 +26,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <!-- FOREGROUND_SERVICE is required since Android 9 SDK 28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <!-- WRITE_SETTINGS, WRITE_SECURE_SETTINGS are required to disable DuraSpeed -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
@@ -40,21 +39,10 @@
     <!-- POST_NOTIFICATIONS is required for the foreground service since Android 13 "T" -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
-    <!--
-        Apps can listen to our notifications about sync progress by subscribing to ACTION_NOTIFY_FOLDER_SYNC_COMPLETE,
-        see RestApi for more details. To do so, they must declare the following in their app manifest.
-        <uses-permission android:name="com.github.catfriend1.syncthingandroid.debug.permission.RECEIVE_SYNC_STATUS"/>
-        <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS"/>
-    -->
-    <permission android:name="${applicationId}.permission.RECEIVE_SYNC_STATUS" 
-            android:label="RECEIVE_SYNC_STATUS" 
-            android:protectionLevel="normal">
-    </permission>
-
     <application
-        android:allowBackup="false"
-        android:fullBackupContent="false"
-        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/backup_rules"
+        android:fullBackupContent="@xml/backup_rules_legacy"
         android:icon="@mipmap/ic_launcher"
         android:banner="@drawable/banner"
         android:label="@string/app_name"
@@ -96,9 +84,6 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.github.catfriend1.syncthingandroid.MainActivity.EXIT" />
             </intent-filter>
         </activity>
         <activity
@@ -200,8 +185,7 @@
         </activity>
         <service
             android:name=".service.SyncthingService"
-            android:foregroundServiceType="specialUse">
-                <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Syncthing is a continuous file sync app. If the user explicitly enables it running permanently in the background, it needs to monitor file changes at every time and receive or send changes made on the device or connected devices."/>
+            android:foregroundServiceType="dataSync">
         </service>
         <service
             android:name=".service.SyncTriggerJobService"
@@ -221,7 +205,6 @@
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.github.catfriend1.syncthingandroid.action.FOLLOW" />
                 <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
                 <action android:name="com.github.catfriend1.syncthingandroid.action.STOP" />
             </intent-filter>
@@ -257,14 +240,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nutomic.syncthingandroid.activities.DeviceActivity" />
         </activity>
-        <activity android:name=".activities.LicenseActivity"
-            android:label="@string/open_source_licenses_title"
-            android:exported="false"
-            android:parentActivityName=".activities.SettingsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.SettingsActivity" />
-        </activity>
         <property
             android:name="android.content.MEDIA_CAPABILITIES"
             android:resource="@xml/media_capabilities" />
@@ -283,8 +258,7 @@
             android:label="@string/qs_force_label"
             android:icon="@drawable/ic_qs_force"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            tools:targetApi="24">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -294,8 +268,7 @@
             android:label="@string/qs_schedule_label"
             android:icon="@drawable/ic_qs_schedule"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            tools:targetApi="24">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -305,8 +278,7 @@
             android:label="@string/photo_shoot_activity_title"
             android:icon="@drawable/ic_qs_camera"
             android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            tools:targetApi="24">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>

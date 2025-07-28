@@ -1,7 +1,6 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -18,7 +17,6 @@ public class Constants {
     public static final String FILENAME_SYNCTHING_BINARY        = "libsyncthingnative.so";
     public static final String FILENAME_STIGNORE                = ".stignore";
     public static final String FILENAME_STFOLDER                = ".stfolder";
-    public static final String FOLDER_NAME_STVERSIONS           = ".stversions";
 
     // Preferences - Run conditions
     public static final String PREF_START_SERVICE_ON_BOOT       = "always_run_in_background";
@@ -43,26 +41,25 @@ public class Constants {
     public static final String PREF_RUN_IN_FLIGHT_MODE          = "run_in_flight_mode";
     public static final String PREF_RUN_ON_TIME_SCHEDULE        = "run_on_time_schedule";
     public static final String PREF_SYNC_DURATION_MINUTES       = "sync_duration_minutes";
-    public static final String PREF_SLEEP_INTERVAL_MINUTES      = "sleep_interval_minutes";
 
     // Preferences - User Interface
     public static final String PREF_APP_THEME                   = "app_theme";
     public static final String PREF_EXPERT_MODE                 = "expert_mode";
 
     // Preferences - Behaviour
-    public static final String PREF_START_INTO_WEB_GUI          = "start_into_web_gui";
     public static final String PREF_USE_ROOT                    = "use_root";
+    public static final String PREF_BIND_NETWORK                = "bind_network";
 
     // Preferences - Syncthing Options
     public static final String PREF_WEBUI_USERNAME              = "webui_username";
     public static final String PREF_WEBUI_PASSWORD              = "webui_password";
 
     // Preferences - Import and Export
-    public static final String PREF_BACKUP_REL_PATH_TO_ZIP      = "backup_rel_path_to_zip";
-    public static final String PREF_BACKUP_PASSWORD             = "backup_password";
+    public static final String PREF_BACKUP_FOLDER_NAME          = "backup_folder_name";
 
     // Preferences - Troubleshooting
     public static final String PREF_VERBOSE_LOG                 = "verbose_log";
+    public static final String PREF_LOG_TO_FILE                 = "log_to_file";
     public static final String PREF_ENVIRONMENT_VARIABLES       = "environment_variables";
     public static final String PREF_DEBUG_FACILITIES_ENABLED    = "debug_facilities_enabled";
 
@@ -79,10 +76,6 @@ public class Constants {
 
     public static String DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(String objectPrefixAndId) {
         return objectPrefixAndId + "_" + "custom_sync_conditions";
-    }
-
-    public static String DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(String folderId) {
-        return PREF_OBJECT_PREFIX_FOLDER + folderId + "_" + "run_script";
     }
 
     public static String DYN_PREF_OBJECT_SYNC_ON_WIFI(String objectPrefixAndId) {
@@ -207,7 +200,7 @@ public class Constants {
     /**
      * File in the config folder we write to temporarily before renaming to CONFIG_FILE.
      */
-    private static final String CONFIG_TEMP_FILE = "config.xml.tmp";
+    static final String CONFIG_TEMP_FILE = "config.xml.tmp";
 
     public static File getConfigTempFile(Context context) {
         return new File(context.getFilesDir(), CONFIG_TEMP_FILE);
@@ -234,11 +227,7 @@ public class Constants {
     /**
      * Name of the folder containing the index database.
      */
-    private static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
-
-    public static File getIndexDbFolder(Context context) {
-        return new File(context.getFilesDir(), INDEX_DB_FOLDER);
-    }
+    public static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
 
     /**
      * Name of the public HTTPS CA file in the data directory.
@@ -259,33 +248,15 @@ public class Constants {
     }
 
     /**
-     * Name of the file holding the SharedPreferences backup.
-     * Do not use getCacheDir() because the path to import will then be wrong as
-     * zipFile.extractAll will write to getFilesDir().
+     * Name of the export file holding the SharedPreferences backup.
      */
-    public static final String SHARED_PREFS_FILE = "sharedpreferences.dat";
+    static final String SHARED_PREFS_EXPORT_FILE = "sharedpreferences.dat";
 
-    public static File getSharedPrefsFile(Context context) {
-        return new File(context.getFilesDir(), SHARED_PREFS_FILE);
-    }
-
-    /**
-     * Get libsyncthingnative.so absolute path and filename.
-     */
-    public static File getSyncthingBinary(Context context) {
+    static File getSyncthingBinary(Context context) {
         return new File(context.getApplicationInfo().nativeLibraryDir, FILENAME_SYNCTHING_BINARY);
     }
 
-    /**
-     * Log file storage locations.
-     */
-    public static File getAndroidLogFile(Context context) {
-        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/cache/android.log
-        return new File(context.getCacheDir(), "android.log");
-    }
-
-    public static File getSyncthingLogFile(Context context) {
-        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/files/syncthing.log
+    static File getLogFile(Context context) {
         return new File(context.getFilesDir(), "syncthing.log");
     }
 
@@ -303,10 +274,6 @@ public class Constants {
                                 Build.MODEL.equals("sdk_gphone_x86_arm"
                         )
                 );
-    }
-
-    public static Boolean isDebuggable(Context context) {
-        return (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
     }
 
     /**

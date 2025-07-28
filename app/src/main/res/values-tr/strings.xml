@@ -143,13 +143,17 @@
     <string name="keep_wakelock_while_binary_running">Syncthing çalışırken işlemciyi uyanık tut</string>
     <string name="use_tor_title">Tor kullan</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
+    <string name="dialog_confirm_export">Yeni yapılandırmayı gerçekten dışa aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.
+\n
+\nDİKKAT! Diğer uygulamalar gizli anahtarı yedekleme konumundan okuyabilir ve eşzamanlanan dosyaları indirmek/değiştirmek için kullanabilir.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Paylaşılan klasörler ve cihazlar listesi dahil varolan ayarlar değiştirilecektir.</string>
+    <string name="dialog_confirm_import">Yeni bir yapılandırmayı gerçekten içe aktarmak istiyor musunuz? Varolan dosyaların üzerine yazılacaktır.</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">Yapılandırma %1$s konumuna aktarıldı</string>
     <string name="import_config">Yapılandırmayı İçe Aktar</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Yapılandırma içe aktarıldı</string>
+    <string name="config_import_failed">Yapılandırmayı içe aktarma başarısız oldu, dosyaların %1$s içinde olduğundan emin olun</string>
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_database_title">Veritabanını Sıfırla</string>
     <!-- Syncthing was reset -->
@@ -185,7 +189,7 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Çık</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Çalışıyor</string>
+    <string name="syncthing_active">Syncthing çalışıyor</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-fotograflar</string>
     <!-- RestApi -->
@@ -216,6 +220,7 @@
     <string name="status_outofsync">Eşitlenmemiş</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">Arka planda çalışma etkinken Syncthing\'i durdurma desteklenmiyor.</string>
     <string name="file_versioning">Dosya Sürümlendirme</string>
     <string name="qs_schedule_label">5 dakikalığına çalıştır</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Kamera</string>
@@ -295,7 +300,7 @@
     <string name="run_on_mobile_data_title">Mobil veride çalıştır</string>
     <string name="device_rejected">\"%1$s\" cihazı bağlanmak istiyor</string>
     <string name="log_to_file_title">Dosyaya günlükle</string>
-    <string name="run_on_time_schedule_summary">Bu seçeneği etkinleştirmek, çalıştırma koşulları karşılanırsa ve son eşitlemeden bu yana belirli bir aralık süresi geçmişse, yapılandırılmış bir süre boyunca eşitlemeye çalışacak. Bu, büyük miktarda pil tasarrufu sağlayabilir ancak eşitleme ortaklarının çevrimiçi olmasını gerektirir. Lütfen unutmayın: Bu, bir sonraki planlı eşitleme gerçekleşene kadar tamamlanmamış geçici dosyaların geride kalmasına neden olabilir.</string>
+    <string name="run_on_time_schedule_summary">Bu seçeneğin etkinleştirilmesi, çalıştırma koşulları karşılanırsa ve son eşitleme 1 saatten daha uzun süre önce gerçekleşmişse, yapılandırılmış bir süre boyunca eşitlemeye çalışılacaktır. Bu, büyük miktarda pil tasarrufu sağlayabilir ancak eşitleme ortaklarının çevrimiçi olmasını gerektirir. Lütfen unutmayın: Bu, bir sonraki planlı eşitleme gerçekleşene kadar tamamlanmamış geçici dosyaların geride kalmasına neden olabilir.</string>
     <string name="os_open_file_limit">Android Açık Dosya Sınırı</string>
     <string name="pull_order_type_alphabetic">Alfabetik</string>
     <string name="download_support_bundle_title">Destek Paketini İndir</string>
@@ -340,6 +345,7 @@
     <string name="api_key_copied_to_clipboard">Syncthing API anahtarı panoya kopyalandı</string>
     <string name="folder_type_receive_encrypted_description">Yalnızca şifrelenmiş verileri depolar ve eşitler. Bağlı tüm cihazlardaki klasörlerin aynı parolayla ayarlanması veya \'Şifrelenmiş Al\' türünde olması da gerekir.</string>
     <string name="reason_not_within_time_frame_2">\'Zaman planına göre çalıştır\'ı etkinleştirdiniz ve son eşitleme %s önceydi.</string>
+    <string name="backup_folder_name">Yedekleme klasörü adı</string>
     <string name="share_activity_title">Syncthing\'e Kaydet</string>
     <string name="notification_crash_text">Günlükler için tıklayın (%1$s)</string>
     <string name="pull_order">Dosya Çekme Sırası</string>
@@ -351,7 +357,7 @@
     <string name="device_syncing_percent_bytes">Eşitleniyor (%%%1$d, %2$s)</string>
     <string name="preference_app_theme_follow_dark">Koyu</string>
     <string name="log_to_file_summary">SyncthingNative\'in çıktısı dosyaya yazılacaktır.</string>
-    <string name="syncthing_disabled">Uyuyor</string>
+    <string name="syncthing_disabled">Syncthing uyuyor</string>
     <string name="preference_language_summary">Uygulama dilini değiştirin</string>
     <string name="file_versioning_generic_description">Syncthing, bir dosya silindiğinde veya kümeden daha yeni bir sürümle değiştirildiğinde eski sürümünün arşivlenmesini destekler. Mevcut sürümlendirme stratejilerini görmek için tıklayın. Dosya sürümlendirme, cihaz bazında klasör başına yapılandırılır. Seçilen strateji:</string>
     <string name="maximum_age_description">Bir sürümü tutmak için en fazla süre (gün olarak, sürümleri süresiz tutmak için 0\'a ayarlayın).</string>
@@ -366,11 +372,12 @@
     <string name="syncthing_database_size">Syncthing Veritabanı Boyutu</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing, dolaşım mobil veri bağlantıları üzerinden çalışmasına izin vermediğiniz için çalışmıyor.</string>
     <string name="webui_debugging_summary">Profil oluşturmaya başlamak ve bir destek paketi indirebilmek için etkinleştirin. Bu seçeneğin değiştirilmesi Syncthing\'i hemen yeniden başlatacak.</string>
-    <string name="notification_crash_title">Çöktü (çıkış kodu %1$s)</string>
+    <string name="notification_crash_title">Syncthing çöktü (çıkış kodu %1$s)</string>
     <string name="tip_custom_sync_conditions_title">Klasör/cihaz başına özel eşitleme koşullarını kullanın</string>
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
     <string name="app_version_title">Syncthing-Fork Sarmalayıcı Sürümü</string>
     <string name="folder_ignore_delete_description">Gelen indeks güncellemelerinin işlenmesini etkileyen uzman seçeneği. Ayarlandığında, silme işareti ayarlıyken gelen güncellemeler yoksayılır. Bkz. https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="reason_broadcast_controlled">Syncthing, üçüncü taraf bir uygulama veya ADB tarafından gönderilen yayınları dinliyor. \'Ayarlar\' &gt; \'Deneysel\' &gt; \'Yayına Göre Hizmet Denetimi\'ni etkisizleştirerek yerleşik çalıştırma koşullarını kullanmaya geri dönebilirsiniz.</string>
     <string name="folder_type_sendreceive_description">Klasör, değişiklikleri hem uzak cihazlara gönderecek hem de onlardan değişiklikleri alacak.</string>
     <string name="tip_write_to_sdcard_title">Harici SD karta yazma geçici çözümü</string>
     <string name="keep_wakelock_while_binary_running_summary">Yalnızca Android 5 veya daha düşüğü için. Pil ile çalışırken beklenmedik bağlantı kesilmeleri yaşarsanız bu ayarı kullanın. Bu, pil tüketiminin artmasına neden olacak.</string>
@@ -414,7 +421,7 @@
     <string name="broadcast_service_control_title">Yayına Göre Hizmet Denetimi</string>
     <string name="pull_order_type_oldestFirst_description">Dosyaları değişiklik zamanına göre sıralanmış çekin. Sırasıyla önce en eski olan.</string>
     <string name="webui_tcp_port_unavailable">Web Arayüzü TCP bağlantı noktası %s meşgul. İkinci örnek mi?</string>
-    <string name="config_export_failed">Yapılandırmayı dışa aktarma başarısız oldu. Ayrıntıları görmek için Ayarlar-Sorun Giderme-Günlüğü Aç\'a gidin.</string>
+    <string name="config_export_failed">Yapılandırmayı dışa aktarma başarısız oldu, logcat çıktısını gözden geçirin.</string>
     <string name="simple_file_versioning_description">Dosyalar, Syncthing tarafından değiştirildiğinde veya silindiğinde, .stversions dizini içindeki tarih damgalı sürümlere taşınır.</string>
     <string name="web_page_loading">Web sayfası yükleniyor:
 \n%1$s …</string>
@@ -505,7 +512,7 @@
     <string name="suggest_file_manager_app_dialog_text">Açık kaynaklı dosya yöneticisi uygulaması \'Material Files\'ı yüklemenizi öneririz. Uygulama mağazası sayfasını açmak ister misiniz?</string>
     <string name="versions_path">Sürümlerin Yolu</string>
     <string name="versions_path_description">Sürümlerin depolanması gereken yol (paylaşılan klasördeki varsayılan .stversions dizini için boş bırakın).</string>
-    <string name="syncthing_active_details">Çalışıyor: %1$s</string>
+    <string name="syncthing_active_details">Syncthing çalışıyor: %1$s</string>
     <string name="tip_huawei_device_disconnected_text">Eğer masaüstünüz sürekli olarak Huawei cihazınızın bağlantısının kesildiğini bildiriyorsa, masaüstünüzün Syncthing kullanıcı arayüzünü açın. \'Uzak cihazlar\'a gidin, telefonun girişini genişletin, \'Düzenle\'ye tıklayın, \'Gelişmiş\'e geçin. Telefonunuzun IP adresini \'Adresler\'e şu şekilde girin:
 \ntcp4://%1$s, dinamik
 \nŞunun için çalıştığı onaylandı: Huawei P10</string>
@@ -524,7 +531,7 @@
     <string name="run_on_time_schedule_title">Zaman planlamasına göre çalıştır</string>
     <string name="suggest_file_manager_app_dialog_title">Bulunan uyumlu dosya yöneticisi uygulaması yok</string>
     <string name="type_simple">Tür: Basit</string>
-    <string name="syncthing_terminated">Sonlandırıldı</string>
+    <string name="syncthing_terminated">Syncthing sonlandırıldı</string>
     <string name="run_on_metered_wifi_summary">Cihaz tarifeli bir kablosuz (Wi-Fi) ağa bağlıyken çalıştır, örn. etkin nokta veya bağlı ağ. Dikkat: Çok fazla veri eşitlerseniz, bu işlem veri planınızın büyük bir bölümünü tüketebilir.</string>
     <string name="expert_mode_summary">Bu seçeneğin etkinleştirilmesi gelişmiş yapılandırma seçeneklerini gösterecek. Bunları nasıl doğru kullanacağınızı bildiğinizden emin olmak için önce Syncthing Belgelerine bir göz atmalısınız. Yanlış ayarlar pilin tükenmesine, sistem kaynaklarının tükenmesine veya tamamlanmamış eşitlemeye neden olabilir.</string>
     <string name="cancel_title">İptal</string>
@@ -548,6 +555,7 @@
     <string name="preference_app_theme_follow_system">Sistemi takip et</string>
     <string name="custom_wifi_ssid_whitelist_empty">Beyaz listeye eklenmiş kablosuz (Wi-Fi) SSID\'si yok. Lütfen ayarlarda bazılarını belirtin.</string>
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: uygulama sürekli olarak karşılama ekranını gösteriyor</string>
+    <string name="bind_network_summary">İnternet bağlantısı olmasa bile kablosuzu (Wi-Fi) kullanmaya zorlar. Eğer etkisizleştirildiyse, Syncthing bu durumda mobil veriyi kullanabilir.</string>
     <string name="run_on_metered_wifi_title">Tarifeli kablosuzda (Wi-Fi) çalıştır</string>
     <string name="folder_label_required">Klasör etiketi boş olmamak zorundadır</string>
     <string name="reason_not_on_battery_power">Telefon pil gücüyle çalışmıyor.</string>
@@ -604,11 +612,12 @@
 \nDikkatli olun: Bu uygulamayı kaldırırsanız, bu klasör Android tarafından silinecek. Uygulamayı kaldırmadan önce verileri, …/Android klasörünün dışına güvenli bir yere taşıyın.</string>
     <string name="st_reset_deltas_question">Bu eylem yalnızca destek ekibimizin önerisine dayanarak yapılmalıdır.
 \nSyncthing\'in delta indekslerini temizlemek istediğinize emin misiniz?</string>
-    <string name="broadcast_service_control_summary">Varsayılan: Etkisizleştirildi. Adb veya üçüncü taraf uygulamaların, örn. otomasyon uygulamalarının Syncthing\'e çalıştırma koşullarını takip etmesi, başlatmaya zorlaması veya durdurmaya zorlaması amacıyla talimat vermesine izin vermek için etkinleştirin.</string>
+    <string name="broadcast_service_control_summary">Varsayılan: Etkisizleştirildi. Yayınları göndererek hizmeti başlatmak ve durdurmak için bu seçeneği etkinleştirin, örn. üçüncü taraf otomasyon uygulamalarından. Not: Bu seçeneği değiştirdikten sonra uygulamayı el ile yeniden başlatmak zorundasınız.</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d dakika</item>
         <item quantity="other">%d dakika</item>
     </plurals>
+    <string name="bind_network_title">Etkin ağa bağla</string>
     <string name="config_create_failed">Yapılandırmayı oluşturma başarısız. Logcat çıktısını gözden geçirin.</string>
     <string name="device_addresses_invalid">Cihaz adresleri doğru olarak biçimlendirilmemiş. Lütfen tekrar deneyin. Daha fazla bilgi için Syncthing belgelerine bakın.</string>
     <string name="folder_type">Klasör Türü</string>
@@ -633,37 +642,4 @@
     <string name="pull_order_alphabetic">Alfabetik</string>
     <string name="power_source_battery_power">Pil gücü.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Dikkat Edin: Eğer SyncthingNative kesintiye uğrarsa ve tuhaf bir şey yaparsa suçlu siz olursunuz. Yalnızca cihazınızın izin verilmesini desteklememesi durumunda atlayın. Gerçekten atlansın mı?</string>
-    <string name="sleep_interval_minutes_title">Eşitleme duraklatma aralığının süresi</string>
-    <string name="start_into_web_gui_summary">Uygulamayı başlatırken, ana ekran yerine web Grafiksel Kullanıcı Arayüzü\'nü açar</string>
-    <string name="start_into_web_gui_title">Doğrudan web GKA içinde başlat</string>
-    <string name="open_source_licenses_summary">Kullanılan açık kaynak lisanslarını göster</string>
-    <string name="open_source_licenses_title">Açık Kaynak Lisansları</string>
-    <string name="syncthing_forum_title">Syncthing Forumu</string>
-    <string name="privacy_title">Gizlilik İlkesi</string>
-    <string name="syncthing_forum_summary">Syncthing Forumu\'na gidin ve destek alın</string>
-    <string name="privacy_summary">Kişisel verilerin (varsa) kullanımını kapsayan syncthing-android\'in gizlilik ilkesini açın, örn. konum.</string>
-    <string name="clear_stversions_question">Bu, Syncthing tarafından işlenen dosyaların önceki tüm sürümlerini silecek. Devam edilsin mi?</string>
-    <string name="clear_stversions_title">Tüm sürümlendirme klasörlerini boşalt</string>
-    <string name="clear_stversions_summary">Syncthing ile değiştirildiğinde veya silindiğinde dosyalar .stversions dizinine taşınır. Muhtemelen orada, silinen dosyaları bulabilir ve kurtarabilirsiniz, ancak dosyaların eskimiş sürümleri cihazınızda depolama alanı kaplar.</string>
-    <string name="clear_stversions_done">.stversions klasörleri başarılı olarak temizlendi.</string>
-    <string name="folder_run_script_caption">Komut Kodu Çalıştır</string>
-    <string name="folder_run_script_description">Bir klasör eşitleme durumunu değiştirdikten sonra komut kodlarını çalıştırmak için uzman seçeneği. \'.stfolder/*.sh\' konumunda olan komut kodları çalıştırılacaktır, güvenlik hususları için diğer yerler desteklenmez.\nÖrnek komut kodu çağrısı: \'.stfolder/rename-files.sh sync_complete\'</string>
-    <string name="pizza_url_title">» Kediler pizzayı sever « 😺🍕</string>
-    <string name="pizza_url_summary">Tek bir dokunuşla, kedilerin mutlu bir şekilde mırlamasını sağlamak için ekstra iyi enerjilerle süslenmiş - sıcak bir iyilik dilimi bırakabilirsiniz.</string>
-    <plurals name="conflicts">
-        <item quantity="one">%1$d çakışma</item>
-        <item quantity="other">%1$d çakışma</item>
-    </plurals>
-    <string name="share_log_file_missing">Paylaşılacak günlük dosyası eksik.</string>
-    <string name="share_log_file">Günlük dosyasını paylaş</string>
-    <string name="backup_password_title">Yapılandırma koruma parolası</string>
-    <string name="preference_category_actions">Eylemler</string>
-    <string name="preference_category_prepare">Hazırlık</string>
-    <string name="config_export_successful_no_path">Yapılandırma dışa aktarıldı. Lütfen daha sonraki bir içe aktarma için parolayı hatırladığınızdan emin olun.</string>
-    <string name="config_import_failed_no_path">Yapılandırmayı içe aktarma başarısız oldu. Ayrıntıları görmek için Ayarlar-Sorun Giderme-Günlüğü Aç\'a gidin.</string>
-    <string name="backup_password_not_set">⚠ Parola ayarlı değil.</string>
-    <string name="backup_password_set">✅ Parola şuna ayarlı: %1$s</string>
-    <string name="backup_rel_path_to_zip">Yapılandırma arşivine göreceli yol</string>
-    <string name="preference_category_explanation">Açıklama</string>
-    <string name="backup_password_summary">ℹ️ Önerilir:\nDışa aktarma sırasında yapılandırmanızı şifrelemek için kullanılacak güçlü bir parola girin ve içe aktarmada şifresini çözün. Bu parolayı kurtarma işlemi için güvenli bir yerde tutun. İçe aktarma özelliğini kullanmak için buna ihtiyacınız olacak.\n\n⚠️ Önerilmez:\nParola kullanmamak, diğer uygulamalar potansiyel olarak Syncthing yapılandırmanızı okuyabilir ve kandırabilir. Yapılandırmanın ortaya çıkması, kötü bir aktörün çalınan yapılandırma dışa aktarmalarını kullanarak dosyalarınıza yetkisiz erişim elde etme riski taşır.</string>
 </resources>

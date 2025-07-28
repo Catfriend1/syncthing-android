@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.net.LinkProperties;
 import android.net.Network;
-import android.net.RouteInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.MulticastLock;
 import android.os.Build;
@@ -16,8 +14,6 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-
-import androidx.annotation.RequiresApi;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
@@ -36,8 +32,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
-import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,14 +58,14 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
-    private Boolean IS_DEBUGGABLE = false;
-    private static final int LOG_FILE_MAX_LINES = 200000;
+    private Boolean LOG_TO_FILE = false;
+    private static final int LOG_FILE_MAX_LINES = 10;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
     private final Context mContext;
     private final File mSyncthingBinary;
     private String[] mCommand;
-    private final File mSyncthingLogFile;
+    private final File mLogFile;
     private final boolean mUseRoot;
 
     @Inject
@@ -96,11 +90,11 @@ public class SyncthingRunnable implements Runnable {
     public SyncthingRunnable(Context context, Command command) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
-        IS_DEBUGGABLE = Constants.isDebuggable(context);
+        LOG_TO_FILE = mPreferences.getBoolean(Constants.PREF_LOG_TO_FILE, false);
         mContext = context;
         // Example: mSyncthingBinary="/data/app/com.github.catfriend1.syncthingandroid.debug-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/libsyncthingnative.so"
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
-        mSyncthingLogFile = Constants.getSyncthingLogFile(mContext);
+        mLogFile = Constants.getLogFile(mContext);
 
         // Get preferences relevant to starting syncthing core.
         mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
@@ -112,13 +106,13 @@ public class SyncthingRunnable implements Runnable {
                 mCommand = new String[]{mSyncthingBinary.getPath(), "--generate=" + mContext.getFilesDir().toString(), "--no-default-folder", "--logflags=0"};
                 break;
             case main:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--no-browser", "--logflags=0"};
                 break;
             case resetdatabase:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-database", "--logflags=0"};
                 break;
             case resetdeltas:
-                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas"};
+                mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--reset-deltas", "--logflags=0"};
                 break;
             default:
                 throw new InvalidParameterException("Unknown command option");
@@ -128,9 +122,49 @@ public class SyncthingRunnable implements Runnable {
     @Override
     public void run() {
         try {
+            bindNetwork();
             run(false);
+            clearBindNetwork();
         } catch (ExecutableNotFoundException e) {
             throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    /**
+     * Avoid the following two situations:
+     * 1. Fake WiFi: User wants only syncing via WiFi, but connects to a WiFi without internet connection,
+     *    Android will auto route the request through the mobile network.
+     * 2. User only wants to sync through mobile network, but not use WiFi.
+     */
+    private void bindNetwork() {
+        clearBindNetwork();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        boolean bindNetwork = mPreferences.getBoolean(Constants.PREF_BIND_NETWORK, true);
+        if (!bindNetwork) {
+            return;
+        }
+        boolean runOnWifi = mPreferences.getBoolean(Constants.PREF_RUN_ON_WIFI, true);
+        boolean runOnMobileData = mPreferences.getBoolean(Constants.PREF_RUN_ON_MOBILE_DATA, true);
+        if ((runOnWifi && !runOnMobileData) || (!runOnWifi && runOnMobileData)) {
+            ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            Network network = cm.getActiveNetwork();
+            cm.bindProcessToNetwork(network);
+        }
+    }
+
+    private void clearBindNetwork() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        boolean bindNetwork = mPreferences.getBoolean(Constants.PREF_BIND_NETWORK, true);
+        if (!bindNetwork) {
+            return;
+        }
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm.getBoundNetworkForProcess() != null) {
+            cm.bindProcessToNetwork(null);
         }
     }
 
@@ -142,7 +176,7 @@ public class SyncthingRunnable implements Runnable {
         String capturedStdOut = "";
 
         // Trim Syncthing log.
-        trimSyncthingLogFile();
+        trimLogFile();
 
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
@@ -202,8 +236,8 @@ public class SyncthingRunnable implements Runnable {
                         br.close();
                 }
             } else {
-                lInfo = log(process.getInputStream(), Log.INFO);
-                lWarn = log(process.getErrorStream(), Log.WARN);
+                lInfo = log(process.getInputStream(), Log.INFO, LOG_TO_FILE);
+                lWarn = log(process.getErrorStream(), Log.WARN, LOG_TO_FILE);
             }
 
             niceSyncthing();
@@ -405,6 +439,7 @@ public class SyncthingRunnable implements Runnable {
             SystemClock.sleep(50);
         }
         Log.d(TAG, "killSyncthing: Complete.");
+        clearBindNetwork();
     }
 
     /**
@@ -412,21 +447,20 @@ public class SyncthingRunnable implements Runnable {
      *
      * @param is       The stream to log.
      * @param priority The priority level.
-     * @param saveLog  True if the log should be stored to {@link #mSyncthingLogFile}.
+     * @param saveLog  True if the log should be stored to {@link #mLogFile}.
      */
-    private Thread log(final InputStream is, final int priority) {
+    private Thread log(final InputStream is, final int priority, final boolean saveLog) {
         Thread t = new Thread(() -> {
             BufferedReader br = null;
             try {
                 br = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
                 String line;
                 while ((line = br.readLine()) != null) {
-                    if (IS_DEBUGGABLE) {
-                        String lineWithoutTimestamp = line.replaceFirst("\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2} ?", "");
-                        Log.println(priority, TAG_NATIVE, lineWithoutTimestamp);
+                    Log.println(priority, TAG_NATIVE, line);
+
+                    if (saveLog) {
+                        Files.append(line + "\n", mLogFile, Charsets.UTF_8);
                     }
-                    // Always output SynchtingNative's output to "syncthing.log".
-                    Files.append(line + "\n", mSyncthingLogFile, Charsets.UTF_8);
                 }
             } catch (IOException e) {
                 Log.w(TAG, "Failed to read Syncthing's command line output", e);
@@ -446,21 +480,21 @@ public class SyncthingRunnable implements Runnable {
     /**
      * Only keep last {@link #LOG_FILE_MAX_LINES} lines in log file, to avoid bloat.
      */
-    private void trimSyncthingLogFile() {
-        if (!mSyncthingLogFile.exists()) {
+    private void trimLogFile() {
+        if (!mLogFile.exists()) {
             return;
         }
 
         try {
-            LineNumberReader lnr = new LineNumberReader(new FileReader(mSyncthingLogFile));
+            LineNumberReader lnr = new LineNumberReader(new FileReader(mLogFile));
             lnr.skip(Long.MAX_VALUE);
 
             int lineCount = lnr.getLineNumber();
             lnr.close();
 
-            File tempFile = new File(mContext.getFilesDir().toString(), "syncthing.log.tmp");
+            File tempFile = new File(FileUtils.getExternalFilesDir(mContext, null), "syncthing.log.tmp");
 
-            BufferedReader reader = new BufferedReader(new FileReader(mSyncthingLogFile));
+            BufferedReader reader = new BufferedReader(new FileReader(mLogFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
             String currentLine;
@@ -472,7 +506,7 @@ public class SyncthingRunnable implements Runnable {
             }
             writer.close();
             reader.close();
-            tempFile.renameTo(mSyncthingLogFile);
+            tempFile.renameTo(mLogFile);
         } catch (IOException e) {
             Log.w(TAG, "Failed to trim log file", e);
         }
@@ -480,23 +514,16 @@ public class SyncthingRunnable implements Runnable {
 
     private HashMap<String, String> buildEnvironment() {
         HashMap<String, String> targetEnv = new HashMap<>();
-
         // Set home directory to data folder for web GUI folder picker.
-        targetEnv.put("HOME", FileUtils.getSyncthingTildeAbsolutePath());
-
+        targetEnv.put("HOME", Environment.getExternalStorageDirectory().getAbsolutePath());
         targetEnv.put("STTRACE", TextUtils.join(" ",
                 mPreferences.getStringSet(Constants.PREF_DEBUG_FACILITIES_ENABLED, new HashSet<>())));
+        File externalFilesDir = FileUtils.getExternalFilesDir(mContext, null);
+        if (externalFilesDir != null) {
+            targetEnv.put("STGUIASSETS", externalFilesDir.getAbsolutePath() + "/gui");
+        }
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
-
-        // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            final String gatewayIpV4 = getGatewayIpV4(mContext);
-            if (gatewayIpV4 != null) {
-                targetEnv.put("FALLBACK_NET_GATEWAY_IPV4", gatewayIpV4);
-            }
-        }
-
         if (mPreferences.getBoolean(Constants.PREF_USE_TOR, false)) {
             targetEnv.put("all_proxy", "socks5://localhost:9050");
             targetEnv.put("ALL_PROXY_NO_FALLBACK", "1");
@@ -579,23 +606,5 @@ public class SyncthingRunnable implements Runnable {
         if (ENABLE_VERBOSE_LOG) {
             Log.v(TAG, logMessage);
         }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    public static String getGatewayIpV4(final Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        Network activeNetwork = cm.getActiveNetwork();
-        if (activeNetwork == null) return null;
-
-        LinkProperties props = cm.getLinkProperties(activeNetwork);
-        if (props == null) return null;
-
-        for (RouteInfo route : props.getRoutes()) {
-            InetAddress gateway = route.getGateway();
-            if (route.isDefaultRoute() && gateway instanceof Inet4Address) {
-                return gateway.getHostAddress();
-            }
-        }
-        return null;
     }
 }

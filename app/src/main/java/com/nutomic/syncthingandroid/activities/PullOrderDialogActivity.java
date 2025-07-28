@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nutomic.syncthingandroid.R;
@@ -21,14 +20,6 @@ public class PullOrderDialogActivity extends ThemedAppCompatActivity {
     public static final String EXTRA_RESULT_PULL_ORDER = "com.github.catfriend1.syncthingandroid.activities.PullOrderDialogActivity.EXTRA_RESULT_PULL_ORDER";
 
     private String selectedType;
-
-    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
-        @Override
-        public void handleOnBackPressed() {
-            saveConfiguration();
-            finish();
-        }
-    };
 
     private static final List<String> mTypes = Arrays.asList(
         "random",
@@ -48,9 +39,6 @@ public class PullOrderDialogActivity extends ThemedAppCompatActivity {
         }
         initiateFinishBtn();
         initiateSpinner();
-
-        // Register OnBackPressedCallback
-        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void initiateFinishBtn() {
@@ -83,5 +71,11 @@ public class PullOrderDialogActivity extends ThemedAppCompatActivity {
                 // This is not allowed.
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        saveConfiguration();
+        super.onBackPressed();
     }
 }

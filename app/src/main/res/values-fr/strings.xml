@@ -18,7 +18,7 @@
     <string name="ignore_doze_permission_title">Optimisation de la batterie</string>
     <string name="ignore_doze_permission_os_notice">Android TV\'s est connu pour fermer occasionnellement l\'appli quand elle tourne en arrière plan. Une solution est disponible sur le wiki : \'%1$s/%2$s\'.</string>
     <string name="ignore_doze_permission_desc">Android peut arrêter la synchronisation après un certain temps. Pour éviter cela, désactivez l\'optimisation de la batterie. Certains appareils disposent d\'applications préinstallées pour tuer les tâches. Vous devrez aussi ajouter Syncthing à leur liste blanche.</string>
-    <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie</string>
+    <string name="dialog_disable_battery_optimizations_not_supported">Votre appareil ne prend pas en charge la désactivation des optimisations de la batterie.</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permission de localisation</string>
     <!-- Slide "Key Generation" -->
@@ -46,11 +46,11 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="open_website">Ouvrir le site WEB</string>
-    <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application</string>
+    <string name="toast_write_storage_permission_required">La permission d\'écriture sur l\'espace de stockage est requise pour cette application.</string>
     <!-- StateDialogActivity -->
     <!-- Text for FoldersFragment and DevicesFragment loading view -->
     <!-- Shown instead of web_gui_loading if the key does not exist and has to be created -->
-    <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes…</string>
+    <string name="web_gui_creating_key">Génération des clefs de sécurité. Cela peut prendre quelques minutes.</string>
     <!-- FolderListFragment -->
     <string name="folders_fragment_title">Partages</string>
     <!-- Shown if no folders exist -->
@@ -81,9 +81,9 @@
     <string name="upload_title">Emission</string>
     <!-- DrawerFragment -->
     <!-- Same as download_title with a colon and space appended -->
-    <string name="download_title_colon">"Réception : "</string>
+    <string name="download_title_colon">"Réception: "</string>
     <!-- Same as upload_title with a colon and space appended -->
-    <string name="upload_title_colon">"Émission : "</string>
+    <string name="upload_title_colon">"Émission: "</string>
     <!-- Title for current RAM usage -->
     <string name="ram_usage">Utilisation de la RAM</string>
     <!-- Title for announce server status -->
@@ -121,7 +121,7 @@
     <!-- Toast shown when trying to create a folder with an empty path -->
     <string name="folder_path_required">Le chemin du répertoire ne doit pas être vide</string>
     <string name="dialog_discard_changes">Annuler vos modifications \?</string>
-    <string name="ignore_patterns">Exclusions par modèles (voir doc \"Ignore\")</string>
+    <string name="ignore_patterns">Ignorer les exclusions</string>
     <!-- DeviceActivity -->
     <!-- Setting title -->
     <string name="device_id">Mon ID</string>
@@ -155,7 +155,7 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Scanner un QR Code</string>
     <!-- Toast show if we could not get root permissions -->
-    <string name="toast_root_denied">Échec d\'obtention des droits root (superviseur)</string>
+    <string name="toast_root_denied">Échec d\'obtention des droits root (superviseur).</string>
     <!-- WebGuiActivity -->
     <!-- Title of the web gui activity -->
     <string name="web_gui_title">Interface WEB</string>
@@ -169,7 +169,7 @@
     <string name="category_experimental">Expérimental</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Conditions d\'exécution</string>
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le WiFi pour sélectionner un réseau.</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Veuillez activer le WiFi pour sélectionner un réseau</string>
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Vous devez accorder la permission LOCALISATION pour utiliser cette fonctionnalité.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission requise</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">À partir d\'Android 8.1, l\'accès à la localisation est nécessaire pour pouvoir lire le nom du WiFi. Vous pouvez utiliser cette fonctionnalité uniquement si vous accordez cette autorisation.</string>
@@ -198,8 +198,8 @@
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">La valeur entrée ne convient pas. SVP, entrez une valeur comprise entre %1$det %2$d.</string>
     <!-- Experimental options -->
     <string name="use_proxy">Se connecter via un proxy</string>
-    <string name="do_not_use_proxy">Aucun proxy configuré.</string>
-    <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne</string>
+    <string name="do_not_use_proxy">Aucun proxy configuré</string>
+    <string name="keep_wakelock_while_binary_running">Garder le CPU en éveil quand Syncthing fonctionne.</string>
     <string name="use_tor_title">Utiliser Tor</string>
     <string name="use_tor_summary">Forcer tout le trafic à travers Tor mieux préserver sa vie privée. Nécessite Orbot. Désactive les options de proxy.</string>
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
@@ -209,13 +209,17 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">L\'entrée ne respecte pas la syntaxe du proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les archives existantes seront écrasées.</string>
+    <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration \? Les fichiers existants seront écrasés.
+\n
+\nATTENTION ! D\'autres applications pourraient lire la clé privée située à l\'emplacement de sauvegarde et l\'utiliser pour télécharger/modifier les fichiers synchronisés.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres existants ainsi que la liste des partages et des appareils seront remplacés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la nouvelle configuration \? Les paramètres existants seront écrasés.</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">La configuration a été exportée dans %1$s</string>
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">La configuration a été importée</string>
+    <string name="config_import_failed">Echec de l\'import de la configuration, assurez-vous que les fichiers sont dans %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Options STTRACE</string>
     <string name="environment_variables">Variables d\'environnement</string>
@@ -235,7 +239,7 @@
 \nEtes-vous sûr de vouloir effacer l\'index de base de données de Syncthing \?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Réinitialisation réussie des index delta</string>
-    <string name="category_about">À propos</string>
+    <string name="category_about">A propos</string>
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Ouvrir le journal</string>
     <!-- Summary for the log activity -->
@@ -304,14 +308,14 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Quitter</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">En fonctionnement</string>
-    <string name="syncthing_terminated">Arrêté</string>
-    <string name="config_create_failed">Échec de création du fichier de configuration.</string>
+    <string name="syncthing_active">Syncthing fonctionne</string>
+    <string name="syncthing_terminated">Syncthing va s\'arrêter</string>
+    <string name="config_create_failed">Echec de création du fichier de configuration</string>
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Caméra</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
-    <string name="notification_crash_title">Crash (code d\'erreur %1$s)</string>
+    <string name="notification_crash_title">Syncthing s\'est planté %1$s</string>
     <string name="notifications_persistent_channel">Syncthing en marche</string>
     <string name="notification_persistent_waiting_channel">Surveillance des conditions de fonctionnement</string>
     <string name="notifications_other_channel">Autres notifications</string>
@@ -345,6 +349,7 @@
     <string name="status_outofsync">Désynchronisé</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">L\'arrêt de Syncthing n\'est pas supporté quand le fonctionnement en tâche de fond est activé.</string>
     <string name="folder_type_sendonly">Envoyer uniquement</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">Age maximum</string>
@@ -357,22 +362,25 @@
     <string name="keep_versions_description">Nombre d\'anciennes version à conserver, par fichier.</string>
     <string name="simple_file_versioning_description">Les fichiers sont transférés, avec ajout de la date, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
     <string name="trashcan_versioning_description">Les fichiers sont déplacés vers le répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing.</string>
-    <string name="staggered_versioning_description">Les fichiers sont transférés, avec ajout de la date de version, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing. Les versions sont automatiquement supprimées si elles sont antérieures à l\'ancienneté maximum ou dépassent le nombre de fichiers autorisés dans un intervalle. \n\nLes intervalles suivants sont utilisés : pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
-    <string name="maximum_age_description">Durée maximum de conservation des versions (en jour, mettre 0 pour conserver sans limite).</string>
+    <string name="staggered_versioning_description">Les fichiers sont transférés, avec ajout de la date de version, dans un répertoire .stversions lorsqu\'ils sont remplacés ou supprimés par Syncthing. Les versions sont automatiquement supprimées si elles sont antérieures à l\'ancienneté maximum ou dépassent le nombre de fichiers autorisés dans un intervalle.
+\n
+\nLes intervalles suivants sont utilisés: pour la première heure, une version est conservée toutes les 30 secondes, pour le premier jour, une version est conservé toutes les heures, pendant les 30 premiers jours, une version est conservée tous les jours. Pour l\'ancienneté maximum, une version est conservée chaque semaine.</string>
+    <string name="maximum_age_description">Durée maximum de conservation des versions (en jour, mettre 0 pour conserver sans limite)</string>
     <string name="versions_path_description">Emplacement où les versions seront stockées (laisser vide pour utiliser le répertoire par défaut .stversions dans le partage).</string>
-    <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité</string>
+    <string name="cleanout_after_description">Nombre de jours de conservation des fichiers dans la corbeille. Zéro signifie illimité.</string>
     <string name="external_versioning_description">Le premier paramètre de ligne de commande est le chemin du répertoire partagé, et le second est le chemin relatif dans le répertoire.</string>
     <string name="no_versioning_description">Choisir un type d\'archivage pour activer l\'archivage.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
-    <string name="type_simple">Type : Simple</string>
-    <string name="type_trashcan">Type : Corbeille</string>
-    <string name="type_staggered">Type : Échelonné</string>
-    <string name="type_external">Type : Externe</string>
+    <string name="type_simple">Type: Simple</string>
+    <string name="type_trashcan">Type: Corbeille</string>
+    <string name="type_staggered">Type: Décalé</string>
+    <string name="type_external">Type: Externe</string>
     <!-- Information displayed about the current file versioning configuration in the folder activity -->
-    <string name="trashcan_versioning_info">Nettoyer après : %1$s</string>
-    <string name="staggered_versioning_info">Âge maximum : %1$d \nEmplacement des versions : %2$s</string>
-    <string name="external_versioning_info">Commande : %1$s</string>
-    <string name="simple_versioning_info">Versions à conserver : %1$s</string>
+    <string name="trashcan_versioning_info">Nettoyer après: %1$s</string>
+    <string name="staggered_versioning_info">Age maximum: %1$d
+\nEmplacement des versions: %2$s</string>
+    <string name="external_versioning_info">Commande: %1$s</string>
+    <string name="simple_versioning_info">Versions à conserver: %1$s</string>
     <string name="show_device_id">Afficher l\'ID de l\'appareil</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Impossible d\'accéder à l\'ID de l\'appareil.</string>
@@ -389,7 +397,7 @@
     <string name="open_file_no_compatible_app">Pas d\'application trouvée pour ouvrir ce fichier.</string>
     <string name="suggest_file_manager_app_dialog_title">Pas d\'application Gestionnaire de fichiers compatible trouvée</string>
     <string name="suggest_file_manager_app_dialog_text">Nous recommandons l\'installation du Gestionnaire de fichiers open-source \'Material Files\'. Voulez-vous ouvrir sa page de magasin d\'applications ?</string>
-    <string name="deviceEncryptionPasswordHint">Mot de passe de chiffrement si non fiable</string>
+    <string name="deviceEncryptionPasswordHint">Si vous ne lui faites pas confiance, entrez un mot de passe de chiffrement (il ne pourra pas les déchiffrer mais pourrait les transmettre à un appareil tiers qui pourrait connaître ce mot de passe... ou pas)</string>
     <string name="no_devices_configured">Pas d\'appareil configuré.
 \nCommencez par en ajouter un maintenant.</string>
     <string name="device_syncing_percent_bytes">Synchronise (%1$d%%, %2$s)</string>
@@ -410,7 +418,7 @@
     <string name="toast_invalid_folder_selected">Désolé. Le répertoire sélectionné ne peut pas être utilisé. Veuillez choisir un répertoire situé sur le stockage interne ou externe.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Modifier un partage existant vers \'Réception chiffrée\' n\'est pas supporté.</string>
     <string name="untrusted_device">Appareil non fiable</string>
-    <string name="untrusted_device_explanation">Tous les partages avec cet appareil doivent être protégés par un mot de passe, de sorte que toutes les données envoyées soient illisibles sans le dit mot de passe.</string>
+    <string name="untrusted_device_explanation">Tous les dossiers partagés avec cet appareil doivent être protégés par un mot de passe, de sorte que toutes les données envoyées soient illisibles sans le dit mot de passe.</string>
     <string name="device_id_invalid">L\'ID de l\'appareil n\'est pas formaté correctement. Veuillez réessayer et saisir l\'ID correct.</string>
     <string name="device_name_required">Le nom de l\'appareil ne doit pas être vide</string>
     <string name="device_addresses_invalid">Les adresses de l\'appareil ne sont pas formatées correctement. Merci de réessayer. Consultez la documentation de Syncthing sur le site officiel.</string>
@@ -452,7 +460,9 @@
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
     <string name="behaviour_autostart_title">Démarrage automatique</string>
     <string name="behaviour_autostart_summary">Démarrage de l\'application en tâche de fond au démarrage du système.</string>
+    <string name="bind_network_title">Lier au réseau actif</string>
     <string name="expert_mode_title">Mode expert</string>
+    <string name="bind_network_summary">Force l\'utilisation du Wi-Fi même s\'il n\'y a pas d\'accès Internet. Si désactivé, Syncthing pourrait utiliser les données mobiles dans ce cas.</string>
     <string name="crash_reporting">Rapports de crash anonymes</string>
     <string name="webui_remote_access_title">Accès GUI à distance</string>
     <string name="webui_username_title">Utilisateur GUI</string>
@@ -464,7 +474,7 @@
     <string name="download_support_bundle_succeeded">Kit d\'assistance téléchargé vers %s.</string>
     <string name="download_support_bundle_failed">Échec du téléchargement du kit d\'assistance. Vérifier les logs.</string>
     <string name="undo_ignored_devices_folders_question">Permet de purger la liste des appareils et partages ignorés. Continuer ?</string>
-    <string name="config_export_failed">Échec de l\'exportation de la configuration. Pour voir les détails, accédez à : Paramètres, Dépannage, Ouvrir le journal.</string>
+    <string name="config_export_failed">Échec de l\'exportation de la configuration, vérifiez le journal système (logcat).</string>
     <string name="dialog_settings_restart_app_title">Redémarrage nécessaire</string>
     <string name="dialog_settings_restart_app_question">Le changement de cette option requiert le redémarrage immédiat de Syncthing. Tous les autres changements seront ignorés. Continuer ?</string>
     <string name="verbose_log_summary">Pour débogage détaillé.</string>
@@ -487,7 +497,7 @@
     </plurals>
     <string name="reason_not_charging">L\'appareil n\'est pas en charge.</string>
     <string name="reason_run_condition_monitor_not_instantiated">Le contrôleur de conditions d\'exécutions n\'est pas démarré. Merci de redémarrer l\'application et de signaler un bug si l\'erreur ne disparaît pas après le redémarrage.</string>
-    <string name="syncthing_disabled">En veille</string>
+    <string name="syncthing_disabled">Syncthing est en veille</string>
     <string name="config_file_missing">Un fichier de configuration crucial est manquant</string>
     <string name="webui_tcp_port_unavailable">Le port TCP %s du GUI est déjà réservé. Est-ce une seconde instance ?</string>
     <string name="notification_out_of_disk_space">SDcard pleine. Fichier %1$s</string>
@@ -506,6 +516,7 @@
     <string name="qs_schedule_disabled">Planning désactivé</string>
     <string name="pull_order_random">Aléatoire</string>
     <string name="undo_ignored_devices_folders_done">Liste purgée.</string>
+    <string name="backup_folder_name">Nom du répertoire de sauvegarde</string>
     <string name="run_on_whitelisted_wifi_summary">Activer la liste blanche des réseaux WiFi permis pour la synchronisation.</string>
     <string name="notification_permission_title">Permission de notifications</string>
     <string name="notification_permission_desc">Nécessaire pour afficher les notifications de nouveaux appareils, nouveaux partages et pour garder le service actif et connecté.</string>
@@ -556,7 +567,7 @@
     <string name="pull_order_oldest_first">Plus anciens d\'abord</string>
     <string name="pull_order_newest_first">Plus récents d\'abord</string>
     <string name="broadcast_service_control_title">Contrôle du service par Broadcast (annonces)</string>
-    <string name="broadcast_service_control_summary">Désactivé par défaut. Activer pour permettre à ADB ou applications tierces de demander à Syncthing de se conformer aux conditions d\'exécution, ou de s\'exécuter en mode marche forcée, ou encore de forcer l\'arrêt.</string>
+    <string name="broadcast_service_control_summary">Désactivé par défaut. Activer pour permettre le démarrage et l\'arrêt du service par annonces, par exemple depuis des applis d\'automatisation tierces. Il faut redémarrer l\'application pour la prise en compte.</string>
     <string name="reason_force_start">Syncthing fonctionne car vous avez forcé le démarrage sans égard aux conditions d\'exécution.</string>
     <string name="reason_force_stop">Syncthing est arrêté car vous avez forcé l\'arrêt sans égard aux conditions d\'exécution.</string>
     <string name="reason_not_on_battery_power">L\'appareil ne fonctionne pas sur batterie.</string>
@@ -626,7 +637,9 @@
     <string name="tip_xiaomi_battery_saver_text">L\'économiseur de batterie du Xiaomi MIUI retire l\'autorisation \'Ignorer l\'optimisation de batterie\' à l\'application à chaque reboot. Cela provoque l\'affichage systématique de l\'écran de bienvenue et la demande pour la permission manquante. Appuyez longuement sur l\'icône \'Syncthing-Fork\'&gt;\'App info\'&gt;\'Économiseur de batterie\' et choisissez \'Aucune restrictions\' (MIUI 10.3.2.0+).</string>
     <string name="preference_app_theme_follow_light">Clair</string>
     <string name="run_on_metered_wifi_summary">Exécuter sur les réseaux Wi-Fi avec quota, c\'est à dire les hotspots ou via un partage de connexion. Attention : ceci peut rapidement consommer une grosse partie du quota, le votre sur un hotspot, ou celui du partageur de connexion.</string>
-    <string name="tip_write_to_sdcard_text">Si vous voyez que l\'interface graphique indique que \'Android n\'accorde que la lecture seule\' à un partage particulier, créez un nouveau partage en utilisant le chemin suivant pour obtenir aussi l\'accès en écriture : \n%1$s/Votre-nom-de-répertoire \nSoyez vigilant : ce répertoire sera détruit par Android si vous désinstallez cette application. Avant de désinstaller Syncthing, déplacez ce répertoire en dehors du répertoire .../Android.</string>
+    <string name="tip_write_to_sdcard_text">Si vous voyez que l\'interface graphique indique que \'Android n\'accorde que la lecture seule\' à un dossier particulier, créez un nouveau répertoire en utilisant le chemin suivant pour obtenir aussi l\'accès en écriture :
+\n%1$s/Votre-nom-de-répertoire
+\nSoyez vigilant : ce répertoire sera détruit par Android si vous désinstallez cette application. Avant de désinstaller Syncthing, déplacez ce répertoire en dehors du répertoire .../Android.</string>
     <string name="tip_sync_on_local_network_text">Si vous souhaitez ne synchroniser avec d\'autres appareils du réseau local ou accessibles via votre connexion Wi-Fi, vous pouvez diminuer l\'usage de la batterie et/ou empêcher l\'utilisation des \'données mobiles\' de votre forfait en désactivant les options suivantes dans les \'Paramètres\' :
 \n- Activer la traversée NAT
 \n- Découverte globale
@@ -634,7 +647,7 @@
 \nConservez seulement l\'option \'Découverte locale\' activée.</string>
     <string name="tip_custom_sync_conditions_text">Cette fonctionnalité sera toujours améliorée dans de futures versions. Pour l\'instant, nous ne voulons pas casser les configurations existantes et le comportement de l\'application. C\'est pourquoi les conditions personnalisées de synchronisation pour certains types de réseaux ne peuvent être définies que si vous activez d\'abord la synchro sur le réseau dans les conditions globales d\'exécution.</string>
     <string name="tip_ignore_delete_text">Si vous souhaitez que toutes vos photos du téléphone soient synchronisées vers un PC, partagez le répertoire \'Camera\' avec le PC. Ouvrez Syncthing sur le PC, ajoutez le partage puis allez dans \'Actions\'&gt;\'Avancé\'&gt;\'Partages\'&gt;\'Nom-du-partage\' et cochez la case \'Ignore Delete\'. Cliquez sur \'Enregistrer\' tout en bas. Vous pouvez maintenant effacer les photos dans le téléphone sans qu\'elles soient aussi supprimées du PC.</string>
-    <string name="run_on_time_schedule_summary">Quand cette option est activée, Syncthing tente de synchroniser pendant la durée configurée si les condition d\'exécution sont remplies et que la dernière synchro a eu lieu depuis plus de l\'intervalle spécifié. Ceci peut économiser beaucoup la batterie mais nécessite que les pairs soient en ligne. Notez que cela peut laisser des fichiers temporaires incomplets jusqu\'à la synchro suivante.</string>
+    <string name="run_on_time_schedule_summary">Tenter de synchroniser pendant une durée définie si les condition sont remplies et que la dernière synchro a eu lieu il y a plus d\'une heure. Économise beaucoup de batterie mais nécessite que les pairs soient en ligne. Notez que cela peut laisser des fichiers temporaires incomplets jusqu\'à la synchro suivante.</string>
     <string name="folder_type_send_receive">Envoyer et recevoir</string>
     <string name="webui_remote_access_summary">Permettre l\'accès au GUI depuis un autre appareil. Si activé, vous pourrez vous connecter avec l\'utilisateur \'syncthing\' et la clé d\'API comme mot de passe. Désactivé par défaut (plus sécurisé)</string>
     <string name="keep_wakelock_while_binary_running_summary">Pour Android 5 et antérieur. activer si vous avez de nombreuses déconnexions sur batterie. Ceci augmente la consommation.</string>
@@ -644,6 +657,7 @@
     <string name="folder_go_up">Remonter</string>
     <string name="reason_wifi_disallowed">Vous n\'avez pas autorisé Syncthing à fonctionner en Wi-Fi ou Ethernet.</string>
     <string name="reason_location_unavailable">Vous avez activé \'Exécuter sur WiFi sélectionnés\' dans les paramètres. La localisation Android est actuellement désactivée. Syncthing ne peut donc pas lire le nom du réseau WiFi pour savoir s\'il est autorisé ou pas. Solution : Activez la localisation, accordez la permission \'Localisation\' et reconnectez le WiFi.</string>
+    <string name="reason_broadcast_controlled">Syncthing écoute les annonces brodcast envoyées par applications tierces ou ADB. Vous pouvez revenir aux conditions initiales en désactivant \'Paramètres\'&gt;\'Expérimental\'&gt;\'Service Control by Broadcast\'.</string>
     <string name="syncthing_active_details">Syncthing fonctionne : %1$s</string>
     <string name="reason_on_mobile_data">Syncthing est autorisé à fonctionner sur les données mobiles.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing ne fonctionne pas car vous lui avez interdit l\'usage des connexions itinérantes.</string>
@@ -674,38 +688,4 @@
     </plurals>
     <string name="web_page_loading">Chargement :
 \n%1$s …</string>
-    <string name="sleep_interval_minutes_title">Durée de l\'intervalle de suspension de la synchronisation</string>
-    <string name="start_into_web_gui_title">Démarrer directement l\'interface web</string>
-    <string name="start_into_web_gui_summary">Lancer l\'interface web au démarrage plutôt que l\'écran principal</string>
-    <string name="open_source_licenses_title">Licences open-source</string>
-    <string name="open_source_licenses_summary">Afficher les licences open-sources utilisées</string>
-    <string name="clear_stversions_title">Vider toutes les corbeilles/dossiers de versions</string>
-    <string name="syncthing_forum_summary">Aller sur le Forum des utilisateurs de Syncthing pour obtenir de l\'assistance</string>
-    <string name="folder_run_script_caption">Exécuter le script</string>
-    <string name="syncthing_forum_title">Forum Syncthing (en anglais)</string>
-    <string name="privacy_summary">Consulter la politique de confidentialité de syncthing-android qui concerne l\'utilisation (éventuelle) de données personnelles, par exemple la géolocalisation.</string>
-    <plurals name="conflicts">
-        <item quantity="one">%1$d conflit</item>
-        <item quantity="many">%1$d conflits</item>
-        <item quantity="other">%1$d conflits</item>
-    </plurals>
-    <string name="folder_run_script_description">Option pour expert permettant de lancer des scripts suite au changement d\'état de synchronisation d\'un partage. Les scripts dans \'.stfolder/*.sh\' seront exécutés ; les autres emplacements ne sont pas autorisés par mesure de sécurité.\nExemple d\'appel de script : \'.stfolder/renomme-fichiers.sh sync_complete\'</string>
-    <string name="pizza_url_title">« Chats pizzavores » 😺🍕</string>
-    <string name="clear_stversions_summary">Les fichiers sont déplacés vers le répertoire .stversions à l\'occasion d\'un remplacement/renommage ou suppression par Syncthing. Vous pouvez probablement y retrouver des fichiers accidentellement perdus, mais les très vieilles suppressions prennent de la place dans le stockage de votre appareil : vous pouvez régler une durée de péremption au-delà de laquelle les suppressions sont vraiment définitives.</string>
-    <string name="clear_stversions_question">Ceci va purger toutes les corbeilles gérées par Syncthing. Continuer ?</string>
-    <string name="privacy_title">Politique de confidentialité</string>
-    <string name="clear_stversions_done">Toutes les corbeilles .stversions ont été vidées avec succès.</string>
-    <string name="pizza_url_summary">Avec juste un appui, vous pouvez laisser une caresse comme chaleureuse marque de sympathie — cerise sur le gâteau, les chat continueront de ronronner.</string>
-    <string name="share_log_file">Journal de partage</string>
-    <string name="share_log_file_missing">Le fichier journal à partager est absent.</string>
-    <string name="backup_rel_path_to_zip">Chemin relatif à l\'archive de configuration</string>
-    <string name="backup_password_title">Mot de passe de protection de configuration</string>
-    <string name="backup_password_summary">ℹ️ Recommandé :\nEntrez un mot de passe robuste qui sera utilisé pour chiffrer votre configuration durant l\'exportation et la déchiffrer durant l\'importation. Conservez ce mot de passe en sécurité pour le processus de récupération. Vous en aurez besoin pour utiliser la fonctionnalité d\'importation.\n\n⚠️ Non recommandé :\nNe pas utiliser de mot de passe, d\'autres applications pourront potentiellement lire et manipuler votre configuration Syncthing. Une configuration exposée fait courir le risque qu\'un acteur malveillant obtienne un accès non autorisé à vos fichiers en utilisant des exports de configuration dérobés.</string>
-    <string name="backup_password_set">✅ Mot de passe défini : %1$s</string>
-    <string name="backup_password_not_set">⚠ Mot de passe non défini.</string>
-    <string name="preference_category_actions">Actions</string>
-    <string name="preference_category_explanation">Explication</string>
-    <string name="preference_category_prepare">Préparation</string>
-    <string name="config_import_failed_no_path">Échec de l\'importation de la configuration. Pour voir les détails, accédez à : Paramètres, Dépannage, Ouvrir le journal.</string>
-    <string name="config_export_successful_no_path">La configuration a été exportée. Assurez-vous de mémoriser le mot de passe pour un import ultérieur.</string>
 </resources>

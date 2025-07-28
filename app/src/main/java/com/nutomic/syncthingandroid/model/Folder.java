@@ -25,7 +25,7 @@ public class Folder {
     public String path;
     public String type = Constants.FOLDER_TYPE_SEND_RECEIVE;
     public boolean fsWatcherEnabled = true;
-    public float fsWatcherDelayS = 10;
+    public int fsWatcherDelayS = 10;
     private List<SharedWithDevice> devices = new ArrayList<>();
     /**
      * Folder rescan interval defaults to 3600s as it is the default in
@@ -61,8 +61,8 @@ public class Folder {
     public String blockPullOrder = "standard";
     // see PR #6588
     public Boolean disableFsync = false;
-    // see PR #6573, #10200
-    public int maxConcurrentWrites = 0;
+    // see PR #6573
+    public int maxConcurrentWrites = 2;
 
     // Since v1.8.0
     // see PR #6746: "all", "copy_file_range", "duplicate_extents", "ioctl", "sendfile", "standard"

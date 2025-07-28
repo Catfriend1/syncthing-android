@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.CheckBoxPreference;
@@ -21,9 +22,17 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,18 +40,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
-import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Gui;
 import com.nutomic.syncthingandroid.model.Options;
@@ -62,7 +64,6 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -111,7 +112,6 @@ public class SettingsActivity extends SyncthingActivity {
                 }
             }
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
@@ -142,7 +142,6 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
         private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
         private static final String KEY_WEBUI_DEBUGGING = "webUIDebugging";
-        private static final String KEY_CLEAR_STVERSIONS = "clearStVersions";
         private static final String KEY_DOWNLOAD_SUPPORT_BUNDLE = "downloadSupportBundle";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
         // Settings/Import and Export
@@ -156,7 +155,6 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String KEY_SYNCTHING_API_KEY = "syncthing_api_key";
         private static final String KEY_SYNCTHING_DATABASE_SIZE = "syncthing_database_size";
         private static final String KEY_OS_OPEN_FILE_LIMIT = "os_open_file_limit";
-        private static final String KEY_OPEN_SOURCE_LICENSES = "open_source_licenses";
 
         private static final String BIND_ALL = "0.0.0.0";
         private static final String BIND_LOCALHOST = "127.0.0.1";
@@ -177,11 +175,11 @@ public class SettingsActivity extends SyncthingActivity {
         private WifiSsidPreference mWifiSsidWhitelist;
         private CheckBoxPreference mRunInFlightMode;
         private EditTextPreference mSyncDurationMinutes;
-        private EditTextPreference mSleepIntervalMinutes;
 
         /* Behaviour */
         private CheckBoxPreference mStartServiceOnBoot;
         private CheckBoxPreference mUseRoot;
+        private CheckBoxPreference mBindNetwork;
 
         /* Syncthing Options */
         private PreferenceScreen   mCategorySyncthingOptions;
@@ -197,17 +195,14 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mWebUITcpPort;
         private EditTextPreference mWebUIUsername;
         private EditTextPreference mWebUIPassword;
-        private Preference mSyncthingApiKey;
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
         private CheckBoxPreference mWebUIDebugging;
-        private Preference mClearStVersions;
         private Preference mDownloadSupportBundle;
 
         /* Import and Export */
-        private EditTextPreference mBackupRelPathToZip;
-        private EditTextPreference mBackupPassword;
+        private EditTextPreference mBackupFolderName;
 
         /* Experimental options */
         private CheckBoxPreference mUseWakelock;
@@ -215,11 +210,9 @@ public class SettingsActivity extends SyncthingActivity {
         private EditTextPreference mSocksProxyAddress;
         private EditTextPreference mHttpProxyAddress;
 
-        /* About */
         private Preference mSyncthingVersion;
-        private Preference mLicensePref;
+        private Preference mSyncthingApiKey;
 
-        /* Context */
         private Context mContext;
         private SyncthingService mSyncthingService;
         private RestApi mRestApi;
@@ -241,6 +234,25 @@ public class SettingsActivity extends SyncthingActivity {
             super.onCreate(savedInstanceState);
             ((SyncthingApp) getActivity().getApplication()).component().inject(this);
             setHasOptionsMenu(true);
+        }
+
+        /**
+         * The ActionBar overlaps the preferences view.
+         * Move the preferences view below the ActionBar.
+         */
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = super.onCreateView(inflater, container, savedInstanceState);
+            int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            TypedValue tv = new TypedValue();
+            if (container.getContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+            {
+                // Calculate ActionBar height
+                int actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+                view.setPadding(horizontalMargin, actionBarHeight, horizontalMargin, verticalMargin);
+            }
+            return view;
         }
 
         /**
@@ -277,8 +289,6 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_RUN_IN_FLIGHT_MODE);
             mSyncDurationMinutes =
                     (EditTextPreference) findPreference(Constants.PREF_SYNC_DURATION_MINUTES);
-            mSleepIntervalMinutes =
-                    (EditTextPreference) findPreference(Constants.PREF_SLEEP_INTERVAL_MINUTES);
 
             mRunOnMeteredWifi.setEnabled(mRunOnWifi.isChecked());
             mUseWifiWhitelist.setEnabled(mRunOnWifi.isChecked());
@@ -297,10 +307,6 @@ public class SettingsActivity extends SyncthingActivity {
                     getString(R.string.sync_duration_minutes_summary, mSyncDurationMinutes.getText())
             );
 
-            mSleepIntervalMinutes.setSummary(
-                    getString(R.string.sync_duration_minutes_summary, mSleepIntervalMinutes.getText())
-            );
-
             mCategoryRunConditions = (PreferenceScreen) findPreference("category_run_conditions");
             setPreferenceCategoryChangeListener(mCategoryRunConditions, this::onRunConditionPreferenceChange);
 
@@ -313,6 +319,8 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_START_SERVICE_ON_BOOT);
             mUseRoot =
                     (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
+            mBindNetwork =
+                    (CheckBoxPreference) findPreference(Constants.PREF_BIND_NETWORK);
             setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
             /* Syncthing Options */
@@ -333,14 +341,12 @@ public class SettingsActivity extends SyncthingActivity {
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
             mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
             mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
-            mClearStVersions        = findPreference(KEY_CLEAR_STVERSIONS);
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
 
             mCategorySyncthingOptions = (PreferenceScreen) findPreference("category_syncthing_options");
             setPreferenceCategoryChangeListener(mCategorySyncthingOptions, this::onSyncthingPreferenceChange);
             mSyncthingApiKey.setOnPreferenceClickListener(this);
-            mClearStVersions.setOnPreferenceClickListener(this);
             mDownloadSupportBundle.setOnPreferenceClickListener(this);
             undoIgnoredDevicesFolders.setOnPreferenceClickListener(this);
 
@@ -351,13 +357,9 @@ public class SettingsActivity extends SyncthingActivity {
             Preference importConfig = findPreference("import_config");
             importConfig.setOnPreferenceClickListener(this);
 
-            mBackupRelPathToZip = (EditTextPreference) findPreference(Constants.PREF_BACKUP_REL_PATH_TO_ZIP);
-            mBackupRelPathToZip.setSummary(mBackupRelPathToZip.getText());
-            mBackupRelPathToZip.setOnPreferenceChangeListener(this);
-
-            mBackupPassword = (EditTextPreference) findPreference(Constants.PREF_BACKUP_PASSWORD);;
-            onPreferenceChange(mBackupPassword, mBackupPassword.getText());
-            mBackupPassword.setOnPreferenceChangeListener(this);
+            mBackupFolderName = (EditTextPreference) findPreference("backup_folder_name");
+            mBackupFolderName.setSummary(mBackupFolderName.getText());
+            mBackupFolderName.setOnPreferenceChangeListener(this);
 
             /* Troubleshooting */
             Preference verboseLog                   = findPreference(Constants.PREF_VERBOSE_LOG);
@@ -410,8 +412,6 @@ public class SettingsActivity extends SyncthingActivity {
             }
             screen.findPreference(KEY_SYNCTHING_DATABASE_SIZE).setSummary(getDatabaseSize());
             screen.findPreference(KEY_OS_OPEN_FILE_LIMIT).setSummary(getOpenFileLimit());
-            mLicensePref            = findPreference(KEY_OPEN_SOURCE_LICENSES);
-            mLicensePref.setOnPreferenceClickListener(this);
 
             // Check if we should directly show a sub preference screen.
             Bundle bundle = getArguments();
@@ -605,16 +605,6 @@ public class SettingsActivity extends SyncthingActivity {
                     }
                     preference.setSummary(getString(R.string.sync_duration_minutes_summary, durationMinutes));
                     break;
-                case Constants.PREF_SLEEP_INTERVAL_MINUTES:
-                    String intervalMinutes = o.toString();
-                    if (TextUtils.isEmpty(intervalMinutes)) {
-                        return false;
-                    }
-                    if (Integer.parseInt(intervalMinutes) <= 0) {
-                        return false;
-                    }
-                    preference.setSummary(getString(R.string.sync_duration_minutes_summary, intervalMinutes));
-                    break;
             }
             mPendingRunConditions = true;
             return true;
@@ -775,15 +765,8 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object o) {
             switch (preference.getKey()) {
-                case Constants.PREF_BACKUP_REL_PATH_TO_ZIP:
+                case Constants.PREF_BACKUP_FOLDER_NAME:
                     preference.setSummary((String) o);
-                    break;
-                case Constants.PREF_BACKUP_PASSWORD:
-                    if (((String) o).isEmpty()) {
-                        preference.setSummary(getString(R.string.backup_password_not_set));
-                    } else {
-                        preference.setSummary(getString(R.string.backup_password_set, (String) o));
-                    }
                     break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
@@ -882,20 +865,6 @@ public class SettingsActivity extends SyncthingActivity {
                         return true;
                     default:
                         return false;
-                case KEY_CLEAR_STVERSIONS:
-                    new AlertDialog.Builder(getActivity())
-                            .setMessage(R.string.clear_stversions_question)
-                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                                ConfigRouter config = new ConfigRouter(getActivity());
-                                if (clearStVersions(config.getFolders(null))) {
-                                    Toast.makeText(getActivity(),
-                                            getString(R.string.clear_stversions_done),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .setNegativeButton(android.R.string.no, null)
-                            .show();
-                    return true;
                 case KEY_DOWNLOAD_SUPPORT_BUNDLE:
                     onDownloadSupportBundleClick();
                     return true;
@@ -947,9 +916,6 @@ public class SettingsActivity extends SyncthingActivity {
                             .setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
                             })
                             .show();
-                    return true;
-                case KEY_OPEN_SOURCE_LICENSES:
-                    startActivity(new Intent(getActivity(), LicenseActivity.class));
                     return true;
             }
         }
@@ -1032,16 +998,27 @@ public class SettingsActivity extends SyncthingActivity {
         }
 
         /**
+         * Get backup folder
+         * Default: /storage/emulated0/backups/syncthing
+         */
+        private final File getBackupFolder() {
+            String backupFolderName = mPreferences.getString(Constants.PREF_BACKUP_FOLDER_NAME, "syncthing");
+            return new File(Environment.getExternalStorageDirectory() + "/backups/" + backupFolderName);
+        }
+
+        /**
          * Performs export of settings, config and database in the background.
          */
         private static class ExportConfigTask extends AsyncTask<Void, String, Void> {
             private WeakReference<SettingsFragment> refSettingsFragment;
             private WeakReference<SyncthingService> refSyncthingService;
             Boolean actionSucceeded = false;
+            File backupFolder;
 
             ExportConfigTask(SettingsFragment context, SyncthingService service) {
                 refSettingsFragment = new WeakReference<>(context);
                 refSyncthingService = new WeakReference<>(service);
+                backupFolder = context.getBackupFolder();
             }
 
             @Override
@@ -1051,7 +1028,7 @@ public class SettingsActivity extends SyncthingActivity {
                     cancel(true);
                     return null;
                 }
-                actionSucceeded = syncthingService.exportConfig();
+                actionSucceeded = syncthingService.exportConfig(backupFolder);
                 return null;
             }
 
@@ -1061,14 +1038,14 @@ public class SettingsActivity extends SyncthingActivity {
                 if (settingsFragment == null) {
                     return;
                 }
-                settingsFragment.afterConfigExport(actionSucceeded);
+                settingsFragment.afterConfigExport(actionSucceeded, backupFolder);
             }
         }
 
         /**
          * Called by {@link SyncthingService#exportConfig} after config export.
          */
-        private void afterConfigExport(Boolean actionSucceeded) {
+        private void afterConfigExport(Boolean actionSucceeded, final File backupFolder) {
             SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
             if (syncthingActivity == null || syncthingActivity.isFinishing()) {
                 return;
@@ -1078,14 +1055,11 @@ public class SettingsActivity extends SyncthingActivity {
                 Toast.makeText(syncthingActivity,
                         getString(R.string.config_export_failed),
                         Toast.LENGTH_LONG).show();
-                startActivity(new Intent(syncthingActivity, LogActivity.class));
                 return;
             }
-            Toast.makeText(
-                    syncthingActivity,
-                    getString(R.string.config_export_successful_no_path),
-                    Toast.LENGTH_LONG
-            ).show();
+            Toast.makeText(syncthingActivity,
+                    getString(R.string.config_export_successful,
+                    backupFolder.getAbsolutePath().replace("/storage/emulated/0/", "[/]")), Toast.LENGTH_LONG).show();
             syncthingActivity.finish();
         }
 
@@ -1096,10 +1070,12 @@ public class SettingsActivity extends SyncthingActivity {
             private WeakReference<SettingsFragment> refSettingsFragment;
             private WeakReference<SyncthingService> refSyncthingService;
             Boolean actionSucceeded = false;
+            File backupFolder;
 
             ImportConfigTask(SettingsFragment context, SyncthingService service) {
                 refSettingsFragment = new WeakReference<>(context);
                 refSyncthingService = new WeakReference<>(service);
+                backupFolder = context.getBackupFolder();
             }
 
             @Override
@@ -1109,7 +1085,7 @@ public class SettingsActivity extends SyncthingActivity {
                     cancel(true);
                     return null;
                 }
-                actionSucceeded = syncthingService.importConfig();
+                actionSucceeded = syncthingService.importConfig(backupFolder);
                 return null;
             }
 
@@ -1120,14 +1096,14 @@ public class SettingsActivity extends SyncthingActivity {
                 if (settingsFragment == null) {
                     return;
                 }
-                settingsFragment.afterConfigImport(actionSucceeded);
+                settingsFragment.afterConfigImport(actionSucceeded, backupFolder);
             }
         }
 
         /**
          * Called by {@link SyncthingService#importConfig} after config import.
          */
-        private void afterConfigImport(Boolean actionSucceeded) {
+        private void afterConfigImport(Boolean actionSucceeded, final File backupFolder) {
             SyncthingActivity syncthingActivity = (SyncthingActivity) getActivity();
             if (syncthingActivity == null || syncthingActivity.isFinishing()) {
                 return;
@@ -1135,11 +1111,9 @@ public class SettingsActivity extends SyncthingActivity {
 
             if (!actionSucceeded) {
                 Toast.makeText(syncthingActivity,
-                        getString(R.string.config_import_failed_no_path),
-                        Toast.LENGTH_LONG
-                ).show();
-                startActivity(new Intent(syncthingActivity, LogActivity.class));
-                return;
+                    getString(R.string.config_import_failed,
+                    backupFolder.getAbsolutePath().replace("/storage/emulated/0/", "[/]")), Toast.LENGTH_LONG).show();
+                    return;
             }
             Toast.makeText(syncthingActivity,
                 getString(R.string.config_imported_successful), Toast.LENGTH_LONG).show();
@@ -1184,7 +1158,7 @@ public class SettingsActivity extends SyncthingActivity {
             if (newValue.equals("")) {
                 preference.setSummary(getString(R.string.do_not_use_proxy) + " " + getString(R.string.generic_example) + ": " + getString(R.string.http_proxy_address_example));
                 return true;
-            } else if (newValue.matches("^https?://.*:\\d{1,5}$")) {
+            } else if (newValue.matches("^http://.*:\\d{1,5}$")) {
                 preference.setSummary(getString(R.string.use_proxy) + " " + newValue);
                 return true;
             } else {
@@ -1198,7 +1172,7 @@ public class SettingsActivity extends SyncthingActivity {
          * Calculates the size of the syncthing database on disk.
          */
         private String getDatabaseSize() {
-            String dbPath = Constants.getIndexDbFolder(mContext).getAbsolutePath();
+            String dbPath = mContext.getFilesDir() + "/" + Constants.INDEX_DB_FOLDER;
             String result = Util.runShellCommandGetOutput("/system/bin/du -sh " + dbPath, false);
             if (TextUtils.isEmpty(result)) {
                 return "N/A";
@@ -1224,29 +1198,5 @@ public class SettingsActivity extends SyncthingActivity {
             }
             return result;
         }
-
-        public static boolean clearStVersions(List<Folder> folders) {
-            for (Folder folder : folders) {
-                File dir = new File(folder.path + "/" + Constants.FOLDER_NAME_STVERSIONS);
-                if (dir.exists() && dir.isDirectory()) {
-                    Log.d(TAG, "Delete dir: " + dir);
-                    deleteContents(dir);
-                }
-            }
-            return true;
-        }
-
-        private static void deleteContents(File dir) {
-            File[] files = dir.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isDirectory()) {
-                        deleteContents(file);
-                    }
-                    file.delete();
-                }
-            }
-        }
-
     }
 }

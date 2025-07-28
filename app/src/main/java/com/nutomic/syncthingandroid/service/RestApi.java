@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.preference.PreferenceManager;
@@ -51,8 +50,6 @@ import com.nutomic.syncthingandroid.model.SharedWithDevice;
 import com.nutomic.syncthingandroid.model.SystemStatus;
 import com.nutomic.syncthingandroid.model.SystemVersion;
 import com.nutomic.syncthingandroid.service.Constants;
-import com.nutomic.syncthingandroid.util.FileUtils;
-import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -71,8 +68,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -87,18 +82,6 @@ public class RestApi {
     private static final String TAG = "RestApi";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
-
-    /**
-     * Intents we sent to to other apps that subscribed to us.
-     */
-    private static final String ACTION_NOTIFY_FOLDER_SYNC_COMPLETE =
-            "com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE";
-
-    /**
-     * Permission for apps receiving our broadcast intents.
-     */
-     private static final String PERMISSION_RECEIVE_SYNC_STATUS =
-            "com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS";
 
     /**
      * Compares folders by labels, uses the folder ID as fallback if the label is empty
@@ -175,8 +158,6 @@ public class RestApi {
     private Boolean hasShutdown = false;
 
     private Gson mGson;
-
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Inject NotificationHandler mNotificationHandler;
 
@@ -396,7 +377,7 @@ public class RestApi {
                     // LogV("ORCC: /rest/db/completion: folder=" + folder.id + ", device=" + device.deviceID + ", result=" + result);
                     final CompletionInfo completionInfo = mGson.fromJson(result, CompletionInfo.class);
                     LogV("ORCC: /rest/db/completion: folder=" + folder.id +
-                            ", device=" + device.getDisplayName() +
+                            ", device=" + device.deviceID +
                             ", completion=" + completionInfo.completion +
                             ", needBytes=" + String.format(Locale.getDefault(), "%.0f", completionInfo.needBytes) +
                             ", remoteState=" + completionInfo.remoteState);
@@ -597,7 +578,6 @@ public class RestApi {
      */
     public void shutdown() {
         hasShutdown = true;
-        executorService.shutdown();
         new PostRequest(mContext, mUrl, PostRequest.URI_SYSTEM_SHUTDOWN, mApiKey,
                 null, null, null);
     }
@@ -613,11 +593,6 @@ public class RestApi {
         List<Folder> folders;
         synchronized (mConfigLock) {
             folders = deepCopy(mConfig.folders, new TypeToken<List<Folder>>(){}.getType());
-        }
-        for (Folder folder : folders) {
-            if (folder.path.startsWith("~/")) {
-                folder.path = folder.path.replaceFirst("^~", FileUtils.getSyncthingTildeAbsolutePath());
-            }
         }
         Collections.sort(folders, FOLDERS_COMPARATOR);
         return folders;
@@ -874,9 +849,7 @@ public class RestApi {
              * Cache miss.
              * Query the required information so it will be available on a future call to this function.
              */
-            if (!TextUtils.isEmpty(deviceId)) {
-                LogV("getRemoteDeviceStatus: Cache miss, deviceId=\"" + deviceId + "\". Performing query.");
-            }
+            LogV("getRemoteDeviceStatus: Cache miss, deviceId=\"" + deviceId + "\". Performing query.");
             new GetRequest(mContext, mUrl, GetRequest.URI_CONNECTIONS, mApiKey, null, result -> {
                     /**
                      * We got connection status information for ALL devices instead of one.
@@ -1101,31 +1074,6 @@ public class RestApi {
         return cacheEntry;
     }
 
-    private void sendBroadcastToApps(Intent intent) {
-        String[] packageIdList = {
-            // "com.example.syncthingreceiver",
-            "org.decsync.cc"
-        };
-        // intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        for (String packageId : packageIdList) {
-            intent.setPackage(packageId);
-            ((SyncthingApp) mContext.getApplicationContext()).sendBroadcast(intent, PERMISSION_RECEIVE_SYNC_STATUS);
-        }
-    }
-
-    public void sendBroadcastFolderSyncComplete(String deviceId, 
-                                                    final Folder folder, 
-                                                    final String folderState) {
-        Intent intent = new Intent();
-        intent.setAction(ACTION_NOTIFY_FOLDER_SYNC_COMPLETE);
-        intent.putExtra("deviceId", deviceId);
-        intent.putExtra("folderId", folder.id);
-        intent.putExtra("folderLabel", folder.label);
-        intent.putExtra("folderPath", folder.path);
-        intent.putExtra("folderState", folderState);
-        sendBroadcastToApps(intent);
-    }
-
     /**
      * Updates cached folder and device completion info according to event data.
      */
@@ -1191,88 +1139,6 @@ public class RestApi {
         }
         mRemoteCompletion.setCompletionInfo(deviceId, folderId, remoteCompletionInfo);
         onTotalSyncCompletionChange();
-
-        /**
-         * Check if a folder completed synchronization on the local or a remote device.
-         * Plan finisher workloads that need to run after folder completion.
-         * They will be offloaded to a separate thread later.
-        **/
-        Boolean planGetSyncConflictFiles = false;
-        Boolean planOnFolderSyncCompleted = false;
-
-        final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = mLocalCompletion.getFolderStatus(folderId);
-        final FolderStatus folderStatus =  cacheEntry.getKey();
-        final Boolean folderIsSyncing = folderStatus.state.contains("sync");
-        if (remoteCompletionInfo.completion == 100) {
-            if (!folderIsSyncing) {
-                planGetSyncConflictFiles = true;
-
-                final CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
-                if (cachedFolderStatus.remoteIndexUpdated) {
-                    mLocalCompletion.setRemoteIndexUpdated(folderId, false);
-                    planOnFolderSyncCompleted = true;
-                }
-            }
-        }
-
-        // Execute planned workloads.
-        final Boolean finalPlanGetSyncConflictFiles = planGetSyncConflictFiles;
-        final Boolean finalPlanOnFolderSyncCompleted = planOnFolderSyncCompleted;
-        if (executorService.isShutdown()) {
-            // We are on the way to shutdown SynchtingNative.
-            return;
-        }
-        if (!finalPlanGetSyncConflictFiles && !finalPlanOnFolderSyncCompleted) {
-            // No work to do.
-            return;
-        }
-
-        executorService.execute(() -> {
-            if (finalPlanGetSyncConflictFiles) {
-                // Check for ".sync-conflict-YYYYMMDD-HHMMSS-DEVICEI*" files.
-                mLocalCompletion.setDiscoveredConflictFiles(
-                        folderId,
-                        Util.getSyncConflictFiles(folder.path)
-                );
-            }
-
-            if (finalPlanOnFolderSyncCompleted) {
-                onFolderSyncCompleted(
-                        folder, 
-                        folderStatus.state, 
-                        deviceId
-                );
-            }
-        });
-    }
-
-    public void onFolderSyncCompleted(final Folder folder, 
-                                            final String folderState, 
-                                            final String deviceId) {
-        Log.d(TAG, "onFolderSyncCompleted: Completed folder=[" + folder.id + "]");
-
-        // Run folder script set if enabled by user pref.
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        Boolean folderRunScriptEnabled = sharedPreferences.getBoolean(
-            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(folder.id), false
-        );
-        if (folderRunScriptEnabled) {
-            Util.runScriptSet(
-                    folder.path + "/" + Constants.FILENAME_STFOLDER, 
-                    new String[]{
-                            "sync_complete"
-                    }
-            );
-        }
-
-        // Notify listening third-party apps.
-        sendBroadcastFolderSyncComplete(deviceId, folder, folderState);
-    }
-
-    public void setRemoteIndexUpdated(final String deviceId,
-                                            final String folderId,
-                                            final boolean remoteIndexUpdated) {
-        mLocalCompletion.setRemoteIndexUpdated(folderId, remoteIndexUpdated);
     }
 
     public void updateLocalFolderPause(final String folderId, final Boolean newPaused) {

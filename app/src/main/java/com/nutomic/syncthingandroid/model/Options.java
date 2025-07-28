@@ -2,12 +2,12 @@ package com.nutomic.syncthingandroid.model;
 
 /**
  * Sources:
- * - https://github.com/syncthing/syncthing/tree/main/lib/config
- * - https://github.com/syncthing/syncthing/blob/main/lib/config/optionsconfiguration.go
+ * - https://github.com/syncthing/syncthing/tree/master/lib/config
+ * - https://github.com/syncthing/syncthing/blob/master/lib/config/optionsconfiguration.go
  */
 public class Options {
-    public String[] listenAddresses;                // json:"listenAddresses" xml:"listenAddress" default:"default"
-    public String[] globalAnnounceServers;          // json:"globalAnnounceServers" xml:"globalAnnounceServer" default:"default"
+    public String[] listenAddresses;                // default
+    public String[] globalAnnounceServers;          // default
     public boolean globalAnnounceEnabled = true;
     public boolean localAnnounceEnabled = true;
     public int localAnnouncePort = 21027;
@@ -74,6 +74,10 @@ public class Options {
     // Since v1.13.0
     public int connectionLimitEnough = 0;
     public int connectionLimitMax = 0;
+
+    // Since v1.17.0
+    // See https://github.com/syncthing/syncthing/pull/7598
+    public boolean insecureAllowOldTLSVersions = false;
 
     // Items that may be temporarily missing because they are empty.
     /**

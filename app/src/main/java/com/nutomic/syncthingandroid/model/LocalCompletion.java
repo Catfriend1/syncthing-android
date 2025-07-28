@@ -24,6 +24,7 @@ public class LocalCompletion {
 
     private static final String TAG = "LocalCompletion";
 
+    private Boolean ENABLE_DEBUG_LOG = false;
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     HashMap<String, Map.Entry<FolderStatus, CachedFolderStatus>> mFolderMap =
@@ -157,8 +158,8 @@ public class LocalCompletion {
             if (folderStatus.state.equals("idle")) {
                 cachedFolderStatus.completion = 100;
             }
-            if (ENABLE_VERBOSE_LOG) {
-                LogV("setFolderStatus: folderId=\"" + folderId + "\"" +
+            if (ENABLE_DEBUG_LOG) {
+                Log.d(TAG, "setFolderStatus: folderId=\"" + folderId + "\"" +
                         ", state=\"" + folderStatus.state + "\"" +
                         ", paused=" + Boolean.toString(cachedFolderStatus.paused) +
                         ", completion=" + (int) cachedFolderStatus.completion + "%");
@@ -192,30 +193,6 @@ public class LocalCompletion {
             cachedFolderStatus.lastItemFinishedAction = lastItemFinishedAction;
             cachedFolderStatus.lastItemFinishedItem = lastItemFinishedItem;
             cachedFolderStatus.lastItemFinishedTime = lastItemFinishedTime;
-
-            // Add folder or update existing folder entry.
-            mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));
-        }
-    }
-
-    public void setRemoteIndexUpdated(final String folderId,
-                                            final boolean remoteIndexUpdated) {
-        synchronized(mFolderMapLock) {
-            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
-            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
-            cachedFolderStatus.remoteIndexUpdated = remoteIndexUpdated;
-
-            // Add folder or update existing folder entry.
-            mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));
-        }
-    }
-
-    public void setDiscoveredConflictFiles(final String folderId,
-                                            final String[] discoveredConflictFiles) {
-        synchronized(mFolderMapLock) {
-            final Map.Entry<FolderStatus, CachedFolderStatus> cacheEntry = getFolderStatus(folderId);
-            CachedFolderStatus cachedFolderStatus = cacheEntry.getValue();
-            cachedFolderStatus.discoveredConflictFiles = discoveredConflictFiles;
 
             // Add folder or update existing folder entry.
             mFolderMap.put(folderId, new SimpleEntry(cacheEntry.getKey(), cachedFolderStatus));

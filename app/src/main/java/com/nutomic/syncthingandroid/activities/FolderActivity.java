@@ -27,7 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -52,7 +51,9 @@ import com.nutomic.syncthingandroid.util.TextWatcherAdapter;
 import com.nutomic.syncthingandroid.util.Util;
 
 import java.io.File;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -127,8 +128,6 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private ViewGroup mIgnoreDeleteContainer;
-    private SwitchCompat mRunScriptSwitch;
-    private ViewGroup mRunScriptContainer;
     private SwitchCompat mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
@@ -144,19 +143,6 @@ public class FolderActivity extends SyncthingActivity {
 
     private Dialog mDeleteDialog;
     private Dialog mDiscardDialog;
-
-    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
-        @Override
-        public void handleOnBackPressed() {
-            if (mFolderNeedsToUpdate) {
-                showDiscardDialog();
-            } else {
-                // Let default behavior handle it
-                setEnabled(false);
-                getOnBackPressedDispatcher().onBackPressed();
-            }
-        }
-    };
 
     private final TextWatcher mTextWatcher = new TextWatcherAdapter() {
         @Override
@@ -234,9 +220,6 @@ public class FolderActivity extends SyncthingActivity {
                     mFolder.removeDevice(device.deviceID);
                 }
                 mFolderNeedsToUpdate = true;
-            } else if (id == R.id.runScriptSwitch) {
-                // Stored in pref.
-                mFolderNeedsToUpdate = true;
             } else if (id == R.id.ignoreDelete) {
                 mFolder.ignoreDelete = isChecked;
                 mFolderNeedsToUpdate = true;
@@ -281,8 +264,6 @@ public class FolderActivity extends SyncthingActivity {
         mVersioningDescriptionView = findViewById(R.id.versioningDescription);
         mVersioningTypeView = findViewById(R.id.versioningType);
         mIgnoreDeleteContainer = findViewById(R.id.ignoreDeleteContainer);
-        mRunScriptContainer = findViewById(R.id.runScriptContainer);
-        mRunScriptSwitch = findViewById(R.id.runScriptSwitch);
         mIgnoreDelete = findViewById(R.id.ignoreDelete);
         mDevicesContainer = findViewById(R.id.devicesContainer);
         mEditIgnoreListTitle = findViewById(R.id.edit_ignore_list_title);
@@ -364,13 +345,9 @@ public class FolderActivity extends SyncthingActivity {
 
         // Show expert options conditionally.
         mIgnoreDeleteContainer.setVisibility(mPrefExpertMode ? View.VISIBLE : View.GONE);
-        mRunScriptContainer.setVisibility(mPrefExpertMode ? View.VISIBLE : View.GONE);
 
         // Open keyboard on label view in edit mode.
         mLabelView.requestFocus();
-
-        // Register OnBackPressedCallback
-        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
 
     private void restoreDialogStates(Bundle savedInstanceState) {
@@ -386,26 +363,19 @@ public class FolderActivity extends SyncthingActivity {
      */
     @SuppressLint("InlinedAPI")
     private void onPathViewClick() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        
-        // Determine directory initialUri for SAF file picker dialog.
         // This has to be android.net.Uri as it implements a Parcelable.
-        android.net.Uri initialUri = null;
         android.net.Uri externalFilesDirUri = FileUtils.getExternalFilesDirUri(FolderActivity.this, ExternalStorageDirType.INT_MEDIA);
-        if (FileUtils.directoryUriExists(FolderActivity.this, externalFilesDirUri)) {
-            initialUri = externalFilesDirUri;
-        } else {
-            android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
-            if (FileUtils.directoryUriExists(FolderActivity.this, internalFilesDirUri)) {
-                initialUri = internalFilesDirUri;
-            }
-        }
-        if (initialUri != null) {
-            Log.v(TAG, "onPathViewClick: INITIAL_URI = " + initialUri);
-            intent.putExtra("android.provider.extra.INITIAL_URI", initialUri);
-        }
 
         // Display storage access framework directory picker UI.
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        if (externalFilesDirUri != null) {
+            intent.putExtra("android.provider.extra.INITIAL_URI", externalFilesDirUri);
+        } else {
+            android.net.Uri internalFilesDirUri = FileUtils.getInternalStorageRootUri();
+            if (internalFilesDirUri != null) {
+                intent.putExtra("android.provider.extra.INITIAL_URI", internalFilesDirUri);
+            }
+        }
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
         try {
@@ -494,6 +464,16 @@ public class FolderActivity extends SyncthingActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if (mFolderNeedsToUpdate) {
+            showDiscardDialog();
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         SyncthingService syncthingService = getService();
@@ -548,7 +528,6 @@ public class FolderActivity extends SyncthingActivity {
         mFolderPaused.setOnCheckedChangeListener(null);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(null);
         mIgnoreDelete.setOnCheckedChangeListener(null);
-        mRunScriptSwitch.setOnCheckedChangeListener(null);
 
         // Update views
         mLabelView.setText(mFolder.label);
@@ -559,9 +538,6 @@ public class FolderActivity extends SyncthingActivity {
         mFolderFileWatcher.setChecked(mFolder.fsWatcherEnabled);
         mFolderPaused.setChecked(mFolder.paused);
         mIgnoreDelete.setChecked(mFolder.ignoreDelete);
-        mRunScriptSwitch.setChecked(mPreferences.getBoolean(
-                Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id), false
-            ));
         findViewById(R.id.editIgnoresContainer).setVisibility(mIsCreateMode ? View.GONE : View.VISIBLE);
 
         // Update views - custom sync conditions.
@@ -597,7 +573,6 @@ public class FolderActivity extends SyncthingActivity {
         mFolderPaused.setOnCheckedChangeListener(mCheckedListener);
         mCustomSyncConditionsSwitch.setOnCheckedChangeListener(mCheckedListener);
         mIgnoreDelete.setOnCheckedChangeListener(mCheckedListener);
-        mRunScriptSwitch.setOnCheckedChangeListener(mCheckedListener);
     }
 
     @Override
@@ -623,7 +598,7 @@ public class FolderActivity extends SyncthingActivity {
             showDeleteDialog();
             return true;
         } else if (itemId == android.R.id.home) {
-            mBackPressedCallback.handleOnBackPressed();
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -852,16 +827,9 @@ public class FolderActivity extends SyncthingActivity {
             return;
         }
 
-        SharedPreferences.Editor editor = mPreferences.edit();
-        editor.putBoolean(
-            Constants.DYN_PREF_OBJECT_FOLDER_RUN_SCRIPT(mFolder.id),
-            mRunScriptSwitch.isChecked()
-        );
-        editor.apply();
-
         if (mIsCreateMode) {
             Log.v(TAG, "onSave: Adding folder with ID = \'" + mFolder.id + "\'");
-            preCreateFolderStruct(mFolderUri, mFolder.path);
+            preCreateFolderMarker(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
 
             // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
@@ -885,7 +853,7 @@ public class FolderActivity extends SyncthingActivity {
 
         // Save folder specific preferences.
         Log.v(TAG, "onSave: Updating folder with ID = \'" + mFolder.id + "\'");
-        editor = mPreferences.edit();
+        SharedPreferences.Editor editor = mPreferences.edit();
         editor.putBoolean(
             Constants.DYN_PREF_OBJECT_CUSTOM_SYNC_CONDITIONS(Constants.PREF_OBJECT_PREFIX_FOLDER + mFolder.id),
             mCustomSyncConditionsSwitch.isChecked()
@@ -907,15 +875,37 @@ public class FolderActivity extends SyncthingActivity {
         return;
     }
 
-    private void preCreateFolderStruct(Uri uriFolderRoot, String absolutePath) {
+    private void preCreateFolderMarker(Uri uriFolderRoot, String absolutePath) {
+
         /**
          * Normally, syncthing takes care of creating the ".stfolder" marker.
          * This fails on Android 5+ if the syncthing binary only has
          * readonly access on the path and the user tries to configure a
          * sendOnly folder. To fix this, we'll precreate the marker using java code.
          */
+        if (uriFolderRoot == null) {
+            Log.w(TAG, "preCreateFolderMarker: uriFolderRoot == null");
+            return;
+        }
+
+        // Derive DocumentFile handle from SAF tree Uri where we have write access.
+        DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
+        if (dfFolder == null) {
+            Log.w(TAG, "preCreateFolderMarker: dfFolder == null");
+            return;
+        }
+
+        // Marker directory name and full path.
         final String FOLDER_MARKER_DIR_NAME = new Folder().markerName;
-        String strFolderMarkerPath = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
+        String strFolderMarkerDir = absolutePath + File.separator + FOLDER_MARKER_DIR_NAME;
+
+        // Create marker directory.
+        DocumentFile dfFolderMarkerDir = dfFolder.createDirectory(FOLDER_MARKER_DIR_NAME);
+        if (dfFolderMarkerDir == null) {
+            Log.w(TAG, "preCreateFolderMarker: Failed to create directory '" + strFolderMarkerDir + "'");
+            return;
+        }
+        Log.v(TAG, "preCreateFolderMarker: Created directory '" + strFolderMarkerDir + "'");
 
         /**
          * Name of the dummy file created within the marker directory.
@@ -924,50 +914,32 @@ public class FolderActivity extends SyncthingActivity {
          * the marker directory.
          */
         final String DO_NOT_DELETE_FILE_NAME = "DO_NOT_DELETE";
-        String strDoNotDeleteFile = strFolderMarkerPath + File.separator + DO_NOT_DELETE_FILE_NAME;
+        String strDoNotDeleteFile = strFolderMarkerDir + File.separator + DO_NOT_DELETE_FILE_NAME;
 
-        /**
-         * Precreate .stversions directory so we can put ".nomedia" in place to keep the gallery clean.
-         */
-        final String strStVersionsPath = absolutePath + File.separator + Constants.FOLDER_NAME_STVERSIONS;
-        final String strStVersionsNoMediaFile = strStVersionsPath + File.separator + ".nomedia";
-
-        // Fall back to classic API if uriFolderRoot is missing. E.g. in case FolderPickerActivity was used which only returns an absolute path.
-        if (uriFolderRoot == null) {
-            Log.w(TAG, "preCreateFolderStruct: uriFolderRoot == null. Using absolute path.");
-            try {
-                // ".stfolder"
-                new File(strFolderMarkerPath).mkdirs();
-                if (new File(strDoNotDeleteFile).createNewFile()) {
-                    FileWriter writer = new FileWriter(strDoNotDeleteFile);
-                    writer.write(DO_NOT_DELETE_FILE_NAME);
-                    writer.close();
-                }
-
-                // ".stversions"
-                new File(strStVersionsPath).mkdirs();
-                new File(strStVersionsNoMediaFile).createNewFile();
-            } catch (Exception e) {
-                Log.e(TAG, "preCreateFolderStruct: Failed to create using absolute path.", e);
-            }
+        // Create "DO_NOT_DELETE" file.
+        DocumentFile dfDoNotDeleteFile = dfFolderMarkerDir.createFile("text/plain", DO_NOT_DELETE_FILE_NAME);
+        if (dfDoNotDeleteFile == null) {
+            Log.w(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #1");
             return;
         }
+        Log.v(TAG, "preCreateFolderMarker: Created file '" + strDoNotDeleteFile + "'");
 
-        // Derive DocumentFile handle from SAF tree Uri where we have write access.
-        DocumentFile dfFolder = DocumentFile.fromTreeUri(this, uriFolderRoot);
-
-        // Create ".stfolder" directory.
-        DocumentFile dfFolderMarkerDir = FileUtils.safCreateDirectory(dfFolder, FOLDER_MARKER_DIR_NAME);
-        if (dfFolderMarkerDir != null) {
-            // Create ".stfolder/DO_NOT_DELETE.txt" file.
-            FileUtils.safCreateFile(this, dfFolderMarkerDir, DO_NOT_DELETE_FILE_NAME + ".txt", DO_NOT_DELETE_FILE_NAME);
-        }
-
-        // Create ".stversions" directory.
-        DocumentFile dfStVersionsDir = FileUtils.safCreateDirectory(dfFolder, Constants.FOLDER_NAME_STVERSIONS);
-        if (dfStVersionsDir != null) {
-            // Create ".stversions/.nomedia" file.
-            FileUtils.safCreateFile(this, dfStVersionsDir, ".nomedia", "");
+        // Write "DO_NOT_DELETE" text content.
+        OutputStream outputStream = null;
+        try {
+            outputStream = getContentResolver().openOutputStream(dfDoNotDeleteFile.getUri());
+            outputStream.write(DO_NOT_DELETE_FILE_NAME.getBytes(StandardCharsets.ISO_8859_1));
+            outputStream.flush();
+        } catch (IOException e) {
+            Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #2", e);
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "preCreateFolderMarker: Failed to create file '" + strDoNotDeleteFile + "' #3", e);
+            }
         }
     }
 

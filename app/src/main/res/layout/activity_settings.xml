@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/primary_dark"
-        tools:context=".activities.SettingsActivity"
+        tools:context="com.nutomic.syncthingandroid.activities.SettingsActivity"
         tools:showIn="@layout/activity_settings">
 
     <include layout="@layout/widget_toolbar" />
@@ -14,7 +12,8 @@
     <LinearLayout
         android:id="@+id/prefFragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="?android:windowBackground" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+
+</RelativeLayout>

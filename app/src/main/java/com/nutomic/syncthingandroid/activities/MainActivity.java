@@ -28,7 +28,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -43,6 +42,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -63,6 +63,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import static com.nutomic.syncthingandroid.service.Constants.PREF_BROADCAST_SERVICE_CONTROL;
 import static java.lang.Math.min;
 
 /**
@@ -85,12 +86,6 @@ public class MainActivity extends SyncthingActivity
     private static final int FOLDER_FRAGMENT_ID = 0;
     private static final int DEVICE_FRAGMENT_ID = 1;
     private static final int STATUS_FRAGMENT_ID = 2;
-    
-    /**
-     * Intent action to exit app.
-     */
-    public static final String ACTION_EXIT =
-            "com.github.catfriend1.syncthingandroid.MainActivity.EXIT";
 
     /**
      * Time after first start when usage reporting dialog should be shown.
@@ -115,29 +110,11 @@ public class MainActivity extends SyncthingActivity
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout          mDrawerLayout;
 
-    private Intent mLastIntent;
     private Boolean oneTimeShot = true;
 
     @Inject SharedPreferences mPreferences;
 
     private final Handler mUIRefreshHandler = new Handler();
-
-    private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {
-        @Override
-        public void handleOnBackPressed() {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                // Close drawer on back button press.
-                closeDrawer();
-            } else {
-                /**
-                 * Leave MainActivity in its state as the home button was pressed.
-                 * This will avoid waiting for the loading spinner when getting back
-                 * and give changes to do UI updates based on EventProcessor in the future.
-                 */
-                moveTaskToBack(true);
-            }
-        }
-    };
 
     private Runnable mUIRefreshRunnable = new Runnable() {
         @Override
@@ -259,30 +236,23 @@ public class MainActivity extends SyncthingActivity
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         setOptimalDrawerWidth(findViewById(R.id.drawer));
 
-        /**
-         * SyncthingService needs to be started from this activity as the user
-         * can directly launch this activity from the recent activity switcher.
-         */
-        Intent serviceIntent = new Intent(this, SyncthingService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent);
-        } else {
-            startService(serviceIntent);
+        Boolean prefBroadcastServiceControl = mPreferences.getBoolean(PREF_BROADCAST_SERVICE_CONTROL, false);
+        if (!prefBroadcastServiceControl) {
+            /**
+             * SyncthingService needs to be started from this activity as the user
+             * can directly launch this activity from the recent activity switcher.
+             * Applies if PREF_BROADCAST_SERVICE_CONTROL is DISABLED (default).
+             */
+            Intent serviceIntent = new Intent(this, SyncthingService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(serviceIntent);
+            } else {
+                startService(serviceIntent);
+            }
         }
 
         onNewIntent(getIntent());
-
-        // Register OnBackPressedCallback
-        getOnBackPressedDispatcher().addCallback(this, mBackPressedCallback);
     }
-    
-    
-    @Override
-    protected void onNewIntent(Intent intent) {
-        mLastIntent = intent;
-        super.onNewIntent(intent);
-    };
-
 
     /**
      * Updates the ViewPager to show tabs depending on the service state.
@@ -378,16 +348,6 @@ public class MainActivity extends SyncthingActivity
         }
 
         startUIRefreshHandler();
-
-        String action = mLastIntent.getAction();
-        if (action != null) {
-            if (ACTION_EXIT.equals(action)) {
-                Log.i(TAG, "Exit app requested by notification action");
-                stopService(new Intent(this, SyncthingService.class));
-                finishAndRemoveTask();
-            }
-        }
-        
         super.onResume();
     }
 
@@ -467,6 +427,17 @@ public class MainActivity extends SyncthingActivity
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true);
         }
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(MenuItem item) {
+                    if (item.getItemId() == R.id.bottom_navigation_item_rescan_all) {
+                        // rescanAll();
+                    }
+                    return true;
+                }
+        });
     }
 
     @Override
@@ -568,6 +539,21 @@ public class MainActivity extends SyncthingActivity
             return true;
         }
         return super.onKeyDown(keyCode, e);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            // Close drawer on back button press.
+            closeDrawer();
+        } else {
+            /**
+             * Leave MainActivity in its state as the home button was pressed.
+             * This will avoid waiting for the loading spinner when getting back
+             * and give changes to do UI updates based on EventProcessor in the future.
+             */
+            moveTaskToBack(true);
+        }
     }
 
     /**

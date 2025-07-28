@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.receiver;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -62,7 +63,7 @@ public class BootReceiver extends BroadcastReceiver {
      *
      * https://stackoverflow.com/a/44505719/1837158
      */
-    private static void startServiceCompat(Context context) {
+    public static void startServiceCompat(Context context) {
         Intent intent = new Intent(context, SyncthingService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent);
@@ -82,6 +83,7 @@ public class BootReceiver extends BroadcastReceiver {
         return sp.getBoolean(Constants.PREF_USE_ROOT, false);
     }
 
+    // @TargetApi(17)
     /**
      * Prerequisistes:
      * - android.permission.WRITE_SETTINGS

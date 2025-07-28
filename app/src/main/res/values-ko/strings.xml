@@ -160,13 +160,17 @@
     <string name="keep_wakelock_while_binary_running">Syncthing이 실행 중일 때 CPU를 깨어 있는 상태로 두기</string>
     <string name="use_tor_title">Tor 사용</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까? 현재 존재하는 파일이 덮어쓰기됩니다. \n \n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
+    <string name="dialog_confirm_export">정말로 설정을 내보내시겠습니까\? 현재 존재하는 파일이 덮어쓰기됩니다.
+\n
+\n경고! 다른 애플리케이션이 백업 경로에 저장된 비밀 키를 읽어들여, 동기화 중인 파일을 다운로드하거나 수정하는 데 사용할 수도 있습니다.</string>
     <!-- Dialog shown before config import -->
     <string name="dialog_confirm_import">정말 새로운 설정을 불러오시겠습니까? 기존 파일을 덮어씁니다.</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">설정을 %1$s 로 내보내기했습니다</string>
     <string name="import_config">설정 불러오기</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">설정을 불러왔습니다</string>
+    <string name="config_import_failed">설정을 불러오지 못했습니다, 파일이 %1$s에 있는지 확인해 주세요</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE 옵션</string>
     <string name="environment_variables">환경 변수</string>
@@ -277,6 +281,7 @@
     <string name="status_outofsync">동기화 오류</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">백그라운드에서 실행이 활성화되어 있을 때는 Syncthing 중단은 지원되지 않습니다.</string>
     <string name="folder_type_sendonly">송신 전용</string>
     <!-- Titles used in the file versioning dialog and file versioning button in the folder activity -->
     <string name="maximum_age">최대 저장 기간</string>
@@ -462,6 +467,7 @@
     <string name="undo_ignored_devices_folders_title">기기 및 폴더 무시 취소</string>
     <string name="undo_ignored_devices_folders_question">이 작업은 이전의 기기 및 폴더 무시 설정을 취소합니다. 계속하시겠습니까?</string>
     <string name="undo_ignored_devices_folders_done">설정이 성공적으로 취소되었습니다.</string>
+    <string name="backup_folder_name">백업 폴더 이름</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">포트 번호가 유효하지 않습니다. %1$d와 %2$d 사이의 포트를 입력하세요.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">입력값이 유효하지 않습니다. %1$d과 %2$d 사이의 값을 입력해주세요.</string>
     <string name="use_proxy">프록시를 통해 연결</string>
@@ -534,6 +540,7 @@
     <string name="run_on_whitelisted_wifi_title">지정된 Wi-Fi 네트워크에서 실행</string>
     <string name="sync_duration_minutes_title">동기화 주기</string>
     <string name="behaviour_autostart_summary">운영 체제 시작 시 응용 프로그램을 자동으로 시작합니다.</string>
+    <string name="bind_network_summary">인터넷 연결이 없을 때 WiFi를 사용하도록 강제합니다. 비활성화하면 이 경우에 Syncthing이 모바일 데이터를 사용할 수 있습니다.</string>
     <string name="expert_mode_summary">이 옵션을 활성화하면 고급 설정 옵션이 표시됩니다. 올바르게 사용하는 방법을 알기 위해 먼저 Syncthing 문서를 확인하세요. 설정을 잘못하면 배터리 소모, 시스템 자원 고갈 또는 불완전한 동기화가 발생할 수 있습니다.</string>
     <string name="reason_not_within_time_frame_2">사용자가 \'시간 일정에 따라 실행\'을 활성화했으며 마지막 동기화는 %s 전에 이루어졌습니다.</string>
     <string name="verbose_log_title">상세 기록</string>
@@ -555,6 +562,7 @@
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">네트워크를 선택하려면 위치 기능을 켜 주세요.</string>
     <string name="run_in_flight_mode_title">네트워크 연결 없이 실행</string>
     <string name="use_root_summary">Syncthing을 루트 권한으로 실행하면 Android가 일반적으로 읽기 전용으로 제한하는 폴더에 쓰기 권한을 부여합니다. 이 기능은 주의해서 사용하세요.</string>
+    <string name="bind_network_title">활성화 된 네트워크에 바인딩</string>
     <string name="folder_type_send_receive">송신 &amp; 수신</string>
     <string name="folder_type_send_only">송신 전용</string>
     <string name="folder_type_receive_only">수신 전용</string>
@@ -645,6 +653,7 @@
     <string name="reason_on_nonmetered_wifi">Syncthing은 무료 WiFi 연결에서 실행될 수 있습니다. 현재 활성화 된 WiFi 연결은 무료입니다.</string>
     <string name="reason_not_nonmetered_wifi">유료 WiFi 연결에서 Syncthing이 실행되지 않도록 설정했기 때문에 Syncthing이 실행되지 않습니다.</string>
     <string name="reason_location_unavailable">설정에서 \'선택한 WiFi 네트워크에서 실행\'을 활성화했습니다. 현재 Android 위치 서비스가 꺼져 있습니다. Android 제한 사항에 따라 Syncthing은 실행 여부를 결정하기 위한 현재 WiFi 네트워크 이름을 확인할 수 없습니다. 해결 방법: 위치 서비스를 켜고, 위치 권한을 부여한 후 WiFi에 다시 연결하세요.</string>
+    <string name="reason_broadcast_controlled">Syncthing은 서드파티 앱 또는 ADB에서 보내는 브로드캐스팅을 수신하고 있습니다. \'설정\' &gt; \'실험실\' &gt; \'브로드캐스팅을 통한 서비스 제어\'를 비활성화하여 기본 실행 조건으로 돌아갈 수 있습니다.</string>
     <string name="syncthing_active_details">Syncthing이 실행 중입니다: %1$s</string>
     <string name="reason_on_flight_mode">비행기 모드가 활성화되었을 때 Syncthing이 실행되도록 설정했기 때문에 Syncthing이 실행 중입니다.</string>
     <plurals name="device_online_up_to_date">

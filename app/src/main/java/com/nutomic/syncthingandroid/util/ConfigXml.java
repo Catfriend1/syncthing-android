@@ -151,6 +151,9 @@ public class ConfigXml {
             }
         }
 
+        // Set default folder to the "camera" folder: path and name
+        changed = addDcimDefaultFolder() || changed;
+
         /* Section - GUI */
         Element gui = getGuiElement();
         if (gui == null) {
@@ -165,22 +168,6 @@ public class ConfigXml {
         PreferenceManager.getDefaultSharedPreferences(mContext).edit()
                 .putString(Constants.PREF_WEBUI_PASSWORD, getApiKey())
                 .apply();
-
-        //  Allow debug and release to run in parallel for testing purposes.
-        if (Constants.isDebuggable(mContext)) {
-            // Set alternative gui listen port.
-            changed = setConfigElement(gui, "address", "127.0.0.1:8385") || changed;
-
-            // Set alternative data listen port.
-            Element elementOptions = (Element) mConfig.getDocumentElement().getElementsByTagName("options").item(0);
-            if (elementOptions != null) {
-                changed = setConfigElement(elementOptions, "listenAddress", new String[]{
-                                "tcp://:22001",
-                                "dynamic+https://relays.syncthing.net/endpoint"
-                        }
-                ) || changed;
-            }
-        }
 
         // Save changes if we made any.
         if (changed) {
@@ -271,12 +258,7 @@ public class ConfigXml {
     }
 
     public String getWebUIUsername() {
-        Node userNode = getGuiElement().getElementsByTagName("user").item(0);
-        if (userNode != null) {
-            String username = userNode.getTextContent();
-            return username != null ? username : "";
-        }
-        return "";
+        return getGuiElement().getElementsByTagName("user").item(0).getTextContent();
     }
 
     public String getWebUIPassword() {
@@ -356,14 +338,14 @@ public class ConfigXml {
 
         // Disable "startBrowser" because it applies to desktop environments and cannot start a mobile browser app.
         Options defaultOptions = new Options();
-        changed = setConfigElement(options, "startBrowser", defaultOptions.startBrowser) || changed;
+        changed = setConfigElement(options, "startBrowser", Boolean.toString(defaultOptions.startBrowser)) || changed;
         changed = setConfigElement(options, "databaseTuning", defaultOptions.databaseTuning) || changed;
 
         /**
          * Disable Syncthing's NAT feature because it causes kernel oops on some buggy kernels.
          */
         if (Constants.osHasKernelBugIssue505()) {
-            Boolean natEnabledChanged = setConfigElement(options, "natEnabled", false);
+            Boolean natEnabledChanged = setConfigElement(options, "natEnabled", Boolean.toString(false));
             if (natEnabledChanged) {
                 Log.d(TAG, "Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
                 changed = true;
@@ -410,7 +392,7 @@ public class ConfigXml {
                 // Enable "fsWatcherEnabled" attribute and set default delay.
                 Log.i(TAG, "Set 'fsWatcherEnabled', 'fsWatcherDelayS' on folder " + r.getAttribute("id"));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(defaultFolder.fsWatcherEnabled));
-                r.setAttribute("fsWatcherDelayS", Float.toString(defaultFolder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Integer.toString(defaultFolder.fsWatcherDelayS));
             }
 
             /**
@@ -437,14 +419,6 @@ public class ConfigXml {
     private Integer getAttributeOrDefault(final Element element, String attribute, Integer defaultValue) {
         try {
             return element.hasAttribute(attribute) ? Integer.parseInt(element.getAttribute(attribute)) : defaultValue;
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
-    }
-
-    private Float getAttributeOrDefault(final Element element, String attribute, Float defaultValue) {
-        try {
-            return element.hasAttribute(attribute) ? Float.parseFloat(element.getAttribute(attribute)) : defaultValue;
         } catch (NumberFormatException e) {
             return defaultValue;
         }
@@ -493,15 +467,10 @@ public class ConfigXml {
             Folder folder = new Folder();
             folder.id = getAttributeOrDefault(r, "id", "");
             folder.label = getAttributeOrDefault(r, "label", folder.label);
-            
             folder.path = getAttributeOrDefault(r, "path", "");
-            if (folder.path.startsWith("~/")) {
-                folder.path = folder.path.replaceFirst("^~", FileUtils.getSyncthingTildeAbsolutePath());
-            }
-            
             folder.type = getAttributeOrDefault(r, "type", Constants.FOLDER_TYPE_SEND_RECEIVE);
             folder.autoNormalize = getAttributeOrDefault(r, "autoNormalize", folder.autoNormalize);
-            folder.fsWatcherDelayS = getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
+            folder.fsWatcherDelayS =getAttributeOrDefault(r, "fsWatcherDelayS", folder.fsWatcherDelayS);
             folder.fsWatcherEnabled = getAttributeOrDefault(r, "fsWatcherEnabled", folder.fsWatcherEnabled);
             folder.ignorePerms = getAttributeOrDefault(r, "ignorePerms", folder.ignorePerms);
             folder.rescanIntervalS = getAttributeOrDefault(r, "rescanIntervalS", folder.rescanIntervalS);
@@ -523,7 +492,6 @@ public class ConfigXml {
             folder.sendOwnership = getContentOrDefault(r.getElementsByTagName("sendOwnership").item(0), folder.sendOwnership);
             folder.syncXattrs = getContentOrDefault(r.getElementsByTagName("syncXattrs").item(0), folder.syncXattrs);
             folder.sendXattrs = getContentOrDefault(r.getElementsByTagName("sendXattrs").item(0), folder.sendXattrs);
-            folder.filesystemType = getContentOrDefault(r.getElementsByTagName("filesystemType").item(0), folder.filesystemType);
 
             // Devices
             /*
@@ -618,7 +586,7 @@ public class ConfigXml {
                 r.setAttribute("path", folder.path);
                 r.setAttribute("type", folder.type);
                 r.setAttribute("autoNormalize", Boolean.toString(folder.autoNormalize));
-                r.setAttribute("fsWatcherDelayS", Float.toString(folder.fsWatcherDelayS));
+                r.setAttribute("fsWatcherDelayS", Integer.toString(folder.fsWatcherDelayS));
                 r.setAttribute("fsWatcherEnabled", Boolean.toString(folder.fsWatcherEnabled));
                 r.setAttribute("ignorePerms", Boolean.toString(folder.ignorePerms));
                 r.setAttribute("rescanIntervalS", Integer.toString(folder.rescanIntervalS));
@@ -626,21 +594,20 @@ public class ConfigXml {
                 setConfigElement(r, "copiers", Integer.toString(folder.copiers));
                 setConfigElement(r, "hashers", Integer.toString(folder.hashers));
                 setConfigElement(r, "order", folder.order);
-                setConfigElement(r, "paused", folder.paused);
-                setConfigElement(r, "ignoreDelete", folder.ignoreDelete);
-                setConfigElement(r, "copyOwnershipFromParent", folder.copyOwnershipFromParent);
+                setConfigElement(r, "paused", Boolean.toString(folder.paused));
+                setConfigElement(r, "ignoreDelete", Boolean.toString(folder.ignoreDelete));
+                setConfigElement(r, "copyOwnershipFromParent", Boolean.toString(folder.copyOwnershipFromParent));
                 setConfigElement(r, "modTimeWindowS", Integer.toString(folder.modTimeWindowS));
                 setConfigElement(r, "blockPullOrder", folder.blockPullOrder);
-                setConfigElement(r, "disableFsync", folder.disableFsync);
+                setConfigElement(r, "disableFsync", Boolean.toString(folder.disableFsync));
                 setConfigElement(r, "maxConcurrentWrites", Integer.toString(folder.maxConcurrentWrites));
                 setConfigElement(r, "maxConflicts", Integer.toString(folder.maxConflicts));
                 setConfigElement(r, "copyRangeMethod", folder.copyRangeMethod);
-                setConfigElement(r, "caseSensitiveFS", folder.caseSensitiveFS);
-                setConfigElement(r, "syncOwnership", folder.syncOwnership);
-                setConfigElement(r, "sendOwnership", folder.sendOwnership);
-                setConfigElement(r, "syncXattrs", folder.syncXattrs);
-                setConfigElement(r, "sendXattrs", folder.sendXattrs);
-                setConfigElement(r, "filesystemType", folder.filesystemType);
+                setConfigElement(r, "caseSensitiveFS", Boolean.toString(folder.caseSensitiveFS));
+                setConfigElement(r, "syncOwnership", Boolean.toString(folder.syncOwnership));
+                setConfigElement(r, "sendOwnership", Boolean.toString(folder.sendOwnership));
+                setConfigElement(r, "syncXattrs", Boolean.toString(folder.syncXattrs));
+                setConfigElement(r, "sendXattrs", Boolean.toString(folder.sendXattrs));
 
                 // Update devices that share this folder.
                 // Pass 1: Remove all devices below that folder in XML except the local device.
@@ -733,7 +700,7 @@ public class ConfigXml {
             Element r = (Element) nodeFolders.item(i);
             if (getAttributeOrDefault(r, "id", "").equals(folderId))
             {
-                setConfigElement(r, "paused", paused);
+                setConfigElement(r, "paused", Boolean.toString(paused));
                 break;
             }
         }
@@ -827,8 +794,6 @@ public class ConfigXml {
             device.introducer =  getAttributeOrDefault(r, "introducer", device.introducer);
             device.name = getAttributeOrDefault(r, "name", device.name);
             device.autoAcceptFolders = getContentOrDefault(r.getElementsByTagName("autoAcceptFolders").item(0), device.autoAcceptFolders);
-            device.maxRecvKbps = getContentOrDefault(r.getElementsByTagName("maxRecvKbps").item(0), device.maxRecvKbps);
-            device.maxSendKbps = getContentOrDefault(r.getElementsByTagName("maxSendKbps").item(0), device.maxSendKbps);
             device.paused = getContentOrDefault(r.getElementsByTagName("paused").item(0), device.paused);
             device.untrusted = getContentOrDefault(r.getElementsByTagName("untrusted").item(0), device.untrusted);
             device.numConnections = getContentOrDefault(r.getElementsByTagName("numConnections").item(0), device.numConnections);
@@ -933,9 +898,9 @@ public class ConfigXml {
                     r.setAttribute("introducer", Boolean.toString(device.introducer));
                     r.setAttribute("name", device.name);
 
-                    setConfigElement(r, "autoAcceptFolders", device.autoAcceptFolders);
-                    setConfigElement(r, "paused", device.paused);
-                    setConfigElement(r, "untrusted", device.untrusted);
+                    setConfigElement(r, "autoAcceptFolders", Boolean.toString(device.autoAcceptFolders));
+                    setConfigElement(r, "paused", Boolean.toString(device.paused));
+                    setConfigElement(r, "untrusted", Boolean.toString(device.untrusted));
                     setConfigElement(r, "numConnections", Integer.toString(device.numConnections));
 
                     // Addresses
@@ -1040,9 +1005,9 @@ public class ConfigXml {
         setConfigElement(elementGui, "password", gui.password);
         setConfigElement(elementGui, "apikey", gui.apiKey);
         setConfigElement(elementGui, "theme", gui.theme);
-        setConfigElement(elementGui, "insecureAdminAccess", gui.insecureAdminAccess);
-        setConfigElement(elementGui, "insecureAllowFrameLoading", gui.insecureAllowFrameLoading);
-        setConfigElement(elementGui, "insecureSkipHostCheck", gui.insecureSkipHostCheck);
+        setConfigElement(elementGui, "insecureAdminAccess", Boolean.toString(gui.insecureAdminAccess));
+        setConfigElement(elementGui, "insecureAllowFrameLoading", Boolean.toString(gui.insecureAllowFrameLoading));
+        setConfigElement(elementGui, "insecureSkipHostCheck", Boolean.toString(gui.insecureSkipHostCheck));
     }
 
     public Options getOptions() {
@@ -1052,19 +1017,7 @@ public class ConfigXml {
             Log.e(TAG, "getOptions: elementOptions == null. Returning defaults.");
             return options;
         }
-
         // options.listenAddresses
-        NodeList listenAddressNodes = elementOptions.getElementsByTagName("listenAddress");
-        List<String> listenAddressesList = new ArrayList<>();
-        for (int i = 0; i < listenAddressNodes.getLength(); i++) {
-            Node addressNode = listenAddressNodes.item(i);
-            String addressText = addressNode.getTextContent().trim();
-            if (!addressText.isEmpty()) {
-                listenAddressesList.add(addressText);
-            }
-        }
-        options.listenAddresses = listenAddressesList.toArray(new String[0]);
-
         // options.globalAnnounceServers
         options.globalAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("globalAnnounceEnabled").item(0), options.globalAnnounceEnabled);
         options.localAnnounceEnabled = getContentOrDefault(elementOptions.getElementsByTagName("localAnnounceEnabled").item(0), options.localAnnounceEnabled);
@@ -1111,6 +1064,7 @@ public class ConfigXml {
         options.featureFlag = getContentOrDefault(elementOptions.getElementsByTagName("featureFlag").item(0), options.featureFlag);
         options.connectionLimitEnough = getContentOrDefault(elementOptions.getElementsByTagName("connectionLimitEnough").item(0), options.connectionLimitEnough);
         options.connectionLimitMax = getContentOrDefault(elementOptions.getElementsByTagName("connectionLimitMax").item(0), options.connectionLimitMax);
+        options.insecureAllowOldTLSVersions = getContentOrDefault(elementOptions.getElementsByTagName("insecureAllowOldTLSVersions").item(0), options.insecureAllowOldTLSVersions);
         return options;
     }
 
@@ -1123,7 +1077,7 @@ public class ConfigXml {
                 Element r = (Element) node;
                 if (getAttributeOrDefault(r, "id", "").equals(deviceId))
                 {
-                    setConfigElement(r, "paused", paused);
+                    setConfigElement(r, "paused", Boolean.toString(paused));
                     break;
                 }
             }
@@ -1145,10 +1099,6 @@ public class ConfigXml {
         parentElement.removeChild(childElement);
     }
 
-    private boolean setConfigElement(Element parent, String tagName, Boolean newValue) {
-        return setConfigElement(parent, tagName, Boolean.toString(newValue));
-    }
-
     private boolean setConfigElement(Element parent, String tagName, String textContent) {
         Node element = parent.getElementsByTagName(tagName).item(0);
         if (element == null) {
@@ -1160,26 +1110,6 @@ public class ConfigXml {
             return true;
         }
         return false;
-    }
-
-    private boolean setConfigElement(Element parent, String tagName, String[] textArray) {
-        NodeList existingNodes = parent.getElementsByTagName(tagName);
-        List<Node> toRemove = new ArrayList<>();
-        for (int i = 0; i < existingNodes.getLength(); i++) {
-            Node node = existingNodes.item(i);
-            if (node.getParentNode() == parent) {
-                toRemove.add(node);
-            }
-        }
-        for (Node node : toRemove) {
-            parent.removeChild(node);
-        }
-        for (String text : textArray) {
-            Element newElement = mConfig.createElement(tagName);
-            newElement.setTextContent(text);
-            parent.appendChild(newElement);
-        }
-        return (!toRemove.isEmpty() || textArray.length > 0);
     }
 
     private Element getGuiElement() {
@@ -1256,6 +1186,62 @@ public class ConfigXml {
         LogV("addSyncthingCameraFolder: Adding folder to config [" + folder.path + "]");
         addFolder(folder);
         return true;
+    }
+
+    /**
+     * Change default folder id to camera and path to camera folder path.
+     * Returns if changes to the config have been made.
+     */
+    private boolean addDcimDefaultFolder() {
+        String dcimPath = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
+        /**
+         * Do not create the folder in Syncthing, if ".stfolder" already exists.
+         * The user might then have two Syncthing app installations running side by side
+         * or he is just setting things up from scratch (and knows how to create a folder).
+         */
+        if ((new File (dcimPath + "/" + Constants.FILENAME_STFOLDER)).exists()) {
+            Log.v(TAG, "addDcimDefaultFolder: " + Constants.FILENAME_STFOLDER + " from previous installation detected. Will not create the folder in Syncthing for safety reasons.");
+            return false;
+        }
+
+        // Prepare folder element.
+        String deviceModel = Build.MODEL
+                .replace(" ", "_")
+                .toLowerCase(Locale.US)
+                .replaceAll("[^a-z0-9_-]", "");
+        String defaultFolderId = deviceModel + "_" + generateRandomString(FOLDER_ID_APPENDIX_LENGTH);
+        Folder folder = new Folder();
+        folder.minDiskFree = new Folder.MinDiskFree();
+        folder.id = mContext.getString(R.string.default_folder_id, defaultFolderId);
+        folder.label = mContext.getString(R.string.default_android_camera_folder_label);
+        folder.path = dcimPath;
+
+        // Add versioning.
+        folder.versioning = new Folder.Versioning();
+        folder.versioning.type = "trashcan";
+        folder.versioning.params.put("cleanoutDays", Integer.toString(14));
+        folder.versioning.cleanupIntervalS = 3600;
+        folder.versioning.fsPath = "";
+        folder.versioning.fsType = "basic";
+
+        // Add folder to config.
+        Log.v(TAG, "addDcimDefaultFolder: Adding folder to config [" + folder.path + "]");
+        addFolder(folder);
+        return true;
+    }
+
+    /**
+     * Generates a random String with a given length
+     */
+    private String generateRandomString(int length) {
+        char[] chars = "abcdefghjkmnpqrstuvwxyz123456789".toCharArray();
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; ++i) {
+            sb.append(chars[random.nextInt(chars.length)]);
+        }
+        return sb.toString();
     }
 
     /**

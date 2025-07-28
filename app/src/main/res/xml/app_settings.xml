@@ -108,15 +108,6 @@
             android:maxLength="9"
             android:defaultValue="5" />
 
-        <EditTextPreference
-            android:key="sleep_interval_minutes"
-            android:title="@string/sleep_interval_minutes_title"
-            android:summary="@string/sync_duration_minutes_summary"
-            android:singleLineTitle="false"
-            android:inputType="number"
-            android:maxLength="1440"
-            android:defaultValue="60" />
-
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -140,12 +131,6 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
-             android:key="start_into_web_gui"
-             android:title="@string/start_into_web_gui_title"
-             android:summary="@string/start_into_web_gui_summary"
-             android:defaultValue="false"/>
-
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -168,11 +153,13 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- Bind network -->
         <CheckBoxPreference
-            android:key="broadcast_service_control"
-            android:title="@string/broadcast_service_control_title"
-            android:summary="@string/broadcast_service_control_summary"
-            android:singleLineTitle="false" />
+            android:key="bind_network"
+            android:title="@string/bind_network_title"
+            android:summary="@string/bind_network_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="true" />
 
     </PreferenceScreen>
 
@@ -297,13 +284,6 @@
             android:persistent="false" />
 
         <Preference
-            android:key="clearStVersions"
-            android:title="@string/clear_stversions_title"
-            android:summary="@string/clear_stversions_summary"
-            android:persistent="false"
-            android:singleLineTitle="false" />
-
-        <Preference
             android:key="downloadSupportBundle"
             android:title="@string/download_support_bundle_title"
             android:persistent="false"
@@ -321,45 +301,23 @@
         android:key="category_import_export"
         android:title="@string/category_backup">
 
-        <PreferenceCategory android:title="@string/preference_category_explanation">
-            <Preference
-                android:persistent="false"
-                android:selectable="false"
-                android:key="backup_password_summary"
-                android:title="@string/backup_password_summary"
-                android:summary="@null"
-                android:singleLineTitle="false" />
-        </PreferenceCategory>
+        <EditTextPreference
+            android:key="backup_folder_name"
+            android:title="@string/backup_folder_name"
+            android:summary="@null"
+            android:persistent="true"
+            android:defaultValue="syncthing"
+            android:inputType="textNoSuggestions" />
 
-        <PreferenceCategory android:title="@string/preference_category_prepare">
-            <EditTextPreference
-                android:key="backup_rel_path_to_zip"
-                android:title="@string/backup_rel_path_to_zip"
-                android:summary="@null"
-                android:persistent="true"
-                android:defaultValue="backups/syncthing/config.zip"
-                android:inputType="textNoSuggestions" />
+        <Preference
+            android:key="export_config"
+            android:persistent="false"
+            android:title="@string/export_config" />
 
-            <EditTextPreference
-                android:key="backup_password"
-                android:title="@string/backup_password_title"
-                android:summary="@null"
-                android:persistent="true"
-                android:defaultValue=""
-                android:inputType="textNoSuggestions" />
-        </PreferenceCategory>
-
-        <PreferenceCategory android:title="@string/preference_category_actions">
-            <Preference
-                android:key="export_config"
-                android:persistent="false"
-                android:title="@string/export_config" />
-
-            <Preference
-                android:key="import_config"
-                android:persistent="false"
-                android:title="@string/import_config" />
-        </PreferenceCategory>
+        <Preference
+            android:key="import_config"
+            android:persistent="false"
+            android:title="@string/import_config" />
 
     </PreferenceScreen>
 
@@ -379,6 +337,14 @@
             android:key="verbose_log"
             android:title="@string/verbose_log_title"
             android:summary="@string/verbose_log_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="false" />
+
+        <!-- Verbose log -->
+        <CheckBoxPreference
+            android:key="log_to_file"
+            android:title="@string/log_to_file_title"
+            android:summary="@string/log_to_file_summary"
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
@@ -444,6 +410,12 @@
             android:hint="@string/http_proxy_address_title"
             android:inputType="textUri|textNoSuggestions" />
 
+        <CheckBoxPreference
+            android:key="broadcast_service_control"
+            android:title="@string/broadcast_service_control_title"
+            android:summary="@string/broadcast_service_control_summary"
+            android:singleLineTitle="false" />
+
         <!-- Only valid for Android < 6 -->
         <CheckBoxPreference
             android:key="wakelock_while_binary_running"
@@ -484,36 +456,6 @@
             android:key="os_open_file_limit"
             android:title="@string/os_open_file_limit"
             android:singleLineTitle="false" />
-
-        <Preference
-            android:title="@string/syncthing_forum_title"
-            android:summary="@string/syncthing_forum_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/syncthing_forum_url" />
-        </Preference>
-
-        <Preference
-            android:title="@string/pizza_url_title"
-            android:summary="@string/pizza_url_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/pizza_url" />
-        </Preference>
-
-        <Preference
-            android:title="@string/privacy_title"
-            android:summary="@string/privacy_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/privacy_policy_url" />
-        </Preference>
-
-        <Preference
-                android:persistent="false"
-                android:key="open_source_licenses"
-                android:title="@string/open_source_licenses_title"
-                android:summary="@string/open_source_licenses_summary" />
 
     </PreferenceScreen>
 

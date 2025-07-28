@@ -3,8 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/primary_dark">
+    android:orientation="vertical">
 
     <include layout="@layout/widget_toolbar" />
 
@@ -13,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:background="?android:windowBackground"
         android:fillViewport="true"
         android:visibility="visible">
 

@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/primary_dark">
+    android:orientation="vertical">
 
     <include layout="@layout/widget_toolbar" />
 
@@ -11,16 +10,14 @@
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="?android:windowBackground" />
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical"
-        android:background="?android:windowBackground">
+        android:orientation="vertical">
 
         <ProgressBar
             android:layout_width="wrap_content"

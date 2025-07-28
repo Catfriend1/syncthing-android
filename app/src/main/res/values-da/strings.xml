@@ -304,14 +304,18 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Input overtræder proxy syntaks \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer? Eksisterende filer vil gå tabt. \n \nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
+    <string name="dialog_confirm_export">Ønsker du virkelig at eksportere dine konfigurationer\? Eksisterende filer vil gå tabt.
+\n
+\nADVARSEL! Andre applikationer kan måske læse den private nøgle fra backup lokationen og bruge denne til at downloade/modificere synkroniserede filer.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration? Eksisterende filer vil gå tabt.</string>
+    <string name="dialog_confirm_import">Er du sikker på du vil importere en ny konfiguration\? Eksisterende filer vil gå tabt.</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">Konfigurationen blev eksporteret til %1$s</string>
     <string name="config_export_failed">Eksportering af konfigurering fejlede, tjek logcat output.</string>
     <string name="import_config">Importer Konfiguration</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Konfigurationen blev importeret</string>
+    <string name="config_import_failed">Import af konfigurationen slog fjel, vær sikker på at filer er i %1$s</string>
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">Debug Muligheder</string>
     <string name="environment_variables">Miljøvariabler</string>
@@ -464,6 +468,7 @@
     <string name="status_outofsync">Usynkroniseret</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">At stoppe Syncthing er ikke understøttet når kørsel i baggrunden er aktiveret.</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Mappetype</string>
     <!-- Displays the current folder type in the folder activity -->

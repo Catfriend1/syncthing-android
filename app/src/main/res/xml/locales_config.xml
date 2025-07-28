@@ -8,7 +8,6 @@
     <locale android:name="da" />
     <locale android:name="de" />
     <locale android:name="el" />
-    <locale android:name="et" />
     <locale android:name="es" />
     <locale android:name="es-rMX" />
     <locale android:name="eu" />
@@ -17,7 +16,6 @@
     <locale android:name="hu" />
     <locale android:name="in" />
     <locale android:name="it" />
-    <locale android:name="iw" />
     <locale android:name="ja" />
     <locale android:name="ko" />
     <locale android:name="nb" />
@@ -29,7 +27,6 @@
     <locale android:name="ro" />
     <locale android:name="ru" />
     <locale android:name="sk" />
-    <locale android:name="sr" />
     <locale android:name="sv" />
     <locale android:name="ta" />
     <locale android:name="tr" />

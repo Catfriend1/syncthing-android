@@ -75,7 +75,9 @@
     <!-- Shown in the chooser dialog when sharing a Device ID -->
     <string name="send_device_id_to">Eszközazonosító megosztása</string>
     <string name="usage_reporting_dialog_title">Engedélyezed a névtelen használati statisztikák küldését\?</string>
-    <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt. Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
+    <string name="usage_reporting_dialog_description">A titkosított használati statisztikákat naponta küldjük el. Ennek segítségével követjük a platformokat, mappaméreteket és az alkalmazás verzióját. Ha a megosztott adat tartalma megváltozik, újra engedélyt fogunk kérni a megosztás előtt.
+
+Az összesített statisztika nyilvánosan elérhető a https://data.syncthing.net linken.</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="open_website">Weblap megnyitása</string>
@@ -364,6 +366,8 @@
     <string name="behaviour_autostart_summary">Az alkalmazás automatikus elindítása az operációs rendszer indításakor.</string>
     <string name="use_root_title">Syncthing futtatása Superuser-ként</string>
     <string name="use_root_summary">A Syncthing root felhasználóként történő futtatása lehetővé teszi, hogy írjon az Android által általában olvasásra korlátozott mappákba. Körültekintően használja ezt a funkciót.</string>
+    <string name="bind_network_title">Kötés az aktív hálózathoz</string>
+    <string name="bind_network_summary">Kényszeríti a WiFi használatát akkor is, ha nincs internetkapcsolat. Ha kikapcsolja, a Syncthing ebben az esetben mobiladatokat használhat.</string>
     <string name="expert_mode_title">Szakértői mód</string>
     <string name="expert_mode_summary">Ha engedélyezi ezt az opciót, akkor megjelennek a speciális konfigurációs lehetőségek. Először érdemes átnézni a Syncthing dokumentációt, hogy megbizonyosodjon arról, hogyan kell ezeket helyesen használni. A helytelen beállítások az akkumulátor lemerülését, a rendszer erőforrásainak elfogyását vagy hiányos szinkronizálást okozhatnak.</string>
     <string name="preference_language_title">Nyelv</string>
@@ -431,14 +435,18 @@
     <string name="broadcast_service_control_title">Szolgáltatásvezérlés műsorszórással</string>
     <string name="broadcast_service_control_summary">Alapértelmezett: Kikapcsolva. Engedélyezze ezt az opciót, ha a szolgáltatást adások küldésével kívánja elindítani és leállítani, például harmadik fél automatizálási alkalmazásaiból. Megjegyzés: Az opció módosítása után manuálisan újra kell indítania az alkalmazást.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt? A már létező fájlok felül lesznek írva. VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
+    <string name="dialog_confirm_export">Biztosan exportálni szeretnéd a konfigurációt\? A már létező fájlok felül lesznek írva.
+
+VIGYÁZAT! Más alkalmazások kiolvashatják a backupból a titkos kulcsot, és ennek használatával letölthetik és módosíthatják szinkronizált fájljaidat.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt? A meglévő fájlok felül lesznek írva.</string>
+    <string name="dialog_confirm_import">Biztosan importálod a konfigurációt\? A meglévő fájlok felül lesznek írva.</string>
     <!-- Toast shown after config was exported -->
+    <string name="config_export_successful">A konfiguráció exportálása megtörtént: %1$s</string>
     <string name="config_export_failed">A konfiguráció exportálása sikertelen, ellenőrizze a hibanaplót.</string>
     <string name="import_config">Konfiguráció importálása</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">A konfiguráció importálása megtörtént.</string>
+    <string name="config_import_failed">Nem sikerült a konfiguráció importálása. Győzödj meg róla, hogy a fájlok itt találhatóak: %1$s</string>
     <string name="dialog_settings_restart_app_title">Újraindítás szükséges</string>
     <string name="dialog_settings_restart_app_question">Ennek az beállításnak a megváltoztatása az alkalmazás azonnali újraindítását igényli. Minden más módosítás elvetésre kerül. Tovább\?</string>
     <!-- Title for the preference to set STTRACE parameters -->
@@ -580,6 +588,7 @@
     <string name="reason_not_nonmetered_wifi">A szinkronizálás nem fut, mivel letiltotta, hogy számlázott WiFi-kapcsolatokon fusson.</string>
     <string name="reason_location_unavailable">A beállításokban engedélyezte a \"Futtatás a kiválasztott WiFi hálózatokon\" opciót. Az Android helymeghatározó szolgáltatásai jelenleg ki vannak kapcsolva. Az Android korlátozásai szerint a Syncthing nem tudja meghatározni az aktuális WiFi hálózat nevét annak eldöntéséhez, hogy fusson-e. Megoldás: Kapcsolja be a helymeghatározást, adja meg a helymeghatározási engedélyt, és csatlakoztassa újra a WiFi-t.</string>
     <string name="reason_on_flight_mode">A Syncthing fut, mivel engedélyezte, hogy fusson, amikor a repülési üzemmód aktív.</string>
+    <string name="reason_broadcast_controlled">A Syncthing egy harmadik féltől származó alkalmazás vagy az ADB által küldött adásokat hallgatja. Visszakapcsolhat a beépített futtatási feltételek használatára a \'Beállítások\' &gt; \'Kísérleti\' &gt; \'Szolgáltatásvezérlés műsorszórással\' letiltásával.</string>
     <string name="reason_run_condition_monitor_not_instantiated">A RunConditionMonitor nincs létrehozva. Kérjük, indítsa újra az alkalmazást, és küldjön hibajelentést, ha a hiba nem szűnik meg az újraindítás után.</string>
     <!-- Sync Conditions Dialog -->
     <string name="custom_wifi_ssid_whitelist_empty">Nincsenek fehérlistás WiFi SSID-k. Kérjük, adjon meg néhányat a beállításokban.</string>
@@ -660,6 +669,7 @@
     <string name="state_unshared">Nincs megosztva</string>
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+    <string name="appconfig_receiver_background_enabled">A Syncthing leállítása nem támogatott, ha engedélyezve van a háttérben futás</string>
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Mappa típusa</string>
     <!-- Displays the current folder type in the folder activity -->

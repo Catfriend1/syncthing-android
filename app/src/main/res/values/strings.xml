@@ -146,12 +146,6 @@
         <item quantity="other">%1$d / %2$d Files</item>
     </plurals>
 
-    <!-- Format string for conflict file count -->
-    <plurals name="conflicts">
-        <item quantity="one">%1$d conflict</item>
-        <item quantity="other">%1$d conflicts</item>
-    </plurals>
-
     <string name="override_changes">Override changes</string>
 
     <!-- Override Changes Confirmation Dialog -->
@@ -269,10 +263,6 @@
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignore Delete</string>
     <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
-
-    <!-- Setting title and description -->
-    <string name="folder_run_script_caption">Run Script</string>
-    <string name="folder_run_script_description">Expert option to run scripts after a folder changes its sync state. Scripts at \'.stfolder/*.sh\' will be executed, other locations are not supported for security considerations.\nExample script call: \'.stfolder/rename-files.sh sync_complete\'</string>
 
     <!-- Setting title -->
     <string name="folder_pause">Pause Folder</string>
@@ -540,11 +530,10 @@
     <string name="run_in_flight_mode_summary">Enabling this option will cause Syncthing to run even when you\'re offline. Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
 
     <string name="run_on_time_schedule_title">Run according to time schedule</string>
-    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for a configured duration if run conditions are fulfilled and if some specified interval period has elapsed since the last sync. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
+    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for a configured duration if run conditions are fulfilled and the last sync was more than 1 hour ago. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
 
     <string name="sync_duration_minutes_title">Duration of the sync cycle</string>
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
-    <string name="sleep_interval_minutes_title">Duration of the sync pause interval</string>
 
     <!-- Preferences - Behaviour -->
 
@@ -554,16 +543,15 @@
     <string name="use_root_title">Run Syncthing as Superuser</string>
     <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature with caution.</string>
 
+    <string name="bind_network_title">Bind to active network</string>
+    <string name="bind_network_summary">Force to use WiFi even if there is no internet connection. If disabled, Syncthing may use mobile data in this case.</string>
+
     <string name="expert_mode_title">Expert mode</string>
 
     <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete synchronization.</string>
 
     <string name="preference_language_title">Language</string>
     <string name="preference_language_summary">Change the app language</string>
-
-    <string name="start_into_web_gui_title">Start directly into web GUI</string>
- 
-    <string name="start_into_web_gui_summary">When starting the app, open web GUI instead of the main screen</string>
 
     <string name="pref_language_default">Default Language</string>
 
@@ -620,11 +608,6 @@
 
     <string name="webui_debugging_summary">Enable to start profiling and to be able to download a support bundle. Changing this option will restart Syncthing immediately.</string>
 
-    <string name="clear_stversions_title">Empty all versioning folders</string>
-    <string name="clear_stversions_summary">Files are moved to .stversions directory when replaced or deleted by Syncthing. You can probably find and recover accidentially deleted files there, but outdated versions of the files take storage space on your device.</string>
-    <string name="clear_stversions_question">This will delete all previous versions of files handled by Syncthing. Continue\?</string>
-    <string name="clear_stversions_done">Successfully cleared .stversions folders.</string>
-
     <string name="download_support_bundle_title">Download Support Bundle</string>
 
     <!-- Summary shown when the user clicked the download support bundle button -->
@@ -641,13 +624,7 @@
     <string name="undo_ignored_devices_folders_question">This will undo previous decisions to ignore devices and folders. Continue\?</string>
     <string name="undo_ignored_devices_folders_done">Successfully undone decisions.</string>
 
-    <string name="backup_rel_path_to_zip">Relative path to config archive</string>
-
-    <string name="backup_password_title">Config protection password</string>
-    <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your config during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nNot using a password, other apps are potentially able to read and manipulate your Syncthing configuration. Exposing the configuration carries the risk a bad actor may gain unauthorized access to your files using stolen config exports.</string>
-
-    <string name="backup_password_set">✅ Password set: %1$s</string>
-    <string name="backup_password_not_set">⚠ Password not set.</string>
+    <string name="backup_folder_name">Backup folder name</string>
 
     <string name="export_config">Export Configuration</string>
 
@@ -680,29 +657,25 @@
     <string name="toast_invalid_http_proxy_address">Input violates proxy syntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
     <string name="broadcast_service_control_title">Service Control by Broadcast</string>
-    <string name="broadcast_service_control_summary">Default: Disabled. Enable to let adb or third-party apps, e.g. automation apps instruct Syncthing to follow run conditions, force start or force stop.</string>
+    <string name="broadcast_service_control_summary">Default: Disabled. Enable this option to start and stop the service by sending broadcasts, e.g. from third-party automation apps. Note: You have to restart the app manually after changing this option.</string>
 
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Do you really want to export your configuration\? The existing archive will be overwritten.</string>
+    <string name="dialog_confirm_export">Do you really want to export your configuration\? Existing files will be overwritten.
+\n
+\nWARNING! Other applications may be able to read the private key from the backup location and use it to download/modify synchronized files.</string>
 
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Do you really want to import the configuration\? Existing settings including the shared folders and devices list will be replaced.</string>
-
-    <!-- PreferenceCategories -->
-    <string name="preference_category_actions">Actions</string>
-    <string name="preference_category_explanation">Explanation</string>
-    <string name="preference_category_prepare">Prepare</string>
+    <string name="dialog_confirm_import">Do you really want to import a new configuration\? Existing files will be overwritten.</string>
 
     <!-- Toast shown after config was exported -->
-    <string name="config_export_successful_no_path">Config was exported. Please make sure to remember the password for a later import.</string>
-    <string name="config_export_failed">Config export failed. Go to Settings-Troubleshooting-Open log to see details.</string>
+    <string name="config_export_successful">Config was exported to %1$s</string>
+    <string name="config_export_failed">Config export failed, check logcat output.</string>
 
     <string name="import_config">Import Configuration</string>
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
-
-    <string name="config_import_failed_no_path">Config import failed. Go to Settings-Troubleshooting-Open log to see details.</string>
+    <string name="config_import_failed">Config import failed, make sure files are in %1$s</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
     <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>
@@ -731,7 +704,6 @@
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Successfully reset Syncthing\'s delta indexes</string>
 
-    <!-- Settings / About -->
     <string name="category_about">About</string>
 
     <string name="verbose_log_title">Verbose log</string>
@@ -745,22 +717,6 @@
 
     <!-- Summary for the log activity -->
     <string name="open_log_summary">Open the Syncthing and Android log window</string>
-
-    <!-- Menu item linking support forum -->
-    <string name="syncthing_forum_title">Syncthing Forum</string>
-    <string name="syncthing_forum_summary">Go to the Syncthing Forum and get support</string>
-    <string name="syncthing_forum_url" translatable="false">https://forum.syncthing.net/</string>
-
-    <!-- Menu item for pizza -->
-    <string name="pizza_url_title">» Cats love pizza « 😺🍕</string>
-    <string name="pizza_url_summary">With just one tap, you can leave a warm slice of kindness - topped with extra good vibes to keep the cats happily purring along.</string>
-    <string name="pizza_url" translatable="false">https://liberapay.com/cf4friends/donate</string>
-
-    <!-- Menu item linking privacy policy -->
-    <string name="privacy_title">Privacy Policy</string>
-    <string name="privacy_summary">Open syncthing-android\'s privacy policy, which covers usage (if any) of personal data, e.g. location.</string>
-    <string name="privacy_policy_url" translatable="false">https://syncthing.net/android-privacy-policy</string>
-
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Report Issue</string>
 
@@ -793,12 +749,6 @@
 
     <!-- Title of the preference showing the OS open file limit -->
     <string name="os_open_file_limit">Android Open File Limit</string>
-    
-    <!-- Title of the preference showing the Open Source Licenses -->
-    <string name="open_source_licenses_title">Open Source Licenses</string>
-    
-    <!-- Summary of the preference showing the Open Source Licenses -->
-    <string name="open_source_licenses_summary">Show the open source licenses used</string>
 
     <!-- FolderPickerAcitivity -->
 
@@ -829,10 +779,6 @@
 
     <string name="syncthing_log_title">Syncthing Log</string>
     <string name="android_log_title">Android Log</string>
-
-    <string name="share_log_file_missing">The logfile to share is missing.</string>
-
-    <string name="share_log_file">Share log file</string>
 
     <!-- Title of the "log android" menu button -->
     <string name="view_android_log">View Android Log</string>
@@ -932,6 +878,7 @@
     <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
     <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on, grant location permission and reconnect WiFi.</string>
     <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
+    <string name="reason_broadcast_controlled">Syncthing is listening to broadcasts sent by a third-party app or ADB. You can switch back to use the built-in run conditions by disabling \'Settings\' &gt; \'Experimental\' &gt; \'Service Control by Broadcast\'.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>
 
     <!-- Sync Conditions Dialog -->
@@ -944,8 +891,8 @@
     <string name="exit">Exit</string>
 
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Running</string>
-    <string name="syncthing_active_details">Running: %1$s</string>
+    <string name="syncthing_active">Syncthing is running</string>
+    <string name="syncthing_active_details">Syncthing is running: %1$s</string>
     <string name="no_remote_devices_connected">No remote devices connected</string>
 
     <plurals name="device_online_up_to_date">
@@ -958,9 +905,9 @@
         <item quantity="other">Syncing: %1$d%% complete, %2$d devices online</item>
     </plurals>
 
-    <string name="syncthing_disabled">Sleeping</string>
+    <string name="syncthing_disabled">Syncthing is sleeping</string>
 
-    <string name="syncthing_terminated">Terminated</string>
+    <string name="syncthing_terminated">Syncthing was terminated</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
     <string name="executable_not_found">Core executable \"%s\" is missing. Check build and logcat output.</string>
@@ -979,7 +926,7 @@
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s-photos</string>
 
-    <string name="notification_crash_title">Crashed (exit code %1$s)</string>
+    <string name="notification_crash_title">Syncthing has crashed (exit code %1$s)</string>
     <string name="notification_crash_text">Click for logs (%1$s)</string>
 
     <string name="notifications_persistent_channel">Syncthing active</string>
@@ -1037,6 +984,8 @@
 
     <!-- Format string for folder size, eg "500 MiB / 1 GiB" -->
     <string name="folder_size_format">%1$s / %2$s</string>
+
+    <string name="appconfig_receiver_background_enabled">Stopping Syncthing is not supported when running in background is enabled.</string>
 
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Folder Type</string>

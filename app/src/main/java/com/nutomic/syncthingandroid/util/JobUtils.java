@@ -1,5 +1,6 @@
 package com.nutomic.syncthingandroid.util;
 
+import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -18,6 +19,7 @@ public class JobUtils {
 
     private static final int TOLERATED_INACCURACY_IN_SECONDS = 120;
 
+    // @TargetApi(21)
     public static void scheduleSyncTriggerServiceJob(Context context, int delayInSeconds, boolean startRun) {
         if (delayInSeconds < 0) {
             delayInSeconds = 0;
@@ -48,6 +50,7 @@ public class JobUtils {
                 "(+" + Integer.toString(TOLERATED_INACCURACY_IN_SECONDS) + ") seconds.");
     }
 
+    // @TargetApi(21)
     public static void cancelAllScheduledJobs(Context context) {
         JobScheduler jobScheduler = (JobScheduler) context.getSystemService(context.JOB_SCHEDULER_SERVICE);
         jobScheduler.cancelAll();
