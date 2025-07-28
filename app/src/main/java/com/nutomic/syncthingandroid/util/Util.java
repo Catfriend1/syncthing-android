@@ -36,7 +36,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.Locale;
 
-import eu.chainfire.libsuperuser.Shell;
+// import eu.chainfire.libsuperuser.Shell;
 
 public class Util {
 
@@ -106,7 +106,7 @@ public class Util {
         // Be paranoid :) and check if root is available.
         // Ignore the 'use_root' preference, because we might want to fix the permission
         // just after the root option has been disabled.
-        if (!Shell.SU.available()) {
+        /* if (!Shell.SU.available()) {
             Log.e(TAG, "Root is not available. Cannot fix permissions.");
             return false;
         }
@@ -141,7 +141,9 @@ public class Util {
             Log.w(TAG, "Failed to fix app data permissions on '" + dir + "'. Result: " +
                 Integer.toString(exitCode));
         }
-        return exitCode == 0;
+		*/
+        // return exitCode == 0;
+		return true;
     }
 
     /**
@@ -153,9 +155,9 @@ public class Util {
         Boolean useRoot = false;
         Boolean prefUseRoot = PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(Constants.PREF_USE_ROOT, false);
-        if (prefUseRoot && Shell.SU.available()) {
-            useRoot = true;
-        }
+        // if (prefUseRoot && Shell.SU.available()) {
+        //     useRoot = true;
+        // }
 
         // Write permission test file.
         String touchFile = absoluteFolderPath + "/" + TOUCH_FILE_NAME;

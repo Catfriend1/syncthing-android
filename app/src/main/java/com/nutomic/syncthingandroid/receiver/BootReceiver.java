@@ -15,7 +15,7 @@ import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingRunnable;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
-import eu.chainfire.libsuperuser.Shell;
+// import eu.chainfire.libsuperuser.Shell;
 
 import java.lang.SecurityException;
 
@@ -40,7 +40,8 @@ public class BootReceiver extends BroadcastReceiver {
         }
 
         if (packageReplaced) {
-            if (getPrefUseRoot(context) && Shell.SU.available()) {
+            // if (getPrefUseRoot(context) && Shell.SU.available()) {
+			if (getPrefUseRoot(context) && false) {
                 /**
                  * In Root mode, there will be a SyncthingNative process left running after app update.
                  * See https://github.com/Catfriend1/syncthing-android/issues/261

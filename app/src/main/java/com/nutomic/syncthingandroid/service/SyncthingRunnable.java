@@ -42,7 +42,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import javax.inject.Inject;
 
-import eu.chainfire.libsuperuser.Shell;
+// import eu.chainfire.libsuperuser.Shell;
 
 import static com.nutomic.syncthingandroid.service.SyncthingService.EXTRA_STOP_AFTER_CRASHED_NATIVE;
 
@@ -97,7 +97,8 @@ public class SyncthingRunnable implements Runnable {
         mLogFile = Constants.getLogFile(mContext);
 
         // Get preferences relevant to starting syncthing core.
-        mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
+        // mUseRoot = mPreferences.getBoolean(Constants.PREF_USE_ROOT, false) && Shell.SU.available();
+		mUseRoot = false;
         switch (command) {
             case deviceid:
                 mCommand = new String[]{mSyncthingBinary.getPath(), "--home=" + mContext.getFilesDir().toString(), "--device-id"};
@@ -375,10 +376,12 @@ public class SyncthingRunnable implements Runnable {
             // Settings prohibit using root privileges. Cannot increase inotify limit.
             return;
         }
-        if (!Shell.SU.available()) {
+        // if (!Shell.SU.available()) {
+		if (true) {
             Log.i(TAG, "increaseInotifyWatches: Root is not available. Cannot increase inotify limit.");
             return;
         }
+		
         int exitCode = Util.runShellCommand("sysctl -n -w fs.inotify.max_user_watches=131072\n", true);
         Log.i(TAG, "increaseInotifyWatches: sysctl returned " + Integer.toString(exitCode));
     }
@@ -387,28 +390,7 @@ public class SyncthingRunnable implements Runnable {
      * Look for a running libsyncthingnative.so process and nice its IO.
      */
     private void niceSyncthing() {
-        if (!mUseRoot) {
-            // Settings prohibit using root privileges. Cannot nice syncthing.
-            return;
-        }
-        if (!Shell.SU.available()) {
-            Log.i(TAG_NICE, "Root is not available. Cannot nice syncthing.");
-            return;
-        }
-
-        List<String> syncthingPIDs = getSyncthingPIDs(false);
-        if (syncthingPIDs.isEmpty()) {
-            Log.i(TAG_NICE, "Found no running instances of " + Constants.FILENAME_SYNCTHING_BINARY);
-            return;
-        }
-
-        // Ionice all running syncthing processes.
-        for (String syncthingPID : syncthingPIDs) {
-            // Set best-effort, low priority using ionice.
-            int exitCode = Util.runShellCommand("/system/bin/ionice " + syncthingPID + " be 7\n", true);
-            Log.i(TAG_NICE, "ionice returned " + Integer.toString(exitCode) +
-                    " on " + Constants.FILENAME_SYNCTHING_BINARY);
-        }
+        return;
     }
 
     /**

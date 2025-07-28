@@ -68,7 +68,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
-import eu.chainfire.libsuperuser.Shell;
+// import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsActivity extends SyncthingActivity {
 
@@ -972,7 +972,8 @@ public class SettingsActivity extends SyncthingActivity {
 
             @Override
             protected Boolean doInBackground(Void... params) {
-                return Shell.SU.available();
+				return false;
+                // return Shell.SU.available();
             }
 
             @Override
