@@ -762,4 +762,5 @@
     <string name="backup_password_set">✅ Parola setată: %1$s</string>
     <string name="config_export_successful_no_path">Configurația a fost exportată. Asigură-te că ai memorizat parola pentru un import ulterior.</string>
     <string name="share_log_file">Partajează fișierul jurnal</string>
+    <string name="backup_password_title">Parola de protecție configurare</string>
 </resources>
