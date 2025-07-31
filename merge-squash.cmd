@@ -1,6 +1,5 @@
 @echo off
 setlocal enabledelayedexpansion
-cls
 SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
 REM 

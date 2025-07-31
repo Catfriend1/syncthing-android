@@ -1,151 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
 
     <RelativeLayout
+        android:id="@+id/inner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:descendantFocusability="blocksDescendants">
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
+        android:paddingRight="@dimen/abc_action_bar_content_inset_material"
+        android:paddingTop="8dp">
 
-        <RelativeLayout
-            android:id="@+id/inner"
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/state"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?textAppearanceListItemPrimary" />
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textAppearance="?textAppearanceListItemSmall" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
-            android:paddingRight="@dimen/abc_action_bar_content_inset_material"
-            android:paddingTop="8dp">
+            android:layout_below="@id/label"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:ellipsize="end"
+            android:theme="@style/progressBarBlue" />
 
-            <TextView
-                android:id="@+id/label"
+        <TextView
+            android:id="@+id/directory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:ellipsize="end"
+            android:textAppearance="?textAppearanceListItemSecondary" />
+
+        <RelativeLayout
+                android:id="@+id/override_revert_container"
+                android:layout_below="@id/directory"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+            <Button
+                android:id="@+id/override"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/state"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textAppearance="?textAppearanceListItemPrimary" />
+                android:contentDescription="@string/override_changes"
+                android:paddingEnd="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:text="@string/override_changes"
+                app:drawableLeftCompat="@drawable/ic_cloud_upload_red_24"
+                app:drawableStartCompat="@drawable/ic_cloud_upload_red_24"
+                android:drawablePadding="5sp"
+                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/state"
+            <Button
+                android:id="@+id/revert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:textAppearance="?textAppearanceListItemSmall" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/label"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="0"
-                android:ellipsize="end"
-                android:theme="@style/progressBarBlue" />
-
-            <TextView
-                android:id="@+id/directory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/progressBar"
-                android:ellipsize="end"
-                android:textAppearance="?textAppearanceListItemSecondary" />
-
-            <RelativeLayout
-                    android:id="@+id/override_revert_container"
-                    android:layout_below="@id/directory"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
-
-                <Button
-                    android:id="@+id/override"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/override_changes"
-                    android:paddingEnd="20dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingStart="20dp"
-                    android:text="@string/override_changes"
-                    app:drawableLeftCompat="@drawable/ic_cloud_upload_red_24"
-                    app:drawableStartCompat="@drawable/ic_cloud_upload_red_24"
-                    android:drawablePadding="5sp"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/revert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/revert_local_changes"
-                    android:paddingEnd="20dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingStart="20dp"
-                    android:text="@string/revert_local_changes"
-                    app:drawableLeftCompat="@drawable/ic_cloud_download_red_24"
-                    app:drawableStartCompat="@drawable/ic_cloud_download_red_24"
-                    android:drawablePadding="5sp"
-                    android:textSize="12sp" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/lastItemFinishedItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/override_revert_container"
-                android:textAppearance="?textAppearanceListItemSecondary" />
-
-            <TextView
-                android:id="@+id/lastItemFinishedTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lastItemFinishedItem"
-                android:textAppearance="?textAppearanceListItemSecondary" />
-
-            <TextView
-                android:id="@+id/items"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lastItemFinishedTime"
-                android:textAppearance="?textAppearanceListItemSecondary" />
-
-            <TextView
-                android:id="@+id/conflicts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/items"
-                android:textAppearance="?textAppearanceListItemSecondary"
-                android:textColor="@color/text_orange" />
-
-            <TextView
-                android:id="@+id/invalid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/conflicts"
-                android:textAppearance="?textAppearanceListItemSecondary"
-                android:textColor="@color/text_red" />
+                android:contentDescription="@string/revert_local_changes"
+                android:paddingEnd="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:text="@string/revert_local_changes"
+                app:drawableLeftCompat="@drawable/ic_cloud_download_red_24"
+                app:drawableStartCompat="@drawable/ic_cloud_download_red_24"
+                android:drawablePadding="5sp"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
-        <ImageButton
-            android:id="@+id/open_folder"
+        <TextView
+            android:id="@+id/lastItemFinishedItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inner"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/inner"
-            android:background="@null"
-            android:contentDescription="@string/open_file_manager"
-            android:paddingBottom="5dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="30dp"
-            android:paddingTop="5dp"
-            app:srcCompat="@drawable/baseline_folder_24" />
+            android:layout_below="@id/override_revert_container"
+            android:textAppearance="?textAppearanceListItemSecondary" />
+
+        <TextView
+            android:id="@+id/lastItemFinishedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lastItemFinishedItem"
+            android:textAppearance="?textAppearanceListItemSecondary" />
+
+        <TextView
+            android:id="@+id/items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lastItemFinishedTime"
+            android:textAppearance="?textAppearanceListItemSecondary" />
+
+        <TextView
+            android:id="@+id/conflicts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/items"
+            android:textAppearance="?textAppearanceListItemSecondary"
+            android:textColor="@color/text_orange" />
+
+        <TextView
+            android:id="@+id/invalid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/conflicts"
+            android:textAppearance="?textAppearanceListItemSecondary"
+            android:textColor="@color/text_red" />
 
     </RelativeLayout>
 
-</layout>
+    <ImageButton
+        android:id="@+id/openFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/inner"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/inner"
+        android:background="@null"
+        android:contentDescription="@string/open_file_manager"
+        android:paddingBottom="5dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="30dp"
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/baseline_folder_24" />
+
+</RelativeLayout>
