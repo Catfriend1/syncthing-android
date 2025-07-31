@@ -266,7 +266,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
 
         String itemCountAndFirst = "\u26a0 ";
         itemCountAndFirst += mContext.getResources()
-                        .getQuantityString(R.plurals.conflicts, (int) conflictFileCount, conflictFileCount);
+                        .getQuantityString(R.plurals.conflicts, conflictFileCount, conflictFileCount);
         itemCountAndFirst += "\n\u292e ";
         itemCountAndFirst += discoveredConflictFiles[0];
         if (conflictFileCount > 1) {
