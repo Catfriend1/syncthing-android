@@ -239,11 +239,10 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             }
         }
 
-        showConflictsUI(binding, cachedFolderStatus.discoveredConflictFiles);
+        showConflictsUI(holder.conflicts, cachedFolderStatus.discoveredConflictFiles);
+        showLastItemFinishedUI(holder.lastItemFinishedItem, holder.lastItemFinishedTime, cachedFolderStatus);
 
-        showLastItemFinishedUI(binding, cachedFolderStatus);
-
-        binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
+        holder.items.setVisibility(folder.paused ? GONE : VISIBLE);
         String itemsAndSize = "\u2211 ";
         itemsAndSize += mContext.getResources()
                 .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles);
@@ -251,9 +250,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         itemsAndSize += mContext.getString(R.string.folder_size_format,
                 Util.readableFileSize(mContext, folderStatus.inSyncBytes),
                 Util.readableFileSize(mContext, folderStatus.globalBytes));
-        binding.items.setText(itemsAndSize);
+        holder.items.setText(itemsAndSize);
 
-        setTextOrHide(binding.invalid, folderStatus.invalid);
+        setTextOrHide(holder.invalid, folderStatus.invalid);
     }
 
     private void showConflictsUI(TextView view, final String[] discoveredConflictFiles) {
