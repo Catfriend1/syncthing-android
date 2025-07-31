@@ -256,11 +256,10 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         setTextOrHide(binding.invalid, folderStatus.invalid);
     }
 
-    private void showConflictsUI(ItemFolderListBinding binding, 
-                                        final String[] discoveredConflictFiles) {
-        Integer conflictFileCount = discoveredConflictFiles.length;
+    private void showConflictsUI(TextView view, final String[] discoveredConflictFiles) {
+        int conflictFileCount = discoveredConflictFiles.length;
         if (conflictFileCount == 0) {
-            binding.conflicts.setVisibility(GONE);
+            view.setVisibility(GONE);
             return;
         }
 
@@ -273,9 +272,8 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             itemCountAndFirst += "\n\u2026";
         }
 
-        binding.conflicts.setText(itemCountAndFirst);
-        binding.conflicts.setVisibility(VISIBLE);
-        return;
+        view.setText(itemCountAndFirst);
+        view.setVisibility(VISIBLE);
     }
 
     private void showLastItemFinishedUI(ItemFolderListBinding binding, 
