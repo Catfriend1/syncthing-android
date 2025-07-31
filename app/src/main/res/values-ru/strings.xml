@@ -309,7 +309,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Вы действительно хотите экспортировать свою конфигурацию? Существующий архив будет перезаписан.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Вы действительно хотите импортировать конфигурацию? Существующие настройки, включая список общих папок и устройств, будут заменены.</string>
+    <string name="dialog_confirm_import">Вы действительно хотите импортировать конфигурацию? Существующие настройки, включая список общих папок и устройств будут заменены.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Импорт настроек</string>
     <!-- Toast shown after config was imported -->
@@ -329,8 +329,7 @@ Android требует разрешение доступа к геолокаци
     <!-- Title for the preference to reset Syncthing indexes -->
     <string name="st_reset_deltas_title">Сбросить изменения индексов</string>
     <!-- Syncthing was reset -->
-    <string name="st_reset_deltas_question">This action should only be performed based on a recommendation from our support team.
-\nAre you sure you want to clear Syncthing\'s delta indexes\?</string>
+    <string name="st_reset_deltas_question">Это действие должно производиться только на основании рекомендации от нашей команды поддержки.\nВы уверены, что хотите очистить дельта индексы Syncthing?</string>
     <!-- Syncthing was reset -->
     <string name="st_reset_deltas_done">Изменения индексов Syncthing успешно сброшены</string>
     <string name="category_about">О программе</string>
@@ -390,7 +389,7 @@ Android требует разрешение доступа к геолокаци
         <item quantity="other">%1$d файла скопировано в папку \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
-    <string name="copy_exception">Произошел сбой во время синхронизации, проверьте логи приложения</string>
+    <string name="copy_exception">Произошла ошибка во время синхронизации, проверьте логи приложения</string>
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Копируем файлы…</string>
     <plurals name="file_name_title">
@@ -749,4 +748,5 @@ Android требует разрешение доступа к геолокаци
     <string name="backup_password_summary">ℹ️ Рекомендуется:\nВведите надежный пароль, который используется для шифрования вашей конфигурации при экспорте и расшифровки при импорте. Сохраните этот пароль в надежном месте для процесса восстановления. Он понадобится вам для использования функции импорта.\n\n⚠️ Не рекомендуется:\nБез использования пароля другие приложения потенциально могут считывать вашу конфигурацию Syncthing и манипулировать ею. Раскрытие конфигурации сопряжено с риском того, что злоумышленник может получить несанкционированный доступ к вашим файлам, используя украденную конфигурацию.</string>
     <string name="share_log_file">Отправить файл журнала</string>
     <string name="reason_location_unavailable">Вы включили опцию \'Запуск в выбранных сетях Wi-Fi\' в настройках. Службы определения местоположения Android в настоящее время отключены. В соответствии с ограничениями Android, Syncthing не может определить текущее имя сети Wi-Fi, чтобы решить, должен ли он запуститься. Решение: Включите функцию определения местоположения, предоставьте разрешение на определение местоположения и повторно подключите Wi-Fi.</string>
+    <string name="preference_category_prepare">Подготовить</string>
 </resources>
