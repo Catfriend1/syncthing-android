@@ -29,7 +29,6 @@ import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 
 import com.nutomic.syncthingandroid.R
 
-@OptIn(ExperimentalMaterial3Api::class)
 class LicenseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +42,7 @@ class LicenseActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LicenseScreen() {
     MaterialTheme {
