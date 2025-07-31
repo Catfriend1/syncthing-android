@@ -184,11 +184,11 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                     case "idle":
                         if (folder.getDeviceCount() <= 1) {
                             // Special case: The folder is IDLE and UNSHARED.
-                            binding.state.setText(mContext.getString(R.string.state_unshared));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                            holder.state.setText(R.string.state_unshared);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         } else if (revertButtonVisible) {
-                            binding.state.setText(mContext.getString(R.string.state_local_additions));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
+                            holder.state.setText(R.string.state_local_additions);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         } else {
                             holder.state.setText(R.string.state_up_to_date);
                             holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
