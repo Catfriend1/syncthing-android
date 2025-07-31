@@ -217,24 +217,24 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "sync-preparing":
-                        binding.state.setText(mContext.getString(R.string.state_sync_preparing));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_sync_preparing);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "error":
                         if (TextUtils.isEmpty(folderStatus.error)) {
-                            binding.state.setText(mContext.getString(R.string.state_error));
+                            holder.state.setText(R.string.state_error);
                         } else {
-                            binding.state.setText(mContext.getString(R.string.state_error_message, folderStatus.error));
+                            holder.state.setText(mContext.getString(R.string.state_error_message, folderStatus.error));
                         }
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                         break;
                     case "unknown":
-                        binding.state.setText(mContext.getString(R.string.state_unknown));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setText(R.string.state_unknown);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                         break;
                     default:
-                        binding.state.setText(folderStatus.state);
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setText(folderStatus.state);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                 }
             }
         }
