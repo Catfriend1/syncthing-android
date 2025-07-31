@@ -144,9 +144,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         long neededItems = folderStatus.needFiles + folderStatus.needDirectories + folderStatus.needSymlinks + folderStatus.needDeletes;
         boolean outOfSync = folderStatus.state.equals("idle") && neededItems > 0;
         boolean overrideButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
-        binding.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
+        holder.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
 
-        binding.progressBar.setVisibility(folderStatus.state.equals("syncing") ? VISIBLE : GONE);
+        holder.progressBar.setVisibility(folderStatus.state.equals("syncing") ? VISIBLE : GONE);
 
         boolean revertButtonVisible = false;
         if (folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY)) {
@@ -154,32 +154,32 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         } else if (folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED)) {
             revertButtonVisible = ((folderStatus.receiveOnlyTotalItems - folderStatus.receiveOnlyChangedDeletes) > 0);
         }
-        binding.revert.setText(mContext.getString(folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) ?
+        holder.revert.setText(mContext.getString(folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) ?
                                     R.string.revert_local_changes :
                                     R.string.delete_unexpected_items
-                                ));
-        binding.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
+        ));
+        holder.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
 
-        binding.state.setVisibility(VISIBLE);
+        holder.state.setVisibility(VISIBLE);
         if (outOfSync) {
-            binding.state.setText(mContext.getString(R.string.status_outofsync));
-            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+            holder.state.setText(mContext.getString(R.string.status_outofsync));
+            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
         } else if (failedItems) {
-            binding.state.setText(mContext.getString(R.string.state_failed_items, folderStatus.errors));
-            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+            holder.state.setText(mContext.getString(R.string.state_failed_items, folderStatus.errors));
+            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
         } else {
             if (folder.paused) {
-                binding.state.setText(mContext.getString(R.string.state_paused));
-                binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
+                holder.state.setText(mContext.getString(R.string.state_paused));
+                holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
             } else {
                 switch(folderStatus.state) {
                     case "clean-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_clean_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_clean_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "cleaning":
-                        binding.state.setText(mContext.getString(R.string.state_cleaning));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_cleaning);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "idle":
                         if (folder.getDeviceCount() <= 1) {
