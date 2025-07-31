@@ -1,115 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
 
     <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/inner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:descendantFocusability="blocksDescendants">
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
+        android:paddingRight="@dimen/abc_action_bar_content_inset_material"
+        android:paddingTop="8dp">
 
-        <RelativeLayout
-            android:id="@+id/inner"
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAppearance="?textAppearanceListItemPrimary" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:paddingLeft="@dimen/abc_action_bar_content_inset_material"
-            android:paddingRight="@dimen/abc_action_bar_content_inset_material"
-            android:paddingTop="8dp">
+            android:layout_below="@id/name"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:ellipsize="end"
+            android:theme="@style/progressBarBlue" />
+
+        <RelativeLayout
+            android:id="@+id/deviceInfoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/progressBar">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/lastSeen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textAppearance="?textAppearanceListItemPrimary" />
+                android:textAppearance="?textAppearanceListItemSecondary" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/sharedFoldersTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/name"
-                android:indeterminate="false"
-                android:max="100"
-                android:progress="0"
-                android:ellipsize="end"
-                android:theme="@style/progressBarBlue" />
+                android:layout_below="@id/lastSeen"
+                android:text="@string/shared_folders_title_colon"
+                android:textAppearance="?textAppearanceListItemSecondary" />
 
-            <RelativeLayout
-                android:id="@+id/deviceInfoContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/progressBar">
-
-                <TextView
-                    android:id="@+id/lastSeen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-                <TextView
-                    android:id="@+id/sharedFoldersTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/lastSeen"
-                    android:text="@string/shared_folders_title_colon"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-                <TextView
-                    android:id="@+id/sharedFolders"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sharedFoldersTitle"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rateInOutContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/deviceInfoContainer">
-
-                <TextView
-                    android:id="@+id/bandwidthUpDown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?textAppearanceListItemSecondary" />
-
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/sharedFolders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sharedFoldersTitle"
+                android:textAppearance="?textAppearanceListItemSecondary" />
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/status"
-            android:ellipsize="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/open_device"
-            android:paddingBottom="12dp"
-            android:paddingTop="12dp"
-            android:lines="1"
-            android:textAppearance="?textAppearanceListItemSmall"
-            tools:ignore="RelativeOverlap" />
+        <RelativeLayout
+            android:id="@+id/rateInOutContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/deviceInfoContainer">
 
-        <ImageButton
-            android:id="@+id/open_device"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/inner"
-            android:background="@null"
-            android:contentDescription="@null"
-            android:paddingBottom="9dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="30dp"
-            android:paddingTop="9dp"
-            app:srcCompat="@drawable/ic_phonelink_black_24dp_active" />
+            <TextView
+                android:id="@+id/bandwidthUpDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?textAppearanceListItemSecondary" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</layout>
+    <TextView
+        android:id="@+id/status"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/open_device"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
+        android:lines="1"
+        android:textAppearance="?textAppearanceListItemSmall"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageButton
+        android:id="@+id/open_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/inner"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:paddingBottom="9dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="30dp"
+        android:paddingTop="9dp"
+        app:srcCompat="@drawable/ic_phonelink_black_24dp_active" />
+
+</RelativeLayout>
