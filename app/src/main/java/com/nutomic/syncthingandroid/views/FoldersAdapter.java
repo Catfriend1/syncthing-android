@@ -8,15 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
 
 import com.nutomic.syncthingandroid.R;
-import com.nutomic.syncthingandroid.databinding.ItemFolderListBinding;
 import com.nutomic.syncthingandroid.model.CachedFolderStatus;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderStatus;
@@ -51,19 +51,54 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         mRestApi = restApi;
     }
 
+    static class ViewHolder {
+        TextView label;
+        TextView directory;
+        TextView items;
+        TextView state;
+        TextView revert;
+        TextView override;
+        TextView invalid;
+        TextView lastItemFinishedItem;
+        TextView lastItemFinishedTime;
+        TextView conflicts;
+        ProgressBar progressBar;
+        ImageView openFolder;
+    }
+
     @Override
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ItemFolderListBinding binding = (convertView == null)
-                ? DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_folder_list, parent, false)
-                : DataBindingUtil.bind(convertView);
+        ViewHolder holder;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_folder_list, parent, false);
+
+            holder = new ViewHolder();
+            holder.label = convertView.findViewById(R.id.label);
+            holder.directory = convertView.findViewById(R.id.directory);
+            holder.items = convertView.findViewById(R.id.items);
+            holder.state = convertView.findViewById(R.id.state);
+            holder.revert = convertView.findViewById(R.id.revert);
+            holder.override = convertView.findViewById(R.id.override);
+            holder.invalid = convertView.findViewById(R.id.invalid);
+            holder.lastItemFinishedItem = convertView.findViewById(R.id.lastItemFinishedItem);
+            holder.lastItemFinishedTime = convertView.findViewById(R.id.lastItemFinishedTime);
+            holder.conflicts = convertView.findViewById(R.id.conflicts);
+            holder.progressBar = convertView.findViewById(R.id.progressBar);
+            holder.openFolder = convertView.findViewById(R.id.openFolder);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         Folder folder = getItem(position);
-        binding.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
-        binding.directory.setText(getShortPathForUI(folder.path));
-        binding.override.setOnClickListener(view -> { onClickOverride(view, folder); } );
-        binding.revert.setOnClickListener(view -> { onClickRevert(view, folder); } );
-        binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
+        holder.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
+        holder.directory.setText(getShortPathForUI(folder.path));
+        holder.override.setOnClickListener(view -> { onClickOverride(view, folder); });
+        holder.revert.setOnClickListener(view -> { onClickRevert(view, folder); });
+        holder.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); });
 
         // Update folder icon.
         int drawableId = R.drawable.baseline_folder_24;
@@ -79,23 +114,23 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 break;
             default:
         }
-        binding.openFolder.setImageResource(drawableId);
+        holder.openFolder.setImageResource(drawableId);
 
-        updateFolderStatusView(binding, folder);
-        return binding.getRoot();
+        updateFolderStatusView(holder, folder);
+        return convertView;
     }
 
-    private void updateFolderStatusView(ItemFolderListBinding binding, Folder folder) {
-        if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
-            binding.conflicts.setVisibility(GONE);
-            binding.lastItemFinishedItem.setVisibility(GONE);
-            binding.lastItemFinishedTime.setVisibility(GONE);
-            binding.items.setVisibility(GONE);
-            binding.override.setVisibility(GONE);
-            binding.progressBar.setVisibility(GONE);
-            binding.revert.setVisibility(GONE);
-            binding.state.setVisibility(GONE);
-            setTextOrHide(binding.invalid, folder.invalid);
+    private void updateFolderStatusView(ViewHolder holder, Folder folder) {
+        if (mRestApi == null || !mRestApi.isConfigLoaded()) {
+            holder.conflicts.setVisibility(GONE);
+            holder.lastItemFinishedItem.setVisibility(GONE);
+            holder.lastItemFinishedTime.setVisibility(GONE);
+            holder.items.setVisibility(GONE);
+            holder.override.setVisibility(GONE);
+            holder.progressBar.setVisibility(GONE);
+            holder.revert.setVisibility(GONE);
+            holder.state.setVisibility(GONE);
+            setTextOrHide(holder.invalid, folder.invalid);
             return;
         }
 
