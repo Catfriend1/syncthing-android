@@ -276,15 +276,15 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         view.setVisibility(VISIBLE);
     }
 
-    private void showLastItemFinishedUI(ItemFolderListBinding binding, 
-                                                final CachedFolderStatus cachedFolderStatus) {
+    private void showLastItemFinishedUI(TextView itemView, TextView timeView, final CachedFolderStatus cachedFolderStatus) {
         if (TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedAction) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedItem) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedTime)) {
-            binding.lastItemFinishedItem.setVisibility(GONE);
-            binding.lastItemFinishedTime.setVisibility(GONE);
+            itemView.setVisibility(GONE);
+            timeView.setVisibility(GONE);
             return;
         }
+
         String finishedItemText = "\u21cc";
         switch (cachedFolderStatus.lastItemFinishedAction) {
             case "delete":
@@ -300,16 +300,13 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 finishedItemText += " \u2049";
         }
         finishedItemText += " " + Util.getPathEllipsis(cachedFolderStatus.lastItemFinishedItem);
+        itemView.setText(finishedItemText);
+        itemView.setVisibility(VISIBLE);
 
-        binding.lastItemFinishedItem.setText(finishedItemText);
-        binding.lastItemFinishedItem.setVisibility(VISIBLE);
-
-        String finishedItemTime = "\u21cc\u231a";
-        finishedItemTime += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
-        binding.lastItemFinishedTime.setText(finishedItemTime);
-        binding.lastItemFinishedTime.setVisibility(VISIBLE);
-
-        return;
+        String finishedTimeText = "\u21cc\u231a";
+        finishedTimeText += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
+        timeView.setText(finishedTimeText);
+        timeView.setVisibility(VISIBLE);
     }
 
     private void setTextOrHide(TextView view, String text) {
