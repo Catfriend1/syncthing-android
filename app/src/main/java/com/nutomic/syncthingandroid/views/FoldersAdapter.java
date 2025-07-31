@@ -207,14 +207,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                         binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "syncing":
-                        binding.progressBar.setProgress((int) cachedFolderStatus.completion);
-                        binding.state.setText(
-                                mContext.getString(
-                                    R.string.state_syncing,
-                                    (int) cachedFolderStatus.completion
-                                )
-                        );
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.progressBar.setProgress((int) cachedFolderStatus.completion);
+                        holder.state.setText(mContext.getString(R.string.state_syncing, (int) cachedFolderStatus.completion));
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "sync-preparing":
                         holder.state.setText(R.string.state_sync_preparing);
