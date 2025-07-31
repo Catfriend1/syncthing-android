@@ -23,6 +23,7 @@ gson = "2.13.1"
 guava = "33.4.8-android"
 jbcrypt = "0.4"
 kotlin = "2.2.0"
+ksp = "2.2.0-2.0.2"
 libsuperuser = "1.1.1"
 lingala-zip4j = "2.11.5"
 localbroadcastmanager = "1.1.0"
@@ -72,5 +73,5 @@ aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "abo
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 vyarus-use-python = { id = "ru.vyarus.use-python", version.ref = "vyarus-use-python" }
