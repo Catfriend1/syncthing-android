@@ -190,21 +190,21 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                             binding.state.setText(mContext.getString(R.string.state_local_additions));
                             binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         } else {
-                            binding.state.setText(mContext.getString(R.string.state_up_to_date));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
+                            holder.state.setText(R.string.state_up_to_date);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         }
                         break;
                     case "scan-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_scan_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_scan_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "scanning":
-                        binding.state.setText(mContext.getString(R.string.state_scanning));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_scanning);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "sync-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_sync_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_sync_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "syncing":
                         holder.progressBar.setProgress((int) cachedFolderStatus.completion);
