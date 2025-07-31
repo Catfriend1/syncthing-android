@@ -8,15 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
 
 import com.nutomic.syncthingandroid.R;
-import com.nutomic.syncthingandroid.databinding.ItemFolderListBinding;
 import com.nutomic.syncthingandroid.model.CachedFolderStatus;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderStatus;
@@ -51,19 +51,54 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         mRestApi = restApi;
     }
 
+    static class ViewHolder {
+        TextView label;
+        TextView directory;
+        TextView items;
+        TextView state;
+        TextView revert;
+        TextView override;
+        TextView invalid;
+        TextView lastItemFinishedItem;
+        TextView lastItemFinishedTime;
+        TextView conflicts;
+        ProgressBar progressBar;
+        ImageView openFolder;
+    }
+
     @Override
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ItemFolderListBinding binding = (convertView == null)
-                ? DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_folder_list, parent, false)
-                : DataBindingUtil.bind(convertView);
+        ViewHolder holder;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_folder_list, parent, false);
+
+            holder = new ViewHolder();
+            holder.label = convertView.findViewById(R.id.label);
+            holder.directory = convertView.findViewById(R.id.directory);
+            holder.items = convertView.findViewById(R.id.items);
+            holder.state = convertView.findViewById(R.id.state);
+            holder.revert = convertView.findViewById(R.id.revert);
+            holder.override = convertView.findViewById(R.id.override);
+            holder.invalid = convertView.findViewById(R.id.invalid);
+            holder.lastItemFinishedItem = convertView.findViewById(R.id.lastItemFinishedItem);
+            holder.lastItemFinishedTime = convertView.findViewById(R.id.lastItemFinishedTime);
+            holder.conflicts = convertView.findViewById(R.id.conflicts);
+            holder.progressBar = convertView.findViewById(R.id.progressBar);
+            holder.openFolder = convertView.findViewById(R.id.openFolder);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         Folder folder = getItem(position);
-        binding.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
-        binding.directory.setText(getShortPathForUI(folder.path));
-        binding.override.setOnClickListener(view -> { onClickOverride(view, folder); } );
-        binding.revert.setOnClickListener(view -> { onClickRevert(view, folder); } );
-        binding.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); } );
+        holder.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
+        holder.directory.setText(getShortPathForUI(folder.path));
+        holder.override.setOnClickListener(view -> { onClickOverride(view, folder); });
+        holder.revert.setOnClickListener(view -> { onClickRevert(view, folder); });
+        holder.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); });
 
         // Update folder icon.
         int drawableId = R.drawable.baseline_folder_24;
@@ -79,23 +114,23 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 break;
             default:
         }
-        binding.openFolder.setImageResource(drawableId);
+        holder.openFolder.setImageResource(drawableId);
 
-        updateFolderStatusView(binding, folder);
-        return binding.getRoot();
+        updateFolderStatusView(holder, folder);
+        return convertView;
     }
 
-    private void updateFolderStatusView(ItemFolderListBinding binding, Folder folder) {
-        if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
-            binding.conflicts.setVisibility(GONE);
-            binding.lastItemFinishedItem.setVisibility(GONE);
-            binding.lastItemFinishedTime.setVisibility(GONE);
-            binding.items.setVisibility(GONE);
-            binding.override.setVisibility(GONE);
-            binding.progressBar.setVisibility(GONE);
-            binding.revert.setVisibility(GONE);
-            binding.state.setVisibility(GONE);
-            setTextOrHide(binding.invalid, folder.invalid);
+    private void updateFolderStatusView(ViewHolder holder, Folder folder) {
+        if (mRestApi == null || !mRestApi.isConfigLoaded()) {
+            holder.conflicts.setVisibility(GONE);
+            holder.lastItemFinishedItem.setVisibility(GONE);
+            holder.lastItemFinishedTime.setVisibility(GONE);
+            holder.items.setVisibility(GONE);
+            holder.override.setVisibility(GONE);
+            holder.progressBar.setVisibility(GONE);
+            holder.revert.setVisibility(GONE);
+            holder.state.setVisibility(GONE);
+            setTextOrHide(holder.invalid, folder.invalid);
             return;
         }
 
@@ -109,9 +144,9 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         long neededItems = folderStatus.needFiles + folderStatus.needDirectories + folderStatus.needSymlinks + folderStatus.needDeletes;
         boolean outOfSync = folderStatus.state.equals("idle") && neededItems > 0;
         boolean overrideButtonVisible = folder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) && outOfSync;
-        binding.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
+        holder.override.setVisibility(overrideButtonVisible ? VISIBLE : GONE);
 
-        binding.progressBar.setVisibility(folderStatus.state.equals("syncing") ? VISIBLE : GONE);
+        holder.progressBar.setVisibility(folderStatus.state.equals("syncing") ? VISIBLE : GONE);
 
         boolean revertButtonVisible = false;
         if (folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY)) {
@@ -119,96 +154,90 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         } else if (folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ENCRYPTED)) {
             revertButtonVisible = ((folderStatus.receiveOnlyTotalItems - folderStatus.receiveOnlyChangedDeletes) > 0);
         }
-        binding.revert.setText(mContext.getString(folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) ?
+        holder.revert.setText(mContext.getString(folder.type.equals(Constants.FOLDER_TYPE_RECEIVE_ONLY) ?
                                     R.string.revert_local_changes :
                                     R.string.delete_unexpected_items
-                                ));
-        binding.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
+        ));
+        holder.revert.setVisibility(revertButtonVisible ? VISIBLE : GONE);
 
-        binding.state.setVisibility(VISIBLE);
+        holder.state.setVisibility(VISIBLE);
         if (outOfSync) {
-            binding.state.setText(mContext.getString(R.string.status_outofsync));
-            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+            holder.state.setText(mContext.getString(R.string.status_outofsync));
+            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
         } else if (failedItems) {
-            binding.state.setText(mContext.getString(R.string.state_failed_items, folderStatus.errors));
-            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+            holder.state.setText(mContext.getString(R.string.state_failed_items, folderStatus.errors));
+            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
         } else {
             if (folder.paused) {
-                binding.state.setText(mContext.getString(R.string.state_paused));
-                binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
+                holder.state.setText(mContext.getString(R.string.state_paused));
+                holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_purple));
             } else {
                 switch(folderStatus.state) {
                     case "clean-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_clean_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_clean_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "cleaning":
-                        binding.state.setText(mContext.getString(R.string.state_cleaning));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_cleaning);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "idle":
                         if (folder.getDeviceCount() <= 1) {
                             // Special case: The folder is IDLE and UNSHARED.
-                            binding.state.setText(mContext.getString(R.string.state_unshared));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                            holder.state.setText(R.string.state_unshared);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         } else if (revertButtonVisible) {
-                            binding.state.setText(mContext.getString(R.string.state_local_additions));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
+                            holder.state.setText(R.string.state_local_additions);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         } else {
-                            binding.state.setText(mContext.getString(R.string.state_up_to_date));
-                            binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
+                            holder.state.setText(R.string.state_up_to_date);
+                            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_green));
                         }
                         break;
                     case "scan-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_scan_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_scan_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "scanning":
-                        binding.state.setText(mContext.getString(R.string.state_scanning));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_scanning);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "sync-waiting":
-                        binding.state.setText(mContext.getString(R.string.state_sync_waiting));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
+                        holder.state.setText(R.string.state_sync_waiting);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_orange));
                         break;
                     case "syncing":
-                        binding.progressBar.setProgress((int) cachedFolderStatus.completion);
-                        binding.state.setText(
-                                mContext.getString(
-                                    R.string.state_syncing,
-                                    (int) cachedFolderStatus.completion
-                                )
-                        );
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.progressBar.setProgress((int) cachedFolderStatus.completion);
+                        holder.state.setText(mContext.getString(R.string.state_syncing, (int) cachedFolderStatus.completion));
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "sync-preparing":
-                        binding.state.setText(mContext.getString(R.string.state_sync_preparing));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
+                        holder.state.setText(R.string.state_sync_preparing);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_blue));
                         break;
                     case "error":
                         if (TextUtils.isEmpty(folderStatus.error)) {
-                            binding.state.setText(mContext.getString(R.string.state_error));
+                            holder.state.setText(R.string.state_error);
                         } else {
-                            binding.state.setText(mContext.getString(R.string.state_error_message, folderStatus.error));
+                            holder.state.setText(mContext.getString(R.string.state_error_message, folderStatus.error));
                         }
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                         break;
                     case "unknown":
-                        binding.state.setText(mContext.getString(R.string.state_unknown));
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setText(R.string.state_unknown);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                         break;
                     default:
-                        binding.state.setText(folderStatus.state);
-                        binding.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
+                        holder.state.setText(folderStatus.state);
+                        holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.text_red));
                 }
             }
         }
 
-        showConflictsUI(binding, cachedFolderStatus.discoveredConflictFiles);
+        showConflictsUI(holder.conflicts, cachedFolderStatus.discoveredConflictFiles);
+        showLastItemFinishedUI(holder.lastItemFinishedItem, holder.lastItemFinishedTime, cachedFolderStatus);
 
-        showLastItemFinishedUI(binding, cachedFolderStatus);
-
-        binding.items.setVisibility(folder.paused ? GONE : VISIBLE);
+        holder.items.setVisibility(folder.paused ? GONE : VISIBLE);
         String itemsAndSize = "\u2211 ";
         itemsAndSize += mContext.getResources()
                 .getQuantityString(R.plurals.files, (int) folderStatus.inSyncFiles, folderStatus.inSyncFiles, folderStatus.globalFiles);
@@ -216,42 +245,40 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
         itemsAndSize += mContext.getString(R.string.folder_size_format,
                 Util.readableFileSize(mContext, folderStatus.inSyncBytes),
                 Util.readableFileSize(mContext, folderStatus.globalBytes));
-        binding.items.setText(itemsAndSize);
+        holder.items.setText(itemsAndSize);
 
-        setTextOrHide(binding.invalid, folderStatus.invalid);
+        setTextOrHide(holder.invalid, folderStatus.invalid);
     }
 
-    private void showConflictsUI(ItemFolderListBinding binding, 
-                                        final String[] discoveredConflictFiles) {
-        Integer conflictFileCount = discoveredConflictFiles.length;
+    private void showConflictsUI(TextView view, final String[] discoveredConflictFiles) {
+        int conflictFileCount = discoveredConflictFiles.length;
         if (conflictFileCount == 0) {
-            binding.conflicts.setVisibility(GONE);
+            view.setVisibility(GONE);
             return;
         }
 
         String itemCountAndFirst = "\u26a0 ";
         itemCountAndFirst += mContext.getResources()
-                        .getQuantityString(R.plurals.conflicts, (int) conflictFileCount, conflictFileCount);
+                        .getQuantityString(R.plurals.conflicts, conflictFileCount, conflictFileCount);
         itemCountAndFirst += "\n\u292e ";
         itemCountAndFirst += discoveredConflictFiles[0];
         if (conflictFileCount > 1) {
             itemCountAndFirst += "\n\u2026";
         }
 
-        binding.conflicts.setText(itemCountAndFirst);
-        binding.conflicts.setVisibility(VISIBLE);
-        return;
+        view.setText(itemCountAndFirst);
+        view.setVisibility(VISIBLE);
     }
 
-    private void showLastItemFinishedUI(ItemFolderListBinding binding, 
-                                                final CachedFolderStatus cachedFolderStatus) {
+    private void showLastItemFinishedUI(TextView itemView, TextView timeView, final CachedFolderStatus cachedFolderStatus) {
         if (TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedAction) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedItem) ||
                 TextUtils.isEmpty(cachedFolderStatus.lastItemFinishedTime)) {
-            binding.lastItemFinishedItem.setVisibility(GONE);
-            binding.lastItemFinishedTime.setVisibility(GONE);
+            itemView.setVisibility(GONE);
+            timeView.setVisibility(GONE);
             return;
         }
+
         String finishedItemText = "\u21cc";
         switch (cachedFolderStatus.lastItemFinishedAction) {
             case "delete":
@@ -267,16 +294,13 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
                 finishedItemText += " \u2049";
         }
         finishedItemText += " " + Util.getPathEllipsis(cachedFolderStatus.lastItemFinishedItem);
+        itemView.setText(finishedItemText);
+        itemView.setVisibility(VISIBLE);
 
-        binding.lastItemFinishedItem.setText(finishedItemText);
-        binding.lastItemFinishedItem.setVisibility(VISIBLE);
-
-        String finishedItemTime = "\u21cc\u231a";
-        finishedItemTime += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
-        binding.lastItemFinishedTime.setText(finishedItemTime);
-        binding.lastItemFinishedTime.setVisibility(VISIBLE);
-
-        return;
+        String finishedTimeText = "\u21cc\u231a";
+        finishedTimeText += Util.formatTime(cachedFolderStatus.lastItemFinishedTime);
+        timeView.setText(finishedTimeText);
+        timeView.setVisibility(VISIBLE);
     }
 
     private void setTextOrHide(TextView view, String text) {

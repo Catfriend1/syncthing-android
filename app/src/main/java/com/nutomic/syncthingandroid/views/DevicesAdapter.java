@@ -15,11 +15,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
 import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.R;
-import com.nutomic.syncthingandroid.databinding.ItemDeviceListBinding;
 import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
@@ -62,59 +60,85 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         mRestApi = restApi;
     }
 
+    static class ViewHolder {
+        TextView name;
+        TextView lastSeen;
+        TextView sharedFoldersTitle;
+        TextView sharedFolders;
+        ProgressBar progressBar;
+        TextView status;
+        TextView bandwidthUpDown;
+        View rateInOutView;
+    }
+
     @Override
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        ItemDeviceListBinding binding = (convertView == null)
-                ? DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_device_list, parent, false)
-                : DataBindingUtil.bind(convertView);
+        ViewHolder holder;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_device_list, parent, false);
+
+            holder = new ViewHolder();
+            holder.name = convertView.findViewById(R.id.name);
+            holder.lastSeen = convertView.findViewById(R.id.lastSeen);
+            holder.sharedFoldersTitle = convertView.findViewById(R.id.sharedFoldersTitle);
+            holder.sharedFolders = convertView.findViewById(R.id.sharedFolders);
+            holder.progressBar = convertView.findViewById(R.id.progressBar);
+            holder.status = convertView.findViewById(R.id.status);
+            holder.bandwidthUpDown = convertView.findViewById(R.id.bandwidthUpDown);
+            holder.rateInOutView = convertView.findViewById(R.id.rateInOutContainer);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         Device device = getItem(position);
-        binding.name.setText(getItem(position).getDisplayName());
+        holder.name.setText(device.getDisplayName());
 
-        updateDeviceStatusView(binding, device);
-        return binding.getRoot();
+        updateDeviceStatusView(holder, device);
+
+        return convertView;
     }
 
     @SuppressLint("SetTextI18n")
-    private void updateDeviceStatusView(ItemDeviceListBinding binding, Device device) {
-        View rateInOutView = binding.getRoot().findViewById(R.id.rateInOutContainer);
-
+    private void updateDeviceStatusView(ViewHolder holder, Device device) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         String deviceLastSeen = sharedPreferences.getString(
             Constants.PREF_CACHE_DEVICE_LASTSEEN_PREFIX + device.deviceID, ""
         );
         final String TIMESTAMP_NEVER_SEEN = "1970-01-01T00:00:00Z";
-        binding.lastSeen.setText(mContext.getString(R.string.device_last_seen,
+        holder.lastSeen.setText(mContext.getString(R.string.device_last_seen,
                 TextUtils.isEmpty(deviceLastSeen) || deviceLastSeen.equals(TIMESTAMP_NEVER_SEEN) ?
                         mContext.getString(R.string.device_last_seen_never) : Util.formatDateTime(deviceLastSeen))
         );
 
         List<Folder> sharedFolders = mConfigRouter.getSharedFolders(device.deviceID);
         if (sharedFolders.size() == 0) {
-            binding.sharedFoldersTitle.setText(R.string.device_state_unused);
-            binding.sharedFolders.setVisibility(GONE);
+            holder.sharedFoldersTitle.setText(R.string.device_state_unused);
+            holder.sharedFolders.setVisibility(GONE);
         } else {
-            binding.sharedFoldersTitle.setText(R.string.shared_folders_title_colon);
-            binding.sharedFolders.setVisibility(VISIBLE);
-            binding.sharedFolders.setText("\u2022 " + TextUtils.join("\n\u2022 ", sharedFolders));
+            holder.sharedFoldersTitle.setText(R.string.shared_folders_title_colon);
+            holder.sharedFolders.setVisibility(VISIBLE);
+            holder.sharedFolders.setText("\u2022 " + TextUtils.join("\n\u2022 ", sharedFolders));
         }
 
         if (device.paused) {
-            binding.progressBar.setVisibility(GONE);
-            rateInOutView.setVisibility(GONE);
-            binding.status.setVisibility(VISIBLE);
-            binding.status.setText(R.string.device_paused);
-            binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_purple));
+            holder.progressBar.setVisibility(GONE);
+            holder.rateInOutView.setVisibility(GONE);
+            holder.status.setVisibility(VISIBLE);
+            holder.status.setText(R.string.device_paused);
+            holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_purple));
             return;
         }
 
         if  (mRestApi == null || !mRestApi.isConfigLoaded()) {
             // Syncthing is not running.
-            binding.progressBar.setVisibility(GONE);
-            rateInOutView.setVisibility(GONE);
-            binding.status.setText(R.string.device_disconnected);
-            binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
+            holder.progressBar.setVisibility(GONE);
+            holder.rateInOutView.setVisibility(GONE);
+            holder.status.setText(R.string.device_disconnected);
+            holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
             return;
         }
 
@@ -123,7 +147,7 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
         final double needBytes = mRestApi.getRemoteDeviceNeedBytes(device.deviceID);
 
         if (conn.connected) {
-            binding.status.setVisibility(VISIBLE);
+            holder.status.setVisibility(VISIBLE);
 
             String bandwidthUpDownText = "\u21f5 ";     // down+up arrow
             bandwidthUpDownText += mContext.getString(R.string.download_title);
@@ -133,11 +157,11 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             bandwidthUpDownText += mContext.getString(R.string.upload_title);
             bandwidthUpDownText += " \u02c4 ";          // up arrow
             bandwidthUpDownText += Util.readableTransferRate(getContext(), conn.outBits);
-            binding.bandwidthUpDown.setText(bandwidthUpDownText);
-            rateInOutView.setVisibility(VISIBLE);
+            holder.bandwidthUpDown.setText(bandwidthUpDownText);
+            holder.rateInOutView.setVisibility(VISIBLE);
 
             Boolean syncingState = !(completion == 100);
-            binding.progressBar.setVisibility(syncingState ? VISIBLE : GONE);
+            holder.progressBar.setVisibility(syncingState ? VISIBLE : GONE);
             if (!syncingState) {
                 /**
                  * UI polish - We distinguish the following cases:
@@ -146,40 +170,39 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
                  */
                 if ((conn.inBits + conn.outBits) >= ACTIVE_SYNC_BITS_PER_SECOND_THRESHOLD) {
                     // case a) device_syncing
-                    binding.status.setText(R.string.state_syncing_general);
-                    binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                    holder.status.setText(R.string.state_syncing_general);
+                    holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
                 } else {
                     // case b) device_up_to_date
-                    binding.status.setText(R.string.device_up_to_date);
-                    binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
+                    holder.status.setText(R.string.device_up_to_date);
+                    holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_green));
                 }
             } else {
-                binding.progressBar.setProgress(completion);
-                binding.status.setText(
+                holder.progressBar.setProgress(completion);
+                holder.status.setText(
                         mContext.getString(R.string.device_syncing_percent_bytes,
                                 completion,
                                 Util.readableFileSize(getContext(), needBytes)
                         )
                 );
-                binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
+                holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_blue));
             }
             return;
         }
 
         // !conn.connected
-        binding.progressBar.setVisibility(GONE);
-        rateInOutView.setVisibility(GONE);
-        binding.status.setVisibility(VISIBLE);
+        holder.progressBar.setVisibility(GONE);
+        holder.rateInOutView.setVisibility(GONE);
+        holder.status.setVisibility(VISIBLE);
         if (needBytes == 0) {
-            binding.status.setText(R.string.device_disconnected);
+            holder.status.setText(R.string.device_disconnected);
         } else {
-            binding.status.setText(
+            holder.status.setText(
                     mContext.getString(R.string.device_disconnected_not_synced,
                             Util.readableFileSize(getContext(), needBytes)
                     )
             );
         }
-        binding.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
-        return;
+        holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.text_red));
     }
 }

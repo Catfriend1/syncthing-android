@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
 }
 
 dependencies {
@@ -35,7 +35,7 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.zxing.android.embedded) { isTransitive = false }
     implementation(libs.zxing.core)
-    kapt(libs.dagger.compiler)
+    ksp(libs.dagger.compiler)
 }
 
 android {
@@ -47,7 +47,6 @@ android {
 
     buildFeatures {
         compose = true
-        dataBinding = true
     }
 
     defaultConfig {
