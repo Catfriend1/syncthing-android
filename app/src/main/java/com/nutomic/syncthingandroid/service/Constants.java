@@ -300,6 +300,7 @@ public class Constants {
                             Build.MANUFACTURER.equals("unknown")
                         ) && (
                                 Build.MODEL.equals("Android SDK built for x86") ||
+                                Build.MODEL.equals("Android SDK built for x86_64") ||
                                 Build.MODEL.equals("sdk_gphone_x86_arm"
                         )
                 );
