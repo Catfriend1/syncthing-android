@@ -629,7 +629,7 @@ Fixes
 - Fixed Work profile path bug (#733)
 Other issues
 --
-- File Watcher fails to start, see forum: https://forum.syncthing.net/t/filesystem-watcher-errors-android/16436
+- File Watcher fails to start, see forum.
 - Play version
 -+ "whitelisted WiFi" feature no longer available
 -+ Android 11? you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission.
