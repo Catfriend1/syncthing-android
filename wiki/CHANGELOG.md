@@ -815,7 +815,7 @@ Enhancements
 
 ## Syncthing-Fork v1.1.1.3 (2019-04-27)
 Changelog:
-- Disable DuraSpeed on HMD Global phones (#410) - see [Wiki](https://github.com/Catfriend1/syncthing-android/wiki/Nokia-HMD-phone-preparations)!
+- Disable DuraSpeed on HMD Global phones (#410) - see Wiki
 - Shorten logcat excerpts (#412)
 - Hourly sync - Sync immediately when app starts (#411)
 - Show notification badge if user interaction is required (#408)
