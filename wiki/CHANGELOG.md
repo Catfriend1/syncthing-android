@@ -3,7 +3,7 @@
 Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. Released due to a change in the fdroid build process which allows us to build future releases off the release branch instead of using the separate fdroid branch. You can, but do not have to update if you already got v1.30.0.1-fdroid installed.
 ## What's Changed
 ### Other
-* Move version-code, version-name to libs.versions.toml by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1544
+* Move version-code, version-name to libs.versions.toml by @Catfriend1 in #1544
 
 ---
 
@@ -12,14 +12,14 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ## What's Changed
 ### Fixes
 * Fix crash referring to libsyncthingnative.so
-* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded (fixes #1504) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1515
-* Fix executorService crash while exiting the app is in progress by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1516
+* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded (fixes #1504) by @Catfriend1 in #1515
+* Fix executorService crash while exiting the app is in progress by @Catfriend1 in #1516
 ### Other
-* Move wiki to repo folder /wiki, add actions builds for branches "accrescent" and "fdroid" by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1508
-* F-Droid builds: Use correct go version from Dockerfile (fixes #1383) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1512
-* Fix install_minimum_android_sdk_prerequisites.py by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1513
-* model/Folder: maxConcurrentWrites = 0 by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1511
-* Update SyncthingNative to v1.30.0 by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1517
+* Move wiki to repo folder /wiki, add actions builds for branches "accrescent" and "fdroid" by @Catfriend1 in #1508
+* F-Droid builds: Use correct go version from Dockerfile (fixes #1383) by @Catfriend1 in #1512
+* Fix install_minimum_android_sdk_prerequisites.py by @Catfriend1 in #1513
+* model/Folder: maxConcurrentWrites = 0 by @Catfriend1 in #1511
+* Update SyncthingNative to v1.30.0 by @Catfriend1 in #1517
 
 ---
 
@@ -27,15 +27,15 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 
 ## What's Changed
 ### Fixes
-* Edge2edge view improvements (fixes #1493) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1494
+* Edge2edge view improvements (fixes #1493) by @Catfriend1 in #1494
 ### Features
-* Add "cleanOutDays" to simple file versioning dialog (fixes #1439) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1474
+* Add "cleanOutDays" to simple file versioning dialog (fixes #1439) by @Catfriend1 in #1474
 ### Other
-* Set BUILD_HOST in fdroiddata/com.github.catfriend1.syncthingandroid.yml (fixes #1383) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1480
-* build.gradle: static BUILD_HOST/BUILD_USER for reproducible builds by @eighthave in https://github.com/Catfriend1/syncthing-android/pull/1485
-* Android 16 support targetApi 36: APK version 1.29.7.5 by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1492
+* Set BUILD_HOST in fdroiddata/com.github.catfriend1.syncthingandroid.yml (fixes #1383) by @Catfriend1 in #1480
+* build.gradle: static BUILD_HOST/BUILD_USER for reproducible builds by @eighthave in #1485
+* Android 16 support targetApi 36: APK version 1.29.7.5 by @Catfriend1 in #1492
 ## New Contributors
-* @eighthave made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1485
+* @eighthave made their first contribution in #1485
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
 
 ---
@@ -140,8 +140,8 @@ If you run into problems, please check issue #1442.
 * Fixed INSTALL_FAILED_DUPLICATE_PERMISSION (#1443) by @Catfriend1
 * Fix conflicts between debug and release APK (fixes #1442) by @Catfriend1
 * Allow debug and release version of the app to run in parallel for testing purposes by @Catfriend1
-* Bump kotlin from 2.1.20 to 2.1.21 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1432
-* Update release key which was over 5 years old (fixes #1440) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1441
+* Bump kotlin from 2.1.20 to 2.1.21 by @dependabot in #1432
+* Update release key which was over 5 years old (fixes #1440) by @Catfriend1 in #1441
 
 ---
 
@@ -151,17 +151,17 @@ Upgrade notes:
 The backup folder location UI preference on the settings screen is now relative to the internal storage root. Before, it was interpreted relative to the "(int-stor)/backups" folder. Please review that setting if you upgrade from a previous release.
 
 * Fix missing library error on app start
-* Show sync conflicts on the folder tab (fixes #1130) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1416
-* Persist backup folder setting on restore, restoring from backup is not wise (fixes #1375) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1417
-* Allow follow run conditions, force start/stop using service control broadcasts (fixes #1192) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1418
-* Update dependencies, enable kotlin compiler, migrate to TOML versions config by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1402
-* Switch from oss-licenses-plugin to AboutLicenses plugin (fixes #1400) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1401
-* Remove play publisher plugin and script by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1403
-* remove cfgOption insecureAllowOldTLSVersions by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1404
-* Bump androidx.documentfile:documentfile from 1.0.1 to 1.1.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1408
-* Detect when folder sync has been completed locally or remote by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1406
-* Send an intent when a shared folder finished syncing (fixes #1409) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1410
-* Expert option: Run custom shell script after folder sync completed by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1412
+* Show sync conflicts on the folder tab (fixes #1130) by @Catfriend1 in #1416
+* Persist backup folder setting on restore, restoring from backup is not wise (fixes #1375) by @Catfriend1 in #1417
+* Allow follow run conditions, force start/stop using service control broadcasts (fixes #1192) by @Catfriend1 in #1418
+* Update dependencies, enable kotlin compiler, migrate to TOML versions config by @Catfriend1 in #1402
+* Switch from oss-licenses-plugin to AboutLicenses plugin (fixes #1400) by @Catfriend1 in #1401
+* Remove play publisher plugin and script by @Catfriend1 in #1403
+* remove cfgOption insecureAllowOldTLSVersions by @Catfriend1 in #1404
+* Bump androidx.documentfile:documentfile from 1.0.1 to 1.1.0 by @dependabot in #1408
+* Detect when folder sync has been completed locally or remote by @Catfriend1 in #1406
+* Send an intent when a shared folder finished syncing (fixes #1409) by @Catfriend1 in #1410
+* Expert option: Run custom shell script after folder sync completed by @Catfriend1 in #1412
 * model/Device: Add maxRecvKbps, maxSendKbps by @Catfriend1
 * build-syncthing.py: Remove GO BUILDID by @Catfriend1 (fixes #1383)
 * gradle/buildNative: Add verifySyncthingNativeVersionMatchesApp by @Catfriend1
@@ -192,25 +192,25 @@ Debug APK signing was upgraded from SHA1 to SHA256 signing.
 We are preparing for GPG signed release artifacts.
 
 ## What's Changed
-* Update README.md by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1373
-* importConfig: Ignore outdated user pref (fixes #1375) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1376
-* Bump the dagger group with 2 updates by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1370
-* Update README.md by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1378
-* Update SyncthingNative to v1.29.6 / Update debug cert to SHA256 / Prepare GPG sign (fixes #1284) (fixes #1311) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1377
+* Update README.md by @Catfriend1 in #1373
+* importConfig: Ignore outdated user pref (fixes #1375) by @Catfriend1 in #1376
+* Bump the dagger group with 2 updates by @dependabot in #1370
+* Update README.md by @Catfriend1 in #1378
+* Update SyncthingNative to v1.29.6 / Update debug cert to SHA256 / Prepare GPG sign (fixes #1284) (fixes #1311) by @Catfriend1 in #1377
 
 ---
 
 ## Syncthing-Fork v1.29.4.0 (2025-04-03)
 
 ## What's Changed
-* Add Hebrew and Galician translation templates by @acolomb in https://github.com/Catfriend1/syncthing-android/pull/1310
-* Update Readme, NDK, Go and support build on WSL by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1313
-* chore(strings): shorten notification text (fixes #1113) by @marbens-arch in https://github.com/Catfriend1/syncthing-android/pull/1319
-* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk7 from 2.1.10 to 2.1.20 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1324
-* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk8 from 2.1.10 to 2.1.20 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1323
-* Bump the dagger group with 2 updates by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1322
-* Bump com.google.guava:guava from 33.4.0-android to 33.4.5-android by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1321
-* Bring back launch into web gui (fixes #1331) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1334
+* Add Hebrew and Galician translation templates by @acolomb in #1310
+* Update Readme, NDK, Go and support build on WSL by @Catfriend1 in #1313
+* chore(strings): shorten notification text (fixes #1113) by @marbens-arch in #1319
+* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk7 from 2.1.10 to 2.1.20 by @dependabot in #1324
+* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk8 from 2.1.10 to 2.1.20 by @dependabot in #1323
+* Bump the dagger group with 2 updates by @dependabot in #1322
+* Bump com.google.guava:guava from 33.4.0-android to 33.4.5-android by @dependabot in #1321
+* Bring back launch into web gui (fixes #1331) by @Catfriend1 in #1334
 * Fix MediaStore DB update (fixes #1330)
 * Fix release builds crashing
 
@@ -219,23 +219,23 @@ We are preparing for GPG signed release artifacts.
 ## Syncthing-Fork v1.29.3.0 (2025-03-13)
 
 ## What's Changed
-* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk8 from 2.1.0 to 2.1.10 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1262
-* Bump com.github.ben-manes:gradle-versions-plugin from 0.51.0 to 0.52.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1261
-* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk7 from 2.1.0 to 2.1.10 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1260
-* Bump androidx.recyclerview:recyclerview from 1.3.2 to 1.4.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1250
-* Add Ukranian (uk) translation template for Google Play. by @acolomb in https://github.com/Catfriend1/syncthing-android/pull/1245
-* Bump the dagger group with 2 updates by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1239
-* Delete unnecessary screenshots by @leoheitmannruiz in https://github.com/Catfriend1/syncthing-android/pull/1224
-* Bump com.google.code.gson:gson from 2.11.0 to 2.12.1 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1267
-* Allow HTTP*S* URLs for the HTTP(S) proxy setting by @lenerd in https://github.com/Catfriend1/syncthing-android/pull/1276
-* update GitHub APK hash and keytool command by @craslaw in https://github.com/Catfriend1/syncthing-android/pull/1279
-* README: clarify that we are talking about the original by @marbens-arch in https://github.com/Catfriend1/syncthing-android/pull/1281
-* Bump androidx.fragment:fragment from 1.8.5 to 1.8.6 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1283
+* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk8 from 2.1.0 to 2.1.10 by @dependabot in #1262
+* Bump com.github.ben-manes:gradle-versions-plugin from 0.51.0 to 0.52.0 by @dependabot in #1261
+* Bump org.jetbrains.kotlin:kotlin-stdlib-jdk7 from 2.1.0 to 2.1.10 by @dependabot in #1260
+* Bump androidx.recyclerview:recyclerview from 1.3.2 to 1.4.0 by @dependabot in #1250
+* Add Ukranian (uk) translation template for Google Play. by @acolomb in #1245
+* Bump the dagger group with 2 updates by @dependabot in #1239
+* Delete unnecessary screenshots by @leoheitmannruiz in #1224
+* Bump com.google.code.gson:gson from 2.11.0 to 2.12.1 by @dependabot in #1267
+* Allow HTTP*S* URLs for the HTTP(S) proxy setting by @lenerd in #1276
+* update GitHub APK hash and keytool command by @craslaw in #1279
+* README: clarify that we are talking about the original by @marbens-arch in #1281
+* Bump androidx.fragment:fragment from 1.8.5 to 1.8.6 by @dependabot in #1283
 
 ## New Contributors
-* @lenerd made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1276
-* @craslaw made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1279
-* @marbens-arch made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1281
+* @lenerd made their first contribution in #1276
+* @craslaw made their first contribution in #1279
+* @marbens-arch made their first contribution in #1281
 
 ---
 
@@ -246,11 +246,11 @@ We are preparing for GPG signed release artifacts.
 ## Syncthing-Fork v1.29.0.0 (2025-01-06)
 
 ## What's Changed
-* Bump androidx.preference:preference from 1.1.1 to 1.2.1 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1218
-* Bump androidx.core:core from 1.3.0 to 1.15.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1219
-* Bump com.journeyapps:zxing-android-embedded from 4.2.0 to 4.3.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1220
-* Bump the dagger group with 2 updates by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1229
-* Bump com.google.guava:guava from 33.3.1-android to 33.4.0-android by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1230
+* Bump androidx.preference:preference from 1.1.1 to 1.2.1 by @dependabot in #1218
+* Bump androidx.core:core from 1.3.0 to 1.15.0 by @dependabot in #1219
+* Bump com.journeyapps:zxing-android-embedded from 4.2.0 to 4.3.0 by @dependabot in #1220
+* Bump the dagger group with 2 updates by @dependabot in #1229
+* Bump com.google.guava:guava from 33.3.1-android to 33.4.0-android by @dependabot in #1230
 
 ---
 
@@ -258,7 +258,7 @@ We are preparing for GPG signed release artifacts.
 
 ## What's Changed
 * Updated dependencies
-* Add exit action to notification (fixes #1121) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1210
+* Add exit action to notification (fixes #1121) by @Catfriend1 in #1210
 
 ---
 
@@ -268,22 +268,22 @@ Note:
 The gplay release has restrictions according to play policies thus will not run in the background for more than 6 hours.
 
 ## What's Changed
-* Add to migration instructions a note to delete the Syncthing configuration backup folder by @valentinstn in https://github.com/Catfriend1/syncthing-android/pull/1165
-* Update README.md by @mrlasers in https://github.com/Catfriend1/syncthing-android/pull/1173
-* Move default metadata from en-GB to en-US by @leoheitmannruiz in https://github.com/Catfriend1/syncthing-android/pull/1182
-* Readme: fixed screenshot links and markdownlint rules by @lucaspar in https://github.com/Catfriend1/syncthing-android/pull/1191
-* Allow configuring time schedule interval by @ImranR98 in https://github.com/Catfriend1/syncthing-android/pull/1168
-* SyncthingNative v1.28.1 by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1194
-* Allow empty device name (fixes #1185) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1195
-* WebUI password not migrated after switching from official app to forked app (fixes #1189) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1196
-* Default folder path: Home shortcut (~) broken by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1197
+* Add to migration instructions a note to delete the Syncthing configuration backup folder by @valentinstn in #1165
+* Update README.md by @mrlasers in #1173
+* Move default metadata from en-GB to en-US by @leoheitmannruiz in #1182
+* Readme: fixed screenshot links and markdownlint rules by @lucaspar in #1191
+* Allow configuring time schedule interval by @ImranR98 in #1168
+* SyncthingNative v1.28.1 by @Catfriend1 in #1194
+* Allow empty device name (fixes #1185) by @Catfriend1 in #1195
+* WebUI password not migrated after switching from official app to forked app (fixes #1189) by @Catfriend1 in #1196
+* Default folder path: Home shortcut (~) broken by @Catfriend1 in #1197
 
 ## New Contributors
-* @valentinstn made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1165
-* @mrlasers made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1173
-* @leoheitmannruiz made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1182
-* @lucaspar made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1191
-* @ImranR98 made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1168
+* @valentinstn made their first contribution in #1165
+* @mrlasers made their first contribution in #1173
+* @leoheitmannruiz made their first contribution in #1182
+* @lucaspar made their first contribution in #1191
+* @ImranR98 made their first contribution in #1168
 
 ---
 
