@@ -421,12 +421,11 @@ Other
 ---
 
 ## Syncthing-Fork v1.23.7.0 (2023-08-09)
-Syncthing v1.23.7
 
 ---
 
 ## Syncthing-Fork v1.23.6.0 (2023-07-22)
-* Syncthing v1.23.6
+
 Other
 --
 - Workaround .stversions cleanup timer not firing: Force cleanup on startup (#1001)
@@ -434,7 +433,7 @@ Other
 ---
 
 ## Syncthing-Fork v1.23.5.1 (2023-06-18)
-* Syncthing v1.23.5
+
 Enhanced
 --
 - Configurable backup folder name (#992)
@@ -443,13 +442,13 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.23.5.0 (2023-06-11)
-* Syncthing v1.23.5
+
 Fixed issues: #987 #974 #984
 
 ---
 
 ## Syncthing-Fork v1.23.2.2 (2023-03-09)
-* Syncthing v1.23.2
+
 Fixes
 --
 - Do not account total percentage completion for disconnected devices (#913)
@@ -457,7 +456,6 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.23.2.1 (2023-03-07)
-* Syncthing v1.23.2
 
 ---
 
@@ -466,8 +464,6 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.22.2.2 (2022-12-08)
-
-Note: GPlay release v1.22.2.3 = v1.22.2.2 with REQUEST_INSTALL_PACKAGES permission removed
 
 Enhanced
 --
