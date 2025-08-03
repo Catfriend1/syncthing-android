@@ -360,7 +360,9 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.26.1.0 (2023-11-15)
+
 NOTE: If you are upgrading instead of doing a fresh install, go to "Settings" - "Syncthing Options" and set a password. This is required prior to opening the "Web UI".
+
 Fixes
 --
 - Fix notification permission revoked case
@@ -373,7 +375,9 @@ Other
 ---
 
 ## Syncthing-Fork v1.26.0.2 (2023-11-06)
+
 NOTE: If you are upgrading instead of doing a fresh install, go to "Settings" - "Syncthing Options" and set a password. This is required prior to opening the "Web UI".
+
 Enhanced
 --
 - Allow username and password change (#1019)
@@ -392,7 +396,9 @@ Other
 
 ## Syncthing-Fork v1.26.0.1 (2023-10-21)
 * Syncthing v1.26.0-rc.1
+
 NOTE: If you are upgrading instead of doing a fresh install, go to "Settings" - "Syncthing Options" and set a password. This is required prior to opening the "Web UI".
+
 Enhanced
 --
 - Allow username and password change (#1019)
