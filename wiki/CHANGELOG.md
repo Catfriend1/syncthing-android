@@ -742,7 +742,6 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.3.3.4 (2019-12-23)
-* Syncthing v1.3.3-rc.1 = v1.3.3 according to https://github.com/syncthing/syncthing/releases/
 * Updated build dependencies.
 * PLEASE NOTE: Android 10's Scoped Storage can or will render this app unusable in the future. This cannot be solved by devs, check wiki.
 Fixed
