@@ -467,11 +467,14 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.22.2.2 (2022-12-08)
+
 Note: GPlay release v1.22.2.3 = v1.22.2.2 with REQUEST_INSTALL_PACKAGES permission removed
+
 Enhanced
 --
 - Support app settings backup to g-drive
 - Backup/restore https cert (#948)
+
 Other
 --
 - Target API level 33 (#918)
