@@ -85,7 +85,7 @@ Screenshot:
 
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 
-🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
@@ -95,7 +95,8 @@ Screenshot:
 
 What's Changed:
 - Improve log file share by file provider (fixes #1454) (#1459)
-Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
@@ -105,7 +106,7 @@ What's Changed:
 - Updated SyncthingNative to v1.29.7
 - Updated dependency
 
-Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
@@ -117,7 +118,8 @@ What's Changed:
 - Fix web UI username null pointer exception (fixes #1450) (#1455) (thanks to @fran-tor)
 - Do not create default folder on first launch according to user voice (fixes #1363) (#1458) (@Catfriend1)
 - Updated dependencies
-Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
