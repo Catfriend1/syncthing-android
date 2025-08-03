@@ -4,7 +4,6 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ## What's Changed
 ### Other
 * Move version-code, version-name to libs.versions.toml by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1544
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.30.0.1-fdroid...v1.30.0.2-fdroid
 
 ---
 
@@ -38,7 +37,6 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ## New Contributors
 * @eighthave made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1485
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.7.3...v1.29.7.5
 
 ---
 
@@ -64,7 +62,6 @@ Screenshot:
 ![image](https://github.com/user-attachments/assets/01165acb-cc59-45df-931b-e564b2c38614)
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.7.2...v1.29.7.3
 
 ---
 
@@ -82,7 +79,6 @@ Screenshot:
 ![image](https://github.com/user-attachments/assets/1cb552f1-3403-4084-81fd-b272dfa14e33)
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.7.1...v1.29.7.2
 
 ---
 
@@ -91,7 +87,6 @@ Screenshot:
 What's Changed:
 - Improve log file share by file provider (fixes #1454) (#1459)
 Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.7.0...v1.29.7.1
 
 ---
 
@@ -100,7 +95,6 @@ What's Changed:
 - Updated SyncthingNative to v1.29.7
 - Updated dependency
 Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.6.6...v1.29.7.0
 
 ---
 
@@ -111,7 +105,6 @@ What's Changed:
 - Do not create default folder on first launch according to user voice (fixes #1363) (#1458) (@Catfriend1)
 - Updated dependencies
 Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.6.5...v1.29.6.6
 
 ---
 
@@ -131,7 +124,6 @@ If you run into problems, please check issue #1442.
 * Allow debug and release version of the app to run in parallel for testing purposes by @Catfriend1
 * Bump kotlin from 2.1.20 to 2.1.21 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1432
 * Update release key which was over 5 years old (fixes #1440) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1441
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.6.4...v1.29.6.5
 
 ---
 
@@ -166,7 +158,6 @@ The backup folder location UI preference on the settings screen is now relative 
 * Add "empty versioning folders" button (fixes #603) by @Catfriend1 in PR #1395
 * Create ".nomedia" in ".stversions" subfolder if a new folder is added (fixes #1396) by @Catfriend1 in PR #1397
 * Offer "Movies" folder in gear-icon folder picker by @Catfriend1
-Full Changelog: https://github.com/Catfriend1/syncthing-android/compare/v1.29.6.0...v1.29.6.4
 
 ---
 
@@ -186,8 +177,6 @@ Update SyncthingNative to v1.29.6
 * Update README.md by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1378
 * Update SyncthingNative to v1.29.6 / Update debug cert to SHA256 / Prepare GPG sign (fixes #1284) (fixes #1311) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1377
 
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.5.0...v1.29.6.0
-
 ---
 
 ## Syncthing-Fork v1.29.4.0 (2025-04-03)
@@ -202,7 +191,6 @@ Update SyncthingNative to v1.29.6
 * Bring back launch into web gui (fixes #1331) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1334
 * Fix MediaStore DB update (fixes #1330)
 * Fix release builds crashing
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.3.0...v1.29.4.0
 
 ---
 
@@ -224,12 +212,10 @@ Update SyncthingNative to v1.29.6
 * @lenerd made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1276
 * @craslaw made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1279
 * @marbens-arch made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1281
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.2.0...v1.29.3.0
 
 ---
 
 ## Syncthing-Fork v1.29.2.0 (2025-01-19)
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.29.0.0...v1.29.2.0
 
 ---
 
@@ -241,15 +227,12 @@ Update SyncthingNative to v1.29.6
 * Bump the dagger group with 2 updates by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1229
 * Bump com.google.guava:guava from 33.3.1-android to 33.4.0-android by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1230
 
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.28.1.1...v1.29.0.0
-
 ---
 
 ## Syncthing-Fork v1.28.1.1 (2024-12-10)
 ## What's Changed
 * Updated dependencies
 * Add exit action to notification (fixes #1121) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1210
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.28.1.0...v1.28.1.1
 
 ---
 
@@ -272,7 +255,6 @@ The gplay release has restrictions according to play policies thus will not run 
 * @leoheitmannruiz made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1182
 * @lucaspar made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1191
 * @ImranR98 made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1168
-**Full Changelog**: https://github.com/Catfriend1/syncthing-android/compare/v1.28.0.0...v1.28.1.0
 
 ---
 
