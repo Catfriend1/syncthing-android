@@ -64,7 +64,7 @@ The config import and export feature now reads or writes the file "(InternalStor
 
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 
-🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
@@ -80,8 +80,6 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Open your file manager, e.g. Material Files
 - Browse to "(InternalStorage)/backups/syncthing"
 - Delete all ".pem", ".xml" files because they contain an outdated and unencrypted config from prior exports.
-Screenshot:
-![image](https://github.com/user-attachments/assets/1cb552f1-3403-4084-81fd-b272dfa14e33)
 
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 
