@@ -12,7 +12,7 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 
 ## Syncthing-Fork v1.30.0.1 (2025-07-01)
 <!-- Release notes generated using configuration in .github/release.yml at release -->
-## What's Changed
+## What\'s Changed
 ### Fixes
 * Fix crash referring to libsyncthingnative.so
 * Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded (fixes #1504) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1515
