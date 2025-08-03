@@ -481,7 +481,7 @@ Other
 ---
 
 ## Syncthing-Fork v1.22.2.1 (2022-12-07)
-* Syncthing v1.22.2
+
 Enhanced
 --
 - Add pref "log to file" (#945)
@@ -494,17 +494,17 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.22.2.0 (2022-11-09)
-* SyncthingNative v1.22.2-rc.1
 
 ---
 
 ## Syncthing-Fork v1.22.1.0 (2022-11-02)
-* SyncthingNative v1.22.1
+
 * Not available on Google Play - see issue #929
 
 ---
 
 ## Syncthing-Fork v1.21.0.3 (2022-09-29)
+
 Enhanced
 --
 - Route network request to specific network (#914)
@@ -512,6 +512,7 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.21.0.2 (2022-09-28)
+
 Enhanced
 --
 - Show pending bytes of disconnected devices (#916)
@@ -523,6 +524,7 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.21.0.1 (2022-09-21)
+
 Enhanced
 --
 - App is removed from recents after exit
@@ -530,11 +532,12 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.21.0.0 (2022-09-08)
-* Syncthing v1.21.0
+
 
 ---
 
 ## Syncthing-Fork v1.20.3.1 (2022-07-13)
+
 Enhanced
 --
 - Show remaining bytes for devices (#897)
@@ -548,12 +551,12 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.20.3.0 (2022-07-06)
-* Syncthing v1.20.3
+
 
 ---
 
 ## Syncthing-Fork v1.20.1.0 (2022-05-05)
-* Syncthing v1.20.1
+
 Fixes
 --
 - Removed in-app language switch option
@@ -561,7 +564,7 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.19.1.1 (2022-03-16)
-* Syncthing v1.19.1
+
 Fixes
 --
 - Logs no longer written to external sdcard (#817)
@@ -572,22 +575,19 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.19.1.0 (2022-03-02)
-* Syncthing v1.19.1
 
 ---
 
 ## Syncthing-Fork v1.19.0.0 (2022-02-16)
-.
 
 ---
 
 ## Syncthing-Fork v1.18.6.0 (2022-01-16)
-* Syncthing v1.18.6
 
 ---
 
 ## Syncthing-Fork v1.18.2.1 (2021-09-19)
-* Syncthing v1.18.2
+
 Enhanced
 --
 - UI for untrusted devices, encrypted folder sharing (#725) @Catfriend1 
@@ -596,7 +596,7 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.16.0.6 (2021-05-25)
-* Syncthing v1.16.0
+
 Enhanced
 --
 - Android 11: keep synced user data when app is uninstalled (#806)
