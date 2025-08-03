@@ -51,6 +51,7 @@ recreated release tag; functionally the same as v1.29.7.3 with changes to suppor
 * After folders complete, run additional workloads in a seperate thread by @Catfriend1 in #1471
 ⚠️ Breaking change:
 The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
+
 ℹ️ Action required:
 - Please go to "Settings - Import and Export"
 - Set an individual password, be sure to remember it
@@ -60,7 +61,9 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Delete all "*.pem", "*.xml" files because they contain an outdated and unencrypted config from prior exports.
 Screenshot:
 ![image](https://github.com/user-attachments/assets/01165acb-cc59-45df-931b-e564b2c38614)
+
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
+
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
 
 ---
@@ -68,6 +71,7 @@ Screenshot:
 ## Syncthing-Fork v1.29.7.2 (2025-06-04)
 ⚠️ Breaking change:
 The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
+
 ℹ️ Action required:
 - Please go to "Settings - Import and Export"
 - Set an individual password, be sure to remember it
@@ -77,7 +81,9 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Delete all ".pem", ".xml" files because they contain an outdated and unencrypted config from prior exports.
 Screenshot:
 ![image](https://github.com/user-attachments/assets/1cb552f1-3403-4084-81fd-b272dfa14e33)
+
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
+
 🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
 
 ---
