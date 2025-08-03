@@ -614,15 +614,15 @@ Others
 ---
 
 ## Syncthing-Fork v1.14.0.1 (2021-03-13)
+
 * Syncthing v1.14.0
 * Support new v1.14.x config format in the wrapper (#750)
-Enhanced
---
 
 Fixes
 --
 - Fixed "maxConflicts" setting not preserved by wrapper (#750)
 - Fixed Work profile path bug (#733)
+
 Other issues
 --
 - File Watcher fails to start, see forum.
@@ -633,7 +633,7 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.12.1.1 (2021-01-08)
-* Syncthing v1.12.1
+
 Enhanced
 --
 
@@ -646,11 +646,12 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.11.1.0 (2020-11-04)
-* Syncthing v1.11.1
+
 Enhanced
 --
 - Integrated QR Code Scanner, thanks to @sumit-anantwar
 - Theme: Add "Follow system" for API 28+, thanks to @praveenrajput
+
 Other issues
 --
 - If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
@@ -659,11 +660,12 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.10.0.0 (2020-10-10)
-* Syncthing v1.10.0
+
 Enhanced
 --
 - Integrated QR Code Scanner, thanks to @sumit-anantwar
 - Theme: Add "Follow system" for API 28+, thanks to @praveenrajput
+
 Other issues
 --
 - If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
@@ -673,6 +675,7 @@ Other issues
 
 ## Syncthing-Fork v1.9.0.5 (2020-09-20)
 * Syncthing v1.9.0
+
 Other issues
 --
 - If you got your phone updated to Android 11 and using the G Play version of this app, you may experience problems as G limited storage access and doesn't allow the app request the new and required "all files access" permission before January 2021 (as their Android dev docs state). See GitHub for more info.
@@ -681,14 +684,16 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.8.0.3 (2020-08-15)
-* Syncthing v1.8.0
+
 * fdroid, github APK support Android 11
 * gplay APK does NOT support Android 11
+
 Fixed
 --
 - RecentChangesDialog: Fix display of filenames containing "#" (#686)
 - Disable "file pull order" option for sendOnly folders (#683)
 - Minor fixes in model to get compatible with Syncthing v1.8.0 (#684) (#685)
+
 Enhanced
 --
 - Device tab: Show device last seen date and time (#687)
@@ -697,12 +702,14 @@ Enhanced
 ---
 
 ## Syncthing-Fork v1.7.0.1 (2020-07-07)
-* Syncthing v1.7.0
+
 Fixed
 --
+
 Enhanced
 --
 - Initial SDcard read/write support on Android 11+ (#618)
+
 Other issues
 --
 - Android 11 wrapper parts are use-able, but not complete yet.
@@ -710,12 +717,14 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.6.0.4 (2020-06-02)
-* Syncthing v1.6.0
+
 Fixed
 --
 - SyncthingNative doesn't start in root shell (#655)
+
 Enhanced
 --
+
 Other issues
 --
 - Workaround for ip get route bug, some LOS kernels 3.0.x
@@ -729,11 +738,6 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.4.0.4 (2020-03-16)
-* Syncthing v1.4.0
-Fixed
--
-Enhanced
--
 
 ---
 
