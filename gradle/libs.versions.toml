@@ -5,8 +5,8 @@ min-sdk = "21"
 target-sdk = "36"
 
 # App version
-version-code = "1300001"
-version-name = "1.30.0.1"
+version-code = "1271290"
+version-name = "1.27.12.90"
 
 aboutLibraries = "12.2.4"
 activity = "1.10.1"
