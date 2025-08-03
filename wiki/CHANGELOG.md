@@ -36,12 +36,12 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 * Android 16 support targetApi 36: APK version 1.29.7.5 by @Catfriend1 in #1492
 ## New Contributors
 * @eighthave made their first contribution in #1485
-🤷‍♂️ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
+🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
 ## Syncthing-Fork v1.29.7.4 F-Droid (2025-06-27)
-recreated release tag; functionally the same as v1.29.7.3 with changes to support F-Droid's [reproducible builds](https://verification.f-droid.org/packages/com.github.catfriend1.syncthingandroid/).
+recreated release tag; functionally the same as v1.29.7.3 with changes to support F-Droid's reproducible builds.
 
 ---
 
@@ -61,8 +61,6 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Open your file manager, e.g. Material Files
 - Browse to "(InternalStorage)/backups/syncthing"
 - Delete all "*.pem", "*.xml" files because they contain an outdated and unencrypted config from prior exports.
-Screenshot:
-![image](https://github.com/user-attachments/assets/01165acb-cc59-45df-931b-e564b2c38614)
 
 ⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
 
