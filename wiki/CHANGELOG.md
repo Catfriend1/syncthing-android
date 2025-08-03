@@ -1,5 +1,3 @@
----`
-
 ## Syncthing-Fork v1.30.0.2 F-Droid (2025-07-16)
 <!-- Release notes generated using configuration in .github/release.yml at v1.30.0.2-fdroid -->
 Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. Released due to a change in the fdroid build process which allows us to build future releases off the release branch instead of using the separate fdroid branch. You can, but do not have to update if you already got v1.30.0.1-fdroid installed.
