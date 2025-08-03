@@ -1,5 +1,5 @@
 ## Syncthing-Fork v1.30.0.2 F-Droid (2025-07-16)
-<!-- Release notes generated using configuration in .github/release.yml at v1.30.0.2-fdroid -->
+
 Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. Released due to a change in the fdroid build process which allows us to build future releases off the release branch instead of using the separate fdroid branch. You can, but do not have to update if you already got v1.30.0.1-fdroid installed.
 ## What's Changed
 ### Other
@@ -8,7 +8,7 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ---
 
 ## Syncthing-Fork v1.30.0.1 (2025-07-01)
-<!-- Release notes generated using configuration in .github/release.yml at release -->
+
 ## What's Changed
 ### Fixes
 * Fix crash referring to libsyncthingnative.so
@@ -24,7 +24,7 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ---
 
 ## Syncthing-Fork v1.29.7.5 (2025-06-23)
-<!-- Release notes generated using configuration in .github/release.yml at v1.29.7.5 -->
+
 ## What's Changed
 ### Fixes
 * Edge2edge view improvements (fixes #1493) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1494
@@ -46,9 +46,11 @@ recreated release tag; functionally the same as v1.29.7.3 with changes to suppor
 ---
 
 ## Syncthing-Fork v1.29.7.3 (2025-06-06)
+
 ## What's Changed
 * Disable android backup integration by @Catfriend1 in #1470
 * After folders complete, run additional workloads in a seperate thread by @Catfriend1 in #1471
+
 ⚠️ Breaking change:
 The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
 
@@ -69,6 +71,7 @@ Screenshot:
 ---
 
 ## Syncthing-Fork v1.29.7.2 (2025-06-04)
+
 ⚠️ Breaking change:
 The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
 
@@ -89,7 +92,9 @@ Screenshot:
 ---
 
 ## Syncthing-Fork v1.29.7.1 (2025-06-03)
+
 **Checkpoint release - Use this if migrating from the deprecated "syncthing-android" to this app.**
+
 What's Changed:
 - Improve log file share by file provider (fixes #1454) (#1459)
 Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
@@ -97,15 +102,19 @@ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfrien
 ---
 
 ## Syncthing-Fork v1.29.7.0 (2025-06-02)
+
 What's Changed:
 - Updated SyncthingNative to v1.29.7
 - Updated dependency
+
 Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfriend1/syncthing-android/releases/tag/v1.29.6.5).
 
 ---
 
 ## Syncthing-Fork v1.29.6.6 (2025-06-01)
+
 **Hotfix release** to address UI lags affecting some users. Only update if you have trouble with UI lags.
+
 What's Changed:
 - Fix web UI username null pointer exception (fixes #1450) (#1455) (thanks to @fran-tor)
 - Do not create default folder on first launch according to user voice (fixes #1363) (#1458) (@Catfriend1)
@@ -115,8 +124,10 @@ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfrien
 ---
 
 ## Syncthing-Fork v1.29.6.5 (2025-05-22)
+
 **Updated release signing key which was over 5 years old for security reasons.**
 **To upgrade from a previous release:**
+
 * Slide out the menu > Import and Export > Export config
 * Exit app
 * Uninstall app - if Android asks, do NOT keep data (this refers to app data, not your synced files)
@@ -124,6 +135,7 @@ Problems upgrading? See release notes of [v1.29.6.5](https://github.com/Catfrien
 * Complete the welcome slides
 * Slide out the menu > Import and Export > Import config
 If you run into problems, please check issue #1442.
+
 ## What's Changed
 * Fixed INSTALL_FAILED_DUPLICATE_PERMISSION (#1443) by @Catfriend1
 * Fix conflicts between debug and release APK (fixes #1442) by @Catfriend1
@@ -134,8 +146,10 @@ If you run into problems, please check issue #1442.
 ---
 
 ## Syncthing-Fork v1.29.6.4 (2025-05-17)
+
 Upgrade notes:
 The backup folder location UI preference on the settings screen is now relative to the internal storage root. Before, it was interpreted relative to the "(int-stor)/backups" folder. Please review that setting if you upgrade from a previous release.
+
 * Fix missing library error on app start
 * Show sync conflicts on the folder tab (fixes #1130) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1416
 * Persist backup folder setting on restore, restoring from backup is not wise (fixes #1375) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1417
@@ -168,14 +182,15 @@ The backup folder location UI preference on the settings screen is now relative 
 ---
 
 ## Syncthing-Fork v1.29.6.0 (2025-05-06)
+
 Upgrade notes:
 The backup folder location UI preference on the settings screen is now relative to the internal storage root. Before, it was interpreted relative to the "(int-stor)/backups" folder. Please review that setting if you upgrade from a previous release.
+
 Notes:
 We will now prefer CI builds over builds done on a personal device.
 Debug APK signing was upgraded from SHA1 to SHA256 signing.
 We are preparing for GPG signed release artifacts.
-Changes:
-Update SyncthingNative to v1.29.6
+
 ## What's Changed
 * Update README.md by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1373
 * importConfig: Ignore outdated user pref (fixes #1375) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1376
@@ -186,6 +201,7 @@ Update SyncthingNative to v1.29.6
 ---
 
 ## Syncthing-Fork v1.29.4.0 (2025-04-03)
+
 ## What's Changed
 * Add Hebrew and Galician translation templates by @acolomb in https://github.com/Catfriend1/syncthing-android/pull/1310
 * Update Readme, NDK, Go and support build on WSL by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1313
@@ -201,6 +217,7 @@ Update SyncthingNative to v1.29.6
 ---
 
 ## Syncthing-Fork v1.29.3.0 (2025-03-13)
+
 ## What's Changed
 * Bump org.jetbrains.kotlin:kotlin-stdlib-jdk8 from 2.1.0 to 2.1.10 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1262
 * Bump com.github.ben-manes:gradle-versions-plugin from 0.51.0 to 0.52.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1261
@@ -214,6 +231,7 @@ Update SyncthingNative to v1.29.6
 * update GitHub APK hash and keytool command by @craslaw in https://github.com/Catfriend1/syncthing-android/pull/1279
 * README: clarify that we are talking about the original by @marbens-arch in https://github.com/Catfriend1/syncthing-android/pull/1281
 * Bump androidx.fragment:fragment from 1.8.5 to 1.8.6 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1283
+
 ## New Contributors
 * @lenerd made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1276
 * @craslaw made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1279
@@ -226,6 +244,7 @@ Update SyncthingNative to v1.29.6
 ---
 
 ## Syncthing-Fork v1.29.0.0 (2025-01-06)
+
 ## What's Changed
 * Bump androidx.preference:preference from 1.1.1 to 1.2.1 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1218
 * Bump androidx.core:core from 1.3.0 to 1.15.0 by @dependabot in https://github.com/Catfriend1/syncthing-android/pull/1219
@@ -236,6 +255,7 @@ Update SyncthingNative to v1.29.6
 ---
 
 ## Syncthing-Fork v1.28.1.1 (2024-12-10)
+
 ## What's Changed
 * Updated dependencies
 * Add exit action to notification (fixes #1121) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1210
@@ -243,8 +263,10 @@ Update SyncthingNative to v1.29.6
 ---
 
 ## Syncthing-Fork v1.28.1.0 (2024-12-10)
+
 Note:
 The gplay release has restrictions according to play policies thus will not run in the background for more than 6 hours.
+
 ## What's Changed
 * Add to migration instructions a note to delete the Syncthing configuration backup folder by @valentinstn in https://github.com/Catfriend1/syncthing-android/pull/1165
 * Update README.md by @mrlasers in https://github.com/Catfriend1/syncthing-android/pull/1173
@@ -255,6 +277,7 @@ The gplay release has restrictions according to play policies thus will not run 
 * Allow empty device name (fixes #1185) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1195
 * WebUI password not migrated after switching from official app to forked app (fixes #1189) by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1196
 * Default folder path: Home shortcut (~) broken by @Catfriend1 in https://github.com/Catfriend1/syncthing-android/pull/1197
+
 ## New Contributors
 * @valentinstn made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1165
 * @mrlasers made their first contribution in https://github.com/Catfriend1/syncthing-android/pull/1173
@@ -265,10 +288,12 @@ The gplay release has restrictions according to play policies thus will not run 
 ---
 
 ## Syncthing-Fork v1.28.0.0 (2024-10-21)
+
 Fixes:
 - Android 15: disable edge-to-edge rendered UI
 - Android 15: Allow foreground service to run longer than 6 hours
 - Device address: allow quic4:// and quic6:// values to be entered
+
 Note:
 The gplay release has restrictions according to play policies thus will not run in the background for more than 6 hours.
 
