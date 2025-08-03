@@ -299,6 +299,7 @@ The gplay release has restrictions according to play policies thus will not run 
 ---
 
 ## Syncthing-Fork v1.27.2.1 (2024-01-07)
+
 Other
 --
 - Experimental: Make ignore doze permission recommended instead of mandatory (#1058)
@@ -307,9 +308,11 @@ Other
 ---
 
 ## Syncthing-Fork v1.27.2.0 (2023-12-14)
+
 Fixes
 --
-- (upstream) update Syncthing to version 1.27.2-rc.1, which (hopefully) fixes app crashes @ChronosXYZ 
+- (upstream) update Syncthing to version 1.27.2-rc.1, which (hopefully) fixes app crashes @ChronosXYZ
+
 Other
 --
 - Experimental: Make ignore doze permission recommended instead of mandatory (#1058)
@@ -318,7 +321,7 @@ Other
 ---
 
 ## Syncthing-Fork v1.27.1.0 (2023-12-08)
-* Syncthing v1.27.1-rc.1
+
 Fixes
 --
 - (upstream) hopefully those exit code 2 crashes were fixed
@@ -326,7 +329,7 @@ Fixes
 ---
 
 ## Syncthing-Fork v1.27.0.1 (2023-12-05)
-* Syncthing v1.27.0
+
 Other
 --
 - Experimental: Make ignore doze permission recommended instead of mandatory (#1058)
@@ -335,11 +338,12 @@ Other
 ---
 
 ## Syncthing-Fork v1.27.0.0 (2023-11-22)
-* Syncthing @ main (~ v1.27.0-rc.1+)
+
 Enhanced
 --
 - Do not create default folder in Syncthing, if /DCIM/ contains .stfolder from previous install (#1042)
 - Switch the language of the app to a different one than the phone setting (#1044)
+
 Fixes
 --
 - Fix themed icon (#1041)
@@ -354,6 +358,7 @@ NOTE: If you are upgrading instead of doing a fresh install, go to "Settings" - 
 Fixes
 --
 - Fix notification permission revoked case
+
 Other
 --
 - Updated Go dependency to 1.21.4
@@ -370,11 +375,13 @@ Enhanced
 --
 - Allow username and password change (#1019)
 - Show sync cycle duration on qs tile (#1013)
+
 Fixes
 --
 - Disallow too high number of minutes for sync cycle (#1014)
 - Persist device allowNetwork
 - Persist device numConnections
+
 Other
 --
 - Support Android 14
@@ -383,7 +390,6 @@ Other
 ---
 
 ## Syncthing-Fork v1.26.0.1 (2023-10-21)
-* Syncthing v1.26.0-rc.1
 
 NOTE: If you are upgrading instead of doing a fresh install, go to "Settings" - "Syncthing Options" and set a password. This is required prior to opening the "Web UI".
 
@@ -391,11 +397,13 @@ Enhanced
 --
 - Allow username and password change (#1019)
 - Show sync cycle duration on qs tile (#1013)
+
 Fixes
 --
 - Disallow too high number of minutes for sync cycle (#1014)
 - Persist device allowNetwork
 - Persist device numConnections
+
 Other
 --
 - Support Android 14
@@ -404,15 +412,17 @@ Other
 ---
 
 ## Syncthing-Fork v1.26.0.0 (2023-10-14)
-* Syncthing v1.26.0-rc.1
+
 Enhanced
 --
 - Show sync cycle duration on qs tile (#1013)
+
 Fixes
 --
 - Disallow too high number of minutes for sync cycle (#1014)
 - Persist device allowNetwork
 - Persist device numConnections
+
 Other
 --
 - Support Android 14
