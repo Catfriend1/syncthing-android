@@ -36,6 +36,8 @@ Switching is easier than you may think!
 
 Our knowledge base is published [here](https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme).
 
+Our [release history and changelog](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/CHANGELOG.md) can be found on the wiki.
+
 ## Building and Development Notes
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).

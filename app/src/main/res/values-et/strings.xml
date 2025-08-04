@@ -15,4 +15,63 @@
     <string name="page_x_of_y">Leht %1$s / %2$s</string>
     <string name="main_menu">Põhimenüü</string>
     <string name="refresh">Värskenda andmeid</string>
+    <string name="yes">Jah</string>
+    <string name="no">Ei</string>
+    <string name="open_website">Ava veebisait</string>
+    <string name="toast_write_storage_permission_required">See rakendus vajab õigust andmeruumi kirjutamiseks</string>
+    <string name="device_rejected">„%1$s“ seade soovib luua ühendust</string>
+    <string name="folder_rejected">„%1$s“ seade soovib jagada „%2$s“ kausta</string>
+    <string name="web_gui_creating_key">Loon krüptovõtmeid. Selleks võib kuluda mõni minut…</string>
+    <string name="folders_fragment_title">Kaustad</string>
+    <string name="folder_list_empty">Kaustu ei leidu</string>
+    <plurals name="files">
+        <item quantity="one">%1$d / %2$d fail</item>
+        <item quantity="other">%1$d / %2$d faili</item>
+    </plurals>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d konflikt</item>
+        <item quantity="other">%1$d konflikti</item>
+    </plurals>
+    <string name="download_title">Allalaadimine</string>
+    <string name="upload_title">Üleslaadimine</string>
+    <string name="status_fragment_title">Olek</string>
+    <string name="folder_id">Kausta tunnus</string>
+    <string name="folder_label">Kausta silt</string>
+    <string name="directory">Kaust</string>
+    <string name="devices">Seadmed</string>
+    <string name="keep_versions">Säilita versioonid</string>
+    <string name="delete_folder">Kustuta kaust</string>
+    <string name="create_folder">Loo kaust</string>
+    <string name="edit_folder">Muuda kausta</string>
+    <string name="create">Loo</string>
+    <string name="remove_folder_confirm">Kas sa kindlasti soovid selle kausta Syncthingist eemaldada?</string>
+    <string name="folder_id_required">Kausta tunnus ei tohi olla tühi</string>
+    <string name="folder_label_required">Kausta silt ei tohi olla tühi</string>
+    <string name="folder_path_required">Kausta asukoht ei tohi olla tühi</string>
+    <string name="dialog_discard_changes">Kas loobud muudatustest?</string>
+    <plurals name="file_name_title">
+        <item quantity="one">Failinimi</item>
+        <item quantity="other">Failide loend</item>
+    </plurals>
+    <plurals name="reason_not_within_time_frame_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minutit</item>
+    </plurals>
+    <plurals name="device_online_up_to_date">
+        <item quantity="one">%1$d seade on võrgus ja uuendatud</item>
+        <item quantity="other">%1$d seadet on võrgus ja uuendatud</item>
+    </plurals>
+    <plurals name="syncthing_active_syncing_device_online">
+        <item quantity="one">Sünkroonimine: %1$d%% valmis, %2$d seade võrgus</item>
+        <item quantity="other">Sünkroonimine: %1$d%% valmis, %2$d seadet võrgus</item>
+    </plurals>
+    <plurals name="copy_success_partially">
+        <item quantity="one">%1$d fail on kopeeritud „%2$s“ kausta, %3$d on juba olemas</item>
+        <item quantity="other">%1$d faili on kopeeritud „%2$s“ kausta, %3$d on juba olemas</item>
+    </plurals>
+    <plurals name="copy_success">
+        <item quantity="one">%1$d fail on kopeeritud „%2$s“ kausta</item>
+        <item quantity="other">%1$d faili on kopeeritud „%2$s“ kausta</item>
+    </plurals>
+    <string name="app_name">Syncthing-Fork</string>
 </resources>
