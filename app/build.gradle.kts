@@ -116,6 +116,12 @@ android {
         abortOnError = true
         targetSdk = libs.versions.target.sdk.get().toInt()
     }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
 }
 
 /**
