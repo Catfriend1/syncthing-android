@@ -43,7 +43,7 @@ Our [release history and changelog](https://github.com/Catfriend1/syncthing-andr
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Building-and-Development.md).
 
-## Aknowledgements
+## Acknowledgments
 
 This project was forked from [syncthing/syncthing-android](https://github.com/syncthing/syncthing-android).
 
