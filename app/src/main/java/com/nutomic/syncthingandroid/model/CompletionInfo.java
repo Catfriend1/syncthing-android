@@ -11,5 +11,5 @@ public class CompletionInfo {
     public double needDeletes = 0;
     public double needItems = 0;
     public String remoteState = "unknown";
-    public Integer sequence = 0;
+    public long sequence = 0;
 }
