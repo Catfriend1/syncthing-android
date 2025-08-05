@@ -4,7 +4,8 @@
 <a href="https://github.com/Catfriend1/syncthing-android/releases/latest" alt="GitHub release"><img src="https://img.shields.io/github/v/release/Catfriend1/syncthing-android" /></a>
 <a href="https://f-droid.org/packages/com.github.catfriend1.syncthingandroid" alt="F-Droid release"><img src="https://img.shields.io/f-droid/v/com.github.catfriend1.syncthingandroid.svg" /></a>
 <a href="https://tooomm.github.io/github-release-stats/?username=Catfriend1&repository=syncthing-android" alt="GitHub Stats"><img src="https://img.shields.io/github/downloads/Catfriend1/syncthing-android/total.svg" /></a>
-<a href="https://hosted.weblate.org/projects/syncthing/android/catfriend1/"><img src="https://hosted.weblate.org/widget/syncthing/android/catfriend1/svg-badge.svg" alt="Translation status" /></a>[![Build App](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml/badge.svg)](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml)
+<a href="https://hosted.weblate.org/projects/syncthing/android/catfriend1/"><img src="https://hosted.weblate.org/widget/syncthing/android/catfriend1/fork-stringsxml/svg-badge.svg" alt="Translation status" /></a>
+[![Build App](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml/badge.svg)](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml)
 
 A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. I'm currently short on time. Please seek help on the forum and/or social media apps first before consuming my time moderating issues on the tracker here. Thank you.
 
