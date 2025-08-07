@@ -61,7 +61,7 @@ jobs:
           set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
-          ./gradlew --no-daemon buildNative lintRelease assembleRelease bundlegplay
+          ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
       - name: prepare-artifacts
@@ -70,7 +70,6 @@ jobs:
           set -eu
           #
           mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
-          mv "app/build/outputs/bundle/gplay/app-gplay.aab" "app/build/outputs/bundle/gplay/com.github.catfriend1.syncthingandroid_gplay_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.aab"
           #
           cd "app/build/outputs/apk/release"
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
@@ -78,7 +77,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc,app/build/outputs/bundle/gplay/*.aab"
+          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc"
           artifactErrorsFailBuild: true
           name: Syncthing-Fork v${{ env.VERSION }}
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
