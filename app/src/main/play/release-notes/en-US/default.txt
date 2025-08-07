@@ -1,3 +1,2 @@
 ## What's Changed
-* Updated SyncthingNative to v1.30.0
-* Fix crash referring to libsyncthingnative.so
+* Fixed UI crash if index sequence number for a folder exceeds a limit. This affected a minority of users, especially Syncthing-Lite users. But if it happened, users were unable to export config and could no longer open the app.
