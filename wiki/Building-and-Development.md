@@ -9,7 +9,7 @@ Build SyncthingNative and the Syncthing-Android wrapper using the following comm
 ```bash
 #
 # Install prerequisites.
-apt-get -y install gcc git openjdk-17-jdk python3 unzip
+apt-get -y install gcc git openjdk-21-jdk-headless python3 unzip
 #
 # Clone repository.
 mkdir -p ~/git && cd ~/git
@@ -67,7 +67,7 @@ build-windows.cmd
 ::
 :: Install prerequisites.
 winget install --accept-source-agreements --source winget --exact --id "Git.MinGit" --scope machine
-winget install --accept-source-agreements --source winget --exact --id "AdoptOpenJDK.OpenJDK.17" --scope machine
+winget install --accept-source-agreements --source winget --exact --id "EclipseAdoptium.Temurin.21.JDK" --scope machine
 winget install --accept-source-agreements --source winget --exact --id "Python.Python.3.13" --scope machine -h --override "/quiet InstallAllUsers=1 PrependPath=1 Include_doc=0 Include_launcher=0 Include_pip=0 Include_tcltk=0 Include_test=0"
 ::
 :: Clone repository.
