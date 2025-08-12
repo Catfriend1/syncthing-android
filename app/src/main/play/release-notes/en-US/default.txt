@@ -1,1 +1,1 @@
-Update SyncthingNative to v2.0.0-rc.23
+Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.0 to see details on the v2.0.0 milestone.
