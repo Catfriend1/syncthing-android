@@ -234,7 +234,7 @@ public class Constants {
     /**
      * Name of the folder containing the index database.
      */
-    private static final String INDEX_DB_FOLDER = "index-v0.14.0.db";
+    private static final String INDEX_DB_FOLDER = "index-v2";
 
     public static File getIndexDbFolder(Context context) {
         return new File(context.getFilesDir(), INDEX_DB_FOLDER);
