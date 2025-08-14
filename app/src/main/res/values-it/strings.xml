@@ -752,7 +752,7 @@
     <string name="clear_stversions_title">Svuota tutte le cartelle di controllo delle versioni</string>
     <string name="privacy_summary">Apri l\'informativa sulla privacy di syncthing-android, che riguarda l\'utilizzo (se presente) dei dati personali, ad esempio la posizione.</string>
     <string name="syncthing_forum_title">Forum di Syncthing</string>
-    <string name="open_source_licenses_summary">Mostra le licenze open source utilizzate</string>
+    <string name="open_source_licenses_summary">Visualizza le licenze open source utilizzate</string>
     <string name="clear_stversions_summary">I file vengono spostati nella directory .stversions quando vengono sostituiti o eliminati da Syncthing. Probabilmente è possibile trovare e recuperare i file eliminati accidentalmente lì, ma le versioni obsolete dei file occupano spazio di archiviazione sul dispositivo.</string>
     <string name="clear_stversions_question">Questo eliminerà tutte le versioni precedenti dei file gestiti da Syncthing. Continuare?</string>
     <string name="clear_stversions_done">Cartelle .stversions cancellate correttamente.</string>
