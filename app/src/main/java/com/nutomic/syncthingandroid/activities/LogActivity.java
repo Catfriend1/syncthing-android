@@ -275,6 +275,7 @@ public class LogActivity extends SyncthingActivity {
                             logline.contains("/MIUI") ||
                             logline.contains("/MiInputConsumer") ||
                             logline.contains("/Miui") ||
+                            logline.contains("MiuiBoosterUtils") ||
                             logline.contains("/NativeTurboSchedManager") ||
                             logline.contains("W/netstat") ||
                             logline.contains("/ngandroid.debu") ||
