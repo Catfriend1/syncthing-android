@@ -584,12 +584,12 @@
 \nCaminho do versionamento: %2$s</string>
     <string name="external_versioning_info">Comando: %1$s</string>
     <string name="simple_versioning_info">Manter versões: %1$s</string>
-    <string name="show_device_id">Mostrar ID</string>
+    <string name="show_device_id">Mostrar ID do dispositivo</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
     <string name="could_not_access_deviceid">Não foi possível obter o ID do dispositivo.</string>
     <string name="browse">Navegar</string>
     <string name="no_sub_folder_is_selected">Nenhuma subpasta selecionada</string>
-    <string name="share_device_id_chooser">Compartilhe ID do dispositivo com</string>
+    <string name="share_device_id_chooser">Compartilhar ID do dispositivo com</string>
     <string name="custom_sync_conditions_title">Condições de execução personalizadas</string>
     <string name="custom_sync_conditions_description">Permite que você especifique exceções às condições globais de execução.</string>
     <string name="qs_following_run_conditions">Condições de execução seguintes</string>
