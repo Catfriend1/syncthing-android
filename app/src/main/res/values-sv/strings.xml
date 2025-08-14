@@ -221,7 +221,7 @@
     <string name="category_behaviour">Beteende</string>
     <string name="category_syncthing_options">Syncthing alternativ</string>
     <string name="category_backup">Import och export</string>
-    <string name="category_debug">Felsök</string>
+    <string name="category_debug">Felsökning</string>
     <string name="category_experimental">Experimentell</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Körvillkor</string>
@@ -299,9 +299,9 @@
     <!-- Toast after entering invalid http proxy address -->
     <string name="toast_invalid_http_proxy_address">Inmatning bryter mot proxysyntaxen \'http://[IP/HOSTNAME]:[PORT]\'</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Befintliga filer kommer att skrivas över. \n \nVARNING! Andra appar kan få möjlighet att läsa den privata nyckeln från säkerhetskopian och använda den för att hämta/ändra synkroniserade filer.</string>
+    <string name="dialog_confirm_export">Vill du verkligen exportera din konfiguration? Det befintliga arkivet kommer att skrivas över.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Vill du verkligen importera en ny konfiguration? Befintliga filer kommer att skrivas över.</string>
+    <string name="dialog_confirm_import">Vill du verkligen importera konfigurationen? Befintliga inställningar, inklusive listan över delade mappar och enheter, kommer att ersättas.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importera konfiguration</string>
     <!-- Toast shown after config was imported -->
@@ -410,15 +410,15 @@
     <!-- Text for the exit button on the drawer -->
     <string name="exit">Avsluta</string>
     <!-- Title of the notification shown while syncthing is running and enabled -->
-    <string name="syncthing_active">Syncthing körs</string>
-    <string name="syncthing_disabled">Syncthing sover</string>
-    <string name="syncthing_terminated">Syncthing avslutades</string>
+    <string name="syncthing_active">Körs</string>
+    <string name="syncthing_disabled">Sover</string>
+    <string name="syncthing_terminated">Avslutades</string>
     <string name="config_create_failed">Det gick inte att skapa konfigurationen. Kontrollera logcat-utmatningen.</string>
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">En konfigurationsfil avgörande för drift saknas</string>
     <!-- ID of the default folder created on first start (camera folder). Must only contain 'a-z0-9_-'. Parameter is the device name-->
     <string name="default_folder_id">%1$s foton</string>
-    <string name="notification_crash_title">Syncthing har kraschat (avslutningskod %1$s)</string>
+    <string name="notification_crash_title">Kraschade (avslutningskod %1$s)</string>
     <string name="notification_crash_text">Klicka för att visa loggar (%1$s)</string>
     <string name="notifications_persistent_channel">Syncthing är aktiv</string>
     <string name="notification_persistent_waiting_channel">Övervakar körvillkor</string>
@@ -618,7 +618,7 @@
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing tillåts köras på roaming och icke-roaming mobildataanslutningar.</string>
     <string name="reason_on_nonroaming_mobile_data">Syncthing tillåts köras på icke-roaming mobila dataanslutningar. Den aktiva anslutningen är icke-roaming.</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing körs inte eftersom du inte tillåtit att det körs på roaming-mobildataanslutningar.</string>
-    <string name="syncthing_active_details">Syncthing körs: %1$s</string>
+    <string name="syncthing_active_details">Körs: %1$s</string>
     <string name="no_remote_devices_connected">Inga fjärrenheter anslutna</string>
     <string name="state_local_additions">Lokala tillskott</string>
     <string name="state_cleaning">Städversioner</string>
@@ -645,7 +645,7 @@
     <string name="expert_mode_summary">Om du aktiverar det här alternativet visas avancerade konfigurationsalternativ. Du bör ta en titt på Syncthings dokumentation först för att se till att du vet hur du använder dem korrekt. Felaktiga inställningar kan orsaka batteriladdning, utmattning av systemresurser eller ofullständig synkronisering.</string>
     <string name="webui_tcp_port_title">TCP-port för webbgränssnittet</string>
     <string name="dialog_settings_restart_app_question">För att ändra det här alternativet krävs en omedelbar omstart av appen. Alla andra ändringar kommer att ignoreras. Fortsätta?</string>
-    <string name="broadcast_service_control_summary">Standard: Inaktiverad. Aktivera detta alternativ för att starta och stoppa tjänsten genom att skicka sändningar, t.ex. från tredjeparts automationsappar. Obs: Du måste starta om appen manuellt efter att ha ändrat det här alternativet.</string>
+    <string name="broadcast_service_control_summary">Standard: Inaktiverad. Aktivera för att låta adb- eller tredjepartsappar, t.ex. automatiseringsappar, instruera Syncthing att följa körvillkor, tvinga fram start eller tvinga fram stopp.</string>
     <string name="os_open_file_limit">Android Öppningsfilgräns</string>
     <string name="tip_xiaomi_autostart_text">Xiaomi MIUI tillåter inte appar att starta på egen hand som standard. Från hemskärmen, gå till \"Inställningar\" &gt; \"Behörigheter\" &gt; \'Autostart\' och aktivera skjutreglaget \"Syncthing-Fork\".</string>
     <string name="download_support_bundle_title">Hämta supportpaketet</string>
@@ -669,7 +669,7 @@
     <string name="crash_reporting">Anonym kraschrapportering</string>
     <string name="webui_remote_access_summary">Ange för att tillåta åtkomst till webbgränssnittet från en annan enhet. Om det är aktiverat kan du logga in med användarens \"syncthing\" och API-nyckel som lösenord. Standard: inaktiverad (säkrast)</string>
     <string name="download_support_bundle_succeeded">Supportpaketet har hämtats till %s.</string>
-    <string name="config_export_failed">Konfigurationsexport misslyckades, kontrollera logcat-utmatning.</string>
+    <string name="config_export_failed">Konfigurationsexporten misslyckades. Gå till Inställningar-Felsökning-Öppna logg för att se detaljer.</string>
     <string name="verbose_log_title">Utförlig logg</string>
     <string name="download_support_bundle_in_progress">Förbereder hämtning av supportpaket …</string>
     <plurals name="device_online_up_to_date">
@@ -685,4 +685,36 @@
     <string name="webui_tcp_port_unavailable">WebUI tcp-port %s upptagen. Andra instans?</string>
     <string name="state_failed_items">Misslyckade objekt (%1$d)</string>
     <string name="photo_shoot_launcher_title">Synkronisera. Kamera</string>
+    <plurals name="conflicts">
+        <item quantity="one">%1$d konflikt</item>
+        <item quantity="other">%1$d konflikter</item>
+    </plurals>
+    <string name="privacy_title">Integritetspolicy</string>
+    <string name="open_source_licenses_title">Öppen källkodslicenser</string>
+    <string name="open_source_licenses_summary">Visa de använda licenserna för öppen källkod</string>
+    <string name="folder_run_script_caption">Kör skript</string>
+    <string name="folder_run_script_description">Expertalternativ för att köra skript efter att en mapp ändrar sitt synkroniseringsstatus. Skript på \'.stfolder/*.sh\' kommer att köras, andra platser stöds inte av säkerhetsskäl.\nExempel på skriptanrop: \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="start_into_web_gui_title">Starta direkt i webbgränssnittet</string>
+    <string name="start_into_web_gui_summary">När du startar appen, öppna webbgränssnittet istället för huvudskärmen</string>
+    <string name="clear_stversions_title">Töm alla versionshanteringsmappar</string>
+    <string name="clear_stversions_summary">Filer flyttas till .stversions-mappen när de ersätts eller raderas av Syncthing. Du kan förmodligen hitta och återställa oavsiktligt borttagna filer där, men föråldrade versioner av filerna tar upp lagringsutrymme på din enhet.</string>
+    <string name="clear_stversions_question">Detta kommer att ta bort alla tidigare versioner av filer som hanterats av Syncthing. Vill du fortsätta?</string>
+    <string name="clear_stversions_done">Rensade .stversions-mappar.</string>
+    <string name="backup_rel_path_to_zip">Relativ sökväg till konfigurationsarkivet</string>
+    <string name="backup_password_title">Lösenord för konfigurationsskydd</string>
+    <string name="backup_password_summary">ℹ️ Rekommenderas:\nAnge ett starkt lösenord som används för att kryptera din konfiguration under export och dekryptera vid import. Förvara lösenordet på ett säkert ställe för återställningsprocessen. Du behöver det för att använda importfunktionen.\n\n⚠️ Rekommenderas inte:\nOm du inte använder ett lösenord kan andra appar potentiellt läsa och manipulera din Syncthing-konfiguration. Att exponera konfigurationen medför risken att en obehörig aktör kan få obehörig åtkomst till dina filer med hjälp av stulna konfigurationsexporter.</string>
+    <string name="backup_password_set">✅ Lösenord inställt: %1$s</string>
+    <string name="backup_password_not_set">⚠ Lösenordet inte inställt.</string>
+    <string name="preference_category_actions">Åtgärder</string>
+    <string name="preference_category_explanation">Förklaring</string>
+    <string name="preference_category_prepare">Förbereda</string>
+    <string name="config_export_successful_no_path">Konfigurationen exporterades. Kom ihåg lösenordet för senare import.</string>
+    <string name="config_import_failed_no_path">Konfigurationsimporten misslyckades. Gå till Inställningar-Felsökning-Öppna logg för att se detaljer.</string>
+    <string name="syncthing_forum_title">Syncthing-forum</string>
+    <string name="syncthing_forum_summary">Gå till Syncthing-forumet och få support</string>
+    <string name="pizza_url_title">» Katter älskar pizza « 😺🍕</string>
+    <string name="pizza_url_summary">Med bara ett tryck kan du lämna en varm känsla av vänlighet - toppad med extra goda vibbar som får katterna att spinna glatt.</string>
+    <string name="privacy_summary">Öppna syncthing-androids integritetspolicy, som täcker användning (om någon) av personuppgifter, t.ex. plats.</string>
+    <string name="share_log_file_missing">Loggfilen som ska delas saknas.</string>
+    <string name="share_log_file">Dela loggfil</string>
 </resources>
