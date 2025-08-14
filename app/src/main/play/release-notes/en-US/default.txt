@@ -1,1 +1,1 @@
-Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.0 to see details on the v2.0.0 milestone.
+Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.1 to see details on the v2 milestone.
