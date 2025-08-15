@@ -628,4 +628,7 @@
     <string name="folder_run_script_description">Opção avançada para executar scripts após uma pasta alterar seu estado de sincronização. Scripts em \'.stfolder/*.sh\' serão executados; outros locais não são suportados por questões de segurança.\nExemplo de chamada de script: \'.stfolder/rename-files.sh sync_complete\'</string>
     <string name="tip_ignore_delete_text">Se quiser fazer backup de todas as fotos tiradas no seu celular em um computador, compartilhe a pasta \"Câmera\" com o computador. Abra o Syncthing no computador, adicione a pasta e vá em \"Ações\" &gt; \"Avançado\" &gt; pasta \"Câmera\". Ative \"Ignorar Exclusão\" e clique em \"Salvar\". Agora você pode excluir fotos da pasta da câmera do celular e elas permanecerão armazenadas no computador.</string>
     <string name="tip_huawei_device_disconnected_text">Se o seu computador relata constantemente que o seu dispositivo Huawei está desconectado, abra a interface do Syncthing no seu computador. Vá para \"Dispositivos remotos\", expanda a entrada do telefone, clique em \"Editar\" e alterne para \"Avançado\". Insira o endereço IP do seu telefone em \"Endereços\" como este:\ntcp4://%1$s, dinâmico\nFuncionamento confirmado para: Huawei P10</string>
+    <string name="privacy_title">Política de Privacidade</string>
+    <string name="open_source_licenses_title">Licenças de Código Aberto</string>
+    <string name="open_source_licenses_summary">Mostrar as licenças de código aberto usadas</string>
 </resources>
