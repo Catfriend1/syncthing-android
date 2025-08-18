@@ -45,9 +45,7 @@ public class Folder {
     public int pullerPauseS = 0;
     public int maxConflicts = 10;
     public boolean disableSparseFiles = false;
-    public boolean disableTempIndexes = false;
     public boolean paused = false;
-    public int weakHashThresholdPct = 25;
     public String markerName = Constants.FILENAME_STFOLDER;
 
     // Since v1.1.0, see Issue #5445, PR #5479

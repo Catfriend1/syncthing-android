@@ -50,9 +50,6 @@ public class Options {
     public int stunKeepaliveMinS = 20;
     public String stunServer = "default";
 
-    // Since v1.3.0
-    public String databaseTuning = "small";         // SyncthingNative defaults to "auto".
-
     // Since v1.4.0
     // See https://github.com/syncthing/syncthing/pull/6290
     public int maxFolderConcurrency = 1;
