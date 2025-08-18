@@ -1,1 +1,1 @@
-Pacote para o Syncthing - sincronização de arquivos aberta e descentralizada
+Pacote para o Syncthing - Sincronização aberta e descentralizada de arquivos
