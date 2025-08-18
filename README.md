@@ -15,7 +15,7 @@ A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. He
 
 See [detailed info](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Switch-between-releases_Verify-APK-is-genuine.md) about release variants and which is recommended to fit your needs.
 
-"nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into his mission. It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the spirit of open source.
+"nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into [his mission](https://github.com/nel0x/syncthing-android-gplay). It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the spirit of open source.
 
 ## Switching from the (now deprecated) official version
 
