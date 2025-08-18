@@ -684,7 +684,7 @@
     <string name="app_version_title">Versão do pacote do Syncthing-Fork</string>
     <string name="syncthing_database_size">Tamanho do banco de dados do Syncthing</string>
     <string name="os_open_file_limit">Limite de abrir arquivos do Android</string>
-    <string name="advanced_storage_path_overview">Visualização geral avançada do caminho de armazenamento</string>
+    <string name="advanced_storage_path_overview">Visão geral do caminho de armazenamento avançado</string>
     <string name="current_path">Caminho atual: %1$s</string>
     <string name="share_log_file_missing">O arquivo de registros a compartilhar está ausente.</string>
     <string name="share_log_file">Compartilhar arquivo de registros</string>
