@@ -211,7 +211,7 @@
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">Voulez-vous vraiment exporter votre configuration ? Les archives existantes seront écrasées.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres existants ainsi que la liste des partages et des appareils seront remplacés.</string>
+    <string name="dialog_confirm_import">Voulez-vous vraiment importer la configuration ? Les paramètres courants, dont la liste des partages et des appareils seront remplacés.</string>
     <!-- Toast shown after config was exported -->
     <string name="import_config">Importer la configuration</string>
     <!-- Toast shown after config was imported -->
@@ -537,7 +537,7 @@
     <string name="preference_app_theme_follow_dark">Sombre</string>
     <string name="run_on_mobile_data_summary">Exécuter quand l\'appareil est connecté au réseau de données mobiles. Attention : ceci peut rapidement consommer un gros volume de données de votre forfait si vous avez beaucoup de données.</string>
     <string name="run_on_roaming_title">Exécuter en itinérance</string>
-    <string name="run_on_roaming_summary">Autoriser l\'utilisation des données mobiles en itinérance (p.ex à l\'étranger). (!) Merci de poster un retour sur GitHub si ça marche correctement.</string>
+    <string name="run_on_roaming_summary">Autoriser l\'utilisation des données mobiles en itinérance (p.ex à l\'étranger). ( ! ) Merci de poster un retour sur GitHub si ça marche correctement.</string>
     <string name="run_on_wifi_title">Exécuter sur Wi-Fi</string>
     <string name="run_on_wifi_summary">Exécuter sur les réseaux Wi-Fi ou Ethernet.</string>
     <string name="run_on_metered_wifi_title">Exécuter sur les réseaux Wi-Fi avec quota</string>
@@ -662,7 +662,7 @@
     <string name="pull_order_type_smallestFirst_description">Reçoit les fichiers par taille, en commençant par les plus petits.</string>
     <string name="pull_order_type_largestFirst_description">Reçoit les fichiers par taille, en commençant par les plus gros.</string>
     <string name="file_versioning_generic_description">Syncthing peut conserver l\'ancienne version d\'un fichier quand il est modifié ou supprimé par un autre membre du partage. Cliquez pour voir les différentes possibilités de préservation. Le réglage est par partage et par appareil. Stratégie sélectionnée :</string>
-    <string name="qs_following_run_conditions">Suit les conditions d\'exécution</string>
+    <string name="qs_following_run_conditions">Suivre les conditions d\'exécution</string>
     <string name="qs_forced_to_stop">Arrêt forcé</string>
     <string name="qs_schedule_label">Exécuter pendant 5 minutes</string>
     <string name="override_changes">Écraser les changements distants</string>
@@ -677,8 +677,8 @@
     <string name="sleep_interval_minutes_title">Durée de l\'intervalle de suspension de la synchronisation</string>
     <string name="start_into_web_gui_title">Démarrer directement l\'interface web</string>
     <string name="start_into_web_gui_summary">Lancer l\'interface web au démarrage plutôt que l\'écran principal</string>
-    <string name="open_source_licenses_title">Licences open-source</string>
-    <string name="open_source_licenses_summary">Afficher les licences open-sources utilisées</string>
+    <string name="open_source_licenses_title">Licences Open Source</string>
+    <string name="open_source_licenses_summary">Afficher les licences Open Source utilisées</string>
     <string name="clear_stversions_title">Vider toutes les corbeilles/dossiers de versions</string>
     <string name="syncthing_forum_summary">Aller sur le Forum des utilisateurs de Syncthing pour obtenir de l\'assistance</string>
     <string name="folder_run_script_caption">Exécuter le script</string>
