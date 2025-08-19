@@ -491,6 +491,9 @@ public class SyncthingRunnable implements Runnable {
         targetEnv.put("STMONITORED", "1");
         targetEnv.put("STNOUPGRADE", "1");
 
+        // Database tuning against slowness.
+        targetEnv.put("SQLITE_TMPDIR", mContext.getCacheDir().getAbsolutePath());
+
         // Workaround SyncthingNativeCode denied to read gatewayIP by Android 14+ restriction.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             final String gatewayIpV4 = getGatewayIpV4(mContext);
