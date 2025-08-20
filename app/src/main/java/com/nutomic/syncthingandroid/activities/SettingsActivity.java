@@ -550,7 +550,7 @@ public class SettingsActivity extends SyncthingActivity {
                 mWebUIUsername.setSummary(mGui.user);
 
                 mWebUIRemoteAccess.setChecked(!BIND_LOCALHOST.equals(mGui.getBindAddress()));
-                mDownloadSupportBundle.setEnabled(mGui.debugging);
+                mDownloadSupportBundle.setEnabled(true);
             }
         }
 
