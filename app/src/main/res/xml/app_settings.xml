@@ -289,13 +289,6 @@
             android:singleLineTitle="false"
             android:persistent="false" />
 
-        <CheckBoxPreference
-            android:key="webUIDebugging"
-            android:title="@string/webui_debugging_title"
-            android:summary="@string/webui_debugging_summary"
-            android:singleLineTitle="false"
-            android:persistent="false" />
-
         <Preference
             android:key="clearStVersions"
             android:title="@string/clear_stversions_title"

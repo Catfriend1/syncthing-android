@@ -6,7 +6,6 @@ package com.nutomic.syncthingandroid.model;
  * - https://github.com/syncthing/syncthing/blob/master/lib/config/guiconfiguration.go
  */
 public class Gui {
-    public boolean debugging = false;
     public boolean enabled = true;
 
     /**
