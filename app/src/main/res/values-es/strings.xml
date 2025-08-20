@@ -400,8 +400,6 @@
     <string name="webui_tcp_port_title">Puerto TCP de la interfaz web</string>
     <string name="webui_remote_access_title">Acceso remoto a la interfaz web</string>
     <string name="webui_remote_access_summary">Especifique si desea permitir el acceso a la interfaz web desde otro dispositivo. Si está habilitado, podrá iniciar sesión con el usuario \"syncthing\" y usando la clave de la API como contraseña. Por defecto: desactivado (más seguro)</string>
-    <string name="webui_debugging_title">Depuración de la interfaz web</string>
-    <string name="webui_debugging_summary">Habilite esta opción para iniciar la creación de perfiles y poder descargar un paquete de soporte. Cambiar esta opción provocará que Syncthing se reinicie inmediatamente.</string>
     <string name="download_support_bundle_title">Descargar Paquete de Soporte</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Preparando descarga de Paquete de Soporte</string>

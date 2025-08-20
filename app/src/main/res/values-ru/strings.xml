@@ -570,8 +570,6 @@ Android требует разрешение доступа к геолокаци
     <string name="expert_mode_title">Режим эксперта</string>
     <string name="use_root_summary">Запуск Syncthing с root-правами позволяет ему писать в папки, доступ к которым Android обычно ограничивает только чтением. Используйте эту функцию с осторожностью.</string>
     <string name="webui_password_title">Пароль для веб-интерфейса</string>
-    <string name="webui_debugging_title">Отладка веб-интерфейса</string>
-    <string name="webui_debugging_summary">Включите, чтобы запустить профилирование и иметь возможность загрузить пакет поддержки. Изменение этого параметра перезапустит Syncthing немедленно.</string>
     <string name="download_support_bundle_title">Загрузить пакет поддержки</string>
     <string name="download_support_bundle_in_progress">Подготовка загрузки пакета поддержки …</string>
     <string name="download_support_bundle_succeeded">Пакет поддержки загружен в %s.</string>

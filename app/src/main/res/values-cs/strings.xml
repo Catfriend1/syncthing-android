@@ -497,8 +497,6 @@
     <string name="webui_username_title">Uživatelské jméno webového rozhraní</string>
     <string name="webui_password_title">Heslo webového rozhraní</string>
     <string name="webui_remote_access_summary">Zadejte, chcete-li povolit přístup k webovému rozhraní z jiného zařízení. Pokud je povoleno, můžete se přihlásit pomocí uživatele „syncthing“ a klíče API jako hesla. Výchozí: zakázáno (nejbezpečnější)</string>
-    <string name="webui_debugging_title">Ladění webového rozhraní</string>
-    <string name="webui_debugging_summary">Povolením spustíte profilování a budete moci stáhnout balíček podpory. Změna této možnosti okamžitě restartuje Syncthing.</string>
     <string name="download_support_bundle_title">Stáhnout balíček podpory</string>
     <string name="undo_ignored_devices_folders_title">Vrátit zpět ignorovaná zařízení a složky</string>
     <string name="socks_proxy_address_title">SOCKS5 proxy</string>

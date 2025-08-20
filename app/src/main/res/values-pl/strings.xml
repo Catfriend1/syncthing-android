@@ -497,7 +497,6 @@
     <string name="location_permission_desc_api_29">Wskazówka dla Androida 10+: „Zawsze zezwalaj”</string>
     <string name="syncthing_database_size">Rozmiar bazy danych Syncthing</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing nie jest uruchomiony, ponieważ zabroniono jego uruchamiania w przypadku mobilnych połączeń danych w roamingu.</string>
-    <string name="webui_debugging_summary">Włącz, aby rozpocząć profilowanie i móc pobrać pakiet obsługi. Zmiana tej opcji spowoduje natychmiastowe ponowne uruchomienie Syncthing.</string>
     <string name="key_generation_success">Bezpieczne klucze do prywatnej wymiany danych zostały pomyślnie wygenerowane.</string>
     <string name="welcome_text">Syncthing to otwartoźródłowa aplikacja do synchronizacji plików. Aby udostępnić dane innym urządzeniom, musisz dodać ich unikalne identyfikatory urządzeń do listy urządzeń. Następnie możesz wybrać, które foldery chcesz udostępnić ustalonym urządzeniom.
 \n
@@ -604,7 +603,6 @@
     <string name="folder_type_sendonly_description">Pliki są zabezpieczone przed zmianami dokonanymi na innych urządzeniach, ale zmiany dokonane na tym urządzeniu będą wysyłane do pozostałych urządzeń.</string>
     <string name="deviceEncryptionPasswordHint">Jeżeli folder jest niezaufany, wprowadź szyfrujące hasło</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Wymagane uprawnienie</string>
-    <string name="webui_debugging_title">Debugowanie interfejsu internetowego</string>
     <string name="run_on_time_schedule_title">Uruchamiaj zgodnie z harmonogramem</string>
     <string name="syncthing_terminated">Zakończony</string>
     <string name="run_on_metered_wifi_summary">Działaj, gdy urządzenie korzysta z taryfowej sieci Wi-Fi, np. hotspotu lub udostępnionego połączenia. Uwaga: może to skutkować znacznym zużyciem transferu, jeżeli synchronizujesz dużo danych.</string>

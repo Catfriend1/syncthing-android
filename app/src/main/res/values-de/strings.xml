@@ -397,8 +397,6 @@
     <string name="webui_tcp_port_title">Web-UI TCP-Port</string>
     <string name="webui_remote_access_title">Web-UI Fernzugriff</string>
     <string name="webui_remote_access_summary">Erlaubt es, von einem anderen Gerät aus auf die Weboberfläche zuzugreifen. Wenn aktiviert, ist es möglich sich als Benutzer „syncthing“ und dem API-Schlüssel als Passwort anzumelden. Standard: Deaktiviert (am sichersten)</string>
-    <string name="webui_debugging_title">WebUI Fehlersuchmodus</string>
-    <string name="webui_debugging_summary">Profiling und das Herunterladen eines Supportpakets aktivieren. Das Ändern dieser Option startet Syncthing sofort neu.</string>
     <string name="download_support_bundle_title">Supportpaket herunterladen</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Supportpaket-Download wird vorbereitet …</string>

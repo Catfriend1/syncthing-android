@@ -326,7 +326,6 @@
     <string name="crash_reporting">匿名でのクラッシュレポート</string>
     <string name="webui_tcp_port_title">Web UIのTCPポート</string>
     <string name="webui_remote_access_title">Web UIリモートアクセス</string>
-    <string name="webui_debugging_title">WebUI デバッグ</string>
     <string name="undo_ignored_devices_folders_done">決定の取り消しに成功しました。</string>
     <string name="export_config">設定のエクスポート</string>
     <!-- Experimental options -->

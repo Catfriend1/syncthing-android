@@ -347,7 +347,6 @@
     <string name="webui_tcp_port_title">Porta TCP da interface web</string>
     <string name="webui_remote_access_title">Acesso remoto à interface web</string>
     <string name="webui_remote_access_summary">Especifique para permitir o acesso à interface web de outro dispositivo. Se habilitado, você pode entrar com o usuário \'syncthing\' e a chave da API como senha. Padrão: desabilitado (mais seguro)</string>
-    <string name="webui_debugging_title">Depuração da interface web</string>
     <string name="export_config">Exportar configuração</string>
     <!-- Experimental options -->
     <string name="use_proxy">Conecte por um proxy</string>

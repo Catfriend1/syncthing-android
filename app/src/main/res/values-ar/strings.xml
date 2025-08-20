@@ -68,7 +68,6 @@
     <string name="photo_shoot_intro_permission_desc">تتطلب كاميرا Syncthing موافقتك لالتقاط الصور وتخزينها على جهازك. هذه الميزة اختيارية. لاستخدامها، امنح الأذونات وانقر على متابعة. سنقوم بإعداد مجلد كاميرا Syncthing لك والذي يمكنك مشاركته مع أجهزة Syncthing أخرى لاحقًا.</string>
     <string name="start_into_web_gui_title">البدء مباشرة في واجهة المستخدم الرسومية للويب\"GUI\"</string>
     <string name="webui_remote_access_summary">حدد للسماح بالوصول إلى واجهة المستخدم الرسومية للويب من جهاز آخر. إذا تم تمكينه، يمكنك تسجيل الدخول باستخدام المستخدم syncthing ومفتاح API ككلمة مرور. الافتراضي: معطل (الأكثر أمانًا)</string>
-    <string name="webui_debugging_title">تصحيح أخطاء واجهة المستخدم الرسومية للويب</string>
     <string name="undo_ignored_devices_folders_question">سيؤدي هذا إلى التراجع عن القرارات السابقة بتجاهل الأجهزة والمجلدات. متابعة؟</string>
     <string name="undo_ignored_devices_folders_done">تم التراجع عن القرارات بنجاح.</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">قيمة الإدخال غير صالحة. يرجى إدخال قيمة بين %1$d و %2$d.</string>
@@ -238,7 +237,6 @@
     <string name="max_send_kbps">حد معدل الإرسال (كيلوبايت/ثانية)</string>
     <string name="global_announce_enabled">الاكتشاف العالمي</string>
     <string name="enable_nat_traversal">تمكين اجتياز NAT</string>
-    <string name="webui_debugging_summary">قم بالتمكين لبدء التنميط ولتتمكن من تنزيل حزمة دعم. سيؤدي تغيير هذا الخيار إلى إعادة تشغيل Syncthing فورًا.</string>
     <string name="open_log">فتح السجل</string>
     <string name="open_source_licenses_title">تراخيص المصادر المفتوحة</string>
     <string name="advanced_storage_path_overview">نظرة عامة على مسار التخزين المتقدم</string>

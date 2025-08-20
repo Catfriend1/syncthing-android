@@ -296,7 +296,6 @@
     <string name="usage_reporting">Informes d\'ús anònims</string>
     <string name="webui_tcp_port_title">Port TCP de la intefície web</string>
     <string name="webui_remote_access_title">Accés remot a la interfície web</string>
-    <string name="webui_debugging_title">Depuració de la interfície web</string>
     <string name="download_support_bundle_title">Descarrega el Paquet de Suport</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Preparant descàrrega del Paquet de Suport</string>
@@ -544,7 +543,6 @@
     <string name="dialog_all_files_access_not_supported">El vostre dispositiu no admet l\'accés a tots els fitxers</string>
     <string name="start_into_web_gui_title">Comença directament a la GUI web</string>
     <string name="start_into_web_gui_summary">Quan inicieu l\'aplicació, obriu la GUI web en lloc de la pantalla principal</string>
-    <string name="webui_debugging_summary">Habilita per iniciar la creació de perfils i poder descarregar un paquet de suport. Si canvies aquesta opció, Syncthing es reiniciarà immediatament.</string>
     <string name="reason_on_wifi">Es permet que Syncthing funcioni amb Wi-Fi i el Wi-Fi està connectat actualment.</string>
     <string name="reason_on_flight_mode">Syncthing s\'està executant tal com li has permès executar-se quan el mode de vol està actiu.</string>
     <string name="reason_run_condition_monitor_not_instantiated">No s\'ha instanciat RunConditionMonitor. Reinicieu l\'aplicació i envieu un informe d\'error si aquest error no desapareix després de reiniciar.</string>

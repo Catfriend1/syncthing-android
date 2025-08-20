@@ -365,7 +365,6 @@
 \nSürümlerin Yolu: %2$s</string>
     <string name="syncthing_database_size">Syncthing Veritabanı Boyutu</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing, dolaşım mobil veri bağlantıları üzerinden çalışmasına izin vermediğiniz için çalışmıyor.</string>
-    <string name="webui_debugging_summary">Profil oluşturmaya başlamak ve bir destek paketi indirebilmek için etkinleştirin. Bu seçeneğin değiştirilmesi Syncthing\'i hemen yeniden başlatacak.</string>
     <string name="notification_crash_title">Çöktü (çıkış kodu %1$s)</string>
     <string name="tip_custom_sync_conditions_title">Klasör/cihaz başına özel eşitleme koşullarını kullanın</string>
     <string name="download_support_bundle_failed">Destek Paketini indirme başarısız. Günlükleri gözden geçirin.</string>
@@ -512,7 +511,6 @@
     <string name="folder_type_sendonly_description">Dosyalar, diğer cihazlarda yapılan değişikliklere karşı korunur, ancak bu cihazda yapılan değişiklikler kümenin geri kalanına gönderilecektir.</string>
     <string name="deviceEncryptionPasswordHint">Eğer güvenilmezse, şifreleme parolasını girin</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">İzin gerekli</string>
-    <string name="webui_debugging_title">Web Arayüzü Hata Ayıklama</string>
     <string name="ignore_patterns">Yoksayma Şekilleri</string>
     <string name="nothing_share">Paylaşacak bir şey yok</string>
     <string name="tip_sync_on_local_network_text">Eğer yalnızca yerel kablosuz (Wi-Fi) ağda bulunan veya kablosuz (Wi-Fi) erişim noktası aracılığıyla erişilebilen cihazlarla eşitlemek istiyorsanız, \'Ayarlar/Syncthing Seçenekleri\' altında aşağıdaki seçenekleri kapatarak pil kullanımını azaltabilir ve mobil veriler üzerinden yanlışlıkla eşitlemeyi önleyebilirsiniz:

@@ -397,8 +397,6 @@
     <string name="webui_tcp_port_title">Web UI TCP Port</string>
     <string name="webui_remote_access_title">Webes felhasználói felület távoli elérése</string>
     <string name="webui_remote_access_summary">Legyen engedélyezve a webes felhasználói felület más eszközről történő elérése. Ha engedélyezve van, akkor a \"syncthing\" felhasználóval és jelszóként az API-kulccsal lehet bejelentkezni. Alapértelmezett: letiltva (legbiztonságosabb)</string>
-    <string name="webui_debugging_title">WebUI hibakeresés</string>
-    <string name="webui_debugging_summary">Engedélyezze a profilkészítés elindítását és a támogatási csomag letöltését. Ha ezt az beállítást megváltoztatja, a Syncthing azonnal újraindul.</string>
     <string name="download_support_bundle_title">Támogatási csomag letöltése</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Felkészülés a támogatási csomag letöltésére …</string>

@@ -398,8 +398,6 @@
     <string name="webui_tcp_port_title">Web UI TCP 端口</string>
     <string name="webui_remote_access_title">Web UI 远程访问</string>
     <string name="webui_remote_access_summary">指定以允许从其他设备访问 Web UI。如果启用，您可以使用用户“syncthing”和 API 密钥作为密码登录。默认值：禁用（最安全）</string>
-    <string name="webui_debugging_title">WebUI 调试</string>
-    <string name="webui_debugging_summary">启用以开始分析并能够下载支持包。更改此选项将立即重启 Syncthing。</string>
     <string name="download_support_bundle_title">下载支持包</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">正在准备支持包下载…</string>

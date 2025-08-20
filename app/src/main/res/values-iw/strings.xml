@@ -289,8 +289,6 @@
     <string name="webui_username_title">שם משתמש של ממשק המשתמש ברשת</string>
     <string name="webui_password_title">סיסמה של ממשק המשתמש ברשת</string>
     <string name="webui_remote_access_summary">ציין כדי להתיר גישה לממשק המשתמש ברשת מהתקן אחר. אם מופעל, תוכל להיכנס עם המשתמש \'syncthing\' ומפתח API בתור סיסמה. ברירת מחדל: מושבת (הכי מאובטח)</string>
-    <string name="webui_debugging_title">דיבוג ממשק משתמש ברשת</string>
-    <string name="webui_debugging_summary">הפעל כדי להתחיל ליצור פרופיל וכדי שיהיה ניתן להוריד חבילת תמיכה. שינוי אפשרות זו יפעיל מחדש את Syncthing באופן מיידי.</string>
     <string name="download_support_bundle_title">הורד חבילת תמיכה</string>
     <string name="download_support_bundle_in_progress">מכין הורדת חבילת תמיכה …</string>
     <string name="download_support_bundle_succeeded">חבילת תמיכה הורדה בהצלחה אל %s.</string>
