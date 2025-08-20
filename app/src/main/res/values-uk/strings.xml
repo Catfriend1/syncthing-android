@@ -426,7 +426,6 @@
     <string name="use_proxy">Підключення через проксі-сервер</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Номер порту невірний. Будь ласка, введіть порт між %1$d та %2$d.</string>
     <string name="do_not_use_proxy">Проксі не налаштовано.</string>
-    <string name="webui_debugging_summary">Увімкніть, щоб розпочати профілювання і мати можливість завантажити пакет підтримки. Зміна цього параметра призведе до негайного перезапуску Syncthing.</string>
     <string name="download_support_bundle_title">Завантажити пакет підтримки</string>
     <string name="undo_ignored_devices_folders_title">Скасувати ігнорування пристроїв і тек</string>
     <string name="undo_ignored_devices_folders_done">Ігнорування скасовано.</string>
@@ -513,7 +512,6 @@
     <string name="reason_on_nonmetered_wifi">Syncthing дозволено працювати в не обмежених з’єднаннях WiFi. Активне з’єднання Wi-Fi не обмежене.</string>
     <string name="reason_location_unavailable">Ви ввімкнули «Запуск у вибраних мережах WiFi» у налаштуваннях. Службу розташування Android наразі вимкнено. Згідно з обмеженнями Android, Syncthing не може визначити поточну назву мережі WiFi, щоб вирішити, чи слід її запускати. Рішення: увімкніть розташування, надайте дозвіл на розташування та повторно під\'єднайте Wi-Fi.</string>
     <string name="reason_on_flight_mode">Syncthing працює оскільки ви дозволили роботу в режимі польоту.</string>
-    <string name="webui_debugging_title">Налагодження WebUI</string>
     <string name="no_remote_devices_connected">Жоден віддалений пристрій не підключений</string>
     <string name="syncthing_active_details">Працює: %1$s</string>
     <string name="state_scan_waiting">Чекає на сканування</string>

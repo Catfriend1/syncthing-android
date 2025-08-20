@@ -457,8 +457,6 @@
     <string name="webui_remote_access_title">Accès GUI à distance</string>
     <string name="webui_username_title">Utilisateur GUI</string>
     <string name="webui_password_title">Mot de passe GUI</string>
-    <string name="webui_debugging_title">Débogage GUI Web</string>
-    <string name="webui_debugging_summary">Activer pour démarrer la supervision et le téléchargement d\'un kit d\'assistance. Le changement de cette option redémarre Syncthing immédiatement.</string>
     <string name="download_support_bundle_title">Télécharger le kit d\'assistance</string>
     <string name="download_support_bundle_in_progress">Préparation du téléchargement du kit d\'assistance…</string>
     <string name="download_support_bundle_succeeded">Kit d\'assistance téléchargé vers %s.</string>

@@ -141,7 +141,6 @@ public class SettingsActivity extends SyncthingActivity {
         // Settings/Syncthing Options
         private static final String KEY_WEBUI_TCP_PORT = "webUITcpPort";
         private static final String KEY_WEBUI_REMOTE_ACCESS = "webUIRemoteAccess";
-        private static final String KEY_WEBUI_DEBUGGING = "webUIDebugging";
         private static final String KEY_CLEAR_STVERSIONS = "clearStVersions";
         private static final String KEY_DOWNLOAD_SUPPORT_BUNDLE = "downloadSupportBundle";
         private static final String KEY_UNDO_IGNORED_DEVICES_FOLDERS = "undo_ignored_devices_folders";
@@ -201,7 +200,6 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mWebUIRemoteAccess;
         private CheckBoxPreference mUrAccepted;
         private CheckBoxPreference mCrashReportingEnabled;
-        private CheckBoxPreference mWebUIDebugging;
         private Preference mClearStVersions;
         private Preference mDownloadSupportBundle;
 
@@ -332,7 +330,6 @@ public class SettingsActivity extends SyncthingActivity {
             mSyncthingApiKey        = findPreference(KEY_SYNCTHING_API_KEY);
             mUrAccepted             = (CheckBoxPreference) findPreference("urAccepted");
             mCrashReportingEnabled  = (CheckBoxPreference) findPreference("crashReportingEnabled");
-            mWebUIDebugging         = (CheckBoxPreference) findPreference(KEY_WEBUI_DEBUGGING);
             mClearStVersions        = findPreference(KEY_CLEAR_STVERSIONS);
             mDownloadSupportBundle  = findPreference(KEY_DOWNLOAD_SUPPORT_BUNDLE);
             Preference undoIgnoredDevicesFolders = findPreference(KEY_UNDO_IGNORED_DEVICES_FOLDERS);
@@ -553,8 +550,7 @@ public class SettingsActivity extends SyncthingActivity {
                 mWebUIUsername.setSummary(mGui.user);
 
                 mWebUIRemoteAccess.setChecked(!BIND_LOCALHOST.equals(mGui.getBindAddress()));
-                mWebUIDebugging.setChecked(mGui.debugging);
-                mDownloadSupportBundle.setEnabled(mGui.debugging);
+                mDownloadSupportBundle.setEnabled(true);
             }
         }
 
@@ -731,17 +727,6 @@ public class SettingsActivity extends SyncthingActivity {
                 case "crashReportingEnabled":
                     mOptions.crashReportingEnabled = (boolean) o;
                     break;
-                case KEY_WEBUI_DEBUGGING:
-                    mGui.debugging = (boolean) o;
-
-                    // Immediately apply changes.
-                    mRestApi.editSettings(mGui, mOptions);
-                    if (mRestApi != null &&
-                            mSyncthingService.getCurrentState() != SyncthingService.State.DISABLED) {
-                        mRestApi.sendConfig();
-                        mPendingConfig = false;
-                    }
-                    return true;
                 default: throw new InvalidParameterException();
             }
 

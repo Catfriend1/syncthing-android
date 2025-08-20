@@ -498,7 +498,6 @@
     <string name="folder_pause">Repositório pausado</string>
     <string name="recent_changes_title">Mudanças recentes</string>
     <string name="webui_remote_access_summary">Especifique para permitir o acesso à interface web de outro dispositivo. Se ativado, Pode entrar com o utilizador \'syncthing\' e a chave da API como palavra-passe. Padrão: desativado (mais seguro)</string>
-    <string name="webui_debugging_title">Depuração da interface web</string>
     <string name="reason_on_mobile_data">O Syncthing está autorizado a executar nos dados móveis.</string>
     <string name="notification_crash_title">O Syncthing fechou inesperadamente %1$s</string>
     <string name="pull_order_type_smallestFirst">Menores primeiro</string>

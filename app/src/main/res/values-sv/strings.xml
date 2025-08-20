@@ -540,7 +540,6 @@
     <string name="expert_mode_title">Expertläge</string>
     <string name="webui_username_title">Användarnamn för webbgränssnittet</string>
     <string name="webui_password_title">Lösenord för webbgränssnittet</string>
-    <string name="webui_debugging_title">Felsökning för webbgränssnittet</string>
     <string name="download_support_bundle_failed">Det gick inte att hämta supportpaketet. Kontrollera loggarna.</string>
     <string name="current_path">Aktuell sökväg: %1$s</string>
     <string name="executable_not_found">Körbar kärna \"%s\" saknas. Kontrollera bygg- och logcat-utmatningen.</string>
@@ -598,7 +597,6 @@
     <string name="sleep_interval_minutes_title">Varaktigheten av synkroniseringspausintervallet</string>
     <string name="use_root_summary">Genom att köra Syncthing som root kan den skriva till mappar som Android normalt begränsar till att vara skrivskyddad. Använd denna funktion med försiktighet.</string>
     <string name="webui_remote_access_title">Fjärråtkomst för webbgränssnittet</string>
-    <string name="webui_debugging_summary">Aktivera för att starta profilering och för att kunna ladda ner ett supportpaket. Om du ändrar det här alternativet startas Syncthing om direkt.</string>
     <string name="broadcast_service_control_title">Tjänstekontroll genom sändning</string>
     <string name="verbose_log_summary">Om du aktiverar detta alternativ kommer du att skapa felsökningsloggar på en mycket detaljerad nivå.</string>
     <string name="log_to_file_title">Logga till fil</string>

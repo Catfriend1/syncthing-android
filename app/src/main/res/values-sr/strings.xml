@@ -104,7 +104,6 @@
     <string name="simple_versioning_info">Чувај верзије: %1$s</string>
     <string name="simple_file_versioning_description">Фајлови се премештају у верзије са временским жигом у директоријуму .stversions када их Syncthing замени или уклони.</string>
     <string name="external_versioning_description">Први параметар командне линије је путања фасцикле, а други параметар је релативна путања у фасцикли.</string>
-    <string name="webui_debugging_title">Отклањање грешака веб интерфејса</string>
     <string name="clean_out_after">Очисти после</string>
     <string name="app_name">Syncthing-Fork</string>
     <string name="introduction">Увод</string>
@@ -239,7 +238,6 @@
     <string name="storage_permission_title">Дозвола за складиштење</string>
     <string name="finish">Завршите</string>
     <string name="grant_storage_permission">Доделите дозволу за складиштење</string>
-    <string name="webui_debugging_summary">Омогућите профилисање и преузимање пакета подршке. Промена ове опције ће одмах поново покренути Syncthing.</string>
     <string name="dialog_all_files_access_not_supported">Ваш уређај не подржава приступ свим фајловима</string>
     <string name="pull_order_newest_first">Најновије прво</string>
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Унесена вредност није важећа. Молимо унесите вредност између %1$d и %2$d.</string>

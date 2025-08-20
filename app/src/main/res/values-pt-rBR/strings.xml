@@ -341,7 +341,6 @@
     <string name="webui_tcp_port_title">Porta TCP da interface web</string>
     <string name="webui_remote_access_title">Acesso remoto à interface web</string>
     <string name="webui_remote_access_summary">Especifique para permitir o acesso à interface web a partir de outro dispositivo. Ao ativar, você pode entrar com o usuário \'syncthing\' e a chave da API como senha. Padrão: desativado (o mais seguro)</string>
-    <string name="webui_debugging_title">Depuração da interface web</string>
     <string name="export_config">Exportar configuração</string>
     <!-- Experimental options -->
     <string name="use_proxy">Conectar por um proxy</string>
@@ -644,7 +643,6 @@
     <string name="start_into_web_gui_summary">Ao iniciar o app, abra a interface web em vez na tela principal</string>
     <string name="webui_username_title">Nome de usuário da interface web</string>
     <string name="webui_password_title">Senha da interface web</string>
-    <string name="webui_debugging_summary">Ative para iniciar o profiling e poder baixar um support bundle. Ao alterar esta opção, o Syncthing será reiniciado imediatamente.</string>
     <string name="clear_stversions_title">Esvaziar todas as pastas de versionamento</string>
     <string name="clear_stversions_summary">Os arquivos são movidos para o diretório .stversions ao serem substituidos ou apagados pelo Syncthing. Você provavelmente consegue encontrar e recuperar arquivos acidentalmente apagados alí, mas versões antigas dos arquivos usam espaço de armazenamento no seu dispositivo.</string>
     <string name="clear_stversions_question">Isto apagará todas as versões antigas dos arquivos gerenciados pelo Syncthing. Continuar?</string>

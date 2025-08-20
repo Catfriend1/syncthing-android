@@ -709,8 +709,6 @@
     <string name="reason_on_whitelisted_wifi">Syncthing are permisiunea să ruleze prin rețeaua WiFi curentă.</string>
     <string name="webui_username_title">Nume utilizator UI web</string>
     <string name="webui_password_title">Parola UI Web</string>
-    <string name="webui_debugging_title">Depanare WebUI</string>
-    <string name="webui_debugging_summary">Activează pentru a începe profilarea și pentru a putea descărca un pachet de asistență. Modificarea acestei opțiuni va reporni imediat sincronizarea.</string>
     <string name="clear_stversions_done">Dosarele .stversions golite cu succes.</string>
     <string name="download_support_bundle_succeeded">Pachetul de asistență descărcat cu succes în %s.</string>
     <string name="download_support_bundle_failed">Descărcare eșuată a pachetului de asistență. Verifică jurnalele.</string>

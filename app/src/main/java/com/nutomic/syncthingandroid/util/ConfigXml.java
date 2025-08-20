@@ -1008,7 +1008,6 @@ public class ConfigXml {
             return gui;
         }
 
-        gui.debugging = getAttributeOrDefault(elementGui, "debugging", gui.debugging);
         gui.enabled = getAttributeOrDefault(elementGui, "enabled", gui.enabled);
         gui.useTLS = getAttributeOrDefault(elementGui, "tls", gui.useTLS);
 
@@ -1030,7 +1029,6 @@ public class ConfigXml {
             return;
         }
 
-        elementGui.setAttribute("debugging", Boolean.toString(gui.debugging));
         elementGui.setAttribute("enabled", Boolean.toString(gui.enabled));
         elementGui.setAttribute("tls", Boolean.toString(gui.useTLS));
 

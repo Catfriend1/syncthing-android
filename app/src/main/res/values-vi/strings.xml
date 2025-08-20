@@ -398,8 +398,6 @@
     <string name="webui_tcp_port_title">Cổng TCP giao diện web</string>
     <string name="webui_remote_access_title">Truy cập giao diện web từ xa</string>
     <string name="webui_remote_access_summary">Chỉ định để cho phép truy cập giao diện web từ một thiết bị khác. Nếu được bật, bạn có thể đăng nhập bằng người dùng \'syncthing\' và mã API làm mật khẩu. Mặc định: tắt (bảo mật nhất)</string>
-    <string name="webui_debugging_title">Gỡ lỗi giao diện web</string>
-    <string name="webui_debugging_summary">Bật để bắt đầu lập hồ sơ và có thể tải xuống gói hỗ trợ. Việc thay đổi tùy chọn này sẽ khởi động lại Syncthing ngay lập tức.</string>
     <string name="download_support_bundle_title">Tải xuống gói hỗ trợ</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
     <string name="download_support_bundle_in_progress">Đang chuẩn bị tải xuống gói hỗ trợ …</string>
