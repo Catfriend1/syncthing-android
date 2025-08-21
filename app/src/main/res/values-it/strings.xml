@@ -99,7 +99,7 @@
     <string name="override_changes">Ignora le Modifiche</string>
     <!-- Override Changes Confirmation Dialog -->
     <string name="override_changes_question">Annullerà tutte le modifiche fatte sugli altri dispositivi che condividono questa cartella. Vuoi procedere\?</string>
-    <string name="revert_local_changes">Ripristina modifiche locali</string>
+    <string name="revert_local_changes">Sovrascrivi modifiche locali</string>
     <string name="delete_unexpected_items">Elimina elementi inattesi</string>
     <!-- Revert Local Changes Confirmation Dialog -->
     <string name="revert_local_changes_question">Annullerà tutte le modifiche fatte su questo dispositivo all\'interno della cartella. Vuoi procedere\?</string>
