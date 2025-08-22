@@ -60,8 +60,8 @@ public class FileUtils {
     }
 
     public static android.net.Uri convertFromDocumentUriToTreeUri(Uri documentUri) {
-        // IN: content://com.android.externalstorage.documents/document/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
-        // OUT: content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fmedia%2Fcom.github.catfriend1.syncthingandroid.debug
+        // IN: content://com.android.externalstorage.documents/document/primary%3AAndroid%2Fmedia%2F${applicationId}
+        // OUT: content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fmedia%2F${applicationId}
         String authority = documentUri.getAuthority();
         String documentId = DocumentsContract.getDocumentId(documentUri);
         return DocumentsContract.buildTreeDocumentUri(authority, documentId);

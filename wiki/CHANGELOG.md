@@ -31,7 +31,7 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ### Features
 * Add "cleanOutDays" to simple file versioning dialog (fixes #1439) by @Catfriend1 in #1474
 ### Other
-* Set BUILD_HOST in fdroiddata/com.github.catfriend1.syncthingandroid.yml (fixes #1383) by @Catfriend1 in #1480
+* Set BUILD_HOST in fdroiddata yml (fixes #1383) by @Catfriend1 in #1480
 * build.gradle: static BUILD_HOST/BUILD_USER for reproducible builds by @eighthave in #1485
 * Android 16 support targetApi 36: APK version 1.29.7.5 by @Catfriend1 in #1492
 ## New Contributors

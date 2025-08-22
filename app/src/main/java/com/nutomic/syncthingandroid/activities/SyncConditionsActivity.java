@@ -43,10 +43,10 @@ public class SyncConditionsActivity extends SyncthingActivity {
     private static final String TAG = "SyncConditionsActivity";
 
     private static final String EXTRA_OBJECT_PREFIX_AND_ID =
-            "com.github.catfriend1.syncthingandroid.activities.SyncConditionsActivity.OBJECT_PREFIX_AND_ID";
+            ".activities.SyncConditionsActivity.OBJECT_PREFIX_AND_ID";
 
     private static final String EXTRA_OBJECT_READABLE_NAME =
-            "com.github.catfriend1.syncthingandroid.activities.SyncConditionsActivity.OBJECT_READABLE_NAME";
+            ".activities.SyncConditionsActivity.OBJECT_READABLE_NAME";
 
     // UI elements
     private SwitchCompat mSyncOnWifi;

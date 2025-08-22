@@ -25,31 +25,28 @@ public class AppConfigReceiver extends BroadcastReceiver {
     private static final String TAG = "AppConfigReceiver";
 
     /**
-     * Start the Syncthing-Service
-     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.FOLLOW -p com.github.catfriend1.syncthingandroid.debug
+     * Let Syncthing-Service follow run conditions
      */
-    private static final String ACTION_FOLLOW = "com.github.catfriend1.syncthingandroid.action.FOLLOW";
+    private static final String ACTION_FOLLOW = ".action.FOLLOW";
 
     /**
      * Start the Syncthing-Service
-     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.START -p com.github.catfriend1.syncthingandroid.debug
      */
-    private static final String ACTION_START = "com.github.catfriend1.syncthingandroid.action.START";
+    private static final String ACTION_START = ".action.START";
 
     /**
      * Stop the Syncthing-Service
-     * adb shell am broadcast -a com.github.catfriend1.syncthingandroid.action.STOP -p com.github.catfriend1.syncthingandroid.debug
      * If startServiceOnBoot is enabled the service must not be stopped. Instead a
      * notification is presented to the user.
      */
-    private static final String ACTION_STOP  = "com.github.catfriend1.syncthingandroid.action.STOP";
+    private static final String ACTION_STOP  = ".action.STOP";
 
     @Inject NotificationHandler mNotificationHandler;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
-        String intentAction = intent.getAction();
+        String intentAction = intent.getAction().replaceFirst(context.getPackageName(), "");
         if (!getPrefBroadcastServiceControl(context)) {
             switch (intentAction) {
                 case ACTION_FOLLOW:

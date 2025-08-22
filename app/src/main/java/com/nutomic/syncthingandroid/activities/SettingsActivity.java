@@ -78,7 +78,7 @@ public class SettingsActivity extends SyncthingActivity {
     public static final int RESULT_RESTART_APP = 3461;
 
     public static final String EXTRA_OPEN_SUB_PREF_SCREEN =
-            "com.github.catfriend1.syncthingandroid.activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
+            ".activities.SettingsActivity.OPEN_SUB_PREF_SCREEN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

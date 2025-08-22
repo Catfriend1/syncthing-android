@@ -27,7 +27,7 @@ import com.nutomic.syncthingandroid.util.Util;
 public class WebViewActivity extends SyncthingActivity {
 
     public static final String EXTRA_WEB_URL =
-            "com.github.catfriend1.syncthingandroid.activities.WebViewActivity.WEB_URL";
+            ".activities.WebViewActivity.WEB_URL";
 
     private static final String TAG = "WebViewActivity";
 

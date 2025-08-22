@@ -1,7 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 ::
-:: adb uninstall com.github.catfriend1.syncthingandroid
-adb uninstall "com.github.catfriend1.syncthingandroid.debug"
+SET "SCRIPT_PATH=%~dp0"
+SET "PROJECT_ROOT=%SCRIPT_PATH%..\..\.."
+SET /P PACKAGE_NAME=< "%PROJECT_ROOT%\scripts\debug\package_id.txt"
+::
+adb uninstall "%PACKAGE_NAME%"
 ::
 goto :eof

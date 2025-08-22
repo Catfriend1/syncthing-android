@@ -280,12 +280,12 @@ public class Constants {
      * Log file storage locations.
      */
     public static File getAndroidLogFile(Context context) {
-        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/cache/android.log
+        // e.g. /data/data/${applicationId}/cache/android.log
         return new File(context.getCacheDir(), "android.log");
     }
 
     public static File getSyncthingLogFile(Context context) {
-        // e.g. /data/data/com.github.catfriend1.syncthingandroid.debug/files/syncthing.log
+        // e.g. /data/data/${applicationId}/files/syncthing.log
         return new File(context.getFilesDir(), "syncthing.log");
     }
 

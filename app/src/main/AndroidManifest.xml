@@ -43,8 +43,7 @@
     <!--
         Apps can listen to our notifications about sync progress by subscribing to ACTION_NOTIFY_FOLDER_SYNC_COMPLETE,
         see RestApi for more details. To do so, they must declare the following in their app manifest.
-        <uses-permission android:name="com.github.catfriend1.syncthingandroid.debug.permission.RECEIVE_SYNC_STATUS"/>
-        <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS"/>
+        <uses-permission android:name="${applicationId}.permission.RECEIVE_SYNC_STATUS"/>
     -->
     <permission android:name="${applicationId}.permission.RECEIVE_SYNC_STATUS" 
             android:label="RECEIVE_SYNC_STATUS" 
@@ -98,7 +97,7 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.github.catfriend1.syncthingandroid.MainActivity.EXIT" />
+                <action android:name="${applicationId}.MainActivity.EXIT" />
             </intent-filter>
         </activity>
         <activity
@@ -221,9 +220,9 @@
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.github.catfriend1.syncthingandroid.action.FOLLOW" />
-                <action android:name="com.github.catfriend1.syncthingandroid.action.START" />
-                <action android:name="com.github.catfriend1.syncthingandroid.action.STOP" />
+                <action android:name="${applicationId}.action.FOLLOW" />
+                <action android:name="${applicationId}.action.START" />
+                <action android:name="${applicationId}.action.STOP" />
             </intent-filter>
         </receiver>
         <activity android:name=".activities.FolderTypeDialogActivity"

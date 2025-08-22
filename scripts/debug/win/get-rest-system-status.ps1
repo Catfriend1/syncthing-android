@@ -20,6 +20,7 @@ $apikey = "YOURAPIKEY"
 
 # Query REST API
 $headers = @{ "X-API-Key" = $apikey }
+$result = ""
 $result = Invoke-WebRequest -uri "http://${hostname}:${port}/rest/system/status" -Headers $headers
 
 # Display raw result

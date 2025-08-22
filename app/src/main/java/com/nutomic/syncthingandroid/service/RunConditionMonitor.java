@@ -43,13 +43,13 @@ public class RunConditionMonitor {
     private Boolean ENABLE_VERBOSE_LOG = false;
 
     public static final String ACTION_SYNC_TRIGGER_FIRED =
-        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED";
+        ".service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED";
 
     public static final String ACTION_UPDATE_SHOULDRUN_DECISION =
-        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION";
+        ".service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION";
 
     public static final String EXTRA_BEGIN_ACTIVE_TIME_WINDOW =
-        "com.github.catfriend1.syncthingandroid.service.RunConditionMonitor.BEGIN_ACTIVE_TIME_WINDOW";
+        ".service.RunConditionMonitor.BEGIN_ACTIVE_TIME_WINDOW";
 
     private @Nullable Object mSyncStatusObserverHandle = null;
     private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {

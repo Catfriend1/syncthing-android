@@ -4,7 +4,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 
 * <b>"COMMON USER" - please choose this!</b>
 * Published on [F-Droid](https://f-droid.org/packages/com.github.catfriend1.syncthingandroid/) and [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
-* File name is like: com.github.catfriend1.syncthingandroid_fdroid_1.29.6.0_7d59e75.apk
+* File name is like: com.github.catfriend1.syncthingandroid_fdroid_1.30.0.3_1234567.apk
 * Certificate hash: yei5Ybhe9jZNx7NG4WE9MgjnfsPqbHCzUhHvfedPEuU=
 * Signing Certificate SHA256 fingerprint: <details>C9:E8:B9:61:B8:5E:F6:36:4D:C7:B3:46:E1:61:3D:32:08:E7:7E:C3:EA:6C:70:B3:52:11:EF:7D:E7:4F:12:E5</details>
 
@@ -12,16 +12,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 
 * If you don't like to use F-Droid for some reason, please choose this!
 * Only published on [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
-* File name is like: com.github.catfriend1.syncthingandroid_release_1.29.6.0_7d59e75.apk
-* Certificate hash: 03S43lBXATFDx9FRWgFVmMLfQDvoFgyuAaWMIn5uhqo=
-* Signing Certificate SHA256 fingerprint: <details>D3:74:B8:DE:50:57:01:31:43:C7:D1:51:5A:01:55:98:C2:DF:40:3B:E8:16:0C:AE:01:A5:8C:22:7E:6E:86:AA</details>
-
-<b>3. Google Play release build</b>
-
-* Published by [nel0x](https://github.com/nel0x) at [Google Play Store](https://play.google.com/store/apps/details?id=com.github.catfriend1.syncthingandroid)
-* May contain limited functionality due to play policies.
-* It's an appetizer for your family and friends to start their Syncthing experience.
-* File name is like: com.github.catfriend1.syncthingandroid_gplay_1.29.6.0_7d59e75.aab
+* File name is like: com.github.catfriend1.syncthingandroid_release_1.30.0.3_1234567.apk
 * Certificate hash: 03S43lBXATFDx9FRWgFVmMLfQDvoFgyuAaWMIn5uhqo=
 * Signing Certificate SHA256 fingerprint: <details>D3:74:B8:DE:50:57:01:31:43:C7:D1:51:5A:01:55:98:C2:DF:40:3B:E8:16:0C:AE:01:A5:8C:22:7E:6E:86:AA</details>
 
@@ -30,7 +21,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Only published on GitHub
 * Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions) and artifacts.
 * It's for maintainers and contributors who require a second installation of the app on their phone for testing purposes.
-* File name is like: com.github.catfriend1.syncthingandroid_debug_1.29.6.0_7d59e75.apk
+* File name is like: com.github.catfriend1.syncthingandroid_debug_1.30.0.3_1234567.apk
 * TRUSTED builds from this repository owners:
 * * Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
 * * Signing Certificate SHA256 fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
