@@ -21,7 +21,6 @@ public class Constants {
     public static final String FOLDER_NAME_STVERSIONS           = ".stversions";
 
     // Preferences - Run conditions
-    public static final String PREF_START_SERVICE_ON_BOOT       = "always_run_in_background";
     public static final String PREF_RUN_ON_MOBILE_DATA          = "run_on_mobile_data";
     public static final String PREF_RUN_ON_ROAMING              = "run_on_roaming";
     public static final String PREF_RUN_ON_WIFI                 = "run_on_wifi";
@@ -48,9 +47,11 @@ public class Constants {
     // Preferences - User Interface
     public static final String PREF_APP_THEME                   = "app_theme";
     public static final String PREF_EXPERT_MODE                 = "expert_mode";
+    public static final String PREF_START_INTO_WEB_GUI          = "start_into_web_gui";
 
     // Preferences - Behaviour
-    public static final String PREF_START_INTO_WEB_GUI          = "start_into_web_gui";
+    public static final String PREF_START_SERVICE_ON_BOOT       = "always_run_in_background";
+    public static final String PREF_BROADCAST_SERVICE_CONTROL   = "broadcast_service_control";
     public static final String PREF_USE_ROOT                    = "use_root";
 
     // Preferences - Syncthing Options
@@ -70,7 +71,6 @@ public class Constants {
     public static final String PREF_USE_TOR                     = "use_tor";
     public static final String PREF_SOCKS_PROXY_ADDRESS         = "socks_proxy_address";
     public static final String PREF_HTTP_PROXY_ADDRESS          = "http_proxy_address";
-    public static final String PREF_BROADCAST_SERVICE_CONTROL   = "broadcast_service_control";
     public static final String PREF_USE_WAKE_LOCK               = "wakelock_while_binary_running";
 
     // Preferences - per Folder and Device Sync Conditions
