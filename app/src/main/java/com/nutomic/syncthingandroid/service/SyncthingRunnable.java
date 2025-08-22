@@ -64,7 +64,7 @@ public class SyncthingRunnable implements Runnable {
     private static final String TAG_NICE = "SyncthingRunnableIoNice";
 
     private Boolean ENABLE_VERBOSE_LOG = false;
-    private Boolean IS_DEBUGGABLE = false;
+    // private Boolean IS_DEBUGGABLE = false;
     private static final int LOG_FILE_MAX_LINES = 200000;
 
     private static final AtomicReference<Process> mSyncthing = new AtomicReference<>();
@@ -96,7 +96,7 @@ public class SyncthingRunnable implements Runnable {
     public SyncthingRunnable(Context context, Command command) {
         ((SyncthingApp) context.getApplicationContext()).component().inject(this);
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
-        IS_DEBUGGABLE = Constants.isDebuggable(context);
+        // IS_DEBUGGABLE = Constants.isDebuggable(context);
         mContext = context;
         // Example: mSyncthingBinary="/data/app/${applicationId}-8HsN-IsVtZXc8GrE5-Hepw==/lib/x86/libsyncthingnative.so"
         mSyncthingBinary = Constants.getSyncthingBinary(mContext);
@@ -421,10 +421,12 @@ public class SyncthingRunnable implements Runnable {
                 br = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
                 String line;
                 while ((line = br.readLine()) != null) {
+                    /*
                     if (IS_DEBUGGABLE) {
                         String lineWithoutTimestamp = line.replaceFirst("\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2} ?", "");
                         Log.println(priority, TAG_NATIVE, lineWithoutTimestamp);
                     }
+                    */
                     // Always output SynchtingNative's output to "syncthing.log".
                     Files.append(line + "\n", mSyncthingLogFile, Charsets.UTF_8);
                 }
