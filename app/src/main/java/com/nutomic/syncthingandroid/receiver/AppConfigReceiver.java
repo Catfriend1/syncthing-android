@@ -63,15 +63,19 @@ public class AppConfigReceiver extends BroadcastReceiver {
             case ACTION_FOLLOW:
                 Log.d(TAG, "followRunConditions by intent");
                 setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_NO_FORCE_START_STOP);
+                BootReceiver.startServiceCompat(context);
                 break;
             case ACTION_START:
                 Log.d(TAG, "forceStart by intent");
                 setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_FORCE_START);
+                BootReceiver.startServiceCompat(context);
                 break;
             case ACTION_STOP:
                 Log.d(TAG, "forceStop by intent");
                 setPrefBtnStateForceStartStopAndNotify(context, Constants.BTNSTATE_FORCE_STOP);
                 break;
+            default:
+                Log.w(TAG, "invalid intent action: " + intentAction);
         }
     }
 
