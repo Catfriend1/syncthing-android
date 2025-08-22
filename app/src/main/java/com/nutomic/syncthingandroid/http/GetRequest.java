@@ -17,8 +17,8 @@ import java.util.Map;
 public class GetRequest extends ApiRequest {
 
     public static final String URI_CONFIG           = "/rest/system/config";
-    public static final String URI_DEBUG            = "/rest/system/debug";
     public static final String URI_SYSTEM_DISCOVERY = "/rest/system/discovery";
+    public static final String URI_SYSTEM_LOGLEVELS = "/rest/system/loglevels";
     public static final String URI_VERSION          = "/rest/system/version";
     public static final String URI_SYSTEM_STATUS    = "/rest/system/status";
     public static final String URI_CONNECTIONS      = "/rest/system/connections";

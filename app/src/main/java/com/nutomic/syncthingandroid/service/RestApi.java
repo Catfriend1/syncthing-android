@@ -418,11 +418,11 @@ public class RestApi {
     private void updateDebugFacilitiesCache() {
         if (!mVersion.equals(PreferenceManager.getDefaultSharedPreferences(mContext).getString(Constants.PREF_LAST_BINARY_VERSION, ""))) {
             // First binary launch or binary upgraded case.
-            new GetRequest(mContext, mUrl, GetRequest.URI_DEBUG, mApiKey, null, result -> {
+            new GetRequest(mContext, mUrl, GetRequest.URI_SYSTEM_LOGLEVELS, mApiKey, null, result -> {
                 try {
                     Set<String> facilitiesToStore = new HashSet<String>();
                     JsonObject json = new JsonParser().parse(result).getAsJsonObject();
-                    JsonObject jsonFacilities = json.getAsJsonObject("facilities");
+                    JsonObject jsonFacilities = json.getAsJsonObject("packages");
                     for (String facilityName : jsonFacilities.keySet()) {
                         facilitiesToStore.add(facilityName);
                     }
