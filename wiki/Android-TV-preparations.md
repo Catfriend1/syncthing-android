@@ -8,6 +8,8 @@ The following instructions to solve the problem by preparing the Android TV for 
 * Locate / Download Google platform-tools, navigate to folder where adb.exe resides. Open Command Prompt here
 * Type the following:
 
+    ${applicationId} = com.github.catfriend1.syncthingandroid
+
     *adb start-server*
 
     *adb connect ip:port* (example: *adb connect 192.168.1.76:5555*)
