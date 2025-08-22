@@ -1,1 +1,6 @@
-Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.2 to see details on the v2 milestone.
+Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.3 to see details on the v2 milestone.
+
+Fixed by contributing to upstream:
+
+- NAT PMP permission denied by Android 14+ (#1514)
+- Local discovery denied by Android 10+ (#1500)
