@@ -4,7 +4,7 @@
     <string name="app_description">Um aplicativo aberto, confiável e descentralizado para sincronização de arquivos.</string>
     <!-- FirstStartActivity -->
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Boas vindas ao Syncthing para Android</string>
+    <string name="welcome_title">Boas-vindas ao Syncthing para Android</string>
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introdução</string>
@@ -137,9 +137,8 @@
     <!-- StatusFragment -->
     <string name="status_fragment_title">Estado</string>
     <string name="button_follow_run_conditions">SEGUIR CONDIÇÕES DE EXECUÇÃO</string>
-    <string name="button_force_start">FORÇAR INÍCIO \nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
-    <string name="button_force_stop">FORÇAR PARADA
-\nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
+    <string name="button_force_start">INÍCIO FORÇADO \nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
+    <string name="button_force_stop">PARADA FORÇADA \nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
     <string name="syncthing_starting">O Synthing está iniciando.</string>
     <string name="syncthing_running">O Syncthing está em execução.</string>
     <string name="syncthing_not_running">O Syncthing não está em execução.</string>
