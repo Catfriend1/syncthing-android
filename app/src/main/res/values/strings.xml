@@ -3,32 +3,30 @@
 
     <string name="app_name">Syncthing-Fork</string>
 
-    <string name="app_description">An open, trustworthy and decentralized file synchronization application.</string>
+    <string name="app_description">An open, trustworthy and decentralized file synchronization application</string>
 
     <!-- FirstStartActivity -->
 
     <!-- Title for dialog displayed on first start -->
-    <string name="welcome_title">Welcome to Syncthing for Android</string>
+    <string name="welcome_title">Welcome to Syncthing-Fork</string>
 
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introduction</string>
-    <string name="welcome_text">Syncthing is an open-source file synchronization application. To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.
-\n
-\nPlease report any problems you encounter via GitHub.</string>
+    <string name="welcome_text">To share data with other devices, you need to add their unique device IDs to the device list. Afterwards you can select which folders to share with which devices.</string>
 
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Storage Permission</string>
-    <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization.</string>
+    <string name="storage_permission_desc">Syncthing needs to access your storage to do file synchronization</string>
     <string name="dialog_all_files_access_not_supported">Your device does not support all files access</string>
 
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Battery Optimization</string>
     <string name="ignore_doze_permission_os_notice">Android TV\'s are known to occasionally end the app when it\'s running in the background. A solution is available on the wiki at \'%1$s/%2$s\'.</string>
-    <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization. Some devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist, as well.</string>
-    <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode.</string>
+    <string name="ignore_doze_permission_desc">Android may stop synchronization after some time. To prevent this, turn off battery optimization. Some devices have additional task-killing apps preinstalled. You should add Syncthing to their whitelist.</string>
+    <string name="toast_ignore_doze_permission_required">This app only works reliably if it is exempted from \"doze\" power save mode</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Your device does not support disabling battery optimizations</string>
-    <string name="dialog_confirm_skip_ignore_doze_permission">Careful: If SyncthingNative is interrupted and does something strange, you\'re to blame. Only skip in case your device does not support granting the permission. Really skip?</string>
+    <string name="dialog_confirm_skip_ignore_doze_permission">Careful: If SyncthingNative is interrupted and does something strange, you\'re to blame. Only skip in case your device does not support granting the permission. Are you sure you want to skip?</string>
 
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Location Permission</string>
@@ -37,7 +35,7 @@
 
     <!-- Slide "Notification Permission" -->
     <string name="notification_permission_title">Notification Permission</string>
-    <string name="notification_permission_desc">Required to show notifications regarding new device connections, folder sharing requests and to keep the service alive and connected.</string>
+    <string name="notification_permission_desc">Required to show notifications regarding new device connections, folder sharing requests and to keep the service alive and connected</string>
     <string name="toast_notification_permission_required">Syncthing requires the notification permission to keep its service alive and connected.</string>
 
     <!-- Slide "Key Generation" -->
@@ -69,18 +67,18 @@
 
     <string name="photo_shoot_launcher_title">Sync. Camera</string>
     <string name="photo_shoot_activity_title">Syncthing-Fork Camera</string>
-    <string name="photo_shoot_intro_welcome_title">Welcome to Syncthing Camera</string>
+    <string name="photo_shoot_intro_welcome_title">Welcome to Syncthing-Fork Camera</string>
     <string name="photo_shoot_intro_permission_title">Required permissions</string>
-    <string name="photo_shoot_intro_no_camera">Sorry, this device doesn\'t have a camera.</string>
+    <string name="photo_shoot_intro_no_camera">No camera found</string>
     <string name="photo_shoot_intro_missing_permissions">We require storage and camera permission to continue.</string>
     <string name="grant_storage_permission">Grant storage permission</string>
     <string name="grant_camera_permission">Grant camera permission</string>
-    <string name="photo_shoot_intro_permission_desc">Syncthing Camera requires your consent to shoot pictures and store them on your device. This feature is optional. To use it, grant permissions and tap \"Continue\". We will setup a Syncthing Camera folder for you which you can share with other Syncthing devices later.</string>
-    <string name="photo_shoot_take_picture_success">Successfully saved picture to the Syncthing Camera folder.</string>
-    <string name="photo_shoot_take_picture_failure">Failed to take a picture or you\'ve cancelled.</string>
+    <string name="photo_shoot_intro_permission_desc">Syncthing-Fork Camera requires your consent to shoot pictures and store them on your device. This feature is optional. To use it, grant permissions and tap \"Continue\". We will setup a Syncthing-Fork Camera folder for you which you can share with other Syncthing devices later.</string>
+    <string name="photo_shoot_take_picture_success">Successfully saved picture to the Syncthing Camera folder</string>
+    <string name="photo_shoot_take_picture_failure">Failed to take a picture or you\'ve cancelled the operation</string>
 
     <!-- Label of the folder created by the Syncthing Camera feature. -->
-    <string name="default_syncthing_camera_folder_label">Syncthing Camera</string>
+    <string name="default_syncthing_camera_folder_label">Syncthing-Fork Camera</string>
 
     <!-- MainActivity -->
 
@@ -96,7 +94,7 @@
 
     <!-- Title of the exit app when running as a service confirmation dialog -->
     <string name="dialog_exit_while_running_as_service_title">Confirm to quit app</string>
-    <string name="dialog_exit_while_running_as_service_message">For your consideration: You configured the app to start automatically on boot. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only quit manually if you run into severe problems. Otherwise, disable \'Start automatically on boot \' in the settings. Would you like to quit now until the device rebooted\?</string>
+    <string name="dialog_exit_while_running_as_service_message">You configured the app to start automatically on boot. Therefore it monitors run conditions and syncs at any time in the background when conditions match. You should only quit manually if you run into severe problems. Otherwise, disable \'Start automatically on boot \' in the settings. Would you like to quit now until the device reboots\?</string>
 
     <!-- Title of the "add folder" menu action -->
     <string name="add_folder">Add Folder</string>
@@ -168,9 +166,9 @@
     <string name="open_file_with">Open file with</string>
     <string name="open_file_no_compatible_app">No app found to open the file.</string>
 
-    <!-- Suggest File Manager App Dialog -->
-    <string name="suggest_file_manager_app_dialog_title">No compatible file manager app found</string>
-    <string name="suggest_file_manager_app_dialog_text">We recommend you to install the open-source file manager app \'Material Files\'. Would you like to open its app store page\?</string>
+    <!-- Suggest file manager app dialog -->
+    <string name="suggest_file_manager_app_dialog_title">No compatible file manager found. Would you like to install the app \'Material Files\' from F-Droid\?</string>
+    <string name="suggest_file_manager_app_dialog_text">Install a compatible file manager</string>
 
     <!-- DeviceListFragment -->
 
@@ -229,10 +227,10 @@
     <string name="button_force_stop">FORCE STOP
 \nIGNORE RUN CONDITIONS</string>
 
-    <string name="syncthing_starting">Syncthing is starting.</string>
-    <string name="syncthing_running">Syncthing is running.</string>
-    <string name="syncthing_not_running">Syncthing is not running.</string>
-    <string name="syncthing_has_crashed">Syncthing has crashed.</string>
+    <string name="syncthing_starting">Syncthing is starting</string>
+    <string name="syncthing_running">Syncthing is running</string>
+    <string name="syncthing_not_running">Syncthing is not running</string>
+    <string name="syncthing_has_crashed">Syncthing has crashed</string>
 
     <!-- DrawerFragment -->
 
@@ -264,11 +262,11 @@
 
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Watch for changes</string>
-    <string name="folder_fileWatcherDescription">Asks operating system to notify about changes to files. If disabled falls back to periodic hourly scans.</string>
+    <string name="folder_fileWatcherDescription">Asks the operating system to notify about changes to files. If disabled falls back to periodic hourly scans.</string>
 
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignore Delete</string>
-    <string name="folder_ignore_delete_description">Expert option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
+    <string name="folder_ignore_delete_description">Advanced option that affects the handling of incoming index updates. When set, incoming updates with the delete flag set are ignored. See https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
 
     <!-- Setting title and description -->
     <string name="folder_run_script_caption">Run Script</string>
@@ -296,7 +294,7 @@
     <string name="create">Create</string>
 
     <!-- Dialog shown when attempting to remove a folder -->
-    <string name="remove_folder_confirm">Do you really want to remove this folder from Syncthing\?</string>
+    <string name="remove_folder_confirm">Are you sure you want to remove this folder from Syncthing\?</string>
 
     <!-- Toast shown when trying to create a folder with an empty ID -->
     <string name="folder_id_required">The folder ID must not be empty</string>
@@ -310,15 +308,15 @@
     <string name="dialog_discard_changes">Discard your changes\?</string>
 
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">Your Android version only grants Syncthing readonly access to the selected folder.</string>
+    <string name="folder_path_readonly">Your Android version only grants Syncthing read-only access to the selected folder</string>
 
     <!-- Summary shown if we only have readwrite access to the folder path -->
-    <string name="folder_path_readwrite">Your Android version grants Syncthing read and write access to the selected folder.</string>
+    <string name="folder_path_readwrite">Your Android version grants Syncthing read and write access to the selected folder</string>
 
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
-    <string name="toast_invalid_folder_selected">Sorry. The selected folder cannot be used. Please select a folder located on the internal or external storage.</string>
+    <string name="toast_invalid_folder_selected">The selected folder can\'t be used. Select a folder located on the internal or external storage.</string>
 
-    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Switching existing folders to \'Receive Encrypted\' is not supported.</string>
+    <string name="folder_type_switch_to_receive_encrypted_not_allowed">Switching existing folders to \'Receive Encrypted\' isn\'t supported</string>
 
     <string name="ignore_patterns">Ignore Patterns</string>
 
@@ -331,7 +329,7 @@
     <string name="discovered_devices_title">Discovered devices - Tap to select</string>
 
     <!-- Status text -->
-    <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network. Run this app on a second phone. Installation files for computers are available at: %1$s</string>
+    <string name="discovered_device_list_empty">Local discovery didn\'t find any devices on the local network. Syncthing-Fork is compatible with other Syncthing-compatible apps. For more information: %1$s</string>
 
     <!-- Status text -->
     <string name="local_discovery_disabled">You have disabled local discovery in \'Settings\' &gt; \'Syncthing Options\' &gt; \'Local Discovery\'. Enable it to search for devices on the local network.</string>
@@ -366,7 +364,7 @@
 
     <!-- Setting title -->
     <string name="untrusted_device">Untrusted Device</string>
-    <string name="untrusted_device_explanation">All folders shared with this device must be protected by a password, such that all sent data is unreadable without the given password.</string>
+    <string name="untrusted_device_explanation">All folders shared with this device must be protected by a password, such that all sent data is unreadable without the given password</string>
 
     <!-- ActionBar item -->
     <string name="delete_device">Delete Device</string>
@@ -392,10 +390,10 @@
     <string name="device_name_required">The device name must not be empty</string>
 
     <!-- Toast shown when trying to create a device with invalid addresses -->
-    <string name="device_addresses_invalid">The device addresses are not formatted correctly. Please retry. Look at the Syncthing docs for more info.</string>
+    <string name="device_addresses_invalid">The device addresses are not formatted correctly. Look at the Syncthing docs for more information.</string>
 
     <!-- Content description for device ID qr code icon -->
-    <string name="scan_qr_code_description">Scan QR Code</string>
+    <string name="scan_qr_code_description">Scan QR code</string>
 
     <!-- Dialog message if no compatible barcode scanner app is installed -->
     <string name="install_barcode_scanner_app_message">This requires a barcode scanner app. Would you like to install the app \'Binary Eye\' from F-Droid\?</string>
@@ -404,20 +402,20 @@
     <string name="folders_list_empty">No folders configured. Tap to add a new folder.</string>
 
     <!-- Toast show if we could not get root permissions -->
-    <string name="toast_root_denied">Did not get root permissions</string>
+    <string name="toast_root_denied">Failed to get root permissions</string>
 
     <!-- TipsAndTricks activity -->
 
     <!-- Title of the Tips and Tricks activity -->
     <string name="tips_and_tricks_title">Tips &amp; Tricks</string>
 
-    <string name="tip_write_to_sdcard_title">Write to external sdcard workaround</string>
-    <string name="tip_write_to_sdcard_text">If you see the UI stating that \'Android only grants syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:
+    <string name="tip_write_to_sdcard_title">Write to external SD card</string>
+    <string name="tip_write_to_sdcard_text">If you see the text stating that \'Android only grants Syncthing read-only access\' to a certain folder, create a new folder using this path to gain write access:
 \n%1$s/YOUR_FOLDER_NAME
-\nBe careful: This folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the …/Android folder.</string>
+\nThis folder will get wiped out by Android if you uninstall this app. Before uninstalling the app, move the data to a safe place outside the folder.</string>
 
-    <string name="tip_sync_on_local_network_title">Sync only using the local WiFi network</string>
-    <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local WiFi network or reachable via WiFi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':
+    <string name="tip_sync_on_local_network_title">Sync only using the local Wi-Fi network</string>
+    <string name="tip_sync_on_local_network_text">If you\'d like to sync only with devices that are located on the local Wi-Fi network or reachable via Wi-Fi hotspot, you can lower battery usage and avoid accidentially syncing over mobile data by turning off the following options under \'Settings/Syncthing Options\':
 \n- Enable NAT traversal
 \n- Global Discovery
 \n- Enable Relaying
@@ -431,19 +429,18 @@
 
     <string name="tip_huawei_device_disconnected_title">Huawei: \'device disconnected\' workaround</string>
     <string name="tip_huawei_device_disconnected_text">If your desktop constantly reports your Huawei device as disconnected, open Syncthing UI of your desktop. Go to \'remote devices\', expand the phone\'s entry, click \'Edit\', switch to \'Advanced\'. Put your phone IP address into \'Addresses\' like this:
-\ntcp4://%1$s, dynamic
-\nConfirmed working for: Huawei P10</string>
+\ntcp4://%1$s, dynamic</string>
     <string name="tip_phone_ip_address_syntax">PHONE_IP_ADDRESS</string>
 
     <string name="tip_xiaomi_autostart_title">Xiaomi: app does not start on boot</string>
-    <string name="tip_xiaomi_autostart_text">Xiaomi MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' &gt; \'Permissions\' &gt; \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
+    <string name="tip_xiaomi_autostart_text">Xiaomi HyperOS/MIUI disallows apps to start on their own by default. From home screen, go to \'Settings\' &gt; \'Permissions\' &gt; \'Autostart\' and enable the \'Syncthing-Fork\' slider.</string>
 
     <string name="tip_xiaomi_battery_saver_title">Xiaomi: app repeatedly shows welcome screen</string>
-    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. Solution: From home screen, open the app drawer &gt; Long press \'Syncthing-Fork\' &gt; \'App info\' &gt; \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
+    <string name="tip_xiaomi_battery_saver_text">Xiaomi MIUI\'s battery saver system app revokes the app\'s \'ignore battery optimization\' permission on every phone reboot. This causes the app to show the welcome screen and ask for the missing mandatory permission again. From home screen, open the app drawer &gt; Long press \'Syncthing-Fork\' &gt; \'App info\' &gt; \'Battery saver\' and select \'No restrictions\' (MIUI 10.3.2.0+).</string>
 
     <!-- RecentChangesActivity -->
 
-    <string name="no_recent_changes">There are no recent changes.</string>
+    <string name="no_recent_changes">There are no recent changes</string>
     <string name="recent_changes_title">Recent changes</string>
     <string name="modified_by_device">Device: %1$s</string>
     <string name="modification_time">Time: %1$s</string>
@@ -488,41 +485,41 @@
 
     <string name="category_behaviour">Behaviour</string>
     <string name="category_syncthing_options">Syncthing Options</string>
-    <string name="category_syncthing_options_summary">This menu is only available if Syncthing is running.</string>
+    <string name="category_syncthing_options_summary">This menu is only available if Syncthing is running</string>
 
-    <string name="category_backup">Import and Export</string>
+    <string name="category_backup">Import &amp; Export</string>
     <string name="category_debug">Troubleshooting</string>
     <string name="category_experimental">Experimental</string>
 
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Run Conditions</string>
-    <string name="run_conditions_summary">Use the following options to decide when Syncthing will run.</string>
+    <string name="run_conditions_summary">Use the following options to decide when Syncthing will run</string>
 
     <string name="run_on_mobile_data_title">Run on mobile data</string>
-    <string name="run_on_mobile_data_summary">Run when device is connected via the mobile data network. Warning: This can consume a lot of data from your mobile operator data plan if you sync large amounts of data.</string>
+    <string name="run_on_mobile_data_summary">Run when device is connected via the mobile data network. This can consume a lot of data from your mobile data plan if you sync large amounts of data.</string>
 
     <string name="run_on_roaming_title">Run while roaming</string>
-    <string name="run_on_roaming_summary">Allow Syncthing to use mobile data while roaming. (!) Please post feedback to GitHub if this works correctly.</string>
+    <string name="run_on_roaming_summary">Allow Syncthing to use mobile data while roaming</string>
 
     <string name="run_on_wifi_title">Run on Wi-Fi</string>
-    <string name="run_on_wifi_summary">Run when device is connected to a Wi-Fi or ethernet network.</string>
+    <string name="run_on_wifi_summary">Run when device is connected to a Ethernet or Wi-Fi network</string>
 
     <string name="run_on_metered_wifi_title">Run on metered Wi-Fi</string>
-    <string name="run_on_metered_wifi_summary">Run when device is connected to a metered Wi-Fi network e.g. a hotspot or tethered network. Attention: This can consume large portion of your data plan if you sync a lot of data.</string>
+    <string name="run_on_metered_wifi_summary">Run when device is connected to a metered Wi-Fi network. This can consume large portion of your data plan if you sync a lot of data.</string>
 
     <string name="run_on_whitelisted_wifi_title">Run on specified Wi-Fi networks</string>
     <string name="specify_wifi_ssid_whitelist">Select Wi-Fi networks</string>
     <string name="run_on_whitelisted_wifi_networks">Selected Wi-Fi networks: %1$s</string>
     <string name="wifi_ssid_whitelist_empty">No Wi-Fi networks specified. Click to specify networks.</string>
 
-    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Please turn on Wi-Fi to select networks.</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_wifi">Please turn on Wi-Fi to select networks</string>
 
-    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Please turn on location to select networks.</string>
+    <string name="sync_only_wifi_ssids_wifi_turn_on_location">Please turn on location to select networks</string>
 
-    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">You need to grant LOCATION permission to use this feature.</string>
+    <string name="sync_only_wifi_ssids_need_to_grant_location_permission">You need to grant location permission to use this feature</string>
 
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permission required</string>
-    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Starting with Android 8.1, location access is required to be able to read the Wi-Fi\'s name. You can use this feature only if you grant this permission.</string>
+    <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Starting with Android 8.1, location access is required to be able to read the names of Wi-Fi networks. You can use this feature only if you grant this permission.</string>
 
     <string name="power_source_title">Run when device is powered by</string>
 
@@ -531,16 +528,16 @@
     <string name="power_source_battery_power">Battery power.</string>
 
     <string name="respect_battery_saving_title">Respect Android battery saving setting</string>
-    <string name="respect_battery_saving_summary">Disable Syncthing if battery saving is active.</string>
+    <string name="respect_battery_saving_summary">Disable Syncthing if battery saving is active</string>
 
     <string name="respect_master_sync_title">Respect Android \'Auto-sync data\' setting</string>
-    <string name="respect_master_sync_summary">Disable Syncthing when the quick settings tile \'Auto-sync data\' is toggled off.</string>
+    <string name="respect_master_sync_summary">Disable Syncthing when the quick settings tile \'Auto-sync data\' is toggled off</string>
 
     <string name="run_in_flight_mode_title">Run without network connection</string>
     <string name="run_in_flight_mode_summary">Enabling this option will cause Syncthing to run even when you\'re offline. Enable if your device has problems detecting manual Wi-Fi connections during flight mode.</string>
 
     <string name="run_on_time_schedule_title">Run according to time schedule</string>
-    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for a configured duration if run conditions are fulfilled and if some specified interval period has elapsed since the last sync. This can save a lot of battery but requires sync partners to be online. Please note: This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
+    <string name="run_on_time_schedule_summary">Enabling this option will attempt to sync for a configured duration if run conditions are fulfilled and if some specified interval period has elapsed since the last sync. This can save a lot of battery but requires sync partners to be online. This may leave incomplete temporary files behind until the next scheduled sync takes place.</string>
 
     <string name="sync_duration_minutes_title">Duration of the sync cycle</string>
     <string name="sync_duration_minutes_summary">%1$s minutes</string>
@@ -549,14 +546,14 @@
     <!-- Preferences - Behaviour -->
 
     <string name="behaviour_autostart_title">Autostart</string>
-    <string name="behaviour_autostart_summary">Start app automatically on operating system startup.</string>
+    <string name="behaviour_autostart_summary">Start app automatically on operating system startup</string>
 
-    <string name="use_root_title">Run Syncthing as Superuser</string>
-    <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be readonly accessed. Use this feature with caution.</string>
+    <string name="use_root_title">Run Syncthing as superuser</string>
+    <string name="use_root_summary">Running Syncthing as root allows it to write to folders Android normally restricts to be read-only accessed. Use this feature with caution.</string>
 
-    <string name="expert_mode_title">Expert mode</string>
+    <string name="expert_mode_title">Advanced mode</string>
 
-    <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing Docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete synchronization.</string>
+    <string name="expert_mode_summary">Enabling this option will show advanced configuration options. You should have a look at the Syncthing docs first to make sure you know how to use them correctly. Incorrect settings may cause battery drain, system resource exhaustion or incomplete sync.</string>
 
     <string name="preference_language_title">Language</string>
     <string name="preference_language_summary">Change the app language</string>
@@ -579,7 +576,7 @@
     <string name="pull_order_newest_first">Newest First</string>
 
     <string name="versioning_type_none">None</string>
-    <string name="versioning_type_trashcan">TrashCan</string>
+    <string name="versioning_type_trashcan">Trash Can</string>
     <string name="versioning_type_simple">Simple</string>
     <string name="versioning_type_staggered">Staggered</string>
     <string name="versioning_type_external">External</string>
@@ -614,14 +611,16 @@
 
     <string name="webui_password_title">Web UI Password</string>
 
-    <string name="webui_remote_access_summary">Specify to permit accessing the Web UI from another device. If enabled, you are able to logon with user \'syncthing\' and API key as password. Default: disabled (most secure)</string>
+    <string name="webui_remote_access_summary">Specify to permit accessing the Web GUI from another device. If enabled, you are able to logon with user \'syncthing\' and API key as password. Default: Disabled (most secure)</string>
 
+    <string name="webui_debugging_title">WebUI Debugging</string>
 
+    <string name="webui_debugging_summary">Enable to start profiling and to be able to download a support bundle. Changing this option will restart Syncthing immediately.</string>
 
     <string name="clear_stversions_title">Empty all versioning folders</string>
     <string name="clear_stversions_summary">Files are moved to .stversions directory when replaced or deleted by Syncthing. You can probably find and recover accidentially deleted files there, but outdated versions of the files take storage space on your device.</string>
     <string name="clear_stversions_question">This will delete all previous versions of files handled by Syncthing. Continue\?</string>
-    <string name="clear_stversions_done">Successfully cleared .stversions folders.</string>
+    <string name="clear_stversions_done">Successfully cleared .stversions folders</string>
 
     <string name="download_support_bundle_title">Download Support Bundle</string>
 
@@ -642,10 +641,10 @@
     <string name="backup_rel_path_to_zip">Relative path to config archive</string>
 
     <string name="backup_password_title">Config protection password</string>
-    <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your config during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nNot using a password, other apps are potentially able to read and manipulate your Syncthing configuration. Exposing the configuration carries the risk a bad actor may gain unauthorized access to your files using stolen config exports.</string>
+    <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your config during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nNot using a password, other apps are potentially able to read and manipulate your Syncthing configuration.</string>
 
-    <string name="backup_password_set">✅ Password set: %1$s</string>
-    <string name="backup_password_not_set">⚠ Password not set.</string>
+    <string name="backup_password_set">Password set: %1$s</string>
+    <string name="backup_password_not_set">Password not set.</string>
 
     <string name="export_config">Export Configuration</string>
 
@@ -678,13 +677,13 @@
     <string name="toast_invalid_http_proxy_address">Input violates proxy syntax \'http://[IP/HOSTNAME]:[PORT]\'</string>
 
     <string name="broadcast_service_control_title">Service Control by Broadcast</string>
-    <string name="broadcast_service_control_summary">Default: Disabled. Enable to let adb or third-party apps, e.g. automation apps instruct Syncthing to follow run conditions, force start or force stop.</string>
+    <string name="broadcast_service_control_summary">Default: Disabled. Enable to let adb or third-party apps instruct Syncthing to follow run conditions, force start or force stop.</string>
 
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">Do you really want to export your configuration\? The existing archive will be overwritten.</string>
+    <string name="dialog_confirm_export">Are you sure you want to export your configuration\? The existing archive will be overwritten.</string>
 
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">Do you really want to import the configuration\? Existing settings including the shared folders and devices list will be replaced.</string>
+    <string name="dialog_confirm_import">Are you sure you want to import the configuration\? Existing settings including the shared folders and devices list will be replaced.</string>
 
     <!-- PreferenceCategories -->
     <string name="preference_category_actions">Actions</string>
@@ -693,17 +692,17 @@
 
     <!-- Toast shown after config was exported -->
     <string name="config_export_successful_no_path">Config was exported. Please make sure to remember the password for a later import.</string>
-    <string name="config_export_failed">Config export failed. Go to Settings-Troubleshooting-Open log to see details.</string>
+    <string name="config_export_failed">Config export failed. Go to Settings - Troubleshooting - Open Log to see details.</string>
 
     <string name="import_config">Import Configuration</string>
 
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Config was imported</string>
 
-    <string name="config_import_failed_no_path">Config import failed. Go to Settings-Troubleshooting-Open log to see details.</string>
+    <string name="config_import_failed_no_path">Config import failed. Go to Settings - Troubleshooting - Open Log to see details.</string>
 
     <string name="dialog_settings_restart_app_title">Restart required</string>
-    <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Continue\?</string>
+    <string name="dialog_settings_restart_app_question">Changing this option requires an immediate restart of the app. All other changes will be discarded. Proceed\?</string>
 
     <!-- Title for the preference to set STTRACE parameters -->
     <string name="sttrace_title">STTRACE Options</string>
@@ -733,16 +732,16 @@
     <string name="category_about">About</string>
 
     <string name="verbose_log_title">Verbose log</string>
-    <string name="verbose_log_summary">Enabling this option will help to generate debug logs at a very detailed level.</string>
+    <string name="verbose_log_summary">Generate debug logs at a very detailed level</string>
 
     <string name="log_to_file_title">Log to file</string>
-    <string name="log_to_file_summary">The output of SyncthingNative will be written to file.</string>
+    <string name="log_to_file_summary">The logs of Syncthing will be written to file</string>
 
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Open Log</string>
 
     <!-- Summary for the log activity -->
-    <string name="open_log_summary">Open the Syncthing and Android log window</string>
+    <string name="open_log_summary">Open the Android and Syncthing log window</string>
 
     <!-- Menu item linking support forum -->
     <string name="syncthing_forum_title">Syncthing Forum</string>
@@ -750,13 +749,13 @@
     <string name="syncthing_forum_url" translatable="false">https://forum.syncthing.net/</string>
 
     <!-- Menu item for pizza -->
-    <string name="pizza_url_title">» Cats love pizza « 😺🍕</string>
-    <string name="pizza_url_summary">With just one tap, you can leave a warm slice of kindness - topped with extra good vibes to keep the cats happily purring along.</string>
+    <string name="pizza_url_title">Cats love pizza 😺🍕</string>
+    <string name="pizza_url_summary">With just one tap, you can leave a warm slice of kindness - topped with extra good vibes to keep the cats happily purring along</string>
     <string name="pizza_url" translatable="false">https://liberapay.com/cf4friends/donate</string>
 
     <!-- Menu item linking privacy policy -->
     <string name="privacy_title">Privacy Policy</string>
-    <string name="privacy_summary">Open syncthing-android\'s privacy policy, which covers usage (if any) of personal data, e.g. location.</string>
+    <string name="privacy_summary">Open syncthing-android\'s privacy policy, which covers usage (if any) of personal data</string>
     <string name="privacy_policy_url" translatable="false">https://syncthing.net/android-privacy-policy</string>
 
     <!-- Settings item that opens issue tracker -->
@@ -828,7 +827,7 @@
     <string name="syncthing_log_title">Syncthing Log</string>
     <string name="android_log_title">Android Log</string>
 
-    <string name="share_log_file_missing">The logfile to share is missing.</string>
+    <string name="share_log_file_missing">The log file to share is missing</string>
 
     <string name="share_log_file">Share log file</string>
 
@@ -846,7 +845,7 @@
     <!-- ShareActivity -->
 
     <!-- Toast if user didn't complete the welcome wizard yet -->
-    <string name="complete_welcome_wizard_first">First, launch the app from the app drawer and complete the welcome wizard before sharing files.</string>
+    <string name="complete_welcome_wizard_first">Launch the app from the app drawer and complete the welcome wizard before syncing files</string>
 
     <!-- Title of the "share" activity -->
     <string name="share_activity_title">Save to Syncthing</string>
@@ -868,8 +867,8 @@
 
     <!-- Copy success toast partially -->
     <plurals name="copy_success_partially">
-        <item quantity="one">%1$d file copied to folder \"%2$s\", %3$d already exist</item>
-        <item quantity="other">%1$d files copied to folder \"%2$s\", %3$d already exist</item>
+        <item quantity="one">%1$d file copied to folder \"%2$s\", %3$d already exists</item>
+        <item quantity="other">%1$d files copied to folder \"%2$s\", %3$d already exists</item>
     </plurals>
 
     <!-- Copy success toast -->
@@ -879,7 +878,7 @@
     </plurals>
 
     <!-- Copy exception toast -->
-    <string name="copy_exception">There was an error during sharing, check application logs</string>
+    <string name="copy_exception">There was an error during sharing, check app logs</string>
 
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Sharing files…</string>
@@ -889,52 +888,52 @@
         <item quantity="other">Files List</item>
     </plurals>
 
-    <!-- Sub Folder title -->
-    <string name="sub_folder">Sub folder</string>
+    <!-- Subfolder title -->
+    <string name="sub_folder">Subfolder</string>
 
     <!-- RunConditionMonitor -->
 
-    <string name="reason_force_start">Syncthing is running because you forced it to start regardless of the run conditions.</string>
-    <string name="reason_force_stop">Syncthing is not running because you forced it to stop regardless of the run conditions.</string>
+    <string name="reason_force_start">Syncthing is running because you forced it to start regardless of the run conditions</string>
+    <string name="reason_force_stop">Syncthing is not running because you forced it to stop regardless of the run conditions</string>
 
     <!-- Explanations why syncthing is running or not running -->
-    <string name="reason_not_within_time_frame">You enabled \'Run according to time schedule\' and the last sync was no more than an hour ago.</string>
-    <string name="reason_not_within_time_frame_2">You enabled \'Run according to time schedule\' and the last sync was %s ago.</string>
+    <string name="reason_not_within_time_frame">You enabled \'Run according to time schedule\' and the last sync was no more than an hour ago</string>
+    <string name="reason_not_within_time_frame_2">You enabled \'Run according to time schedule\' and the last sync was %s ago</string>
     <string name="reason_not_within_time_frame_0_min">less than a minute</string>
     <plurals name="reason_not_within_time_frame_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
-    <string name="reason_not_charging">Phone is not charging.</string>
-    <string name="reason_not_on_battery_power">Phone is not running on battery power.</string>
-    <string name="reason_not_while_power_saving">Syncthing is not running as the phone is currently power saving.</string>
-    <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled.</string>
+    <string name="reason_not_charging">Phone is not charging</string>
+    <string name="reason_not_on_battery_power">Phone is not running on battery power</string>
+    <string name="reason_not_while_power_saving">Syncthing is not running as power saving mode is turned on</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing is not running as Android currently has \'Auto-sync data\' disabled</string>
 
     <!-- … Mobile data -->
-    <string name="reason_mobile_data_disallowed">Syncthing is not configured to run on mobile data connection.</string>
-    <string name="reason_on_mobile_data">Syncthing is allowed to run on mobile data.</string>
-    <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing is not configured to run on mobile data connection</string>
+    <string name="reason_on_mobile_data">Syncthing is allowed to run on mobile data</string>
+    <string name="reason_not_on_mobile_data">Syncthing is allowed to run on mobile data connection but mobile data isn\'t connected</string>
 
     <!-- … Roaming -->
-    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing is allowed to run on roaming and non-roaming mobile data connections.</string>
-    <string name="reason_on_nonroaming_mobile_data">Syncthing is allowed to run on non-roaming mobile data connections. The active connection is non-roaming.</string>
-    <string name="reason_not_nonroaming_mobile_data">Syncthing is not running as you disallowed it to run on roaming mobile data connections.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing is allowed to run on roaming and non-roaming mobile data connections</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing is allowed to run on non-roaming mobile data connections. The active connection is non-roaming</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing is not running as you disallowed it to run on roaming mobile data connections</string>
 
-    <string name="reason_wifi_disallowed">Syncthing is not allowed to run on WiFi or ethernet.</string>
-    <string name="reason_on_wifi">Syncthing is allowed to run on WiFi and WiFi is currently connected.</string>
-    <string name="reason_not_on_wifi">Syncthing is allowed to run on WiFi but WiFi isn\'t connected or the phone is in flight mode.</string>
-    <string name="reason_on_metered_nonmetered_wifi">Syncthing is allowed to run on metered and non-metered WiFi connections.</string>
-    <string name="reason_on_whitelisted_wifi">Syncthing is allowed to run on the current WiFi network.</string>
-    <string name="reason_not_on_whitelisted_wifi">Syncthing is not running as the current WiFi network\'s name is not whitelisted.</string>
-    <string name="reason_on_nonmetered_wifi">Syncthing is allowed to run on non-metered WiFi connections. The active WiFi connection is non-metered.</string>
-    <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered WiFi connections.</string>
-    <string name="reason_location_unavailable">You enabled \'Run on selected WiFi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current WiFi network name to decide if it should run. Solution: Turn location on, grant location permission and reconnect WiFi.</string>
-    <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active.</string>
+    <string name="reason_wifi_disallowed">Syncthing is not allowed to run on Ethernet or Wi-Fi</string>
+    <string name="reason_on_wifi">Syncthing is allowed to run on Wi-Fi and Wi-Fi is currently connected.</string>
+    <string name="reason_not_on_wifi">Syncthing is allowed to run on Wi-Fi but Wi-Fi isn\'t connected or the phone is in airplane mode</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing is allowed to run on metered and non-metered Wi-Fi connections</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing is allowed to run on the current Wi-Fi network.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing is not running as the current Wi-Fi network\'s name is not whitelisted</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing is allowed to run on non-metered Wi-Fi connections. The active Wi-Fi connection is non-metered</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing is not running as you disallowed it to run on metered Wi-Fi connections</string>
+    <string name="reason_location_unavailable">You enabled \'Run on selected Wi-Fi networks\' in the settings. Android location services are currently turned off. According to Android restrictions, Syncthing cannot determine the current Wi-Fi network name to decide if it should run. Turn location on, grant location permission and reconnect to Wi-Fi.</string>
+    <string name="reason_on_flight_mode">Syncthing is running as you allowed it to run when flight mode is active</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor is not instantiated. Please restart the app and file a bug report if this error doesn\'t disappear after the restart.</string>
 
     <!-- Sync Conditions Dialog -->
 
-    <string name="custom_wifi_ssid_whitelist_empty">No WiFi SSID\'s whitelisted. Please specify some in the settings.</string>
+    <string name="custom_wifi_ssid_whitelist_empty">No Wi-Fi SSIDs whitelisted. Please specify some in the settings.</string>
 
     <!-- SyncthingService -->
 
@@ -961,15 +960,15 @@
     <string name="syncthing_terminated">Terminated</string>
 
     <!-- Toast shown if syncthing failed to create or read the config -->
-    <string name="executable_not_found">Core executable \"%s\" is missing. Check build and logcat output.</string>
-    <string name="config_create_failed">Failed to create configuration. Check logcat output.</string>
-    <string name="config_read_failed">Failed to read configuration. Consider backing up data from your sync folders, then clear this app\'s data from Android settings and launch it again.</string>
+    <string name="executable_not_found">Core executable \"%s\" is missing. Check Android and Syncthing logs.</string>
+    <string name="config_create_failed">Failed to create configuration. Check Android logs.</string>
+    <string name="config_read_failed">Failed to read configuration. Consider backing up data from your sync folders, then clearing this app\'s data from Android settings and launching it again.</string>
 
     <!-- Toast shown if a config file crucial to operation is missing -->
     <string name="config_file_missing">A config file crucial to operation is missing</string>
 
-    <!-- Toast shown if a listening tcp port is unavailable -->
-    <string name="webui_tcp_port_unavailable">WebUI tcp port %s busy. Second instance\?</string>
+    <!-- Toast shown if a listening TCP port is unavailable -->
+    <string name="webui_tcp_port_unavailable">Web GUI TCP port %s busy. Second instance\?</string>
 
     <!-- Label of the default folder created of first start (camera folder). -->
     <string name="default_android_camera_folder_label">Android Camera</string>
@@ -985,7 +984,7 @@
     <string name="notifications_other_channel">Other notifications</string>
 
     <!-- EventProcessor -->
-    <string name="notification_out_of_disk_space">The SDcard is full. File %1$s</string>
+    <string name="notification_out_of_disk_space">The storage is full. File %1$s</string>
 
     <!-- RestApi -->
 
@@ -995,7 +994,7 @@
     <!-- Text for positive button in restart dialog -->
     <!-- Text for the dismiss button of the restart Activity -->
     <!-- Text of the notification shown when a restart is needed -->
-    <string name="restart_notification_text">Click here to restart syncthing now</string>
+    <string name="restart_notification_text">Click here to restart Syncthing-Fork now</string>
 
     <!-- Shown when a device ID is copied to the clipboard -->
     <string name="device_id_copied_to_clipboard">Device ID copied to clipboard</string>
@@ -1046,9 +1045,9 @@
     <string name="folder_type_receive_encrypted">Receive Encrypted</string>
 
     <!-- Folder type dialog descriptions for folder types -->
-    <string name="folder_type_sendreceive_description">The folder will both send changes to and receive changes from remote devices.</string>
-    <string name="folder_type_sendonly_description">Files are protected from changes made on other devices, but changes made on this device will be sent to the rest of the cluster.</string>
-    <string name="folder_type_receiveonly_description">Files are synchronized from the cluster, but any changes made locally will not be sent to other devices.</string>
+    <string name="folder_type_sendreceive_description">The folder will both send changes to and receive changes from remote devices</string>
+    <string name="folder_type_sendonly_description">Files are protected from changes made on other devices, but changes made on this device will be sent to the rest of the cluster</string>
+    <string name="folder_type_receiveonly_description">Files are synchronized from the cluster, but any changes made locally will not be sent to other devices</string>
     <string name="folder_type_receive_encrypted_description">Stores and syncs only encrypted data. Folders on all connected devices need to be set up with the same password or be of type \'Receive Encrypted\' too.</string>
 
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
@@ -1063,8 +1062,8 @@
     <string name="pull_order_type_newestFirst">Newest First</string>
 
     <!-- Pull order dialog descriptions for pull order types -->
-    <string name="pull_order_type_random_description">Pull files in random order.</string>
-    <string name="pull_order_type_alphabetic_description">Pull files ordered by file name alphabetically.</string>
+    <string name="pull_order_type_random_description">Pull files in random order</string>
+    <string name="pull_order_type_alphabetic_description">Pull files ordered by file name alphabetically</string>
     <string name="pull_order_type_smallestFirst_description">Pull files ordered by file size. Smallest first respectively.</string>
     <string name="pull_order_type_largestFirst_description">Pull files ordered by file size. Largest first respectively.</string>
     <string name="pull_order_type_oldestFirst_description">Pull files ordered by modification time. Oldest first respectively.</string>
@@ -1088,13 +1087,13 @@
 \nThe following intervals are used: for the first hour a version is kept every 30 seconds, for the first day a version is kept every hour, for the first 30 days a version is kept every day, until the maximum age a version is kept every week.</string>
     <string name="maximum_age_description">The maximum time to keep a version (in days, set to 0 to keep versions forever).</string>
     <string name="versions_path_description">Path where versions should be stored (leave empty for the default .stversions directory in the shared folder).</string>
-    <string name="cleanout_after_description">The number of days to keep files in the trash can. Zero means forever</string>
+    <string name="cleanout_after_description">The number of days to keep files in the trash can. 0 means forever.</string>
     <string name="external_versioning_description">The first command line parameter is the folder path and the second parameter is the relative path in the folder.</string>
     <string name="no_versioning_description">Select a versioning type to enable versioning.</string>
 
     <!-- Displays the current file versioning type in the Folder activity -->
     <string name="type_simple">Type: Simple</string>
-    <string name="type_trashcan">Type: Trashcan</string>
+    <string name="type_trashcan">Type: Trash Can</string>
     <string name="type_staggered">Type: Staggered</string>
     <string name="type_external">Type: External</string>
 
@@ -1106,14 +1105,14 @@
     <string name="simple_versioning_info">Keep versions: %1$s</string>
     <string name="show_device_id">Show device ID</string>
 
-    <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-    <string name="could_not_access_deviceid">Could not access device ID.</string>
+    <!-- Error message if the device ID/QR code dialog for some reason cannot be displayed.-->
+    <string name="could_not_access_deviceid">Could not access device ID</string>
     <string name="browse">Browse</string>
-    <string name="no_sub_folder_is_selected">No sub folder is selected</string>
+    <string name="no_sub_folder_is_selected">No subfolder is selected</string>
     <string name="share_device_id_chooser">Share device ID with</string>
-    <string name="run_on_whitelisted_wifi_summary">Turn the whitelist on to restrict sync happening only on specified WiFi networks.</string>
+    <string name="run_on_whitelisted_wifi_summary">Turn the whitelist on to restrict sync happening only on specified Wi-Fi networks</string>
     <string name="custom_sync_conditions_title">Custom sync conditions</string>
-    <string name="custom_sync_conditions_description">Allows you to specify exceptions to the global run conditions.</string>
+    <string name="custom_sync_conditions_description">Allows you to specify exceptions to the global run conditions</string>
     <string name="custom_sync_conditions_dialog">Specify sync conditions</string>
 
     <!-- Quick Setting icon names and labels -->
