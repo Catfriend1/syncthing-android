@@ -197,6 +197,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
+        <activity android:name=".activities.AnnounceServerActivity"
+            android:label="@string/global_announce_server"
+            android:parentActivityName=".activities.SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SettingsActivity" />
+        </activity>
         <service
             android:name=".service.SyncthingService"
             android:foregroundServiceType="specialUse">

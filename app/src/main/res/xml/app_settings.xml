@@ -232,12 +232,11 @@
             android:singleLineTitle="false"
             android:persistent="false" />
 
-        <EditTextPreference
+        <com.nutomic.syncthingandroid.preferences.AnnounceServerPreference
             android:key="globalAnnounceServers"
             android:title="@string/global_announce_server"
             android:singleLineTitle="false"
-            android:persistent="false"
-            android:inputType="textNoSuggestions" />
+            android:persistent="false" />
 
         <EditTextPreference
             android:key="webUITcpPort"

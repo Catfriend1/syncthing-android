@@ -56,6 +56,9 @@ import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
 import com.nutomic.syncthingandroid.views.WifiSsidPreference;
 
+import com.nutomic.syncthingandroid.activities.AnnounceServerActivity;
+import com.nutomic.syncthingandroid.preferences.AnnounceServerPreference;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
@@ -72,6 +75,7 @@ import eu.chainfire.libsuperuser.Shell;
 public class SettingsActivity extends SyncthingActivity {
 
     private static final String TAG = "SettingsActivity";
+    public static final int REQUEST_CODE_ANNOUNCE_SERVERS = 1001;
 
     private SettingsFragment mSettingsFragment;
 
@@ -121,6 +125,15 @@ public class SettingsActivity extends SyncthingActivity {
         SyncthingService syncthingService = (SyncthingService) syncthingServiceBinder.getService();
         mSettingsFragment.setService(syncthingService);
         syncthingService.registerOnServiceStateChangeListener(mSettingsFragment);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ANNOUNCE_SERVERS && resultCode == RESULT_OK) {
+            // Forward the result to the settings fragment
+            mSettingsFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
@@ -192,7 +205,7 @@ public class SettingsActivity extends SyncthingActivity {
         private CheckBoxPreference mLocalAnnounceEnabled;
         private CheckBoxPreference mGlobalAnnounceEnabled;
         private CheckBoxPreference mRelaysEnabled;
-        private EditTextPreference mGlobalAnnounceServers;
+        private AnnounceServerPreference mGlobalAnnounceServers;
         private EditTextPreference mWebUITcpPort;
         private EditTextPreference mWebUIUsername;
         private EditTextPreference mWebUIPassword;
@@ -322,7 +335,7 @@ public class SettingsActivity extends SyncthingActivity {
             mLocalAnnounceEnabled   = (CheckBoxPreference) findPreference("localAnnounceEnabled");
             mGlobalAnnounceEnabled  = (CheckBoxPreference) findPreference("globalAnnounceEnabled");
             mRelaysEnabled          = (CheckBoxPreference) findPreference("relaysEnabled");
-            mGlobalAnnounceServers  = (EditTextPreference) findPreference("globalAnnounceServers");
+            mGlobalAnnounceServers  = (AnnounceServerPreference) findPreference("globalAnnounceServers");
             mWebUITcpPort           = (EditTextPreference) findPreference(KEY_WEBUI_TCP_PORT);
             mWebUIUsername          = (EditTextPreference) findPreference(Constants.PREF_WEBUI_USERNAME);
             mWebUIPassword          = (EditTextPreference) findPreference(Constants.PREF_WEBUI_PASSWORD);
@@ -535,7 +548,11 @@ public class SettingsActivity extends SyncthingActivity {
                 mLocalAnnounceEnabled.setChecked(mOptions.localAnnounceEnabled);
                 mGlobalAnnounceEnabled.setChecked(mOptions.globalAnnounceEnabled);
                 mRelaysEnabled.setChecked(mOptions.relaysEnabled);
-                mGlobalAnnounceServers.setText(joiner.join(mOptions.globalAnnounceServers));
+                // For our custom AnnounceServerPreference, we don't call setText
+                // Instead, we update the preference value directly if needed
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putString("globalAnnounceServers", joiner.join(mOptions.globalAnnounceServers));
+                editor.apply();
                 mUrAccepted.setChecked(mRestApi.isUsageReportingAccepted());
                 mCrashReportingEnabled.setChecked(mOptions.crashReportingEnabled);
             }
@@ -695,6 +712,11 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case "globalAnnounceServers":
                     mOptions.globalAnnounceServers = Iterables.toArray(splitter.split((String) o), String.class);
+                    // For our custom AnnounceServerPreference, we need to handle this differently
+                    // We'll update the preference value directly
+                    SharedPreferences.Editor editor = mPreferences.edit();
+                    editor.putString("globalAnnounceServers", (String) o);
+                    editor.apply();
                     break;
                 case KEY_WEBUI_TCP_PORT:
                     Integer webUITcpPort = 0;
@@ -1229,6 +1251,22 @@ public class SettingsActivity extends SyncthingActivity {
                         deleteContents(file);
                     }
                     file.delete();
+                }
+            }
+        }
+
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (requestCode == REQUEST_CODE_ANNOUNCE_SERVERS && resultCode == RESULT_OK) {
+                String announceServers = data.getStringExtra(AnnounceServerActivity.EXTRA_RESULT_ANNOUNCE_SERVERS);
+                if (announceServers != null) {
+                    // Update the preference value
+                    SharedPreferences.Editor editor = mPreferences.edit();
+                    editor.putString("globalAnnounceServers", announceServers);
+                    editor.apply();
+                    
+                    // Update the UI and send to Syncthing
+                    // For our custom AnnounceServerPreference, we don't need to call setText
+                    onSyncthingPreferenceChange(mGlobalAnnounceServers, announceServers);
                 }
             }
         }

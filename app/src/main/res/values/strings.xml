@@ -600,6 +600,15 @@
 
     <string name="global_announce_server">Global Discovery Servers</string>
 
+    <string name="global_announce_server_description">Enter the URLs of the global discovery servers. You can add multiple servers by tapping the plus button.</string>
+    <string name="add_url">Add URL</string>
+    <string name="remove_url">Remove URL</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="invalid_url">Invalid URL</string>
+    <string name="please_fix_invalid_urls">Please fix invalid URLs</string>
+    <string name="at_least_one_url_required">At least one URL is required</string>
+
     <string name="enable_relaying">Enable Relaying</string>
 
     <string name="usage_reporting">Anonymous Usage Reporting</string>
