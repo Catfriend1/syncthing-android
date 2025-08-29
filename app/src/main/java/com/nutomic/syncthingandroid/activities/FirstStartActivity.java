@@ -120,7 +120,7 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
         Boolean showSlideStoragePermission = !PermissionUtil.haveStoragePermission(FirstStartActivity.this);
         Boolean showSlideIgnoreDozePermission = !haveIgnoreDozePermission();
         Boolean showSlideLocationPermission = !haveLocationPermission();
-        Boolean showSlideNotificationPermission = !haveNotificationPermission();
+        Boolean showSlideNotificationPermission = !haveNotificationPermission() && !isNotificationPermissionOptional();
         Boolean showSlideKeyGeneration = !checkForParseableConfig();
 
         /**
@@ -306,7 +306,7 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
 
         if (mViewPager.getCurrentItem() == mSlideNotificationPermission) {
             // As the notification permission is a prerequisite to run the syncthing service permanently, refuse to continue without it.
-            if (!haveNotificationPermission()) {
+            if (!haveNotificationPermission() && !isNotificationPermissionOptional()) {
                 Toast.makeText(this, R.string.toast_notification_permission_required,
                         Toast.LENGTH_LONG).show();
                 return;
@@ -573,6 +573,10 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
         }
         return ContextCompat.checkSelfPermission(this,
                 Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private boolean isNotificationPermissionOptional() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE;
     }
 
     private void requestNotificationPermission() {
