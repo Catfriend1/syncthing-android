@@ -235,9 +235,11 @@ def install_go():
     except Exception as e:
         fail('Built Go is not working: ' + str(e))
 
-    # Add built Go to PATH
+    # Add built Go to PATH and set GOROOT
     print('Adding built Go to PATH:', go_bin_path)
+    print('Setting GOROOT to:', go_build_dir)
     os.environ["PATH"] = go_bin_path + os.pathsep + os.environ["PATH"]
+    os.environ["GOROOT"] = go_build_dir
 
 
 def write_file(fullfn, text):
