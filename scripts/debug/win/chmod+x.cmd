@@ -7,7 +7,6 @@ SET "PROJECT_ROOT=%SCRIPT_PATH%..\..\.."
 
 ::
 git update-index --chmod=+x "%PROJECT_ROOT%\docker\prebuild.sh"
-git update-index --chmod=+x "%PROJECT_ROOT%\git_fetch_branch.sh"
 git update-index --chmod=+x "%PROJECT_ROOT%\gradlew"
 ::
 git commit -m "chmod +x"
