@@ -125,10 +125,22 @@ def change_permissions_recursive(path, mode):
         for file in [os.path.join(root, f) for f in files]:
             os.chmod(file, mode)
 
+def get_go_version(go_binary):
+    """Get the version of a Go binary"""
+    try:
+        result = subprocess.check_output([go_binary, 'version'], stderr=subprocess.STDOUT, timeout=10)
+        # Parse "go version go1.25.0 linux/amd64" -> "1.25.0"
+        version_line = result.decode().strip()
+        parts = version_line.split()
+        if len(parts) >= 3 and parts[2].startswith('go'):
+            return parts[2][2:]  # Remove "go" prefix
+        return None
+    except:
+        return None
+
 def install_go():
     import os
     import tarfile
-    import zipfile
     import shutil
     import subprocess
 
@@ -143,11 +155,31 @@ def install_go():
     go_build_dir = os.path.join(prerequisite_tools_dir, 'go')
     go_bin_path = os.path.join(go_build_dir, 'bin')
     
-    # Check if we already have a built Go
-    if os.path.isfile(os.path.join(go_bin_path, 'go')):
-        print('Go already built at:', go_bin_path)
-        os.environ["PATH"] += os.pathsep + go_bin_path
+    # Check if we already have a built Go with correct version
+    built_go = os.path.join(go_bin_path, 'go')
+    if os.path.isfile(built_go):
+        built_version = get_go_version(built_go)
+        if built_version == GO_VERSION:
+            print('Go', GO_VERSION, 'already built at:', go_bin_path)
+            os.environ["PATH"] = go_bin_path + os.pathsep + os.environ["PATH"]
+            return
+        else:
+            print('Built Go version', built_version, 'does not match required', GO_VERSION, '- rebuilding')
+
+    # Find system Go for bootstrap (assume it exists as per fdroid environment)
+    system_go = which("go")
+    if not system_go:
+        fail('Error: No system Go found for bootstrap. golang-go package should be installed in fdroid environment.')
+    
+    system_version = get_go_version(system_go)
+    print('Found system Go version:', system_version, 'at:', system_go)
+    print('Required Go version:', GO_VERSION)
+    
+    if system_version == GO_VERSION:
+        print('System Go version matches required version. No build needed.')
         return
+    
+    print('System Go version differs from required. Building Go', GO_VERSION, 'from source using system Go as bootstrap...')
 
     # Download Go source code from GitHub
     go_source_url = 'https://github.com/golang/go/archive/go' + GO_VERSION + '.tar.gz'
@@ -171,53 +203,11 @@ def install_go():
     
     # Copy source to build directory
     shutil.copytree(go_extract_dir, go_build_dir)
-    
-    # Check if we have any Go available for bootstrap
-    bootstrap_go = None
-    for path_dir in os.environ.get('PATH', '').split(os.pathsep):
-        potential_go = os.path.join(path_dir, 'go')
-        if os.path.isfile(potential_go) and os.access(potential_go, os.X_OK):
-            try:
-                # Test if this Go works
-                result = subprocess.check_output([potential_go, 'version'], 
-                                               stderr=subprocess.STDOUT, timeout=10)
-                bootstrap_go = potential_go
-                print('Found bootstrap Go:', bootstrap_go)
-                break
-            except:
-                continue
-    
-    if not bootstrap_go:
-        # Download a minimal bootstrap Go binary
-        print('No bootstrap Go found, downloading minimal Go 1.22.0 for bootstrap...')
-        if sys.platform == 'win32':
-            bootstrap_url = 'https://dl.google.com/go/go1.22.0.windows-amd64.zip'
-            bootstrap_file = os.path.join(prerequisite_tools_dir, 'bootstrap-go.zip')
-        else:
-            bootstrap_url = 'https://dl.google.com/go/go1.22.0.linux-amd64.tar.gz'
-            bootstrap_file = os.path.join(prerequisite_tools_dir, 'bootstrap-go.tar.gz')
-        
-        if not os.path.isfile(bootstrap_file):
-            urlretrieve(bootstrap_url, bootstrap_file)
-        
-        bootstrap_dir = os.path.join(prerequisite_tools_dir, 'bootstrap-go')
-        if os.path.isdir(bootstrap_dir):
-            shutil.rmtree(bootstrap_dir)
-        os.makedirs(bootstrap_dir)
-        
-        if sys.platform == 'win32':
-            with zipfile.ZipFile(bootstrap_file, 'r') as zip_file:
-                zip_file.extractall(bootstrap_dir)
-        else:
-            with tarfile.open(bootstrap_file, 'r:gz') as tar:
-                tar.extractall(bootstrap_dir)
-        
-        bootstrap_go = os.path.join(bootstrap_dir, 'go', 'bin', 'go')
 
-    # Build Go from source
-    print('Building Go from source...')
+    # Build Go from source using system Go as bootstrap
+    print('Building Go from source using system Go as bootstrap...')
     build_env = os.environ.copy()
-    build_env['GOROOT_BOOTSTRAP'] = os.path.dirname(os.path.dirname(bootstrap_go))
+    build_env['GOROOT_BOOTSTRAP'] = os.path.dirname(os.path.dirname(system_go))
     build_env['GOROOT'] = go_build_dir
     
     if sys.platform == 'win32':
@@ -230,14 +220,18 @@ def install_go():
         subprocess.check_call(['bash', build_script], env=build_env, cwd=os.path.join(go_build_dir, 'src'))
 
     # Verify the build
-    built_go = os.path.join(go_bin_path, 'go')
     if not os.path.isfile(built_go):
         fail('Go build failed: go binary not found at ' + built_go)
     
-    # Test the built Go
+    # Test the built Go and verify version
     try:
         result = subprocess.check_output([built_go, 'version'], stderr=subprocess.STDOUT)
         print('Successfully built Go:', result.decode().strip())
+        
+        built_version = get_go_version(built_go)
+        if built_version != GO_VERSION:
+            fail('Built Go version ' + str(built_version) + ' does not match expected ' + GO_VERSION)
+        
     except Exception as e:
         fail('Built Go is not working: ' + str(e))
 
@@ -347,7 +341,7 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
-# Check if go is available.
+# Check if go is available and has correct version.
 go_bin = which("go");
 if not go_bin:
     print('Info: go is not available on the PATH. Trying install_go')
@@ -356,6 +350,19 @@ if not go_bin:
     go_bin = which("go");
     if not go_bin:
         fail('Error: go is not available on the PATH.')
+else:
+    # Check if the available Go has the correct version
+    current_version = get_go_version(go_bin)
+    print('Found Go version:', current_version, 'at:', go_bin)
+    print('Required Go version:', GO_VERSION)
+    if current_version != GO_VERSION:
+        print('Go version mismatch. Installing correct version...')
+        install_go()
+        # Update go_bin to point to the newly built Go
+        go_bin = which("go")
+        if not go_bin:
+            fail('Error: go is not available on the PATH after installation.')
+
 print('go_bin=\'' + go_bin + '\'')
 
 # Check if "ANDROID_NDK_HOME" env var is set. If not, try to discover and set it.
