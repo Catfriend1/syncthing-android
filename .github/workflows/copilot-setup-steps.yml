@@ -28,13 +28,13 @@ jobs:
           git submodule foreach 'git fetch --unshallow || true'
           git submodule foreach 'git fetch --tags'
 
-      - name: Setup Java 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Setup Go 1.24.1
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.24.1'

@@ -17,7 +17,6 @@ git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 #
 # Install prerequisites.
 cd ~/git/syncthing-android
-## git stash && git pull origin Catfriend1-patch-1 && git checkout Catfriend1-patch-1
 python3 scripts/install_minimum_android_sdk_prerequisites.py
 #
 # Build.
