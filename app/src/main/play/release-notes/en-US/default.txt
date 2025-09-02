@@ -1,4 +1,4 @@
-Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.3 to see details on the v2 milestone.
+Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.4 to see details on the v2 milestone.
 
 Fixed by contributing to upstream:
 
