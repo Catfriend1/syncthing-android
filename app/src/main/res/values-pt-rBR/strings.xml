@@ -139,7 +139,7 @@
     <string name="button_follow_run_conditions">SEGUIR CONDIÇÕES DE EXECUÇÃO</string>
     <string name="button_force_start">INÍCIO FORÇADO \nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
     <string name="button_force_stop">PARADA FORÇADA \nIGNORAR CONDIÇÕES DE EXECUÇÃO</string>
-    <string name="syncthing_starting">O Synthing está iniciando.</string>
+    <string name="syncthing_starting">O Syncthing está iniciando.</string>
     <string name="syncthing_running">O Syncthing está em execução.</string>
     <string name="syncthing_not_running">O Syncthing não está em execução.</string>
     <string name="syncthing_has_crashed">O Syncthing travou.</string>
