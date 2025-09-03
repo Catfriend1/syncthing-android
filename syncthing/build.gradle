@@ -41,6 +41,7 @@ task buildNative(type: PythonTask) {
     environment "SOURCE_DATE_EPOCH", getSourceDateEpoch()
     environment "BUILD_HOST", "Catfriend1-syncthing-android"
     environment "BUILD_USER", "reproducible-build"
+    environment "STTRACE", ""
 
     verifySyncthingNativeVersionMatchesApp();
 
