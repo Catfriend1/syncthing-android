@@ -405,6 +405,10 @@ subprocess.check_call([
     '--porcelain=v1'
 ])
 
+if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
+    print('Cleaning go-build cache')
+    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
+
 if FORCE_DISPLAY_SYNCTHING_VERSION:
     syncthingVersion = FORCE_DISPLAY_SYNCTHING_VERSION.replace("rc", "preview");
 else:
@@ -417,10 +421,6 @@ else:
         '--always'
     ]).strip();
     syncthingVersion = syncthingVersion.decode().replace("rc", "preview");
-
-if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
-    print('Cleaning go-build cache')
-    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 print('Building syncthing version', syncthingVersion);
 print('SOURCE_DATE_EPOCH=[' + os.environ['SOURCE_DATE_EPOCH'] + ']');
