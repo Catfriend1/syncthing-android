@@ -7,7 +7,6 @@ SourceCode: https://github.com/Catfriend1/syncthing-android
 IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
 Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
 Changelog: https://github.com/Catfriend1/syncthing-android/releases
-Liberapay: cf4friends
 
 AutoName: Syncthing-Fork
 
@@ -2677,6 +2676,42 @@ Builds:
         -f 4)
       - sdkmanager "ndk;$ndkversion"
 
+  - versionName: 1.30.0.3
+    versionCode: 1300003
+    commit: d06516a6724ed47a78885e7c7b17f085e57469c7
+    subdir: app
+    submodules: true
+    sudo:
+      - echo "deb https://deb.debian.org/debian trixie main" > /etc/apt/sources.list.d/trixie.list
+      - apt-get update
+      - apt-get install -y -t trixie openjdk-21-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.23.0
+    prebuild:
+      - export goVersion=$(grep "ENV GO_VERSION" ../docker/Dockerfile | cut -d "="
+        -f2)
+      - '[[ $goVersion ]] || exit 1'
+      - git -C $$go$$ checkout -f go$goVersion
+      - sed -i -e '/signingConfig/,+2d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+      - sed -i -e 's|go_bin = which("go");|go_bin = "$$go$$/bin/go"|' ../syncthing/build-syncthing.py
+      - sed -i -e '/android-gradle-plugin/s/8.12.0/8.11.1/' ../gradle/libs.versions.toml
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
+        -f 4)
+      - sdkmanager "ndk;$ndkversion"
+
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
@@ -2684,5 +2719,5 @@ MaintainerNotes: |-
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*-fdroid$
 UpdateCheckData: gradle/libs.versions.toml|version-code\s=\s"(\d+)"|.|version-name\s=\s"(.*)"
-CurrentVersion: 1.30.0.2
-CurrentVersionCode: 1300002
+CurrentVersion: 1.30.0.3
+CurrentVersionCode: 1300003
