@@ -37,7 +37,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.24.1'
+          go-version: '1.25.0'
           cache: true
           cache-dependency-path: syncthing/src/github.com/syncthing/syncthing/go.sum
 
