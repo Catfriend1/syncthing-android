@@ -36,7 +36,7 @@ ENV NDK_VERSION=28.0.13004108
 ENV TARGET_SDK_VERSION=36
 
 # Install other android packages, including NDK
-RUN $SDKMANAGER tools platform-tools "build-tools;${TARGET_SDK_VERSION}.0.0" "platforms;android-${TARGET_SDK_VERSION}" "extras;android;m2repository" "ndk;${NDK_VERSION}"
+RUN $SDKMANAGER platform-tools "build-tools;${TARGET_SDK_VERSION}.0.0" "platforms;android-${TARGET_SDK_VERSION}" "extras;android;m2repository" "ndk;${NDK_VERSION}"
 
 # Accept licenses of newly installed packages
 RUN yes | $SDKMANAGER --licenses
