@@ -22,7 +22,7 @@ Comparação entre o fork e o projeto original no momento que estou escrevendo i
 * As funcionalidades e confiabilidade do syncthing depende da versão do submódulo do syncthing.
 * O fork se dá bem com o projeto original e às vezes eles pegam minhas melhorias.
 * Estratégia e frequência de lançamentos são diferentes.
-* Apenas o pacote contendo a interface Android  é endereçado pelo fork
+* Apenas o pacote contendo a interface Android é endereçado pelo fork
 
 Site do projeto: https://github.com/Catfriend1/syncthing-android
 
