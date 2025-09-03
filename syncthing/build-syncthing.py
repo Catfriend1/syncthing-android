@@ -409,6 +409,8 @@ if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
     print('Cleaning go-build cache')
     subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
+subprocess.check_call([go_bin, 'env', '-w', 'GOFLAGS=-buildvcs=false'], cwd=syncthing_dir)
+
 if FORCE_DISPLAY_SYNCTHING_VERSION:
     syncthingVersion = FORCE_DISPLAY_SYNCTHING_VERSION.replace("rc", "preview");
 else:
