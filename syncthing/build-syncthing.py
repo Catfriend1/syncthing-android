@@ -396,15 +396,6 @@ subprocess.check_call([
     '--tags'
 ])
 
-print('Listing modifications if present ...')
-subprocess.check_call([
-    'git',
-    '-C',
-    syncthing_dir,
-    'status',
-    '--porcelain=v1'
-])
-
 if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
     print('Cleaning go-build cache')
     subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
