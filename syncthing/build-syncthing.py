@@ -396,6 +396,15 @@ subprocess.check_call([
     '--tags'
 ])
 
+print('Listing modifications if present ...')
+subprocess.check_call([
+    'git',
+    '-C',
+    syncthing_dir,
+    'status',
+    '--porcelain=v1'
+])
+
 if FORCE_DISPLAY_SYNCTHING_VERSION:
     syncthingVersion = FORCE_DISPLAY_SYNCTHING_VERSION.replace("rc", "preview");
 else:
