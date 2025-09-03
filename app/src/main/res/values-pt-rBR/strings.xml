@@ -562,7 +562,7 @@
     <string name="trashcan_versioning_description">Os arquivos são movidos para o diretório .stversions quando substituídos ou apagados pelo Syncthing.</string>
     <string name="maximum_age_description">O tempo máximo para manter uma versão (em dias, use 0 para manter as versões para sempre).</string>
     <string name="versions_path_description">Caminho do diretório onde as versões são salvas (deixe em branco para que seja o diretório padrão .stversions dentro da pasta compartilhada).</string>
-    <string name="cleanout_after_description">O número de dias em que são mantidos os arquivos da lixeira. Zero significa para sempre</string>
+    <string name="cleanout_after_description">O número de dias em que são mantidos os arquivos na lixeira. Zero significa para sempre</string>
     <string name="external_versioning_description">O primeiro argumento da linha de comando é o caminho da pasta e o segundo é o caminho relativo à pasta.</string>
     <string name="no_versioning_description">Selecione um tipo de versionamento para ativá-lo.</string>
     <!-- Displays the current file versioning type in the Folder activity -->
