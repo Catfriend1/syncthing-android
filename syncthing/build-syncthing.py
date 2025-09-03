@@ -5,11 +5,6 @@ import shutil
 import subprocess
 import sys
 import platform
-#
-# Script Compatibility:
-# - Python 2.7.15
-# - Python 3.9.6
-#
 
 PLATFORM_DIRS = {
     'Windows': 'windows-x86_64',
@@ -20,10 +15,6 @@ PLATFORM_DIRS = {
 # Leave empty to auto-detect version by 'git describe'.
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 FILENAME_SYNCTHING_BINARY = 'libsyncthingnative.so'
-
-GO_VERSION = '1.25.0'
-GO_EXPECTED_SHASUM_LINUX = '2852af0cb20a13139b3448992e69b868e50ed0f8a1e5940ee1de9e19a123b613'
-GO_EXPECTED_SHASUM_WINDOWS = '89efb4f9b30812eee083cc1770fdd2913c14d301064f6454851428f9707d190b'
 
 NDK_VERSION = 'r28'
 NDK_EXPECTED_SHASUM_LINUX = '894f469c5192a116d21f412de27966140a530ebc'
@@ -111,11 +102,70 @@ def change_permissions_recursive(path, mode):
         for file in [os.path.join(root, f) for f in files]:
             os.chmod(file, mode)
 
+def get_expected_go_version():
+    import os
+    import re
+    import json
+    import urllib.request
+
+    workflow_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
+        'syncthing',
+        'src',
+        'github.com',
+        'syncthing',
+        'syncthing',
+        '.github',
+        'workflows',
+        'build-syncthing.yaml'
+    )
+
+    base_version = None
+    with open(workflow_path, 'r') as f:
+        for line in f:
+            if line.strip().startswith("GO_VERSION:"):
+                raw = line.split(":", 1)[1].strip().strip('"').strip("'")
+                # "~1.25.0" to "1.25"
+                if raw.startswith("~"):
+                    parts = raw[1:].split(".")
+                    base_version = ".".join(parts[0:2])  # "1.25"
+                else:
+                    base_version = raw
+                break
+
+    if not base_version:
+        raise RuntimeError("Could not find GO_VERSION in build-syncthing.yaml.")
+
+    url = "https://go.dev/dl/?mode=json"
+    with urllib.request.urlopen(url) as resp:
+        releases = json.load(resp)
+
+    # Find recent release corresponding to base_version.
+    for rel in releases:
+        v = rel["version"].lstrip("go")  # "go1.25.0" to "1.25.0"
+        if v.startswith(base_version + "."):
+            return v
+
+    raise RuntimeError(f"GO_VERSION: No latest patch level found corresponding to {base_version}")
+
+def get_go_version(go_binary):
+    """Get the version of a Go binary"""
+    try:
+        result = subprocess.check_output([go_binary, 'version'], stderr=subprocess.STDOUT, timeout=10)
+        # Parse "go version go1.25.0 linux/amd64" to "1.25.0"
+        version_line = result.decode().strip()
+        parts = version_line.split()
+        if len(parts) >= 3 and parts[2].startswith('go'):
+            return parts[2][2:]  # Remove "go" prefix
+        return None
+    except:
+        return None
+
 def install_go():
     import os
     import tarfile
-    import zipfile
-    import hashlib
+    import shutil
+    import subprocess
 
     if sys.version_info[0] >= 3:
         from urllib.request import urlretrieve
@@ -125,50 +175,92 @@ def install_go():
     if not os.path.isdir(prerequisite_tools_dir):
         os.makedirs(prerequisite_tools_dir)
 
+    expected_version = get_expected_go_version()
+    print('Required Go version:', expected_version)
+
+    # Find system Go for bootstrap (assume it exists as per fdroid environment)
+    system_go = which("go")
+    if not system_go:
+        fail('Error: No system Go found for bootstrap. golang-go package should be installed in fdroid environment.')
+    
+    system_version = get_go_version(system_go)
+    print('Found system Go version:', system_version, 'at:', system_go)
+
+    if system_version == expected_version:
+        print('System Go version matches required version. No build needed.')
+        return
+    
+    print('System Go version differs from required. Building Go', expected_version, 'from source using system Go as bootstrap...')
+
+    # Download Go source code from GitHub
+    go_source_url = 'https://github.com/golang/go/archive/go' + expected_version + '.tar.gz'
+    go_source_tar = os.path.join(prerequisite_tools_dir, 'go-source-' + expected_version + '.tar.gz')
+    
+    if not os.path.isfile(go_source_tar):
+        print('Downloading Go source to:', go_source_tar)
+        urlretrieve(go_source_url, go_source_tar)
+    print('Downloaded Go source to:', go_source_tar)
+
+    # Extract Go source
+    go_extract_dir = os.path.join(prerequisite_tools_dir, 'go-go' + expected_version)
+    if not os.path.isdir(go_extract_dir):
+        print("Extracting Go source ...")
+        with tarfile.open(go_source_tar, 'r:gz') as tar:
+            try:
+                tar.extractall(prerequisite_tools_dir, filter="data")
+            except TypeError:
+                tar.extractall(prerequisite_tools_dir)
+
+    # Prepare the Go build directory
+    go_build_dir = os.path.join(prerequisite_tools_dir, 'go')
+    if os.path.isdir(go_build_dir):
+        shutil.rmtree(go_build_dir)
+    
+    # Copy source to build directory
+    shutil.copytree(go_extract_dir, go_build_dir)
+
+    # Build Go from source using system Go as bootstrap
+    print('Building Go from source using system Go as bootstrap...')
+    build_env = os.environ.copy()
+    build_env['GOROOT_BOOTSTRAP'] = os.path.dirname(os.path.dirname(system_go))
+    if not os.path.isdir(os.path.join(build_env['GOROOT_BOOTSTRAP'], 'src', 'encoding')):
+        build_env['GOROOT_BOOTSTRAP'] = '/usr/lib/go'
+        print('Override build_env:GOROOT_BOOTSTRAP using ', build_env['GOROOT_BOOTSTRAP'])
+
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/go/go' + GO_VERSION + '.windows-amd64.zip'
-        expected_shasum =   GO_EXPECTED_SHASUM_WINDOWS
-        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION + '.zip';
+        build_script = os.path.join(go_build_dir, 'src', 'make.bat')
+        subprocess.check_call([build_script], env=build_env, cwd=os.path.join(go_build_dir, 'src'))
     else:
-        url =               'https://dl.google.com/go/go' + GO_VERSION + '.linux-amd64.tar.gz'
-        expected_shasum =   GO_EXPECTED_SHASUM_LINUX
-        tar_gz_fullfn = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION + '.tgz';
+        build_script = os.path.join(go_build_dir, 'src', 'make.bash')
+        # Make sure the script is executable
+        os.chmod(build_script, 0o755)
+        subprocess.check_call(['bash', build_script], env=build_env, cwd=os.path.join(go_build_dir, 'src'))
 
-    # Download prebuilt-go.
-    url_base_name = os.path.basename(url)
-    if not os.path.isfile(tar_gz_fullfn):
-        print('Downloading prebuilt-go to:', tar_gz_fullfn)
-        tar_gz_fullfn = urlretrieve(url, tar_gz_fullfn)[0]
-    print('Downloaded prebuilt-go to:', tar_gz_fullfn)
+    # Check if we already have a built Go with correct version
+    go_bin_path = os.path.join(go_build_dir, 'bin')
+    built_go = os.path.join(go_bin_path, 'go')
 
-    # Verify SHA-256 checksum of downloaded files.
-    with open(tar_gz_fullfn, 'rb') as f:
-        contents = f.read()
-        found_shasum = hashlib.sha256(contents).hexdigest()
-        print("SHA-256:", tar_gz_fullfn, "%s" % found_shasum)
-    if found_shasum != expected_shasum:
-        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
-    print("[ok] Checksum of", tar_gz_fullfn, "matches expected value.")
+    # Verify the build
+    if not os.path.isfile(built_go):
+        fail('Go build failed: go binary not found at ' + built_go)
+    
+    # Test the built Go and verify version
+    try:
+        result = subprocess.check_output([built_go, 'version'], stderr=subprocess.STDOUT)
+        print('Successfully built Go:', result.decode().strip())
+        
+        built_version = get_go_version(built_go)
+        if built_version != expected_version:
+            fail('Built Go version ' + str(built_version) + ' does not match expected ' + expected_version)
+        
+    except Exception as e:
+        fail('Built Go is not working: ' + str(e))
 
-    # Proceed with extraction of the prebuilt go.
-    go_extracted_folder = prerequisite_tools_dir + os.path.sep + 'go_' + GO_VERSION
-    if not os.path.isfile(go_extracted_folder + os.path.sep + 'LICENSE'):
-        print("Extracting prebuilt-go ...")
-        # This will go to a subfolder "go" in the current path.
-        if sys.platform == 'win32':
-            zip = zipfile.ZipFile(tar_gz_fullfn, 'r')
-            zip.extractall(prerequisite_tools_dir)
-            zip.close()
-        else:
-            tar = tarfile.open(tar_gz_fullfn)
-            tar.extractall(prerequisite_tools_dir)
-            tar.close()
-        os.rename(prerequisite_tools_dir + os.path.sep + 'go', go_extracted_folder)
-
-    # Add "go/bin" to the PATH.
-    go_bin_path = go_extracted_folder + os.path.sep + 'bin'
-    print('Adding to PATH:', go_bin_path)
-    os.environ["PATH"] += os.pathsep + go_bin_path
+    # Add built Go to PATH and set GOROOT
+    print('Adding built Go to PATH:', go_bin_path)
+    print('Setting GOROOT to:', go_build_dir)
+    os.environ["PATH"] = go_bin_path + os.pathsep + os.environ["PATH"]
+    os.environ["GOROOT"] = go_build_dir
 
 
 def write_file(fullfn, text):
@@ -272,15 +364,20 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
-# Check if go is available.
+# Check if go is available and has correct version.
 go_bin = which("go");
 if not go_bin:
-    print('Info: go is not available on the PATH. Trying install_go')
-    install_go();
-    # Retry: Check if go is available.
-    go_bin = which("go");
-    if not go_bin:
-        fail('Error: go is not available on the PATH.')
+    fail('Error: go is not available on the PATH. Please install go to build go itself.')
+
+# Check if the available Go has the correct version
+# If not, use present go to build the correct go version.
+install_go()
+
+# Update go_bin to point to the newly built Go
+go_bin = which("go")
+if not go_bin:
+    fail('Error: go is not available on the PATH after installation.')
+
 print('go_bin=\'' + go_bin + '\'')
 
 # Check if "ANDROID_NDK_HOME" env var is set. If not, try to discover and set it.
