@@ -239,6 +239,8 @@ def install_go():
     # Check if we already have a built Go with correct version
     go_bin_path = os.path.join(go_build_dir, 'bin')
     built_go = os.path.join(go_bin_path, 'go')
+    if sys.platform == 'win32':
+         built_go += '.exe'
 
     # Verify the build
     if not os.path.isfile(built_go):
@@ -364,7 +366,7 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
-# Check if go is available and has correct version.
+# Check if go is available.
 go_bin = which("go");
 if not go_bin:
     fail('Error: go is not available on the PATH. Please install go to build go itself.')
