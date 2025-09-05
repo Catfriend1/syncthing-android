@@ -32,7 +32,6 @@ preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
 stream = "1.2.2"
 volley = "1.2.1"
-vyarus-use-python = "4.1.0"
 zxing-android-embedded = "4.3.0"
 # Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
 zxing-core = "3.3.0"
@@ -72,4 +71,3 @@ android-application = { id = "com.android.application", version.ref = "android-g
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-vyarus-use-python = { id = "ru.vyarus.use-python", version.ref = "vyarus-use-python" }
