@@ -48,7 +48,6 @@ body:
         - GitHub trusted debug build
         - GitHub untrusted debug build
         - GitHub release build
-        - Google Play Store release build
     validations:
       required: true
 
