@@ -2,7 +2,7 @@
 # Android SDK versions
 compile-sdk = "36"
 min-sdk = "21"
-ndk-version = "28.0.13004108"
+ndk-version = "28.2.13676358"
 target-sdk = "36"
 
 # App version
