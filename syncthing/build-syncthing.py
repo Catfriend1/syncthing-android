@@ -16,11 +16,6 @@ PLATFORM_DIRS = {
 FORCE_DISPLAY_SYNCTHING_VERSION = ''
 FILENAME_SYNCTHING_BINARY = 'libsyncthingnative.so'
 
-NDK_VERSION = 'r28'
-NDK_EXPECTED_SHASUM_LINUX = '894f469c5192a116d21f412de27966140a530ebc'
-NDK_EXPECTED_SHASUM_WINDOWS = 'f79a00c721dc5c15b2bf093d7bb2af96496a42b2'
-
-# The values here must correspond with those in ../docker/prebuild.sh
 BUILD_TARGETS = [
     {
         'arch': 'arm',
@@ -281,67 +276,10 @@ def get_ndk_ready():
         print('ANDROID_HOME is NOT defined.')
         ndk_env_vars_defined = False
     if not ndk_env_vars_defined:
-        print('ANDROID_NDK_HOME or NDK_VERSION and ANDROID_HOME environment variable must be defined.')
-        install_ndk()
+        fail('Error: ANDROID_NDK_HOME or NDK_VERSION and ANDROID_HOME environment variable must be defined.')
         return
     os.environ["ANDROID_NDK_HOME"] = os.path.join(os.environ['ANDROID_HOME'], 'ndk', os.environ['NDK_VERSION'])
     return
-
-
-def install_ndk():
-    import hashlib
-    import os
-    import zipfile
-
-    if sys.version_info[0] >= 3:
-        from urllib.request import urlretrieve
-    else:
-        from urllib import urlretrieve
-
-    if not os.path.isdir(prerequisite_tools_dir):
-        os.makedirs(prerequisite_tools_dir)
-
-    if sys.platform == 'win32':
-        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-windows.zip'
-        expected_shasum =   NDK_EXPECTED_SHASUM_WINDOWS
-
-    else:
-        url =               'https://dl.google.com/android/repository/android-ndk-' + NDK_VERSION + '-linux.zip'
-        expected_shasum =   NDK_EXPECTED_SHASUM_LINUX
-
-    zip_fullfn = prerequisite_tools_dir + os.path.sep + 'ndk_' + NDK_VERSION + '.zip';
-    # Download NDK.
-    url_base_name = os.path.basename(url)
-    if not os.path.isfile(zip_fullfn):
-        print('Downloading NDK to:', zip_fullfn)
-        zip_fullfn = urlretrieve(url, zip_fullfn)[0]
-    print('Downloaded NDK to:', zip_fullfn)
-
-    # Verify SHA-1 checksum of downloaded files.
-    with open(zip_fullfn, 'rb') as f:
-        contents = f.read()
-        found_shasum = hashlib.sha1(contents).hexdigest()
-        print("SHA-1:", zip_fullfn, "%s" % found_shasum)
-    if found_shasum != expected_shasum:
-        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
-    print("[ok] Checksum of", zip_fullfn, "matches expected value.")
-
-    # Proceed with extraction of the NDK if necessary.
-    ndk_home_path = prerequisite_tools_dir + os.path.sep + 'android-ndk-' + NDK_VERSION
-    if not os.path.isfile(ndk_home_path + os.path.sep + "NOTICE"):
-        print("Extracting NDK ...")
-        # This will go to a subfolder "android-ndk-rXY" in the current path.
-        if sys.platform == 'win32':
-            zip = zipfile.ZipFile(zip_fullfn, 'r')
-            zip.extractall(prerequisite_tools_dir)
-            zip.close()
-        else:
-            from subprocess import STDOUT
-            subprocess.check_output(['unzip', '-q', zip_fullfn, '-d', prerequisite_tools_dir], stderr=STDOUT)
-
-    # Add "ANDROID_NDK_HOME" environment variable.
-    print('Adding ANDROID_NDK_HOME=\'' + ndk_home_path + '\'')
-    os.environ["ANDROID_NDK_HOME"] = ndk_home_path
 
 
 #

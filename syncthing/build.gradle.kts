@@ -60,9 +60,8 @@ tasks.register("buildNative") {
     outputs.dir(outputDir)
 
     doLast {
-        val ndkVersionShared = rootProject.extra["ndkVersionShared"] as String
         val env = mapOf(
-            "NDK_VERSION" to ndkVersionShared,
+            "NDK_VERSION" to libs.versions.ndk.version.get(),
             "SOURCE_DATE_EPOCH" to getSourceDateEpoch(execOps),
             "BUILD_HOST" to "Catfriend1-syncthing-android",
             "BUILD_USER" to "reproducible-build",

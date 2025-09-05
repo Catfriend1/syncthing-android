@@ -75,8 +75,7 @@ git clone https://github.com/Catfriend1/syncthing-android.git --recursive
 ::
 :: Build
 cd /d "YOUR_CLONED_GIT_ROOT"
-scripts\SyncthingNative_update_and_build
-scripts\App_build_and_release
+call build
 ```
 
 ## Development Notes

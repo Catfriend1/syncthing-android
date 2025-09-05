@@ -36,11 +36,15 @@ dependencies {
 }
 
 android {
-    val ndkVersionShared = rootProject.extra.get("ndkVersionShared")
-
     compileSdk = libs.versions.compile.sdk.get().toInt()
     namespace = "com.nutomic.syncthingandroid"
-    ndkVersion = "${ndkVersionShared}"
+    ndkVersion = libs.versions.ndk.version.get()
+
+    externalNativeBuild {
+        ndkBuild {
+            path = file("src/main/cpp/libSyncthingNative.mk")
+        }
+    }
 
     buildFeatures {
         compose = true

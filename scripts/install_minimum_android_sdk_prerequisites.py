@@ -6,9 +6,6 @@ import subprocess
 import sys
 import platform
 #
-# Script Compatibility:
-# - Python 3.9.13
-#
 # Run script from command line
 ## Debian Linux / WSL
 ### python3 install_minimum_android_sdk_prerequisites.py
@@ -25,8 +22,6 @@ ANDROID_SDK_TOOLS_VERSION = '11076708'
 ANDROID_SDK_TOOLS_SHASUM_LINUX = '2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
 ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862'
 ANDROID_SDK_VERSION = '36'
-
-ANDROID_NDK_VERSION = '28.0.13004108'
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -171,14 +166,5 @@ if sys.platform == 'win32':
 else:
     print('[INFO] sdkmanager --licenses')
     os.system('yes | sdkmanager --licenses')
-#
-print('[INFO] sdk_manager_bin platforms;android-' + ANDROID_SDK_VERSION)
-subprocess.check_call([sdk_manager_bin, 'platforms;android-' + ANDROID_SDK_VERSION])
-#
-print('[INFO] sdk_manager_bin build-tools;' + ANDROID_SDK_VERSION + '.0.0')
-subprocess.check_call([sdk_manager_bin, 'build-tools;' + ANDROID_SDK_VERSION + '.0.0'])
-#
-print('[INFO] sdk_manager_bin ndk;' + ANDROID_NDK_VERSION)
-subprocess.check_call([sdk_manager_bin, 'ndk;' + ANDROID_NDK_VERSION])
 #
 print('Done.')
