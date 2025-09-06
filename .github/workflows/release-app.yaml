@@ -27,8 +27,8 @@ jobs:
       - name: Ensure release branch
         run: |
           git config --system --add safe.directory '*'
-          if ! git branch -a --contains $(git rev-parse HEAD) | grep release >/dev/null; then
-            echo "Tag is not part of release branch - aborting..."
+          if ! git branch -a --contains $(git rev-parse HEAD) | grep repro >/dev/null; then
+            echo "Tag is not part of repro branch - aborting..."
             exit 1
           fi
 
@@ -69,11 +69,11 @@ jobs:
         run: |
           set -eu
           #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}.apk"
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk"
           #
           cd "app/build/outputs/apk/release"
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          sha256sum "com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:

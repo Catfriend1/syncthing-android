@@ -12,7 +12,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 
 * If you don't like to use F-Droid for some reason, please choose this!
 * Only published on [GitHub release page](https://github.com/Catfriend1/syncthing-android/releases/latest)
-* File name is like: com.github.catfriend1.syncthingandroid_release_1.30.0.3_1234567.apk
+* File name is like: com.github.catfriend1.syncthingfork_release_1.30.0.3_1234567.apk
 * Certificate hash: 03S43lBXATFDx9FRWgFVmMLfQDvoFgyuAaWMIn5uhqo=
 * Signing Certificate SHA256 fingerprint: <details>D3:74:B8:DE:50:57:01:31:43:C7:D1:51:5A:01:55:98:C2:DF:40:3B:E8:16:0C:AE:01:A5:8C:22:7E:6E:86:AA</details>
 
@@ -21,7 +21,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 * Only published on GitHub
 * Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions) and artifacts.
 * It's for maintainers and contributors who require a second installation of the app on their phone for testing purposes.
-* File name is like: com.github.catfriend1.syncthingandroid_debug_1.30.0.3_1234567.apk
+* File name is like: com.github.catfriend1.syncthingfork_debug_1.30.0.3_1234567.apk
 * TRUSTED builds from this repository owners:
 * * Certificate hash: x9QGpAqFQXg1+79ADsY1k0uBrj7+W1HF+PN3BunPZrM=
 * * Signing Certificate SHA256 fingerprint: <details>C7:D4:06:A4:0A:85:41:78:35:FB:BF:40:0E:C6:35:93:4B:81:AE:3E:FE:5B:51:C5:F8:F3:77:06:E9:CF:66:B3</details>
