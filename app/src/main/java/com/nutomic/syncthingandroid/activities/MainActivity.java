@@ -185,8 +185,8 @@ public class MainActivity extends SyncthingActivity
                     showUsageReportingDialog(restApi);
                 }
                 
-                // Check if package ID change notification should be shown
-                showPackageIdChangeNotificationIfNeeded();
+                // Check if important news notification should be shown
+                showImportantNewsNotificationIfNeeded();
                 break;
             case ERROR:
                 finish();
@@ -674,22 +674,22 @@ public class MainActivity extends SyncthingActivity
     }
 
     /**
-     * Shows package ID change notification if needed.
+     * Shows important news notification if needed.
      * The notification is shown only if:
      * 1. The user hasn't dismissed it permanently (chose "Nicht mehr erinnern")
      * 2. The app version has changed since the last time the notification was shown
      */
-    private void showPackageIdChangeNotificationIfNeeded() {
+    private void showImportantNewsNotificationIfNeeded() {
         String currentVersion = getCurrentAppVersion();
-        boolean isDismissed = mPreferences.getBoolean(Constants.PREF_PACKAGE_ID_CHANGE_DISMISSED, false);
-        String lastShownVersion = mPreferences.getString(Constants.PREF_PACKAGE_ID_CHANGE_SHOWN_VERSION, "");
+        boolean isDismissed = mPreferences.getBoolean(Constants.PREF_IMPORTANT_NEWS_DISMISSED, false);
+        String lastShownVersion = mPreferences.getString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, "");
         
         // Show notification if not permanently dismissed and version has changed
         if (!isDismissed || !currentVersion.equals(lastShownVersion)) {
-            showPackageIdChangeSnackbar();
+            showImportantNewsSnackbar();
             // Mark that we've shown the notification for this version
             mPreferences.edit()
-                .putString(Constants.PREF_PACKAGE_ID_CHANGE_SHOWN_VERSION, currentVersion)
+                .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersion)
                 .apply();
         }
     }
@@ -707,29 +707,29 @@ public class MainActivity extends SyncthingActivity
     }
 
     /**
-     * Shows the package ID change notification Snackbar with three action buttons.
+     * Shows the important news notification Snackbar with three action buttons.
      */
-    private void showPackageIdChangeSnackbar() {
+    private void showImportantNewsSnackbar() {
         View rootView = findViewById(android.R.id.content);
         if (rootView == null) {
-            Log.w(TAG, "Cannot show package ID change Snackbar: root view not found");
+            Log.w(TAG, "Cannot show important news Snackbar: root view not found");
             return;
         }
 
         Snackbar snackbar = Snackbar.make(rootView, 
-            getString(R.string.package_id_change_title) + "\n" + getString(R.string.package_id_change_description), 
+            getString(R.string.important_news_title) + "\n" + getString(R.string.important_news_description), 
             Snackbar.LENGTH_INDEFINITE);
 
         // "Öffnen" (Open) action
-        snackbar.setAction(getString(R.string.package_id_change_action_open), v -> {
-            handlePackageIdChangeAction("open");
+        snackbar.setAction(getString(R.string.important_news_action_open), v -> {
+            handleImportantNewsAction("open");
             snackbar.dismiss();
         });
 
         // Add additional actions using a custom view approach
         snackbar.getView().setOnClickListener(v -> {
             // Show a dialog with the three options when Snackbar is clicked
-            showPackageIdChangeActionsDialog();
+            showImportantNewsActionsDialog();
             snackbar.dismiss();
         });
 
@@ -737,47 +737,47 @@ public class MainActivity extends SyncthingActivity
     }
 
     /**
-     * Shows a dialog with the three package ID change actions.
+     * Shows a dialog with the three important news actions.
      */
-    private void showPackageIdChangeActionsDialog() {
+    private void showImportantNewsActionsDialog() {
         new AlertDialog.Builder(this)
-            .setTitle(R.string.package_id_change_title)
-            .setMessage(R.string.package_id_change_description)
-            .setPositiveButton(R.string.package_id_change_action_open, (dialog, which) -> 
-                handlePackageIdChangeAction("open"))
-            .setNeutralButton(R.string.package_id_change_action_remind, (dialog, which) -> 
-                handlePackageIdChangeAction("remind"))
-            .setNegativeButton(R.string.package_id_change_action_no_remind, (dialog, which) -> 
-                handlePackageIdChangeAction("no_remind"))
+            .setTitle(R.string.important_news_title)
+            .setMessage(R.string.important_news_description)
+            .setPositiveButton(R.string.important_news_action_open, (dialog, which) -> 
+                handleImportantNewsAction("open"))
+            .setNeutralButton(R.string.important_news_action_remind, (dialog, which) -> 
+                handleImportantNewsAction("remind"))
+            .setNegativeButton(R.string.important_news_action_no_remind, (dialog, which) -> 
+                handleImportantNewsAction("no_remind"))
             .show();
     }
 
     /**
-     * Handles the different package ID change actions.
+     * Handles the different important news actions.
      */
-    private void handlePackageIdChangeAction(String action) {
-        Log.v(TAG, "Package ID change action selected: " + action);
+    private void handleImportantNewsAction(String action) {
+        Log.v(TAG, "Important news action selected: " + action);
         
         switch (action) {
             case "open":
-                // Open a URL or information about the package ID change
+                // Open a URL or information about the important news
                 // For now, we'll just log the action - in a real implementation,
                 // this could open a web browser or show more information
-                Log.i(TAG, "User chose to open package ID change information");
+                Log.i(TAG, "User chose to open important news information");
                 break;
                 
             case "remind":
                 // User wants to be reminded later
                 // Don't set the dismissed flag, so it will show again on next app version
-                Log.i(TAG, "User chose to be reminded later about package ID change");
+                Log.i(TAG, "User chose to be reminded later about important news");
                 break;
                 
             case "no_remind":
                 // User doesn't want to be reminded anymore
                 mPreferences.edit()
-                    .putBoolean(Constants.PREF_PACKAGE_ID_CHANGE_DISMISSED, true)
+                    .putBoolean(Constants.PREF_IMPORTANT_NEWS_DISMISSED, true)
                     .apply();
-                Log.i(TAG, "User chose not to be reminded about package ID change anymore");
+                Log.i(TAG, "User chose not to be reminded about important news anymore");
                 break;
         }
     }

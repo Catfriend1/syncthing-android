@@ -1124,10 +1124,10 @@
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Run for %1$d minutes</string>
     <string name="qs_schedule_disabled">Schedule disabled</string>
 
-    <!-- Package ID change notification -->
-    <string name="package_id_change_title">Important Update</string>
-    <string name="package_id_change_description">The app package ID will change in a future update. This may require reinstalling the app.</string>
-    <string name="package_id_change_action_open">Öffnen</string>
-    <string name="package_id_change_action_remind">Erinnern</string>
-    <string name="package_id_change_action_no_remind">Nicht mehr erinnern</string>
+    <!-- Important news notification -->
+    <string name="important_news_title">Important Update</string>
+    <string name="important_news_description">The app package ID will change in a future update. This may require reinstalling the app.</string>
+    <string name="important_news_action_open">Öffnen</string>
+    <string name="important_news_action_remind">Erinnern</string>
+    <string name="important_news_action_no_remind">Nicht mehr erinnern</string>
 </resources>
