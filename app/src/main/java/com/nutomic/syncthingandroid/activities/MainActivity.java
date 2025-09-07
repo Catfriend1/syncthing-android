@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -717,7 +718,7 @@ public class MainActivity extends SyncthingActivity
         }
 
         Snackbar snackbar = Snackbar.make(rootView, 
-            getString(R.string.important_news_title) + "\n" + getString(R.string.important_news_description), 
+            getString(R.string.important_news_title) + "\n" + getString(R.string.important_news_description, getString(R.string.important_news_url)), 
             Snackbar.LENGTH_INDEFINITE);
 
         // "Öffnen" (Open) action
@@ -742,7 +743,7 @@ public class MainActivity extends SyncthingActivity
     private void showImportantNewsActionsDialog() {
         new AlertDialog.Builder(this)
             .setTitle(R.string.important_news_title)
-            .setMessage(R.string.important_news_description)
+            .setMessage(getString(R.string.important_news_description, getString(R.string.important_news_url)))
             .setPositiveButton(R.string.important_news_action_open, (dialog, which) -> 
                 handleImportantNewsAction("open"))
             .setNeutralButton(R.string.important_news_action_remind, (dialog, which) -> 
@@ -760,10 +761,11 @@ public class MainActivity extends SyncthingActivity
         
         switch (action) {
             case "open":
-                // Open a URL or information about the important news
-                // For now, we'll just log the action - in a real implementation,
-                // this could open a web browser or show more information
-                Log.i(TAG, "User chose to open important news information");
+                // Open the important news URL in browser
+                String url = getString(R.string.important_news_url);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+                Log.i(TAG, "User chose to open important news information at: " + url);
                 break;
                 
             case "remind":
