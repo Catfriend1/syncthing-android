@@ -344,7 +344,7 @@
     <string name="could_not_access_deviceid">無法存取裝置識別碼</string>
     <string name="browse">瀏覽</string>
     <string name="no_sub_folder_is_selected">無子資料夾被選擇</string>
-    <string name="share_device_id_chooser">分享裝置識別代碼</string>
+    <string name="share_device_id_chooser">分享裝置識別碼給</string>
     <string name="custom_sync_conditions_title">自訂同步條件</string>
     <string name="notification_permission_title">通知權限</string>
     <string name="notification_permission_desc">顯示「新裝置連線請求」、「資料夾共享通知」等通知訊息，以及確保背景服務維持啟動且與其他裝置保持連線。</string>
