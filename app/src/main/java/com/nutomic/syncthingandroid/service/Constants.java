@@ -120,6 +120,12 @@ public class Constants {
     public static final String PREF_LAST_RUN_TIME               = "last_run_time";
 
     /**
+     * Package ID change notification preferences
+     */
+    public static final String PREF_PACKAGE_ID_CHANGE_DISMISSED = "package_id_change_dismissed";
+    public static final String PREF_PACKAGE_ID_CHANGE_SHOWN_VERSION = "package_id_change_shown_version";
+
+    /**
      * Cached device stats.
      */
     public static final String PREF_CACHE_DEVICE_LASTSEEN_PREFIX        = "device_lastseen_";

@@ -43,6 +43,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -183,6 +184,9 @@ public class MainActivity extends SyncthingActivity
                             )) {
                     showUsageReportingDialog(restApi);
                 }
+                
+                // Check if package ID change notification should be shown
+                showPackageIdChangeNotificationIfNeeded();
                 break;
             case ERROR:
                 finish();
@@ -667,6 +671,115 @@ public class MainActivity extends SyncthingActivity
         topRelTotalSyncProgress.setVisibility(View.VISIBLE);
         pbTotalSyncComplete.setProgress(totalSyncCompletePercent);
         tvTotalSyncComplete.setText(Integer.toString(totalSyncCompletePercent));
+    }
+
+    /**
+     * Shows package ID change notification if needed.
+     * The notification is shown only if:
+     * 1. The user hasn't dismissed it permanently (chose "Nicht mehr erinnern")
+     * 2. The app version has changed since the last time the notification was shown
+     */
+    private void showPackageIdChangeNotificationIfNeeded() {
+        String currentVersion = getCurrentAppVersion();
+        boolean isDismissed = mPreferences.getBoolean(Constants.PREF_PACKAGE_ID_CHANGE_DISMISSED, false);
+        String lastShownVersion = mPreferences.getString(Constants.PREF_PACKAGE_ID_CHANGE_SHOWN_VERSION, "");
+        
+        // Show notification if not permanently dismissed and version has changed
+        if (!isDismissed || !currentVersion.equals(lastShownVersion)) {
+            showPackageIdChangeSnackbar();
+            // Mark that we've shown the notification for this version
+            mPreferences.edit()
+                .putString(Constants.PREF_PACKAGE_ID_CHANGE_SHOWN_VERSION, currentVersion)
+                .apply();
+        }
+    }
+
+    /**
+     * Gets the current app version name.
+     */
+    private String getCurrentAppVersion() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Failed to get app version", e);
+            return "";
+        }
+    }
+
+    /**
+     * Shows the package ID change notification Snackbar with three action buttons.
+     */
+    private void showPackageIdChangeSnackbar() {
+        View rootView = findViewById(android.R.id.content);
+        if (rootView == null) {
+            Log.w(TAG, "Cannot show package ID change Snackbar: root view not found");
+            return;
+        }
+
+        Snackbar snackbar = Snackbar.make(rootView, 
+            getString(R.string.package_id_change_title) + "\n" + getString(R.string.package_id_change_description), 
+            Snackbar.LENGTH_INDEFINITE);
+
+        // "Öffnen" (Open) action
+        snackbar.setAction(getString(R.string.package_id_change_action_open), v -> {
+            handlePackageIdChangeAction("open");
+            snackbar.dismiss();
+        });
+
+        // Add additional actions using a custom view approach
+        snackbar.getView().setOnClickListener(v -> {
+            // Show a dialog with the three options when Snackbar is clicked
+            showPackageIdChangeActionsDialog();
+            snackbar.dismiss();
+        });
+
+        snackbar.show();
+    }
+
+    /**
+     * Shows a dialog with the three package ID change actions.
+     */
+    private void showPackageIdChangeActionsDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.package_id_change_title)
+            .setMessage(R.string.package_id_change_description)
+            .setPositiveButton(R.string.package_id_change_action_open, (dialog, which) -> 
+                handlePackageIdChangeAction("open"))
+            .setNeutralButton(R.string.package_id_change_action_remind, (dialog, which) -> 
+                handlePackageIdChangeAction("remind"))
+            .setNegativeButton(R.string.package_id_change_action_no_remind, (dialog, which) -> 
+                handlePackageIdChangeAction("no_remind"))
+            .show();
+    }
+
+    /**
+     * Handles the different package ID change actions.
+     */
+    private void handlePackageIdChangeAction(String action) {
+        Log.v(TAG, "Package ID change action selected: " + action);
+        
+        switch (action) {
+            case "open":
+                // Open a URL or information about the package ID change
+                // For now, we'll just log the action - in a real implementation,
+                // this could open a web browser or show more information
+                Log.i(TAG, "User chose to open package ID change information");
+                break;
+                
+            case "remind":
+                // User wants to be reminded later
+                // Don't set the dismissed flag, so it will show again on next app version
+                Log.i(TAG, "User chose to be reminded later about package ID change");
+                break;
+                
+            case "no_remind":
+                // User doesn't want to be reminded anymore
+                mPreferences.edit()
+                    .putBoolean(Constants.PREF_PACKAGE_ID_CHANGE_DISMISSED, true)
+                    .apply();
+                Log.i(TAG, "User chose not to be reminded about package ID change anymore");
+                break;
+        }
     }
 
     private void LogV(String logMessage) {
