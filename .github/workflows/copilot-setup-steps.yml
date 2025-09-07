@@ -34,26 +34,6 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.25.0'
-          cache: true
-          cache-dependency-path: syncthing/src/github.com/syncthing/syncthing/go.sum
-
-      - name: Setup Android NDK
-        env:
-          COPILOT_BUILDTOOLS_DIR: '${{ runner.temp }}/copilot-build-tools'
-        shell: bash
-        run: |
-          ANDROID_NDK_VERSION=r28
-          ANDROID_NDK_ZIP="android-ndk-${ANDROID_NDK_VERSION}-linux.zip"
-          ANDROID_NDK_URL="https://dl.google.com/android/repository/${ANDROID_NDK_ZIP}"
-          mkdir -p "$COPILOT_BUILDTOOLS_DIR"
-          wget -q "$ANDROID_NDK_URL" -O "$COPILOT_BUILDTOOLS_DIR/$ANDROID_NDK_ZIP"
-          unzip -q "$COPILOT_BUILDTOOLS_DIR/$ANDROID_NDK_ZIP" -d "$COPILOT_BUILDTOOLS_DIR"
-          echo "ANDROID_NDK_HOME=$COPILOT_BUILDTOOLS_DIR/android-ndk-${ANDROID_NDK_VERSION}" >> $GITHUB_ENV
-
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
