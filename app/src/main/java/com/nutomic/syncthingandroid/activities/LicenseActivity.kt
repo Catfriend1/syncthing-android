@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -49,10 +50,12 @@ fun LicenseScreen() {
         Surface(modifier = Modifier.fillMaxSize()) {
             val backDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
             val context = LocalContext.current
-            val libraries by rememberLibraries {
-                val inputStream = context.resources.openRawResource(R.raw.aboutlibraries)
-                inputStream.bufferedReader().use { it.readText() }
+            
+            // Read the libraries content outside of rememberLibraries to avoid the lint warning
+            val librariesContent = remember {
+                context.resources.openRawResource(R.raw.aboutlibraries).bufferedReader().use { it.readText() }
             }
+            val libraries by rememberLibraries(librariesContent)
 
             Scaffold(
                 topBar = {
