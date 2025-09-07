@@ -119,6 +119,9 @@ public class MainActivity extends SyncthingActivity
 
     private Intent mLastIntent;
     private Boolean oneTimeShot = true;
+    
+    // Session flag to track if user chose "remind later" for important news
+    private boolean mImportantNewsRemindLaterThisSession = false;
 
     @Inject SharedPreferences mPreferences;
 
@@ -676,14 +679,15 @@ public class MainActivity extends SyncthingActivity
 
     /**
      * Shows important news notification if needed.
-     * The notification is shown only if the app version has changed since the user last dismissed it.
+     * The notification is shown only if the app version has changed since the user last dismissed it
+     * and the user hasn't chosen "remind later" in this session.
      */
     private void showImportantNewsNotificationIfNeeded() {
         String currentVersion = getCurrentAppVersion();
         String lastDismissedVersion = mPreferences.getString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, "");
         
-        // Show notification if version has changed since last dismissal
-        if (!currentVersion.equals(lastDismissedVersion)) {
+        // Show notification if version has changed since last dismissal and user hasn't chosen "remind later" in this session
+        if (!currentVersion.equals(lastDismissedVersion) && !mImportantNewsRemindLaterThisSession) {
             showImportantNewsSnackbar();
         }
     }
@@ -766,21 +770,28 @@ public class MainActivity extends SyncthingActivity
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(browserIntent);
                 Log.i(TAG, "User chose to open important news information at: " + url);
-                break;
                 
-            case "remind":
-                // User wants to be reminded later
-                // Don't save the version, so it will show again next time
-                Log.i(TAG, "User chose to be reminded later about important news");
-                break;
-                
-            case "no_remind":
-                // User doesn't want to be reminded anymore for this version
+                // Save current version so notification won't show again until next app update
                 String currentVersion = getCurrentAppVersion();
                 mPreferences.edit()
                     .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersion)
                     .apply();
-                Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersion);
+                Log.i(TAG, "Saved current version " + currentVersion + " to preferences after opening browser");
+                break;
+                
+            case "remind":
+                // User wants to be reminded later - set session flag to prevent showing again until app restart
+                mImportantNewsRemindLaterThisSession = true;
+                Log.i(TAG, "User chose to be reminded later about important news - will show again on next app start");
+                break;
+                
+            case "no_remind":
+                // User doesn't want to be reminded anymore for this version
+                String currentVersionDismiss = getCurrentAppVersion();
+                mPreferences.edit()
+                    .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersionDismiss)
+                    .apply();
+                Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersionDismiss);
                 break;
         }
     }
