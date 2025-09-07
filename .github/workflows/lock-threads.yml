@@ -1,0 +1,29 @@
+name: "Lock Threads"
+
+on:
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: lock
+
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@7de207be1d3ce97a9abe6ff1306222982d1ca9f9 # v5.0.1
+        with:
+          process-only: 'issues, prs'
+          issue-inactive-days: "0"
+          issue-lock-reason: ''
+          pr-inactive-days: "0"
+          pr-lock-reason: ''
+          issue-comment: >
+            🤖 This issue has been automatically locked because it was closed.
+          pr-comment: >
+            🤖 This pull request has been automatically locked because it was closed.
