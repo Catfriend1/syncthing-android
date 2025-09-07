@@ -15,27 +15,6 @@ Repo: https://github.com/Catfriend1/syncthing-android.git
 Binaries: https://github.com/Catfriend1/syncthing-android/releases/download/v%v/com.github.catfriend1.syncthingfork_release_v%v.apk
 
 Builds:
-  - versionName: 2.0.6.0
-    versionCode: 2000600
-    commit: 62186a96d74c07dec13cce220a5c21f4b63348e8
-    subdir: app
-    submodules: true
-    sudo:
-      - echo "deb https://deb.debian.org/debian trixie main" > /etc/apt/sources.list.d/trixie.list
-      - apt-get update
-      - apt-get install -y -t trixie golang-go openjdk-21-jdk-headless
-      - update-alternatives --auto java
-      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
-        libtool pkg-config rename shtool
-    gradle:
-      - yes
-    scanignore:
-      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    build:
-      - export ndkversion=$(grep "ndkVersionShared" ../build.gradle.kts | cut -d '"'
-        -f 4)
-      - sdkmanager "ndk;$ndkversion"
-
   - versionName: 2.0.7.0
     versionCode: 2000700
     commit: 1fb311060269933631f6af0d3737ef6f98942deb
