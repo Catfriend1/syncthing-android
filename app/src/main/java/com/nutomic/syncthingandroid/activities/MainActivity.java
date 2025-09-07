@@ -676,22 +676,15 @@ public class MainActivity extends SyncthingActivity
 
     /**
      * Shows important news notification if needed.
-     * The notification is shown only if:
-     * 1. The user hasn't dismissed it permanently (chose "Nicht mehr erinnern")
-     * 2. The app version has changed since the last time the notification was shown
+     * The notification is shown only if the app version has changed since the user last dismissed it.
      */
     private void showImportantNewsNotificationIfNeeded() {
         String currentVersion = getCurrentAppVersion();
-        boolean isDismissed = mPreferences.getBoolean(Constants.PREF_IMPORTANT_NEWS_DISMISSED, false);
-        String lastShownVersion = mPreferences.getString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, "");
+        String lastDismissedVersion = mPreferences.getString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, "");
         
-        // Show notification if not permanently dismissed and version has changed
-        if (!isDismissed || !currentVersion.equals(lastShownVersion)) {
+        // Show notification if version has changed since last dismissal
+        if (!currentVersion.equals(lastDismissedVersion)) {
             showImportantNewsSnackbar();
-            // Mark that we've shown the notification for this version
-            mPreferences.edit()
-                .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersion)
-                .apply();
         }
     }
 
@@ -764,16 +757,17 @@ public class MainActivity extends SyncthingActivity
                 
             case "remind":
                 // User wants to be reminded later
-                // Don't set the dismissed flag, so it will show again on next app version
+                // Don't save the version, so it will show again next time
                 Log.i(TAG, "User chose to be reminded later about important news");
                 break;
                 
             case "no_remind":
-                // User doesn't want to be reminded anymore
+                // User doesn't want to be reminded anymore for this version
+                String currentVersion = getCurrentAppVersion();
                 mPreferences.edit()
-                    .putBoolean(Constants.PREF_IMPORTANT_NEWS_DISMISSED, true)
+                    .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersion)
                     .apply();
-                Log.i(TAG, "User chose not to be reminded about important news anymore");
+                Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersion);
                 break;
         }
     }

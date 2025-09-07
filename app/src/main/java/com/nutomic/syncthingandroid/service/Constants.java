@@ -122,7 +122,6 @@ public class Constants {
     /**
      * Important news notification preferences
      */
-    public static final String PREF_IMPORTANT_NEWS_DISMISSED = "important_news_dismissed";
     public static final String PREF_IMPORTANT_NEWS_SHOWN_VERSION = "important_news_shown_version";
 
     /**
