@@ -715,6 +715,19 @@ public class MainActivity extends SyncthingActivity
             getString(R.string.important_news_title), 
             Snackbar.LENGTH_INDEFINITE);
 
+        // Apply proper theming for better visibility in both light and dark modes
+        snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.accent));
+        
+        // Get the Snackbar's view and apply background styling
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(ContextCompat.getColor(this, R.color.primary));
+        
+        // Set text color for better contrast
+        TextView textView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
+        if (textView != null) {
+            textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
+        }
+
         // Action button to view all options
         snackbar.setAction(getString(R.string.important_news_action_view_options), v -> {
             showImportantNewsActionsDialog();
