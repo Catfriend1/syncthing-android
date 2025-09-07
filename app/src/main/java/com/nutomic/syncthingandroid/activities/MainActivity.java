@@ -708,7 +708,7 @@ public class MainActivity extends SyncthingActivity
     }
 
     /**
-     * Shows the important news notification Snackbar with three action buttons.
+     * Shows the important news notification Snackbar with an action to view options.
      */
     private void showImportantNewsSnackbar() {
         View rootView = findViewById(android.R.id.content);
@@ -717,19 +717,13 @@ public class MainActivity extends SyncthingActivity
             return;
         }
 
+        // Show only the title to prevent text truncation
         Snackbar snackbar = Snackbar.make(rootView, 
-            getString(R.string.important_news_title) + "\n" + getString(R.string.important_news_description, getString(R.string.important_news_url)), 
+            getString(R.string.important_news_title), 
             Snackbar.LENGTH_INDEFINITE);
 
-        // "Öffnen" (Open) action
-        snackbar.setAction(getString(R.string.important_news_action_open), v -> {
-            handleImportantNewsAction("open");
-            snackbar.dismiss();
-        });
-
-        // Add additional actions using a custom view approach
-        snackbar.getView().setOnClickListener(v -> {
-            // Show a dialog with the three options when Snackbar is clicked
+        // Action button to view all options
+        snackbar.setAction(getString(R.string.important_news_action_view_options), v -> {
             showImportantNewsActionsDialog();
             snackbar.dismiss();
         });

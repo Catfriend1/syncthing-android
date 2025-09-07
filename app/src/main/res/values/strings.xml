@@ -1131,4 +1131,5 @@
     <string name="important_news_action_open">Open in Browser</string>
     <string name="important_news_action_remind">Remind me later</string>
     <string name="important_news_action_no_remind">Dismiss for now</string>
+    <string name="important_news_action_view_options">VIEW OPTIONS</string>
 </resources>
