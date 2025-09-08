@@ -664,4 +664,10 @@
     <string name="backup_rel_path_to_zip">Yapılandırma arşivine göreceli yol</string>
     <string name="preference_category_explanation">Açıklama</string>
     <string name="backup_password_summary">ℹ️ Önerilir:\nDışa aktarma sırasında yapılandırmanızı şifrelemek için kullanılacak güçlü bir parola girin ve içe aktarmada şifresini çözün. Bu parolayı kurtarma işlemi için güvenli bir yerde tutun. İçe aktarma özelliğini kullanmak için buna ihtiyacınız olacak.\n\n⚠️ Önerilmez:\nParola kullanmamak, diğer uygulamalar potansiyel olarak Syncthing yapılandırmanızı okuyabilir ve kandırabilir. Yapılandırmanın ortaya çıkması, kötü bir aktörün çalınan yapılandırma dışa aktarmalarını kullanarak dosyalarınıza yetkisiz erişim elde etme riski taşır.</string>
+    <string name="important_news_title">Önemli haberler - Eylem gerekli</string>
+    <string name="important_news_description">Lütfen %1$s\'da pürüzsüz uygulama deneyiminize nasıl devam edeceğinize dair duyurumuzu okuyun</string>
+    <string name="important_news_action_open">Tarayıcıda aç</string>
+    <string name="important_news_action_remind">Bana sonra hatırlat</string>
+    <string name="important_news_action_no_remind">Şimdilik vazgeç</string>
+    <string name="important_news_action_view_options">SEÇENEKLERİ GÖRÜNTÜLE</string>
 </resources>
