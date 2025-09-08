@@ -262,9 +262,6 @@ We are preparing for GPG signed release artifacts.
 
 ## Syncthing-Fork v1.28.1.0 (2024-12-10)
 
-Note:
-The gplay release has restrictions according to play policies thus will not run in the background for more than 6 hours.
-
 ## What's Changed
 * Add to migration instructions a note to delete the Syncthing configuration backup folder by @valentinstn in #1165
 * Update README.md by @mrlasers in #1173
@@ -291,9 +288,6 @@ Fixes:
 - Android 15: disable edge-to-edge rendered UI
 - Android 15: Allow foreground service to run longer than 6 hours
 - Device address: allow quic4:// and quic6:// values to be entered
-
-Note:
-The gplay release has restrictions according to play policies thus will not run in the background for more than 6 hours.
 
 ---
 
@@ -713,9 +707,6 @@ Other issues
 ---
 
 ## Syncthing-Fork v1.8.0.3 (2020-08-15)
-
-* fdroid, github APK support Android 11
-* gplay APK does NOT support Android 11
 
 Fixed
 --

@@ -80,9 +80,6 @@ android {
                 .getOrNull()
                 .takeIf { it?.storeFile != null }
         }
-        create("gplay") {
-            initWith(getByName("release"))
-        }
     }
 
     compileOptions {

@@ -17,7 +17,7 @@
     <issue id="ProtectedPermissions" severity="ignore" />
     <!-- Disabling battery optimizations is optional, so this warning doesn't apply to us -->
     <issue id="BatteryLife" severity="ignore" />
-    <!-- Disable warning about scoped storage gplay policies -->
+    <!-- Disable warning about scoped storage policies -->
     <issue id="ScopedStorage" severity="ignore" />
     <!-- Disable notice about custom x509 certificate trust manager -->
     <issue id="CustomX509TrustManager" severity="ignore" />
