@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -43,6 +44,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
@@ -117,6 +119,9 @@ public class MainActivity extends SyncthingActivity
 
     private Intent mLastIntent;
     private Boolean oneTimeShot = true;
+    
+    // Session flag to track if user chose "remind later" for important news
+    private boolean mImportantNewsRemindLaterThisSession = false;
 
     @Inject SharedPreferences mPreferences;
 
@@ -183,6 +188,9 @@ public class MainActivity extends SyncthingActivity
                             )) {
                     showUsageReportingDialog(restApi);
                 }
+                
+                // Check if important news notification should be shown
+                showImportantNewsNotificationIfNeeded();
                 break;
             case ERROR:
                 finish();
@@ -667,6 +675,125 @@ public class MainActivity extends SyncthingActivity
         topRelTotalSyncProgress.setVisibility(View.VISIBLE);
         pbTotalSyncComplete.setProgress(totalSyncCompletePercent);
         tvTotalSyncComplete.setText(Integer.toString(totalSyncCompletePercent));
+    }
+
+    /**
+     * Shows important news notification if needed.
+     * The notification is shown only if the app version has changed since the user last dismissed it
+     * and the user hasn't chosen "remind later" in this session.
+     */
+    private void showImportantNewsNotificationIfNeeded() {
+        String currentVersion = getCurrentAppVersion();
+        String lastDismissedVersion = mPreferences.getString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, "");
+        
+        // Show notification if version has changed since last dismissal and user hasn't chosen "remind later" in this session
+        if (!currentVersion.equals(lastDismissedVersion) && !mImportantNewsRemindLaterThisSession) {
+            showImportantNewsSnackbar();
+        }
+    }
+
+    /**
+     * Gets the current app version name.
+     */
+    private String getCurrentAppVersion() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Failed to get app version", e);
+            return "";
+        }
+    }
+
+    /**
+     * Shows the important news notification Snackbar with an action to view options.
+     */
+    private void showImportantNewsSnackbar() {
+        View rootView = findViewById(android.R.id.content);
+        if (rootView == null) {
+            Log.w(TAG, "Cannot show important news Snackbar: root view not found");
+            return;
+        }
+
+        // Show only the title to prevent text truncation
+        Snackbar snackbar = Snackbar.make(rootView, 
+            getString(R.string.important_news_title), 
+            Snackbar.LENGTH_INDEFINITE);
+
+        // Apply proper theming for better visibility in both light and dark modes
+        snackbar.setActionTextColor(ContextCompat.getColor(this, R.color.accent));
+        
+        // Get the Snackbar's view and apply background styling
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(ContextCompat.getColor(this, R.color.primary));
+        
+        // Set text color for better contrast
+        TextView textView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
+        if (textView != null) {
+            textView.setTextColor(ContextCompat.getColor(this, android.R.color.white));
+        }
+
+        // Action button to view all options
+        snackbar.setAction(getString(R.string.important_news_action_view_options), v -> {
+            showImportantNewsActionsDialog();
+            snackbar.dismiss();
+        });
+
+        snackbar.show();
+    }
+
+    /**
+     * Shows a dialog with the three important news actions.
+     */
+    private void showImportantNewsActionsDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.important_news_title)
+            .setMessage(getString(R.string.important_news_description, getString(R.string.important_news_url)))
+            .setPositiveButton(R.string.important_news_action_open, (dialog, which) -> 
+                handleImportantNewsAction("open"))
+            .setNeutralButton(R.string.important_news_action_remind, (dialog, which) -> 
+                handleImportantNewsAction("remind"))
+            .setNegativeButton(R.string.important_news_action_no_remind, (dialog, which) -> 
+                handleImportantNewsAction("no_remind"))
+            .show();
+    }
+
+    /**
+     * Handles the different important news actions.
+     */
+    private void handleImportantNewsAction(String action) {
+        Log.v(TAG, "Important news action selected: " + action);
+        
+        switch (action) {
+            case "open":
+                // Open the important news URL in browser
+                String url = getString(R.string.important_news_url);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+                Log.i(TAG, "User chose to open important news information at: " + url);
+                
+                // Save current version so notification won't show again until next app update
+                String currentVersion = getCurrentAppVersion();
+                mPreferences.edit()
+                    .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersion)
+                    .apply();
+                Log.i(TAG, "Saved current version " + currentVersion + " to preferences after opening browser");
+                break;
+                
+            case "remind":
+                // User wants to be reminded later - set session flag to prevent showing again until app restart
+                mImportantNewsRemindLaterThisSession = true;
+                Log.i(TAG, "User chose to be reminded later about important news - will show again on next app start");
+                break;
+                
+            case "no_remind":
+                // User doesn't want to be reminded anymore for this version
+                String currentVersionDismiss = getCurrentAppVersion();
+                mPreferences.edit()
+                    .putString(Constants.PREF_IMPORTANT_NEWS_SHOWN_VERSION, currentVersionDismiss)
+                    .apply();
+                Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersionDismiss);
+                break;
+        }
     }
 
     private void LogV(String logMessage) {

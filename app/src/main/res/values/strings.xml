@@ -1123,4 +1123,13 @@
     <string name="qs_schedule_label">Run for 5 minutes</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Run for %1$d minutes</string>
     <string name="qs_schedule_disabled">Schedule disabled</string>
+
+    <!-- Important news notification -->
+    <string name="important_news_title">Important news - Action required</string>
+    <string name="important_news_description">Please read our announcement on how to continue your smooth app experience at %1$s</string>
+    <string name="important_news_url" translatable="false">https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Important-News.md</string>
+    <string name="important_news_action_open">Open in Browser</string>
+    <string name="important_news_action_remind">Remind me later</string>
+    <string name="important_news_action_no_remind">Dismiss for now</string>
+    <string name="important_news_action_view_options">VIEW OPTIONS</string>
 </resources>

@@ -120,6 +120,11 @@ public class Constants {
     public static final String PREF_LAST_RUN_TIME               = "last_run_time";
 
     /**
+     * Important news notification preferences
+     */
+    public static final String PREF_IMPORTANT_NEWS_SHOWN_VERSION = "important_news_shown_version";
+
+    /**
      * Cached device stats.
      */
     public static final String PREF_CACHE_DEVICE_LASTSEEN_PREFIX        = "device_lastseen_";
