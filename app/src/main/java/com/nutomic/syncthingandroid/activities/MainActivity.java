@@ -190,7 +190,7 @@ public class MainActivity extends SyncthingActivity
                 }
                 
                 // Check if important news notification should be shown
-                showImportantNewsNotificationIfNeeded();
+                // showImportantNewsNotificationIfNeeded();
                 break;
             case ERROR:
                 finish();
