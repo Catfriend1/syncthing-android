@@ -1,0 +1,45 @@
+Categories:
+  - Cloud Storage & File Sync
+  - Internet
+License: MPL-2.0
+WebSite: https://github.com/Catfriend1/syncthing-android/wiki
+SourceCode: https://github.com/Catfriend1/syncthing-android
+IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
+Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
+Changelog: https://github.com/Catfriend1/syncthing-android/releases
+
+AutoName: Syncthing-Fork
+
+RepoType: git
+Repo: https://github.com/Catfriend1/syncthing-android.git
+Binaries: https://github.com/Catfriend1/syncthing-android/releases/download/v%v/com.github.catfriend1.syncthingfork_release_v%v.apk
+
+Builds:
+  - versionName: 2.0.7.0
+    versionCode: 2000700
+    commit: 1fb311060269933631f6af0d3737ef6f98942deb
+    subdir: app
+    submodules: true
+    sudo:
+      - echo "deb https://deb.debian.org/debian trixie main" > /etc/apt/sources.list.d/trixie.list
+      - apt-get update
+      - apt-get install -y -t trixie golang-go openjdk-21-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+    gradle:
+      - yes
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+
+AllowedAPKSigningKeys: d374b8de5057013143c7d1515a015598c2df403be8160cae01a58c227e6e86aa
+
+MaintainerNotes: |-
+  The submodule in syncthing/src/github.com/syncthing/syncthing must be
+  pristine, as the version/release information is taken from git.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v2[a-z0-9.]*$
+UpdateCheckData: gradle/libs.versions.toml|version-code\s=\s"(\d+)"|.|version-name\s=\s"(.*)"
+CurrentVersion: 2.0.7.0
+CurrentVersionCode: 2000700

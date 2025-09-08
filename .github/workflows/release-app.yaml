@@ -69,11 +69,11 @@ jobs:
         run: |
           set -eu
           #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}.apk"
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk"
           #
           cd "app/build/outputs/apk/release"
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "com.github.catfriend1.syncthingandroid_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          sha256sum "com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
