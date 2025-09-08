@@ -162,12 +162,14 @@ tasks.register("validateAppVersionCode") {
     }
 }
 
+/*
 tasks {
     withType<JavaCompile> {
         options.compilerArgs.add("-Xlint:deprecation")
-        // options.compilerArgs.add("-Xlint:unchecked")
+        options.compilerArgs.add("-Xlint:unchecked")
     }
 }
+*/
 
 project.afterEvaluate {
     tasks.matching { it.name.startsWith("assemble") || it.name.startsWith("bundle") }.configureEach {
