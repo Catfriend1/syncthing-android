@@ -375,4 +375,8 @@
     <string name="syncthing_starting">Syncthing 正在啟動。</string>
     <string name="syncthing_running">Syncthing 執行中。</string>
     <string name="dialog_exit_while_running_as_service_title">確認退出應用程式</string>
+    <string name="privacy_title">隱私權政策</string>
+    <string name="open_source_licenses_title">開放原始碼授權</string>
+    <string name="open_source_licenses_summary">顯示被使用的開放原始碼授權</string>
+    <string name="exception_known_bug_notice">遇到了尚未解決的已知錯誤。查看 %1$s/%2$s 以獲得更多資訊。請精準描述錯誤發生前的情況。</string>
 </resources>
