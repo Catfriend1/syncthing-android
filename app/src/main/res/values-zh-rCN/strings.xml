@@ -769,4 +769,10 @@
     <string name="preference_category_explanation">解释</string>
     <string name="config_export_successful_no_path">导出了配置。请确保记得此密码用于之后的导入。</string>
     <string name="backup_password_summary">ℹ️推荐：\n建议导入时输入用以在导出和解密期间加密配置的强密码。 将此密码存放在安全地方用于恢复过程。 你需要这个密码来使用导入功能。\n\n⚠️ 不推荐：\n不使用密码，,其他应用可能可以读取并篡改 Syncthing 配置。暴露配置可能有让坏蛋使用窃取的配置导出文件获得对文件未经授权的访问的风险。</string>
+    <string name="important_news_title">重要新闻 — 需要采取行动</string>
+    <string name="important_news_description">请阅读我们在 %1$s 发布的公告，了解如何继续您的流畅应用体验</string>
+    <string name="important_news_action_open">在浏览器中打开</string>
+    <string name="important_news_action_remind">稍后提醒我</string>
+    <string name="important_news_action_no_remind">暂时关闭</string>
+    <string name="important_news_action_view_options">查看选项</string>
 </resources>
