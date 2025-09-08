@@ -730,4 +730,10 @@
     <string name="config_import_failed_no_path">Import konfiguracji nie powiódł się. Przejdź do Ustawienia-Diagnozowanie błędów-Otwórz dziennik, aby zobaczyć szczegóły.</string>
     <string name="preference_category_actions">Działania</string>
     <string name="preference_category_explanation">Wyjaśnienie</string>
+    <string name="important_news_action_open">Otwórz w przeglądarce</string>
+    <string name="important_news_action_remind">Przypomnij mi później</string>
+    <string name="important_news_title">Ważne informacje – wymagane działanie</string>
+    <string name="important_news_description">Przeczytaj nasze ogłoszenie — aby dowiedzieć się, jak nadal korzystać z aplikacji bez zakłóceń — pod adresem %1$s</string>
+    <string name="important_news_action_no_remind">Zignoruj na razie</string>
+    <string name="important_news_action_view_options">WYŚWIETL OPCJE</string>
 </resources>
