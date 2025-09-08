@@ -1,1 +1,1 @@
-Wrapper til Syncthing - Åben og decentraliseret filsynkronisering  
+Wrapper til Syncthing - Åben og decentraliseret filsynkronisering
