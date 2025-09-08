@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -64,6 +65,8 @@ import java.security.InvalidParameterException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -285,7 +288,7 @@ public class SettingsActivity extends SyncthingActivity {
             mRunOnRoaming.setEnabled(mRunOnMobileData.isChecked());
 
             screen.findPreference(Constants.PREF_POWER_SOURCE).setSummary(mPowerSource.getEntry());
-            String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<>()));
+            String wifiSsidSummary = TextUtils.join(", ", mPreferences.getStringSet(Constants.PREF_WIFI_SSID_WHITELIST, new HashSet<String>()));
             screen.findPreference(Constants.PREF_WIFI_SSID_WHITELIST).setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
                 getString(R.string.wifi_ssid_whitelist_empty) :
                 getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
@@ -585,11 +588,21 @@ public class SettingsActivity extends SyncthingActivity {
                     mWifiSsidWhitelist.setEnabled((Boolean) o);
                     break;
                 case Constants.PREF_WIFI_SSID_WHITELIST:
-                    String wifiSsidSummary = TextUtils.join(", ", (Set<String>) o);
-                    preference.setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
-                        getString(R.string.wifi_ssid_whitelist_empty) :
-                        getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
-                    );
+                    Object ssidObj = o;
+                    if (ssidObj instanceof Set) {
+                        Set<?> rawSet = (Set<?>) ssidObj;
+                        Set<String> wifiSsidSet = new HashSet<>();
+                        for (Object item : rawSet) {
+                            if (item instanceof String) {
+                                wifiSsidSet.add((String) item);
+                            }
+                        }
+                        String wifiSsidSummary = TextUtils.join(", ", wifiSsidSet);
+                        preference.setSummary(TextUtils.isEmpty(wifiSsidSummary) ?
+                            getString(R.string.wifi_ssid_whitelist_empty) :
+                            getString(R.string.run_on_whitelisted_wifi_networks, wifiSsidSummary)
+                        );
+                    }
                     break;
                 case Constants.PREF_RUN_ON_MOBILE_DATA:
                     mRunOnRoaming.setEnabled((Boolean) o);
@@ -640,7 +653,9 @@ public class SettingsActivity extends SyncthingActivity {
                     if ((Boolean) o) {
                         new TestRootTask(this).execute();
                     } else {
-                        new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
+                        ExecutorService executor = Executors.newSingleThreadExecutor();
+                        executor.execute(() -> Util.fixAppDataPermissions(getActivity()));
+                        executor.shutdown();
                         mPendingConfig = true;
                     }
                     break;
