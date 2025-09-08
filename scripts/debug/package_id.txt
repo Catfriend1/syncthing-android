@@ -1,1 +1,1 @@
-com.github.catfriend1.syncthingandroid.debug
+com.github.catfriend1.syncthingfork.debug

@@ -44,10 +44,9 @@ body:
     attributes:
       label: App install source - see wiki for details on release channels
       options:
-        - F-Droid release build
+        - GitHub or F-Droid release build
         - GitHub trusted debug build
         - GitHub untrusted debug build
-        - GitHub release build
     validations:
       required: true
 

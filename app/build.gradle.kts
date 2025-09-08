@@ -51,7 +51,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.github.catfriend1.syncthingandroid"
+        applicationId = "com.github.catfriend1.syncthingfork"
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = libs.versions.version.code.get().toInt()

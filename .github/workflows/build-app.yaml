@@ -65,12 +65,12 @@ jobs:
         shell: bash
         run: |
           set -eu
-          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
+          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
-          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingandroid_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          name: com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
 
       - uses: actions/upload-artifact@v4
         with:

@@ -9,7 +9,7 @@ public class SyncStatusReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        if ("com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE".equals(action)) {
+        if ("com.github.catfriend1.syncthingfork.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE".equals(action)) {
             Log.d("SyncStatusReceiver", "Received broadcast");
             Log.d("SyncStatusReceiver", "deviceId: " + intent.getStringExtra("deviceId"));
             Log.d("SyncStatusReceiver", "folderId: " + intent.getStringExtra("folderId"));

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="com.github.catfriend1.syncthingandroid.permission.RECEIVE_SYNC_STATUS" />
+    <uses-permission android:name="com.github.catfriend1.syncthingfork.permission.RECEIVE_SYNC_STATUS" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,7 @@
 
         <receiver android:name=".SyncStatusReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="com.github.catfriend1.syncthingandroid.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE" />
+                <action android:name="com.github.catfriend1.syncthingfork.ACTION_NOTIFY_FOLDER_SYNC_COMPLETE" />
             </intent-filter>
         </receiver>
     </application>
