@@ -27,8 +27,8 @@ jobs:
       - name: Ensure release branch
         run: |
           git config --system --add safe.directory '*'
-          if ! git branch -a --contains $(git rev-parse HEAD) | grep repro >/dev/null; then
-            echo "Tag is not part of repro branch - aborting..."
+          if ! git branch -a --contains $(git rev-parse HEAD) | grep release >/dev/null; then
+            echo "Tag is not part of release branch - aborting..."
             exit 1
           fi
 
