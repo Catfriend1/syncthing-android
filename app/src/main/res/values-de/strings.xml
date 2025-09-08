@@ -775,4 +775,10 @@
     <string name="backup_password_summary">ℹ️ Empfohlen:\nGeben Sie ein sicheres Passwort ein, um Ihre Konfiguration beim Export zu verschlüsseln und beim Import zu entschlüsseln. Bewahren Sie dieses Passwort für den Wiederherstellungsprozess an einem sicheren Ort auf. Sie benötigen es, um die Importfunktion zu nutzen.\n\n⚠️ Nicht empfohlen:\nWenn Sie kein Passwort verwenden, können andere Anwendungen möglicherweise Ihre Syncthing-Konfiguration lesen und manipulieren. Die Preisgabe der Konfiguration birgt das Risiko, dass ein bösartiger Akteur mit gestohlenen Konfigurationsexporten unbefugten Zugriff auf Ihre Dateien erhält.</string>
     <string name="preference_category_explanation">Erklärung</string>
     <string name="config_import_failed_no_path">Der Import der Konfiguration ist fehlgeschlagen. Gehen Sie zu Einstellungen&gt;Fehlerbehebung&gt;Protokoll öffnen, um Details zu sehen.</string>
+    <string name="important_news_title">Wichtige Nachrichtenmeldung</string>
+    <string name="important_news_description">Bitte dazu unsere Ankündigung unter %1$s lesen, wie man weiterhin reibungslos mit der App arbeiten kann</string>
+    <string name="important_news_action_open">In Browser öffnen</string>
+    <string name="important_news_action_remind">Mich später daran erinnern</string>
+    <string name="important_news_action_no_remind">Vorerst ablehnen</string>
+    <string name="important_news_action_view_options">OPTIONEN ANZEIGEN</string>
 </resources>
