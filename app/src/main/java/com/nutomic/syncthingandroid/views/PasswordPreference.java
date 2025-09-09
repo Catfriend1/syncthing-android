@@ -42,22 +42,20 @@ public class PasswordPreference extends EditTextPreference {
     @Override
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
-        mToggleButton = view.findViewById(R.id.password_visibility_toggle);
-        if (mToggleButton != null) {
-            mToggleButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    togglePasswordVisibility();
-                }
-            });
-            updateToggleButton();
-        }
+        setupToggleButton(view);
         return view;
     }
 
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
+        setupToggleButton(view);
+        // Initialize password value and update summary
+        mPasswordValue = getText() != null ? getText() : "";
+        updateSummary();
+    }
+
+    private void setupToggleButton(View view) {
         mToggleButton = view.findViewById(R.id.password_visibility_toggle);
         if (mToggleButton != null) {
             mToggleButton.setOnClickListener(new View.OnClickListener() {
