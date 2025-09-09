@@ -43,6 +43,7 @@ public class PasswordPreference extends EditTextPreference {
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
         setupToggleButton(view);
+        setupClickListener(view);
         return view;
     }
 
@@ -50,6 +51,7 @@ public class PasswordPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
         setupToggleButton(view);
+        setupClickListener(view);
         // Initialize password value and update summary
         mPasswordValue = getText() != null ? getText() : "";
         updateSummary();
@@ -65,6 +67,22 @@ public class PasswordPreference extends EditTextPreference {
                 }
             });
             updateToggleButton();
+        }
+    }
+
+    private void setupClickListener(View view) {
+        // Find the main preference area (LinearLayout containing title and summary)
+        View preferenceArea = view.findViewById(R.id.preference_main_area);
+        if (preferenceArea != null) {
+            preferenceArea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Trigger the preference's onClick behavior to show the edit dialog
+                    if (isEnabled()) {
+                        onClick();
+                    }
+                }
+            });
         }
     }
 
