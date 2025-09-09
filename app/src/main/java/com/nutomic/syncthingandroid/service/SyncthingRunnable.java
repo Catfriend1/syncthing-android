@@ -491,15 +491,28 @@ public class SyncthingRunnable implements Runnable {
         File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db.migrated");
         if (migratedIndexDir.exists() && migratedIndexDir.isDirectory()) {
             LogV("Cleaning up legacy migrated index directory: " + migratedIndexDir.getAbsolutePath());
-            deleteDirectoryRecursively(migratedIndexDir);
+            try {
+                deleteDirectoryRecursively(migratedIndexDir);
+                LogV("Successfully cleaned up migrated index directory");
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to clean up migrated index directory: " + e.getMessage(), e);
+            }
         }
     }
 
     /**
      * Recursively delete a directory and all its contents.
+     * This method is robust and handles edge cases safely.
      */
     private void deleteDirectoryRecursively(File dir) {
         if (dir == null || !dir.exists()) {
+            return;
+        }
+        
+        if (!dir.isDirectory()) {
+            if (!dir.delete()) {
+                Log.w(TAG, "Failed to delete file: " + dir.getAbsolutePath());
+            }
             return;
         }
         
