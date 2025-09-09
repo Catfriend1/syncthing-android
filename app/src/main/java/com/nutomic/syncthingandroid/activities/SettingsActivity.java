@@ -764,9 +764,6 @@ public class SettingsActivity extends SyncthingActivity {
                 case Constants.PREF_BACKUP_REL_PATH_TO_ZIP:
                     preference.setSummary((String) o);
                     break;
-                case Constants.PREF_BACKUP_PASSWORD:
-                    // Password preference handles its own summary with masking
-                    break;
                 case Constants.PREF_DEBUG_FACILITIES_ENABLED:
                     mPendingConfig = true;
                     break;
