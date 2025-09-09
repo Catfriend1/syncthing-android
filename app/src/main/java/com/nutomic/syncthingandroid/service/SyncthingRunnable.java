@@ -144,6 +144,9 @@ public class SyncthingRunnable implements Runnable {
         // Trim Syncthing log.
         trimSyncthingLogFile();
 
+        // Clean up v1 index directory which is left over after migration to v2.
+        cleanupV1IndexDirectory();
+
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
          * Only valid on Android 5 or lower.
@@ -477,6 +480,18 @@ public class SyncthingRunnable implements Runnable {
             tempFile.renameTo(mSyncthingLogFile);
         } catch (IOException e) {
             Log.w(TAG, "Failed to trim log file", e);
+        }
+    }
+
+    private void cleanupV1IndexDirectory() {
+        File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db-migrated");
+        if (migratedIndexDir.exists() && migratedIndexDir.isDirectory()) {
+            LogV("Cleaning up v1 index directory: " + migratedIndexDir.getAbsolutePath());
+            try {
+                FileUtils.deleteDirectoryRecursively(migratedIndexDir);
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to clean up v1 index directory: " + e.getMessage(), e);
+            }
         }
     }
 
