@@ -17,9 +17,9 @@ Strona: https://github.com/Catfriend1/syncthing-android
 
 Kod źródłowy: https://github.com/Catfriend1/syncthing-android
 
-Jak Syncthing zapisuje dane na zewnętrznej karcie SD: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Jak Syncthing zapisuje dane na zewnętrznej karcie SD: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Wiki, FAQ i pomocne artykuły: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ i pomocne artykuły: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
 
 Problemy: https://github.com/Catfriend1/syncthing-android/issues
 
