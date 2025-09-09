@@ -86,7 +86,7 @@ public class PasswordPreference extends EditTextPreference {
             if (mPasswordVisible) {
                 mToggleButton.setImageResource(R.drawable.ic_visibility_24dp);
             } else {
-                mToggleButton.setImageResource(R.drawable.ic_visibility_off_black_24dp);
+                mToggleButton.setImageResource(R.drawable.ic_visibility_off_24dp);
             }
         }
     }
