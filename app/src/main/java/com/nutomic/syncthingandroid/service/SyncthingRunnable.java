@@ -488,7 +488,7 @@ public class SyncthingRunnable implements Runnable {
      * This prevents issues when starting Syncthing by removing leftover migration artifacts.
      */
     private void cleanupMigratedIndexDirectory() {
-        File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db.migrated");
+        File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db-migrated");
         if (migratedIndexDir.exists() && migratedIndexDir.isDirectory()) {
             LogV("Cleaning up legacy migrated index directory: " + migratedIndexDir.getAbsolutePath());
             try {
