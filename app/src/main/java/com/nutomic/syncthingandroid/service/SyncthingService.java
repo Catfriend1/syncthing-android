@@ -880,6 +880,11 @@ public class SyncthingService extends Service {
 
         // Compress files to zip file.
         try {
+            // Delete existing ZIP file to ensure we create a fresh archive instead of appending
+            if (targetZip.exists()) {
+                targetZip.delete();
+            }
+            
             ZipParameters parameters = new ZipParameters();
             parameters.setCompressionMethod(CompressionMethod.DEFLATE);
             parameters.setCompressionLevel(CompressionLevel.NORMAL);
