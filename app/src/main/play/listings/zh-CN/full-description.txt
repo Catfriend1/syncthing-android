@@ -1,6 +1,5 @@
 这是 Syncthing-Android 包装器的一个 fork，为 Syncthing 带来了以下主要增强功能：
 * 文件夹、设备和整体同步进度可从 UI 轻松读取。
-* “Syncthing 相机”一项可选功能（具有使用相机的可选权限），您可以在两部手机上与朋友、伴侣等一起拍摄照片，并将其保存到一个共享的私人 Syncthing 文件夹中。不涉及云。- 功能目前处于测试阶段 -
 * “每小时同步”以节省更多电量
 * 每个设备和每个文件夹都可以应用单独的同步条件
 * 最近更改 UI，单击以打开文件。
@@ -12,17 +11,7 @@
 
 Android 版 Syncthing-Fork 是 Syncthing 的包装器，它提供 Android UI，而不是 Syncthing 的内置 Web UI。Syncthing 用开放、值得信赖和去中心化的服务取代了专有的同步和云服务。您的数据是您自己的数据，您有权选择将其存储在何处、是否与第三方共享以及如何通过互联网传输。
 
-Fork 的目标：
-* 与社区一起开发和尝试增强功能。
-* 更频繁地发布包装器以识别和修复由 Syncthing 子模块中的更改引起的错误
-* 在 UI 中配置增强功能，用户应该能够打开和关闭它们
-
-撰写本文时上游和 fork 之间的比较：
-* 两者都包含从 GitHub 上的官方源构建的 Syncthing 二进制文件
-* 同步功能和可靠性取决于 Syncthing 二进制子模块版本。
-* Fork 与上游相处融洽，有时他们会采纳我的改进。
-* 策略和发布频率不同
-* 仅包含 Android UI 的包装器由 fork 处理。
+请先在论坛和/或社交媒体应用上寻求帮助，再在问题跟踪器中创建问题。请记住，Syncthing-Fork 最初只是源于个人兴趣，旨在帮助家人和朋友在 Android 设备上使用 Syncthing。尽管目前其成果已与您及整个社区共享，但它并非旨在面向目前超过十万的用户群体。谢谢
 
 网站：https://github.com/Catfriend1/syncthing-android
 
@@ -30,7 +19,7 @@ Fork 的目标：
 
 Syncthing 如何写入外部 SD 卡：https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki、常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/wiki
+Wiki、常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
 
 问题反馈：https://github.com/Catfriend1/syncthing-android/issues
 
