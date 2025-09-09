@@ -643,4 +643,10 @@
     <string name="config_export_successful_no_path">Настройките са изнесени. Запомнете паролата при последващо внасяне.</string>
     <string name="share_log_file_missing">Дневникът, който ще споделяте липсва.</string>
     <string name="backup_password_summary">ℹ️ Препоръчително:\nВъведете силна парола, която ще бъде използвана за шифроване на настройките при изнасяне и разшифроване при внасяне. Пазете паролата на сигурно място, в случай на необходимост от внасяне на настройките. Трябва да използвате възможността за внасяне.\n\n⚠️ Непрепоръчително:\nДа не използвате парола. В този случай е възможно други приложения да получат достъп и да променят настройките на Syncthing. Достъпът до настройките носи риска от несанкциониран достъп до вашите файлове, използвайки откраднатите настройки.</string>
+    <string name="important_news_title">Важни новини – необходимо действие</string>
+    <string name="important_news_description">Прочетете как безпроблемно да продължите да използвате приложението на %1$s</string>
+    <string name="important_news_action_view_options">ВЪЗМОЖНОСТИ</string>
+    <string name="important_news_action_open">Отваряне в мрежов четец</string>
+    <string name="important_news_action_remind">Напомняне по-късно</string>
+    <string name="important_news_action_no_remind">Затваряне за сега</string>
 </resources>
