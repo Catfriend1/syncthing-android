@@ -281,7 +281,6 @@ public class DeviceActivity extends SyncthingActivity {
 
         if (Util.isRunningOnTV(this)) {
             mQrButton.setVisibility(View.GONE);
-            mDeviceIdQrButton.setVisibility(View.GONE);
         }
         mQrButton.setOnClickListener(view -> startActivityForResult(QRScannerActivity.intent(DeviceActivity.this), QR_SCAN_REQUEST_CODE));
         mShowDeviceIdContainer.setOnClickListener(view -> onCopyDeviceIdClick());
