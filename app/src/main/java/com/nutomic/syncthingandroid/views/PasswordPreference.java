@@ -36,7 +36,7 @@ public class PasswordPreference extends EditTextPreference {
     private void init() {
         setLayoutResource(R.layout.preference_password_with_toggle);
         // Set password input type for the dialog
-        getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
     }
 
     @Override
