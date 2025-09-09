@@ -144,6 +144,9 @@ public class SyncthingRunnable implements Runnable {
         // Trim Syncthing log.
         trimSyncthingLogFile();
 
+        // Clean up legacy migrated index directory.
+        cleanupMigratedIndexDirectory();
+
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
          * Only valid on Android 5 or lower.
@@ -477,6 +480,44 @@ public class SyncthingRunnable implements Runnable {
             tempFile.renameTo(mSyncthingLogFile);
         } catch (IOException e) {
             Log.w(TAG, "Failed to trim log file", e);
+        }
+    }
+
+    /**
+     * Clean up legacy migrated index directory from old Syncthing versions.
+     * This prevents issues when starting Syncthing by removing leftover migration artifacts.
+     */
+    private void cleanupMigratedIndexDirectory() {
+        File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db.migrated");
+        if (migratedIndexDir.exists() && migratedIndexDir.isDirectory()) {
+            LogV("Cleaning up legacy migrated index directory: " + migratedIndexDir.getAbsolutePath());
+            deleteDirectoryRecursively(migratedIndexDir);
+        }
+    }
+
+    /**
+     * Recursively delete a directory and all its contents.
+     */
+    private void deleteDirectoryRecursively(File dir) {
+        if (dir == null || !dir.exists()) {
+            return;
+        }
+        
+        File[] files = dir.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    deleteDirectoryRecursively(file);
+                } else {
+                    if (!file.delete()) {
+                        Log.w(TAG, "Failed to delete file: " + file.getAbsolutePath());
+                    }
+                }
+            }
+        }
+        
+        if (!dir.delete()) {
+            Log.w(TAG, "Failed to delete directory: " + dir.getAbsolutePath());
         }
     }
 
