@@ -670,4 +670,6 @@
     <string name="important_news_action_remind">Bana sonra hatırlat</string>
     <string name="important_news_action_no_remind">Şimdilik vazgeç</string>
     <string name="important_news_action_view_options">SEÇENEKLERİ GÖRÜNTÜLE</string>
+    <string name="backup_password_set_masked">✅ Parola ayarlandı - Değiştirmek için dokunun</string>
+    <string name="toggle_password_visibility">Parola görünürlüğünü değiştir</string>
 </resources>
