@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.Editable;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.gson.Gson;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Connection;
@@ -100,6 +106,7 @@ public class DeviceActivity extends SyncthingActivity {
     private View mShowDeviceIdContainer;
     private EditText mShowDeviceId;
     private View mQrButton;
+    private ImageView mDeviceIdQrButton;
     private EditText mNameView;
     private EditText mAddressesView;
     private TextView mCurrentAddressView;
@@ -256,6 +263,7 @@ public class DeviceActivity extends SyncthingActivity {
         mShowDeviceIdContainer = findViewById(R.id.showDeviceIdContainer);
         mShowDeviceId = findViewById(R.id.showDeviceId);
         mQrButton = findViewById(R.id.qrButton);
+        mDeviceIdQrButton = findViewById(R.id.deviceIdQrButton);
         mNameView = findViewById(R.id.name);
         mAddressesView = findViewById(R.id.addresses);
         mCurrentAddressView = findViewById(R.id.currentAddress);
@@ -276,6 +284,7 @@ public class DeviceActivity extends SyncthingActivity {
         }
         mQrButton.setOnClickListener(view -> startActivityForResult(QRScannerActivity.intent(DeviceActivity.this), QR_SCAN_REQUEST_CODE));
         mShowDeviceIdContainer.setOnClickListener(view -> onCopyDeviceIdClick());
+        mDeviceIdQrButton.setOnClickListener(view -> onShowDeviceIdQrClick());
         mCompressionContainer.setOnClickListener(view -> onCompressionContainerClick());
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
 
@@ -737,6 +746,66 @@ public class DeviceActivity extends SyncthingActivity {
 
     private void onCopyDeviceIdClick() {
         Util.copyDeviceId(this, mDevice.deviceID);
+    }
+
+    private void onShowDeviceIdQrClick() {
+        if (mDevice == null || TextUtils.isEmpty(mDevice.deviceID)) {
+            Toast.makeText(this, R.string.could_not_access_deviceid, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        final int qrCodeSize = 232;
+        Bitmap qrCodeBitmap = null;
+        try {
+            qrCodeBitmap = generateQrCodeBitmap(mDevice.deviceID, qrCodeSize, qrCodeSize);
+        } catch (WriterException | NullPointerException ex) {
+            Log.e(TAG, "onShowDeviceIdQrClick: generateQrCodeBitmap failed", ex);
+        }
+        showQrCodeDialog(mDevice.deviceID, qrCodeBitmap);
+    }
+
+    private Bitmap generateQrCodeBitmap(String text, int width, int height) throws WriterException, NullPointerException {
+        BitMatrix bitMatrix;
+        try {
+            bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE,
+            width, height, null);
+        } catch (IllegalArgumentException ex) {
+            return null;
+        }
+        int bitMatrixWidth = bitMatrix.getWidth();
+        int bitMatrixHeight = bitMatrix.getHeight();
+        int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
+        int colorWhite = 0xFFFFFFFF;
+        int colorBlack = 0xFF000000;
+        for (int y = 0; y < bitMatrixHeight; y++) {
+            int offset = y * bitMatrixWidth;
+            for (int x = 0; x < bitMatrixWidth; x++) {
+                pixels[offset + x] = bitMatrix.get(x, y) ? colorBlack : colorWhite;
+            }
+        }
+        Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
+        bitmap.setPixels(pixels, 0, width, 0, 0, bitMatrixWidth, bitMatrixHeight);
+        return bitmap;
+    }
+
+    public void showQrCodeDialog(String deviceId, Bitmap qrCode) {
+        @SuppressWarnings("InflateParams")
+        View qrCodeDialogView = this.getLayoutInflater().inflate(R.layout.dialog_qrcode, null);
+        TextView deviceIdTextView = qrCodeDialogView.findViewById(R.id.device_id);
+        TextView shareDeviceIdTextView = qrCodeDialogView.findViewById(R.id.actionShareId);
+        ImageView qrCodeImageView = qrCodeDialogView.findViewById(R.id.qrcode_image_view);
+
+        deviceIdTextView.setText(deviceId);
+        deviceIdTextView.setOnClickListener(v -> Util.copyDeviceId(this, deviceIdTextView.getText().toString()));
+        shareDeviceIdTextView.setOnClickListener(v -> shareDeviceId(this, deviceId));
+        qrCodeImageView.setImageBitmap(qrCode);
+
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(R.string.device_id)
+                .setView(qrCodeDialogView)
+                .setPositiveButton(R.string.finish, null)
+                .create()
+                .show();
     }
 
     private void showCompressionDialog(){
