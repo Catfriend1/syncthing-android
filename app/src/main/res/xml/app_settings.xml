@@ -339,7 +339,7 @@
                 android:summary="@null"
                 android:persistent="true"
                 android:defaultValue=""
-                android:inputType="textPassword" />
+                android:inputType="textNoSuggestions" />
         </PreferenceCategory>
 
         <PreferenceCategory android:title="@string/preference_category_actions">
