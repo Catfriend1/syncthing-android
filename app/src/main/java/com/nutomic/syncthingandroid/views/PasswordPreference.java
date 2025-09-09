@@ -79,7 +79,7 @@ public class PasswordPreference extends EditTextPreference {
                 public void onClick(View v) {
                     // Trigger the preference's onClick behavior to show the edit dialog
                     if (isEnabled()) {
-                        onClick();
+                        showDialog(null);
                     }
                 }
             });
