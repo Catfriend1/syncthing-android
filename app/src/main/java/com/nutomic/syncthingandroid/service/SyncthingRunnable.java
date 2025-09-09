@@ -144,8 +144,8 @@ public class SyncthingRunnable implements Runnable {
         // Trim Syncthing log.
         trimSyncthingLogFile();
 
-        // Clean up legacy migrated index directory.
-        cleanupMigratedIndexDirectory();
+        // Clean up v1 index directory which is left over after migration to v2.
+        cleanupV1IndexDirectory();
 
         /**
          * Potential fix for #498, keep the CPU running while native binary is running.
@@ -483,19 +483,14 @@ public class SyncthingRunnable implements Runnable {
         }
     }
 
-    /**
-     * Clean up legacy migrated index directory from old Syncthing versions.
-     * This prevents issues when starting Syncthing by removing leftover migration artifacts.
-     */
-    private void cleanupMigratedIndexDirectory() {
+    private void cleanupV1IndexDirectory() {
         File migratedIndexDir = new File(mContext.getFilesDir(), "index-v0.14.0.db-migrated");
         if (migratedIndexDir.exists() && migratedIndexDir.isDirectory()) {
-            LogV("Cleaning up legacy migrated index directory: " + migratedIndexDir.getAbsolutePath());
+            LogV("Cleaning up v1 index directory: " + migratedIndexDir.getAbsolutePath());
             try {
                 FileUtils.deleteDirectoryRecursively(migratedIndexDir);
-                LogV("Successfully cleaned up migrated index directory");
-            } catch (IOException e) {
-                Log.w(TAG, "Failed to clean up migrated index directory: " + e.getMessage(), e);
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to clean up v1 index directory: " + e.getMessage(), e);
             }
         }
     }
