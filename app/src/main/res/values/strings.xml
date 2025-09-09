@@ -645,7 +645,9 @@
     <string name="backup_password_summary">ℹ️ Recommended:\nEnter a strong password used to encrypt your config during export and decrypt on import. Keep this password in a safe place for the recovery process. You will need it to use the import feature.\n\n⚠️ Not recommended:\nNot using a password, other apps are potentially able to read and manipulate your Syncthing configuration. Exposing the configuration carries the risk a bad actor may gain unauthorized access to your files using stolen config exports.</string>
 
     <string name="backup_password_set">✅ Password set: %1$s</string>
+    <string name="backup_password_set_masked">✅ Password set - Tap to change</string>
     <string name="backup_password_not_set">⚠ Password not set.</string>
+    <string name="toggle_password_visibility">Toggle password visibility</string>
 
     <string name="export_config">Export Configuration</string>
 
