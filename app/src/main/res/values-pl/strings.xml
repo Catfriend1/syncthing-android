@@ -20,7 +20,7 @@
     <!-- Generic texts used everywhere -->
     <string name="back">Wstecz</string>
     <string name="cont">Dalej</string>
-    <string name="finish">Koniec</string>
+    <string name="finish">Ukończ</string>
     <string name="generic_example">Przykład</string>
     <string name="generic_error">Błąd</string>
     <string name="generic_help">Pomoc</string>
@@ -285,11 +285,11 @@
     <!-- Syncthing was reset -->
     <string name="st_reset_database_done">Przywrócono stan początkowy bazy danych</string>
     <string name="category_about">Informacje</string>
-    <string name="verbose_log_title">Szczegółowe dzienniki</string>
+    <string name="verbose_log_title">Dzienniki szczegółowe</string>
     <!-- Settings item that opens the log activity -->
     <string name="open_log">Otwórz dziennik</string>
     <!-- Summary for the log activity -->
-    <string name="open_log_summary">Wyświetla dzienniki Syncthing oraz Androida</string>
+    <string name="open_log_summary">Wyświetla okno dziennika Syncthing i Androida.</string>
     <!-- Settings item that opens issue tracker -->
     <string name="report_issue_title">Zgłoś błąd</string>
     <!-- Menu item to donate -->
@@ -435,7 +435,7 @@
     <string name="button_follow_run_conditions">PRZESTRZEGAJ WARUNKÓW DZIAŁANIA</string>
     <string name="state_error_message">Błąd (%1$s)</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">Od Androida 8.1 dostęp do lokalizacji jest wymagany, aby odczytać nazwę sieci Wi-Fi. Możesz używać tej funkcji tylko po przyznaniu uprawnień do lokalizacji.</string>
-    <string name="webui_username_title">Nazwa użytkownika interfejsu internetowego</string>
+    <string name="webui_username_title">Nazwa użytkownika interfejsu webowego</string>
     <string name="device_id_invalid">Identyfikator urządzenia nie jest poprawnie sformatowany. Spróbuj ponownie i wprowadź poprawny identyfikator.</string>
     <string name="state_clean_waiting">Oczekiwanie na czyszczenie</string>
     <string name="run_on_mobile_data_title">Działaj na mobilnej transmisji danych</string>
@@ -476,7 +476,7 @@
     <string name="qs_force_label">Wymuś uruchomienie</string>
     <string name="custom_sync_conditions_dialog">Określ warunki synchronizacji</string>
     <string name="default_android_camera_folder_label">Aparat Android</string>
-    <string name="webui_password_title">Hasło interfejsu internetowego</string>
+    <string name="webui_password_title">Hasło interfejsu webowego</string>
     <string name="api_key_copied_to_clipboard">Klucz API Syncthing skopiowano do schowka</string>
     <string name="folder_type_receive_encrypted_description">Przechowuje i synchronizuje tylko zaszyfrowane dane. Foldery na wszystkich podłączonych urządzeniach muszą mieć ustawione to samo hasło lub być typu „Odbierz zaszyfrowane”.</string>
     <string name="reason_not_within_time_frame_2">Włączono opcję „Uruchamiaj zgodnie z harmonogramem”, a ostatnia synchronizacja miała miejsce %s temu.</string>
@@ -493,7 +493,7 @@
     <string name="activity_main_bottom_navigation_rescan_all">Skanuj wszystkie ponownie</string>
     <string name="button_force_stop">WYMUŚ ZATRZYMANIE
 \nIGNORUJ WARUNKI URUCHOMIENIA</string>
-    <string name="webui_remote_access_summary">Określ, czy chcesz zezwolić na dostęp do interfejsu internetowego z innego urządzenia. Jeśli ta opcja jest włączona, możesz zalogować się przy użyciu użytkownika „syncthing” i klucza API. Domyślnie: wyłączone (najbezpieczniejsze)</string>
+    <string name="webui_remote_access_summary">Określ, czy chcesz zezwolić na dostęp do interfejsu webowego z innego urządzenia. Jeśli ta opcja jest włączona, możesz zalogować się przy użyciu użytkownika „syncthing” i klucza API jako hasła. Domyślnie: wyłączone (najbezpieczniejsze).</string>
     <string name="location_permission_desc_api_29">Wskazówka dla Androida 10+: „Zawsze zezwalaj”</string>
     <string name="syncthing_database_size">Rozmiar bazy danych Syncthing</string>
     <string name="reason_not_nonroaming_mobile_data">Syncthing nie jest uruchomiony, ponieważ zabroniono jego uruchamiania w przypadku mobilnych połączeń danych w roamingu.</string>
@@ -506,14 +506,14 @@
     <string name="download_support_bundle_failed">Pobieranie pakietu obsługi nie powiodło się. Sprawdź dzienniki.</string>
     <string name="app_version_title">Wersja nakładki Syncthing-Fork</string>
     <string name="folder_type_sendreceive_description">Zawartość tego folderu będzie zarówno wysyłana jak i odbierana z innych urządzeń.</string>
-    <string name="tip_write_to_sdcard_title">Obejście problemu: zapisz na zewnętrzniej karcie SD</string>
+    <string name="tip_write_to_sdcard_title">Obejście problemu: zapis na zewnętrznej karcie SD</string>
     <string name="keep_wakelock_while_binary_running_summary">Tylko dla systemu Android 5 lub starszego. Użyj tego ustawienia, jeśli podczas pracy na baterii wystąpią nieoczekiwane rozłączenia. Spowoduje to zwiększone zużycie baterii.</string>
     <string name="download_support_bundle_succeeded">Pakiet obsługi został pomyślnie pobrany do %s.</string>
     <string name="dialog_settings_restart_app_question">Zmiana tej opcji wymaga natychmiastowego ponownego uruchomienia aplikacji. Wszystkie inne zmiany zostaną odrzucone. Kontynuować?</string>
     <string name="reason_not_while_power_saving">Syncthing nie jest uruchomiony, ponieważ telefon jest obecnie w trybie oszczędzania energii.</string>
     <string name="download_support_bundle_in_progress">Przygotowywanie pobrania pakietu obsługi…</string>
     <string name="pull_order_type_newestFirst">Od najnowszych</string>
-    <string name="webui_tcp_port_title">Port TCP interfejsu internetowego</string>
+    <string name="webui_tcp_port_title">Port TCP interfejsu webowego</string>
     <string name="tip_xiaomi_autostart_title">Xiaomi: aplikacja nie uruchamia się po rozruchu</string>
     <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing może działać w przypadku mobilnych połączeń danych w roamingu i poza nim.</string>
     <string name="state_sync_waiting">Oczekiwanie na synchronizację</string>
@@ -535,7 +535,7 @@
     <string name="reason_not_on_mobile_data">Syncthing może działać w przypadku mobilnego połączenia danych, ale mobilna transmisja danych nie jest połączona.</string>
     <string name="broadcast_service_control_title">Kontrola usług poprzez transmisję</string>
     <string name="pull_order_type_oldestFirst_description">Pobierz pliki według czasu modyfikacji. Najpierw najstarsze.</string>
-    <string name="webui_tcp_port_unavailable">Port TCP interfejsu internetowego %s zajęty. Druga instancja?</string>
+    <string name="webui_tcp_port_unavailable">Port TCP %s interfejsu webowego jest zajęty. Utworzyć drugą instancję?</string>
     <string name="config_export_failed">Eksport konfiguracji nie powiódł się. Przejdź do Ustawienia-Diagnozowanie błędów-Otwórz dziennik, aby zobaczyć szczegóły.</string>
     <string name="web_page_loading">Ładowanie strony internetowej:
 \n%1$s …</string>
@@ -569,7 +569,7 @@
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Musisz przyznać uprawnienia dostępu do lokalizacji, aby używać tej funkcji.</string>
     <string name="reason_on_metered_nonmetered_wifi">Syncthing można uruchamiać w przypadku taryfowych i nietaryfowych połączeń Wi-Fi.</string>
     <string name="reason_mobile_data_disallowed">Syncthing nie jest skonfigurowany do działania w przypadku mobilnego połączenia danych.</string>
-    <string name="webui_remote_access_title">Zdalny dostęp do interfejsu internetowego</string>
+    <string name="webui_remote_access_title">Zdalny dostęp do interfejsu webowego</string>
     <string name="respect_master_sync_title">Uszanuj ustawienie „Automatyczna synchronizacja danych” systemu Android</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Numer portu jest nieprawidłowy. Podaj port pomiędzy %1$d a %2$d.</string>
     <string name="sync_only_wifi_ssids_wifi_turn_on_location">Włącz lokalizację, aby wybrać sieci.</string>
@@ -697,12 +697,12 @@
     <string name="dialog_confirm_skip_ignore_doze_permission">Ostrożnie: jeśli SyncthingNative zostanie przerwany i zrobi coś dziwnego, będzie to wina użytkownika. Pomiń ten proces tylko wtedy, gdy urządzenie nie obsługuje udzielania uprawnień. Naprawdę pominąć?</string>
     <string name="sleep_interval_minutes_title">Czas trwania interwału wstrzymania synchronizacji</string>
     <string name="start_into_web_gui_title">Rozpocznij bezpośrednio w interfejsie sieciowym</string>
-    <string name="start_into_web_gui_summary">Uruchamiając aplikację, otwórz interfejs sieciowy zamiast głównego ekranu</string>
+    <string name="start_into_web_gui_summary">Podczas uruchamiania aplikacji otwórz interfejs sieciowy zamiast ekranu głównego.</string>
     <string name="open_source_licenses_title">Licencje open source</string>
-    <string name="open_source_licenses_summary">Pokaż używane licencje open source</string>
+    <string name="open_source_licenses_summary">Pokaż użyte licencje open source.</string>
     <string name="syncthing_forum_title">Forum Syncthing</string>
     <string name="privacy_title">Polityka prywatności</string>
-    <string name="syncthing_forum_summary">Przejdź do forum Syncthing i uzyskaj pomoc</string>
+    <string name="syncthing_forum_summary">Przejdź do forum Syncthing i uzyskaj pomoc.</string>
     <string name="privacy_summary">Otwórz politykę prywatności syncthing-android, która zawiera informacje na temat użycia (lub jego braku) danych osobowych, np. lokalizacji.</string>
     <string name="clear_stversions_summary">Pliki są przenoszone do katalogu .stversions, gdy są zastępowane lub usuwane przez Syncthing. Prawdopodobnie możesz tam znaleźć i odzyskać przypadkowo usunięte pliki, ale przestarzałe wersje plików zajmują miejsce na urządzeniu.</string>
     <string name="clear_stversions_done">Pomyślnie wyczyszczono foldery .stversions.</string>
@@ -736,4 +736,6 @@
     <string name="important_news_description">Przeczytaj nasze ogłoszenie — aby dowiedzieć się, jak nadal korzystać z aplikacji bez zakłóceń — pod adresem %1$s</string>
     <string name="important_news_action_no_remind">Zignoruj na razie</string>
     <string name="important_news_action_view_options">WYŚWIETL OPCJE</string>
+    <string name="toggle_password_visibility">Przełącz widoczność hasła</string>
+    <string name="backup_password_set_masked">✅ Hasło ustawione – stuknij, aby zmienić</string>
 </resources>
