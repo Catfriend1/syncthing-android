@@ -649,4 +649,6 @@
     <string name="important_news_action_open">Отваряне в мрежов четец</string>
     <string name="important_news_action_remind">Напомняне по-късно</string>
     <string name="important_news_action_no_remind">Затваряне за сега</string>
+    <string name="backup_password_set_masked">✅ Паролата е зададена - докоснете за промяна</string>
+    <string name="toggle_password_visibility">Превключване видимостта на паролата</string>
 </resources>
