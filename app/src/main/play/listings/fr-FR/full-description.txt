@@ -1,6 +1,5 @@
 Fork francisé de Syncthing-Android wrapper pour Syncthing qui amène des améliorations majeures comme :
 * Partages, Appareils et vue globale du processus de synchronisation facilement lus depuis le GUI.
-* "Syncthing Camera" - une fonctionnalité optionnelle (avec une permission optionnelle pour utiliser l'appareil photo) qui vous permet de prendre des photos avec un ami ou partenaire, ... depuis deux téléphones vers un dossier partagé et privé Syncthing. Donc sans stockage cloud dans la recette. - FONCTION ACTUELLEMENT EN BETA TEST -
 * "Planning d'exécution" pour économiser encore plus la batterie.
 * Conditions de synchronisation Individuelles possibles par appareil pair et partage
 * Interface utilisateur pour les changement récents, cliquer pour ouvrir les fichiers.
@@ -10,29 +9,19 @@ Fork francisé de Syncthing-Android wrapper pour Syncthing qui amène des améli
 * Découverte d'autres appareils Syncthing sur le même réseau et possibilité d'ajout facile, comme sur les versions PC.
 * Support de la synchronisation bidirectionnelle sur carte SD externe depuis Android 11.
 
-Syncthing-Fork pour Android est un adaptateur pour Syncthing qui fournit une interface Android plus adaptée que celle au standard Web intégrée nativement.. Syncthing remplace les services propriétaires de synchronisation/cloud par un système ouvert, digne de confiance et décentralisé. Vos données sont uniquement les vôtres et vous avez le contrôle intégral des quelles et de là où elles sont, d'avec qui vous les partagez et de comment elles sont transmises via l'Internet.
+Syncthing-Fork pour Android est une surcouche pour Syncthing qui fournit une interface Android plus adaptée que celle au standard Web intégrée nativement.. Syncthing remplace les services propriétaires de synchronisation/cloud par un système ouvert, digne de confiance et décentralisé. Vos données sont uniquement les vôtres et vous avez le contrôle intégral des quelles et de là où elles sont, d'avec qui vous les partagez et de comment elles sont transmises via l'Internet.
 
-Objectifs de cette adaptation :
-* Développement et tests d'améliorations en collaboration avec la communauté ouverte des utilisateurs/développeurs.
-* Publication plus fréquentes des mises à jour pour identifier et corriger les bugs induits par les changements dans le sous-module syncthing.
-* Rendre les améliorations configurables dans l'IU : les utilisateurs doivent pouvoir les activer ou les désactiver.
-
-Comparaison entre l'original et l'adaptation au ment de cette rédaction :
-* Les deux contiennent le binaire compilé à partir du code source original disponible sur GitHub
-* La fonctionnalité de Synchronisation et sa fiabilité dépendent de la version du sous-module binaire.
-* L'adaptation suit la version officielle, qui parfois adopte elle-même mes améliorations.
-* La stratégie et la fréquence de mise à jour sont différentes.
-* L'adaptation ne concerne que l'IU Android.
+Merci de rechercher de l'aide sur le forum et/ou les applis de réseaux sociaux avant de signaler un bug dans le système de suivi des versions. Notez également que Syncthing-Fork est né d'un intérêt personnel afin d'aider famille et amis à utiliser Syncthing sur Android. Il n'était initialement pas prévu pour les plus de 100 000 utilisateurs actuels, même si les bénéfices en sont partagés avec vous et la communauté des utilisateurs. Merci encore.
 
 Site web : https://github.com/Catfriend1/syncthing-android
 
 Code source : https://github.com/Catfriend1/syncthing-android
 
-Comment Syncthing écrit sur les SD card externes : https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Comment Syncthing écrit sur les SD card externes : https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Wiki, FAQ et articles utiles : https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ et articles utiles : https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
 
-Questions : https://github.com/Catfriend1/syncthing-android/issues
+Problèmes : https://github.com/Catfriend1/syncthing-android/issues
 
 Merci d'aider à
-La traduction : https://hosted.weblate.org/projects/syncthing/android/catfriend1
+la traduction : https://hosted.weblate.org/projects/syncthing/android/catfriend1
