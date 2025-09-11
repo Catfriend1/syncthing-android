@@ -706,4 +706,12 @@
     <string name="preference_category_prepare">Préparation</string>
     <string name="config_import_failed_no_path">Échec de l\'importation de la configuration. Pour voir les détails, accédez à : Paramètres, Dépannage, Ouvrir le journal.</string>
     <string name="config_export_successful_no_path">La configuration a été exportée. Assurez-vous de mémoriser le mot de passe pour un import ultérieur.</string>
+    <string name="backup_password_set_masked">Mot de passe déjà défini - Tapez pour en changer</string>
+    <string name="toggle_password_visibility">Commutez la visibilité du mot de passe</string>
+    <string name="important_news_title">Informations importantes - Action requise</string>
+    <string name="important_news_description">Merci de prendre connaissance de notre annonce sur %1$s pour continuer l\'utilisation sereine de l\'application</string>
+    <string name="important_news_action_open">Ouvrir dans le navigateur</string>
+    <string name="important_news_action_remind">Me le rappeler plus tard</string>
+    <string name="important_news_action_no_remind">Reporter à plus tard</string>
+    <string name="important_news_action_view_options">OPTIONS d\'AFFICHAGE</string>
 </resources>
