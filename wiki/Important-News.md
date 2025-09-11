@@ -12,6 +12,8 @@ Open your currently installed version of Syncthing-Fork.
 
 Go to Settings > Import & Export. Export your app config.
 
+⚠️ Make sure that the app config has finished exporting, wait for the confirmation toast or check that the file size of the export has stopped increasing.
+
 Uninstall the Syncthing-Fork app.
 
 Install the latest v2 version, that is v2.0.7.0 or higher.
