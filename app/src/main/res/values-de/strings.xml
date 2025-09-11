@@ -766,7 +766,7 @@
     <string name="share_log_file_missing">Die zu teilende Protokolldatei fehlt.</string>
     <string name="share_log_file">Protokolldatei teilen</string>
     <string name="backup_password_set">✅ Passwort gesetzt: %1$s</string>
-    <string name="backup_password_not_set">⚠ Passwort nicht gesetzt.</string>
+    <string name="backup_password_not_set">⚠ Passwort nicht festgelegt.</string>
     <string name="preference_category_actions">Aktionen</string>
     <string name="preference_category_prepare">Vorbereiten</string>
     <string name="config_export_successful_no_path">Konfiguration wurde exportiert. Bitte das Passwort für einen späteren Import merken.</string>
@@ -781,6 +781,6 @@
     <string name="important_news_action_remind">Mich später daran erinnern</string>
     <string name="important_news_action_no_remind">Vorerst ablehnen</string>
     <string name="important_news_action_view_options">OPTIONEN ANZEIGEN</string>
-    <string name="backup_password_set_masked">✅ Passwort gesetzt - Zum ändern tippen</string>
-    <string name="toggle_password_visibility">Passwort ein- / ausblenden</string>
+    <string name="backup_password_set_masked">✅ Passwort festgelegt – Zum Andern tippen</string>
+    <string name="toggle_password_visibility">Passwort ein-/ausblenden</string>
 </resources>
