@@ -63,8 +63,6 @@ import com.nutomic.syncthingandroid.util.Util;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
-
 import static java.lang.Math.min;
 
 /**
@@ -123,7 +121,7 @@ public class MainActivity extends SyncthingActivity
     // Session flag to track if user chose "remind later" for important news
     private boolean mImportantNewsRemindLaterThisSession = false;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     private final Handler mUIRefreshHandler = new Handler();
 
@@ -218,7 +216,7 @@ public class MainActivity extends SyncthingActivity
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         if (ENABLE_VERBOSE_LOG) {
             Util.testPathEllipsis();

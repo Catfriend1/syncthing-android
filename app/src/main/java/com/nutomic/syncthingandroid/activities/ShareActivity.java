@@ -49,8 +49,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
-
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED;
@@ -81,7 +79,7 @@ public class ShareActivity extends SyncthingActivity
 
     private TextView mSubDirectoryTextView;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -134,7 +132,7 @@ public class ShareActivity extends SyncthingActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mConfig = new ConfigRouter(ShareActivity.this);
         setContentView(R.layout.activity_share);

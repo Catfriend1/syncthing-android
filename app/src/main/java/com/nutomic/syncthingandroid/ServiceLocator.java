@@ -34,7 +34,7 @@ public class ServiceLocator {
      */
     public NotificationHandler getNotificationHandler() {
         if (mNotificationHandler == null) {
-            mNotificationHandler = new NotificationHandler(mApp);
+            mNotificationHandler = new NotificationHandler(mApp, getSharedPreferences());
         }
         return mNotificationHandler;
     }
