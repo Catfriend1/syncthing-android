@@ -13,7 +13,6 @@ import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.SyncthingService;
 
-import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 
@@ -45,7 +44,7 @@ public class AppConfigReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+        mPreferences = ((SyncthingApp) context.getApplicationContext()).getServiceLocator().getSharedPreferences();
         String intentAction = intent.getAction().replaceFirst(context.getPackageName(), "");
         if (!getPrefBroadcastServiceControl(context)) {
             switch (intentAction) {

@@ -29,7 +29,6 @@ import com.nutomic.syncthingandroid.views.FoldersAdapter;
 
 import java.util.List;
 
-import javax.inject.Inject;
 
 /**
  * Displays a list of all existing folders.
@@ -44,7 +43,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
 
     private ConfigRouter mConfigRouter = null;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     private Runnable mUpdateListRunnable = new Runnable() {
         @Override
@@ -62,7 +61,7 @@ public class FolderListFragment extends ListFragment implements SyncthingService
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getActivity().getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
     }
 

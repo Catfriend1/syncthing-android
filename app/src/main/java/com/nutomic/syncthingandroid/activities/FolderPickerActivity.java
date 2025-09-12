@@ -99,7 +99,7 @@ public class FolderPickerActivity extends SyncthingActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        // No dependencies needed - removed Dagger injection
 
         setContentView(R.layout.activity_folder_picker);
         mCurrentPath = findViewById(R.id.currentPath);

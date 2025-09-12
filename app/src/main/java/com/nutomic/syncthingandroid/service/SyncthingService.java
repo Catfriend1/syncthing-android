@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.inject.Inject;
 
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -238,7 +237,7 @@ public class SyncthingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        ((SyncthingApp) getApplication()).component().inject(this);
+        ServiceLocator serviceLocator = ((SyncthingApp) getApplication()).getServiceLocator(); mPreferences = serviceLocator.getSharedPreferences(); mNotificationHandler = serviceLocator.getNotificationHandler();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         LogV("onCreate");
         mConfigRouter = new ConfigRouter(SyncthingService.this);

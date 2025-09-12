@@ -27,7 +27,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.inject.Inject;
 
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginEnd;
 import static androidx.core.view.MarginLayoutParamsCompat.setMarginStart;
@@ -98,7 +97,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
 
         Intent intent = getIntent();
         if (!intent.hasExtra(EXTRA_OBJECT_PREFIX_AND_ID) ||

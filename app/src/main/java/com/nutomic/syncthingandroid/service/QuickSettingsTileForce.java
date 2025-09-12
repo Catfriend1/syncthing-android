@@ -16,7 +16,6 @@ import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.R;
 
-import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 

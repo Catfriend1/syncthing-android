@@ -58,7 +58,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.view.Gravity.CENTER_VERTICAL;
@@ -255,7 +254,7 @@ public class FolderActivity extends SyncthingActivity {
         mConfig = new ConfigRouter(FolderActivity.this);
 
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
         setContentView(R.layout.activity_folder);
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);

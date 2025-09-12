@@ -29,7 +29,6 @@ import com.nutomic.syncthingandroid.util.JobUtils;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.inject.Inject;
 
 /**
  * Holds information about the current wifi and charging state of the device.
@@ -131,7 +130,7 @@ public class RunConditionMonitor {
     public RunConditionMonitor(Context context,
             OnShouldRunChangedListener onShouldRunChangedListener,
             OnSyncPreconditionChangedListener onSyncPreconditionChangedListener) {
-        ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+        mPreferences = ((SyncthingApp) context.getApplicationContext()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         LogV("Created new instance");
         mContext = context;

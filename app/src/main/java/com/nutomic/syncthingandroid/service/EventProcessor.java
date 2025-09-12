@@ -35,7 +35,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
 
 /**
  * Run by the syncthing service to convert syncthing events into local broadcasts.
@@ -65,11 +64,11 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
 
     private final Context mContext;
     private final RestApi mRestApi;
-    @Inject SharedPreferences mPreferences;
-    @Inject NotificationHandler mNotificationHandler;
+    private SharedPreferences mPreferences;
+    private NotificationHandler mNotificationHandler;
 
     public EventProcessor(Context context, RestApi restApi) {
-        ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+        ServiceLocator serviceLocator = ((SyncthingApp) context.getApplicationContext()).getServiceLocator(); mPreferences = serviceLocator.getSharedPreferences(); mNotificationHandler = serviceLocator.getNotificationHandler();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mContext = context;
         mRestApi = restApi;
