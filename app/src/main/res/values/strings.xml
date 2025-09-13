@@ -186,6 +186,18 @@
 
     <string name="deviceEncryptionPasswordHint">If untrusted, enter encryption password</string>
 
+    <!-- Trust status labels for device encryption -->
+    <string name="device_trusted_label">✅ Trusted. Tap to switch to untrusted.</string>
+    <string name="device_untrusted_label">🕵️Untrusted. Tap to switch to trusted.</string>
+    
+    <!-- Dialog messages for trust status changes -->
+    <string name="confirm_remove_encryption_password_title">Remove Encryption Password</string>
+    <string name="confirm_remove_encryption_password_message">This will remove the encryption password for this device and switch it to trusted mode. Are you sure?</string>
+    <string name="input_encryption_password_title">Set Encryption Password</string>
+    <string name="input_encryption_password_message">You\'re about to send encrypted folder contents to this untrusted device. The folder on the remote device needs to be configured receiveEncrypted. Enter encryption password:</string>
+    <string name="show_password_title">Encryption Password</string>
+    <string name="password_hint">Enter password</string>
+
     <!-- Indicates that a folder is fully synced to the local device -->
     <string name="device_up_to_date">Up to Date</string>
 
