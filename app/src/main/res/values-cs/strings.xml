@@ -682,4 +682,7 @@
     <string name="privacy_title">Zásady ochrany soukromí</string>
     <string name="privacy_summary">Otevřete zásady ochrany soukromí Syncthing-Android, které popisují používání (pokud existuje) osobních údajů, například polohy.</string>
     <string name="share_log_file_missing">Chybí soubor logu pro sdílení.</string>
+    <string name="important_news_action_open">Otevřít ve prohlížeči</string>
+    <string name="important_news_action_remind">Upozornit mě později</string>
+    <string name="important_news_action_no_remind">Zatím odložit</string>
 </resources>
