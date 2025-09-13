@@ -41,6 +41,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.Device;
@@ -65,8 +66,6 @@ import java.security.InvalidParameterException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import javax.inject.Inject;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -161,8 +160,8 @@ public class SettingsActivity extends SyncthingActivity {
         private static final String BIND_ALL = "0.0.0.0";
         private static final String BIND_LOCALHOST = "127.0.0.1";
 
-        @Inject NotificationHandler mNotificationHandler;
-        @Inject SharedPreferences mPreferences;
+        private NotificationHandler mNotificationHandler;
+        private SharedPreferences mPreferences;
 
         private Dialog             mCurrentPrefScreenDialog = null;
 
@@ -238,7 +237,9 @@ public class SettingsActivity extends SyncthingActivity {
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+            ServiceLocator serviceLocator = ((SyncthingApp) getActivity().getApplication()).getServiceLocator();
+            mPreferences = serviceLocator.getSharedPreferences();
+            mNotificationHandler = serviceLocator.getNotificationHandler();
             setHasOptionsMenu(true);
         }
 

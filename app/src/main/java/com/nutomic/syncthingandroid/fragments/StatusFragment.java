@@ -40,7 +40,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.text.NumberFormat;
 
-import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 
@@ -53,7 +52,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
 
     private Boolean ENABLE_VERBOSE_LOG = false;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     private Runnable mRestApiQueryRunnable = new Runnable() {
         @Override
@@ -86,7 +85,7 @@ public class StatusFragment extends ListFragment implements SyncthingService.OnS
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getActivity().getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
     }
 

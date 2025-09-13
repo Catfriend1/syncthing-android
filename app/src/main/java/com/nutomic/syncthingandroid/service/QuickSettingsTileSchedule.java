@@ -15,7 +15,6 @@ import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.R;
 
-import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED;
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW;
@@ -26,7 +25,6 @@ public class QuickSettingsTileSchedule extends TileService {
 
     }
     private Context mContext;
-    @Inject
     SharedPreferences mPreferences;
 
     @Override

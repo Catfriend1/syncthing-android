@@ -22,6 +22,7 @@ import androidx.annotation.RequiresApi;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.FileUtils;
 import com.nutomic.syncthingandroid.util.Util;
@@ -46,7 +47,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-import javax.inject.Inject;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -74,10 +74,8 @@ public class SyncthingRunnable implements Runnable {
     private final File mSyncthingLogFile;
     private final boolean mUseRoot;
 
-    @Inject
     SharedPreferences mPreferences;
 
-    @Inject
     NotificationHandler mNotificationHandler;
 
     public enum Command {
@@ -94,7 +92,9 @@ public class SyncthingRunnable implements Runnable {
      * @param command Which type of Syncthing command to execute.
      */
     public SyncthingRunnable(Context context, Command command) {
-        ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+        ServiceLocator serviceLocator = ((SyncthingApp) context.getApplicationContext()).getServiceLocator();
+        mPreferences = serviceLocator.getSharedPreferences();
+        mNotificationHandler = serviceLocator.getNotificationHandler();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         // IS_DEBUGGABLE = Constants.isDebuggable(context);
         mContext = context;
