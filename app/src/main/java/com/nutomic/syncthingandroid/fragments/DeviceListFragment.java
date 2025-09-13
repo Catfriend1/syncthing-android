@@ -20,6 +20,7 @@ import com.nutomic.syncthingandroid.activities.DeviceActivity;
 import com.nutomic.syncthingandroid.activities.MainActivity;
 import com.nutomic.syncthingandroid.activities.SyncthingActivity;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.DisplayableDevice;
 import com.nutomic.syncthingandroid.service.AppPrefs;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -31,6 +32,7 @@ import com.nutomic.syncthingandroid.views.DevicesAdapter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -190,7 +192,12 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
         mAdapter.setNotifyOnChange(false);
         mAdapter.clear();
         Collections.sort(devices, DEVICES_COMPARATOR);
-        mAdapter.addAll(devices);
+        // Convert Device objects to DisplayableDevice objects
+        List<DisplayableDevice> displayableDevices = new ArrayList<>();
+        for (Device device : devices) {
+            displayableDevices.add(new DisplayableDevice(device));
+        }
+        mAdapter.addAll(displayableDevices);
         mAdapter.notifyDataSetChanged();
         setListShown(true);
     }
@@ -199,7 +206,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(getActivity(), DeviceActivity.class);
         intent.putExtra(DeviceActivity.EXTRA_IS_CREATE, false);
-        intent.putExtra(DeviceActivity.EXTRA_DEVICE_ID, mAdapter.getItem(i).deviceID);
+        intent.putExtra(DeviceActivity.EXTRA_DEVICE_ID, mAdapter.getItem(i).getDeviceId());
         startActivity(intent);
     }
 
