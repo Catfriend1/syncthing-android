@@ -25,7 +25,6 @@ public class QuickSettingsTileSchedule extends TileService {
 
     }
     private Context mContext;
-    @Inject
     SharedPreferences mPreferences;
 
     @Override

@@ -94,7 +94,6 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
     private Button mBackButton;
     private Button mNextButton;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private Boolean mRunningOnTV = false;

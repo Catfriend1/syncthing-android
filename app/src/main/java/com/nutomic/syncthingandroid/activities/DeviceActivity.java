@@ -121,7 +121,6 @@ public class DeviceActivity extends SyncthingActivity {
     private ViewGroup mFoldersContainer;
     private TextView mSyncthingVersionView;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private boolean mIsCreateMode;

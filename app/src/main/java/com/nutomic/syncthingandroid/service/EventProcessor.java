@@ -24,6 +24,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Event;
@@ -68,7 +69,9 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
     private NotificationHandler mNotificationHandler;
 
     public EventProcessor(Context context, RestApi restApi) {
-        ServiceLocator serviceLocator = ((SyncthingApp) context.getApplicationContext()).getServiceLocator(); mPreferences = serviceLocator.getSharedPreferences(); mNotificationHandler = serviceLocator.getNotificationHandler();
+        ServiceLocator serviceLocator = ((SyncthingApp) context.getApplicationContext()).getServiceLocator();
+        mPreferences = serviceLocator.getSharedPreferences();
+        mNotificationHandler = serviceLocator.getNotificationHandler();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         mContext = context;
         mRestApi = restApi;

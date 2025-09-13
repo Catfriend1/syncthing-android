@@ -23,6 +23,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.util.JobUtils;
 
@@ -109,7 +110,6 @@ public class RunConditionMonitor {
 
     private int triggeredSyncDurationS = 10;
 
-    @Inject
     SharedPreferences mPreferences;
 
     /**

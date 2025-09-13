@@ -76,7 +76,6 @@ public class SyncConditionsActivity extends SyncthingActivity {
     private String mObjectReadableName;
     private boolean mUnsavedChanges = false;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(true) {

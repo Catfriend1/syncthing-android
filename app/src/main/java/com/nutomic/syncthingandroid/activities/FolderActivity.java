@@ -132,7 +132,6 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private boolean mPrefExpertMode = false;

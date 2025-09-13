@@ -8,6 +8,7 @@ import android.util.Log;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.service.NotificationHandler;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -40,11 +41,14 @@ public class AppConfigReceiver extends BroadcastReceiver {
      */
     private static final String ACTION_STOP  = ".action.STOP";
 
-    @Inject NotificationHandler mNotificationHandler;
+    private SharedPreferences mPreferences;
+    NotificationHandler mNotificationHandler;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        mPreferences = ((SyncthingApp) context.getApplicationContext()).getServiceLocator().getSharedPreferences();
+        ServiceLocator serviceLocator = ((SyncthingApp) context.getApplicationContext()).getServiceLocator();
+        mPreferences = serviceLocator.getSharedPreferences();
+        mNotificationHandler = serviceLocator.getNotificationHandler();
         String intentAction = intent.getAction().replaceFirst(context.getPackageName(), "");
         if (!getPrefBroadcastServiceControl(context)) {
             switch (intentAction) {

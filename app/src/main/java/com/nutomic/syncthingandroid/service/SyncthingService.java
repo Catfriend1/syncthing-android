@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Device;
@@ -210,10 +211,8 @@ public class SyncthingService extends Service {
     private @Nullable
     SyncthingRunnable mSyncthingRunnable = null;
 
-    @Inject
     NotificationHandler mNotificationHandler;
 
-    @Inject
     SharedPreferences mPreferences;
 
     /**

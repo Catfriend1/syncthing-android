@@ -51,7 +51,6 @@ public class PhotoShootActivity extends ThemedAppCompatActivity {
 
     private Uri lastPhotoURI = null;
 
-    @Inject
     SharedPreferences mPreferences;
 
     @Override

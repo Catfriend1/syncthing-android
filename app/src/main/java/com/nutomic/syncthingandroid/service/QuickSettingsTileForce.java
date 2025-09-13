@@ -25,7 +25,6 @@ public class QuickSettingsTileForce extends TileService {
 
     }
     private Context mContext;
-    @Inject
     SharedPreferences mPreferences;
     private Resources res;
 
