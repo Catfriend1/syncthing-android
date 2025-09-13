@@ -4,8 +4,16 @@
     <!-- Activity themes -->
     <eat-comment/>
 
-    <style name="Theme.Syncthing.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.Syncthing.Base" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Material 3 color tokens -->
         <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_dark</item>
+        <item name="colorOnPrimaryContainer">@android:color/white</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        
+        <!-- Legacy Material 2 attributes for backward compatibility -->
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
 
@@ -40,15 +48,15 @@
     <!-- Dialog themes -->
     <eat-comment/>
 
-    <style name="Theme.Syncthing.Dialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
-        <item name="colorAccent">@color/primary_dark</item>
+    <style name="Theme.Syncthing.Dialog" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="colorPrimary">@color/primary_dark</item>
     </style>
 
     <!-- Toolbar themes -->
     <eat-comment/>
 
-    <style name="ThemeOverlay.Syncthing.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="ThemeOverlay.Syncthing.Toolbar" parent="ThemeOverlay.Material3.Toolbar.Surface">
         <item name="android:windowBackground">@null</item>
-        <item name="colorAccent">@android:color/white</item>
+        <item name="colorOnPrimary">@android:color/white</item>
     </style>
 </resources>
