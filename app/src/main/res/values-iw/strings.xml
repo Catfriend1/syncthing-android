@@ -562,4 +562,12 @@
     <string name="share_log_file">שיתוף קובץ יומן</string>
     <string name="preference_category_explanation">הסבר</string>
     <string name="backup_password_summary">ℹ️ מומלץ:\nהזן סיסמה חזקה אשר תשמש להצפנת התצורה שלך במהלך הייצוא והפענוח בייבוא. שמור את הסיסמה במקום בטוח עבור תהליך השחזור. תצטרך אותה כדי להשתמש בתכונת הייבוא.\n\n⚠️ לא מומלץ:\nלא להשתמש בסיסמה, יישומים אחרים עשויים לקרוא ולהשפיע על תצורת ה-Syncthing שלך. חשיפת התצורה נושאת סיכון שגורם רע עשוי להשיג גישה לא מורשת לקבצים שלך באמצעות ייצוא תצורה שנגנב.</string>
+    <string name="backup_password_set_masked">✅ הוגדרה סיסמה - לחץ כדי לשנות</string>
+    <string name="toggle_password_visibility">שנה מצב נראות של הסיסמה</string>
+    <string name="important_news_title">חדשות חשובות - נדרשת פעולה</string>
+    <string name="important_news_description">נא לקרוא את ההכרזה שלנו על איך יש להמשיך את חווית היישום החלקה שלך בקישור %1$s</string>
+    <string name="important_news_action_open">פתח בדפדפן</string>
+    <string name="important_news_action_remind">הזכר לי מאוחר יותר</string>
+    <string name="important_news_action_no_remind">דחה לעת עתה</string>
+    <string name="important_news_action_view_options">הצג אפשרויות</string>
 </resources>
