@@ -772,4 +772,10 @@
     <string name="privacy_summary">Abre la política de privacidad de syncthing-android, que cubre el uso (si acaso) de datos personales, por ej. localización.</string>
     <string name="pizza_url_title">» A los gatos les encanta la pizza « 😺🍕</string>
     <string name="folder_run_script_description">"Opción avanzada para ejecutar \"scripts\" tras detectar cambios  en su estado de sincronismo. Los \"scripts\" en \'.stfolder/*.sh\' serán procesados, no se soportan otras ubicaciones por razones de seguridad.\nUn ejemplo de \"script\": \'.stfolder/rename-files.sh sync_complete\'"</string>
+    <string name="backup_rel_path_to_zip">Ruta relativa al archivo de configuración</string>
+    <string name="backup_password_title">Configurar contraseña de seguridad</string>
+    <string name="backup_password_summary">ℹ️ Recomendado:\n\nUsa una contraseña fuerte para el cifrado de tu configuración durante la exportación y el descifrado durante la importación. Guarda esta contraseña en un lugar seguro para el proceso de recuperación. La necesitarás para utilizar la función de importación.\n\n⚠️ No recomendado:\n\nNo usar una contraseña, otras aplicaciones podrían leer y manipular tu configuración de Syncthing. Exponer la configuración conlleva el riesgo de que un agente malicioso pueda ganar acceso no autorizado a tus archivos usando exportaciones de configuración robadas.</string>
+    <string name="backup_password_set">✅ Contraseña establecida: %1$s</string>
+    <string name="backup_password_set_masked">✅ Contraseña establecida - Toca para cambiar</string>
+    <string name="backup_password_not_set">⚠ Contraseña no establecida.</string>
 </resources>
