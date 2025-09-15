@@ -1,0 +1,27 @@
+This is a fork of the Syncthing-Android wrapper for Syncthing that brings major enhancements like:
+* Folder, device and overall sync progress can easily be read off the UI.
+* "Sync every hour" to save even more battery
+* Individual sync conditions can be applied per device and per folder
+* Recent changes UI, click to open files.
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* UI explains why syncthing is running or not.
+* "Battery eater" problem is fixed.
+* Discover other Syncthing devices on the same network and easily add them.
+* Supports two-way synchronization on external SD card since Android 11.
+
+Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+
+Please seek help on the forum and/or social media apps first before creating issues on the tracker. Please keep in mind that Syncthing-Fork was born as a personal interest to help family and friends use Syncthing on Android. It was not targeted at the currently more than 100.000 users even though the results are shared with you and the community. Thank you.
+
+Website: https://github.com/Catfriend1/syncthing-android
+
+Source code: https://github.com/Catfriend1/syncthing-android
+
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
+
+Issues: https://github.com/Catfriend1/syncthing-android/issues
+
+Please help with the
+Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
