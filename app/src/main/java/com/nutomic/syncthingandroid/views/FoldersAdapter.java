@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat;
 
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.model.CachedFolderStatus;
+import com.nutomic.syncthingandroid.model.DisplayableFolder;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.model.FolderStatus;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -32,9 +33,9 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 /**
- * Generates item views for folder items.
+ * Generates item views for folder items (both accepted and pending).
  */
-public class FoldersAdapter extends ArrayAdapter<Folder> {
+public class FoldersAdapter extends ArrayAdapter<DisplayableFolder> {
 
     // private static final String TAG = "FoldersAdapter";
 
@@ -93,9 +94,41 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Folder folder = getItem(position);
+        DisplayableFolder displayableFolder = getItem(position);
+        
+        if (displayableFolder.isPending()) {
+            // For pending folders, show minimal information with greyed out styling
+            holder.label.setText(displayableFolder.getDisplayLabel());
+            holder.directory.setText(mContext.getString(R.string.folder_pending));
+            holder.label.setTextColor(ContextCompat.getColor(mContext, R.color.light_grey));
+            holder.directory.setTextColor(ContextCompat.getColor(mContext, R.color.light_grey));
+            
+            // Hide interactive elements for pending folders
+            holder.override.setVisibility(GONE);
+            holder.revert.setVisibility(GONE);
+            holder.openFolder.setVisibility(GONE);
+            holder.progressBar.setVisibility(GONE);
+            holder.state.setVisibility(VISIBLE);
+            holder.state.setText(R.string.folder_pending);
+            holder.state.setTextColor(ContextCompat.getColor(mContext, R.color.light_grey));
+            
+            // Hide other status elements
+            holder.invalid.setVisibility(GONE);
+            holder.items.setVisibility(GONE);
+            holder.conflicts.setVisibility(GONE);
+            holder.lastItemFinishedItem.setVisibility(GONE);
+            holder.lastItemFinishedTime.setVisibility(GONE);
+            
+            convertView.setEnabled(false);
+            return convertView;
+        }
+        
+        // For accepted folders, use existing logic
+        Folder folder = displayableFolder.getAcceptedFolder();
         holder.label.setText(TextUtils.isEmpty(folder.label) ? folder.id : folder.label);
         holder.directory.setText(getShortPathForUI(folder.path));
+        holder.label.setTextColor(ContextCompat.getColor(mContext, android.R.color.primary_text_light));
+        holder.directory.setTextColor(ContextCompat.getColor(mContext, android.R.color.secondary_text_light));
         holder.override.setOnClickListener(view -> { onClickOverride(view, folder); });
         holder.revert.setOnClickListener(view -> { onClickRevert(view, folder); });
         holder.openFolder.setOnClickListener(view -> { FileUtils.openFolder(mContext, folder.path); });
