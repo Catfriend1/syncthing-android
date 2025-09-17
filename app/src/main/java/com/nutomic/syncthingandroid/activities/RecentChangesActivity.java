@@ -38,7 +38,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-import javax.inject.Inject;
 
 import static com.nutomic.syncthingandroid.service.Constants.ENABLE_TEST_DATA;
 
@@ -61,12 +60,12 @@ public class RecentChangesActivity extends SyncthingActivity
     private RecyclerView.LayoutManager mLayoutManager;
     private SyncthingService.State mServiceState = SyncthingService.State.INIT;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         setContentView(R.layout.activity_recent_changes);
         mRecyclerView = findViewById(R.id.changes_recycler_view);

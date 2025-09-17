@@ -53,7 +53,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.inject.Inject;
 
 public class FirstStartActivity extends ThemedAppCompatActivity {
 
@@ -95,7 +94,6 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
     private Button mBackButton;
     private Button mNextButton;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private Boolean mRunningOnTV = false;
@@ -108,7 +106,7 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
 
         mRunningOnTV = Util.isRunningOnTV(this);
         Log.d(TAG, mRunningOnTV ? "Running on a TV Device" : "Running on a non-TV Device");

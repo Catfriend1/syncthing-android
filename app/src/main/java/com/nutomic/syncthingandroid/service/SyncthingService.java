@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
+import com.nutomic.syncthingandroid.ServiceLocator;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
 import com.nutomic.syncthingandroid.model.Device;
@@ -37,7 +38,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.inject.Inject;
 
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -211,10 +211,8 @@ public class SyncthingService extends Service {
     private @Nullable
     SyncthingRunnable mSyncthingRunnable = null;
 
-    @Inject
     NotificationHandler mNotificationHandler;
 
-    @Inject
     SharedPreferences mPreferences;
 
     /**
@@ -238,7 +236,7 @@ public class SyncthingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        ((SyncthingApp) getApplication()).component().inject(this);
+        ServiceLocator serviceLocator = ((SyncthingApp) getApplication()).getServiceLocator(); mPreferences = serviceLocator.getSharedPreferences(); mNotificationHandler = serviceLocator.getNotificationHandler();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
         LogV("onCreate");
         mConfigRouter = new ConfigRouter(SyncthingService.this);

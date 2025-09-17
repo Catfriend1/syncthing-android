@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.aboutLibraries)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
 }
 
 dependencies {
@@ -17,7 +16,6 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.constraintlayout)
     implementation(libs.core.ktx)
-    implementation(libs.dagger)
     implementation(libs.documentfile)
     implementation(libs.fragment.ktx)
     implementation(libs.gson)
@@ -32,7 +30,6 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.zxing.android.embedded) { isTransitive = false }
     implementation(libs.zxing.core)
-    ksp(libs.dagger.compiler)
 }
 
 android {

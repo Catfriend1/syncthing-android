@@ -32,7 +32,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.inject.Inject;
 
 /**
  * Displays a list of all existing devices.
@@ -46,7 +45,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
 
     private ConfigRouter mConfigRouter = null;
 
-    @Inject SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     /**
      * Compares devices by name, uses the device ID as fallback if the name is empty
@@ -73,7 +72,7 @@ public class DeviceListFragment extends ListFragment implements SyncthingService
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getActivity().getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getActivity().getApplication()).getServiceLocator().getSharedPreferences();
         ENABLE_VERBOSE_LOG = AppPrefs.getPrefVerboseLog(mPreferences);
     }
 

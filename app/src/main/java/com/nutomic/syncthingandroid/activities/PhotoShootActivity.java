@@ -36,7 +36,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.inject.Inject;
 
 public class PhotoShootActivity extends ThemedAppCompatActivity {
 
@@ -52,13 +51,12 @@ public class PhotoShootActivity extends ThemedAppCompatActivity {
 
     private Uri lastPhotoURI = null;
 
-    @Inject
     SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
 
         // Check if required camera hardware is present.
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {

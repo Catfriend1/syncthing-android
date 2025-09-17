@@ -60,7 +60,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
 
 import static android.text.TextUtils.isEmpty;
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
@@ -122,7 +121,6 @@ public class DeviceActivity extends SyncthingActivity {
     private ViewGroup mFoldersContainer;
     private TextView mSyncthingVersionView;
 
-    @Inject
     SharedPreferences mPreferences;
 
     private boolean mIsCreateMode;
@@ -251,7 +249,7 @@ public class DeviceActivity extends SyncthingActivity {
         mConfig = new ConfigRouter(DeviceActivity.this);
 
         super.onCreate(savedInstanceState);
-        ((SyncthingApp) getApplication()).component().inject(this);
+        mPreferences = ((SyncthingApp) getApplication()).getServiceLocator().getSharedPreferences();
         setContentView(R.layout.activity_device);
 
         mIsCreateMode = getIntent().getBooleanExtra(EXTRA_IS_CREATE, false);
