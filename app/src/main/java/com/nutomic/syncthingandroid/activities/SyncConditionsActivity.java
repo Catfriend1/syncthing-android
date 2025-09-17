@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.appcompat.widget.SwitchCompat;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -49,11 +49,11 @@ public class SyncConditionsActivity extends SyncthingActivity {
             ".activities.SyncConditionsActivity.OBJECT_READABLE_NAME";
 
     // UI elements
-    private SwitchCompat mSyncOnWifi;
-    private SwitchCompat mSyncOnWhitelistedWifi;
+    private MaterialSwitch mSyncOnWifi;
+    private MaterialSwitch mSyncOnWhitelistedWifi;
     private ViewGroup mWifiSsidContainer;
-    private SwitchCompat mSyncOnMeteredWifi;
-    private SwitchCompat mSyncOnMobileData;
+    private MaterialSwitch mSyncOnMeteredWifi;
+    private MaterialSwitch mSyncOnMobileData;
     private AppCompatSpinner mSyncOnPowerSource;
 
     /**
@@ -190,7 +190,7 @@ public class SyncConditionsActivity extends SyncthingActivity {
                 // Strip quotes and add WiFi Ssid to view.
                 LayoutInflater layoutInflater = getLayoutInflater();
                 layoutInflater.inflate(R.layout.item_wifi_ssid_form, mWifiSsidContainer);
-                SwitchCompat wifiSsidView = (SwitchCompat) mWifiSsidContainer.getChildAt(mWifiSsidContainer.getChildCount()-1);
+                MaterialSwitch wifiSsidView = (MaterialSwitch) mWifiSsidContainer.getChildAt(mWifiSsidContainer.getChildCount()-1);
                 wifiSsidView.setOnCheckedChangeListener(null);
                 wifiSsidView.setChecked(selectedWhitelistedSsid.contains(wifiSsid));
                 wifiSsidView.setEnabled(mSyncOnWifi.isChecked() && mSyncOnWhitelistedWifi.isChecked());
@@ -258,8 +258,8 @@ public class SyncConditionsActivity extends SyncthingActivity {
             if (mSyncOnWhitelistedWifi.isChecked()) {
                 for (int i = 0; i < mWifiSsidContainer.getChildCount(); i++) {
                     View view = mWifiSsidContainer.getChildAt(i);
-                    if (view instanceof SwitchCompat) {
-                        SwitchCompat wifiSsidSwitch = (SwitchCompat) view;
+                    if (view instanceof MaterialSwitch) {
+                        MaterialSwitch wifiSsidSwitch = (MaterialSwitch) view;
                         if (wifiSsidSwitch.isChecked()) {
                             selectedWhitelistedSsid.add((String) wifiSsidSwitch.getTag());
                             // Log.v(TAG, "onPause: +Ssid [" + (String) wifiSsidSwitch.getTag() + "]");

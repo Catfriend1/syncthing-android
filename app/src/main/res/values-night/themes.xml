@@ -2,16 +2,18 @@
 <resources>
 
     <!-- Button themes -->
-    <style name="Theme.Syncthing.GreyButton" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="Theme.Syncthing.GreyButton" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">@color/btn_welcome_slide_color</item>
+        <item name="backgroundTint">@color/btn_welcome_slide_background</item>
+        <item name="strokeColor">@color/btn_welcome_slide_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <!-- Dialog themes -->
     <eat-comment/>
 
-    <style name="Theme.Syncthing.Dialog" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/light_blue</item>
-        <item name="android:windowBackground">@color/blue_grey</item>
-        <item name="android:textColor">?attr/colorControlNormal</item>
+    <style name="Theme.Syncthing.Dialog" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="colorPrimary">@color/primary_dark</item>
     </style>
 </resources>

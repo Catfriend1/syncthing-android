@@ -2,16 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="?dialogPreferredPadding"
-    style="@style/Theme.Syncthing.Dialog">
+    android:padding="24dp">
 
 
     <Spinner
         android:id="@+id/pullOrderTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/pull_order_types"
-        style="@style/Widget.AppCompat.Spinner.Underlined" />
+        android:entries="@array/pull_order_types" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,12 +22,11 @@
 
             <Button
                 android:id="@+id/finish_btn"
-                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="end"
-                android:text="@string/finish"
-                android:textColor="?attr/colorControlNormal" />
+                android:text="@string/finish" />
 
         </LinearLayout>
     </ScrollView>

@@ -10,7 +10,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/command"
         android:textAlignment="center"
-        android:textColor="?attr/colorControlNormal"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="18sp"
         android:textStyle="bold" />
 

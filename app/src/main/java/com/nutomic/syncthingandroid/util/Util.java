@@ -13,9 +13,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.base.Charsets;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.service.Constants;
@@ -536,5 +538,13 @@ public class Util {
             return new String[]{};
         }
         return output.split("\\n");
+    }
+
+    /**
+     * Returns a MaterialAlertDialogBuilder with proper Material 3 styling.
+     * This ensures consistent dialog appearance across the app.
+     */
+    public static AlertDialog.Builder getAlertDialogBuilder(Context context) {
+        return new MaterialAlertDialogBuilder(context);
     }
 }

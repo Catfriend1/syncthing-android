@@ -30,7 +30,7 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
@@ -112,11 +112,11 @@ public class DeviceActivity extends SyncthingActivity {
     private TextView mCurrentAddressView;
     private View mCompressionContainer;
     private TextView mCompressionValueView;
-    private SwitchCompat mIntroducerView;
-    private SwitchCompat mAutoAcceptFolders;
-    private SwitchCompat mDevicePaused;
-    private SwitchCompat mDeviceUntrusted;
-    private SwitchCompat mCustomSyncConditionsSwitch;
+    private MaterialSwitch mIntroducerView;
+    private MaterialSwitch mAutoAcceptFolders;
+    private MaterialSwitch mDevicePaused;
+    private MaterialSwitch mDeviceUntrusted;
+    private MaterialSwitch mCustomSyncConditionsSwitch;
     private TextView mCustomSyncConditionsDescription;
     private TextView mCustomSyncConditionsDialog;
     private ViewGroup mFoldersContainer;
@@ -209,7 +209,7 @@ public class DeviceActivity extends SyncthingActivity {
                 // Loop through folders the device is shared to and show/hide encryptionPassword UI.
                 for (int i = 0; i < mFoldersContainer.getChildCount(); i++) {
                     LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(i);
-                    SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+                    MaterialSwitch switchView = (MaterialSwitch) folderView.getChildAt(0);
                     if (folder == ((Folder) switchView.getTag())) {
                         EditText encryptPassView = (EditText) folderView.getChildAt(1);
                         encryptPassView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
@@ -586,7 +586,7 @@ public class DeviceActivity extends SyncthingActivity {
 
         inflater.inflate(R.layout.item_folder_form, mFoldersContainer);
         LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(mFoldersContainer.getChildCount()-1);
-        SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+        MaterialSwitch switchView = (MaterialSwitch) folderView.getChildAt(0);
         switchView.setOnCheckedChangeListener(null);
         switchView.setChecked(folderSharedWithDevice);
         switchView.setText(folder.toString());
@@ -632,7 +632,7 @@ public class DeviceActivity extends SyncthingActivity {
                 continue;
             }
             LinearLayout folderView = (LinearLayout) mFoldersContainer.getChildAt(i);
-            SwitchCompat switchView = (SwitchCompat) folderView.getChildAt(0);
+            MaterialSwitch switchView = (MaterialSwitch) folderView.getChildAt(0);
             Boolean folderSharedWithDevice = switchView.isChecked();
             Folder folder = (Folder) switchView.getTag();
             if (folder == null) {

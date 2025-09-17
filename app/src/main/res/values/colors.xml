@@ -57,4 +57,11 @@
     <!-- MainActivity start -->
     <color name="bottom_navigation_bar">#1d57a1</color>
     <!-- MainActivity end -->
+
+    <!-- Tab indicator color -->
+    <color name="tab_indicator_color">#FFFFFF</color> <!-- White for both modes -->
+
+    <!-- Button colors for light mode -->
+    <color name="btn_welcome_slide_background">#F5F5F5</color> <!-- Light grey background -->
+    <color name="btn_welcome_slide_stroke">#BDBDBD</color> <!-- Medium grey border -->
 </resources>
