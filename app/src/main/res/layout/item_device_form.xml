@@ -1,28 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.SwitchCompat
-        xmlns:tools="http://schemas.android.com/tools"
-        style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
-        android:id="@+id/device_toggle"
+    <!-- Device container with visual grouping -->
+    <LinearLayout
+        android:id="@+id/device_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/material_divider_inset"
-        android:layout_marginStart="@dimen/material_divider_inset"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        tools:ignore="RtlHardcoded,RtlSymmetry" />
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:padding="12dp"
+        android:background="@drawable/device_container_background"
+        android:elevation="2dp">
 
-    <EditText
-        style="@style/Widget.Syncthing.TextView.Label.Details.Field"
-        android:id="@+id/device_encryptionPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:hint="@string/deviceEncryptionPasswordHint"
-        android:inputType="textPassword|textNoSuggestions"
-        android:importantForAutofill="no" />
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/Widget.Syncthing.TextView.Label.Details.DeviceList"
+            android:id="@+id/device_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        <!-- Trust status label with eye icon for password reveal -->
+        <LinearLayout
+            android:id="@+id/trust_status_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?selectableItemBackground"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:id="@+id/trust_status_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="?android:textColorSecondary"
+                android:layout_gravity="center_vertical" />
+
+            <ImageButton
+                android:id="@+id/password_visibility_toggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:contentDescription="@string/toggle_password_visibility"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_visibility_off_24dp" />
+
+        </LinearLayout>
+
+        <!-- Encryption password field with better layout -->
+        <LinearLayout
+            android:id="@+id/password_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone">
+
+            <EditText
+                style="@style/Widget.Syncthing.TextView.Label.Details.Field"
+                android:id="@+id/device_encryptionPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:hint="@string/deviceEncryptionPasswordHint"
+                android:inputType="textPassword|textNoSuggestions"
+                android:importantForAutofill="no" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
