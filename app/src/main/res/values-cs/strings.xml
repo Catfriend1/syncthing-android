@@ -685,4 +685,9 @@
     <string name="important_news_action_open">Otevřít ve prohlížeči</string>
     <string name="important_news_action_remind">Upozornit mě později</string>
     <string name="important_news_action_no_remind">Zatím odložit</string>
+    <string name="backup_password_set_masked">✅ Nasatvení hesla - Klepnutím změnit</string>
+    <string name="toggle_password_visibility">Zobrazit/skrýt heslo</string>
+    <string name="important_news_title">Důležité novinky - Je vyžádována akce</string>
+    <string name="important_news_description">Přečtěte si naše oznámení o tom, jak pokračovat v hladkém používání aplikace na %1$s</string>
+    <string name="important_news_action_view_options">ZOBRAZIT MOŽNOSTI</string>
 </resources>
