@@ -23,7 +23,7 @@ If that didn't solve the problem, you could try this workaround:
   - Android settings -> Developer Options -> Enable USB Debugging
 - Computer
   - Install ADB
-  - Open command line
+  - Open command line to completely uninstall the app
 ```
 adb uninstall com.github.catfriend1.syncthingandroid
 adb uninstall com.github.catfriend1.syncthingandroid.debug
