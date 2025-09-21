@@ -11,7 +11,7 @@ Syncthing-Fork "Wrapper for Syncthing" has these release channels:
 <b>2. GitHub debug build</b>
 
 * Only published on GitHub
-* Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions) and artifacts.
+* Can be obtained by looking at the [action workflow builds](https://github.com/Catfriend1/syncthing-android/actions/workflows/build-app.yaml?query=branch%3Amain+is%3Asuccess) and artifacts.
 * It's for maintainers and contributors who require a second installation of the app on their phone for testing purposes.
 * File name is like: com.github.catfriend1.syncthingfork_debug_v2.0.8.0_1234567.apk
 * TRUSTED builds from this repository owners:
