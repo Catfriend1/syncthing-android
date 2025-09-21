@@ -13,3 +13,23 @@ Workaround:
 - Android settings -> Apps -> Syncthing-Fork -> Uninstall, do NOT keep data when Android asks (this refers to the app's config, not your synced folders)
 - Install latest release
 - Open the Syncthing-Fork menu -> Import & Export -> Import config
+
+If that didn't solve the problem, you could try this workaround:
+- Open the Syncthing-Fork menu -> Import & Export -> Export config
+- Open the Syncthing-Fork menu -> Exit
+- Connect your phone to a computer
+- Phone
+  - Android settings -> Enable Developer Options
+  - Android settings -> Developer Options -> Enable USB Debugging
+- Computer
+  - Install ADB
+  - Open command line
+```
+adb uninstall com.github.catfriend1.syncthingandroid
+adb uninstall com.github.catfriend1.syncthingandroid.debug
+adb uninstall com.github.catfriend1.syncthingfork
+adb uninstall com.github.catfriend1.syncthingfork.debug
+```
+- Phone
+  - Install latest release
+  - Open the Syncthing-Fork menu -> Import & Export -> Import config
