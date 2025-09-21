@@ -4,3 +4,4 @@ Workaround:
 - Go to Settings > Troubleshooting > Environment variables
 - Enter the following content:
 > GOMAXPROCS=2
+- Exit and restart the app
