@@ -5,8 +5,8 @@ SyncthingNativeCode: [xxxxx] INFO: listenerSupervisor@dynamic+https://relays.syn
 
 Workaround:
 - Download the certificates from:
-- - https://letsencrypt.org/certs/isrgrootx1.pem
-- - https://letsencrypt.org/certs/isrg-root-x2.pem
+  - https://letsencrypt.org/certs/isrgrootx1.pem
+  - https://letsencrypt.org/certs/isrg-root-x2.pem
 
 - Copy the certificates to: /storage/emulated/0/certs
 - Go to Settings > Troubleshooting > Environment variables
