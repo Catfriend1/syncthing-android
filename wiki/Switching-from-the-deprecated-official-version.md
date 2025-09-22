@@ -36,4 +36,4 @@ Switching is easier than you may think!
 - Further advice
   - In the Syncthing-Fork settings, go to "Import & Export".
   - Set a password to protect future config exports.
-  - Tap "Export config" to export your config into a password encrypted `config.zip`.
+  - Tap "Export config" to export your config into a password protected `config.zip`.
