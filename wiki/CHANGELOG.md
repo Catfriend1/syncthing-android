@@ -132,7 +132,7 @@ What's Changed:
 * (Re-)Install app using the latest release
 * Complete the welcome slides
 * Slide out the menu > Import and Export > Import config
-If you run into problems, please check issue #1442.
+🤷‍♂️ Still problems? Find more help on the [wiki article](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Install-or-upgrade-failed-troubleshooting.md)
 
 ## What's Changed
 * Fixed INSTALL_FAILED_DUPLICATE_PERMISSION (#1443) by @Catfriend1
