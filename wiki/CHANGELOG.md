@@ -12,11 +12,11 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ## What's Changed
 ### Fixes
 * Fix crash referring to libsyncthingnative.so
-* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded (fixes #1504) by @Catfriend1 in #1515
+* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded by @Catfriend1 in #1515
 * Fix executorService crash while exiting the app is in progress by @Catfriend1 in #1516
 ### Other
 * Move wiki to repo folder /wiki, add actions builds for branches "accrescent" and "fdroid" by @Catfriend1 in #1508
-* F-Droid builds: Use correct go version from Dockerfile (fixes #1383) by @Catfriend1 in #1512
+* F-Droid builds: Use correct go version from Dockerfile by @Catfriend1 in #1512
 * Fix install_minimum_android_sdk_prerequisites.py by @Catfriend1 in #1513
 * model/Folder: maxConcurrentWrites = 0 by @Catfriend1 in #1511
 * Update SyncthingNative to v1.30.0 by @Catfriend1 in #1517
