@@ -655,7 +655,7 @@
     <string name="undo_ignored_devices_folders_done">Decisões desfeitas com sucesso.</string>
     <string name="backup_rel_path_to_zip">Caminho relativo ao arquivo de configuração</string>
     <string name="backup_password_title">Senha de proteção da configuração</string>
-    <string name="backup_password_summary">ℹ️ Recomendado:\nDigite uma senha forte usada para criptografar sua configuração durante o exporte, e descriptografar durante o importe. Mantenha esta senha em um lugar seguro para o processo de recuperação. Você precisará dela para o recurso de importe.\n\n⚠️ Não recomendado:\nNão usar uma senha, outros apps podem ler e manipular sua configuração do Syncthing. Expor a configuração leva com si o risco de uma pessoa mal-intencionada conseguir acesso desautorizado aos seus arquivos usando exportes de configurações furtados.</string>
+    <string name="backup_password_summary">ℹ️ Recomendado:\nDigite uma senha forte usada para criptografar sua configuração durante a exportação, e descriptografar durante a importação. Mantenha esta senha em um lugar seguro para o processo de recuperação. Você precisará dela para o recurso de importação.\n\n⚠️ Não recomendado:\nNão usar uma senha, outros apps podem ler e manipular sua configuração do Syncthing. Expor a configuração leva com si o risco de uma pessoa mal-intencionada conseguir acesso desautorizado aos seus arquivos usando exportações de configurações furtados.</string>
     <string name="backup_password_set">✅ Senha configurada: %1$s</string>
     <string name="backup_password_not_set">⚠ Senha não configurada.</string>
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Número de porta não válido. Por favor, digite uma porta entre %1$d e %2$d.</string>
@@ -665,9 +665,9 @@
     <string name="preference_category_actions">Ações</string>
     <string name="preference_category_explanation">Explicação</string>
     <string name="preference_category_prepare">Preparar</string>
-    <string name="config_export_successful_no_path">A configuração foi exportada. Por favor, certifique-se de lembrar da senha para um importe futuro.</string>
-    <string name="config_export_failed">Falha no exporte da configuração. Vá até Configurações -&gt; Resolução de problemas -&gt; Abrir registros, para ver detalhes.</string>
-    <string name="config_import_failed_no_path">Falha no importe da configuração. Vá até Configurações -&gt; Resolução de problemas -&gt; Abrir registros, para ver os detalhes.</string>
+    <string name="config_export_successful_no_path">A configuração foi exportada. Por favor, certifique-se de lembrar da senha para importar futuramente.</string>
+    <string name="config_export_failed">Falha na exportação da configuração. Vá até Configurações -&gt; Resolução de problemas -&gt; Abrir registros, para ver detalhes.</string>
+    <string name="config_import_failed_no_path">Falha ao importar a configuração. Vá até Configurações -&gt; Resolução de problemas -&gt; Abrir registros, para ver os detalhes.</string>
     <string name="st_reset_database_question">Esta ação só deve ser feita ao receber uma recomendação da nossa equipe de suporte.\nVocê tem certeza que quer limpar o banco de dados do Syncthing?</string>
     <string name="st_reset_deltas_question">Esta ação só pode ser feita se recomendada pela nossa equipe de suporte.\nVocê tem certeza que quer limpar os índices delta do Syncthing?</string>
     <string name="st_reset_deltas_done">Índices delta do Syncthing redefinidos com sucesso</string>
