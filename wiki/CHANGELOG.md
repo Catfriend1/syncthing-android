@@ -1,3 +1,10 @@
+## Syncthing-Fork v1.30.0.3 (2025-08-07)
+
+## What's Changed
+* Fixed UI crash if index sequence number for a folder exceeds a limit. This affected a minority of users, especially Syncthing-Lite users. But if it happened, users were unable to export config and could no longer open the app.
+
+---
+
 ## Syncthing-Fork v1.30.0.2 F-Droid (2025-07-16)
 
 Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. Released due to a change in the fdroid build process which allows us to build future releases off the release branch instead of using the separate fdroid branch. You can, but do not have to update if you already got v1.30.0.1-fdroid installed.
@@ -12,11 +19,11 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ## What's Changed
 ### Fixes
 * Fix crash referring to libsyncthingnative.so
-* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded (fixes #1504) by @Catfriend1 in #1515
+* Fix duplicate .nomedia and DO_NOT_DELETE.txt files created if folder is readded by @Catfriend1 in #1515
 * Fix executorService crash while exiting the app is in progress by @Catfriend1 in #1516
 ### Other
 * Move wiki to repo folder /wiki, add actions builds for branches "accrescent" and "fdroid" by @Catfriend1 in #1508
-* F-Droid builds: Use correct go version from Dockerfile (fixes #1383) by @Catfriend1 in #1512
+* F-Droid builds: Use correct go version from Dockerfile by @Catfriend1 in #1512
 * Fix install_minimum_android_sdk_prerequisites.py by @Catfriend1 in #1513
 * model/Folder: maxConcurrentWrites = 0 by @Catfriend1 in #1511
 * Update SyncthingNative to v1.30.0 by @Catfriend1 in #1517
@@ -132,7 +139,8 @@ What's Changed:
 * (Re-)Install app using the latest release
 * Complete the welcome slides
 * Slide out the menu > Import and Export > Import config
-If you run into problems, please check issue #1442.
+
+🤷‍♂️ Still problems? Find more help on the [wiki article](https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Install-or-upgrade-failed-troubleshooting.md)
 
 ## What's Changed
 * Fixed INSTALL_FAILED_DUPLICATE_PERMISSION (#1443) by @Catfriend1

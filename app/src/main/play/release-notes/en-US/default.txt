@@ -1,3 +1,5 @@
 🚀 Syncthing-Fork v2 has arrived on F-Droid and GitHub 🎉.
 ⚡Please read https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Important-News.md for instructions to do the upgrade. If you already have v2.0.7.0 or higher installed, no extra steps are needed.
 ⚡Please read https://github.com/syncthing/syncthing/releases/tag/v2.0.9 to see details on the v2 milestone.
+
+This version supports v1 config import from the deprecated Syncthing official app, please see wiki.

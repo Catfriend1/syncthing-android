@@ -983,8 +983,8 @@ public class SyncthingService extends Service {
 
             // Test if supplied encryption password is correct.
             String cacheDir = this.getCacheDir().getAbsolutePath();
-            zipFile.extractFile(Constants.SHARED_PREFS_FILE, cacheDir);
-            new File(cacheDir, Constants.SHARED_PREFS_FILE).delete();
+            zipFile.extractFile(Constants.PUBLIC_KEY_FILE, cacheDir);
+            new File(cacheDir, Constants.PUBLIC_KEY_FILE).delete();
         } catch (ZipException e) {
             Log.e(TAG, "importConfig: Failed to open zip, " + e.getMessage());
             return false;
