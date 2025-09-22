@@ -8,22 +8,20 @@
     <!-- Welcome wizard -->
     <!-- Slide "Introduction" -->
     <string name="introduction">Introducción</string>
-    <string name="welcome_text">Syncthing es una aplicación de sincronización de archivos de código abierto. Para compartir datos con otros dispositivos, es necesario añadir sus ID único de dispositivo a la lista de dispositivos. Después puede seleccionar qué carpetas compartir con qué dispositivos.
-\n
-\nPor favor, reporte cualquier problema que encuentre mediante GitHub.</string>
+    <string name="welcome_text">Syncthing es una aplicación de sincronización de archivos de código abierto. Para compartir datos con otros dispositivos, es necesario añadir sus IDs de dispositivo únicos a la lista de dispositivos. Después puedes seleccionar qué carpetas compartir y con qué dispositivos.\n\nPor favor, reporta cualquier problema mediante GitHub.</string>
     <!-- Slide "Storage Permission" -->
     <string name="storage_permission_title">Permiso de Almacenamiento</string>
-    <string name="storage_permission_desc">Syncthing necesita acceder a su almacenamiento para realizar la sincronización de archivos.</string>
+    <string name="storage_permission_desc">Syncthing necesita acceso al almacenamiento para realizar la sincronización de archivos.</string>
     <string name="dialog_all_files_access_not_supported">Su dispositivo no soporta el acceso a todos los archivos</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimización de batería</string>
     <string name="ignore_doze_permission_os_notice">Es conocido que los Android TV ocasionalmente detienen la aplicación cuando se ejecuta en segundo plano. Hay una solución disponible en la wiki en \'%1$s/%2$s\'.</string>
-    <string name="ignore_doze_permission_desc">Puede que Android detenga la sincronización después de algún tiempo. Para evitarlo, desactive la optimización de la batería. Algunos dispositivos tienen preinstaladas aplicaciones adicionales que eliminan tareas. En tal caso debe añadir Syncthing a su lista blanca.</string>
+    <string name="ignore_doze_permission_desc">Puede que Android detenga la sincronización después de algún tiempo. Para evitarlo, desactiva la optimización de la batería. Algunos dispositivos tienen preinstaladas aplicaciones adicionales que eliminan tareas. En tal caso debes añadir Syncthing a la lista blanca.</string>
     <string name="toast_ignore_doze_permission_required">Esta aplicación sólo funciona de forma satisfactoria si está exenta del modo de ahorro de energía \"descanso\".</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Su dispositivo no soporta la desactivación de la optimización de batería</string>
     <!-- Slide "Location Permission" -->
     <string name="location_permission_title">Permiso de Ubicación</string>
-    <string name="location_permission_desc">Syncthing puede ser configurado para funcionar en redes Wifi específicas. Android requiere que la aplicación tenga el permiso de ubicación para leer el nombre de la red Wifi activa. Si desea utilizar esta función, pulse el botón de arriba. Puede omitir este paso. Consulte nuestra política de privacidad para más detalles.</string>
+    <string name="location_permission_desc">Syncthing puede ser configurado para funcionar en redes Wifi específicas. Android requiere que la aplicación tenga el permiso de ubicación para leer el nombre de la red Wifi activa. Si deseas usar esta función, pulsa el botón de arriba. Puedes omitir este paso. Consulta nuestra política de privacidad para más detalles.</string>
     <string name="location_permission_desc_api_29">Consejo para Android 10+: \"Permitir todo el tiempo\"</string>
     <!-- Slide "Key Generation" -->
     <string name="key_generation_title">Generación de Claves</string>
@@ -35,7 +33,7 @@
     <string name="generic_example">Ejemplo</string>
     <string name="generic_error">Error</string>
     <string name="generic_help">Ayuda</string>
-    <string name="grant_permission">Otorgar permiso</string>
+    <string name="grant_permission">Dar permiso</string>
     <string name="permission_granted">Permiso requerido</string>
     <string name="reason">Razón:</string>
     <string name="accept">Aceptar</string>
@@ -98,7 +96,7 @@
         <item quantity="many">%1$d/%2$d Archivos</item>
         <item quantity="other">%1$d/%2$d Archivos</item>
     </plurals>
-    <string name="override_changes">Sobrescribir cambios</string>
+    <string name="override_changes">Anular cambios</string>
     <!-- Override Changes Confirmation Dialog -->
     <string name="override_changes_question">Esto deshará todos los cambios realizados en los otros dispositivos que comparten esta carpeta. ¿Proceder\?</string>
     <string name="revert_local_changes">Revertir cambios locales</string>
@@ -176,7 +174,7 @@
     <string name="directory">Directorio</string>
     <string name="advanced_directory_selection">Selección Avanzada de Directorios</string>
     <!-- Setting title and description -->
-    <string name="folder_fileWatcher">Vigila los cambios</string>
+    <string name="folder_fileWatcher">Monitorear los cambios</string>
     <string name="folder_fileWatcherDescription">Le pide al sistema operativo notificar los cambios en los archivos. Si se desactiva, regresa a los escaneos periódicos por hora.</string>
     <!-- Setting title and description -->
     <string name="folder_ignore_delete_caption">Ignorar la Eliminación</string>
@@ -402,7 +400,7 @@
     <string name="webui_remote_access_summary">Especifique si desea permitir el acceso a la interfaz web desde otro dispositivo. Si está habilitado, podrá iniciar sesión con el usuario \"syncthing\" y usando la clave de la API como contraseña. Por defecto: desactivado (más seguro)</string>
     <string name="download_support_bundle_title">Descargar Paquete de Soporte</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Preparando descarga de Paquete de Soporte</string>
+    <string name="download_support_bundle_in_progress">Preparando descarga de Paquete de Soporte …</string>
     <!-- Toast after successful download of the support bundle -->
     <string name="download_support_bundle_succeeded">Paquete de Soporte exitosamente descargado en %s.</string>
     <!-- Toast after failed support bundle download -->
@@ -418,7 +416,7 @@
     <string name="invalid_integer_value" tools:ignore="PluralsCandidate">Valor inválido ingresado. Por favor ingrese un valor entre %1$d y %2$d.</string>
     <!-- Experimental options -->
     <string name="use_proxy">Conectar a través de un proxy</string>
-    <string name="do_not_use_proxy">No hay ningún proxy configurado</string>
+    <string name="do_not_use_proxy">No hay ningún proxy configurado.</string>
     <string name="keep_wakelock_while_binary_running">Mantener la CPU activa mientras se ejecuta Syncthing</string>
     <string name="keep_wakelock_while_binary_running_summary">Sólo para Android 5 o inferior. Utilice este ajuste si experimenta desconexiones inesperadas al operar con la batería. Esto provocará un mayor consumo de batería.</string>
     <string name="use_tor_title">Usar Tor</string>
@@ -432,11 +430,11 @@
     <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
     <string name="broadcast_service_control_summary">Por defecto: Desactivado. Habilite esta opción para permitir a adb o a otras aplicaciones, por ej. aplicaciones de automatización comandar a Syncthing para seguir condiciones, forzar su arranque o su parada.</string>
     <!-- Dialog shown before config export -->
-    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Se sobreescribirán los ficheros existentes. \n \n¡ADVERTENCIA! Otras aplicaciones podrían leer la clave privada localizada en la ubicación de la copia y usarla para descargar/modificar ficheros sincronizados.</string>
+    <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Los ficheros existentes serán sobreescritos.</string>
     <!-- Dialog shown before config import -->
-    <string name="dialog_confirm_import">¿Realmente deseas importar una nueva configuración? Se sobrescribirán los archivos existentes.</string>
+    <string name="dialog_confirm_import">¿Realmente deseas importar una configuración? La configuración existente, incluida la lista de carpetas y dispositivos compartidos, será reemplazada.</string>
     <!-- Toast shown after config was exported -->
-    <string name="config_export_failed">Exportación de configuración fallida, compruebe la salida de logcat.</string>
+    <string name="config_export_failed">Exportación fallida. Ve a Ajustes → Solución de problemas → Abrir registro, para ver los detalles.</string>
     <string name="import_config">Importar configuración</string>
     <!-- Toast shown after config was imported -->
     <string name="config_imported_successful">Configuración importada</string>
@@ -541,7 +539,7 @@
         <item quantity="other">%1$d archivos copiados en la carpeta \"%2$s\"</item>
     </plurals>
     <!-- Copy exception toast -->
-    <string name="copy_exception">Se ha producido un error durante la compartición, revisa los registros</string>
+    <string name="copy_exception">Se ha producido un error al compartir, revisa los registros</string>
     <!-- Copy progress dialog text -->
     <string name="copy_progress">Compartir archivos…</string>
     <plurals name="file_name_title">
@@ -689,7 +687,7 @@
     <string name="pull_order_type_oldestFirst">Más Antiguos Primero</string>
     <string name="pull_order_type_newestFirst">Más Nuevos Primero</string>
     <!-- Pull order dialog descriptions for pull order types -->
-    <string name="pull_order_type_random_description">Obtener los archivos de un modo aleatorio</string>
+    <string name="pull_order_type_random_description">Obtener archivos aleatoriamente.</string>
     <string name="pull_order_type_alphabetic_description">Obtener los archivos por orden alfabético según el nombre.</string>
     <string name="pull_order_type_smallestFirst_description">Obtener archivos por orden de tamaño. Más pequeños primero respectivamente.</string>
     <string name="pull_order_type_largestFirst_description">Obtener archivos por orden de tamaño. Más grandes respectivamente.</string>
@@ -769,13 +767,28 @@
     </plurals>
     <string name="syncthing_forum_summary">Entra en el foro de Syncthing y consigue ayuda</string>
     <string name="clear_stversions_summary">Los ficheros se mueven al directorio .stversions cuando son reemplazados o eliminados por Syncthing. Probablemente puedes encontrar ahí y recuperar archivos que hayan sido accidentalmente eliminados, pero las versiones anteriores de los ficheros ocupan espacio en tu dispositivo.</string>
-    <string name="privacy_summary">Abre la política de privacidad de syncthing-android, que cubre el uso (si acaso) de datos personales, por ej. localización.</string>
+    <string name="privacy_summary">Abre la política de privacidad de syncthing-android, que cubre el uso (si los hay) de datos personales, por ej. localización.</string>
     <string name="pizza_url_title">» A los gatos les encanta la pizza « 😺🍕</string>
-    <string name="folder_run_script_description">"Opción avanzada para ejecutar \"scripts\" tras detectar cambios  en su estado de sincronismo. Los \"scripts\" en \'.stfolder/*.sh\' serán procesados, no se soportan otras ubicaciones por razones de seguridad.\nUn ejemplo de \"script\": \'.stfolder/rename-files.sh sync_complete\'"</string>
+    <string name="folder_run_script_description">Opción avanzada para ejecutar \"scripts\" tras detectar cambios en su estado de sincronismo. Los \"scripts\" en \'.stfolder/*.sh\' serán procesados, no se soportan otras ubicaciones por razones de seguridad.\nUn ejemplo de \"script\": \'.stfolder/rename-files.sh sync_complete\'</string>
     <string name="backup_rel_path_to_zip">Ruta relativa al archivo de configuración</string>
     <string name="backup_password_title">Configurar contraseña de seguridad</string>
-    <string name="backup_password_summary">ℹ️ Recomendado:\n\nUsa una contraseña fuerte para el cifrado de tu configuración durante la exportación y el descifrado durante la importación. Guarda esta contraseña en un lugar seguro para el proceso de recuperación. La necesitarás para utilizar la función de importación.\n\n⚠️ No recomendado:\n\nNo usar una contraseña, otras aplicaciones podrían leer y manipular tu configuración de Syncthing. Exponer la configuración conlleva el riesgo de que un agente malicioso pueda ganar acceso no autorizado a tus archivos usando exportaciones de configuración robadas.</string>
+    <string name="backup_password_summary">ℹ️ Recomendado:\nUsa una contraseña fuerte para el cifrado de tu configuración durante la exportación y el descifrado durante la importación. Guarda esta contraseña en un lugar seguro para el proceso de recuperación. La necesitarás para utilizar la función de importación.\n\n⚠️ No recomendado:\nNo usar una contraseña, otras aplicaciones podrían leer y manipular tu configuración de Syncthing. Exponer la configuración conlleva el riesgo de que un agente malicioso pueda ganar acceso no autorizado a tus archivos usando exportaciones de configuración robadas.</string>
     <string name="backup_password_set">✅ Contraseña establecida: %1$s</string>
     <string name="backup_password_set_masked">✅ Contraseña establecida - Toca para cambiar</string>
     <string name="backup_password_not_set">⚠ Contraseña no establecida.</string>
+    <string name="toggle_password_visibility">Alternar visibilidad password</string>
+    <string name="preference_category_actions">Acciones</string>
+    <string name="preference_category_explanation">Explicación</string>
+    <string name="preference_category_prepare">Preparar</string>
+    <string name="config_export_successful_no_path">Configuración exportada. Asegúrate de recordar la contraseña para importarla más adelante.</string>
+    <string name="config_import_failed_no_path">Importación fallida. Ve a Ajustes → Solución de problemas → Abrir registro, para ver los detalles.</string>
+    <string name="pizza_url_summary">Con un solo toque puedes dejar una cálida porción de bondad aderezadas con extra de buenas vibraciones para mantener a los gatos ronroneando felices.</string>
+    <string name="share_log_file_missing">Falta el registro para compartir.</string>
+    <string name="share_log_file">Compartir registro</string>
+    <string name="important_news_title">Noticias importantes. Acción requerida</string>
+    <string name="important_news_description">Por favor, lee nuestro anuncio sobre cómo continuar tu experiencia fluida con la app en %1$s</string>
+    <string name="important_news_action_open">Abrir en Navegador</string>
+    <string name="important_news_action_remind">Recordar más tarde</string>
+    <string name="important_news_action_no_remind">Descartar por ahora</string>
+    <string name="important_news_action_view_options">VER OPCIONES</string>
 </resources>

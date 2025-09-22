@@ -1,13 +1,13 @@
 ### How can I access the config and key files?
 
-Use the import/export items in the app settings. This will use the folder `/storage/emulated/0/backups/syncthing/config.zip` for files.
+Use the import/export items in the app settings. This will use the folder `/storage/emulated/0/backups/syncthing/config.zip` to export.
 
 ### Persistent notification - required or optional?
-The persistent notification is necessary to run a so called foreground service to avoid the app being put asleep by Android and missing run condition changes or synchronization activity. See [#333](https://github.com/Catfriend1/syncthing-android/issues/333) and [#327](https://github.com/Catfriend1/syncthing-android/issues/327) for details. While some users reported a foreground service necessary since Android 8+ and others reported it's working without we are in the same mess here in-between differently behaving, manufacturer specific Android versions that we cannot ensure it working for all users when we would remove the persistent notification. That's why it's required and cannot be configured in Syncthing-Fork as we want the app to work out of the box for all users out there. Other popular apps, like Linphone and Telegram FOSS use the same technique to ensure not being interrupted by the Android OS.
+The persistent notification is necessary to run a so called foreground service to avoid the app being put asleep by Android and missing run condition changes or synchronization activity. While some users reported a foreground service necessary since Android 8+ and others reported it's working without we are in the same mess here in-between differently behaving, manufacturer specific Android versions that we cannot ensure it working for all users when we would remove the persistent notification. That's why it's required and cannot be configured in Syncthing-Fork as we want the app to work out of the box for all users out there. Other popular apps, like Linphone and Telegram FOSS use the same technique to ensure not being interrupted by the Android OS.
 
 ### What about SD card write access?
 
-See [SD card write access](SD-card-write-access) for instructions on how to properly use Syncthing with folders residing on external SD cards.
+See [SD card write access](SD-card-write-access.md) for instructions on how to properly use Syncthing with folders residing on external SD cards.
 
 ### Where are the logs?
 
