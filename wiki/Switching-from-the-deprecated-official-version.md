@@ -24,16 +24,22 @@ Switching is easier than you may think!
   - Complete the welcome slides.
   - In the Syncthing-Fork settings, go to "Import & Export".
     - Import the `config.zip` you created earlier.
+      - 🍀 Don't worry. You will get an error message, but the import worked. That's because some Syncthing-Fork specific stuff wasn't found during the import and doesn't hurt.
+    - 🔙 Hit "back" to go back to the "Import & Export" screen.
+    - 🗝️ Set a password to protect future config exports.
+    - Hit "Export config".
+    - Hit "Import config".
+    - 🔙 Hit "back" to go back to the app's main screen.
   - Like magic, everything should be as it was in Syncthing official.
     - You should see your shared folders and devices.
     - Confirm everything looks good.
 
 - Cleanup
   - Uninstall the official Syncthing app.
-  - Delete the old configuration export.
-    - e.g. `/storage/emulated/0/backups/syncthing/config.zip`
 
 - Further advice
-  - In the Syncthing-Fork settings, go to "Import & Export".
-  - Set a password to protect future config exports.
-  - Tap "Export config" to export your config into a password protected `config.zip`.
+  - 🐞 You won't be able to open Syncthing's web UI. Instead, you are presented a password prompt.
+    - In the Syncthing-Fork settings, go to "Syncthing options".
+    - Tap the "api key" entry to copy it to the clipboard.
+    - Tap the "web UI password" entry and paste the previously copied "api key" as the password.
+    - ✅ You have now manually fixed the problem and can enter the web UI again.
