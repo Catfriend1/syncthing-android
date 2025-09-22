@@ -1,34 +1,23 @@
-Esta es una bifurcación del wrapper para Syncthing, Syncthing-Android, que trae mejoras mayores como:
-* Las carpeta, los dispositivos y el proceso general de la sincronización puede ser fácilmente leídos desde la interfaz.
-* "Cámara Syncthing" - una función opcional (con permiso opcional de utilizar la cámara) con la cual puedes tomar fotos con tu amigo, pareja, ... desde dos teléfonos en una carpeta de Syncthing privada y compartida. Sin nube involucrada. -FUNCIÓN ACTUALMENTE EN FASE BETA -
-* "Sincronizar cada hora" para ahorrar más batería.
-* Se pueden aplicar condiciones de sincronización individuales para cada dispositivo y carpeta.
-* Cambios recientes a la interfaz, pulse para abrir los archivos.
-* Se pueden hacer cambios a la configuración de las carpetas y dispositivos independientemente de si Syncthing se está ejecutando o no.
-* Interfaz explica porque Syncthing se está ejecutando o no.
-* Se ha solucionado el problema de "drenaje de batería".
-* Descubre otros dispositivos Syncthing en la misma red y añádalos fácilmente.
-* Soporta la sincronización bidireccional con la tarjeta SD externa desde Android 11.
+Esto es un fork del wrapper Syncthing-Android para Syncthing que trae mejoras como:
+* Proceso general de sincronización, carpetas y dispositivos fácilmente legibles desde la interfaz.
+* "Sincronizar cada hora" para ahorrar aún más batería.
+* Condiciones individuales de sincronización para cada dispositivo y carpeta.
+* Cambios recientes en la interfaz: pulsar para abrir archivos.
+* Cambiar la configuración de las carpetas y dispositivos independientemente de si Syncthing se está ejecutando o no.
+* La interfaz explica porqué Syncthing se está ejecutando o no.
+* Problema de "drenaje de batería" solucionado.
+* Descubrir y añadir fácilmente otros dispositivos Syncthing en la misma red.
+* Soporte para la sincronización bidireccional con tarjeta SD externa desde Android 11.
 
-Syncthing-Fork para Android es un wrapper para Syncthing que provee una interfaz de Android en vez de la interfaz web integrada de Syncthing. Syncthing reemplaza la sincronización privativa y servicios de nube con algo abierto, confiable y descentralizado. Sus datos son únicamente suyos y merece elegir donde se almacenan, si se comparten con terceros y como es transmitido por Internet.
+Syncthing-Fork para Android es un wrapper para Syncthing que provee una interfaz de Android en lugar de la interfaz web integrada de Syncthing. Syncthing reemplaza la sincronización propietaria y servicios de nube con una aplicación de código abierto, confiable y descentralizada. Tus datos son tuyos y mereces elegir dónde se almacenan, si se comparten con terceros y cómo son transmitidos por Internet.
 
-Objetivos de la bifurcación:
-* Desarrollar y probar mejoras junto a la comunidad.
-* Lanzar el wrapper más frecuentemente para identificar y arreglar errores causados por cambios en el submódulo synching.
-* Hacer que las mejoras sean configurables desde la interfaz, los usuarios deberían poder activarlas y desactivarlas
-
-Comparación entre el original y la bifurcación cuando se escribió esto:
-* Ambos contienen el binario de Syncthing compilado desde la fuente oficial en GitHub
-* La funcionalidad y fiabilidad de la sincronización depende de la versión del submódulo binario syncthing.
-* La bifurcación y el original están en buenos términos y a veces integran mis mejoras.
-* La estrategia y frecuencia de lanzamientos son diferentes.
-* Solo el wrapper que contiene la interfaz de Android es abordado por la bifurcación.
+Por favor, busca ayuda en el foro y/o en las redes sociales antes de crear incidencias. Ten en cuenta que Syncthing‑Fork nació por interés personal para ayudar a familiares y amigos a usar Syncthing en Android. No fue diseñado para los más de 100.000 usuarios actuales, aunque compartimos los resultados contigo y la comunidad. Gracias.
 
 Sitio web: https://github.com/Catfriend1/syncthing-android
 
 Código fuente: https://github.com/Catfriend1/syncthing-android
 
-Cómo Syncthing escribe en la tarjeta SD externa: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Cómo escribe Syncthing en la tarjeta SD externa: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
 Wiki, Preguntas Frecuentes y artículos útiles: https://github.com/Catfriend1/syncthing-android/wiki
 
