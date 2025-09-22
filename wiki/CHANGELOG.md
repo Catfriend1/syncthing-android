@@ -1,3 +1,10 @@
+## Syncthing-Fork v1.30.0.3 (2025-08-07)
+
+## What's Changed
+* Fixed UI crash if index sequence number for a folder exceeds a limit. This affected a minority of users, especially Syncthing-Lite users. But if it happened, users were unable to export config and could no longer open the app.
+
+---
+
 ## Syncthing-Fork v1.30.0.2 F-Droid (2025-07-16)
 
 Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. Released due to a change in the fdroid build process which allows us to build future releases off the release branch instead of using the separate fdroid branch. You can, but do not have to update if you already got v1.30.0.1-fdroid installed.
