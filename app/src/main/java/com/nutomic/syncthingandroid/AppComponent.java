@@ -36,9 +36,7 @@ public interface AppComponent {
     void inject(FirstStartActivity activity);
     void inject(FolderActivity activity);
     void inject(FolderListFragment fragment);
-    void inject(FolderPickerActivity activity);
     void inject(MainActivity activity);
-    void inject(NotificationHandler notificationHandler);
     void inject(PhotoShootActivity photoShootActivity);
     void inject(RestApi restApi);
     void inject(RecentChangesActivity recentChangesActivity);

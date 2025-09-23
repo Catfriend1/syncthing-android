@@ -38,7 +38,7 @@ public class NotificationHandler {
     private static final String CHANNEL_PERSISTENT_WAITING = "03_syncthing_persistent_waiting";
 
     private final Context mContext;
-    @Inject SharedPreferences mPreferences;
+    private final SharedPreferences mPreferences;
     private final NotificationManager mNotificationManager;
     private final NotificationChannel mPersistentChannel;
     private final NotificationChannel mPersistentChannelWaiting;
@@ -50,9 +50,10 @@ public class NotificationHandler {
 
     private int FLAG_IMMUTABLE = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) ? PendingIntent.FLAG_IMMUTABLE : 0;
 
-    public NotificationHandler(Context context) {
-        ((SyncthingApp) context.getApplicationContext()).component().inject(this);
+    // Dagger2 constructor injection - receives SharedPreferences directly to avoid circular dependency
+    public NotificationHandler(Context context, SharedPreferences preferences) {
         mContext = context;
+        mPreferences = preferences;
         mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

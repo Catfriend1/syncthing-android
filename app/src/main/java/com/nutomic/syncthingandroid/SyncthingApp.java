@@ -7,13 +7,13 @@ import javax.inject.Inject;
 
 public class SyncthingApp extends Application {
 
-    @Inject DaggerComponent mComponent;
+    @Inject AppComponent mComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        DaggerDaggerComponent.builder()
+        DaggerAppComponent.builder()
                 .syncthingModule(new SyncthingModule(this))
                 .build()
                 .inject(this);
@@ -36,7 +36,7 @@ public class SyncthingApp extends Application {
         */
     }
 
-    public DaggerComponent component() {
+    public AppComponent component() {
         return mComponent;
     }
 }

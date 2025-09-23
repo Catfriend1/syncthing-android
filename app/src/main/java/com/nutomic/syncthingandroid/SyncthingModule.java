@@ -27,7 +27,7 @@ public class SyncthingModule {
 
     @Provides
     @Singleton
-    public NotificationHandler getNotificationHandler() {
-        return new NotificationHandler(mApp);
+    public NotificationHandler getNotificationHandler(SharedPreferences preferences) {
+        return new NotificationHandler(mApp, preferences);
     }
 }

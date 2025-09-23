@@ -16,8 +16,6 @@ import androidx.preference.PreferenceManager;
 
 import com.nutomic.syncthingandroid.R;
 
-import javax.inject.Inject;
-
 import static com.nutomic.syncthingandroid.service.RunConditionMonitor.ACTION_UPDATE_SHOULDRUN_DECISION;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -26,8 +24,7 @@ public class QuickSettingsTileForce extends TileService {
 
     }
     private Context mContext;
-    @Inject
-    SharedPreferences mPreferences;
+    private SharedPreferences mPreferences; // Manually initialized - no injection needed
     private Resources res;
 
     @Override
