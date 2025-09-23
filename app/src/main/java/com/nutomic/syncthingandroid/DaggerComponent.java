@@ -25,9 +25,10 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+// Dagger2 Component interface - generates DaggerAppComponent implementation
 @Singleton
 @Component(modules = {SyncthingModule.class})
-public interface DaggerComponent {
+public interface AppComponent {
     void inject(AppConfigReceiver appConfigReceiver);
     void inject(DeviceActivity activity);
     void inject(DeviceListFragment fragment);
