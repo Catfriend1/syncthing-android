@@ -6,8 +6,8 @@ ndk-version = "28.2.13676358"
 target-sdk = "36"
 
 # App version
-version-code = "2000902"
-version-name = "2.0.9.2"
+version-code = "2001000"
+version-name = "2.0.10.0"
 
 aboutLibraries = "12.2.4"
 activity = "1.11.0"
