@@ -132,7 +132,7 @@ public class DrawerFragment extends Fragment implements SyncthingService.OnServi
         /**
          * Show Web UI menu item on Android TV for debug builds only.
          * Reason: SyncthingNative's Web UI is not approved by Google because
-         *          it is lacking full DPAD navigation support. See issue #567.
+         *          it is lacking full DPAD navigation support.
          */
         mDrawerActionWebGui.setVisibility((!mRunningOnTV || Constants.isDebuggable(getContext())) ? View.VISIBLE : View.GONE);
 

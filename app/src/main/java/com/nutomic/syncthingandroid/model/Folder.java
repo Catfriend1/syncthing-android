@@ -48,7 +48,7 @@ public class Folder {
     public boolean paused = false;
     public String markerName = Constants.FILENAME_STFOLDER;
 
-    // Since v1.1.0, see Issue #5445, PR #5479
+    // Since v1.1.0
     public Boolean copyOwnershipFromParent = false;
 
     // Since v1.2.1, see PR #5852
