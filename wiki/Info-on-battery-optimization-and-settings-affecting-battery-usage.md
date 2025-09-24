@@ -24,7 +24,3 @@ Short summary:
 * * Cons:
 * * * Good for beginner users.
 * * * Because of discovery mechnisms active by default, you'll have open connections all the time even if no partner device is available to sync data with. Those connections, especially WAN connections, keep your modem active and therefore permanently consume battery.
-
-Useful reading:
-* Issue #419 "[Info on battery optimization and settings affecting battery usage](https://github.com/Catfriend1/syncthing-android/issues/419)"
-* Issue #327 "[Syncthing becomes disconnected while android is sleeping](https://github.com/Catfriend1/syncthing-android/issues/327#issuecomment-465122806)"
