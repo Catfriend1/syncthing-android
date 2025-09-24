@@ -54,7 +54,6 @@ public class FolderPickerActivity extends SyncthingActivity
     /**
      * If requested by {@link #createIntent}, we'll only use one root dir and enforce
      * the user stays within that. {@link #populateRoots} will respect this extra.
-     * See issue #366.
      */
     private static final String EXTRA_ROOT_DIRECTORY =
             ".activities.FolderPickerActivity.ROOT_DIRECTORY";

@@ -322,7 +322,6 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
                 if (mRunningOnTV) {
                     /**
                      * Display workaround notice: Without workaround SyncthingNative can't run reliably on TV's running Android 8+.
-                     * See issue https://github.com/Catfriend1/syncthing-android/issues/192
                      */
                     TextView ignoreDozeOsNotice = (TextView) findViewById(R.id.tvIgnoreDozePermissionOsNotice);
                     ignoreDozeOsNotice.setText(getString(R.string.ignore_doze_permission_os_notice, getString(R.string.wiki_url), "Android-TV-preparations"));

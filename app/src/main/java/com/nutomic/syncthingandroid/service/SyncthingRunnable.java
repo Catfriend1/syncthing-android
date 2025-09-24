@@ -145,7 +145,7 @@ public class SyncthingRunnable implements Runnable {
         trimSyncthingLogFile();
 
         /**
-         * Potential fix for #498, keep the CPU running while native binary is running.
+         * Keep the CPU running while native binary is running.
          * Only valid on Android 5 or lower.
          */
         PowerManager pm;
@@ -169,7 +169,7 @@ public class SyncthingRunnable implements Runnable {
                 wakeLock.acquire();
             }
 
-            // See issue #735: Android 11 blocks local discovery if we did not acquire MulticastLock.
+            // Android 11 blocks local discovery if we did not acquire MulticastLock.
             WifiManager wifi = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             multicastLock = wifi.createMulticastLock("multicastLock");
             multicastLock.setReferenceCounted(true);
@@ -560,7 +560,6 @@ public class SyncthingRunnable implements Runnable {
             // If we did not use exec, we would wait infinitely for the process to terminate (ret = process.waitFor(); in run()).
             // With exec the whole process terminates when Syncthing exits.
             suOut.writeBytes("exec " + TextUtils.join(" ", mCommand) + "\n");
-            // suOut.flush has to be called to fix issue - #1005 Endless loader after enabling "Superuser mode"
             suOut.flush();
             return process;
         } else {

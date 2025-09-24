@@ -309,8 +309,7 @@ public class ConfigXml {
                 changed = true;
             }
 
-            // Set 'hashers' (see https://github.com/syncthing/syncthing-android/issues/384) on the
-            // given folder.
+            // Set 'hashers' on the given folder.
             changed = setConfigElement(r, "hashers", "1") || changed;
         }
 
@@ -364,7 +363,7 @@ public class ConfigXml {
         if (Constants.osHasKernelBugIssue505()) {
             Boolean natEnabledChanged = setConfigElement(options, "natEnabled", false);
             if (natEnabledChanged) {
-                Log.d(TAG, "Disabling NAT option because a buggy kernel was detected. See https://github.com/Catfriend1/syncthing-android/issues/505 .");
+                Log.d(TAG, "Disabling NAT option because a buggy kernel was detected.");
                 changed = true;
             }
         }
@@ -398,7 +397,7 @@ public class ConfigXml {
 
         /* Check if we have to do manual migration from version X to Y */
         if (iConfigVersion == 27) {
-            /* fsWatcher transition - https://github.com/syncthing/syncthing/issues/4882 */
+            /* fsWatcher transition */
             Log.i(TAG, "Migrating config version " + Integer.toString(iConfigVersion) + " to 28 ...");
 
             /* Enable fsWatcher for all folders */

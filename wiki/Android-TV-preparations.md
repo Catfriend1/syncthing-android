@@ -25,5 +25,4 @@ The following instructions to solve the problem by preparing the Android TV for 
     *adb shell dumpsys deviceidle whitelist -${applicationId}*
 
 Related:
-- [GitHub issue](https://github.com/Catfriend1/syncthing-android/issues/192)
 - [nVidia GeForce forum topic](https://forums.geforce.com/default/topic/1092750)

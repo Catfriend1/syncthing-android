@@ -247,7 +247,6 @@ public class RestApi {
             mOnApiAvailableListener.onApiAvailable();
 
             // Temporarily lower cleanupIntervalS for every folder to force cleanup after startup.
-            // https://github.com/Catfriend1/syncthing-android/issues/990
             setVersioningCleanupIntervalS(2);
             final Handler resetCleanupIntervalHandler = new Handler(Looper.getMainLooper());
             resetCleanupIntervalHandler.postDelayed(new Runnable() {
@@ -1175,7 +1174,7 @@ public class RestApi {
         RemoteCompletionInfo remoteCompletionInfo = new RemoteCompletionInfo();
         if (folder.paused) {
             /**
-             * Fixes issue #463 where device sync percentage is displayed 50% on wrapper UI
+             * Fixes issue where device sync percentage is displayed 50% on wrapper UI
              * and 100% on Web UI if there are at least two folders syncing with the same device and
              * at least one of them is paused. This is caused by EventProcessor telling us a paused
              * to be 0% complete. To get consistent UI output, we assume 100% completion for paused

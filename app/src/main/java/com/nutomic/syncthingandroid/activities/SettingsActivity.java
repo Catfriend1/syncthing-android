@@ -96,7 +96,7 @@ public class SettingsActivity extends SyncthingActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        // On Android 8.1, ACCESS_COARSE_LOCATION is required, see issue #999
+        // On Android 8.1, ACCESS_COARSE_LOCATION is required
         if (requestCode == Constants.PERM_REQ_ACCESS_LOCATION) {
             for (int i = 0; i < permissions.length; i++) {
                 if (Manifest.permission.ACCESS_COARSE_LOCATION.equals(permissions[i])) {
@@ -485,7 +485,7 @@ public class SettingsActivity extends SyncthingActivity {
                     mCurrentPrefScreenDialog.dismiss();
                     mCurrentPrefScreenDialog = null;
 
-                    // We need to re-register the action bar, see issue #247.
+                    // We need to re-register the action bar.
                     registerActionBar(null);
                 }
                 return true;

@@ -34,7 +34,7 @@ recyclerview = "1.4.0"
 stream = "1.2.2"
 volley = "1.2.1"
 zxing-android-embedded = "4.3.0"
-# Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility, see issue #761.
+# Do not upgrade zxing:core beyond 3.3.0 to ensure Android 6.0 compatibility.
 zxing-core = "3.3.0"
 
 [libraries]

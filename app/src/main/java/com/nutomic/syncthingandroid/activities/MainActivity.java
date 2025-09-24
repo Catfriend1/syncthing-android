@@ -349,16 +349,10 @@ public class MainActivity extends SyncthingActivity
         };
         try {
             mViewPager.setAdapter(mSectionsPagerAdapter);
-            /**
-             * See issues #321, #327
-             * Call stack on IllegalStateException: onServiceStateChange/updateViewPager/setOffscreenPageLimit
-             */
-            // mViewPager.setOffscreenPageLimit(numPages);
         } catch (IllegalStateException e) {
             /**
              * IllegalStateException happens due to a bug in FragmentStatePagerAdapter.
              * For more information see:
-             * - https://github.com/Catfriend1/syncthing-android/issues/108
              * - https://issuetracker.google.com/issues/36956111
              */
             Log.e(TAG, "updateViewPager: IllegalStateException in setAdapter.", e);

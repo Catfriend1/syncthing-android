@@ -246,7 +246,6 @@ public class SyncthingService extends Service {
 
         /**
          * If runtime permissions are revoked, android kills and restarts the service.
-         * see issue: https://github.com/syncthing/syncthing-android/issues/871
          * We need to recheck if we still have the storage permission.
          */
         mStoragePermissionGranted = PermissionUtil.haveStoragePermission(this);
@@ -543,7 +542,7 @@ public class SyncthingService extends Service {
             return;
         }
 
-        // Check if the SyncthingNative's configured webgui port is allocated by another app or process. (issue #193)
+        // Check if the SyncthingNative's configured webgui port is allocated by another app or process.
         Integer webGuiTcpPort = mConfig.getWebGuiBindPort();
         Boolean isWebUIPortListening = Util.isTcpPortListening(webGuiTcpPort);
         if (isWebUIPortListening) {

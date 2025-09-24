@@ -14,5 +14,4 @@ If you're unhappy with Syncthing-Fork turning of DuraSpeed and you want to rever
 Reboot your phone after the "pm revoke" for the change to take effect.
 
 Related:
-- [GitHub issue](https://github.com/Catfriend1/syncthing-android/issues/404)
 - [Details from the urbandroid-team tracker](https://github.com/urbandroid-team/dont-kill-my-app/issues/57)

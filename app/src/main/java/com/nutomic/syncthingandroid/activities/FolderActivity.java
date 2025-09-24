@@ -864,7 +864,7 @@ public class FolderActivity extends SyncthingActivity {
             preCreateFolderStruct(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
 
-            // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
+            // Start sync after adding a folder
             LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(getApplication().getApplicationContext());
             Intent intent = new Intent(ACTION_SYNC_TRIGGER_FIRED);
             intent.putExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
@@ -919,7 +919,7 @@ public class FolderActivity extends SyncthingActivity {
 
         /**
          * Name of the dummy file created within the marker directory.
-         * Creating the file is a workaround for issue #131 where manufacturer
+         * Creating the file is a workaround for issue where manufacturer
          * specific cleaning routines silently wipe out empty directories like
          * the marker directory.
          */
@@ -1032,7 +1032,7 @@ public class FolderActivity extends SyncthingActivity {
                 break;
         }
 
-        // Disable "file pull order" option for sendOnly folders. See issue syncthing/syncthing#6807
+        // Disable "file pull order" option for sendOnly folders.
         mPullOrderContainer.setVisibility(mPrefExpertMode &&
                 !mFolder.type.equals(Constants.FOLDER_TYPE_SEND_ONLY) ? View.VISIBLE : View.GONE);
     }
