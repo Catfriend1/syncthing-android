@@ -232,7 +232,10 @@ public class MainActivity extends SyncthingActivity
         
         // Initialize the exit FloatingActionButton
         mExitFab = findViewById(R.id.fabExit);
-        mExitFab.setOnClickListener(v -> handleExitAction());
+        mExitFab.setOnClickListener(v -> doExit());
+        
+        // Update FAB visibility based on service configuration
+        updateExitFabVisibility();
 
         FragmentManager fm = getSupportFragmentManager();
         if (savedInstanceState != null) {
@@ -392,6 +395,9 @@ public class MainActivity extends SyncthingActivity
         }
 
         startUIRefreshHandler();
+
+        // Update FAB visibility in case settings changed
+        updateExitFabVisibility();
 
         String action = mLastIntent.getAction();
         if (action != null) {
@@ -803,31 +809,19 @@ public class MainActivity extends SyncthingActivity
     }
 
     /**
-     * Handles the exit action from the floating action button.
-     * Reuses the same logic as the drawer exit button for consistency.
+     * Updates the visibility of the exit FAB based on service configuration.
+     * FAB is hidden when app is configured to run as a service to avoid confirmation dialogs.
      */
-    private void handleExitAction() {
-        if (mPreferences != null && mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false)) {
-            // App is running as a service. Show an explanation why exiting syncthing is an
-            // extraordinary request, then ask the user to confirm.
-            AlertDialog exitConfirmationDialog = new AlertDialog.Builder(this)
-                    .setTitle(R.string.dialog_exit_while_running_as_service_title)
-                    .setMessage(R.string.dialog_exit_while_running_as_service_message)
-                    .setPositiveButton(R.string.yes, (d, i) -> {
-                        doExit();
-                    })
-                    .setNegativeButton(R.string.no, (d, i) -> {
-                    })
-                    .show();
-        } else {
-            // App is not running as a service.
-            doExit();
+     private void updateExitFabVisibility() {
+        if (mExitFab != null && mPreferences != null) {
+            boolean runAsService = mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
+            mExitFab.setVisibility(runAsService ? View.GONE : View.VISIBLE);
         }
     }
 
     /**
      * Exits the application by stopping the service and finishing the activity.
-     * This method duplicates the logic from DrawerFragment.doExit() for consistency.
+     * This method is called directly from the FAB since it's only visible when safe to exit.
      */
     private void doExit() {
         if (isFinishing()) {
