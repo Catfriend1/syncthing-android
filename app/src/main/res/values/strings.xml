@@ -770,7 +770,7 @@
     <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>
 
     <!-- URL of the GitHub wiki -->
-    <string name="wiki_url" translatable="false">https://github.com/Catfriend1/syncthing-android/wiki</string>
+    <string name="wiki_url" translatable="false">https://github.com/Catfriend1/syncthing-android/tree/main/wiki</string>
 
     <!-- URL of the Syncthing project homepage -->
     <string name="url_syncthing_homepage" translatable="false">https://syncthing.net</string>
