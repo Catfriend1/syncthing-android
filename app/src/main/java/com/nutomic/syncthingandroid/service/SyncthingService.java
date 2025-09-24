@@ -542,7 +542,7 @@ public class SyncthingService extends Service {
             return;
         }
 
-        // Check if the SyncthingNative's configured webgui port is allocated by another app or process. (issue #193)
+        // Check if the SyncthingNative's configured webgui port is allocated by another app or process.
         Integer webGuiTcpPort = mConfig.getWebGuiBindPort();
         Boolean isWebUIPortListening = Util.isTcpPortListening(webGuiTcpPort);
         if (isWebUIPortListening) {
