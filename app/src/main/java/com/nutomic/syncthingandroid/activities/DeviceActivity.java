@@ -283,7 +283,6 @@ public class DeviceActivity extends SyncthingActivity {
             mQrButton.setVisibility(View.GONE);
         }
         mQrButton.setOnClickListener(view -> startActivityForResult(QRScannerActivity.intent(DeviceActivity.this), QR_SCAN_REQUEST_CODE));
-        mShowDeviceIdContainer.setOnClickListener(view -> onCopyDeviceIdClick());
         mDeviceIdQrButton.setOnClickListener(view -> onShowDeviceIdQrClick());
         mCompressionContainer.setOnClickListener(view -> onCompressionContainerClick());
         mCustomSyncConditionsDialog.setOnClickListener(view -> onCustomSyncConditionsDialogClick());
@@ -487,7 +486,6 @@ public class DeviceActivity extends SyncthingActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.save).setTitle(mIsCreateMode ? R.string.create : R.string.save_title);
-        menu.findItem(R.id.share_device_id).setVisible(!mIsCreateMode);
         menu.findItem(R.id.remove).setVisible(!mIsCreateMode);
         return true;
     }
@@ -497,9 +495,6 @@ public class DeviceActivity extends SyncthingActivity {
         int itemId = item.getItemId();
         if (itemId == R.id.save) {
             onSave();
-            return true;
-        } else if (itemId == R.id.share_device_id) {
-            shareDeviceId(this, mDevice.deviceID);
             return true;
         } else if (itemId == R.id.remove) {
             showDeleteDialog();
@@ -742,10 +737,6 @@ public class DeviceActivity extends SyncthingActivity {
             ),
             0
         );
-    }
-
-    private void onCopyDeviceIdClick() {
-        Util.copyDeviceId(this, mDevice.deviceID);
     }
 
     private void onShowDeviceIdQrClick() {

@@ -9,11 +9,7 @@
         android:icon="@drawable/baseline_done_24"
         app:showAsAction="always|withText" />
 
-    <item
-        android:id="@+id/share_device_id"
-        android:icon="@drawable/baseline_share_24"
-        android:title="@string/share_device_id"
-        app:showAsAction="ifRoom" />
+
 
     <item
         android:id="@+id/remove"
