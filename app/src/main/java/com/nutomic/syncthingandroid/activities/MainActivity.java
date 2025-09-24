@@ -44,6 +44,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
@@ -116,6 +117,7 @@ public class MainActivity extends SyncthingActivity
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout          mDrawerLayout;
+    private FloatingActionButton  mExitFab;
 
     private Intent mLastIntent;
     private Boolean oneTimeShot = true;
@@ -227,6 +229,13 @@ public class MainActivity extends SyncthingActivity
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mViewPager = findViewById(R.id.pager);
+        
+        // Initialize the exit FloatingActionButton
+        mExitFab = findViewById(R.id.fabExit);
+        mExitFab.setOnClickListener(v -> doExit());
+        
+        // Update FAB visibility based on service configuration
+        updateExitFabVisibility();
 
         FragmentManager fm = getSupportFragmentManager();
         if (savedInstanceState != null) {
@@ -386,6 +395,9 @@ public class MainActivity extends SyncthingActivity
         }
 
         startUIRefreshHandler();
+
+        // Update FAB visibility in case settings changed
+        updateExitFabVisibility();
 
         String action = mLastIntent.getAction();
         if (action != null) {
@@ -794,6 +806,30 @@ public class MainActivity extends SyncthingActivity
                 Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersionDismiss);
                 break;
         }
+    }
+
+    /**
+     * Updates the visibility of the exit FAB based on service configuration.
+     * FAB is hidden when app is configured to run as a service to avoid confirmation dialogs.
+     */
+     private void updateExitFabVisibility() {
+        if (mExitFab != null && mPreferences != null) {
+            boolean runAsService = mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false);
+            mExitFab.setVisibility(runAsService ? View.GONE : View.VISIBLE);
+        }
+    }
+
+    /**
+     * Exits the application by stopping the service and finishing the activity.
+     * This method is called directly from the FAB since it's only visible when safe to exit.
+     */
+    private void doExit() {
+        if (isFinishing()) {
+            return;
+        }
+        Log.i(TAG, "Exiting app on user request via FAB");
+        stopService(new Intent(this, SyncthingService.class));
+        finishAndRemoveTask();
     }
 
     private void LogV(String logMessage) {
