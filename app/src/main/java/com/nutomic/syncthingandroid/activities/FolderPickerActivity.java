@@ -99,7 +99,6 @@ public class FolderPickerActivity extends SyncthingActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // No dependency injection needed - this activity doesn't inject any dependencies
 
         setContentView(R.layout.activity_folder_picker);
         mCurrentPath = findViewById(R.id.currentPath);
