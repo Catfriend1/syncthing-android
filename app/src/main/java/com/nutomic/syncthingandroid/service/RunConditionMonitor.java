@@ -55,9 +55,6 @@ public class RunConditionMonitor {
     private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
         @Override
         public void onStatusChanged(int which) {
-            /**
-             * We need a Looper here, see issue https://github.com/Catfriend1/syncthing-android/issues/149
-             */
             Handler mainLooper = new Handler(Looper.getMainLooper());
             Runnable updateShouldRunDecisionRunnable = new Runnable() {
                 @Override
@@ -329,7 +326,7 @@ public class RunConditionMonitor {
              * the change to "SyncthingNative shouldn't run" after
              * TRIGGERED_SYNC_DURATION_SECS seconds elapsed should actually
              * be scheduled inside updateShouldRunDecision(), but his might
-             * not always be the case: https://github.com/Catfriend1/syncthing-android/issues/803
+             * not always be the case.
              * Thus we schedule an additional change to "SyncthingNative shouldn't run"
              * after TRIGGERED_SYNC_DURATION_SECS seconds elapsed, but without
              * cancelling other jobs. This should only serve as a backup job and

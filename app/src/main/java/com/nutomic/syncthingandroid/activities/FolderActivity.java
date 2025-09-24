@@ -864,7 +864,7 @@ public class FolderActivity extends SyncthingActivity {
             preCreateFolderStruct(mFolderUri, mFolder.path);
             mConfig.addFolder(getApi(), mFolder);
 
-            // Start sync after adding a folder, see https://github.com/Catfriend1/syncthing-android/issues/974
+            // Start sync after adding a folder
             LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(getApplication().getApplicationContext());
             Intent intent = new Intent(ACTION_SYNC_TRIGGER_FIRED);
             intent.putExtra(EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);

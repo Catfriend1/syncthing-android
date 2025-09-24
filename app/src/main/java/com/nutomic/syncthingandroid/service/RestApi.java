@@ -247,7 +247,6 @@ public class RestApi {
             mOnApiAvailableListener.onApiAvailable();
 
             // Temporarily lower cleanupIntervalS for every folder to force cleanup after startup.
-            // https://github.com/Catfriend1/syncthing-android/issues/990
             setVersioningCleanupIntervalS(2);
             final Handler resetCleanupIntervalHandler = new Handler(Looper.getMainLooper());
             resetCleanupIntervalHandler.postDelayed(new Runnable() {

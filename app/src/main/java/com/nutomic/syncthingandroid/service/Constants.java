@@ -337,7 +337,6 @@ public class Constants {
     /**
      * Detect kernels with a bug causing kernel oops when
      * Syncthing v1.3.0+ attempts to enable the NAT feature.
-     * See: https://github.com/Catfriend1/syncthing-android/issues/505
      */
     public static Boolean osHasKernelBugIssue505() {
         String kernelVersion = java.lang.System.getProperty("os.version");
