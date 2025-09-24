@@ -44,6 +44,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annimon.stream.function.Consumer;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nutomic.syncthingandroid.R;
@@ -116,6 +117,7 @@ public class MainActivity extends SyncthingActivity
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout          mDrawerLayout;
+    private FloatingActionButton  mExitFab;
 
     private Intent mLastIntent;
     private Boolean oneTimeShot = true;
@@ -227,6 +229,10 @@ public class MainActivity extends SyncthingActivity
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mViewPager = findViewById(R.id.pager);
+        
+        // Initialize the exit FloatingActionButton
+        mExitFab = findViewById(R.id.fabExit);
+        mExitFab.setOnClickListener(v -> handleExitAction());
 
         FragmentManager fm = getSupportFragmentManager();
         if (savedInstanceState != null) {
@@ -794,6 +800,42 @@ public class MainActivity extends SyncthingActivity
                 Log.i(TAG, "User chose not to be reminded about important news for version " + currentVersionDismiss);
                 break;
         }
+    }
+
+    /**
+     * Handles the exit action from the floating action button.
+     * Reuses the same logic as the drawer exit button for consistency.
+     */
+    private void handleExitAction() {
+        if (mPreferences != null && mPreferences.getBoolean(Constants.PREF_START_SERVICE_ON_BOOT, false)) {
+            // App is running as a service. Show an explanation why exiting syncthing is an
+            // extraordinary request, then ask the user to confirm.
+            AlertDialog exitConfirmationDialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_exit_while_running_as_service_title)
+                    .setMessage(R.string.dialog_exit_while_running_as_service_message)
+                    .setPositiveButton(R.string.yes, (d, i) -> {
+                        doExit();
+                    })
+                    .setNegativeButton(R.string.no, (d, i) -> {
+                    })
+                    .show();
+        } else {
+            // App is not running as a service.
+            doExit();
+        }
+    }
+
+    /**
+     * Exits the application by stopping the service and finishing the activity.
+     * This method duplicates the logic from DrawerFragment.doExit() for consistency.
+     */
+    private void doExit() {
+        if (isFinishing()) {
+            return;
+        }
+        Log.i(TAG, "Exiting app on user request via FAB");
+        stopService(new Intent(this, SyncthingService.class));
+        finishAndRemoveTask();
     }
 
     private void LogV(String logMessage) {
