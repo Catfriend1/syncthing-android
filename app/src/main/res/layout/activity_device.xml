@@ -105,22 +105,14 @@
                     android:inputType="textNoSuggestions|textMultiLine" />
 
                 <ImageView
-                    style="?actionButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@string/scan_qr_code_description"
-                    app:srcCompat="@drawable/baseline_content_copy_24" />
-
-                <ImageView
                     android:id="@+id/deviceIdQrButton"
                     style="?actionButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/abc_action_bar_content_inset_material"
-                    android:contentDescription="@string/scan_qr_code_description"
-                    app:srcCompat="@drawable/outline_qr_code_2_24" />
+                    android:contentDescription="@string/share_device_id"
+                    app:srcCompat="@drawable/baseline_share_24" />
 
             </LinearLayout>
 
