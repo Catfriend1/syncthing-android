@@ -39,7 +39,7 @@ public class Options {
     public int tempIndexMinBlocks = 10;
     public boolean setLowPriority = true;
 
-    // Since v0.14.28, Issue #3307, PR #4087
+    // Since v0.14.28
     public MinHomeDiskFree minHomeDiskFree;
 
     // Since v1.2.0
