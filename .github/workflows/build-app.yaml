@@ -8,9 +8,7 @@ on:
   pull_request:
   push:
     branches:
-      - fdroid
       - main
-      - release
 
 jobs:
   build:
