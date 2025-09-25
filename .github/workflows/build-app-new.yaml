@@ -124,34 +124,14 @@ jobs:
       - name: Setup debug signing
         run: |
           set -eu
-          # Create debug keystore in the standard Android location
           mkdir -p "$HOME/.android"
           if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
             echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
             echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "$HOME/.android/debug.keystore"
-            chmod 600 "$HOME/.android/debug.keystore"
-            
-            # Also copy to potential Gradle user home location
-            mkdir -p "$HOME/.gradle"
-            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "$HOME/.gradle/debug.keystore"
-            chmod 600 "$HOME/.gradle/debug.keystore"
           else
             cp "scripts/debug/debug.keystore.pub" "$HOME/.android/debug.keystore"
-            chmod 600 "$HOME/.android/debug.keystore"
-            
-            # Also copy to potential Gradle user home location
-            mkdir -p "$HOME/.gradle"
-            cp "scripts/debug/debug.keystore.pub" "$HOME/.gradle/debug.keystore"
-            chmod 600 "$HOME/.gradle/debug.keystore"
             echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
           fi
-          
-          # Verify keystore was created correctly in both locations
-          echo "Debug keystore locations:"
-          echo "1. Standard Android location: $HOME/.android/debug.keystore"
-          ls -la "$HOME/.android/debug.keystore"
-          echo "2. Alternative location: $HOME/.gradle/debug.keystore"
-          ls -la "$HOME/.gradle/debug.keystore"
 
       - name: Build app
         run: |
@@ -161,17 +141,7 @@ jobs:
           
           git config --global --add safe.directory '*'
           java -version
-          
-          # Explicitly tell Gradle where to find the debug keystore via system properties
-          # Android Gradle Plugin looks for debug.keystore at user.home/.android/debug.keystore
-          # We need to ensure user.home points to the right location
-          echo "Setting debug keystore location explicitly..."
-          echo "user.home=$HOME"
-          echo "Debug keystore should be at: $HOME/.android/debug.keystore"
-          ls -la "$HOME/.android/debug.keystore" || echo "WARNING: Debug keystore not found!"
-          
-          # Run gradle with explicit system property for keystore location
-          ./gradlew --no-daemon -Duser.home="$HOME" buildNative lintDebug assembleDebug
+          ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - name: Prepare artifacts
         shell: bash
