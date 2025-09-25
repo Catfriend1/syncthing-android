@@ -4,11 +4,12 @@ permissions:
   contents: read
   packages: read
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
+# Left for documentation, maybe reused in the future if build recipe requires changes that require docker.
+#on:
+#  pull_request:
+#  push:
+#    branches:
+#      - main
 
 jobs:
   build:
