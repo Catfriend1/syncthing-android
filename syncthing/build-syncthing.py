@@ -336,18 +336,14 @@ def check_and_copy_prebuilt_libraries():
             
             if os.path.isfile(lib_file):
                 available_archs.append(jni_dir)
-                print('Found prebuilt library for', jni_dir)
             else:
                 missing_archs.append(jni_dir)
-                print('Missing prebuilt library for', jni_dir)
         
         # If any architecture is missing, return False to rebuild all
         if missing_archs:
             print('Missing architectures:', ', '.join(missing_archs))
             print('Will build all architectures from scratch to ensure consistency')
             return False
-        
-        print('All required architectures available:', ', '.join(available_archs))
         
         # Create target directory
         target_libs_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs')
