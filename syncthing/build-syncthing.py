@@ -319,31 +319,60 @@ def check_and_copy_prebuilt_libraries():
         
         prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
         
-        if os.path.isdir(prebuilt_dir):
-            print('Found prebuilt libraries for syncthing commit', syncthing_commit)
-            
-            # Create target directory
-            target_libs_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs')
-            if not os.path.isdir(target_libs_dir):
-                os.makedirs(target_libs_dir)
-            
-            # Copy prebuilt libraries
-            for item in os.listdir(prebuilt_dir):
-                src_path = os.path.join(prebuilt_dir, item)
-                dst_path = os.path.join(target_libs_dir, item)
-                if os.path.isdir(src_path):
-                    if os.path.exists(dst_path):
-                        shutil.rmtree(dst_path)
-                    shutil.copytree(src_path, dst_path)
-                    print('Copied prebuilt library for', item)
-                else:
-                    shutil.copy2(src_path, dst_path)
-            
-            print('Copied prebuilt libraries from Docker cache')
-            return True
-        else:
+        if not os.path.isdir(prebuilt_dir):
             print('No prebuilt libraries found for syncthing commit', syncthing_commit, '- will build from scratch')
             return False
+        
+        print('Found prebuilt libraries directory for syncthing commit', syncthing_commit)
+        
+        # Check if all required architectures from BUILD_TARGETS are available
+        missing_archs = []
+        available_archs = []
+        
+        for target in BUILD_TARGETS:
+            jni_dir = target['jni_dir']
+            arch_dir = os.path.join(prebuilt_dir, jni_dir)
+            lib_file = os.path.join(arch_dir, FILENAME_SYNCTHING_BINARY)
+            
+            if os.path.isfile(lib_file):
+                available_archs.append(jni_dir)
+                print('Found prebuilt library for', jni_dir)
+            else:
+                missing_archs.append(jni_dir)
+                print('Missing prebuilt library for', jni_dir)
+        
+        # If any architecture is missing, return False to rebuild all
+        if missing_archs:
+            print('Missing architectures:', ', '.join(missing_archs))
+            print('Will build all architectures from scratch to ensure consistency')
+            return False
+        
+        print('All required architectures available:', ', '.join(available_archs))
+        
+        # Create target directory
+        target_libs_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs')
+        if not os.path.isdir(target_libs_dir):
+            os.makedirs(target_libs_dir)
+        
+        # Copy prebuilt libraries for each architecture from BUILD_TARGETS
+        for target in BUILD_TARGETS:
+            jni_dir = target['jni_dir']
+            src_arch_dir = os.path.join(prebuilt_dir, jni_dir)
+            dst_arch_dir = os.path.join(target_libs_dir, jni_dir)
+            
+            # Create target architecture directory
+            if not os.path.isdir(dst_arch_dir):
+                os.makedirs(dst_arch_dir)
+            
+            # Copy the library file
+            src_lib_file = os.path.join(src_arch_dir, FILENAME_SYNCTHING_BINARY)
+            dst_lib_file = os.path.join(dst_arch_dir, FILENAME_SYNCTHING_BINARY)
+            
+            shutil.copy2(src_lib_file, dst_lib_file)
+            print('Copied prebuilt library for', jni_dir)
+        
+        print('Copied prebuilt libraries from Docker cache')
+        return True
             
     except Exception as e:
         print('Error checking for prebuilt libraries:', str(e))
