@@ -1,4 +1,4 @@
-name: Build App New
+name: Build App
 
 permissions:
   contents: read

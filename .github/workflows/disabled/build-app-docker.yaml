@@ -1,4 +1,4 @@
-name: Build App
+name: Docker Build App
 
 permissions:
   contents: read
