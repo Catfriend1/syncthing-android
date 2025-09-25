@@ -186,15 +186,14 @@ jobs:
       - name: Setup debug signing
         run: |
           set -eu
-          # Create both directories - debug keystore goes to ~/.android, other Android user settings to ANDROID_USER_HOME
-          mkdir -p "$HOME/.android"
+          # Create directories - debug keystore goes to ANDROID_USER_HOME
           mkdir -p "$ANDROID_USER_HOME"
           
           if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
             echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
-            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "$HOME/.android/debug.keystore"
+            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "${{ runner.temp }}/.android/debug.keystore"
           else
-            cp "scripts/debug/debug.keystore.pub" "$HOME/.android/debug.keystore"
+            cp "scripts/debug/debug.keystore.pub" "${{ runner.temp }}/.android/debug.keystore"
             echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
           fi
 
