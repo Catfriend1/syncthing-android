@@ -28,7 +28,7 @@ class GitHubAPI:
         self.headers = {
             'Authorization': f'token {token}',
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'syncthing-android-recycle-runs/1.0'
+            'User-Agent': 'Mozilla/5.0 compatible 99.0'
         }
         self.base_url = 'https://api.github.com'
         

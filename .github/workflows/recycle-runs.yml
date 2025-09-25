@@ -14,7 +14,7 @@ on:
       dry_run:
         description: 'Dry run mode (only show what would be deleted without actually deleting)'
         required: false
-        default: 'false'
+        default: 'true'
         type: boolean
 
 permissions:
