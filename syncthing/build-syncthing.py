@@ -313,9 +313,15 @@ def check_and_copy_prebuilt_libraries():
             git_bin, '-C', syncthing_dir, 'rev-parse', 'HEAD'
         ]).decode().strip()
         
-        # Use absolute path to match Dockerfile location
-        # Check for prebuilt libraries directory
-        prebuilt_dir = os.path.join('/opt/syncthing-android-prereq/prebuilt-jnilibs', syncthing_commit)
+        # Use platform-specific path for prebuilt libraries
+        if platform.system() == 'Windows':
+            # On Windows, use relative path
+            prebuilt_base_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs')
+        else:
+            # On Linux/other platforms, use absolute path to match Dockerfile location
+            prebuilt_base_dir = '/opt/syncthing-android-prereq/prebuilt-jnilibs'
+        
+        prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
         
         if os.path.isdir(prebuilt_dir):
             print('Found prebuilt libraries for syncthing commit', syncthing_commit)
