@@ -66,6 +66,13 @@ RUN cd /opt/syncthing-android && \
     ./gradlew --no-daemon buildNative && \
     ./gradlew --no-daemon lintDebug
 
+# Copy built .so files to persistent location for Docker layer caching
+RUN SYNCTHING_COMMIT=$(cd /opt/syncthing-android/syncthing/src/github.com/syncthing/syncthing && git rev-parse HEAD) && \
+    mkdir -p /opt/syncthing-android-prereq/prebuilt-jnilibs/$SYNCTHING_COMMIT && \
+    if [ -d /opt/syncthing-android/app/src/main/jniLibs ]; then \
+        cp -r /opt/syncthing-android/app/src/main/jniLibs/* /opt/syncthing-android-prereq/prebuilt-jnilibs/$SYNCTHING_COMMIT/; \
+    fi
+
 # Clean up build sources
 RUN rm -rf /opt/syncthing-android
 
