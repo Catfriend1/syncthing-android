@@ -134,13 +134,16 @@ def is_run_older_than_days(run_date_str: str, days: int) -> bool:
 
 
 def main():
-    # Get environment variables
+    # Get environment variables with hardcoded defaults
     token = os.environ.get('GITHUB_TOKEN')
     repo = os.environ.get('REPO')
+    
+    # Hardcoded defaults - no longer dependent on workflow inputs
     workflow_names_str = os.environ.get('WORKFLOW_NAMES', 'Build App')
+    days_to_keep_str = os.environ.get('DAYS_TO_KEEP', '14')
+    dry_run_str = os.environ.get('DRY_RUN', 'true')
     
     # Handle days_to_keep with proper validation
-    days_to_keep_str = os.environ.get('DAYS_TO_KEEP', '14')
     try:
         days_to_keep = int(days_to_keep_str) if days_to_keep_str.strip() else 14
         if days_to_keep < 1:
@@ -149,7 +152,8 @@ def main():
         print(f"⚠️  Invalid DAYS_TO_KEEP value '{days_to_keep_str}', using default: 14")
         days_to_keep = 14
     
-    dry_run = os.environ.get('DRY_RUN', 'false').lower() == 'true'
+    # Handle dry_run with proper validation
+    dry_run = dry_run_str.lower() in ('true', '1', 'yes', 'on')
     
     if not token:
         print("❌ GITHUB_TOKEN environment variable is required")

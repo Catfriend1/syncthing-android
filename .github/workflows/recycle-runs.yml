@@ -1,21 +1,7 @@
 name: "Recycle runs"
 
 on:
-  push:
-    inputs:
-      workflow_names:
-        description: 'Comma-separated list of workflow names to clean up'
-        required: true
-        default: 'Build App'
-      days_to_keep:
-        description: 'Number of days to keep runs (runs older than this will be deleted)'
-        required: false
-        default: '14'
-      dry_run:
-        description: 'Dry run mode (only show what would be deleted without actually deleting)'
-        required: false
-        default: 'true'
-        type: boolean
+  workflow_dispatch:
 
 permissions:
   actions: write
@@ -44,8 +30,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          WORKFLOW_NAMES: ${{ github.event.inputs.workflow_names }}
-          DAYS_TO_KEEP: ${{ github.event.inputs.days_to_keep }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           python .github/scripts/recycle-workflow-runs.py
