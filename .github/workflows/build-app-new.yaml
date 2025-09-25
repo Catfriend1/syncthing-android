@@ -126,7 +126,7 @@ jobs:
           # Set Android environment variables for gradle
           export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}
           
-          git config --system --add safe.directory '*'
+          git config --global --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
