@@ -79,7 +79,6 @@ jobs:
         run: |
           set -eu
           NDK_VERSION=$(grep 'ndk-version = ' gradle/libs.versions.toml | cut -d '"' -f 2)
-          echo "NDK_VERSION=${NDK_VERSION}" >> $GITHUB_ENV
           echo "ndk_version=${NDK_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Cache Android SDK
@@ -169,9 +168,6 @@ jobs:
       - name: Build app
         run: |
           set -eu
-          # Set Android environment variables for gradle
-          export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}
-          
           git config --global --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
