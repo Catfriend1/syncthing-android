@@ -313,12 +313,8 @@ def check_and_copy_prebuilt_libraries():
             git_bin, '-C', syncthing_dir, 'rev-parse', 'HEAD'
         ]).decode().strip()
         
-        # Debug: Show paths and directory contents
-        print('=== DEBUGGING PREBUILT LIBRARIES ===')
-        print('prerequisite_tools_dir:', prerequisite_tools_dir)
-        
-        prebuilt_base_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs')
-        print('prebuilt_base_dir:', prebuilt_base_dir)
+        # Use absolute path to match Dockerfile location
+        prebuilt_base_dir = '/opt/syncthing-android-prereq/prebuilt-jnilibs'
         
         if os.path.exists(prebuilt_base_dir):
             print('prebuilt_base_dir exists. Contents:')
@@ -346,11 +342,7 @@ def check_and_copy_prebuilt_libraries():
             print('prebuilt_base_dir does not exist')
         
         # Check for prebuilt libraries directory
-        prebuilt_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs', syncthing_commit)
-        print('Looking for syncthing commit:', syncthing_commit)
-        print('Specific prebuilt_dir:', prebuilt_dir)
-        print('prebuilt_dir exists:', os.path.exists(prebuilt_dir))
-        print('=== END DEBUGGING ===')
+        prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
         
         if os.path.isdir(prebuilt_dir):
             print('Found prebuilt libraries for syncthing commit', syncthing_commit)
