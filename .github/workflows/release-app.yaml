@@ -17,7 +17,6 @@ jobs:
   release:
     name: Release Build and Publish
     runs-on: ubuntu-latest
-    container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,11 +25,63 @@ jobs:
 
       - name: Ensure release branch
         run: |
-          git config --system --add safe.directory '*'
+          git config --global --add safe.directory '*'
           if ! git branch -a --contains $(git rev-parse HEAD) | grep release >/dev/null; then
             echo "Tag is not part of release branch - aborting..."
             exit 1
           fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Get Go version from Syncthing upstream
+        id: get_go_version
+        run: |
+          set -eu
+          GO_VERSION=$(grep -E '^\s*GO_VERSION:' syncthing/src/github.com/syncthing/syncthing/.github/workflows/build-syncthing.yaml | head -1 | cut -d '"' -f 2)
+          echo "go_version=${GO_VERSION}" >> $GITHUB_OUTPUT
+          echo "GO_VERSION=${GO_VERSION}" >> $GITHUB_ENV
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ steps.get_go_version.outputs.go_version }}
+          check-latest: true
+          cache: false
+
+      - name: Install Android SDK
+        run: |
+          set -eu
+          # Set environment variables
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          
+          echo "Installing Android SDK from scratch"
+          # Install Android command line tools
+          SDK_TOOLS_VERSION="11076708"
+          SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+          
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          cd $HOME/android-sdk/cmdline-tools
+          
+          wget -q "https://dl.google.com/android/repository/${SDK_TOOLS_FILE}"
+          unzip -q "${SDK_TOOLS_FILE}"
+          rm "${SDK_TOOLS_FILE}"
+          
+          # Move to expected location
+          mv cmdline-tools latest
+          
+          # Accept Android licenses
+          yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 
       - name: Get app version from libs.versions.toml
         id: get_version
@@ -49,8 +100,6 @@ jobs:
           set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
-          # Clear prebuilt native cache to ensure fresh build for release
-          rm -rf /opt/syncthing-android-prereq/prebuilt-jnilibs/
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
