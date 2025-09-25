@@ -93,11 +93,20 @@ jobs:
       - name: Install Android SDK
         run: |
           set -eu
-          # Install Android command line tools
-          SDK_TOOLS_VERSION="11076708"
-          SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+          # Set environment variables (always needed regardless of cache status)
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
           
-          if [ ! -d "$HOME/android-sdk/cmdline-tools/latest" ]; then
+          # Check if SDK is already installed (from cache)
+          if [ -d "$HOME/android-sdk/cmdline-tools/latest" ]; then
+            echo "Android SDK found in cache - skipping installation"
+          else
+            echo "Installing Android SDK from scratch"
+            # Install Android command line tools
+            SDK_TOOLS_VERSION="11076708"
+            SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+            
             mkdir -p $HOME/android-sdk/cmdline-tools
             cd $HOME/android-sdk/cmdline-tools
             
@@ -107,14 +116,10 @@ jobs:
             
             # Move to expected location
             mv cmdline-tools latest
+            
+            # Accept Android licenses (only needed for fresh installation)
+            yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
           fi
-          
-          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
-          
-          # Accept Android licenses
-          yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 
       - name: Get app version from libs.versions.toml
         id: get_version
