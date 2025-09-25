@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       workflow_names:
-        description: 'Comma-separated list of workflow names to clean up (e.g., "Build App,CodeQL Advanced,Copilot")'
+        description: 'Comma-separated list of workflow names to clean up'
         required: true
         default: 'Build App'
       days_to_keep:

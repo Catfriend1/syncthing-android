@@ -3,12 +3,6 @@
 Recycle Workflow Runs Script
 
 This script deletes old workflow runs for specified workflows in a GitHub repository.
-It's designed to replace the PowerShell script and provides improved functionality:
-- Supports multiple workflows in a single run
-- Filters runs by age (configurable, default 14 days)
-- Handles pagination to ensure all runs are processed
-- Includes rate limiting and error handling
-- Supports dry-run mode for testing
 """
 
 import os
