@@ -256,7 +256,13 @@ def main():
     # Summary
     print("📈 Summary:")
     if dry_run:
-        print(f"  🔍 Dry run mode: {sum(len(api.get_workflow_runs(w['id'])) for w in target_workflows if is_run_older_than_days(run['created_at'], days_to_keep) for run in api.get_workflow_runs(w['id']))} runs would be deleted")
+        # In dry run mode, total_deleted is not incremented, so we need to calculate would-be-deleted count differently
+        total_would_delete = 0
+        for workflow in target_workflows:
+            runs = api.get_workflow_runs(workflow['id'])
+            old_runs = [run for run in runs if is_run_older_than_days(run['created_at'], days_to_keep)]
+            total_would_delete += len(old_runs)
+        print(f"  🔍 Dry run mode: {total_would_delete} runs would be deleted")
     else:
         print(f"  🗑️  Total runs deleted: {total_deleted}")
     print(f"  ⏭️  Total runs skipped (newer than {days_to_keep} days): {total_skipped}")
