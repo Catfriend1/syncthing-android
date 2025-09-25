@@ -1,11 +1,16 @@
-name: "Recycle runs"
+name: "Recycle Runs"
 
 on:
-  push:
+  schedule:
+    - cron: '0 19 * * *'
+  workflow_dispatch:
 
 permissions:
   actions: write
   contents: read
+
+concurrency:
+  group: lock
 
 jobs:
   recycle-workflow-runs:
