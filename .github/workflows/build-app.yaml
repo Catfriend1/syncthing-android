@@ -59,6 +59,8 @@ jobs:
           set -eu
           git config --system --add safe.directory '*'
           java -version
+          # Copy prebuilt libraries from Docker layer cache if available
+          ./scripts/copy_prebuilt_libs.sh
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - name: prepare-artifacts

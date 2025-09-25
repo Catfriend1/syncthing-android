@@ -66,8 +66,15 @@ RUN cd /opt/syncthing-android && \
     ./gradlew --no-daemon buildNative && \
     ./gradlew --no-daemon lintDebug
 
-# Clean up build sources
-RUN rm -rf /opt/syncthing-android
+# Copy built .so files to persistent location for Docker layer caching
+RUN mkdir -p /opt/syncthing-android/prebuilt-libs && \
+    if [ -d /opt/syncthing-android/app/src/main/jniLibs ]; then \
+        cp -r /opt/syncthing-android/app/src/main/jniLibs/* /opt/syncthing-android/prebuilt-libs/; \
+    fi
+
+# Clean up build sources (but keep prebuilt-libs)
+RUN find /opt/syncthing-android -maxdepth 1 -type d -not -name "prebuilt-libs" -not -name "." | xargs rm -rf && \
+    find /opt/syncthing-android -maxdepth 1 -type f | xargs rm -f
 
 # Remove bootstrap go
 RUN apt-get purge -y golang-go && \
