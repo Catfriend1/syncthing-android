@@ -46,6 +46,18 @@ jobs:
         with:
           go-version: ${{ steps.get_go_version.outputs.go_version }}
           check-latest: true
+          cache: false
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-${{ hashFiles('syncthing/src/github.com/syncthing/syncthing/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-
+            ${{ runner.os }}-go-
 
       - name: Get NDK version from gradle catalog
         id: get_ndk_version
