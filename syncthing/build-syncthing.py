@@ -156,30 +156,6 @@ def get_go_version(go_binary):
     except:
         return None
 
-def should_skip_build(project_dir, target, syncthing_version):
-    """Check if we can skip building for a target architecture"""
-    target_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs', target['jni_dir'])
-    target_artifact = os.path.join(target_dir, FILENAME_SYNCTHING_BINARY)
-    
-    # If the .so file doesn't exist, we need to build
-    if not os.path.exists(target_artifact):
-        return False
-    
-    # Check if we can determine if the existing .so is from the current version
-    # For simplicity, we'll assume if the file exists and is recent enough, we can skip
-    # This could be enhanced in the future to check version info embedded in the binary
-    try:
-        import time
-        file_mtime = os.path.getmtime(target_artifact)
-        current_time = time.time()
-        # If file is less than 1 hour old, assume it's current
-        if (current_time - file_mtime) < 3600:
-            return True
-    except:
-        pass
-    
-    return False
-
 def install_go():
     import os
     import tarfile
@@ -384,11 +360,6 @@ print('SOURCE_DATE_EPOCH=[' + os.environ['SOURCE_DATE_EPOCH'] + ']');
 for target in BUILD_TARGETS:
     print('')
     print('*** Building for', target['arch'])
-
-    # Check if we can skip building for this target
-    if should_skip_build(project_dir, target, syncthingVersion):
-        print('*** Skipping build for', target['arch'], '- using existing .so file')
-        continue
 
     cc = os.path.join(
         os.environ['ANDROID_NDK_HOME'],
