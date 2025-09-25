@@ -33,10 +33,19 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Get Go version from Syncthing upstream
+        id: get_go_version
+        run: |
+          set -eu
+          GO_VERSION=$(grep -E '^\s*GO_VERSION:' syncthing/src/github.com/syncthing/syncthing/.github/workflows/build-syncthing.yaml | head -1 | cut -d '"' -f 2)
+          echo "go_version=${GO_VERSION}" >> $GITHUB_OUTPUT
+          echo "GO_VERSION=${GO_VERSION}" >> $GITHUB_ENV
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.23'
+          go-version: ${{ steps.get_go_version.outputs.go_version }}
+          check-latest: true
 
       - name: Get NDK version from gradle catalog
         id: get_ndk_version
@@ -76,19 +85,9 @@ jobs:
           
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
           echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
-
-      - name: Install Android NDK
-        run: |
-          set -eu          
-          # Accept licenses
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
           
-          # Install NDK if not cached
-          if [ ! -d "$ANDROID_HOME/ndk/${NDK_VERSION}" ]; then
-            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;${NDK_VERSION}"
-          fi
-          
-          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          # Accept Android licenses
+          yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
 
       - name: Get app version from libs.versions.toml
         id: get_version
@@ -124,6 +123,9 @@ jobs:
       - name: Build app
         run: |
           set -eu
+          # Set Android environment variables for gradle
+          export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}
+          
           git config --system --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
