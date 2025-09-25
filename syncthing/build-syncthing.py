@@ -43,10 +43,6 @@ BUILD_TARGETS = [
     }
 ]
 
-# If building locally for Android studio tests, build only required arch.
-if os.environ.get('BUILD_FOR_AVD', '') == '1':
-    BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] in ('arm64', 'x86_64')]
-
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
     sys.exit(1)
@@ -304,6 +300,86 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
+# Check for prebuilt libraries from Docker layer cache
+def check_and_copy_prebuilt_libraries():
+    """Check if prebuilt libraries exist for current syncthing commit and copy them if found"""
+    try:
+        # Get syncthing commit hash
+        syncthing_commit = subprocess.check_output([
+            git_bin, '-C', syncthing_dir, 'rev-parse', 'HEAD'
+        ]).decode().strip()
+        
+        # Use platform-specific path for prebuilt libraries
+        if platform.system() == 'Windows':
+            # On Windows, use relative path
+            prebuilt_base_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs')
+        else:
+            # On Linux/other platforms, use absolute path to match Dockerfile location
+            prebuilt_base_dir = '/opt/syncthing-android-prereq/prebuilt-jnilibs'
+        
+        prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
+        
+        if not os.path.isdir(prebuilt_dir):
+            print('No prebuilt libraries found for syncthing commit', syncthing_commit, '- will build from scratch')
+            return False
+        
+        print('Found prebuilt libraries directory for syncthing commit', syncthing_commit)
+        
+        # Check if all required architectures from BUILD_TARGETS are available
+        missing_archs = []
+        available_archs = []
+        
+        for target in BUILD_TARGETS:
+            jni_dir = target['jni_dir']
+            arch_dir = os.path.join(prebuilt_dir, jni_dir)
+            lib_file = os.path.join(arch_dir, FILENAME_SYNCTHING_BINARY)
+            
+            if os.path.isfile(lib_file):
+                available_archs.append(jni_dir)
+            else:
+                missing_archs.append(jni_dir)
+        
+        # If any architecture is missing, return False to rebuild all
+        if missing_archs:
+            print('Missing architectures:', ', '.join(missing_archs))
+            print('Will build all architectures from scratch to ensure consistency')
+            return False
+        
+        # Create target directory
+        target_libs_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs')
+        if not os.path.isdir(target_libs_dir):
+            os.makedirs(target_libs_dir)
+        
+        # Copy prebuilt libraries for each architecture from BUILD_TARGETS
+        for target in BUILD_TARGETS:
+            jni_dir = target['jni_dir']
+            src_arch_dir = os.path.join(prebuilt_dir, jni_dir)
+            dst_arch_dir = os.path.join(target_libs_dir, jni_dir)
+            
+            # Create target architecture directory
+            if not os.path.isdir(dst_arch_dir):
+                os.makedirs(dst_arch_dir)
+            
+            # Copy the library file
+            src_lib_file = os.path.join(src_arch_dir, FILENAME_SYNCTHING_BINARY)
+            dst_lib_file = os.path.join(dst_arch_dir, FILENAME_SYNCTHING_BINARY)
+            
+            shutil.copy2(src_lib_file, dst_lib_file)
+            print('Copied prebuilt library for', jni_dir)
+        
+        print('Copied prebuilt libraries from Docker cache')
+        return True
+            
+    except Exception as e:
+        print('Error checking for prebuilt libraries:', str(e))
+        print('Will build from scratch')
+        return False
+
+# Try to use prebuilt libraries first
+if check_and_copy_prebuilt_libraries():
+    print('Using prebuilt libraries, skipping native build')
+    sys.exit(0)
+
 # Check if go is available.
 go_bin = which("go");
 if not go_bin:
@@ -335,10 +411,6 @@ subprocess.check_call([
     'fetch',
     '--tags'
 ])
-
-if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
-    print('Cleaning go-build cache')
-    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 subprocess.check_call([go_bin, 'env', '-w', 'GOFLAGS=-buildvcs=false'], cwd=syncthing_dir)
 
