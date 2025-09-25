@@ -49,6 +49,8 @@ jobs:
           set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
+          # Clear prebuilt native cache to ensure fresh build for release
+          rm -rf /opt/syncthing-android-prereq/prebuilt-jnilibs/
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
