@@ -314,35 +314,8 @@ def check_and_copy_prebuilt_libraries():
         ]).decode().strip()
         
         # Use absolute path to match Dockerfile location
-        prebuilt_base_dir = '/opt/syncthing-android-prereq/prebuilt-jnilibs'
-        
-        if os.path.exists(prebuilt_base_dir):
-            print('prebuilt_base_dir exists. Contents:')
-            try:
-                for item in os.listdir(prebuilt_base_dir):
-                    item_path = os.path.join(prebuilt_base_dir, item)
-                    if os.path.isdir(item_path):
-                        print('  [DIR] ', item)
-                        # List contents of each commit directory
-                        try:
-                            sub_contents = os.listdir(item_path)
-                            for sub_item in sub_contents:
-                                sub_path = os.path.join(item_path, sub_item)
-                                if os.path.isdir(sub_path):
-                                    print('    [DIR] ', sub_item)
-                                else:
-                                    print('    [FILE]', sub_item)
-                        except Exception as e:
-                            print('    Error listing contents:', str(e))
-                    else:
-                        print('  [FILE]', item)
-            except Exception as e:
-                print('  Error listing prebuilt_base_dir:', str(e))
-        else:
-            print('prebuilt_base_dir does not exist')
-        
         # Check for prebuilt libraries directory
-        prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
+        prebuilt_dir = os.path.join('/opt/syncthing-android-prereq/prebuilt-jnilibs', syncthing_commit)
         
         if os.path.isdir(prebuilt_dir):
             print('Found prebuilt libraries for syncthing commit', syncthing_commit)
