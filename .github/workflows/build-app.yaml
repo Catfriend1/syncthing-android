@@ -2,7 +2,6 @@ name: Build App
 
 permissions:
   contents: read
-  packages: read
 
 on:
   pull_request:
@@ -14,12 +13,137 @@ jobs:
   build:
     name: Debug Build
     runs-on: ubuntu-latest
-    container: ghcr.io/catfriend1/syncthing-android-builder
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Get Go version from Syncthing upstream
+        id: get_go_version
+        run: |
+          set -eu
+          GO_VERSION=$(grep -E '^\s*GO_VERSION:' syncthing/src/github.com/syncthing/syncthing/.github/workflows/build-syncthing.yaml | head -1 | cut -d '"' -f 2)
+          echo "go_version=${GO_VERSION}" >> $GITHUB_OUTPUT
+          echo "GO_VERSION=${GO_VERSION}" >> $GITHUB_ENV
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ steps.get_go_version.outputs.go_version }}
+          check-latest: true
+          cache: false
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-${{ hashFiles('syncthing/src/github.com/syncthing/syncthing/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-
+            ${{ runner.os }}-go-
+
+      - name: Cache Gradle and Android user home
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ runner.temp }}/.gradle/caches
+            ${{ runner.temp }}/.gradle/wrapper
+            ${{ runner.temp }}/.android
+          key: ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-${{ steps.get_ndk_version.outputs.ndk_version }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-
+            ${{ runner.os }}-gradle-android-
+
+      - name: Get syncthing commit hash for native libs cache
+        id: get_syncthing_commit
+        run: |
+          set -eu
+          SYNCTHING_COMMIT=$(cd syncthing/src/github.com/syncthing/syncthing && git rev-parse HEAD)
+          echo "syncthing_commit=${SYNCTHING_COMMIT}" >> $GITHUB_OUTPUT
+          echo "SYNCTHING_COMMIT=${SYNCTHING_COMMIT}" >> $GITHUB_ENV
+
+      - name: Cache prebuilt native libraries
+        uses: actions/cache@v4
+        with:
+          path: |
+            /opt/syncthing-android-prereq/prebuilt-jnilibs
+          key: ${{ runner.os }}-prebuilt-jnilibs-${{ steps.get_syncthing_commit.outputs.syncthing_commit }}
+          restore-keys: |
+            ${{ runner.os }}-prebuilt-jnilibs-
+
+      - name: Set Gradle and Android user home environment variables
+        run: |
+          set -eu
+          echo "GRADLE_USER_HOME=${{ runner.temp }}/.gradle" >> $GITHUB_ENV
+          echo "ANDROID_USER_HOME=${{ runner.temp }}/.android" >> $GITHUB_ENV
+          
+          # Create directories to ensure they exist
+          mkdir -p "${{ runner.temp }}/.gradle"
+          mkdir -p "${{ runner.temp }}/.android"
+          
+          echo "Set GRADLE_USER_HOME to: ${{ runner.temp }}/.gradle"
+          echo "Set ANDROID_USER_HOME to: ${{ runner.temp }}/.android"
+
+      - name: Get NDK version from gradle catalog
+        id: get_ndk_version
+        run: |
+          set -eu
+          NDK_VERSION=$(grep 'ndk-version = ' gradle/libs.versions.toml | cut -d '"' -f 2)
+          echo "ndk_version=${NDK_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Cache Android SDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/android-sdk
+          key: android-sdk-${{ runner.os }}-${{ steps.get_ndk_version.outputs.ndk_version }}
+          restore-keys: |
+            android-sdk-${{ runner.os }}-
+
+      - name: Install Android SDK
+        run: |
+          set -eu
+          # Set environment variables (always needed regardless of cache status)
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          
+          # Check if SDK is already installed (from cache)
+          if [ -d "$HOME/android-sdk/cmdline-tools/latest" ]; then
+            echo "Android SDK found in cache - skipping installation"
+          else
+            echo "Installing Android SDK from scratch"
+            # Install Android command line tools
+            SDK_TOOLS_VERSION="11076708"
+            SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+            
+            mkdir -p $HOME/android-sdk/cmdline-tools
+            cd $HOME/android-sdk/cmdline-tools
+            
+            wget -q "https://dl.google.com/android/repository/${SDK_TOOLS_FILE}"
+            unzip -q "${SDK_TOOLS_FILE}"
+            rm "${SDK_TOOLS_FILE}"
+            
+            # Move to expected location
+            mv cmdline-tools latest
+            
+            # Accept Android licenses (only needed for fresh installation)
+            yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+          fi
 
       - name: Get app version from libs.versions.toml
         id: get_version
@@ -40,26 +164,64 @@ jobs:
           COMMIT_HASH_SHORT=$(echo "$COMMIT_HASH_LONG" | cut -c1-7)
           echo "COMMIT_HASH=${COMMIT_HASH_SHORT}" >> $GITHUB_ENV
 
-      - name: setup-debug-signing
+      - name: Prepare prebuilt native libraries cache directory
         run: |
           set -eu
-          mkdir -p "/root/.android"
+          # Create cache directory with proper permissions for build scripts
+          sudo mkdir -p /opt/syncthing-android-prereq/prebuilt-jnilibs
+          sudo chown -R runner:runner /opt/syncthing-android-prereq || true
+          
+          echo "Prepared cache directory: /opt/syncthing-android-prereq/prebuilt-jnilibs"
+          echo "Current syncthing commit: ${SYNCTHING_COMMIT}"
+          
+          # Check if cached libraries exist for current commit
+          if [ -d "/opt/syncthing-android-prereq/prebuilt-jnilibs/${SYNCTHING_COMMIT}" ]; then
+            echo "Found cached native libraries for syncthing commit ${SYNCTHING_COMMIT}"
+            ls -la /opt/syncthing-android-prereq/prebuilt-jnilibs/${SYNCTHING_COMMIT}/
+          else
+            echo "No cached native libraries found for syncthing commit ${SYNCTHING_COMMIT} - will build from scratch"
+          fi
+
+      - name: Setup debug signing
+        run: |
+          set -eu
+          # Create directories - debug keystore goes to ANDROID_USER_HOME
+          mkdir -p "$ANDROID_USER_HOME"
+          
           if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
             echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
-            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "/root/.android/debug.keystore"
+            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "${{ runner.temp }}/.android/debug.keystore"
           else
-            cp "scripts/debug/debug.keystore.pub" "/root/.android/debug.keystore"
+            cp "scripts/debug/debug.keystore.pub" "${{ runner.temp }}/.android/debug.keystore"
             echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
           fi
 
-      - name: build
+      - name: Build app
         run: |
           set -eu
-          git config --system --add safe.directory '*'
+          git config --global --add safe.directory '*'
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
+          
+          # Remove debug signing
+          rm -f "${{ runner.temp }}/.android/debug.keystore"
 
-      - name: prepare-artifacts
+      - name: Save prebuilt native libraries to cache
+        run: |
+          set -eu
+          # Create cache directory structure matching what build-syncthing.py expects
+          mkdir -p /opt/syncthing-android-prereq/prebuilt-jnilibs/${SYNCTHING_COMMIT}
+          
+          # Copy built native libraries to cache if they exist
+          if [ -d "app/src/main/jniLibs" ]; then
+            cp -r app/src/main/jniLibs/* /opt/syncthing-android-prereq/prebuilt-jnilibs/${SYNCTHING_COMMIT}/
+            echo "Saved native libraries to cache for syncthing commit ${SYNCTHING_COMMIT}"
+            ls -la /opt/syncthing-android-prereq/prebuilt-jnilibs/${SYNCTHING_COMMIT}/
+          else
+            echo "No native libraries found to cache"
+          fi
+
+      - name: Prepare artifacts
         shell: bash
         run: |
           set -eu
