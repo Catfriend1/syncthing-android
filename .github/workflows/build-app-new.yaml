@@ -203,8 +203,8 @@ jobs:
           java -version
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
           
-          # Remove debug keystore from cache to avoid caching sensitive data
-          rm -f "${ANDROID_USER_HOME}/debug.keystore"
+          # Remove debug signing
+          rm -f "${{ runner.temp }}/.android/debug.keystore"
 
       - name: Save prebuilt native libraries to cache
         run: |
