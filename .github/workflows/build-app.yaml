@@ -57,17 +57,6 @@ jobs:
           set -eu
           git config --system --add safe.directory '*'
           java -version
-          # Copy prebuilt libraries from Docker layer cache if available for current syncthing commit
-          SYNCTHING_COMMIT=$(cd syncthing/src/github.com/syncthing/syncthing && git rev-parse HEAD)
-          PREBUILT_DIR="/opt/syncthing-android-prereq/prebuilt-jnilibs/$SYNCTHING_COMMIT"
-          if [ -d "$PREBUILT_DIR" ]; then
-            echo "Found prebuilt libraries for syncthing commit $SYNCTHING_COMMIT"
-            mkdir -p app/src/main/jniLibs
-            cp -r "$PREBUILT_DIR"/* app/src/main/jniLibs/
-            echo "Copied prebuilt libraries from Docker cache"
-          else
-            echo "No prebuilt libraries found for syncthing commit $SYNCTHING_COMMIT - will build from scratch"
-          fi
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - name: prepare-artifacts

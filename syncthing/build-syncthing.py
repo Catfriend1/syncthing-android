@@ -304,6 +304,54 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
+# Check for prebuilt libraries from Docker layer cache
+def check_and_copy_prebuilt_libraries():
+    """Check if prebuilt libraries exist for current syncthing commit and copy them if found"""
+    try:
+        # Get syncthing commit hash
+        syncthing_commit = subprocess.check_output([
+            git_bin, '-C', syncthing_dir, 'rev-parse', 'HEAD'
+        ]).decode().strip()
+        
+        # Check for prebuilt libraries directory
+        prebuilt_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs', syncthing_commit)
+        
+        if os.path.isdir(prebuilt_dir):
+            print('Found prebuilt libraries for syncthing commit', syncthing_commit)
+            
+            # Create target directory
+            target_libs_dir = os.path.join(project_dir, 'app', 'src', 'main', 'jniLibs')
+            if not os.path.isdir(target_libs_dir):
+                os.makedirs(target_libs_dir)
+            
+            # Copy prebuilt libraries
+            for item in os.listdir(prebuilt_dir):
+                src_path = os.path.join(prebuilt_dir, item)
+                dst_path = os.path.join(target_libs_dir, item)
+                if os.path.isdir(src_path):
+                    if os.path.exists(dst_path):
+                        shutil.rmtree(dst_path)
+                    shutil.copytree(src_path, dst_path)
+                    print('Copied prebuilt library for', item)
+                else:
+                    shutil.copy2(src_path, dst_path)
+            
+            print('Copied prebuilt libraries from Docker cache')
+            return True
+        else:
+            print('No prebuilt libraries found for syncthing commit', syncthing_commit, '- will build from scratch')
+            return False
+            
+    except Exception as e:
+        print('Error checking for prebuilt libraries:', str(e))
+        print('Will build from scratch')
+        return False
+
+# Try to use prebuilt libraries first
+if check_and_copy_prebuilt_libraries():
+    print('Using prebuilt libraries, skipping native build')
+    sys.exit(0)
+
 # Check if go is available.
 go_bin = which("go");
 if not go_bin:
