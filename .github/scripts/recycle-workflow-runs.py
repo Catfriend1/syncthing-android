@@ -28,7 +28,7 @@ class GitHubAPI:
         self.headers = {
             'Authorization': f'token {token}',
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Mozilla/5.0 compatible 99.0'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.3485.81'
         }
         self.base_url = 'https://api.github.com'
         
