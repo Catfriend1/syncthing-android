@@ -1,0 +1,152 @@
+name: Build App New
+
+permissions:
+  contents: read
+  packages: read
+
+on:
+  pull_request:
+  push:
+    branches:
+      - fdroid
+      - main
+      - release
+
+jobs:
+  build:
+    name: Debug Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Install Android SDK
+        run: |
+          set -eu
+          # Install Android command line tools
+          SDK_TOOLS_VERSION="11076708"
+          SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+          
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          cd $HOME/android-sdk/cmdline-tools
+          
+          wget -q "https://dl.google.com/android/repository/${SDK_TOOLS_FILE}"
+          unzip -q "${SDK_TOOLS_FILE}"
+          rm "${SDK_TOOLS_FILE}"
+          
+          # Move to expected location
+          mv cmdline-tools latest
+          
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+
+      - name: Install Android NDK
+        run: |
+          set -eu
+          NDK_VERSION="28.2.13676358"
+          
+          # Accept licenses
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+          
+          # Install NDK
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;${NDK_VERSION}"
+          
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "NDK_VERSION=${NDK_VERSION}" >> $GITHUB_ENV
+
+      - name: Get app version from libs.versions.toml
+        id: get_version
+        run: |
+          set -eu
+          VERSION=$(grep 'version-name = ' gradle/libs.versions.toml | cut -d '"' -f 2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Get commit hash
+        id: get_commit_hash
+        run: |
+          set -eu
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            COMMIT_HASH_LONG="${{ github.event.pull_request.head.sha }}"
+          else
+            COMMIT_HASH_LONG="${{ github.sha }}"
+          fi
+          COMMIT_HASH_SHORT=$(echo "$COMMIT_HASH_LONG" | cut -c1-7)
+          echo "COMMIT_HASH=${COMMIT_HASH_SHORT}" >> $GITHUB_ENV
+
+      - name: Setup debug signing
+        run: |
+          set -eu
+          mkdir -p "$HOME/.android"
+          if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
+            echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
+            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "$HOME/.android/debug.keystore"
+          else
+            cp "scripts/debug/debug.keystore.pub" "$HOME/.android/debug.keystore"
+            echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
+          fi
+
+      - name: Build native binaries
+        run: |
+          set -eu
+          # Set environment variables for build-syncthing.py
+          export SOURCE_DATE_EPOCH=$(cd syncthing/src/github.com/syncthing/syncthing && git log -1 --format=%ct)
+          export BUILD_HOST="Catfriend1-syncthing-android"
+          export BUILD_USER="reproducible-build"
+          export STTRACE=""
+          
+          # Run build-syncthing.py
+          cd syncthing
+          python3 -u build-syncthing.py
+
+      - name: Build app
+        run: |
+          set -eu
+          # Set IS_COPILOT=true to skip buildNative task since we already built native binaries
+          export IS_COPILOT=true
+          
+          git config --system --add safe.directory '*'
+          java -version
+          ./gradlew --no-daemon lintDebug assembleDebug
+
+      - name: Prepare artifacts
+        shell: bash
+        run: |
+          set -eu
+          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            app/build/reports/**
+
+      - if: false
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-and-libs
+          path: |
+            app/build/reports/**
+            app/src/main/jniLibs/**
