@@ -43,10 +43,6 @@ BUILD_TARGETS = [
     }
 ]
 
-# If building locally for Android studio tests, build only required arch.
-if os.environ.get('BUILD_FOR_AVD', '') == '1':
-    BUILD_TARGETS = [t for t in BUILD_TARGETS if t['arch'] in ('arm64', 'x86_64')]
-
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
     sys.exit(1)
@@ -335,10 +331,6 @@ subprocess.check_call([
     'fetch',
     '--tags'
 ])
-
-if os.environ.get('CLEANUP_BEFORE_BUILD', '') == "1":
-    print('Cleaning go-build cache')
-    subprocess.check_call([go_bin, 'clean', '-cache'], cwd=syncthing_dir)
 
 subprocess.check_call([go_bin, 'env', '-w', 'GOFLAGS=-buildvcs=false'], cwd=syncthing_dir)
 
