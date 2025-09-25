@@ -57,6 +57,18 @@ jobs:
             ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-
             ${{ runner.os }}-go-
 
+      - name: Cache Gradle and Android user home
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ runner.temp }}/.gradle/caches
+            ${{ runner.temp }}/.gradle/wrapper
+            ${{ runner.temp }}/.android
+          key: ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-${{ steps.get_ndk_version.outputs.ndk_version }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-
+            ${{ runner.os }}-gradle-android-
+
       - name: Get syncthing commit hash for native libs cache
         id: get_syncthing_commit
         run: |
@@ -73,6 +85,19 @@ jobs:
           key: ${{ runner.os }}-prebuilt-jnilibs-${{ steps.get_syncthing_commit.outputs.syncthing_commit }}
           restore-keys: |
             ${{ runner.os }}-prebuilt-jnilibs-
+
+      - name: Set Gradle and Android user home environment variables
+        run: |
+          set -eu
+          echo "GRADLE_USER_HOME=${{ runner.temp }}/.gradle" >> $GITHUB_ENV
+          echo "ANDROID_USER_HOME=${{ runner.temp }}/.android" >> $GITHUB_ENV
+          
+          # Create directories to ensure they exist
+          mkdir -p "${{ runner.temp }}/.gradle"
+          mkdir -p "${{ runner.temp }}/.android"
+          
+          echo "Set GRADLE_USER_HOME to: ${{ runner.temp }}/.gradle"
+          echo "Set ANDROID_USER_HOME to: ${{ runner.temp }}/.android"
 
       - name: Get NDK version from gradle catalog
         id: get_ndk_version
@@ -161,7 +186,10 @@ jobs:
       - name: Setup debug signing
         run: |
           set -eu
+          # Create both directories - debug keystore goes to ~/.android, other Android user settings to ANDROID_USER_HOME
           mkdir -p "$HOME/.android"
+          mkdir -p "$ANDROID_USER_HOME"
+          
           if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
             echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
             echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "$HOME/.android/debug.keystore"
