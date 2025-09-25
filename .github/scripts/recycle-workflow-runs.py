@@ -138,7 +138,17 @@ def main():
     token = os.environ.get('GITHUB_TOKEN')
     repo = os.environ.get('REPO')
     workflow_names_str = os.environ.get('WORKFLOW_NAMES', 'Build App')
-    days_to_keep = int(os.environ.get('DAYS_TO_KEEP', '14'))
+    
+    # Handle days_to_keep with proper validation
+    days_to_keep_str = os.environ.get('DAYS_TO_KEEP', '14')
+    try:
+        days_to_keep = int(days_to_keep_str) if days_to_keep_str.strip() else 14
+        if days_to_keep < 1:
+            days_to_keep = 14
+    except (ValueError, AttributeError):
+        print(f"⚠️  Invalid DAYS_TO_KEEP value '{days_to_keep_str}', using default: 14")
+        days_to_keep = 14
+    
     dry_run = os.environ.get('DRY_RUN', 'false').lower() == 'true'
     
     if not token:
