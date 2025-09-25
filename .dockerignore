@@ -11,6 +11,9 @@
 # Kotlin
 .kotlin/
 
+# Python compiled
+*.pyc
+
 # generated files
 .gradle/
 app/build/
