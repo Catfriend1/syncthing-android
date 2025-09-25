@@ -1,7 +1,7 @@
 name: "Recycle runs"
 
 on:
-  workflow_dispatch:
+  push:
     inputs:
       workflow_names:
         description: 'Comma-separated list of workflow names to clean up'
