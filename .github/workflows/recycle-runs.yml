@@ -1,6 +1,7 @@
 name: "Recycle runs"
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       workflow_names:
