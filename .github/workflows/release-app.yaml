@@ -51,13 +51,6 @@ jobs:
           check-latest: true
           cache: false
 
-      - name: Get NDK version from gradle catalog
-        id: get_ndk_version
-        run: |
-          set -eu
-          NDK_VERSION=$(grep 'ndk-version = ' gradle/libs.versions.toml | cut -d '"' -f 2)
-          echo "ndk_version=${NDK_VERSION}" >> $GITHUB_OUTPUT
-
       - name: Install Android SDK
         run: |
           set -eu
