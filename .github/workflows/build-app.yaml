@@ -68,7 +68,7 @@ jobs:
           else
             echo "No prebuilt libraries found for syncthing commit $SYNCTHING_COMMIT - will build from scratch"
           fi
-          ./gradlew --no-daemon assembleDebug lintDebug
+          ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - name: prepare-artifacts
         shell: bash
