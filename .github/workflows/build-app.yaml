@@ -60,7 +60,7 @@ jobs:
           git config --system --add safe.directory '*'
           java -version
           # Copy prebuilt libraries from Docker layer cache if available
-          ./scripts/copy_prebuilt_libs.sh
+          PREBUILT_DIR="/opt/syncthing-android-prereq/prebuilt-jnilibs"; if [ -d "$PREBUILT_DIR" ]; then for arch in arm64-v8a armeabi-v7a x86 x86_64; do if [ -f "$PREBUILT_DIR/$arch/libsyncthingnative.so" ]; then mkdir -p "app/src/main/jniLibs/$arch" && cp "$PREBUILT_DIR/$arch/libsyncthingnative.so" "app/src/main/jniLibs/$arch/" && echo "Copied prebuilt library for $arch"; fi; done; else echo "No prebuilt libraries directory found - will build from scratch"; fi
           ./gradlew --no-daemon buildNative lintDebug assembleDebug
 
       - name: prepare-artifacts
