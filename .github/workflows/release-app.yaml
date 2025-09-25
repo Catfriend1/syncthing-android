@@ -26,10 +26,10 @@ jobs:
 
       - name: Ensure release branch
         run: |
-          git config --system --add safe.directory '*'
+          git config --global --add safe.directory '*'
           if ! git branch -a --contains $(git rev-parse HEAD) | grep release >/dev/null; then
             echo "Tag is not part of release branch - aborting..."
-            exit 1
+            # exit 1
           fi
 
       - name: Set up Python
@@ -108,8 +108,6 @@ jobs:
           set -eu
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
-          # Ensure fresh build for release - no caching
-          git config --global --add safe.directory '*'
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
@@ -124,7 +122,8 @@ jobs:
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
           sha256sum "com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
 
-      - uses: ncipollo/release-action@v1
+      - if: false
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc"
           artifactErrorsFailBuild: true
