@@ -2,7 +2,6 @@ name: Release App
 
 permissions:
   contents: write
-  packages: read
 
 on:
   push:
