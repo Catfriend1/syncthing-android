@@ -93,17 +93,8 @@ jobs:
         id: get_app_id
         run: |
           set -eu
-          # Extract applicationId dynamically from app/build.gradle.kts
-          APPLICATION_ID=$(python3 -c "
-          import re
-          with open('app/build.gradle.kts', 'r') as f:
-              content = f.read()
-          match = re.search(r'applicationId\s*=\s*\"([^\"]+)\"', content)
-          if match:
-              print(match.group(1))
-          else:
-              raise ValueError('applicationId not found')
-          ")
+          # Extract applicationId dynamically from app/build.gradle.kts using grep and cut
+          APPLICATION_ID=$(grep "applicationId = " app/build.gradle.kts | cut -d '"' -f 2)
           
           echo "APPLICATION_ID=${APPLICATION_ID}" >> $GITHUB_ENV
           echo "Extracted application ID: ${APPLICATION_ID}"
