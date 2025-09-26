@@ -152,6 +152,31 @@ jobs:
           VERSION=$(grep 'version-name = ' gradle/libs.versions.toml | cut -d '"' -f 2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Extract application ID from gradle config
+        id: get_app_id
+        run: |
+          set -eu
+          # Extract applicationId dynamically from app/build.gradle.kts
+          APPLICATION_ID=$(python3 -c "
+          import re
+          with open('app/build.gradle.kts', 'r') as f:
+              content = f.read()
+          match = re.search(r'applicationId\s*=\s*\"([^\"]+)\"', content)
+          if match:
+              print(match.group(1))
+          else:
+              raise ValueError('applicationId not found')
+          ")
+          
+          # For debug builds, add .debug suffix as configured in buildTypes
+          APPLICATION_ID_DEBUG="${APPLICATION_ID}.debug"
+          
+          echo "APPLICATION_ID=${APPLICATION_ID}" >> $GITHUB_ENV
+          echo "APPLICATION_ID_DEBUG=${APPLICATION_ID_DEBUG}" >> $GITHUB_ENV
+          
+          echo "Extracted application ID: ${APPLICATION_ID}"
+          echo "Debug application ID: ${APPLICATION_ID_DEBUG}"
+
       - name: Get commit hash
         id: get_commit_hash
         run: |
@@ -225,12 +250,13 @@ jobs:
         shell: bash
         run: |
           set -eu
-          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
+          # Use dynamically extracted application ID for debug artifact naming
+          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
-          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          name: ${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          path: app/build/outputs/apk/debug/${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
 
       - uses: actions/upload-artifact@v4
         with:
