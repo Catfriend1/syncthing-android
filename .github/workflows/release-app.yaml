@@ -89,6 +89,16 @@ jobs:
           VERSION=$(grep 'version-name = ' gradle/libs.versions.toml | cut -d '"' -f 2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Extract application ID from gradle config
+        id: get_app_id
+        run: |
+          set -eu
+          # Extract applicationId dynamically from app/build.gradle.kts using grep and cut
+          APPLICATION_ID=$(grep "applicationId = " app/build.gradle.kts | cut -d '"' -f 2)
+          
+          echo "APPLICATION_ID=${APPLICATION_ID}" >> $GITHUB_ENV
+          echo "Extracted application ID: ${APPLICATION_ID}"
+
       - name: build_release
         env:
           SYNCTHING_RELEASE_KEY_ALIAS: Syncthing-Fork
@@ -107,11 +117,12 @@ jobs:
         run: |
           set -eu
           #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk"
+          # Use dynamically extracted application ID for release artifact naming
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
           #
           cd "app/build/outputs/apk/release"
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "com.github.catfriend1.syncthingfork_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          sha256sum "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
