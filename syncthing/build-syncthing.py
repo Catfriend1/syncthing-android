@@ -300,7 +300,7 @@ if not git_bin:
 
 print('git_bin=\'' + git_bin + '\'')
 
-# Check for prebuilt libraries from Docker layer cache
+# Check for prebuilt libraries from cache
 def check_and_copy_prebuilt_libraries():
     """Check if prebuilt libraries exist for current syncthing commit and copy them if found"""
     try:
@@ -314,7 +314,7 @@ def check_and_copy_prebuilt_libraries():
             # On Windows, use relative path
             prebuilt_base_dir = os.path.join(prerequisite_tools_dir, 'prebuilt-jnilibs')
         else:
-            # On Linux/other platforms, use absolute path to match Dockerfile location
+            # On Linux/other platforms, use absolute path to match cache location
             prebuilt_base_dir = '/opt/syncthing-android-prereq/prebuilt-jnilibs'
         
         prebuilt_dir = os.path.join(prebuilt_base_dir, syncthing_commit)
@@ -367,7 +367,7 @@ def check_and_copy_prebuilt_libraries():
             shutil.copy2(src_lib_file, dst_lib_file)
             print('Copied prebuilt library for', jni_dir)
         
-        print('Copied prebuilt libraries from Docker cache')
+        print('Copied prebuilt libraries from cache')
         return True
             
     except Exception as e:

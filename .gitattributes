@@ -1,9 +1,6 @@
-docker/* eol=lf
-
 *.bash text eol=lf
 *.bat text eol=crlf
 *.cmd text eol=crlf
-*.dockerignore eol=lf
 *.sh text eol=lf
 
 gradlew eol=lf
