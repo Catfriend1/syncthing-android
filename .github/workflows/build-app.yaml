@@ -114,6 +114,13 @@ jobs:
           restore-keys: |
             android-sdk-${{ runner.os }}-
 
+      - name: Get Android cmdline-tools version from gradle catalog
+        id: get_cmdline_tools_version
+        run: |
+          set -eu
+          CMDLINE_TOOLS_VERSION=$(grep 'android-cmdline-tools = ' gradle/libs.versions.toml | cut -d '"' -f 2)
+          echo "cmdline_tools_version=${CMDLINE_TOOLS_VERSION}" >> $GITHUB_OUTPUT
+
       - name: Install Android SDK
         run: |
           set -eu
@@ -128,7 +135,7 @@ jobs:
           else
             echo "Installing Android SDK from scratch"
             # Install Android command line tools
-            SDK_TOOLS_VERSION="11076708"
+            SDK_TOOLS_VERSION="${{ steps.get_cmdline_tools_version.outputs.cmdline_tools_version }}"
             SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
             
             mkdir -p $HOME/android-sdk/cmdline-tools
@@ -151,6 +158,19 @@ jobs:
           set -eu
           VERSION=$(grep 'version-name = ' gradle/libs.versions.toml | cut -d '"' -f 2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Extract application ID from gradle config
+        id: get_app_id
+        run: |
+          set -eu
+          # Extract applicationId dynamically from app/build.gradle.kts using grep and cut
+          APPLICATION_ID=$(grep "applicationId = " app/build.gradle.kts | cut -d '"' -f 2)
+          
+          # For debug builds, add .debug suffix as configured in buildTypes
+          APPLICATION_ID_DEBUG="${APPLICATION_ID}.debug"
+          
+          echo "APPLICATION_ID_DEBUG=${APPLICATION_ID_DEBUG}" >> $GITHUB_ENV
+          echo "Debug application ID: ${APPLICATION_ID_DEBUG}"
 
       - name: Get commit hash
         id: get_commit_hash
@@ -225,12 +245,12 @@ jobs:
         shell: bash
         run: |
           set -eu
-          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
+          mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
-          path: app/build/outputs/apk/debug/com.github.catfriend1.syncthingfork_debug_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          name: ${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
+          path: app/build/outputs/apk/debug/${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk
 
       - uses: actions/upload-artifact@v4
         with:
