@@ -24,15 +24,12 @@ def get_android_cmdline_tools_version():
     import os
     script_dir = os.path.dirname(os.path.realpath(__file__))
     libs_versions_path = os.path.join(script_dir, '..', 'gradle', 'libs.versions.toml')
-    
-    try:
-        with open(libs_versions_path, 'r') as f:
-            for line in f:
-                if line.strip().startswith('android-cmdline-tools = '):
-                    version = line.split('"')[1]
-                    return version
-    except:
-        fail('get_android_cmdline_tools_version FAILED')
+    with open(libs_versions_path, 'r') as f:
+        for line in f:
+            if line.strip().startswith('android-cmdline-tools = '):
+                version = line.split('"')[1]
+                return version
+    fail('get_android_cmdline_tools_version FAILED')
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
