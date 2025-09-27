@@ -117,51 +117,24 @@ jobs:
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
-      - name: build_per_abi_apks
-        env:
-          SYNCTHING_RELEASE_KEY_ALIAS: Syncthing-Fork
-          SIGNING_PASSWORD: '${{ secrets.SIGNING_PASSWORD }}'
-          SYNCTHING_RELEASE_STORE_FILE: '${{ runner.temp }}/signing-keystore.jks'
-        shell: bash
-        run: |
-          set -eu
-          echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
-          
-          # Backup original build.gradle.kts
-          cp app/build.gradle.kts app/build.gradle.kts.backup
-          
-          # List of ABIs to build individual APKs for
-          ABIS=("armeabi-v7a" "arm64-v8a" "x86" "x86_64")
-          
-          for ABI in "${ABIS[@]}"; do
-            echo "Building APK for ABI: $ABI"
-            
-            # Temporarily modify build.gradle.kts to include only this ABI
-            sed -i 's/include([^)]*)/include("'"$ABI"'")/' app/build.gradle.kts
-            
-            # Build APK for this ABI only
-            ./gradlew --no-daemon assembleRelease
-            
-            # Rename the output APK to include ABI suffix
-            mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_v${{ env.VERSION }}_${ABI}.apk"
-            
-            # Restore original build.gradle.kts for next iteration
-            cp app/build.gradle.kts.backup app/build.gradle.kts
-          done
-          
-          # Clean up backup file and keystore
-          rm app/build.gradle.kts.backup
-          rm "$SYNCTHING_RELEASE_STORE_FILE"
-
       - name: prepare-artifacts
         shell: bash
         run: |
           set -eu
           #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
-          #
-          # Generate SHA256 checksums for all APKs
+          # Rename all APK files to the expected naming convention
           cd "app/build/outputs/apk/release"
+          
+          # Rename universal APK (keeps original naming convention)
+          mv "app-universal-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
+          
+          # Rename per-ABI APKs
+          mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
+          mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
+          mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
+          mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
+          
+          # Generate SHA256 checksums for all APKs
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
           
           # Create checksums for all APK files
