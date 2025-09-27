@@ -145,7 +145,7 @@ jobs:
             fi
           done
           
-          # Sign the checksums file (batch mode to avoid interactive prompts)
+          # Sign the checksums file
           gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
