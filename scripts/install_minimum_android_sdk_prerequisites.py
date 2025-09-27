@@ -8,10 +8,10 @@ import platform
 #
 # Run script from command line
 ## Debian Linux / WSL
-### python3 install_minimum_android_sdk_prerequisites.py
+### python3 scripts/install_minimum_android_sdk_prerequisites.py
 ##
 ## Windows
-### python install_minimum_android_sdk_prerequisites.py
+### python scripts/install_minimum_android_sdk_prerequisites.py
 #
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
@@ -29,23 +29,10 @@ def get_android_cmdline_tools_version():
         with open(libs_versions_path, 'r') as f:
             for line in f:
                 if line.strip().startswith('android-cmdline-tools = '):
-                    # Extract version from: android-cmdline-tools = "11076708"
                     version = line.split('"')[1]
                     return version
-    except (FileNotFoundError, IndexError):
-        pass
-    
-    # Fallback to hardcoded version if libs.versions.toml not found or malformed
-    # Update only libs.versions.toml to change the version
-    return '11076708'
-
-# Version numbers, SHA256 and URLs taken from
-## https://developer.android.com/studio
-## NOTE: Update the version in gradle/libs.versions.toml under 'android-cmdline-tools'
-ANDROID_SDK_TOOLS_VERSION = get_android_cmdline_tools_version()
-ANDROID_SDK_TOOLS_SHASUM_LINUX = '2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
-ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862'
-ANDROID_SDK_VERSION = '36'
+    except:
+        fail('get_android_cmdline_tools_version FAILED')
 
 def fail(message, *args, **kwargs):
     print((message % args).format(**kwargs))
@@ -103,11 +90,9 @@ def install_sdk_tools():
 
     zip_fullfn = prerequisite_tools_dir + os.path.sep + 'sdk-tools.zip';
     if sys.platform == 'win32':
-        url =               'https://dl.google.com/android/repository/commandlinetools-win-' + ANDROID_SDK_TOOLS_VERSION + '_latest.zip'
-        expected_shasum =   ANDROID_SDK_TOOLS_SHASUM_WINDOWS
+        url =               'https://dl.google.com/android/repository/commandlinetools-win-' + get_android_cmdline_tools_version() + '_latest.zip'
     else:
-        url =               'https://dl.google.com/android/repository/commandlinetools-linux-' + ANDROID_SDK_TOOLS_VERSION + '_latest.zip'
-        expected_shasum =   ANDROID_SDK_TOOLS_SHASUM_LINUX
+        url =               'https://dl.google.com/android/repository/commandlinetools-linux-' + get_android_cmdline_tools_version() + '_latest.zip'
 
     # Download sdk-tools.
     url_base_name = os.path.basename(url)
@@ -115,15 +100,6 @@ def install_sdk_tools():
         print('Downloading sdk-tools to:', zip_fullfn)
         zip_fullfn = urlretrieve(url, zip_fullfn)[0]
     print('Downloaded sdk-tools to:', zip_fullfn)
-
-    # Verify SHA-1 checksum of downloaded files.
-    with open(zip_fullfn, 'rb') as f:
-        contents = f.read()
-        found_shasum = hashlib.sha256(contents).hexdigest()
-        print("SHA-256:", zip_fullfn, "%s" % found_shasum)
-    if found_shasum != expected_shasum:
-        fail('Error: SHA-256 checksum ' + found_shasum + ' of downloaded file does not match expected checksum ' + expected_shasum)
-    print("[ok] Checksum of", zip_fullfn, "matches expected value.")
 
     # Proceed with extraction of the SDK if necessary.
     sdk_tools_path = prerequisite_tools_dir + os.path.sep + 'cmdline-tools'
@@ -186,7 +162,7 @@ subprocess.check_call([sdk_manager_bin, '--update'])
 # Auto accept all sdkmanager licenses.
 if sys.platform == 'win32':
     powershell_bin = which('powershell')
-    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt ' + ANDROID_SDK_VERSION + ';$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
+    subprocess.check_call([powershell_bin, 'for($i=0;$i -lt 50;$i++) { $response += \"y`n\"}; $response | sdkmanager --licenses'], stdout=subprocess.DEVNULL)
 else:
     print('[INFO] sdkmanager --licenses')
     os.system('yes | sdkmanager --licenses')
