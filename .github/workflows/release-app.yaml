@@ -117,7 +117,6 @@ jobs:
         run: |
           set -eu
           #
-          # Use dynamically extracted application ID for release artifact naming
           mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
           #
           cd "app/build/outputs/apk/release"

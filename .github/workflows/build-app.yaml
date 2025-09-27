@@ -238,7 +238,6 @@ jobs:
         shell: bash
         run: |
           set -eu
-          # Use dynamically extracted application ID for debug artifact naming
           mv "app/build/outputs/apk/debug/app-debug.apk" "app/build/outputs/apk/debug/${{ env.APPLICATION_ID_DEBUG }}_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.apk"
 
       - uses: actions/upload-artifact@v4
