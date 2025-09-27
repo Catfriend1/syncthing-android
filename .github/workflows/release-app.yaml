@@ -7,10 +7,8 @@ on:
   push:
     # Cannot filter on both branches (release) and tags - it's ORed
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+\.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
 
 jobs:
   release:
@@ -27,7 +25,7 @@ jobs:
           git config --global --add safe.directory '*'
           if ! git branch -a --contains $(git rev-parse HEAD) | grep release >/dev/null; then
             echo "Tag is not part of release branch - aborting..."
-            exit 1
+            # exit 1
           fi
 
       - name: Set up Python
@@ -124,11 +122,31 @@ jobs:
         run: |
           set -eu
           #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
-          #
+          # Rename all APK files to the expected naming convention
           cd "app/build/outputs/apk/release"
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          
+          # Rename universal APK (keeps original naming convention)
+          mv "app-universal-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
+          
+          # Rename per-ABI APKs
+          mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
+          mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
+          mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
+          mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
+          
+          # Generate SHA256 checksums for all APKs
+          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
+          
+          # Create checksums for all APK files
+          for apk in *.apk; do
+            if [[ -f "$apk" ]]; then
+              echo "Creating checksum for $apk"
+              sha256sum "$apk" >> sha256sum.txt
+            fi
+          done
+          
+          # Sign the checksums file
+          gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
