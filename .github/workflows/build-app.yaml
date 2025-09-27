@@ -134,7 +134,7 @@ jobs:
             echo "Android SDK found in cache - skipping installation"
           else
             echo "Installing Android SDK from scratch"
-            # Install Android command line tools - version centralized in gradle/libs.versions.toml
+            # Install Android command line tools
             SDK_TOOLS_VERSION="${{ steps.get_cmdline_tools_version.outputs.cmdline_tools_version }}"
             SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
             
