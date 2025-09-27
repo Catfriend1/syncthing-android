@@ -102,20 +102,6 @@ jobs:
             yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
           fi
 
-      - name: Setup debug signing
-        run: |
-          set -eu
-          # Create directories - debug keystore goes to ANDROID_USER_HOME
-          mkdir -p "$ANDROID_USER_HOME"
-          
-          if [ -n "${{ secrets.DEBUG_KEYSTORE_B64 }}" ]; then
-            echo "Using TRUSTED debug.keystore for builds from branches corresponding to this repository"
-            echo '${{ secrets.DEBUG_KEYSTORE_B64 }}' | base64 -d > "${{ runner.temp }}/.android/debug.keystore"
-          else
-            cp "scripts/debug/debug.keystore.pub" "${{ runner.temp }}/.android/debug.keystore"
-            echo "Using UNTRUSTED PUBLIC debug.keystore for builds from forked repositories"
-          fi
-
       - name: Validate Copilot setup
         run: |
           set -eu
