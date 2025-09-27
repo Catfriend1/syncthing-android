@@ -4,8 +4,7 @@ SET SCRIPT_PATH=%~dps0
 cd /d "%SCRIPT_PATH%"
 REM 
 REM Script Consts.
-SET GITPATH=%ProgramFiles%\Git\cmd
-SET GIT_BIN="%GITPATH%\git.exe"
+SET GIT_BIN="git.exe"
 REM 
 echo [INFO] Checking prerequisites ...
 SET GIT_BIN=

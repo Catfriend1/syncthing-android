@@ -1,5 +1,6 @@
 [versions]
 # Android SDK versions
+android-cmdline-tools = "11076708"
 compile-sdk = "36"
 min-sdk = "21"
 ndk-version = "28.2.13676358"
