@@ -17,11 +17,15 @@ jobs:
     permissions:
       contents: read
 
+    env:
+      IS_COPILOT: true
+
     steps:
       - name: Checkout code including submodules
         uses: actions/checkout@v4
         with:
           submodules: true
+          fetch-depth: 0
 
       - name: Fetch full history and tags in submodules
         run: |
@@ -34,10 +38,73 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Cache Gradle packages
-        uses: actions/cache@v3
+      - name: Cache Gradle and Android user home
+        uses: actions/cache@v4
         with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          path: |
+            ${{ runner.temp }}/.gradle/caches
+            ${{ runner.temp }}/.gradle/wrapper
+            ${{ runner.temp }}/.android
+          key: ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-gradle-android-
+
+      - name: Set Gradle and Android user home environment variables
+        run: |
+          set -eu
+          echo "GRADLE_USER_HOME=${{ runner.temp }}/.gradle" >> $GITHUB_ENV
+          echo "ANDROID_USER_HOME=${{ runner.temp }}/.android" >> $GITHUB_ENV
+          
+          # Create directories to ensure they exist
+          mkdir -p "${{ runner.temp }}/.gradle"
+          mkdir -p "${{ runner.temp }}/.android"
+          
+          echo "Set GRADLE_USER_HOME to: ${{ runner.temp }}/.gradle"
+          echo "Set ANDROID_USER_HOME to: ${{ runner.temp }}/.android"
+
+      - name: Cache Android SDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/android-sdk
+          key: android-sdk-${{ runner.os }}-copilot
+          restore-keys: |
+            android-sdk-${{ runner.os }}-
+
+      - name: Get Android cmdline-tools version from gradle catalog
+        id: get_cmdline_tools_version
+        run: |
+          set -eu
+          CMDLINE_TOOLS_VERSION=$(grep 'android-cmdline-tools = ' gradle/libs.versions.toml | cut -d '"' -f 2)
+          echo "cmdline_tools_version=${CMDLINE_TOOLS_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Install Android SDK
+        run: |
+          set -eu
+          # Set environment variables (always needed regardless of cache status)
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          
+          # Check if SDK is already installed (from cache)
+          if [ -d "$HOME/android-sdk/cmdline-tools/latest" ]; then
+            echo "Android SDK found in cache - skipping installation"
+          else
+            echo "Installing Android SDK from scratch"
+            # Install Android command line tools
+            SDK_TOOLS_VERSION="${{ steps.get_cmdline_tools_version.outputs.cmdline_tools_version }}"
+            SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+            
+            mkdir -p $HOME/android-sdk/cmdline-tools
+            cd $HOME/android-sdk/cmdline-tools
+            
+            wget -q "https://dl.google.com/android/repository/${SDK_TOOLS_FILE}"
+            unzip -q "${SDK_TOOLS_FILE}"
+            rm "${SDK_TOOLS_FILE}"
+            
+            # Move to expected location
+            mv cmdline-tools latest
+            
+            # Accept Android licenses (only needed for fresh installation)
+            yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+          fi
