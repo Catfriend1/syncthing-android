@@ -135,7 +135,7 @@ jobs:
           mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
           
           # Generate SHA256 checksums for all APKs
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
+          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
           
           # Create checksums for all APK files
           for apk in *.apk; do
@@ -145,8 +145,8 @@ jobs:
             fi
           done
           
-          # Sign the checksums file
-          gpg --clearsign sha256sum.txt > sha256sum.txt.asc
+          # Sign the checksums file (batch mode to avoid interactive prompts)
+          gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
