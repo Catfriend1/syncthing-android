@@ -101,18 +101,3 @@ jobs:
             # Accept Android licenses (only needed for fresh installation)
             yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
           fi
-
-      - name: Validate Copilot setup
-        run: |
-          set -eu
-          echo "=== Copilot Environment Validation ==="
-          echo "IS_COPILOT: $IS_COPILOT"
-          echo "Java version:"
-          java -version
-          echo "GRADLE_USER_HOME: $GRADLE_USER_HOME"
-          echo "ANDROID_USER_HOME: $ANDROID_USER_HOME"
-          echo "ANDROID_HOME: $ANDROID_HOME"
-          echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
-          echo "Android SDK cmdline-tools available:"
-          ls -la "$HOME/android-sdk/cmdline-tools/latest/bin/" | head -5
-          echo "=== Ready for Copilot builds ==="
