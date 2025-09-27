@@ -226,7 +226,7 @@
         </receiver>
         <activity android:name=".activities.FolderTypeDialogActivity"
             android:label="@string/folder_type"
-            android:theme="@style/Theme.Syncthing.Dialog"
+            android:theme="@style/Theme.Syncthing.DialogActivity"
             android:parentActivityName=".activities.FolderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -242,7 +242,7 @@
         </activity>
         <activity android:name=".activities.VersioningDialogActivity"
             android:label="@string/file_versioning"
-            android:theme="@style/Theme.Syncthing.Dialog"
+            android:theme="@style/Theme.Syncthing.DialogActivity"
             android:parentActivityName=".activities.FolderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

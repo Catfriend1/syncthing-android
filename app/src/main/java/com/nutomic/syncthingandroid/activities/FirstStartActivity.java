@@ -287,7 +287,7 @@ public class FirstStartActivity extends ThemedAppCompatActivity {
                  * b) TVs: The ignore doze permission is optional as it can only set by ADB on Android 8+.
                  */
                 if (!mUserDecisionIgnoreDozePermission && !mRunningOnTV) {
-                    new AlertDialog.Builder(FirstStartActivity.this)
+                    Util.getAlertDialogBuilder(FirstStartActivity.this)
                             .setMessage(R.string.dialog_confirm_skip_ignore_doze_permission)
                             .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                                     mUserDecisionIgnoreDozePermission = true;

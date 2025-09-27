@@ -144,7 +144,7 @@
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/fileWatcher"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
@@ -163,7 +163,7 @@
                 android:text="@string/folder_fileWatcherDescription"
                 android:focusable="false"/>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/folderPause"
                 style="@style/Widget.Syncthing.TextView.Label.Details"
                 android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                 android:orientation="vertical"
                 android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/customSyncConditionsSwitch"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
@@ -313,7 +313,7 @@
                 android:gravity="center_vertical"
                 android:focusable="true">
 
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/ignoreDelete"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"
@@ -344,7 +344,7 @@
                 android:gravity="center_vertical"
                 android:focusable="true">
 
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/runScriptSwitch"
                     style="@style/Widget.Syncthing.TextView.Label.Details"
                     android:layout_width="match_parent"

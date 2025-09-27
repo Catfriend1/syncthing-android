@@ -30,7 +30,7 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -116,9 +116,9 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mFolderTypeView;
     private TextView mFolderTypeDescriptionView;
     private ViewGroup mDevicesContainer;
-    private SwitchCompat mFolderFileWatcher;
-    private SwitchCompat mFolderPaused;
-    private SwitchCompat mCustomSyncConditionsSwitch;
+    private MaterialSwitch mFolderFileWatcher;
+    private MaterialSwitch mFolderPaused;
+    private MaterialSwitch mCustomSyncConditionsSwitch;
     private TextView mCustomSyncConditionsDescription;
     private TextView mCustomSyncConditionsDialog;
     private ViewGroup mPullOrderContainer;
@@ -127,9 +127,9 @@ public class FolderActivity extends SyncthingActivity {
     private TextView mVersioningDescriptionView;
     private TextView mVersioningTypeView;
     private ViewGroup mIgnoreDeleteContainer;
-    private SwitchCompat mRunScriptSwitch;
+    private MaterialSwitch mRunScriptSwitch;
     private ViewGroup mRunScriptContainer;
-    private SwitchCompat mIgnoreDelete;
+    private MaterialSwitch mIgnoreDelete;
     private TextView mEditIgnoreListTitle;
     private EditText mEditIgnoreListContent;
 
@@ -171,7 +171,7 @@ public class FolderActivity extends SyncthingActivity {
                 }
                 LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(i);
 
-                SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+                MaterialSwitch switchView = (MaterialSwitch) deviceView.getChildAt(0);
                 SharedWithDevice device = mFolder.getDevice(((SharedWithDevice) switchView.getTag()).deviceID);
                 if (device != null) {
                     EditText encryptPassView = (EditText) deviceView.getChildAt(1);
@@ -220,7 +220,7 @@ public class FolderActivity extends SyncthingActivity {
                 // Loop through devices the folder is shared to and show/hide encryptionPassword UI.
                 for (int i = 0; i < mDevicesContainer.getChildCount(); i++) {
                     LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(i);
-                    SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+                    MaterialSwitch switchView = (MaterialSwitch) deviceView.getChildAt(0);
                     if (device == ((SharedWithDevice) switchView.getTag())) {
                         EditText encryptPassView = (EditText) deviceView.getChildAt(1);
                         encryptPassView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
@@ -812,7 +812,7 @@ public class FolderActivity extends SyncthingActivity {
         inflater.inflate(R.layout.item_device_form, mDevicesContainer);
         LinearLayout deviceView = (LinearLayout) mDevicesContainer.getChildAt(mDevicesContainer.getChildCount()-1);
 
-        SwitchCompat switchView = (SwitchCompat) deviceView.getChildAt(0);
+        MaterialSwitch switchView = (MaterialSwitch) deviceView.getChildAt(0);
         switchView.setOnCheckedChangeListener(null);
         switchView.setChecked(mFolder.getDevice(device.deviceID) != null);
         switchView.setText(device.getDisplayName());

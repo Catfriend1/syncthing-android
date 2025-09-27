@@ -320,7 +320,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
     }
 
     private void onClickOverride(View view, Folder folder) {
-        AlertDialog.Builder confirmDialog = new AlertDialog.Builder(mContext)
+        AlertDialog.Builder confirmDialog = Util.getAlertDialogBuilder(mContext)
                 .setTitle(R.string.override_changes)
                 .setMessage(R.string.override_changes_question)
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
@@ -335,7 +335,7 @@ public class FoldersAdapter extends ArrayAdapter<Folder> {
     }
 
     private void onClickRevert(View view, Folder folder) {
-        AlertDialog.Builder confirmDialog = new AlertDialog.Builder(mContext)
+        AlertDialog.Builder confirmDialog = Util.getAlertDialogBuilder(mContext)
                 .setTitle(R.string.revert_local_changes)
                 .setMessage(R.string.revert_local_changes_question)
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {

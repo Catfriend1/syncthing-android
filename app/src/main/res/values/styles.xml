@@ -6,7 +6,7 @@
     <!-- Widget styles -->
     <eat-comment />
 
-    <style name="Widget.Syncthing.ListView" parent="Widget.AppCompat.ListView">
+    <style name="Widget.Syncthing.ListView" parent="@android:style/Widget.ListView">
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:clipToPadding">false</item>
@@ -26,7 +26,7 @@
     </style>
 
     <style name="Widget.Syncthing.TextView.Label.Details">
-        <item name="android:textColor">?attr/editTextColor</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
         <item name="android:minHeight">56dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
@@ -46,7 +46,7 @@
         <item name="android:background">@null</item>
     </style>
 
-    <style name="Widget.Syncthing.DrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <style name="Widget.Syncthing.DrawerArrowToggle" parent="@android:style/Widget">
         <item name="spinBars">false</item>
         <item name="color">@android:color/white</item>
     </style>
@@ -54,17 +54,17 @@
     <!-- Text appearances -->
     <eat-comment />
 
-    <style name="TextAppearance.Syncthing.ListItemPrimary" parent="TextAppearance.AppCompat.Subhead">
+    <style name="TextAppearance.Syncthing.ListItemPrimary" parent="@android:style/TextAppearance.Material.Subhead">
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="TextAppearance.Syncthing.ListItemSecondary" parent="TextAppearance.AppCompat.Body1">
+    <style name="TextAppearance.Syncthing.ListItemSecondary" parent="@android:style/TextAppearance.Material.Body1">
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
-    <style name="TextAppearance.Syncthing.ListItemSmall" parent="TextAppearance.AppCompat.Caption" />
+    <style name="TextAppearance.Syncthing.ListItemSmall" parent="@android:style/TextAppearance.Material.Caption" />
 
-    <style name="Widget.Syncthing.TextView.SpinnerItem" parent="Widget.AppCompat.TextView.SpinnerItem">
+    <style name="Widget.Syncthing.TextView.SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
         <item name="android:textSize">18sp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>

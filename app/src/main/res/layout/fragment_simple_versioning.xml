@@ -23,7 +23,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/keep_versions"
             android:textAlignment="center"
-            android:textColor="?attr/colorControlNormal"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/clean_out_after"
             android:textAlignment="center"
-            android:textColor="?attr/colorControlNormal"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             android:layout_margin="10dp"
             android:textStyle="bold"/>

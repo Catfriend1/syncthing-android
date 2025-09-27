@@ -3,7 +3,14 @@
     <color name="primary">#0288D1</color>
     <color name="primary_dark">#002171</color>
 
+    <!-- Tab indicator color -->
+    <color name="tab_indicator_color">#FFFFFF</color> <!-- White for both modes -->
+
     <!-- MainActivity start -->
     <color name="bottom_navigation_bar">#263238</color>
     <!-- MainActivity end -->
+
+    <!-- Button colors for dark mode -->
+    <color name="btn_welcome_slide_background">#424242</color> <!-- Dark grey background -->
+    <color name="btn_welcome_slide_stroke">#616161</color> <!-- Medium grey border -->
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,10 +18,13 @@
             android:layout_height="wrap_content"
             android:background="?colorPrimary"
             android:elevation="@dimen/toolbar_elevation"
-            android:theme="@style/ThemeOverlay.Syncthing.Toolbar" />
+            android:theme="@style/ThemeOverlay.Syncthing.Toolbar"
+            app:tabTextColor="@android:color/white"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabIndicatorColor="@color/tab_indicator_color"
+            app:tabIndicatorHeight="3dp" />
 
         <RelativeLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
