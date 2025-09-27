@@ -241,4 +241,32 @@ public class ConfigRouter {
         return restApi.getOptions();
     }
 
+    /**
+     * Gets pending devices if REST API is available.
+     */
+    public void getPendingDevices(RestApi restApi, RestApi.OnResultListener1<java.util.Map<String, com.nutomic.syncthingandroid.model.PendingDevice>> listener) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not available - no pending items.
+            listener.onResult(new java.util.HashMap<>());
+            return;
+        }
+
+        // Syncthing is running and REST API is available.
+        restApi.getPendingDevices(listener);
+    }
+
+    /**
+     * Gets pending folders if REST API is available.
+     */
+    public void getPendingFolders(RestApi restApi, RestApi.OnResultListener1<java.util.Map<String, java.util.Map<String, com.nutomic.syncthingandroid.model.PendingFolder>>> listener) {
+        if (restApi == null || !restApi.isConfigLoaded()) {
+            // Syncthing is not running or REST API is not available - no pending items.
+            listener.onResult(new java.util.HashMap<>());
+            return;
+        }
+
+        // Syncthing is running and REST API is available.
+        restApi.getPendingFolders(listener);
+    }
+
 }

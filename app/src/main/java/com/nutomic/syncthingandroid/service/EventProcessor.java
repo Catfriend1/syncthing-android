@@ -303,6 +303,11 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
         Log.d(TAG, "Unknown device '" + deviceName + "' (" + deviceId + ") wants to connect");
         // Show device approve/ignore notification.
         mNotificationHandler.showDeviceConnectNotification(deviceId, deviceName, deviceAddress);
+        
+        // Trigger immediate UI refresh - this will make the pending device visible faster
+        if (mRestApi != null) {
+            mRestApi.notifyPendingDeviceChanged();
+        }
     }
 
     private void onPendingFoldersChanged(Map<String, Object> added) {
@@ -336,6 +341,11 @@ public class EventProcessor implements  Runnable, RestApi.OnReceiveEventListener
             remoteEncrypted,
             isNewFolder
         );
+        
+        // Trigger immediate UI refresh - this will make the pending folder visible faster  
+        if (mRestApi != null) {
+            mRestApi.notifyPendingFolderChanged();
+        }
     }
 
     private void onFolderCompletion(final Map<String, Object> eventData) {

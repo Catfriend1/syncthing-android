@@ -831,6 +831,75 @@ public class RestApi {
     }
 
     /**
+     * Requests pending devices for UI display.
+     */
+    public void getPendingDevices(OnResultListener1<Map<String, PendingDevice>> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_PENDING_DEVICES, mApiKey, null, result -> {
+            if (result == null) {
+                listener.onResult(new HashMap<>());
+                return;
+            }
+            try {
+                JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+                Map<String, PendingDevice> pendingDevices = new HashMap<>();
+                Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+                for (Map.Entry<String, JsonElement> deviceEntry : entries) {
+                    final String deviceId = deviceEntry.getKey();
+                    if (deviceId != null) {
+                        final PendingDevice pendingDevice = mGson.fromJson(deviceEntry.getValue(), PendingDevice.class);
+                        if (pendingDevice.time != null) {
+                            pendingDevices.put(deviceId, pendingDevice);
+                        }
+                    }
+                }
+                listener.onResult(pendingDevices);
+            } catch (Exception e) {
+                Log.e(TAG, "getPendingDevices: Parsing REST API result failed. result=" + result, e);
+                listener.onResult(new HashMap<>());
+            }
+        }, error -> listener.onResult(new HashMap<>()));
+    }
+
+    /**
+     * Requests pending folders for UI display.
+     */
+    public void getPendingFolders(OnResultListener1<Map<String, Map<String, PendingFolder>>> listener) {
+        new GetRequest(mContext, mUrl, GetRequest.URI_PENDING_FOLDERS, mApiKey, null, result -> {
+            if (result == null) {
+                listener.onResult(new HashMap<>());
+                return;
+            }
+            try {
+                JsonObject jsonObject = new JsonParser().parse(result).getAsJsonObject();
+                Map<String, Map<String, PendingFolder>> pendingFolders = new HashMap<>();
+                Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+                for (Map.Entry<String, JsonElement> folderEntry : entries) {
+                    final String folderId = folderEntry.getKey();
+                    if (folderId != null) {
+                        JsonObject jsonObjectOfferedBy = ((JsonObject) folderEntry.getValue().getAsJsonObject()).get("offeredBy").getAsJsonObject();
+                        Map<String, PendingFolder> offeredByDevices = new HashMap<>();
+                        Set<Map.Entry<String, JsonElement>> offeredByEntries = jsonObjectOfferedBy.entrySet();
+                        for (Map.Entry<String, JsonElement> offeredByEntry : offeredByEntries) {
+                            final String deviceId = offeredByEntry.getKey();
+                            if (deviceId != null) {
+                                final PendingFolder pendingFolder = mGson.fromJson(offeredByEntry.getValue(), PendingFolder.class);
+                                offeredByDevices.put(deviceId, pendingFolder);
+                            }
+                        }
+                        if (!offeredByDevices.isEmpty()) {
+                            pendingFolders.put(folderId, offeredByDevices);
+                        }
+                    }
+                }
+                listener.onResult(pendingFolders);
+            } catch (Exception e) {
+                Log.e(TAG, "getPendingFolders: Parsing REST API result failed. result=" + result, e);
+                listener.onResult(new HashMap<>());
+            }
+        }, error -> listener.onResult(new HashMap<>()));
+    }
+
+    /**
      * Requests ignore list for given folder.
      */
     public void getFolderIgnoreList(String folderId, OnResultListener1<FolderIgnoreList> listener) {
@@ -1522,5 +1591,25 @@ public class RestApi {
             LogV(logMessage.substring(MAX_CHARS_PER_LOG_LINE * i, max));
         }
         LogV("*** Multiple line log END ***");
+    }
+
+    /**
+     * Notifies listeners that pending devices have changed.
+     * This triggers UI refresh for immediate display of pending devices.
+     */
+    public void notifyPendingDeviceChanged() {
+        if (mOnConfigChangedListener != null) {
+            mOnConfigChangedListener.onConfigChanged();
+        }
+    }
+
+    /**
+     * Notifies listeners that pending folders have changed.
+     * This triggers UI refresh for immediate display of pending folders.
+     */
+    public void notifyPendingFolderChanged() {
+        if (mOnConfigChangedListener != null) {
+            mOnConfigChangedListener.onConfigChanged();
+        }
     }
 }

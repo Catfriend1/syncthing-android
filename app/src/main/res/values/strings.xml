@@ -206,6 +206,12 @@
     <!-- Indicates that the device connection is unknown -->
     <string name="device_state_unknown">Unknown</string>
 
+    <!-- Indicates that the device is pending acceptance -->
+    <string name="device_state_pending">Pending</string>
+    
+    <!-- Indicates a pending folder -->
+    <string name="folder_pending">Pending</string>
+
     <!-- Last seen title -->
     <string name="device_last_seen">Last seen: %1$s</string>
     <string name="device_last_seen_never">Never</string>

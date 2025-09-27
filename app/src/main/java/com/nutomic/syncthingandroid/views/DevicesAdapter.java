@@ -21,6 +21,7 @@ import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Connections;
 import com.nutomic.syncthingandroid.model.Device;
+import com.nutomic.syncthingandroid.model.DisplayableDevice;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.service.Constants;
 import com.nutomic.syncthingandroid.service.RestApi;
@@ -33,9 +34,9 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 /**
- * Generates item views for device items.
+ * Generates item views for device items (both accepted and pending).
  */
-public class DevicesAdapter extends ArrayAdapter<Device> {
+public class DevicesAdapter extends ArrayAdapter<DisplayableDevice> {
 
     private static final String TAG = "DevicesAdapter";
 
@@ -94,16 +95,47 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Device device = getItem(position);
-        holder.name.setText(device.getDisplayName());
+        DisplayableDevice displayableDevice = getItem(position);
+        holder.name.setText(displayableDevice.getDisplayName());
 
-        updateDeviceStatusView(holder, device);
+        // Apply greyed-out styling for pending devices
+        if (displayableDevice.isPending()) {
+            holder.name.setTextColor(ContextCompat.getColor(getContext(), R.color.light_grey));
+            convertView.setEnabled(false);
+        } else {
+            holder.name.setTextColor(ContextCompat.getColor(getContext(), android.R.color.primary_text_light));
+            convertView.setEnabled(true);
+        }
+
+        updateDeviceStatusView(holder, displayableDevice);
 
         return convertView;
     }
 
     @SuppressLint("SetTextI18n")
-    private void updateDeviceStatusView(ViewHolder holder, Device device) {
+    private void updateDeviceStatusView(ViewHolder holder, DisplayableDevice displayableDevice) {
+        if (displayableDevice.isPending()) {
+            // For pending devices, show minimal information
+            holder.lastSeen.setText(mContext.getString(R.string.device_last_seen, 
+                mContext.getString(R.string.device_state_pending)));
+            holder.sharedFoldersTitle.setText(R.string.device_state_pending);
+            holder.sharedFolders.setVisibility(GONE);
+            holder.progressBar.setVisibility(GONE);
+            holder.rateInOutView.setVisibility(GONE);
+            holder.status.setVisibility(VISIBLE);
+            holder.status.setText(R.string.device_state_pending);
+            holder.status.setTextColor(ContextCompat.getColor(getContext(), R.color.light_grey));
+            
+            // Show address if available
+            String address = displayableDevice.getAddress();
+            if (!address.isEmpty()) {
+                holder.status.setText(mContext.getString(R.string.device_state_pending) + " (" + address + ")");
+            }
+            return;
+        }
+
+        // For accepted devices, use existing logic
+        Device device = displayableDevice.getAcceptedDevice();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         String deviceLastSeen = sharedPreferences.getString(
             Constants.PREF_CACHE_DEVICE_LASTSEEN_PREFIX + device.deviceID, ""
