@@ -114,6 +114,13 @@ jobs:
           restore-keys: |
             android-sdk-${{ runner.os }}-
 
+      - name: Get Android cmdline-tools version from gradle catalog
+        id: get_cmdline_tools_version
+        run: |
+          set -eu
+          CMDLINE_TOOLS_VERSION=$(grep 'android-cmdline-tools = ' gradle/libs.versions.toml | cut -d '"' -f 2)
+          echo "cmdline_tools_version=${CMDLINE_TOOLS_VERSION}" >> $GITHUB_OUTPUT
+
       - name: Install Android SDK
         run: |
           set -eu
@@ -128,7 +135,7 @@ jobs:
           else
             echo "Installing Android SDK from scratch"
             # Install Android command line tools
-            SDK_TOOLS_VERSION="11076708"
+            SDK_TOOLS_VERSION="${{ steps.get_cmdline_tools_version.outputs.cmdline_tools_version }}"
             SDK_TOOLS_FILE="commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
             
             mkdir -p $HOME/android-sdk/cmdline-tools
