@@ -16,9 +16,33 @@ import platform
 
 SUPPORTED_PYTHON_PLATFORMS = ['Windows', 'Linux', 'Darwin']
 
+def get_android_cmdline_tools_version():
+    """
+    Get Android cmdline-tools version from gradle/libs.versions.toml.
+    This centralizes the version reference to avoid duplication across scripts and workflows.
+    """
+    import os
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    libs_versions_path = os.path.join(script_dir, '..', 'gradle', 'libs.versions.toml')
+    
+    try:
+        with open(libs_versions_path, 'r') as f:
+            for line in f:
+                if line.strip().startswith('android-cmdline-tools = '):
+                    # Extract version from: android-cmdline-tools = "11076708"
+                    version = line.split('"')[1]
+                    return version
+    except (FileNotFoundError, IndexError):
+        pass
+    
+    # Fallback to hardcoded version if libs.versions.toml not found or malformed
+    # Update only libs.versions.toml to change the version
+    return '11076708'
+
 # Version numbers, SHA256 and URLs taken from
 ## https://developer.android.com/studio
-ANDROID_SDK_TOOLS_VERSION = '11076708'
+## NOTE: Update the version in gradle/libs.versions.toml under 'android-cmdline-tools'
+ANDROID_SDK_TOOLS_VERSION = get_android_cmdline_tools_version()
 ANDROID_SDK_TOOLS_SHASUM_LINUX = '2d2d50857e4eb553af5a6dc3ad507a17adf43d115264b1afc116f95c92e5e258'
 ANDROID_SDK_TOOLS_SHASUM_WINDOWS = '4d6931209eebb1bfb7c7e8b240a6a3cb3ab24479ea294f3539429574b1eec862'
 ANDROID_SDK_VERSION = '36'
