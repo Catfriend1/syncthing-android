@@ -154,7 +154,7 @@ jobs:
           set -eu
           #
           # Rename universal APK to keep original release naming
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_v${{ env.VERSION }}_release.apk"
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
           #
           # Generate SHA256 checksums for all APKs
           cd "app/build/outputs/apk/release"
@@ -169,7 +169,7 @@ jobs:
           done
           
           # Sign the checksums file
-          gpg --clearsign sha256sum.txt
+          gpg --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
