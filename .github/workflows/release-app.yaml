@@ -112,17 +112,79 @@ jobs:
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
+      - name: build_per_abi_apks
+        env:
+          SYNCTHING_RELEASE_KEY_ALIAS: Syncthing-Fork
+          SIGNING_PASSWORD: '${{ secrets.SIGNING_PASSWORD }}'
+          SYNCTHING_RELEASE_STORE_FILE: '${{ runner.temp }}/signing-keystore.jks'
+        shell: bash
+        run: |
+          set -eu
+          echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
+          
+          # Backup original build.gradle.kts
+          cp app/build.gradle.kts app/build.gradle.kts.backup
+          
+          # List of ABIs to build individual APKs for
+          ABIS=("armeabi-v7a" "arm64-v8a" "x86" "x86_64")
+          
+          for ABI in "${ABIS[@]}"; do
+            echo "Building APK for ABI: $ABI"
+            
+            # Temporarily modify build.gradle.kts to include only this ABI
+            # This sed pattern matches any include() line in the ABI splits section
+            # and replaces it with just the current ABI. It's flexible with content inside include().
+            if ! sed -i 's/include([^)]*)/include("'"$ABI"'")/' app/build.gradle.kts; then
+              echo "Error: Failed to modify build.gradle.kts for ABI $ABI"
+              echo "The ABI split configuration may have changed. Please update the sed pattern."
+              exit 1
+            fi
+            
+            # Verify the modification was successful
+            if ! grep -q "include(\"$ABI\")" app/build.gradle.kts; then
+              echo "Error: ABI modification verification failed for $ABI"
+              echo "Expected to find: include(\"$ABI\")"
+              echo "Current ABI configuration:"
+              grep -A 5 -B 5 "include(" app/build.gradle.kts || true
+              exit 1
+            fi
+            
+            # Build APK for this ABI only
+            ./gradlew --no-daemon assembleRelease
+            
+            # Rename the output APK to include ABI suffix
+            mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_${ABI}_v${{ env.VERSION }}.apk"
+            
+            # Restore original build.gradle.kts for next iteration
+            cp app/build.gradle.kts.backup app/build.gradle.kts
+          done
+          
+          # Clean up backup file and keystore
+          rm app/build.gradle.kts.backup
+          rm "$SYNCTHING_RELEASE_STORE_FILE"
+
       - name: prepare-artifacts
         shell: bash
         run: |
           set -eu
           #
-          # Use dynamically extracted application ID for release artifact naming
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
+          # Rename universal APK to include "universal" in the name
+          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_universal_v${{ env.VERSION }}.apk"
           #
+          # Generate SHA256 checksums for all APKs
           cd "app/build/outputs/apk/release"
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          
+          # Create checksums for all APK files
+          for apk in *.apk; do
+            if [[ -f "$apk" ]]; then
+              echo "Creating checksum for $apk"
+              sha256sum "$apk" >> sha256sum.txt
+            fi
+          done
+          
+          # Sign the checksums file
+          gpg --clearsign sha256sum.txt
 
       - uses: ncipollo/release-action@v1
         with:
