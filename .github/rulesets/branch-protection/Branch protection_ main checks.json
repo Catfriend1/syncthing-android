@@ -1,0 +1,38 @@
+{
+  "id": 8499186,
+  "name": "Branch protection: main checks",
+  "target": "branch",
+  "source_type": "Repository",
+  "source": "Catfriend1/syncthing-android",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~DEFAULT_BRANCH"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": false,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "Debug Build",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ],
+  "bypass_actors": [
+    {
+      "actor_id": 978,
+      "actor_type": "Integration",
+      "bypass_mode": "exempt"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "id": 4209024,
-  "name": "Branch protection: main",
+  "id": 6332724,
+  "name": "Branch protection: main push-del",
   "target": "branch",
   "source_type": "Repository",
   "source": "Catfriend1/syncthing-android",
