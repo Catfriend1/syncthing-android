@@ -63,9 +63,8 @@ jobs:
             ${{ runner.temp }}/.gradle/caches
             ${{ runner.temp }}/.gradle/wrapper
             ${{ runner.temp }}/.android
-          key: ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-${{ steps.get_ndk_version.outputs.ndk_version }}
+          key: ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}-
             ${{ runner.os }}-gradle-android-
 
       - name: Get syncthing commit hash for native libs cache
