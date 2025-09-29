@@ -15,9 +15,8 @@ Repo: https://github.com/Catfriend1/syncthing-android.git
 Binaries: https://github.com/Catfriend1/syncthing-android/releases/download/v%v/com.github.catfriend1.syncthingfork_release_v%v.apk
 
 Builds:
-  - versionName: 2.0.7.0
-    versionCode: 2000700
-    commit: 1fb311060269933631f6af0d3737ef6f98942deb
+  - versionName: 2.0.10.1
+    versionCode: 2001001
     subdir: app
     submodules: true
     sudo:
