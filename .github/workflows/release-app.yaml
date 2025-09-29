@@ -127,10 +127,10 @@ jobs:
           mv "app-universal-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
           
           # Rename per-ABI APKs
-          ## mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
-          ## mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
-          ## mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
-          ## mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
+          mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
+          mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
+          mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
+          mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
           
           # Generate SHA256 checksums
           echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
