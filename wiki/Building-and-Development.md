@@ -39,10 +39,10 @@ export ANDROID_HOME=~/git/syncthing-android-prereq
 cp "app/build/outputs/apk/debug/app-debug.apk" "/mnt/x/app-debug.apk"
 ##
 ## Flavor: release
-cp "app/build/outputs/apk/release/app-release.apk" "/mnt/x/app-release.apk"
+cp "app/build/outputs/apk/release/app-universal-release.apk" "/mnt/x/app-universal-release.apk"
 ##
 ## Flavor: release-unsigned
-cp "app/build/outputs/apk/release/app-release-unsigned.apk" "/mnt/x/app-release-unsigned.apk"
+cp "app/build/outputs/apk/release/app-universal-release-unsigned.apk" "/mnt/x/app-universal-release-unsigned.apk"
 #
 # Cleanup.
 ## To clean up all files generated during build, use the following commands.

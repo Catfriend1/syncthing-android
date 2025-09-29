@@ -121,12 +121,26 @@ jobs:
         shell: bash
         run: |
           set -eu
-          #
-          mv "app/build/outputs/apk/release/app-release.apk" "app/build/outputs/apk/release/${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
-          #
           cd "app/build/outputs/apk/release"
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --import
-          sha256sum "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk" | gpg --clearsign > sha256sum.txt.asc
+          
+          # Rename universal APK
+          mv "app-universal-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
+          
+          # Rename per-ABI APKs
+          ## mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
+          ## mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
+          ## mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
+          ## mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
+          
+          # Generate SHA256 checksums
+          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
+          for apk in *.apk; do
+            if [[ -f "$apk" ]]; then
+              echo "Creating checksum for $apk"
+              sha256sum "$apk" >> sha256sum.txt
+            fi
+          done
+          gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:

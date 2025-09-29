@@ -29,6 +29,7 @@ Builds:
         libtool pkg-config rename shtool
     gradle:
       - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
     scanignore:
       - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
 
