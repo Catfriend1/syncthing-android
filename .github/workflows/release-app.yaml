@@ -112,6 +112,7 @@ jobs:
         shell: bash
         run: |
           set -eu
+          unset ANDROID_NDK_HOME
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
           ./gradlew --no-daemon buildNative lintRelease assembleRelease
