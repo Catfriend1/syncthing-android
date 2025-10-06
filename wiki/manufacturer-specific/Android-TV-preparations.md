@@ -10,19 +10,23 @@ The following instructions to solve the problem by preparing the Android TV for 
 
     ${applicationId} = com.github.catfriend1.syncthingfork
 
-    *adb start-server*
-
-    *adb connect ip:port* (example: *adb connect 192.168.1.76:5555*)
+```
+    adb start-server
+    adb connect ip:port
+    # example: adb connect 192.168.1.76:5555
+```
 * Enable "Allow Network debugging" on the prompt that pops up on the nVidia Shield Android TV
 * Then type the following to check weather you are successfully connected. Should state one device, and "connected"
-
-    *adb devices*
+```
+    adb devices
+```
 * To whitelist Syncthing-Fork from doze / Android Battery Optimization, type the following
-
-    *adb shell dumpsys deviceidle whitelist +${applicationId}*
+```
+    adb shell dumpsys deviceidle whitelist +${applicationId}
+```
 * If you ever want to revert this change, type the following in ADB
-
-    *adb shell dumpsys deviceidle whitelist -${applicationId}*
-
+```
+    adb shell dumpsys deviceidle whitelist -${applicationId}
+```
 Related:
 - [nVidia GeForce forum topic](https://forums.geforce.com/default/topic/1092750)

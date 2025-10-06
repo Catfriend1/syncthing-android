@@ -5,11 +5,15 @@ If you like to allow Syncthing-Fork to attempt to disable DuraSpeed system-wide 
 
 ${applicationId} = com.github.catfriend1.syncthingfork
 
-* adb shell pm grant ${applicationId} android.permission.WRITE_SECURE_SETTINGS
+```
+adb shell pm grant ${applicationId} android.permission.WRITE_SECURE_SETTINGS
+```
 
 If you're unhappy with Syncthing-Fork turning of DuraSpeed and you want to revert the change, issue the following commands:
 
-* adb shell pm revoke ${applicationId} android.permission.WRITE_SECURE_SETTINGS
+```
+adb shell pm revoke ${applicationId} android.permission.WRITE_SECURE_SETTINGS
+```
 
 Reboot your phone after the "pm revoke" for the change to take effect.
 

@@ -1,6 +1,6 @@
 Dear Syncthing user,
 
-Syncthing-Fork v1.30.0.3/v1.30.0.4 are the last releases for v1. Your action is required to update to v2.0.7.0+ when you feel ready to do it.
+Syncthing-Fork v1.30.0.4 was the last release for v1. Your action is required to update to v2.0.7.0+ when you feel ready to do it.
 
 Please make sure to read upstream's release notes first before attempting to upgrade your devices. See https://github.com/syncthing/syncthing/releases/tag/v2.0.7 .
 
