@@ -10,7 +10,7 @@ target-sdk = "36"
 version-code = "2001001"
 version-name = "2.0.10.1"
 
-aboutLibraries = "12.2.4"
+aboutLibraries = "13.0.0"
 activity = "1.11.0"
 android-material = "1.13.0"
 android-gradle-plugin = "8.11.1"
@@ -68,7 +68,7 @@ zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", ve
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxing-core" }
 
 [plugins]
-aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutLibraries" }
+aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin.android", version.ref = "aboutLibraries" }
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
