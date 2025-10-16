@@ -5,3 +5,5 @@
 ## What's Changed
 ### Features
 Add floating exit button, for one-shot sync users (#1659)
+Remove redundant buttons from device edit dialog (#1662)
+Add pref to allow overwrite existing files when another app shares to our app (#1704)
