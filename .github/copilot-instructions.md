@@ -15,3 +15,5 @@ Please refrain from building the whole app with "assemleDebug" as this will take
 Do not try to upgrade the kotlin version in "gradle/libs.versions.toml", it will throw a lot of warnings and errors.
 
 No matter which language I use to write my prompt for you, please always do your coding work and code comments in english.
+
+Do not edit the "wiki/CHANGELOG.md" file. I'll do that myself when I prepare a new release.

@@ -209,7 +209,8 @@ public class ShareActivity extends SyncthingActivity
                 return;
             }
             File directory = new File(folder.path, getSavedSubDirectory());
-            CopyFilesTask mCopyFilesTask = new CopyFilesTask(this, files, folder, directory);
+            boolean allowOverwrite = mPreferences.getBoolean(Constants.PREF_ALLOW_OVERWRITE_FILES, false);
+            CopyFilesTask mCopyFilesTask = new CopyFilesTask(this, files, folder, directory, allowOverwrite);
             mCopyFilesTask.execute();
         });
 
@@ -385,13 +386,15 @@ public class ShareActivity extends SyncthingActivity
         private final Map<Uri, String> mFiles;
         private final Folder mFolder;
         private final File mDirectory;
+        private final boolean mAllowOverwrite;
         private int mCopied = 0, mIgnored = 0;
 
-        CopyFilesTask(ShareActivity context, Map<Uri, String> files, Folder folder, File directory) {
+        CopyFilesTask(ShareActivity context, Map<Uri, String> files, Folder folder, File directory, boolean allowOverwrite) {
             refShareActivity = new WeakReference<>(context);
             this.mFiles = files;
             this.mFolder = folder;
             this.mDirectory = directory;
+            this.mAllowOverwrite = allowOverwrite;
         }
 
         protected void onPreExecute() {
@@ -415,7 +418,7 @@ public class ShareActivity extends SyncthingActivity
                 InputStream inputStream = null;
                 try {
                     File outFile = new File(mDirectory, entry.getValue());
-                    if (outFile.isFile()) {
+                    if (outFile.isFile() && !mAllowOverwrite) {
                         mIgnored++;
                         continue;
                     }
