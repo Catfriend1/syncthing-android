@@ -10,7 +10,7 @@ target-sdk = "36"
 version-code = "2001002"
 version-name = "2.0.10.2"
 
-aboutLibraries = "13.0.0"
+aboutLibraries = "13.1.0"
 activity = "1.11.0"
 android-material = "1.13.0"
 android-gradle-plugin = "8.11.1"
