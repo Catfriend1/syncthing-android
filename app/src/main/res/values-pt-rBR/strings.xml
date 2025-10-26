@@ -737,4 +737,6 @@
     <string name="important_news_action_view_options">VER OPÇÕES</string>
     <string name="backup_password_set_masked">✅ Definir senha - Toque para alterar</string>
     <string name="toggle_password_visibility">Exibir/ocultar senha</string>
+    <string name="allow_overwrite_files_title">Permitir substituir arquivos existentes</string>
+    <string name="allow_overwrite_files_summary">Quando outro aplicativo compartilha arquivos com uma de nossas pastas.</string>
 </resources>
