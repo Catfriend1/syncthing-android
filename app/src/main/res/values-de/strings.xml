@@ -783,4 +783,6 @@
     <string name="important_news_action_view_options">OPTIONEN ANZEIGEN</string>
     <string name="backup_password_set_masked">✅ Passwort festgelegt – Zum Ändern tippen</string>
     <string name="toggle_password_visibility">Passwort ein-/ausblenden</string>
+    <string name="allow_overwrite_files_title">Überschreiben vorhandener Dateien zulassen</string>
+    <string name="allow_overwrite_files_summary">Wenn eine andere App Dateien in einem unserer Ordner freigibt.</string>
 </resources>
