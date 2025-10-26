@@ -738,4 +738,6 @@
     <string name="important_news_action_view_options">WYŚWIETL OPCJE</string>
     <string name="toggle_password_visibility">Przełącz widoczność hasła</string>
     <string name="backup_password_set_masked">✅ Hasło ustawione – stuknij, aby zmienić</string>
+    <string name="allow_overwrite_files_title">Zezwól na nadpisywanie istniejących plików</string>
+    <string name="allow_overwrite_files_summary">Gdy inna aplikacja udostępnia pliki jednemu z naszych folderów.</string>
 </resources>
