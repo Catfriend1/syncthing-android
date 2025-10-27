@@ -754,7 +754,7 @@
     <string name="clear_stversions_summary">I file vengono spostati nella directory .stversions quando vengono sostituiti o eliminati da Syncthing. Probabilmente è possibile trovare e recuperare i file eliminati accidentalmente lì, ma le versioni obsolete dei file occupano spazio di archiviazione sul dispositivo.</string>
     <string name="clear_stversions_question">Questo eliminerà tutte le versioni precedenti dei file gestiti da Syncthing. Continuare?</string>
     <string name="clear_stversions_done">Cartelle .stversions cancellate correttamente.</string>
-    <string name="privacy_title">Informativa sulla privacy</string>
+    <string name="privacy_title">Privacy Policy</string>
     <string name="open_source_licenses_title">Licenze Open Source</string>
     <string name="folder_run_script_caption">Esegui script</string>
     <plurals name="conflicts">
@@ -777,4 +777,14 @@
     <string name="share_log_file_missing">Manca il file di log da condividere.</string>
     <string name="backup_password_summary">ℹ️ Consigliato:\nInserisci una password complessa utilizzata per crittografare la configurazione durante l\'esportazione e decrittografarla durante l\'importazione. Conserva questa password in un luogo sicuro per il processo di recupero. Ti servirà per utilizzare la funzione di importazione.\n\n⚠️ Sconsigliato:\nSenza l\'utilizzo di una password, altre app potrebbero potenzialmente leggere e manipolare la configurazione di Syncthing. L\'esposizione della configurazione comporta il rischio che un malintenzionato possa ottenere un accesso non autorizzato ai tuoi file utilizzando esportazioni di configurazioni rubate.</string>
     <string name="pizza_url_title">» I gatti adorano la pizza « 😺🍕</string>
+    <string name="allow_overwrite_files_title">Consenti la sovrascrittura dei file esistenti</string>
+    <string name="allow_overwrite_files_summary">Quando un\'altra app condivide file con una delle nostre cartelle.</string>
+    <string name="backup_password_set_masked">✅ Password impostata - Tocca per cambiare</string>
+    <string name="toggle_password_visibility">Attiva/disattiva la visibilità della password</string>
+    <string name="important_news_title">Notizie importanti - Azione richiesta</string>
+    <string name="important_news_description">Leggi il nostro annuncio su come continuare a utilizzare senza problemi la tua app su %1$s</string>
+    <string name="important_news_action_open">Apri nel browser</string>
+    <string name="important_news_action_remind">Ricordamelo più tardi</string>
+    <string name="important_news_action_no_remind">Ignora per ora</string>
+    <string name="important_news_action_view_options">MOSTRA OPZIONI</string>
 </resources>
