@@ -1,3 +1,70 @@
+
+---
+
+## Syncthing-Fork v2.0.10.2 (2025-10-16)
+
+## What's Changed
+### Features
+Add pref to allow overwrite existing files when another app shares to our app (#1704)
+
+---
+
+## Syncthing-Fork v2.0.10.1 (2025-09-29)
+
+## What's Changed
+### Features
+Add floating exit button, for one-shot sync users (#1659)
+Remove redundant buttons from device edit dialog (#1662)
+
+---
+
+## Syncthing-Fork v2.0.10.0 (2025-09-24)
+
+## What's Changed
+### Features
+* fix(dagger): Replace circular dependency  in NotificationHandler #1658
+
+---
+
+## Syncthing-Fork v2.0.9.2 (2025-09-22)
+
+This version supports v1 config import from the deprecated Syncthing official app.
+
+---
+
+## Syncthing-Fork v2.0.9.0 (2025-09-13)
+
+## What's Changed
+### Fixes
+* SyncthingNative now takes care of cleaning up the old index-v1 database after migration to v2 (instead of the wrapper)
+
+---
+
+## Syncthing-Fork v2.0.8.1 (2025-09-09)
+
+## What's Changed
+### Fixes
+* SyncthingService/exportConfig: Overwrite existing zip instead of appending files #1618
+### Features
+* Show QR code for existing paired device #1619
+* SyncthingRunnable: Cleanup index-v0.14.0.db-migrated if dir exists #1622
+* Settings: Add eye toggle to show/hide the import/export password #1621
+
+---
+
+## Syncthing-Fork v2.0.8.0 (2025-09-08)
+
+---
+
+## Syncthing-Fork v2.0.7.0 (2025-09-05)
+
+## What's Changed
+### Fixes
+* NAT PMP permission denied by Android 14+ (#1514)
+* Local discovery denied by Android 10+ (#1500)
+
+---
+
 ## Syncthing-Fork v1.30.0.3 (2025-08-07)
 
 ## What's Changed
