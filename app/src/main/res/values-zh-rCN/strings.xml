@@ -777,4 +777,6 @@
     <string name="important_news_action_view_options">查看选项</string>
     <string name="toggle_password_visibility">切换密码可见性</string>
     <string name="backup_password_set_masked">✅ 密码已设置 – 点击更改</string>
+    <string name="allow_overwrite_files_title">允许覆盖现有文件</string>
+    <string name="allow_overwrite_files_summary">当另一个应用分享文件到我们文件夹中的一个时。</string>
 </resources>
