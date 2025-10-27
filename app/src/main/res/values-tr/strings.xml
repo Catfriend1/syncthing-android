@@ -672,4 +672,6 @@
     <string name="important_news_action_view_options">SEÇENEKLERİ GÖRÜNTÜLE</string>
     <string name="backup_password_set_masked">✅ Parola ayarlandı - Değiştirmek için dokunun</string>
     <string name="toggle_password_visibility">Parola görünürlüğünü değiştir</string>
+    <string name="allow_overwrite_files_title">Varolan dosyaların üzerine yazılmasına izin ver</string>
+    <string name="allow_overwrite_files_summary">Başka bir uygulama, klasörlerimizden birinde dosyaları paylaştığında.</string>
 </resources>
