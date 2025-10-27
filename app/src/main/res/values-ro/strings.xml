@@ -761,4 +761,8 @@
     <string name="config_export_successful_no_path">Configurația a fost exportată. Asigură-te că ai memorizat parola pentru un import ulterior.</string>
     <string name="share_log_file">Partajează fișierul jurnal</string>
     <string name="backup_password_title">Parola de protecție configurare</string>
+    <string name="allow_overwrite_files_title">Permite suprascrierea fișierelor existente</string>
+    <string name="allow_overwrite_files_summary">Când o altă aplicație partajează fișiere într-unul din dosarele noastre.</string>
+    <string name="backup_password_summary">ℹ️ Recomandat:\nIntrodu o parolă puternică folosită pentru a cripta/decripta configurația în timpul exportului/importului. Păstrează această parolă într-un loc sigur pentru procesul de recuperare. Vei avea nevoie de ea pentru a utiliza funcția de import.\n\n⚠️ Nerecomandat\nDacă nu folosești o parolă, alte aplicații pot să citească și să manipuleze configurația de sincronizare. Expunerea configurației implică riscul ca un răufăcător să obțină acces neautorizat la fișierele tale folosind configurațiile furate.</string>
+    <string name="backup_password_set_masked">✅ Setare parolă - Atinge pentru a modifica</string>
 </resources>
