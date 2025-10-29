@@ -14,5 +14,3 @@
 ### [PWD]
 ## GNUPG_SIGNING_KEY_BASE64
 ### powershell "[Convert]::ToBase64String([IO.File]::ReadAllBytes('X:\Catfriend1_SECRET.asc'))"
-## GHCR_TOKEN
-### %GHP%
