@@ -115,7 +115,7 @@ Updated dependencies, build using Java 21. Functionally the same as v1.30.0.1. R
 ---
 
 ## Syncthing-Fork v1.29.7.4 F-Droid (2025-06-27)
-recreated release tag; functionally the same as v1.29.7.3 with changes to support F-Droid's reproducible builds.
+Functionally the same as v1.29.7.3 with changes to support F-Droid's reproducible builds.
 
 ---
 
@@ -124,21 +124,6 @@ recreated release tag; functionally the same as v1.29.7.3 with changes to suppor
 ## What's Changed
 * Disable android backup integration by @Catfriend1 in #1470
 * After folders complete, run additional workloads in a seperate thread by @Catfriend1 in #1471
-
-⚠️ Breaking change:
-The config import and export feature now reads or writes the file "(InternalStorage)/backups/syncthing/config.zip". This file can be encrypted by a user-defined password to protect sensitive parts of your Syncthing configuration like, for example, device trust and which data you share with other devices. The change makes it harder for a bad actor to gain unauthorized access to your files using stolen config exports.
-
-ℹ️ Action required:
-- Please go to "Settings - Import and Export"
-- Set an individual password, be sure to remember it
-- Click "Export Configuration" and confirm
-- Open your file manager, e.g. Material Files
-- Browse to "(InternalStorage)/backups/syncthing"
-- Delete all "*.pem", "*.xml" files because they contain an outdated and unencrypted config from prior exports.
-
-⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
-
-🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
 ---
 
@@ -155,7 +140,7 @@ The config import and export feature now reads or writes the file "(InternalStor
 - Browse to "(InternalStorage)/backups/syncthing"
 - Delete all ".pem", ".xml" files because they contain an outdated and unencrypted config from prior exports.
 
-⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](https://github.com/Catfriend1/syncthing-android?tab=readme-ov-file#switching-from-the-now-deprecated-official-version).
+⚡If you'd like to import an old and unencrypted config consisting of multiple files instead of the zip archive, please follow [these steps](migration/Switching-from-the-deprecated-official-version.md).
 
 🤷‍♂️ Problems upgrading? See release notes of v1.29.6.5.
 
