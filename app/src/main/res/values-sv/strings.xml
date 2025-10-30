@@ -715,4 +715,14 @@
     <string name="privacy_summary">Öppna syncthing-androids integritetspolicy, som täcker användning (om någon) av personuppgifter, t.ex. plats.</string>
     <string name="share_log_file_missing">Loggfilen som ska delas saknas.</string>
     <string name="share_log_file">Dela loggfil</string>
+    <string name="allow_overwrite_files_title">Tillåt överskrivning av befintliga filer</string>
+    <string name="allow_overwrite_files_summary">När en annan app delar filer till en av våra mappar.</string>
+    <string name="backup_password_set_masked">✅ Lösenord inställt – tryck för att ändra</string>
+    <string name="toggle_password_visibility">Växla lösenordssynlighet</string>
+    <string name="important_news_title">Viktiga nyheter – Åtgärd krävs</string>
+    <string name="important_news_description">Läs vårt meddelande om hur du kan fortsätta din smidiga appupplevelse på %1$s</string>
+    <string name="important_news_action_open">Öppna i webbläsare</string>
+    <string name="important_news_action_remind">Påminn mig senare</string>
+    <string name="important_news_action_no_remind">Avfärda för tillfället</string>
+    <string name="important_news_action_view_options">VISA ALTERNATIV</string>
 </resources>
