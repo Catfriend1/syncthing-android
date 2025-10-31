@@ -305,7 +305,7 @@
     <string name="power_source_ac_power">Carregamento.</string>
     <string name="power_source_battery_power">Bateria.</string>
     <string name="respect_battery_saving_title">Respeitar a configuração de economia de bateria do Android</string>
-    <string name="run_in_flight_mode_summary">Ao ativar esta opção, o Syncthing será executado mesmo quando off-line. Ative isto se o seu dispositivo tem problemas detectando conexões Wi-Fi durante o modo avião.</string>
+    <string name="run_in_flight_mode_summary">Ao ativar esta opção, o Syncthing será executado mesmo quando desconectado. Ative isto se o seu dispositivo tem problemas detectando conexões Wi-Fi durante o modo avião.</string>
     <string name="use_root_title">Executar como Superusuário</string>
     <string name="expert_mode_title">Modo de especialista</string>
     <string name="expert_mode_summary">Ao ativar esta opção, opções de configurações avançadas serão exibidas. Você deve dar uma olhada na documentação do Syncthing primeiro para se certificar de que sabe como usá-las corretamente. Configurações incorretas podem causar drenagem de bateria, esgotamento dos recursos do sistema ou sincronização incompleta.</string>
@@ -631,7 +631,7 @@
     <string name="respect_master_sync_summary">Desative o Syncthing quando o bloco de \"Sincronização automática\" das configurações rápidas está desativado.</string>
     <string name="run_in_flight_mode_title">Executar sem conexão à rede</string>
     <string name="run_on_time_schedule_title">Executar de acordo com o cronograma</string>
-    <string name="run_on_time_schedule_summary">Ao ativar esta opção, a sincronização será executada por uma duração configurada, se as condições forem cumpridas, e se um certo tempo passou desde a última sincronização. Isto pode economizar bastante bateria, mas requer que os parceiros de sincronização fiquem on-line. Por favor, observe que: Isto pode deixar arquivos temporários incompletos até que a próxima sincronização agendada seja executada.</string>
+    <string name="run_on_time_schedule_summary">Ao ativar esta opção, a sincronização será executada por uma duração configurada, se as condições forem cumpridas, e se um certo tempo passou desde a última sincronização. Isto pode economizar bastante bateria, mas requer que os parceiros de sincronização estejam conectados. Observação: Isto pode deixar arquivos temporários incompletos até que a próxima sincronização agendada seja executada.</string>
     <string name="sync_duration_minutes_title">Duração do ciclo de sincronização</string>
     <string name="sync_duration_minutes_summary">%1$s minutos</string>
     <string name="sleep_interval_minutes_title">Duração do intervalo de pausa da sincronização</string>
@@ -697,14 +697,14 @@
     <string name="reason_location_unavailable">Você ativou \"Executar em redes Wi-Fi selecionadas\" nas configurações. Os serviços de localização do Android estão desativados no momento. De acordo com as restrições do Android, o Syncthing não pode determinar o nome da rede Wi-Fi atual para saber se deve ou não ser executado. Solução: Ative a localização, dê a permissão de localização, e reconecte o Wi-Fi.</string>
     <string name="syncthing_active_details">Em execução: %1$s</string>
     <plurals name="device_online_up_to_date">
-        <item quantity="one">%1$d dispositivo on-line e atualizado</item>
-        <item quantity="many">%1$d de dispositivos on-line e atualizados</item>
-        <item quantity="other">%1$d dispositivos on-line e atualizados</item>
+        <item quantity="one">%1$d dispositivo conectado e atualizado</item>
+        <item quantity="many">%1$d de dispositivos conectados e atualizados</item>
+        <item quantity="other">%1$d dispositivos conectados e atualizados</item>
     </plurals>
     <plurals name="syncthing_active_syncing_device_online">
-        <item quantity="one">Sincronização: %1$d%% concluída, %2$d dispositivo on-line</item>
-        <item quantity="many">Sincronização: %1$d%% concluída, %2$d de dispositivos on-line</item>
-        <item quantity="other">Sincronização: %1$d%% concluída, %2$d dispositivos on-line</item>
+        <item quantity="one">Sincronização: %1$d%% concluída, %2$d dispositivo conectado</item>
+        <item quantity="many">Sincronização: %1$d%% concluída, %2$d de dispositivos conectados</item>
+        <item quantity="other">Sincronização: %1$d%% concluída, %2$d dispositivos conectados</item>
     </plurals>
     <string name="syncthing_terminated">Encerrado</string>
     <string name="executable_not_found">O executável fundamental \"%s\" está ausente. Verifique a compilação a saída do logcat.</string>
