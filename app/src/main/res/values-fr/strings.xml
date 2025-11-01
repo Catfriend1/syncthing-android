@@ -714,4 +714,6 @@
     <string name="important_news_action_remind">Me le rappeler plus tard</string>
     <string name="important_news_action_no_remind">Reporter à plus tard</string>
     <string name="important_news_action_view_options">OPTIONS d\'AFFICHAGE</string>
+    <string name="allow_overwrite_files_title">Permettre le remplacement de fichiers</string>
+    <string name="allow_overwrite_files_summary">Lorsqu\'une autre application partage des fichiers avec un des partages ST.</string>
 </resources>
