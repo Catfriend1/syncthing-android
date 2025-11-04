@@ -332,7 +332,7 @@
     <string name="run_on_mobile_data_title">用移动数据运行</string>
     <string name="run_on_mobile_data_summary">当设备通过移动数据网络连接时运行。警告：如果要同步大量数据，这可能会消耗移动运营商数据套餐里的很多流量。</string>
     <string name="run_on_roaming_title">漫游时运行</string>
-    <string name="run_on_roaming_summary">允许 Syncthing 漫游时使用移动数据。(!) 请向 GitHub 反馈此功能是否正常工作。</string>
+    <string name="run_on_roaming_summary">允许 Syncthing 漫游时使用移动数据。</string>
     <string name="run_on_wifi_title">用 Wi-Fi 运行</string>
     <string name="run_on_wifi_summary">当设备连接到 Wi-Fi 或以太网时运行。</string>
     <string name="run_on_metered_wifi_title">用计量 Wi-Fi 运行</string>
