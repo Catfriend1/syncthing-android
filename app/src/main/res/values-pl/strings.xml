@@ -469,7 +469,7 @@
     <string name="category_syncthing_options_summary">To menu jest dostępne tylko wtedy, gdy uruchomiono Syncthing.</string>
     <string name="autoAcceptFolders">Autoakceptacja</string>
     <string name="folder_fileWatcherDescription">Prosi system operacyjny o powiadomienia o zmienionych plikach. Gdy opcja jest wyłączona, co godzinę przeprowadzane jest skanowanie w poszukiwaniu zmian.</string>
-    <string name="run_on_roaming_summary">Zezwól Syncthing na korzystanie z mobilnej transmisji danych w roamingu. (!) Jeśli to działa poprawnie, prześlij opinię w serwisie GitHub.</string>
+    <string name="run_on_roaming_summary">Zezwól Syncthing na korzystanie z mobilnej transmisji danych w roamingu.</string>
     <string name="state_local_additions">Zmiany lokalne</string>
     <string name="run_on_whitelisted_wifi_networks">Wybrane sieci Wi-Fi: %1$s</string>
     <string name="reason_not_on_wifi">Syncthing może działać w sieci Wi-Fi, ale nie jest ona podłączona lub telefon jest w trybie samolotowym.</string>
