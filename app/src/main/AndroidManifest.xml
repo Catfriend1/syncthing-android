@@ -224,6 +224,14 @@
                 <action android:name="${applicationId}.action.STOP" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".service.NtfyReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="io.heckel.ntfy.MESSAGE_RECEIVED" />
+            </intent-filter>
+        </receiver>
         <activity android:name=".activities.FolderTypeDialogActivity"
             android:label="@string/folder_type"
             android:theme="@style/Theme.Syncthing.Dialog"
