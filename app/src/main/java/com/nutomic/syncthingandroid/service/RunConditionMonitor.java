@@ -60,9 +60,6 @@ public class RunConditionMonitor {
                 @Override
                 public void run() {
                     updateShouldRunDecision();
-                    // Broadcast sync trigger event to SyncthingService
-                    Intent syncTriggerIntent = new Intent(mContext.getPackageName() + ACTION_SYNC_TRIGGER_FIRED);
-                    mContext.sendBroadcast(syncTriggerIntent);
                 }
             };
             mainLooper.post(updateShouldRunDecisionRunnable);

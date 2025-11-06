@@ -1,10 +1,8 @@
 package com.nutomic.syncthingandroid.service;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
@@ -19,7 +17,6 @@ import com.google.common.io.Files;
 import com.nutomic.syncthingandroid.R;
 import com.nutomic.syncthingandroid.SyncthingApp;
 import com.nutomic.syncthingandroid.http.PollWebGuiAvailableTask;
-import com.nutomic.syncthingandroid.model.Connection;
 import com.nutomic.syncthingandroid.model.Device;
 import com.nutomic.syncthingandroid.model.Folder;
 import com.nutomic.syncthingandroid.util.ConfigRouter;
@@ -215,9 +212,6 @@ public class SyncthingService extends Service {
     private @Nullable
     SyncthingRunnable mSyncthingRunnable = null;
 
-    private @Nullable
-    BroadcastReceiver mSyncTriggerReceiver = null;
-
     @Inject
     NotificationHandler mNotificationHandler;
 
@@ -260,22 +254,6 @@ public class SyncthingService extends Service {
         if (mNotificationHandler != null) {
             mNotificationHandler.setAppShutdownInProgress(false);
         }
-
-        // Register broadcast receiver for sync trigger events
-        mSyncTriggerReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                LogV("Sync trigger broadcast received");
-                synchronized (mStateLock) {
-                    if (mCurrentState == State.ACTIVE) {
-                        // Only process if Syncthing is active
-                        new Thread(() -> attemptNotifyOutOfSyncDevices()).start();
-                    }
-                }
-            }
-        };
-        IntentFilter filter = new IntentFilter(getPackageName() + RunConditionMonitor.ACTION_SYNC_TRIGGER_FIRED);
-        registerReceiver(mSyncTriggerReceiver, filter);
     }
 
     /**
@@ -649,6 +627,9 @@ public class SyncthingService extends Service {
             mEventProcessor = new EventProcessor(SyncthingService.this, mRestApi);
             mEventProcessor.start();
         }
+        
+        // Notify all remote devices via ntfy.sh when Syncthing becomes active
+        new Thread(() -> notifyRemoteDevices()).start();
     }
 
     @Override
@@ -677,17 +658,6 @@ public class SyncthingService extends Service {
             // If the storage permission got revoked, we did not start the binary and
             // are in State.INIT requiring an immediate shutdown of this service class.
             Log.i(TAG, "Shutting down syncthing binary due to missing storage permission.");
-        }
-        
-        // Unregister sync trigger receiver
-        if (mSyncTriggerReceiver != null) {
-            try {
-                unregisterReceiver(mSyncTriggerReceiver);
-            } catch (IllegalArgumentException e) {
-                // Receiver was not registered, ignore
-                Log.w(TAG, "Sync trigger receiver was not registered");
-            }
-            mSyncTriggerReceiver = null;
         }
         
         shutdown(State.DISABLED);
@@ -1204,17 +1174,16 @@ public class SyncthingService extends Service {
     }
 
     /**
-     * Attempts to notify out-of-sync devices via ntfy.sh
-     * This method queries the REST API for device status and sends notifications
-     * to disconnected devices that have out-of-sync bytes.
+     * Notifies all remote devices via ntfy.sh that Syncthing is now active.
+     * Remote devices can decide whether to come online based on their local state.
      */
-    private void attemptNotifyOutOfSyncDevices() {
+    private void notifyRemoteDevices() {
         if (mRestApi == null) {
-            Log.w(TAG, "attemptNotifyOutOfSyncDevices: mRestApi is null, cannot query device status");
+            Log.w(TAG, "notifyRemoteDevices: mRestApi is null, cannot query device list");
             return;
         }
         
-        Log.d(TAG, "attemptNotifyOutOfSyncDevices: Checking for out-of-sync disconnected devices");
+        Log.d(TAG, "notifyRemoteDevices: Notifying all remote devices that we are online");
         
         try {
             // Get the local device ID to skip it
@@ -1225,51 +1194,39 @@ public class SyncthingService extends Service {
                     localDeviceId = localDevice.deviceID;
                 }
             } catch (Exception e) {
-                Log.w(TAG, "attemptNotifyOutOfSyncDevices: Could not get local device ID: " + e.getMessage());
+                Log.w(TAG, "notifyRemoteDevices: Could not get local device ID: " + e.getMessage());
             }
             
-            // Get devices list (excluding local device)
+            // Get all remote devices (excluding local device)
             List<Device> devices = mRestApi.getDevices(false);
             
             if (devices == null || devices.isEmpty()) {
-                Log.d(TAG, "attemptNotifyOutOfSyncDevices: No devices to check");
+                Log.d(TAG, "notifyRemoteDevices: No remote devices to notify");
                 return;
             }
             
-            // Check each device for disconnected + out-of-sync status
+            // Notify each remote device
             for (Device device : devices) {
                 if (localDeviceId != null && device.deviceID.equals(localDeviceId)) {
                     // Skip local device (extra safety check)
                     continue;
                 }
                 
-                // Get device connection status
-                Connection connection = mRestApi.getRemoteDeviceStatus(device.deviceID);
+                String deviceName = device.name != null && !device.name.isEmpty() 
+                        ? device.name 
+                        : device.deviceID.substring(0, Math.min(7, device.deviceID.length()));
+                String title = "Syncthing Online";
+                String body = String.format(
+                    "Device '%s' is now online and ready to sync.",
+                    localDeviceId != null ? localDeviceId.substring(0, Math.min(7, localDeviceId.length())) : "Unknown"
+                );
                 
-                if (connection != null && !connection.connected) {
-                    // Device is disconnected, check if it has out-of-sync bytes
-                    double outOfSyncBytes = mRestApi.getRemoteDeviceNeedBytes(device.deviceID);
-                    
-                    if (outOfSyncBytes > 0) {
-                        // Device is disconnected with out-of-sync bytes, send notification
-                        String deviceName = device.name != null && !device.name.isEmpty() 
-                                ? device.name 
-                                : device.deviceID.substring(0, Math.min(7, device.deviceID.length()));
-                        String title = "Syncthing Sync Request";
-                        String body = String.format(
-                            "Device '%s' has %.2f MB waiting to sync. Please come online.",
-                            deviceName,
-                            outOfSyncBytes / (1024.0 * 1024.0)
-                        );
-                        
-                        Log.i(TAG, "attemptNotifyOutOfSyncDevices: Sending notification to device " + 
-                                device.deviceID + " (" + deviceName + ")");
-                        NtfyNotifier.sendNotification(device.deviceID, title, body);
-                    }
-                }
+                Log.i(TAG, "notifyRemoteDevices: Sending notification to device " + 
+                        device.deviceID + " (" + deviceName + ")");
+                NtfyNotifier.sendNotification(device.deviceID, title, body);
             }
         } catch (Exception e) {
-            Log.e(TAG, "attemptNotifyOutOfSyncDevices: Unexpected error", e);
+            Log.e(TAG, "notifyRemoteDevices: Unexpected error", e);
         }
     }
 
