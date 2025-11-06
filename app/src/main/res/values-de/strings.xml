@@ -331,7 +331,7 @@
     <string name="run_on_mobile_data_title">Bei mobiler Datenverbindung starten</string>
     <string name="run_on_mobile_data_summary">Starten, wenn das Gerät über das mobile Datennetzwerk verbunden ist. Warnung: Wenn große Datenmengen synchronisiert werden, kann dies zu einem hohen Verbrauch des verfügbaren Datenvolumens führen.</string>
     <string name="run_on_roaming_title">Beim Roaming starten</string>
-    <string name="run_on_roaming_summary">Syncthing ermöglichen, mobile Daten während dem Roaming zu verwenden.</string>
+    <string name="run_on_roaming_summary">Syncthing gestatten, bei Roaming mobile Daten zu verwenden.</string>
     <string name="run_on_wifi_title">Bei WLAN-Verbindung starten</string>
     <string name="run_on_wifi_summary">Starten, wenn das Gerät mit einem WLAN- oder Kabelnetzwerk verbunden ist.</string>
     <string name="run_on_metered_wifi_title">Bei getakteter WLAN-Verbindung starten</string>
