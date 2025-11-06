@@ -1212,17 +1212,10 @@ public class SyncthingService extends Service {
                     continue;
                 }
                 
-                String deviceName = device.name != null && !device.name.isEmpty() 
-                        ? device.name 
-                        : device.deviceID.substring(0, Math.min(7, device.deviceID.length()));
-                String title = "Syncthing Online";
-                String body = String.format(
-                    "Device '%s' is now online and ready to sync.",
-                    localDeviceId != null ? localDeviceId.substring(0, Math.min(7, localDeviceId.length())) : "Unknown"
-                );
+                String title = "Syncthing";
+                String body = "online";
                 
-                Log.i(TAG, "notifyRemoteDevices: Sending notification to device " + 
-                        device.deviceID + " (" + deviceName + ")");
+                Log.i(TAG, "notifyRemoteDevices: Sending notification to device " + device.deviceID);
                 NtfyNotifier.sendNotification(device.deviceID, title, body);
             }
         } catch (Exception e) {
