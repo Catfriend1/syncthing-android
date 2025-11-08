@@ -331,9 +331,18 @@ public class SettingsActivity extends SyncthingActivity {
                     try {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
+                        // Try to explicitly target the ntfy.sh app
+                        intent.setPackage("io.heckel.ntfy");
                         startActivity(intent);
                     } catch (Exception e) {
-                        Toast.makeText(getActivity(), "ntfy.sh app not installed or cannot open topic", Toast.LENGTH_LONG).show();
+                        // If explicit package targeting fails, try without package specification
+                        try {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
+                            startActivity(intent);
+                        } catch (Exception e2) {
+                            Toast.makeText(getActivity(), "ntfy.sh app not installed or cannot open topic", Toast.LENGTH_LONG).show();
+                        }
                     }
                     return true;
                 });
