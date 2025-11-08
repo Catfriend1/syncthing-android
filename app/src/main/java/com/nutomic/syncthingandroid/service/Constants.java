@@ -55,6 +55,7 @@ public class Constants {
     public static final String PREF_USE_ROOT                    = "use_root";
     public static final String PREF_ALLOW_OVERWRITE_FILES       = "allow_overwrite_files";
     public static final String PREF_NTFY_SYNC_CONTROL           = "ntfy_sync_control";
+    public static final String PREF_NTFY_SERVER_URL             = "ntfy_server_url";
 
     // Preferences - Syncthing Options
     public static final String PREF_WEBUI_USERNAME              = "webui_username";

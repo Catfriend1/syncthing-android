@@ -190,6 +190,16 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- ntfy.sh server URL -->
+        <EditTextPreference
+            android:key="ntfy_server_url"
+            android:title="@string/ntfy_server_url_title"
+            android:summary="@string/ntfy_server_url_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="https://ntfy.sh/"
+            android:dependency="ntfy_sync_control"
+            android:inputType="textUri" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

@@ -1225,7 +1225,7 @@ public class SyncthingService extends Service {
                 String body = "online";
                 
                 Log.i(TAG, "notifyRemoteDevices: Sending notification to device " + device.deviceID);
-                NtfyNotifier.sendNotification(device.deviceID, title, body);
+                NtfyNotifier.sendNotification(SyncthingService.this, device.deviceID, title, body);
             }
         } catch (Exception e) {
             Log.e(TAG, "notifyRemoteDevices: Unexpected error", e);
