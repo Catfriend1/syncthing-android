@@ -1,38 +1,27 @@
-Dit is een fork van de Synthing-Android-wrapper voor Syncthing die vele verbeteringen brengt, waaronder:
-* Folder, device and overall sync progress can easily be read off the UI.
-* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, ... on two phones into one shared and private Syncthing folder. No cloud involved. - FEATURE CURRENTLY IN BETA STAGE -
-* "Sync every hour" to save even more battery
-* Individuele synchrinisatie-omstandigheden kunnen worden toegepast per appparaat en map
-* Pagina met recente wijzigingen, druk om bestanden te openen
-* Changes to folder and device config can be made regardless if Syncthing is running or not
-* UI explains why syncthing is running or not.
-* Hoog accuverbruik is opgelost
-* Discover other Syncthing devices on the same network and easily add them.
-* Supports two-way synchronization on external SD card since Android 11.
+Dit is een fork van de Syncthing-Android-wrapper voor Syncthing die belangrijke verbeteringen biedt, zoals:
+* De voortgang van de synchronisatie van mappen, apparaten en het geheel kan eenvoudig worden afgelezen op de gebruikersinterface.
+* “Elk uur synchroniseren” om nog meer batterij te besparen.
+* Individuele synchronisatievoorwaarden kunnen per apparaat en per map worden toegepast.
+* Gebruikersinterface met recente wijzigingen, klik om bestanden te openen.
+* Wijzigingen in de configuratie van mappen en apparaten kunnen worden aangebracht, ongeacht of Syncthing actief is of niet.
+* De gebruikersinterface legt uit waarom Syncthing actief is of niet.
+* Het probleem van “batterijverslinding” is opgelost.
+* Ontdek andere Syncthing-apparaten op hetzelfde netwerk en voeg ze eenvoudig toe.
+* Ondersteunt tweerichtingssynchronisatie op externe SD-kaart sinds Android 11.
 
-Syncthing vervangt niet-vrije diensten door iets opens, betrouwbaars en gedecentraliseerds. Je gegevens behoren enkel jou toe en jij bepaalt waar ze worden opgeslagen, of ze gedeeld worden met een derde partij en hoe ze over het internet verzonden worden.
+Syncthing-Fork voor Android is een wrapper voor Syncthing die een Android-UI biedt in plaats van de ingebouwde web-UI van Syncthing. Syncthing vervangt propriëtaire synchronisatie- en clouddiensten door iets open, betrouwbaars en gedecentraliseerd. Uw gegevens zijn alleen van u en u verdient het om te kiezen waar ze worden opgeslagen, of ze worden gedeeld met derden en hoe ze via internet worden verzonden.
 
-Doel van de fork:
-* Verbeteringen ontwikkelen en uitproberen, in samenwerking met de gemeenschap
-* Wrapper vaker uitbrengen om bugs i.c.m. de syncthing-submodule op te sporen en op te lossen
-* Verbeteringen configureerbaar maken, zoadat gebruikers ze makkelijk in en uit kunnen schakelen
-
-Vergelijking tussen upstream en de fork op het moment van schrijven:
-* Both contain the syncthing binary built from the official source at GitHub
-* Synchronisatiefunctionaliteit en -betrouwbaarheid is afhankelijk van de versie van de syncthing-submodule
-* De fork wordt geaccepteerd door upstream en soms worden mijn verbeteringen doorgevoerd
-* Strategie en moment van uitbrengen zijn verschillend
-* Alleen de wrapper met de Android-app wordt aangepakt door de fork
+Zoek eerst hulp op het forum en/of sociale media-apps voordat u issues aanmaakt op de tracker. Houd er rekening mee dat Syncthing-Fork is ontstaan uit persoonlijke interesse om familie en vrienden te helpen Syncthing op Android te gebruiken. Het was niet bedoeld voor de momenteel meer dan 100.000 gebruikers, ook al worden de resultaten met u en de community gedeeld. Hartelijk dank.
 
 Website: https://github.com/Catfriend1/syncthing-android
 
 Broncode: https://github.com/Catfriend1/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Hoe Syncthing naar een externe SD-kaart schrijft: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, veelgestelde vragen en nuttige artikelen: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
 
 Problemen: https://github.com/Catfriend1/syncthing-android/issues
 
-Please help with the
+Help mee met de
 Vertaling: https://hosted.weblate.org/projects/syncthing/android/catfriend1

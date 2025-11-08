@@ -15,7 +15,7 @@
     <string name="dialog_all_files_access_not_supported">Su dispositivo no soporta el acceso a todos los archivos</string>
     <!-- Slide "Ignore battery optimizations" -->
     <string name="ignore_doze_permission_title">Optimización de batería</string>
-    <string name="ignore_doze_permission_os_notice">Es conocido que los Android TV ocasionalmente detienen la aplicación cuando se ejecuta en segundo plano. Hay una solución disponible en la wiki en \'%1$s/%2$s\'.</string>
+    <string name="ignore_doze_permission_os_notice">Es conocido que los Android TV ocasionalmente detienen la aplicación cuando se ejecuta en segundo plano. Hay una solución disponible en la wiki en \"%1$s/%2$s\".</string>
     <string name="ignore_doze_permission_desc">Puede que Android detenga la sincronización después de algún tiempo. Para evitarlo, desactiva la optimización de la batería. Algunos dispositivos tienen preinstaladas aplicaciones adicionales que eliminan tareas. En tal caso debes añadir Syncthing a la lista blanca.</string>
     <string name="toast_ignore_doze_permission_required">Esta aplicación sólo funciona de forma satisfactoria si está exenta del modo de ahorro de energía \"descanso\".</string>
     <string name="dialog_disable_battery_optimizations_not_supported">Su dispositivo no soporta la desactivación de la optimización de batería</string>
@@ -51,7 +51,7 @@
     <string name="grant_storage_permission">Otorge el permiso de almacenamiento</string>
     <string name="grant_camera_permission">Otorge el permiso de cámara</string>
     <string name="photo_shoot_intro_permission_desc">Cámara Syncthing requiere el consentimiento para tomar fotos y almacenarlas en el dispositivo. Esta función es opcional. Para usarla, concede los permisos y pulsa \"Continuar\". Configuraremos una carpeta de Cámara Syncthing para tí, que podrás compartir con otros dispositivos Syncthing más adelante.</string>
-    <string name="photo_shoot_take_picture_success">Foto guardada exitosamente en la carpeta Cámara Syncthing.</string>
+    <string name="photo_shoot_take_picture_success">Foto guardada con éxito en la carpeta Cámara Syncthing.</string>
     <string name="photo_shoot_take_picture_failure">No se ha podido tomar una foto o la ha cancelado.</string>
     <!-- Label of the folder created by the Syncthing Camera feature. -->
     <string name="default_syncthing_camera_folder_label">Cámara Syncthing</string>
@@ -173,9 +173,9 @@
     <string name="advanced_directory_selection">Selección Avanzada de Directorios</string>
     <!-- Setting title and description -->
     <string name="folder_fileWatcher">Monitorear Cambios</string>
-    <string name="folder_fileWatcherDescription">Pide al sistema operativo que notifique los cambios en los archivos. Si se desactiva, retorna a los escaneos periódicos por hora.</string>
+    <string name="folder_fileWatcherDescription">Se pide a Android que notifique cambios en los archivos. Si se desactiva, retorna a los escaneos periódicos por hora.</string>
     <!-- Setting title and description -->
-    <string name="folder_ignore_delete_caption">Ignorar la Eliminación</string>
+    <string name="folder_ignore_delete_caption">Ignora Eliminar</string>
     <string name="folder_ignore_delete_description">Opción para expertos que afecta el manejo de las actualizaciones entrantes de los índices. Cuando se activa, se ignoran las actualizaciones entrantes con la marca \"eliminar\". Ve https://docs.syncthing.net/advanced/folder-ignoredelete.html</string>
     <!-- Setting title -->
     <string name="folder_pause">Pausar Carpeta</string>
@@ -201,9 +201,9 @@
     <string name="folder_path_required">La ruta a la carpeta no debe estar vacía</string>
     <string name="dialog_discard_changes">¿Descartar los cambios?</string>
     <!-- Summary shown if we only have readonly access to the folder path -->
-    <string name="folder_path_readonly">Su versión de Android solo le otorga a Syncthing acceso de solo lectura a la carpeta seleccionada.</string>
+    <string name="folder_path_readonly">La versión de Android otorga a Syncthing acceso de sólo lectura a la carpeta seleccionada.</string>
     <!-- Summary shown if we only have readwrite access to the folder path -->
-    <string name="folder_path_readwrite">Su versión de Android le otorga a Syncthing acceso de lectura y escritura a la carpeta seleccionada.</string>
+    <string name="folder_path_readwrite">La versión de Android otorga a Syncthing acceso de lectura y escritura a la carpeta seleccionada.</string>
     <!-- Toast shown if the user selected an invalid location for a new syncthing folder -->
     <string name="toast_invalid_folder_selected">Lo lamentamos. La carpeta seleccionada no se puede usar. Por favor, selecciona una carpeta del almacenamiento interno o externo.</string>
     <string name="folder_type_switch_to_receive_encrypted_not_allowed">Cambiar carpetas existentes a \"Recibir Encriptado\" no está soportado.</string>
@@ -216,7 +216,7 @@
     <!-- Status text -->
     <string name="discovered_device_list_empty">El descubrimiento local no ha encontrado ningún dispositivo en la red local. Ejecute esta aplicación en un segundo teléfono. Los archivos de instalación para ordenadores están disponibles en: %1$s</string>
     <!-- Status text -->
-    <string name="local_discovery_disabled">Ha desactivado el descubrimiento local en \"Configuración\" &gt; \"Opciones de Syncthing\" &gt; \"Descubrimiento Local\". Actívelo para buscar dispositivos en la red local.</string>
+    <string name="local_discovery_disabled">Has desactivado el descubrimiento local en \"Ajustes\" &gt; \"Opciones de Syncthing\" &gt; \"Descubrimiento Local\". Actívalo para buscar dispositivos en la red local.</string>
     <!-- Setting title -->
     <string name="name">Nombre</string>
     <!-- Setting title -->
@@ -258,18 +258,18 @@
     <!-- Content description for device ID qr code icon -->
     <string name="scan_qr_code_description">Escanear código QR</string>
     <!-- Dialog message if no compatible barcode scanner app is installed -->
-    <string name="install_barcode_scanner_app_message">Esto requiere una aplicación de escáner de código de barras. ¿Desea instalar la aplicación \'Binary Eye\' de F-Droid\?</string>
+    <string name="install_barcode_scanner_app_message">Esto requiere una aplicación de escáner de código de barras. ¿Desea instalar la aplicación \"Binary Eye\" de F-Droid?</string>
     <!-- Shown if no folders are configured -->
     <string name="folders_list_empty">No hay carpetas configuradas. Pulsa para añadir una carpeta nueva.</string>
     <!-- Toast show if we could not get root permissions -->
     <string name="toast_root_denied">No se obtuvieron permisos de root</string>
     <!-- TipsAndTricks activity -->
     <!-- Title of the Tips and Tricks activity -->
-    <string name="tips_and_tricks_title">Consejos &amp; Trucos</string>
+    <string name="tips_and_tricks_title">Consejos y Trucos</string>
     <string name="tip_write_to_sdcard_title">Solución alterna de escribir a la tarjeta SD externa</string>
     <string name="tip_write_to_sdcard_text">Si ves que la interfaz de usuario indica que \"Android solo le otorga a Syncthing acceso de solo lectura\" para una determinada carpeta, crea una nueva carpeta usndo esta ruta para obtener acceso de escritura: \n%1$s/YOUR_FOLDER_NAME \nTen cuidado: Esta carpeta será eliminada por Android si desinstala esta aplicación. Antes de desinstalarla, mueve los datos a un lugar seguro fuera de la carpeta …/Android.</string>
     <string name="tip_sync_on_local_network_title">Sincronizar solo mediante la red wifi local</string>
-    <string name="tip_sync_on_local_network_text">Si deseas sincronizar sólo con los dispositivos que se encuentran en la red wifi local o accesibles a través de un hotspot de wifi, puedes reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Configuración/Opciones de Sincronización\": \n- Permitir NAT Traversal \n- Descubrimiento Global \n- Habilitar la Retransmisión \nSolo deja activado el \"Descubrimiento Local\".</string>
+    <string name="tip_sync_on_local_network_text">Si deseas sincronizar sólo con los dispositivos que se encuentran en la red wifi local o accesibles a través de un hotspot de wifi, puedes reducir el uso de la batería y evitar la sincronización accidental a través de datos móviles mediante la desactivación de las siguientes opciones en \"Ajustes/Opciones de Syncthing\": \n- Permitir NAT Traversal \n- Descubrimiento Global \n- Habilitar la Retransmisión \nSolo deja activado el \"Descubrimiento Local\".</string>
     <string name="tip_custom_sync_conditions_title">Usar condiciones de sincronización personalizadas por carpeta/dispositivo</string>
     <string name="tip_custom_sync_conditions_text">Esta función se mejorará en futuras versiones. Por ahora, no queríamos romper las configuraciones existentes y el comportamiento de la aplicación. Por eso, las condiciones de sincronización personalizadas para un determinado tipo de red solo pueden establecerse si primero se habilita la sincronización en la red en las condiciones de ejecución globales.</string>
     <string name="tip_ignore_delete_title">¿Hacer una copia de seguridad de las fotos del teléfono al ordenador\?</string>
@@ -291,9 +291,9 @@
     <string name="this_device">Este dispositivo</string>
     <!-- WebGuiActivity -->
     <!-- Title of the web gui activity -->
-    <string name="web_gui_title">Interfaz gráfica web</string>
+    <string name="web_gui_title">Interfaz web</string>
     <!-- Text for WebGuiActivity loading view -->
-    <string name="web_gui_loading">Esperando a la interfaz gráfica</string>
+    <string name="web_gui_loading">Esperando a la interfaz web</string>
     <!-- WebViewActivity -->
     <!-- Dialog title displayed when an invalid ssl certificate was found -->
     <string name="security_notice">Aviso de Seguridad</string>
@@ -314,17 +314,17 @@
     <string name="preference_app_theme_follow_dark">Oscuro</string>
     <string name="category_behaviour">Comportamiento</string>
     <string name="category_syncthing_options">Opciones de Syncthing</string>
-    <string name="category_syncthing_options_summary">Este menú solo está disponible si Syncthing se está ejecutando.</string>
+    <string name="category_syncthing_options_summary">Menú sólo disponible si Syncthing se está ejecutando.</string>
     <string name="category_backup">Importar y Exportar</string>
     <string name="category_debug">Solución de problemas</string>
     <string name="category_experimental">Experimental</string>
     <!-- Preference screen - Run conditions -->
     <string name="run_conditions_title">Condiciones de ejecución</string>
-    <string name="run_conditions_summary">Usa las siguientes opciones para decidir cuando se ejecutará Syncthing.</string>
+    <string name="run_conditions_summary">Las siguientes opciones deciden cuándo se ejecuta Syncthing.</string>
     <string name="run_on_mobile_data_title">Ejecutar con datos móviles</string>
-    <string name="run_on_mobile_data_summary">Ejecutar cuando el dispositivo está conectado a través de datos móviles. Advertencia: Puede consumir muchos datos del plan de datos de tu operador móvil si sincronizas grandes cantidades de datos.</string>
-    <string name="run_on_roaming_title">Ejecutar durante itinerancia</string>
-    <string name="run_on_roaming_summary">Permitir que Syncthing utilice los datos móviles durante la itinerancia. (!) Por favor, envíe sus comentarios a GitHub si esto funciona correctamente.</string>
+    <string name="run_on_mobile_data_summary">Ejecutar cuando el dispositivo está conectado a través de datos móviles. Advertencia: Puede consumir gran parte de tu plan de datos si sincronizas muchos datos.</string>
+    <string name="run_on_roaming_title">Ejecutar en itinerancia</string>
+    <string name="run_on_roaming_summary">Permite que Syncthing use datos móviles en itinerancia.</string>
     <string name="run_on_wifi_title">Ejecutar con wifi</string>
     <string name="run_on_wifi_summary">Ejecutar cuando el dispositivo este conectado a una red wifi o ethernet.</string>
     <string name="run_on_metered_wifi_title">Ejecutar con wifi de uso medido</string>
@@ -338,33 +338,33 @@
     <string name="sync_only_wifi_ssids_need_to_grant_location_permission">Necesita otorgar el permiso de UBICACIÓN para usar esta función.</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_title">Permiso requerido</string>
     <string name="sync_only_wifi_ssids_location_permission_rejected_dialog_content">A partir de Android 8.1, el acceso a la ubicación es necesario para poder leer el nombre de la wifi. Solo puedes usar esta función si concedes este permiso.</string>
-    <string name="power_source_title">Ejecutar cuando el dispositivo está siendo alimentado mediante</string>
-    <string name="power_source_ac_and_battery_power">CA y batería.</string>
-    <string name="power_source_ac_power">CA por cable.</string>
-    <string name="power_source_battery_power">Batería.</string>
-    <string name="respect_battery_saving_title">Respeta la configuración de ahorro de batería de Android</string>
-    <string name="respect_battery_saving_summary">Desactivar Syncthing si el ahorro de batería está activo.</string>
-    <string name="respect_master_sync_title">Respetar el ajuste de Android \"Sincronizar datos automáticamente\"</string>
-    <string name="respect_master_sync_summary">Desativar Syncthing cuando el mosaico \"Sincronizar datos automáticamente\" de ajustes rápidos está desactivado.</string>
+    <string name="power_source_title">Ejecutar cuando se alimente con</string>
+    <string name="power_source_ac_and_battery_power">cargador o batería.</string>
+    <string name="power_source_ac_power">cargador.</string>
+    <string name="power_source_battery_power">batería.</string>
+    <string name="respect_battery_saving_title">Respetar ahorro de batería de Android</string>
+    <string name="respect_battery_saving_summary">Desactiva Syncthing si se activa el ahorro de batería de Android.</string>
+    <string name="respect_master_sync_title">Respetar \"Autosincronizar datos\" de Android</string>
+    <string name="respect_master_sync_summary">Desactiva Syncthing cuando \"Autosincronizar datos\" en el mosáico de Android está desactivado.</string>
     <string name="run_in_flight_mode_title">Ejecutar sin conexión de red</string>
-    <string name="run_in_flight_mode_summary">Habilitar esta opción ocasionará que Syncthing se ejecute aún cuando estás fuera de línea. Actívela si su dispositivo tiene problemas para detectar conexiones wifi manuales en modo avión.</string>
+    <string name="run_in_flight_mode_summary">Syncthing se ejecutará aún cuando el dispositivo esté fuera de línea. Es útil si el dispositivo tiene problemas para detectar conexiones wifi en modo avión.</string>
     <string name="run_on_time_schedule_title">Ejecutar según el horario</string>
-    <string name="run_on_time_schedule_summary">Al activar esta opción, se intentará sincronizar durante un periodo configurado si se cumplen las condiciones de ejecución y si ha transcurrido algún periodo de intervalo especificado desde la última sincronización. Esto puede ahorrar mucha batería, pero requiere que los socios de sincronización estén en línea. Nota: Esto puede dejar archivos temporales incompletos hasta que se realice la siguiente sincronización programada.</string>
+    <string name="run_on_time_schedule_summary">Se intentará sincronizar con la duración del ciclo de sincronización siempre que se cumplan las condiciones de ejecución y haya transcurrido el intervalo de pausa especificado desde la última sincronización. Ahorra mucha batería, pero requiere que los dispositivos de sincronización estén en línea. Pueden quedar archivos temporales incompletos hasta la siguiente sincronización programada.</string>
     <string name="sync_duration_minutes_title">Duración del ciclo de sincronización</string>
     <string name="sync_duration_minutes_summary">%1$s minutos</string>
     <!-- Preferences - Behaviour -->
     <string name="behaviour_autostart_title">Iniciar automáticamente</string>
-    <string name="behaviour_autostart_summary">Iniciar la aplicación automáticamente al arrancar el sistema operativo.</string>
-    <string name="use_root_title">Ejecutar Syncthing como superusuario</string>
-    <string name="use_root_summary">Ejecutar Syncthing como root le permite escribir en las carpetas que Android normalmente restringe como de solo lectura. Utilice esta función con precaución.</string>
+    <string name="behaviour_autostart_summary">Inicia la aplicación al arrancar el sistema operativo.</string>
+    <string name="use_root_title">Ejecutar Syncthing como Superusuario</string>
+    <string name="use_root_summary">Permite a Syncthing escribir en las carpetas que Android normalmente restringe como de solo lectura. Usa esta función con precaución.</string>
     <string name="expert_mode_title">Modo experto</string>
-    <string name="expert_mode_summary">Activar esta opción mostrará las opciones de configuración avanzadas. Primero deberías echar un vistazo a la Documentación de Syncthing para asegurarte de que sabes cómo usarlas correctamente. Una configuración incorrecta puede provocar el consumo de la batería, agotamiento de los recursos del sistema o una sincronización incompleta.</string>
+    <string name="expert_mode_summary">Muestra las opciones de configuración avanzadas. Antes de nada revisa la Documentación de Syncthing para asegurarte que sabes usarlas correctamente. La configuración incorrecta puede provocar el consumo de la batería, agotamiento de los recursos del sistema o una sincronización incompleta.</string>
     <string name="preference_language_title">Idioma</string>
     <string name="preference_language_summary">Cambiar el idioma de la aplicación</string>
     <string name="pref_language_default">Idioma predeterminado</string>
-    <string name="folder_type_send_receive">Enviar &amp; Recibir</string>
-    <string name="folder_type_send_only">Solo Enviar</string>
-    <string name="folder_type_receive_only">Solo Recibir</string>
+    <string name="folder_type_send_receive">Enviar y Recibir</string>
+    <string name="folder_type_send_only">Sólo Enviar</string>
+    <string name="folder_type_receive_only">Sólo Recibir</string>
     <string name="pull_order_random">Aleatorio</string>
     <string name="pull_order_alphabetic">Alfabético</string>
     <string name="pull_order_smallest_first">Más Pequeños Primero</string>
@@ -378,29 +378,29 @@
     <string name="versioning_type_external">Externo</string>
     <string name="device_name">Nombre del dispositivo</string>
     <string name="listen_address">Direcciones de escucha del protocolo de sincronización</string>
-    <string name="max_recv_kbps">Límite de tráfico de entrada (KiB/s)</string>
-    <string name="max_send_kbps">Límite de tráfico de salida (KiB/s)</string>
+    <string name="max_recv_kbps">Límite tráfico de entrada (KiB/s)</string>
+    <string name="max_send_kbps">Límite tráfico de salida (KiB/s)</string>
     <string name="global_announce_enabled">Descubrimiento global</string>
     <string name="local_announce_enabled">Descubrimiento local</string>
-    <string name="enable_nat_traversal">Permitir NAT Traversal</string>
+    <string name="enable_nat_traversal">Permitir NAT traversal</string>
     <string name="global_announce_server">Servidores globales de descubrimiento</string>
     <string name="enable_relaying">Activar retransmisión (Relaying)</string>
     <string name="usage_reporting">Informe de uso anónimo</string>
-    <string name="crash_reporting">Informes Anónimos de Fallos</string>
+    <string name="crash_reporting">Informes anónimos de fallos</string>
     <string name="webui_tcp_port_title">Puerto TCP de la interfaz web</string>
     <string name="webui_remote_access_title">Acceso remoto a la interfaz web</string>
-    <string name="webui_remote_access_summary">Especifica si permites el acceso a la interfaz web desde otro dispositivo. Si está activado podrás iniciar sesión con el usuario \"syncthing\" y usando la clave de la API como contraseña. Por defecto: desactivado (más seguro)</string>
-    <string name="download_support_bundle_title">Descargar Paquete de Soporte</string>
+    <string name="webui_remote_access_summary">Permite el acceso a la interfaz web desde otro dispositivo. Podrás iniciar sesión con el usuario \"syncthing\" y usando la clave API como contraseña. Por defecto: desactivado (más seguro)</string>
+    <string name="download_support_bundle_title">Descargar paquete de soporte</string>
     <!-- Summary shown when the user clicked the download support bundle button -->
-    <string name="download_support_bundle_in_progress">Preparando descarga de Paquete de Soporte …</string>
+    <string name="download_support_bundle_in_progress">Preparando descarga de paquete de soporte …</string>
     <!-- Toast after successful download of the support bundle -->
-    <string name="download_support_bundle_succeeded">Paquete de Soporte exitosamente descargado en %s.</string>
+    <string name="download_support_bundle_succeeded">Paquete de soporte descargado con éxito en %s.</string>
     <!-- Toast after failed support bundle download -->
-    <string name="download_support_bundle_failed">Error al descargar el Paquete de Soporte. Revise el registro.</string>
+    <string name="download_support_bundle_failed">Error al descargar el paquete de soporte. Revisa los registros.</string>
     <!-- Titles for the preference to undo ignored devices and folders -->
-    <string name="undo_ignored_devices_folders_title">Deshacer la ignoración de dispositivos y carpetas</string>
+    <string name="undo_ignored_devices_folders_title">Dejar de ignorar dispositivos y carpetas</string>
     <string name="undo_ignored_devices_folders_question">Esto deshará las decisiones anteriores de ignorar dispositivos y carpetas. ¿Continuar\?</string>
-    <string name="undo_ignored_devices_folders_done">Decisiones deshechas exitosamente.</string>
+    <string name="undo_ignored_devices_folders_done">Decisiones deshechas con éxito.</string>
     <string name="export_config">Exportar configuración</string>
     <!-- Toast after entering an invalid tcp port -->
     <string name="invalid_port_number" tools:ignore="PluralsCandidate">Número inválido de puerto. Por favor ingrese un puerto entre %1$d y %2$d.</string>
@@ -415,12 +415,12 @@
     <string name="use_tor_summary">Forzar todo el tráfico a través de Tor para mayor privacidad. Requiere Orbot. Desactiva las opciones de proxy.</string>
     <string name="socks_proxy_address_title">Proxy SOCKS5</string>
     <!-- Toast after entering invalid socks proxy address -->
-    <string name="toast_invalid_socks_proxy_address">La entrada infringe la sintaxis de proxy \'socks5://[IP/HOSTNAME]:[PORT]\'</string>
+    <string name="toast_invalid_socks_proxy_address">La entrada infringe la sintaxis de proxy \"socks5://[IP/HOSTNAME]:[PORT]\"</string>
     <string name="http_proxy_address_title">Proxy HTTP(S)</string>
     <!-- Toast after entering invalid http proxy address -->
-    <string name="toast_invalid_http_proxy_address">La entrada infringe la sintaxis de proxy \'http://[IP/HOSTNAME]:[PORT]\'</string>
-    <string name="broadcast_service_control_title">Control de Servicios mediante Transmisión</string>
-    <string name="broadcast_service_control_summary">Por defecto: Desactivado. Activa para permitir a adb o a otras aplicaciones, por ej. aplicaciones de automatización comandar a Syncthing para seguir condiciones de ejecución, forzar su arranque o parada.</string>
+    <string name="toast_invalid_http_proxy_address">La entrada infringe la sintaxis de proxy \"http://[IP/HOSTNAME]:[PORT]\"</string>
+    <string name="broadcast_service_control_title">Control de Servicio vía Broadcast</string>
+    <string name="broadcast_service_control_summary">Por defecto: Desactivado. Permite que adb u otras aplicaciones, por ej. de automatización, den instrucciones a Syncthing para seguir condiciones de ejecución, forzar su arranque o parada.</string>
     <!-- Dialog shown before config export -->
     <string name="dialog_confirm_export">¿Realmente quieres exportar tu configuración? Los ficheros existentes serán sobreescritos.</string>
     <!-- Dialog shown before config import -->
@@ -466,15 +466,15 @@
     <!-- Title of the preference showing upstream version name -->
     <string name="syncthing_version_title">Versión de Syncthing</string>
     <!-- Title of the preference showing this app's version name -->
-    <string name="app_version_title">Versión del Wrapper de Syncthing-Fork</string>
+    <string name="app_version_title">Versión del wrapper de Syncthing-Fork</string>
     <!-- Title of the preference showing the REST API key -->
-    <string name="syncthing_api_key">Clave de la API de Syncthing (pulsa para copiarla)</string>
+    <string name="syncthing_api_key">Clave API de Syncthing (pulsa para copiar)</string>
     <!-- Shown when the API key is copied to the clipboard -->
-    <string name="api_key_copied_to_clipboard">Clave de la API de Syncthing copiada al portapapeles</string>
+    <string name="api_key_copied_to_clipboard">Clave API de Syncthing copiada al portapapeles</string>
     <!-- Title of the preference showing database size -->
-    <string name="syncthing_database_size">Tamaño de la Base de Datos de Syncthing</string>
+    <string name="syncthing_database_size">Tamaño de la base de datos de Syncthing</string>
     <!-- Title of the preference showing the OS open file limit -->
-    <string name="os_open_file_limit">Límite de Apertura de Archivos de Android</string>
+    <string name="os_open_file_limit">Límite de apertura de archivos de Android</string>
     <!-- FolderPickerAcitivity -->
     <!-- Activity title -->
     <string name="folder_picker_title">Seleccionador de carpetas</string>
@@ -540,8 +540,8 @@
     <!-- Sub Folder title -->
     <string name="sub_folder">Subcarpeta</string>
     <!-- RunConditionMonitor -->
-    <string name="reason_force_start">Syncthing se está ejecutándo porquehas forzado el inicio independientemente de las condiciones de ejecución.</string>
-    <string name="reason_force_stop">Syncthing no se está ejecutándo porque lo has forzado a detenerse independientemente de las condiciones de ejecución.</string>
+    <string name="reason_force_start">Syncthing se está ejecutándo porque has forzado el inicio, independientemente de las condiciones de ejecución.</string>
+    <string name="reason_force_stop">Syncthing no se está ejecutándo porque has forzado la detención, independientemente de las condiciones de ejecución.</string>
     <!-- Explanations why syncthing is running or not running -->
     <string name="reason_not_within_time_frame">Has activado la opción \"Ejecutar según horario\" y la última sincronización no ha sido hace más de una hora.</string>
     <string name="reason_not_within_time_frame_2">Has activado «Ejecutar según el horario» y la última sincronización fue hace %s.</string>
@@ -553,25 +553,25 @@
     </plurals>
     <string name="reason_not_charging">El teléfono no se está cargando.</string>
     <string name="reason_not_on_battery_power">El teléfono no se está alimentando de la batería.</string>
-    <string name="reason_not_while_power_saving">Syncthing no se está ejecutando porque el teléfono está en ahorro de energía.</string>
-    <string name="reason_not_while_auto_sync_data_disabled">Syncthing no se está ejecutando porque Android tiene desactivada la función \"Sincronizar datos automáticamente\".</string>
+    <string name="reason_not_while_power_saving">Syncthing no se está ejecutando porque el dispositivo está en ahorro de batería.</string>
+    <string name="reason_not_while_auto_sync_data_disabled">Syncthing no se está ejecutando porque Android tiene desactivada la función \"Autosincronizar datos\".</string>
     <!-- … Mobile data -->
-    <string name="reason_mobile_data_disallowed">Syncthing no está configurado para ejecutarse con una conexión de datos móviles.</string>
-    <string name="reason_on_mobile_data">Syncthing está configurado para ejecutarse en datos móviles.</string>
-    <string name="reason_not_on_mobile_data">Syncthing tiene permitido ejecutarse con conexión de datos móviles, pero los datos móviles no están conectados.</string>
+    <string name="reason_mobile_data_disallowed">Syncthing no está configurado para ejecutarse con datos móviles.</string>
+    <string name="reason_on_mobile_data">Syncthing tiene permitido ejecutarse con datos móviles.</string>
+    <string name="reason_not_on_mobile_data">Syncthing tiene permitido ejecutarse con datos móviles, pero no están activos.</string>
     <!-- … Roaming -->
-    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse en conexiones de datos móviles con o sin itinerancia.</string>
-    <string name="reason_on_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse con conexiones de datos móviles sin itinerancia. La conexión activa es sin itinerancia.</string>
-    <string name="reason_not_nonroaming_mobile_data">Syncthing no se está ejecutando porque has prohibido ejecutarse con conexiones de datos móviles en itinerancia.</string>
-    <string name="reason_wifi_disallowed">Syncthing no tiene permitido ejecutarse en wifi o ethernet.</string>
-    <string name="reason_on_wifi">Syncthing tiene permitido ejecutarse en wifi y actualmente está conectado el wifi.</string>
-    <string name="reason_not_on_wifi">Syncthing tiene permitido ejecutarse con wifi, pero el wifi no está conectado o el teléfono está en modo avión.</string>
-    <string name="reason_on_metered_nonmetered_wifi">Syncthing tiene permitido ejecutarse en redes wifi de uso medido y no medido.</string>
-    <string name="reason_on_whitelisted_wifi">Syncthing no tiene permitido ejecutarse en la red wifi actual.</string>
-    <string name="reason_not_on_whitelisted_wifi">Syncthing no se está ejecutando porque el nombre de la red wifi actual no está en la lista blanca.</string>
-    <string name="reason_on_nonmetered_wifi">Syncthing no tiene permitido ejecutarse con conexiones wifi de uso no medido. La conexión wifi activa no tiene su uso medido.</string>
-    <string name="reason_not_nonmetered_wifi">Syncthing no se está ejecutando porque has prohibido ejecutarse con conexiones wifi de uso medido.</string>
-    <string name="reason_location_unavailable">Has activado \"Ejecutar en redes wifi seleccionadas\" en los ajustes. Los servicios de localización de Android están actualmente desactivados. Según las restricciones de Android, Syncthing no puede determinar el nombre de la red wifi actual para decidir si debe ejecutarse. Solución: Activa la ubicación, concede el permiso de ubicación y vuelve a conectar el wifi.</string>
+    <string name="reason_on_roaming_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse con datos móviles con o sin itinerancia.</string>
+    <string name="reason_on_nonroaming_mobile_data">Syncthing tiene permitido ejecutarse con datos móviles sin itinerancia. La conexión activa es sin itinerancia.</string>
+    <string name="reason_not_nonroaming_mobile_data">Syncthing no se está ejecutando porque no lo permites con datos móviles en itinerancia.</string>
+    <string name="reason_wifi_disallowed">Syncthing no tiene permitido ejecutarse con wifi o ethernet.</string>
+    <string name="reason_on_wifi">Syncthing tiene permitido ejecutarse con wifi y está conectado a una wifi.</string>
+    <string name="reason_not_on_wifi">Syncthing tiene permitido ejecutarse con wifi, pero la wifi no está conectada o el teléfono está en modo avión.</string>
+    <string name="reason_on_metered_nonmetered_wifi">Syncthing tiene permitido ejecutarse con wifi de uso medido y no medido.</string>
+    <string name="reason_on_whitelisted_wifi">Syncthing tiene permitido ejecutarse con la red wifi actual.</string>
+    <string name="reason_not_on_whitelisted_wifi">Syncthing no se está ejecutando porque el nombre de la wifi actual no está en la lista blanca.</string>
+    <string name="reason_on_nonmetered_wifi">Syncthing no tiene permitido ejecutarse con wifi de uso no medido. La wifi activa no es de uso medido.</string>
+    <string name="reason_not_nonmetered_wifi">Syncthing no se está ejecutando porque no lo permites con wifi de uso medido.</string>
+    <string name="reason_location_unavailable">Has activado \"Ejecutar en redes wifi seleccionadas\" en los ajustes. Los servicios de localización de Android están actualmente desactivados. Según las restricciones de Android, Syncthing no puede determinar el nombre de la red wifi actual para decidir si debe ejecutarse. Solución: Activa la ubicación, concede el permiso de ubicación y vuelve a conectar la wifi.</string>
     <string name="reason_on_flight_mode">Syncthing se está ejecutando porque has permitido hacerlo cuando el modo avión está activado.</string>
     <string name="reason_run_condition_monitor_not_instantiated">RunConditionMonitor no está instanciado. Por favor, reinicie la aplicación y presente un informe de error si este error no desaparece después del reinicio.</string>
     <!-- Sync Conditions Dialog -->
@@ -658,13 +658,13 @@
     <!-- Titles used in the folder type dialog and folder type button in the folder activity -->
     <string name="folder_type">Tipo de Carpeta</string>
     <!-- Displays the current folder type in the folder activity -->
-    <string name="folder_type_sendreceive">Enviar &amp; Recibir</string>
-    <string name="folder_type_sendonly">Solamente enviar</string>
-    <string name="folder_type_receiveonly">Solo Recibir</string>
+    <string name="folder_type_sendreceive">Enviar y Recibir</string>
+    <string name="folder_type_sendonly">Sólo Enviar</string>
+    <string name="folder_type_receiveonly">Sólo Recibir</string>
     <string name="folder_type_receive_encrypted">Recibir Encriptado</string>
     <!-- Folder type dialog descriptions for folder types -->
     <string name="folder_type_sendreceive_description">La carpeta enviará y recibirá cambios de los dispositivos remotos.</string>
-    <string name="folder_type_sendonly_description">Los archivos están protegidos de los cambios realizados en otros dispositivos, pero los cambios realizados en este dispositivo se enviarán al resto del clúster.</string>
+    <string name="folder_type_sendonly_description">Los archivos están protegidos de los cambios en los demás dispositivos, pero los cambios realizados en este se enviarán al resto.</string>
     <string name="folder_type_receiveonly_description">Los archivos se sincronizan desde el clúster, pero cualquier cambio realizado localmente no se enviará a otros dispositivos.</string>
     <string name="folder_type_receive_encrypted_description">Almacena y sincroniza solo datos encriptados. Las carpetas de todos los dispositivos conectados deben estar configuradas con la misma contraseña o ser también del tipo \"Recibir Encriptado\".</string>
     <!-- Titles used in the pull order dialog and pull order button in the folder activity -->
@@ -712,14 +712,14 @@
 \nRuta de Versiones: %2$s</string>
     <string name="external_versioning_info">Comando: %1$s</string>
     <string name="simple_versioning_info">Conservar versiones: %1$s</string>
-    <string name="show_device_id">Mostrar ID del dispositivo</string>
+    <string name="show_device_id">ID del dispositivo</string>
     <!-- error message if the deviceID/QRCode dialog for some reason cannot be displayed.-->
-    <string name="could_not_access_deviceid">Mostrar ID del dispositivo.</string>
+    <string name="could_not_access_deviceid">No se puede acceder al ID del dispositivo.</string>
     <string name="browse">Navegar</string>
     <string name="no_sub_folder_is_selected">Ninguna subcarpeta seleccionada</string>
     <string name="share_device_id_chooser">Compartir ID del dispositivo con</string>
-    <string name="run_on_whitelisted_wifi_summary">Activar la lista blanca para restringir la sincronización a las redes wifi especificadas.</string>
-    <string name="custom_sync_conditions_title">Condiciones de Sincronización Personalizadas</string>
+    <string name="run_on_whitelisted_wifi_summary">Activa la lista blanca para restringir la sincronización a las redes wifi especificadas.</string>
+    <string name="custom_sync_conditions_title">Condiciones de sincronización personalizadas</string>
     <string name="custom_sync_conditions_description">Permite especificar excepciones a las condiciones globales de ejecución.</string>
     <string name="custom_sync_conditions_dialog">Especificar condiciones de sincronización</string>
     <!-- Quick Setting icon names and labels -->
@@ -730,19 +730,19 @@
     <string name="qs_schedule_label">Ejecutar durante 5 minutos</string>
     <string name="qs_schedule_disabled">Horario desactivado</string>
     <string name="notification_permission_title">Permiso de notificación</string>
-    <string name="webui_username_title">Nombre de usuario de la interfaz web</string>
+    <string name="webui_username_title">Usuario de la interfaz web</string>
     <string name="autoAcceptFolders">Aceptar Automáticamente</string>
-    <string name="webui_password_title">Contraseña de la interfaz de usuario web</string>
+    <string name="webui_password_title">Contraseña de la interfaz web</string>
     <string name="notification_permission_desc">Requerido para mostrar notificaciones sobre nuevas conexiones de dispositivos, peticiones de uso compartido de carpetas y para mantener el servicio activo y conectado.</string>
     <string name="qs_schedule_label_minutes" tools:ignore="PluralsCandidate">Ejecutar durante %1$d minutos</string>
     <string name="toast_notification_permission_required">La sincronización requiere el permiso de notificación para mantener su servicio activo y conectado.</string>
     <string name="dialog_confirm_skip_ignore_doze_permission">Cuidado: Si SyncthingNative se interrumpe y hace algo extraño, la culpa es tuya. Sólo omitir en caso de que su dispositivo no admite la concesión del permiso. ¿Saltar de verdad?</string>
-    <string name="sleep_interval_minutes_title">Duración del intervalo de pausa de sincronización</string>
-    <string name="start_into_web_gui_title">Iniciar directamente la interfaz web</string>
-    <string name="start_into_web_gui_summary">Carga la interfaz web en lugar de la pantalla principal al iniciar la aplicación</string>
-    <string name="open_source_licenses_title">Licencias de Código Abierto</string>
+    <string name="sleep_interval_minutes_title">Duración del intervalo de pausa</string>
+    <string name="start_into_web_gui_title">Iniciar con la interfaz web</string>
+    <string name="start_into_web_gui_summary">Al iniciar la aplicación se carga la interfaz web en lugar de la pantalla principal</string>
+    <string name="open_source_licenses_title">Licencias de código abierto</string>
     <string name="syncthing_forum_title">Foro de Syncthing</string>
-    <string name="folder_run_script_caption">Ejecutar \"Script\"</string>
+    <string name="folder_run_script_caption">Ejecutar Script</string>
     <string name="clear_stversions_title">Vaciar todas las carpetas de versiones</string>
     <string name="privacy_title">Política de privacidad</string>
     <string name="open_source_licenses_summary">Mostrar las licencias de código abierto empleadas</string>
@@ -757,7 +757,7 @@
     <string name="clear_stversions_summary">Los ficheros se mueven al directorio .stversions cuando son reemplazados o eliminados por Syncthing. Probablemente puedes encontrar ahí y recuperar archivos que hayan sido accidentalmente eliminados, pero las versiones anteriores de los ficheros ocupan espacio en tu dispositivo.</string>
     <string name="privacy_summary">Abre la política de privacidad de syncthing-android, que cubre el uso (si los hay) de datos personales, por ej. localización.</string>
     <string name="pizza_url_title">» A los gatos les encanta la pizza « 😺🍕</string>
-    <string name="folder_run_script_description">Opción avanzada para ejecutar \"scripts\" después de detectar cambios en el estado de sincronización de una carpeta. Los \"scripts\" en \'.stfolder/*.sh\' serán ejecutados, no se admiten otras ubicaciones por razones de seguridad.\nUn ejemplo de \"script\": \'.stfolder/rename-files.sh sync_complete\'</string>
+    <string name="folder_run_script_description">Opción avanzada para ejecutar scripts después de detectar cambios en el estado de sincronización de una carpeta. Los scripts en \".stfolder/*.sh\" serán ejecutados; no se admiten otras ubicaciones por razones de seguridad.\nEjemplo de script: \".stfolder/rename-files.sh sync_complete\"</string>
     <string name="backup_rel_path_to_zip">Ruta relativa al archivo de configuración</string>
     <string name="backup_password_title">Configurar contraseña de seguridad</string>
     <string name="backup_password_summary">ℹ️ Recomendado:\nUsa una contraseña fuerte para el cifrado de tu configuración durante la exportación y el descifrado durante la importación. Guarda esta contraseña en un lugar seguro para el proceso de recuperación. La necesitarás para usar la función de importación.\n\n⚠️ No recomendado:\nNo usar una contraseña, otras aplicaciones podrían leer y manipular tu configuración de Syncthing. Exponer la configuración conlleva el riesgo de que un agente malicioso pueda ganar acceso no autorizado a tus archivos usando exportaciones de configuración robadas.</string>
@@ -779,4 +779,6 @@
     <string name="important_news_action_remind">Recordar más tarde</string>
     <string name="important_news_action_no_remind">Descartar por ahora</string>
     <string name="important_news_action_view_options">VER OPCIONES</string>
+    <string name="allow_overwrite_files_title">Permitir sobreescritura de archivos existentes</string>
+    <string name="allow_overwrite_files_summary">Cuando otra aplicación comparte archivos en una de nuestras carpetas.</string>
 </resources>
