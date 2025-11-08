@@ -23,17 +23,17 @@ public class NtfyReceiver extends BroadcastReceiver {
     
     @Override
     public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        Log.d(TAG, "Received broadcast with action: " + action);
-        
-        if (action == null || !NTFY_ACTION.equals(action)) {
-            Log.d(TAG, "Not a ntfy notification, ignoring");
+        if (!NTFY_ACTION.equals(intent.getAction())) {
             return;
         }
         
-        // Log all extras for debugging
-        if (intent.getExtras() != null) {
-            Log.d(TAG, "Intent extras: " + intent.getExtras().toString());
+        // Check if ntfy.sh sync control is enabled
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean ntfySyncControlEnabled = prefs.getBoolean(Constants.PREF_NTFY_SYNC_CONTROL, false);
+        
+        if (!ntfySyncControlEnabled) {
+            Log.d(TAG, "ntfy.sh sync control is disabled, ignoring notification");
+            return;
         }
         
         // Extract notification data from ntfy.sh intent
@@ -41,7 +41,7 @@ public class NtfyReceiver extends BroadcastReceiver {
         String message = intent.getStringExtra("message");
         String title = intent.getStringExtra("title");
         
-        Log.i(TAG, "Received ntfy notification: topic=" + topic + ", title=" + title + ", message=" + message);
+        Log.d(TAG, "Received ntfy notification: topic=" + topic + ", title=" + title + ", message=" + message);
         
         if (topic == null || topic.isEmpty()) {
             Log.w(TAG, "Received ntfy notification without topic, ignoring");
@@ -49,7 +49,6 @@ public class NtfyReceiver extends BroadcastReceiver {
         }
         
         // Verify that the topic matches our local device ID
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String localDeviceId = prefs.getString(Constants.PREF_LOCAL_DEVICE_ID, "");
         
         if (localDeviceId.isEmpty()) {
@@ -70,6 +69,5 @@ public class NtfyReceiver extends BroadcastReceiver {
         syncTriggerIntent.putExtra(RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
         
         LocalBroadcastManager.getInstance(context).sendBroadcast(syncTriggerIntent);
-        Log.i(TAG, "Sync trigger broadcast sent to RunConditionMonitor");
     }
 }

@@ -182,6 +182,14 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- Service control via ntfy.sh -->
+        <CheckBoxPreference
+            android:key="ntfy_sync_control"
+            android:title="@string/ntfy_sync_control_title"
+            android:summary="@string/ntfy_sync_control_summary"
+            android:singleLineTitle="false"
+            android:defaultValue="false" />
+
     </PreferenceScreen>
 
     <PreferenceScreen

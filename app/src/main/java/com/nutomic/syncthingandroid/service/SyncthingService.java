@@ -1176,8 +1176,17 @@ public class SyncthingService extends Service {
     /**
      * Notifies all remote devices via ntfy.sh that Syncthing is now active.
      * Remote devices can decide whether to come online based on their local state.
+     * Only sends notifications if ntfy.sh sync control is enabled.
      */
     private void notifyRemoteDevices() {
+        // Check if ntfy.sh sync control is enabled
+        boolean ntfySyncControlEnabled = mPreferences.getBoolean(Constants.PREF_NTFY_SYNC_CONTROL, false);
+        
+        if (!ntfySyncControlEnabled) {
+            Log.d(TAG, "notifyRemoteDevices: ntfy.sh sync control is disabled, skipping notifications");
+            return;
+        }
+        
         if (mRestApi == null) {
             Log.w(TAG, "notifyRemoteDevices: mRestApi is null, cannot query device list");
             return;

@@ -556,6 +556,8 @@
 
     <string name="allow_overwrite_files_title">Allow overwrite of existing files</string>
     <string name="allow_overwrite_files_summary">When another app shares files to one of our folders.</string>
+    <string name="ntfy_sync_control_title">Service control via ntfy.sh</string>
+    <string name="ntfy_sync_control_summary">If configured to run at scheduled intervals, allow other devices to wake us up and trigger a sync cycle immediately when they are online. This publishes Syncthing Device IDs to the third party service ntfy.sh as public topics. It requires to install the ntfy.sh app on every device where this option is enabled. In ntfy.sh app, please subscribe to the topic matching our local Syncthing Device ID.</string>
 
     <string name="expert_mode_title">Expert mode</string>
 
