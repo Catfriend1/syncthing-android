@@ -23,8 +23,17 @@ public class NtfyReceiver extends BroadcastReceiver {
     
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (!NTFY_ACTION.equals(intent.getAction())) {
+        String action = intent.getAction();
+        Log.d(TAG, "Received broadcast with action: " + action);
+        
+        if (action == null || !NTFY_ACTION.equals(action)) {
+            Log.d(TAG, "Not a ntfy notification, ignoring");
             return;
+        }
+        
+        // Log all extras for debugging
+        if (intent.getExtras() != null) {
+            Log.d(TAG, "Intent extras: " + intent.getExtras().toString());
         }
         
         // Extract notification data from ntfy.sh intent
@@ -32,7 +41,7 @@ public class NtfyReceiver extends BroadcastReceiver {
         String message = intent.getStringExtra("message");
         String title = intent.getStringExtra("title");
         
-        Log.d(TAG, "Received ntfy notification: topic=" + topic + ", title=" + title + ", message=" + message);
+        Log.i(TAG, "Received ntfy notification: topic=" + topic + ", title=" + title + ", message=" + message);
         
         if (topic == null || topic.isEmpty()) {
             Log.w(TAG, "Received ntfy notification without topic, ignoring");
@@ -61,5 +70,6 @@ public class NtfyReceiver extends BroadcastReceiver {
         syncTriggerIntent.putExtra(RunConditionMonitor.EXTRA_BEGIN_ACTIVE_TIME_WINDOW, true);
         
         LocalBroadcastManager.getInstance(context).sendBroadcast(syncTriggerIntent);
+        Log.i(TAG, "Sync trigger broadcast sent to RunConditionMonitor");
     }
 }
