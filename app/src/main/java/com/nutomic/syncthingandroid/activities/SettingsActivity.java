@@ -314,6 +314,40 @@ public class SettingsActivity extends SyncthingActivity {
                     (CheckBoxPreference) findPreference(Constants.PREF_USE_ROOT);
             setPreferenceCategoryChangeListener(categoryBehaviour, this::onBehaviourPreferenceChange);
 
+            /* ntfy.sh preferences */
+            EditTextPreference ntfyServerUrl = (EditTextPreference) findPreference(Constants.PREF_NTFY_SERVER_URL);
+            if (ntfyServerUrl != null) {
+                ntfyServerUrl.setSummary(ntfyServerUrl.getText() != null ? ntfyServerUrl.getText() : "https://ntfy.sh");
+                ntfyServerUrl.setOnPreferenceChangeListener((preference, newValue) -> {
+                    String url = (String) newValue;
+                    if (!isValidNtfyServerUrl(url)) {
+                        Toast.makeText(getActivity(), R.string.ntfy_url_invalid, Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                    preference.setSummary(url);
+                    return true;
+                });
+            }
+
+            Preference ntfySubscribeTopic = findPreference("ntfy_subscribe_topic");
+            if (ntfySubscribeTopic != null) {
+                ntfySubscribeTopic.setOnPreferenceClickListener(preference -> {
+                    String localDeviceId = mPreferences.getString(Constants.PREF_LOCAL_DEVICE_ID, "");
+                    if (localDeviceId.isEmpty()) {
+                        Toast.makeText(getActivity(), "Device ID not available yet", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), "ntfy.sh app not installed or cannot open topic", Toast.LENGTH_LONG).show();
+                    }
+                    return true;
+                });
+            }
+
             /* Syncthing Options */
             mDeviceName             = (EditTextPreference) findPreference("deviceName");
             mListenAddresses        = (EditTextPreference) findPreference("listenAddresses");
@@ -810,6 +844,48 @@ public class SettingsActivity extends SyncthingActivity {
             }
 
             return true;
+        }
+
+        /**
+         * Validates ntfy.sh server URL format.
+         * Accepts https://FQDN, https://FQDN:port, https://IPv4, https://IPv4:port, https://[IPv6], https://[IPv6]:port
+         * Rejects URLs ending with trailing slash.
+         */
+        private boolean isValidNtfyServerUrl(String url) {
+            if (url == null || url.trim().isEmpty()) {
+                return false;
+            }
+            
+            // Reject URLs ending with /
+            if (url.endsWith("/")) {
+                return false;
+            }
+            
+            // Check if URL starts with https://
+            if (!url.startsWith("https://")) {
+                return false;
+            }
+            
+            // Pattern for FQDN, IPv4, or IPv6 with optional port
+            // Matches:
+            // - https://example.com
+            // - https://example.com:8080
+            // - https://192.168.1.1
+            // - https://192.168.1.1:8080
+            // - https://[2001:db8::1]
+            // - https://[2001:db8::1]:8080
+            String pattern = "^https://(" +
+                    "([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}" + // FQDN
+                    "|" +
+                    "[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?" + // hostname without TLD
+                    "|" +
+                    "(\\d{1,3}\\.){3}\\d{1,3}" + // IPv4
+                    "|" +
+                    "\\[[0-9a-fA-F:]+\\]" + // IPv6 in brackets
+                    ")" +
+                    "(:\\d{1,5})?$"; // optional port
+            
+            return url.matches(pattern);
         }
 
         @Override

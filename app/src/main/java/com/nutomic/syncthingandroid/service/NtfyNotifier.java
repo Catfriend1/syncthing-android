@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
 public class NtfyNotifier {
 
     private static final String TAG = "NtfyNotifier";
-    private static final String DEFAULT_NTFY_URL = "https://ntfy.sh/";
+    private static final String DEFAULT_NTFY_URL = "https://ntfy.sh";
     private static final int TIMEOUT_MS = 5000;
     
     private static final ExecutorService executorService = Executors.newSingleThreadExecutor();

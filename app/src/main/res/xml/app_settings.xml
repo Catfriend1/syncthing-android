@@ -190,13 +190,22 @@
             android:singleLineTitle="false"
             android:defaultValue="false" />
 
+        <!-- Subscribe to ntfy.sh topic helper -->
+        <Preference
+            android:key="ntfy_subscribe_topic"
+            android:title="@string/ntfy_subscribe_topic_title"
+            android:summary="@string/ntfy_subscribe_topic_summary"
+            android:singleLineTitle="false"
+            android:dependency="ntfy_sync_control"
+            android:persistent="false" />
+
         <!-- ntfy.sh server URL -->
         <EditTextPreference
             android:key="ntfy_server_url"
             android:title="@string/ntfy_server_url_title"
             android:summary="@string/ntfy_server_url_summary"
             android:singleLineTitle="false"
-            android:defaultValue="https://ntfy.sh/"
+            android:defaultValue="https://ntfy.sh"
             android:dependency="ntfy_sync_control"
             android:inputType="textUri" />
 
