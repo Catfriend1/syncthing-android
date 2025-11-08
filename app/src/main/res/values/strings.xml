@@ -561,7 +561,7 @@
     <string name="ntfy_subscribe_topic_title">Subscribe to ntfy.sh topic</string>
     <string name="ntfy_subscribe_topic_summary">After installing the ntfy.sh app, tap here to set up receiving notifications from it.</string>
     <string name="ntfy_server_url_title">ntfy.sh Server URL</string>
-    <string name="ntfy_server_url_summary">URL of the ntfy.sh server to use. Default is the public server at https://ntfy.sh. You can specify a self-hosted ntfy.sh server URL if you prefer. Do not include a trailing slash.</string>
+    <string name="ntfy_server_url_summary">URL of the ntfy.sh server to use. Default is the public server at https://ntfy.sh. You can specify a self-hosted ntfy.sh server URL if you prefer.</string>
     <string name="ntfy_url_invalid">URL invalid, please enter correctly, e.g. https://ntfy.sh</string>
 
     <string name="expert_mode_title">Expert mode</string>

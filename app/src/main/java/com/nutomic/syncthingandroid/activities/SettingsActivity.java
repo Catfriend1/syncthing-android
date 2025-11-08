@@ -318,15 +318,6 @@ public class SettingsActivity extends SyncthingActivity {
             EditTextPreference ntfyServerUrl = (EditTextPreference) findPreference(Constants.PREF_NTFY_SERVER_URL);
             if (ntfyServerUrl != null) {
                 ntfyServerUrl.setSummary(ntfyServerUrl.getText() != null ? ntfyServerUrl.getText() : "https://ntfy.sh");
-                ntfyServerUrl.setOnPreferenceChangeListener((preference, newValue) -> {
-                    String url = (String) newValue;
-                    if (!isValidNtfyServerUrl(url)) {
-                        Toast.makeText(getActivity(), R.string.ntfy_url_invalid, Toast.LENGTH_LONG).show();
-                        return false;
-                    }
-                    preference.setSummary(url);
-                    return true;
-                });
             }
 
             Preference ntfySubscribeTopic = findPreference("ntfy_subscribe_topic");
@@ -678,6 +669,14 @@ public class SettingsActivity extends SyncthingActivity {
                         new Thread(() -> Util.fixAppDataPermissions(getActivity())).start();
                         mPendingConfig = true;
                     }
+                    break;
+                case Constants.PREF_NTFY_SERVER_URL:
+                    String url = (String) o;
+                    if (!isValidNtfyServerUrl(url)) {
+                        Toast.makeText(getActivity(), R.string.ntfy_url_invalid, Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                    preference.setSummary(url);
                     break;
             }
             return true;
