@@ -329,20 +329,27 @@ public class SettingsActivity extends SyncthingActivity {
                         return true;
                     }
                     try {
+                        // Create intent to open ntfy:// deep link
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
-                        // Try to explicitly target the ntfy.sh app
-                        intent.setPackage("io.heckel.ntfy");
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        // If explicit package targeting fails, try without package specification
-                        try {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
+                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intent.addCategory(Intent.CATEGORY_DEFAULT);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        
+                        // Check if there's an app that can handle this intent
+                        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                             startActivity(intent);
-                        } catch (Exception e2) {
-                            Toast.makeText(getActivity(), "ntfy.sh app not installed or cannot open topic", Toast.LENGTH_LONG).show();
+                        } else {
+                            // Try explicitly targeting ntfy.sh app
+                            intent.setPackage("io.heckel.ntfy");
+                            if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getActivity(), "ntfy.sh app not installed. Please install it first.", Toast.LENGTH_LONG).show();
+                            }
                         }
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), "Cannot open ntfy.sh app: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                     return true;
                 });
