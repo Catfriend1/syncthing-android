@@ -1,10 +1,10 @@
 [versions]
-go_version = "1.25.4"
-# Android SDK versions
+# SDK versions
 android-cmdline-tools = "11076708"
 compile-sdk = "36"
 min-sdk = "21"
 ndk-version = "28.2.13676358"
+go_version = "1.25.4"
 target-sdk = "36"
 
 # App version
