@@ -328,10 +328,17 @@ public class SettingsActivity extends SyncthingActivity {
                         Toast.makeText(getActivity(), "Device ID not available yet", Toast.LENGTH_SHORT).show();
                         return true;
                     }
+                    
+                    // Get configured ntfy.sh server URL and extract host
+                    String ntfyServerUrl = mPreferences.getString(Constants.PREF_NTFY_SERVER_URL, "https://ntfy.sh");
+                    String ntfyHost = ntfyServerUrl.replaceFirst("^https?://", "").replaceAll("/$", "");
+                    
+                    // Construct ntfy:// deep link with correct format: ntfy://host/topic
+                    String ntfyLink = "ntfy://" + ntfyHost + "/" + localDeviceId;
+                    
                     try {
-                        // Create intent to open ntfy:// deep link
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(android.net.Uri.parse("ntfy://" + localDeviceId));
+                        intent.setData(android.net.Uri.parse(ntfyLink));
                         intent.addCategory(Intent.CATEGORY_BROWSABLE);
                         intent.addCategory(Intent.CATEGORY_DEFAULT);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
