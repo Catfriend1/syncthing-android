@@ -563,6 +563,9 @@
     <string name="ntfy_server_url_title">ntfy.sh Server URL</string>
     <string name="ntfy_server_url_summary">URL of the ntfy.sh server to use. Default is the public server at https://ntfy.sh. You can specify a self-hosted ntfy.sh server URL if you prefer.</string>
     <string name="ntfy_url_invalid">URL invalid, please enter correctly, e.g. https://ntfy.sh</string>
+    <string name="ntfy_app_required_dialog_title">ntfy.sh App Required</string>
+    <string name="ntfy_app_required_dialog_message">The ntfy.sh app is required to receive sync notifications from other devices. Would you like to open F-Droid to install it?</string>
+    <string name="cannot_open_browser">Cannot open browser</string>
 
     <string name="expert_mode_title">Expert mode</string>
 

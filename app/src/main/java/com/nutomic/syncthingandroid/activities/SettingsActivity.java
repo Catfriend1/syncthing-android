@@ -32,6 +32,7 @@ import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
@@ -352,7 +353,22 @@ public class SettingsActivity extends SyncthingActivity {
                             if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(getActivity(), "ntfy.sh app not installed. Please install it first.", Toast.LENGTH_LONG).show();
+                                // Show dialog to install ntfy.sh app from F-Droid
+                                new AlertDialog.Builder(getActivity())
+                                    .setTitle(R.string.ntfy_app_required_dialog_title)
+                                    .setMessage(R.string.ntfy_app_required_dialog_message)
+                                    .setPositiveButton(R.string.yes, (d, i) -> {
+                                        try {
+                                            Intent installIntent = new Intent(Intent.ACTION_VIEW, 
+                                                android.net.Uri.parse("https://f-droid.org/packages/io.heckel.ntfy/"));
+                                            installIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(installIntent);
+                                        } catch (Exception ex) {
+                                            Toast.makeText(getActivity(), R.string.cannot_open_browser, Toast.LENGTH_LONG).show();
+                                        }
+                                    })
+                                    .setNegativeButton(R.string.no, (d, i) -> {})
+                                    .show();
                             }
                         }
                     } catch (Exception e) {
