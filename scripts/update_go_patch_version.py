@@ -7,6 +7,7 @@ updates to the latest patch release.
 
 Usage:
     python3 scripts/update_go_patch_version.py
+    python scripts/update_go_patch_version.py
 """
 
 import json
@@ -51,9 +52,9 @@ def parse_workflow_version():
 
 def main():
     base = parse_workflow_version()
-    version = get_latest_patch_version(base)
-    
     print(f"Detected base version: {base}")
+    
+    version = get_latest_patch_version(base)
     print(f"Setting Go version to: {version}")
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
