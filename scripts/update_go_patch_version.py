@@ -5,7 +5,7 @@ Update the Go patch version in gradle/libs.versions.toml.
 This script:
 1. Parses the Syncthing submodule workflow to get the GO_VERSION base (e.g., ~1.25.0 -> 1.25)
 2. Queries https://go.dev/dl/?mode=json to find the latest patch release for that base
-3. Writes/updates the 'go' version in gradle/libs.versions.toml under [versions]
+3. Writes/updates the 'go_version' version in gradle/libs.versions.toml under [versions]
 
 Usage:
     python3 scripts/update_go_patch_version.py            # Update with auto-detected version
@@ -95,42 +95,29 @@ def read_toml_file(toml_path):
 
 def update_go_version_in_toml(lines, new_version):
     """
-    Update or insert the 'go' version in the [versions] section.
+    Update or insert the 'go_version' version in the [versions] section.
     Returns updated lines.
     """
-    new_line = f'go = "{new_version}"\n'
-    in_versions_section = False
-    go_key_found = False
+    new_line = f'go_version = "{new_version}"\n'
     updated_lines = []
-    versions_section_idx = -1
+    go_version_found = False
     
-    for i, line in enumerate(lines):
-        stripped = line.strip()
-        
-        # Track if we're in the [versions] section
-        if stripped == "[versions]":
-            in_versions_section = True
-            versions_section_idx = len(updated_lines)
-            updated_lines.append(line)
-            continue
-        elif stripped.startswith("[") and stripped.endswith("]") and stripped != "[versions]":
-            # Entered a different section
-            in_versions_section = False
-        
-        # If we find the 'go' key in [versions], replace it
-        if in_versions_section and stripped.startswith("go ="):
+    for line in lines:
+        # Simple lookup: find first line containing "go_version"
+        if 'go_version' in line and '=' in line:
             updated_lines.append(new_line)
-            go_key_found = True
-            continue
-        
-        updated_lines.append(line)
+            go_version_found = True
+        else:
+            updated_lines.append(line)
     
-    # If 'go' key was not found, insert it right after [versions]
-    if not go_key_found:
-        if versions_section_idx == -1:
+    # If 'go_version' key was not found, insert it right after [versions]
+    if not go_version_found:
+        for i, line in enumerate(updated_lines):
+            if line.strip() == "[versions]":
+                updated_lines.insert(i + 1, new_line)
+                break
+        else:
             raise RuntimeError("[versions] section not found in TOML file")
-        # Insert after [versions] line
-        updated_lines.insert(versions_section_idx + 1, new_line)
     
     return updated_lines
 
@@ -210,13 +197,13 @@ def main():
     
     if args.dry_run:
         print(f"\n[DRY RUN] Would update {toml_path} with:")
-        print(f'go = "{version}"')
+        print(f'go_version = "{version}"')
         print("\nNo files were modified.")
     else:
         # Write atomically
         write_toml_file_atomic(toml_path, updated_lines)
         print(f"\nSuccessfully updated {toml_path}")
-        print(f'Set: go = "{version}"')
+        print(f'Set: go_version = "{version}"')
 
 
 if __name__ == "__main__":

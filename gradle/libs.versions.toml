@@ -1,5 +1,5 @@
 [versions]
-go = "1.25.4"
+go_version = "1.25.4"
 # Android SDK versions
 android-cmdline-tools = "11076708"
 compile-sdk = "36"

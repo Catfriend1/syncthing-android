@@ -95,89 +95,28 @@ def change_permissions_recursive(path, mode):
 
 def get_expected_go_version():
     import os
-    import re
-    import json
-    import urllib.request
 
-    # First, try to read pinned version from gradle/libs.versions.toml
+    # Read pinned version from gradle/libs.versions.toml
     toml_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
         'gradle',
         'libs.versions.toml'
     )
     
-    if os.path.exists(toml_path):
-        with open(toml_path, 'r') as f:
-            in_versions = False
-            for line in f:
-                stripped = line.strip()
-                if stripped == "[versions]":
-                    in_versions = True
-                    continue
-                elif stripped.startswith("[") and stripped.endswith("]"):
-                    in_versions = False
-                
-                if in_versions and stripped.startswith("go ="):
-                    # Extract version: go = "1.25.4"
-                    match = re.search(r'go\s*=\s*"([^"]+)"', line)
-                    if match:
-                        version = match.group(1)
-                        parts = version.split(".")
-                        if len(parts) == 3:
-                            # x.y.z format - return as-is
-                            return version
-                        elif len(parts) == 2:
-                            # x.y format - need to expand to latest patch
-                            url = "https://go.dev/dl/?mode=json"
-                            with urllib.request.urlopen(url) as resp:
-                                releases = json.load(resp)
-                            for rel in releases:
-                                v = rel["version"].lstrip("go")
-                                if v.startswith(version + "."):
-                                    return v
-                            raise RuntimeError(f"GO_VERSION: No latest patch level found for {version}")
-                    break
-
-    # Fallback: Read from Syncthing workflow file
-    workflow_path = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
-        'syncthing',
-        'src',
-        'github.com',
-        'syncthing',
-        'syncthing',
-        '.github',
-        'workflows',
-        'build-syncthing.yaml'
-    )
-
-    base_version = None
-    with open(workflow_path, 'r') as f:
+    if not os.path.exists(toml_path):
+        raise RuntimeError(f"Could not find {toml_path}")
+    
+    with open(toml_path, 'r') as f:
         for line in f:
-            if line.strip().startswith("GO_VERSION:"):
-                raw = line.split(":", 1)[1].strip().strip('"').strip("'")
-                # "~1.25.0" to "1.25"
-                if raw.startswith("~"):
-                    parts = raw[1:].split(".")
-                    base_version = ".".join(parts[0:2])  # "1.25"
-                else:
-                    base_version = raw
-                break
-
-    if not base_version:
-        raise RuntimeError("Could not find GO_VERSION in build-syncthing.yaml.")
-
-    url = "https://go.dev/dl/?mode=json"
-    with urllib.request.urlopen(url) as resp:
-        releases = json.load(resp)
-
-    # Find recent release corresponding to base_version.
-    for rel in releases:
-        v = rel["version"].lstrip("go")  # "go1.25.0" to "1.25.0"
-        if v.startswith(base_version + "."):
-            return v
-
-    raise RuntimeError(f"GO_VERSION: No latest patch level found corresponding to {base_version}")
+            if 'go_version' in line and '=' in line:
+                # Extract version from line like: go_version = "1.25.4"
+                parts = line.split('=', 1)
+                if len(parts) == 2:
+                    version = parts[1].strip().strip('"').strip("'")
+                    if version:
+                        return version
+    
+    raise RuntimeError("Could not find go_version in gradle/libs.versions.toml")
 
 def get_go_version(go_binary):
     """Get the version of a Go binary"""

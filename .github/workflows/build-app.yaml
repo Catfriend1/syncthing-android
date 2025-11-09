@@ -31,13 +31,12 @@ jobs:
           java-version: '21'
 
       - name: Load pinned Go version
-        run: echo "GO_VERSION=$(grep -m1 '^go =' gradle/libs.versions.toml | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')" >> $GITHUB_ENV
+        run: echo "GO_VERSION=$(grep -m1 '^go_version =' gradle/libs.versions.toml | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')" >> $GITHUB_ENV
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          check-latest: true
           cache: false
 
       - name: Cache Go modules
