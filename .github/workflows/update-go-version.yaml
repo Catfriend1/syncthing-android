@@ -32,7 +32,7 @@ jobs:
           echo "Current Go version: ${CURRENT_VERSION}"
 
       - name: Run update script
-        run: python3 scripts/update_go_patch_version.py
+        run: python3 scripts/update-go-version.py
 
       - name: Get new Go version
         id: new
