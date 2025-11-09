@@ -6,8 +6,8 @@ Auto-detects the base version from the Syncthing workflow and
 updates to the latest patch release.
 
 Usage:
-    python3 scripts/update_go_patch_version.py
-    python scripts/update_go_patch_version.py
+    python3 scripts/update-go-version.py
+    python scripts/update-go-version.py
 """
 
 import json
