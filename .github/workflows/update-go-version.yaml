@@ -1,0 +1,61 @@
+name: Update Go Version
+
+on:
+  schedule:
+    # Run monthly at 19:00 UTC on the 1st day of each month
+    - cron: '0 19 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-go:
+    name: Update Go Version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get current Go version
+        id: current
+        run: |
+          CURRENT_VERSION=$(grep -m1 '^go_version =' gradle/libs.versions.toml | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')
+          echo "version=${CURRENT_VERSION}" >> $GITHUB_OUTPUT
+          echo "Current Go version: ${CURRENT_VERSION}"
+
+      - name: Run update script
+        run: python3 scripts/update-go-version.py
+
+      - name: Get new Go version
+        id: new
+        run: |
+          NEW_VERSION=$(grep -m1 '^go_version =' gradle/libs.versions.toml | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')
+          echo "version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+          echo "New Go version: ${NEW_VERSION}"
+
+      - name: Check for changes and commit
+        run: |
+          if [ "${{ steps.current.outputs.version }}" != "${{ steps.new.outputs.version }}" ]; then
+            echo "Go version changed from ${{ steps.current.outputs.version }} to ${{ steps.new.outputs.version }}"
+            
+            # Configure git
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            
+            # Commit and push changes to main
+            git add gradle/libs.versions.toml
+            git commit -m "Update Go version to ${{ steps.new.outputs.version }}"
+            git push origin main
+            
+            echo "Changes committed to main branch"
+          else
+            echo "No Go version change detected, skipping commit"
+          fi
