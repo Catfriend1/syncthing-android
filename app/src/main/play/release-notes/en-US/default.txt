@@ -1,1 +1,4 @@
 Updated SyncthingNative to v2.0.11
+Updated translations
+Removed feedback prompt about roaming
+Build using go 1.25.4
