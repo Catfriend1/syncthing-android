@@ -30,18 +30,13 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Get Go version from Syncthing upstream
-        id: get_go_version
-        run: |
-          set -eu
-          GO_VERSION=$(grep -E '^\s*GO_VERSION:' syncthing/src/github.com/syncthing/syncthing/.github/workflows/build-syncthing.yaml | head -1 | cut -d '"' -f 2)
-          echo "go_version=${GO_VERSION}" >> $GITHUB_OUTPUT
-          echo "GO_VERSION=${GO_VERSION}" >> $GITHUB_ENV
+      - name: Load pinned Go version
+        run: echo "GO_VERSION=$(grep -m1 '^go =' gradle/libs.versions.toml | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')" >> $GITHUB_ENV
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: ${{ steps.get_go_version.outputs.go_version }}
+          go-version: ${{ env.GO_VERSION }}
           check-latest: true
           cache: false
 
@@ -51,9 +46,9 @@ jobs:
           path: |
             ~/.cache/go-build
             ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-${{ hashFiles('syncthing/src/github.com/syncthing/syncthing/go.sum') }}
+          key: ${{ runner.os }}-go-${{ env.GO_VERSION }}-${{ hashFiles('syncthing/src/github.com/syncthing/syncthing/go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-go-${{ steps.get_go_version.outputs.go_version }}-
+            ${{ runner.os }}-go-${{ env.GO_VERSION }}-
             ${{ runner.os }}-go-
 
       - name: Cache Gradle and Android user home

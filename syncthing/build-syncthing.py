@@ -99,6 +99,46 @@ def get_expected_go_version():
     import json
     import urllib.request
 
+    # First, try to read pinned version from gradle/libs.versions.toml
+    toml_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
+        'gradle',
+        'libs.versions.toml'
+    )
+    
+    if os.path.exists(toml_path):
+        with open(toml_path, 'r') as f:
+            in_versions = False
+            for line in f:
+                stripped = line.strip()
+                if stripped == "[versions]":
+                    in_versions = True
+                    continue
+                elif stripped.startswith("[") and stripped.endswith("]"):
+                    in_versions = False
+                
+                if in_versions and stripped.startswith("go ="):
+                    # Extract version: go = "1.25.4"
+                    match = re.search(r'go\s*=\s*"([^"]+)"', line)
+                    if match:
+                        version = match.group(1)
+                        parts = version.split(".")
+                        if len(parts) == 3:
+                            # x.y.z format - return as-is
+                            return version
+                        elif len(parts) == 2:
+                            # x.y format - need to expand to latest patch
+                            url = "https://go.dev/dl/?mode=json"
+                            with urllib.request.urlopen(url) as resp:
+                                releases = json.load(resp)
+                            for rel in releases:
+                                v = rel["version"].lstrip("go")
+                                if v.startswith(version + "."):
+                                    return v
+                            raise RuntimeError(f"GO_VERSION: No latest patch level found for {version}")
+                    break
+
+    # Fallback: Read from Syncthing workflow file
     workflow_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
         'syncthing',
