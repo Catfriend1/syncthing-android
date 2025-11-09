@@ -330,8 +330,8 @@ public class SettingsActivity extends SyncthingActivity {
                     }
                     
                     // Get configured ntfy.sh server URL and extract host
-                    String ntfyServerUrl = mPreferences.getString(Constants.PREF_NTFY_SERVER_URL, "https://ntfy.sh");
-                    String ntfyHost = ntfyServerUrl.replaceFirst("^https?://", "").replaceAll("/$", "");
+                    String serverUrl = mPreferences.getString(Constants.PREF_NTFY_SERVER_URL, "https://ntfy.sh");
+                    String ntfyHost = serverUrl.replaceFirst("^https?://", "").replaceAll("/$", "");
                     
                     // Construct ntfy:// deep link with correct format: ntfy://host/topic
                     String ntfyLink = "ntfy://" + ntfyHost + "/" + localDeviceId;
