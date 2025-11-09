@@ -10,6 +10,9 @@ target-sdk = "36"
 version-code = "2001101"
 version-name = "2.0.11.1"
 
+# External SDK versions
+go_version = "1.25.3"
+
 aboutLibraries = "13.1.0"
 activity = "1.11.0"
 android-material = "1.13.0"
