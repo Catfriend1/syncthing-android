@@ -347,10 +347,16 @@ public class SettingsActivity extends SyncthingActivity {
                         if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                             startActivity(intent);
                         } else {
-                            // Try explicitly targeting ntfy.sh app
-                            intent.setPackage("io.heckel.ntfy");
-                            if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                                startActivity(intent);
+                            // Try explicitly targeting ntfy.sh app with a fresh intent
+                            Intent explicitIntent = new Intent(Intent.ACTION_VIEW);
+                            explicitIntent.setData(android.net.Uri.parse(ntfyLink));
+                            explicitIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+                            explicitIntent.addCategory(Intent.CATEGORY_DEFAULT);
+                            explicitIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            explicitIntent.setPackage("io.heckel.ntfy");
+                            
+                            if (explicitIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+                                startActivity(explicitIntent);
                             } else {
                                 // Show dialog to install ntfy.sh app from F-Droid
                                 new AlertDialog.Builder(getActivity())
@@ -710,7 +716,7 @@ public class SettingsActivity extends SyncthingActivity {
                     break;
                 case Constants.PREF_NTFY_SERVER_URL:
                     String url = (String) o;
-                    if (!isValidNtfyServerUrl(url)) {
+                    if (!Util.isValidNtfyServerUrl(url)) {
                         Toast.makeText(getActivity(), R.string.ntfy_url_invalid, Toast.LENGTH_LONG).show();
                         return false;
                     }
@@ -888,42 +894,6 @@ public class SettingsActivity extends SyncthingActivity {
          * Accepts https://FQDN, https://FQDN:port, https://IPv4, https://IPv4:port, https://[IPv6], https://[IPv6]:port
          * Rejects URLs ending with trailing slash.
          */
-        private boolean isValidNtfyServerUrl(String url) {
-            if (url == null || url.trim().isEmpty()) {
-                return false;
-            }
-            
-            // Reject URLs ending with /
-            if (url.endsWith("/")) {
-                return false;
-            }
-            
-            // Check if URL starts with https://
-            if (!url.startsWith("https://")) {
-                return false;
-            }
-            
-            // Pattern for FQDN, IPv4, or IPv6 with optional port
-            // Matches:
-            // - https://example.com
-            // - https://example.com:8080
-            // - https://192.168.1.1
-            // - https://192.168.1.1:8080
-            // - https://[2001:db8::1]
-            // - https://[2001:db8::1]:8080
-            String pattern = "^https://(" +
-                    "([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}" + // FQDN
-                    "|" +
-                    "[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?" + // hostname without TLD
-                    "|" +
-                    "(\\d{1,3}\\.){3}\\d{1,3}" + // IPv4
-                    "|" +
-                    "\\[[0-9a-fA-F:]+\\]" + // IPv6 in brackets
-                    ")" +
-                    "(:\\d{1,5})?$"; // optional port
-            
-            return url.matches(pattern);
-        }
 
         @Override
         public boolean onPreferenceClick(Preference preference) {

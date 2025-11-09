@@ -537,4 +537,47 @@ public class Util {
         }
         return output.split("\\n");
     }
+
+    /**
+     * Validates ntfy.sh server URL format.
+     * Accepts: https://FQDN, https://FQDN:port, https://IPv4, https://IPv4:port, 
+     *          https://[IPv6], https://[IPv6]:port
+     * Rejects: URLs ending with trailing slash, non-https URLs
+     */
+    public static boolean isValidNtfyServerUrl(String url) {
+        if (url == null || url.trim().isEmpty()) {
+            return false;
+        }
+        
+        // Reject URLs ending with /
+        if (url.endsWith("/")) {
+            return false;
+        }
+        
+        // Check if URL starts with https://
+        if (!url.startsWith("https://")) {
+            return false;
+        }
+        
+        // Pattern for FQDN, IPv4, or IPv6 with optional port
+        // Matches:
+        // - https://example.com
+        // - https://example.com:8080
+        // - https://192.168.1.1
+        // - https://192.168.1.1:8080
+        // - https://[2001:db8::1]
+        // - https://[2001:db8::1]:8080
+        String pattern = "^https://(" +
+                "([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}" + // FQDN
+                "|" +
+                "[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?" + // hostname without TLD
+                "|" +
+                "(\\d{1,3}\\.){3}\\d{1,3}" + // IPv4
+                "|" +
+                "\\[[0-9a-fA-F:]+\\]" + // IPv6 in brackets
+                ")" +
+                "(:\\d{1,5})?$"; // optional port
+        
+        return url.matches(pattern);
+    }
 }

@@ -323,6 +323,8 @@
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
+        <!-- Required for ntfy.sh app detection on Android 11+ -->
+        <package android:name="io.heckel.ntfy" />
     </queries>
 
 </manifest>
