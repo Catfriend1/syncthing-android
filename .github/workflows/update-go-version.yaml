@@ -4,7 +4,7 @@ on:
   schedule:
     # Run monthly at 19:00 UTC on the 1st day of each month
     - cron: '0 19 1 * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -51,21 +51,21 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             
             # Check if branch exists
-            if git ls-remote --heads origin updateGo | grep -q updateGo; then
-              echo "Branch updateGo exists, checking out..."
-              git fetch origin updateGo
-              git checkout updateGo
+            if git ls-remote --heads origin update-go-version | grep -q update-go-version; then
+              echo "Branch update-go-version exists, checking out..."
+              git fetch origin update-go-version
+              git checkout update-go-version
             else
-              echo "Branch updateGo does not exist, creating..."
-              git checkout -b updateGo
+              echo "Branch update-go-version does not exist, creating..."
+              git checkout -b update-go-version
             fi
             
             # Commit and push changes
             git add gradle/libs.versions.toml
             git commit -m "Update Go version to ${{ steps.new.outputs.version }}"
-            git push origin updateGo
+            git push origin update-go-version
             
-            echo "Changes committed to branch updateGo"
+            echo "Changes committed to branch update-go-version"
           else
             echo "No Go version change detected, skipping commit"
           fi
