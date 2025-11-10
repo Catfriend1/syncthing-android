@@ -45,7 +45,10 @@ public class NtfyNotifier {
                     serverUrl += "/";
                 }
                 
-                URL url = new URL(serverUrl + deviceId);
+                String fullUrl = serverUrl + deviceId;
+                Log.d(TAG, "Attempting to send notification to: " + fullUrl + " (title: '" + title + "', body: '" + body + "')");
+                
+                URL url = new URL(fullUrl);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);
@@ -63,14 +66,28 @@ public class NtfyNotifier {
                 }
                 
                 int responseCode = connection.getResponseCode();
+                String responseMessage = connection.getResponseMessage();
+                
                 if (responseCode == HttpURLConnection.HTTP_OK) {
-                    Log.d(TAG, "Notification sent successfully to device: " + deviceId + " via " + serverUrl);
+                    Log.i(TAG, "SUCCESS: Notification sent to " + fullUrl + " (HTTP " + responseCode + " " + responseMessage + ")");
                 } else {
-                    Log.w(TAG, "Failed to send notification to device: " + deviceId + 
-                            " via " + serverUrl + ", response code: " + responseCode);
+                    // Read error response body if available
+                    String errorBody = "";
+                    try {
+                        java.io.InputStream errorStream = connection.getErrorStream();
+                        if (errorStream != null) {
+                            java.util.Scanner scanner = new java.util.Scanner(errorStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A");
+                            errorBody = scanner.hasNext() ? scanner.next() : "";
+                        }
+                    } catch (Exception e) {
+                        // Ignore errors reading error body
+                    }
+                    
+                    Log.w(TAG, "FAILED: Notification to " + fullUrl + " failed with HTTP " + responseCode + " " + responseMessage + 
+                            (errorBody.isEmpty() ? "" : ", error: " + errorBody));
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Error sending notification to device: " + deviceId, e);
+                Log.e(TAG, "ERROR: Exception sending notification to device " + deviceId + ": " + e.getClass().getSimpleName() + " - " + e.getMessage(), e);
             } finally {
                 if (connection != null) {
                     connection.disconnect();
