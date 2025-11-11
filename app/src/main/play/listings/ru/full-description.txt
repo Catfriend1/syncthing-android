@@ -1,0 +1,40 @@
+Это продолжение клиента Syncthing для Android, включающее значительные улучшения, к примеру:
+
+* Folder, device and overall sync progress can easily be read off the UI.
+* "Syncthing Camera" - an optional feature (with optional permission to use the camera) where you can take pictures with your friend, partner, … on two phones into one shared and private Syncthing folder. No cloud involved.
+
+- FEATURE CURRENTLY IN BETA STAGE -
+* "Sync every hour" to save even more battery
+* Индивидуальные условия синхронизации могут быть применены отдельно для устройств и папок
+* Интерфейс для недавних изменений, открытие файлов по нажатию.
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* UI explains why syncthing is running or not.
+* Проблема с расходом батареи решена.
+* Discover other Syncthing devices on the same network and easily add them.
+* Supports two-way synchronization on external SD card since Android 11.
+
+Syncthing-Fork для Android - это обёртка для Syncthing, предоставляющая интерфейс Android вместо встроенного в Syncthing веб-интерфейса. Syncthing заменяет проприетарные облачные сервисы чем-то открытым, достойным доверия и децентрализованным. Ваши данные - только ваши, и вы достойны решать, где они будут храниться, будут ли они доступны третьим сторонам и как они будут передаваться через Интернет.
+
+Цели форка:
+* Разрабатывать и проверять улучшения вместе с сообществом
+* Выпускать новые версии приложения чаще, чтобы найти и исправить ошибки, связанные с изменениями в подмодуле syncthing
+* Сделать улучшения конфигурируемыми в интерфейсе, пользователи должны иметь возможность включать и выключать их
+
+Сравнение между основным приложением и этим форком на момент написания:
+* Both contain the syncthing binary built from the official source at GitHub
+* Функционал и надёжность Syncthing зависит от версии бинарного подмодуля sycthing.
+* Форк идёт в ногу с оригиналом, и иногда они подтягивают мои изменения.
+* Стратегия и частота релиза отличается
+* Форк касается только обёртки, содержащей Android UI .
+
+Сайт — https://github.com/Catfriend1/syncthing-android
+
+Исходный код — https://github.com/Catfriend1/syncthing-android
+
+How Syncthing writes to external SD card — https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Вики, FAQ и полезные статьи — https://github.com/Catfriend1/syncthing-android/wiki
+
+Замечания — https://github.com/Catfriend1/syncthing-android/issues
+
+Помощь с переводом — https://hosted.weblate.org/projects/syncthing/android/catfriend1
