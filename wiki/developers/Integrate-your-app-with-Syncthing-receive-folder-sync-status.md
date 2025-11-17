@@ -19,7 +19,7 @@ Prerequisites:
 </receiver>
 ```
 
-- File a pull request against "service/RestApi.java" to let us add your app's package id as a receiver for the status broadcasts. Refer to function ["sendBroadcastToApps"](https://github.com/Catfriend1/syncthing-android/blob/main/app/src/main/java/com/nutomic/syncthingandroid/service/RestApi.java), "packageIdList".
+- File a pull request against "service/RestApi.java" to let us add your app's package id as a receiver for the status broadcasts. Refer to function ["sendBroadcastToApps"](../../app/src/main/java/com/nutomic/syncthingandroid/service/RestApi.java), "packageIdList".
 ```
 String[] packageIdList = {
     "com.example.syncthingreceiver"
@@ -45,10 +45,7 @@ public class SyncStatusReceiver extends BroadcastReceiver {
 }
 ```
 
-If you have trouble, compare your implementation to the "SyncthingReceiverTestApp":
-- Test app: https://github.com/Catfriend1/syncthing-android/releases/download/v1.29.6.4/SyncthingReceiverTestApp.apk
-
-- Test app source: https://github.com/Catfriend1/syncthing-android/tree/main/scripts/debug/SyncthingReceiverTestApp
+- [Test app source](../../scripts/debug/SyncthingReceiverTestApp)
 ```
 # git clone ...
 cd "scripts/debug/SyncthingReceiverTestApp/"

@@ -63,7 +63,7 @@ tasks.register("buildNative") {
         val env = mapOf(
             "NDK_VERSION" to libs.versions.ndk.version.get(),
             "SOURCE_DATE_EPOCH" to getSourceDateEpoch(execOps),
-            "BUILD_HOST" to "Catfriend1-syncthing-android",
+            "BUILD_HOST" to "researchxxl-syncthing-android",
             "BUILD_USER" to "reproducible-build",
             "STTRACE" to ""
         )

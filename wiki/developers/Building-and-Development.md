@@ -13,7 +13,7 @@ apt-get -y install gcc git golang-go openjdk-21-jdk-headless python3 unzip
 #
 # Clone repository.
 mkdir -p ~/git && cd ~/git
-git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+git clone https://github.com/researchxxl/syncthing-android.git --recursive
 #
 # Install prerequisites.
 cd ~/git/syncthing-android
@@ -71,7 +71,7 @@ winget install --accept-source-agreements --source winget --exact --id "EclipseA
 winget install --accept-source-agreements --source winget --exact --id "Python.Python.3.13" --scope machine -h --override "/quiet InstallAllUsers=1 PrependPath=1 Include_doc=0 Include_launcher=0 Include_pip=0 Include_tcltk=0 Include_test=0"
 ::
 :: Clone repository.
-git clone https://github.com/Catfriend1/syncthing-android.git --recursive
+git clone https://github.com/researchxxl/syncthing-android.git --recursive
 ::
 :: Build
 cd /d "YOUR_CLONED_GIT_ROOT"
