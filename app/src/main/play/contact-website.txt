@@ -1,1 +1,1 @@
-https://github.com/Catfriend1/syncthing-android
+https://github.com/researchxxl/syncthing-android

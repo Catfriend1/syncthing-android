@@ -93,5 +93,5 @@ body:
     id: android_log
     attributes:
       label: Android log (logcat)
-      description: On Windows, run [adb-get-log.cmd](https://github.com/Catfriend1/syncthing-android/blob/main/scripts/debug/win/adb-get-log.cmd). On Linux, run `adb logcat *:V`.
+      description: On Windows, run [adb-get-log.cmd](https://github.com/researchxxl/syncthing-android/blob/main/scripts/debug/win/adb-get-log.cmd). On Linux, run `adb logcat *:V`.
       render: shell

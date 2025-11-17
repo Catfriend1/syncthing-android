@@ -24,15 +24,15 @@ Syncthing-Fork для Android - это обёртка для Syncthing, пред
 * Стратегия и частота релиза отличается
 * Форк касается только обёртки, содержащей Android UI .
 
-Сайт: https://github.com/Catfriend1/syncthing-android
+Сайт: https://github.com/researchxxl/syncthing-android
 
-Исходный код: https://github.com/Catfriend1/syncthing-android
+Исходный код: https://github.com/researchxxl/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+How Syncthing writes to external SD card: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ and helpful articles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Замечания: https://github.com/Catfriend1/syncthing-android/issues
+Замечания: https://github.com/researchxxl/syncthing-android/issues
 
 Please help with the
 Перевод: https://hosted.weblate.org/projects/syncthing/android/catfriend1

@@ -24,14 +24,14 @@ Syncthing-Fork لنظام Android هو غلاف لـ Syncthing يوفر واجه
 * تختلف الاستراتيجية وتواتر الإصدارات.
 * يتناول هذا التفرع الغلاف الذي يحتوي على واجهة مستخدم Android فقط.
 
-الموقع الإلكتروني: https://github.com/Catfriend1/syncthing-android
+الموقع الإلكتروني: https://github.com/researchxxl/syncthing-android
 
-شفرة المصدر: https://github.com/Catfriend1/syncthing-android
+شفرة المصدر: https://github.com/researchxxl/syncthing-android
 
-كيف يكتب Syncthing على بطاقة SD الخارجية: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+كيف يكتب Syncthing على بطاقة SD الخارجية: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-الويكي، الأسئلة الشائعة، والمقالات المفيدة: https://github.com/Catfriend1/syncthing-android/wiki
+الويكي، الأسئلة الشائعة، والمقالات المفيدة: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-المشكلات: https://github.com/Catfriend1/syncthing-android/issues
+المشكلات: https://github.com/researchxxl/syncthing-android/issues
 
 يرجى المساعدة في الترجمة: https://hosted.weblate.org/projects/syncthing/android/catfriend1

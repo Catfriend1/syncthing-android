@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 :: Command line.
 ::  "F:\GitHub\syncthing-android\scripts\debug\win\build-syncthing.cmd"
 ::
-SET BUILD_HOST=Catfriend1-syncthing-android
+SET BUILD_HOST=researchxxl-syncthing-android
 SET BUILD_USER=reproducible-build
 SET SOURCE_DATE_EPOCH=1
 SET SYNCTHING_VERSION=-version "v2.0.0-reproducibleBuildTest"

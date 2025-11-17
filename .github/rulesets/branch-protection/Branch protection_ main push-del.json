@@ -3,7 +3,7 @@
   "name": "Branch protection: main push-del",
   "target": "branch",
   "source_type": "Repository",
-  "source": "Catfriend1/syncthing-android",
+  "source": "researchxxl/syncthing-android",
   "enforcement": "active",
   "conditions": {
     "ref_name": {

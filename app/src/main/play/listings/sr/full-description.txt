@@ -24,15 +24,15 @@ Syncthing-Fork за Android је обвезник за Syncthing који пру
 * Стратегија и учесталост објављивања су различити.
 * Само обвезник који садржи Android интерфејс је адресиран од стране форка.
 
-Вебсајт: https://github.com/Catfriend1/syncthing-android
+Вебсајт: https://github.com/researchxxl/syncthing-android
 
-Изворни код: https://github.com/Catfriend1/syncthing-android
+Изворни код: https://github.com/researchxxl/syncthing-android
 
-Како Syncthing пише на спољну SD картицу: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Како Syncthing пише на спољну SD картицу: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Вики, ЧПП и корисни чланци: https://github.com/Catfriend1/syncthing-android/wiki
+Вики, ЧПП и корисни чланци: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Проблеми: https://github.com/Catfriend1/syncthing-android/issues
+Проблеми: https://github.com/researchxxl/syncthing-android/issues
 
 Молимо вас да помогнете са
 Превод: https://hosted.weblate.org/projects/syncthing/android/catfriend1

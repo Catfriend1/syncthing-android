@@ -11,17 +11,17 @@ This is a fork of the Syncthing-Android wrapper for Syncthing that brings major 
 
 Syncthing-Fork for Android is a wrapper for Syncthing that provides an Android UI instead of Syncthing's built-in Web UI. Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
 
-Please seek help on the forum and/or social media apps first before creating issues on the tracker. Please keep in mind that Syncthing-Fork was born as a personal interest to help family and friends use Syncthing on Android. It was not targeted at the currently more than 100.000 users even though the results are shared with you and the community. Thank you.
+Please seek help on the forum and/or social media apps first before creating issues on the tracker.
 
-Website: https://github.com/Catfriend1/syncthing-android
+Website: https://github.com/researchxxl/syncthing-android
 
-Source code: https://github.com/Catfriend1/syncthing-android
+Source code: https://github.com/researchxxl/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
+How Syncthing writes to external SD card: https://github.com/researchxxl/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
+Wiki, FAQ and helpful articles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Issues: https://github.com/Catfriend1/syncthing-android/issues
+Issues: https://github.com/researchxxl/syncthing-android/issues
 
 Please help with the
 Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1

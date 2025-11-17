@@ -13,15 +13,15 @@ Syncthing-Fork para Android es un wrapper para Syncthing que provee una interfaz
 
 Por favor, busca ayuda en el foro y/o en las redes sociales antes de crear incidencias. Ten en cuenta que Syncthing‑Fork nació por interés personal para ayudar a familiares y amigos a usar Syncthing en Android. No fue diseñado para los más de 100.000 usuarios actuales, aunque compartimos los resultados contigo y la comunidad. Gracias.
 
-Sitio web: https://github.com/Catfriend1/syncthing-android
+Sitio web: https://github.com/researchxxl/syncthing-android
 
-Código fuente: https://github.com/Catfriend1/syncthing-android
+Código fuente: https://github.com/researchxxl/syncthing-android
 
-Cómo escribe Syncthing en la tarjeta SD externa: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Cómo escribe Syncthing en la tarjeta SD externa: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, Preguntas Frecuentes y artículos útiles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, Preguntas Frecuentes y artículos útiles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Problemas: https://github.com/Catfriend1/syncthing-android/issues
+Problemas: https://github.com/researchxxl/syncthing-android/issues
 
 Por favor, ayude con la
 Traducción: https://hosted.weblate.org/projects/syncthing/android/catfriend1

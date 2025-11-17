@@ -24,15 +24,15 @@ Comparativa entre la versió oficial i l'alternativa en el moment d'escriure aix
 * L'estratègia i la freqüència de publicació és diferent
 * La versió alternativa només s'encarrega de l'embolcall que conté la interfície d'usuari.
 
-Pàgina web: https://github.com/Catfriend1/syncthing-android
+Pàgina web: https://github.com/researchxxl/syncthing-android
 
-Codi font: https://github.com/Catfriend1/syncthing-android
+Codi font: https://github.com/researchxxl/syncthing-android
 
-How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+How Syncthing writes to external SD card: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ and helpful articles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Problemes: https://github.com/Catfriend1/syncthing-android/issues
+Problemes: https://github.com/researchxxl/syncthing-android/issues
 
 Please help with the
 Traducció: https://hosted.weblate.org/projects/syncthing/android/catfriend1

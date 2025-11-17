@@ -24,15 +24,15 @@ Upstream und Fork im Vergleich zum Zeitpunkt des Schreibens:
 * Strategie und Releasehäufigkeit unterscheidet sich
 * Der Fork kümmert sich nur um den Wrapper, welcher die Android-Bedienoberfläche enthält.
 
-Webseite: https://github.com/Catfriend1/syncthing-android
+Webseite: https://github.com/researchxxl/syncthing-android
 
-Quellcode: https://github.com/Catfriend1/syncthing-android
+Quellcode: https://github.com/researchxxl/syncthing-android
 
-Wie Syncthing auf externe SD-Karten schreibt: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Wie Syncthing auf externe SD-Karten schreibt: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ und hilfreiche Artikel: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ und hilfreiche Artikel: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Probleme: https://github.com/Catfriend1/syncthing-android/issues
+Probleme: https://github.com/researchxxl/syncthing-android/issues
 
 Bitte bei der Übersetzung mithelfen:
 https://hosted.weblate.org/projects/syncthing/android/catfriend1

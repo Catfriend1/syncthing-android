@@ -4,21 +4,23 @@ permissions:
   contents: write
 
 on:
-  push:
-    # Cannot filter on both branches (release) and tags - it's ORed
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish (e.g. v1.0.0.0 or v1.0.0.0-rc.1)'
+        required: true
 
 jobs:
   release:
     name: Release Build and Publish
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
+          ref: ${{ github.event.inputs.tag }}
 
       - name: Ensure release branch
         run: |
@@ -126,22 +128,13 @@ jobs:
           mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
           mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
           mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
-          
-          # Generate SHA256 checksums
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
-          for apk in *.apk; do
-            if [[ -f "$apk" ]]; then
-              echo "Creating checksum for $apk"
-              sha256sum "$apk" >> sha256sum.txt
-            fi
-          done
-          gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc"
+          tag: ${{ github.event.inputs.tag }}
+          artifacts: "app/build/outputs/apk/release/*.apk"
           artifactErrorsFailBuild: true
           name: Syncthing-Fork v${{ env.VERSION }}
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"
-          prerelease: ${{ contains('-rc.', github.ref_name) }}
+          prerelease: ${{ contains(github.event.inputs.tag, '-rc.') }}
           draft: true

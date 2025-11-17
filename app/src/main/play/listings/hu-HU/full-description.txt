@@ -24,15 +24,15 @@ A fork céljai:
 * A stratégia és a kiadási gyakoriság eltérő
 * A fork csak az Android felhasználói felületet tartalmazó wrappert szólítja meg.
 
-Weboldal: https://github.com/Catfriend1/syncthing-android
+Weboldal: https://github.com/researchxxl/syncthing-android
 
-Forráskód: https://github.com/Catfriend1/syncthing-android
+Forráskód: https://github.com/researchxxl/syncthing-android
 
-Hogyan ír a Syncthing külső SD-kártyára: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Hogyan ír a Syncthing külső SD-kártyára: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ és hasznos leírások: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ és hasznos leírások: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Hibajelentés: https://github.com/Catfriend1/syncthing-android/issues
+Hibajelentés: https://github.com/researchxxl/syncthing-android/issues
 
 Kérem, segítsen
 Fordítás: https://hosted.weblate.org/projects/syncthing/android/catfriend1

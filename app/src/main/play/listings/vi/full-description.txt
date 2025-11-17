@@ -24,15 +24,15 @@ So sánh giữa dự án gốc và fork tại thời điểm viết:
 * Chiến thuật và tần suất phát hành là khác nhau
 * Chỉ có wrapper chứa giao diện Android được fork này giải quyết.
 
-Trang web: https://github.com/Catfriend1/syncthing-android
+Trang web: https://github.com/researchxxl/syncthing-android
 
-Mã nguồn: https://github.com/Catfriend1/syncthing-android
+Mã nguồn: https://github.com/researchxxl/syncthing-android
 
-Cách Syncthing ghi vào thẻ SD ngoài: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Cách Syncthing ghi vào thẻ SD ngoài: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, câu hỏi thường gặp và bài viết hữu ích: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, câu hỏi thường gặp và bài viết hữu ích: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Các vấn đề: https://github.com/Catfriend1/syncthing-android/issues
+Các vấn đề: https://github.com/researchxxl/syncthing-android/issues
 
 Vui lòng giúp đỡ việc
 Phiên dịch: https://hosted.weblate.org/projects/syncthing/android/catfriend1

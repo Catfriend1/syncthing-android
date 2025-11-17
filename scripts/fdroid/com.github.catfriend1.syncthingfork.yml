@@ -2,17 +2,17 @@ Categories:
   - Cloud Storage & File Sync
   - Internet
 License: MPL-2.0
-WebSite: https://github.com/Catfriend1/syncthing-android/wiki
-SourceCode: https://github.com/Catfriend1/syncthing-android
-IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
+WebSite: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
+SourceCode: https://github.com/researchxxl/syncthing-android
+IssueTracker: https://github.com/researchxxl/syncthing-android/issues
 Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
-Changelog: https://github.com/Catfriend1/syncthing-android/releases
+Changelog: https://github.com/researchxxl/syncthing-android/releases
 
 AutoName: Syncthing-Fork
 
 RepoType: git
-Repo: https://github.com/Catfriend1/syncthing-android.git
-Binaries: https://github.com/Catfriend1/syncthing-android/releases/download/v%v/com.github.catfriend1.syncthingfork_release_v%v.apk
+Repo: https://github.com/researchxxl/syncthing-android.git
+Binaries: https://github.com/researchxxl/syncthing-android/releases/download/v%v/com.github.catfriend1.syncthingfork_release_v%v.apk
 
 Builds:
   - versionName: 2.0.10.1

@@ -13,15 +13,15 @@ Syncthing-Fork עבור אנדרואיד הוא עטיפה עבור Syncthing ש
 
 נא לפנות לעזרה בפורום או ביישומי מדיה חברתית קודם לפני יצירת בעיות בעוקב. נא לזכור כי Syncthing-Fork נולד כעניין אישי כדי לעזור למשפחה ולחברים להשתמש ב-Syncthing באנדרואיד. היישום לא היה מכוון על יותר מ-100,000 המשתמשים הנוכחיים למרות שהתוצאות משותפות איתך ועם הקהילה. תודה לך.
 
-אתר: https://github.com/Catfriend1/syncthing-android
+אתר: https://github.com/researchxxl/syncthing-android
 
-קוד מקור: https://github.com/Catfriend1/syncthing-android
+קוד מקור: https://github.com/researchxxl/syncthing-android
 
-איך Syncthing כותב לכרטיס SD חיצוני: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
+איך Syncthing כותב לכרטיס SD חיצוני: https://github.com/researchxxl/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-אתר שיתופי, שאלות נוספות ומאמרים מועילים: https://github.com/Catfriend1/syncthing-android/wikitree/main/wiki#readme
+אתר שיתופי, שאלות נוספות ומאמרים מועילים: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-בעיות: https://github.com/Catfriend1/syncthing-android/issues
+בעיות: https://github.com/researchxxl/syncthing-android/issues
 
 נא לעזור עם
 תרגום: https://hosted.weblate.org/projects/syncthing/android/catfriend1

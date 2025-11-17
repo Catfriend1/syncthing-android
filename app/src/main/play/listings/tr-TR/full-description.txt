@@ -13,15 +13,15 @@ Android için Syncthing-Fork, Syncthing'in yerleşik Web Kullanıcı Arayüzü y
 
 Lütfen izleyicide sorun konuları oluşturmadan önce forum ve/veya sosyal medya uygulamalarında yardım isteyin. Syncthing-Fork'un aile ve arkadaşların Android'de Syncthing kullanmalarına yardımcı olmak için kişisel bir ilgi olarak doğduğunu lütfen unutmayın. Sonuçların sizinle ve toplulukla paylaşılmasına rağmen şu anda 100.000'den fazla kullanıcıyı hedeflememekte. Teşekkür ederim.
 
-Web sitesi: https://github.com/Catfriend1/syncthing-android
+Web sitesi: https://github.com/researchxxl/syncthing-android
 
-Kaynak kodu: https://github.com/Catfriend1/syncthing-android
+Kaynak kodu: https://github.com/researchxxl/syncthing-android
 
-Syncthing harici SD karta nasıl yazar: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
+Syncthing harici SD karta nasıl yazar: https://github.com/researchxxl/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Viki, SSS ve faydalı makaleler: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
+Viki, SSS ve faydalı makaleler: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Sorunlar: https://github.com/Catfriend1/syncthing-android/issues
+Sorunlar: https://github.com/researchxxl/syncthing-android/issues
 
 Lütfen çeviri konusunda
 yardım edin: https://hosted.weblate.org/projects/syncthing/android/catfriend1

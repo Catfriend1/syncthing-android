@@ -24,15 +24,15 @@ Jämförelse mellan uppströms och förgreningen när jag skriver detta:
 * Strategi och utgivningsfrekvens är olika
 * Endast omslaget som innehåller Android-gränssnittet adresseras av förgreningen.
 
-Webbplats: https://github.com/Catfriend1/syncthing-android
+Webbplats: https://github.com/researchxxl/syncthing-android
 
-Källkod: https://github.com/Catfriend1/syncthing-android
+Källkod: https://github.com/researchxxl/syncthing-android
 
-Hur Syncthing skriver till externt SD-kort: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Hur Syncthing skriver till externt SD-kort: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ och användbara artiklar: https://github.com/Catfriend1/syncthing-android/wiki
+Wiki, FAQ och användbara artiklar: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Problem: https://github.com/Catfriend1/syncthing-android/issues
+Problem: https://github.com/researchxxl/syncthing-android/issues
 
 Snälla hjälp med
 översättningen: https://hosted.weblate.org/projects/syncthing/android/catfriend1

@@ -770,10 +770,10 @@
     <string name="open_issue_tracker_summary">Open the Syncthing-Fork issue tracker at %1$s</string>
 
     <!-- URL of the issue tracker -->
-    <string name="issue_tracker_url" translatable="false">https://github.com/Catfriend1/syncthing-android/issues</string>
+    <string name="issue_tracker_url" translatable="false">https://github.com/researchxxl/syncthing-android/issues</string>
 
     <!-- URL of the GitHub wiki -->
-    <string name="wiki_url" translatable="false">https://github.com/Catfriend1/syncthing-android/tree/main/wiki</string>
+    <string name="wiki_url" translatable="false">https://github.com/researchxxl/syncthing-android/tree/main/wiki</string>
 
     <!-- URL of the Syncthing project homepage -->
     <string name="url_syncthing_homepage" translatable="false">https://syncthing.net</string>
@@ -1132,7 +1132,7 @@
     <!-- Important news notification -->
     <string name="important_news_title">Important news - Action required</string>
     <string name="important_news_description">Please read our announcement on how to continue your smooth app experience at %1$s</string>
-    <string name="important_news_url" translatable="false">https://github.com/Catfriend1/syncthing-android/blob/main/wiki/Important-News.md</string>
+    <string name="important_news_url" translatable="false">https://github.com/researchxxl/syncthing-android/blob/main/wiki/Important-News.md</string>
     <string name="important_news_action_open">Open in Browser</string>
     <string name="important_news_action_remind">Remind me later</string>
     <string name="important_news_action_no_remind">Dismiss for now</string>

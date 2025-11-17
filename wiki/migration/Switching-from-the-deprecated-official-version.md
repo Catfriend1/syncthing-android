@@ -19,7 +19,7 @@ Switching is easier than you may think!
   - Syncthing-Fork will require the `config.zip` to restore your config.
 
 - Migration
-  - Install our [latest release](https://github.com/Catfriend1/syncthing-android/releases/latest) from GitHub or F-Droid.
+  - Install our [latest release](https://github.com/researchxxl/syncthing-android/releases/latest) from GitHub or F-Droid.
   - Start Syncthing-Fork.
   - Complete the welcome slides.
   - In the Syncthing-Fork settings, go to "Import & Export".
