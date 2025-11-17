@@ -13,15 +13,15 @@ Android 版 Syncthing-Fork 是 Syncthing 的包装器，它提供 Android UI，�
 
 请先在论坛和/或社交媒体应用上寻求帮助，再在问题跟踪器中创建问题。请记住，Syncthing-Fork 最初只是源于个人兴趣，旨在帮助家人和朋友在 Android 设备上使用 Syncthing。尽管目前其成果已与您及整个社区共享，但它并非旨在面向目前超过十万的用户群体。谢谢
 
-网站：https://github.com/Catfriend1/syncthing-android
+网站：https://github.com/researchxxl/syncthing-android
 
-源代码：https://github.com/Catfriend1/syncthing-android
+源代码：https://github.com/researchxxl/syncthing-android
 
-Syncthing 如何写入外部 SD 卡：https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+Syncthing 如何写入外部 SD 卡：https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki、常见问题解答和有用的文章：https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
+Wiki、常见问题解答和有用的文章：https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-问题反馈：https://github.com/Catfriend1/syncthing-android/issues
+问题反馈：https://github.com/researchxxl/syncthing-android/issues
 
 请帮助
 翻译：https://hosted.weblate.org/projects/syncthing/android/catfriend1

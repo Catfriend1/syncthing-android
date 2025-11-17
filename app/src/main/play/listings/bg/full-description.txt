@@ -13,14 +13,14 @@ Syncthing-Fork за Андроид е обвивка за Syncthing, която 
 
 Първо потърсете помощ във форума и приложенията за социални мрежи преди да създавате доклади за дефекти в системата за управление на дефекти. Имайте предвид, че Syncthing-Fork води началото си от личния стремеж да улесня семейството и приятелите си да използват Syncthing на Андроид. Целта на разклонението никога не е била да бъде използвано от текущите повече от 100 000 потребители, въпреки че споделям резултатите с общността. Благодаря ви.
 
-Страница: https://github.com/Catfriend1/syncthing-android
+Страница: https://github.com/researchxxl/syncthing-android
 
-Изходен код: https://github.com/Catfriend1/syncthing-android
+Изходен код: https://github.com/researchxxl/syncthing-android
 
-Как Syncthing записва на външна SD карта: https://github.com/Catfriend1/syncthing-android/blob/main/wiki/SD-card-write-access.md
+Как Syncthing записва на външна SD карта: https://github.com/researchxxl/syncthing-android/blob/main/wiki/SD-card-write-access.md
 
-Wiki, въпроси и отговори, и полезни статии: https://github.com/Catfriend1/syncthing-android/tree/main/wiki#readme
+Wiki, въпроси и отговори, и полезни статии: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
-Дефекти: https://github.com/Catfriend1/syncthing-android/issues
+Дефекти: https://github.com/researchxxl/syncthing-android/issues
 
 Помогнете с превода: https://hosted.weblate.org/projects/syncthing/android/catfriend1
