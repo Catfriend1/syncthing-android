@@ -8,15 +8,9 @@
 <a href="https://hosted.weblate.org/projects/syncthing/android/catfriend1/"><img src="https://hosted.weblate.org/widget/syncthing/android/catfriend1/fork-stringsxml/svg-badge.svg" alt="Translation status" /></a>
 [![Build App](https://github.com/researchxxl/syncthing-android/actions/workflows/build-app.yaml/badge.svg)](https://github.com/researchxxl/syncthing-android/actions/workflows/build-app.yaml)
 
-A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds. I'm currently short on time. Please seek help on the forum and/or social media apps first before consuming my time moderating issues on the tracker here. Please keep in mind that Syncthing-Fork was born as a personal interest of mine to help my family and friends use Syncthing on Android. It was not targeted at the currently more than 100.000 users even though I share my results with the community. Thank you.
+A wrapper of [Syncthing](https://github.com/syncthing/syncthing) for Android. Head to the "releases" section or F-Droid for builds.
 
 <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/1.png" alt="screenshot 1" width="200" /> · <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/2.png" alt="screenshot 2" width="200" /> · <img src="app/src/main/play/listings/en-US/graphics/phone-screenshots/4.png" alt="screenshot 3" width="200" />
-
-## I am no longer publishing this on Google Play
-
-See [detailed info](wiki/Switch-between-releases_Verify-APK-is-genuine.md) about release variants and which is recommended to fit your needs.
-
-"nel0x" has announced to continue publishing on the play store. I welcome his help and the work I think he'll put into [his mission](https://github.com/nel0x/syncthing-android-gplay). It's up to you, reading this, to decide if to trust and/or support him or go with the F-Droid release channel of this app instead. You don't know me and I don't know him... we are all volunteers in the spirit of open source.
 
 ## Switching from the deprecated official version
 
@@ -38,6 +32,7 @@ This project was forked from [syncthing/syncthing-android](https://github.com/sy
 
 Special thanks to the former maintainers:
 
+- [Catfriend1](https://github.com/Catfriend1)
 - [imsodin](https://github.com/imsodin)
 - [nutomic](https://github.com/nutomic)
 
