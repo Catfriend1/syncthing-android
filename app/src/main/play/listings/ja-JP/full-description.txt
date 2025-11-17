@@ -30,7 +30,7 @@ Webサイト: https://github.com/researchxxl/syncthing-android
 
 Syncthingに外部SDカード書き込み許可を与える方法：  https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ, 役立つ記事: https://github.com/researchxxl/syncthing-android/wiki
+Wiki, FAQ, 役立つ記事: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 問題: https://github.com/researchxxl/syncthing-android/issues
 

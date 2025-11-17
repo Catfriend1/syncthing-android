@@ -30,7 +30,7 @@ Forráskód: https://github.com/researchxxl/syncthing-android
 
 Hogyan ír a Syncthing külső SD-kártyára: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ és hasznos leírások: https://github.com/researchxxl/syncthing-android/wiki
+Wiki, FAQ és hasznos leírások: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 Hibajelentés: https://github.com/researchxxl/syncthing-android/issues
 

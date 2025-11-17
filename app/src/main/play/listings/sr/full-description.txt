@@ -30,7 +30,7 @@ Syncthing-Fork за Android је обвезник за Syncthing који пру
 
 Како Syncthing пише на спољну SD картицу: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Вики, ЧПП и корисни чланци: https://github.com/researchxxl/syncthing-android/wiki
+Вики, ЧПП и корисни чланци: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 Проблеми: https://github.com/researchxxl/syncthing-android/issues
 

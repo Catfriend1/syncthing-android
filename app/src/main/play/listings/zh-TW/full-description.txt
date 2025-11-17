@@ -30,7 +30,7 @@ Syncthing-Fork for Android 提供了 android 系統本身的使用界面來替�
 
 How Syncthing writes to external SD card: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ and helpful articles: https://github.com/researchxxl/syncthing-android/wiki
+Wiki, FAQ and helpful articles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 問題回報：https://github.com/researchxxl/syncthing-android/issues
 

@@ -30,7 +30,7 @@ Källkod: https://github.com/researchxxl/syncthing-android
 
 Hur Syncthing skriver till externt SD-kort: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, FAQ och användbara artiklar: https://github.com/researchxxl/syncthing-android/wiki
+Wiki, FAQ och användbara artiklar: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 Problem: https://github.com/researchxxl/syncthing-android/issues
 

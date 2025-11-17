@@ -19,7 +19,7 @@ Código fuente: https://github.com/researchxxl/syncthing-android
 
 Cómo escribe Syncthing en la tarjeta SD externa: https://github.com/researchxxl/syncthing-android/blob/master/wiki/SD-card-write-access.md
 
-Wiki, Preguntas Frecuentes y artículos útiles: https://github.com/researchxxl/syncthing-android/wiki
+Wiki, Preguntas Frecuentes y artículos útiles: https://github.com/researchxxl/syncthing-android/tree/main/wiki#readme
 
 Problemas: https://github.com/researchxxl/syncthing-android/issues
 
