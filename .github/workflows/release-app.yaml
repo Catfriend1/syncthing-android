@@ -9,6 +9,8 @@ on:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+-gplay'
+      - 'v[0-9]+.[0-9]+.[0-9]+.[0-9]+-rc\.[0-9]+-gplay'
 
 jobs:
   release:
@@ -115,37 +117,21 @@ jobs:
           unset ANDROID_NDK_HOME
           echo '${{ secrets.SIGNING_KEYSTORE_JKS_BASE64 }}' | base64 -d > "$SYNCTHING_RELEASE_STORE_FILE"
           java -version
-          ./gradlew --no-daemon buildNative lintRelease assembleRelease
+          ./gradlew --no-daemon buildNative lintRelease assembleRelease bundlerelease
           rm "$SYNCTHING_RELEASE_STORE_FILE"
 
       - name: prepare-artifacts
         shell: bash
         run: |
           set -eu
-          cd "app/build/outputs/apk/release"
-          
-          # Rename universal APK
-          mv "app-universal-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}.apk"
-          
-          # Rename per-ABI APKs
-          mv "app-arm64-v8a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_arm64-v8a.apk"
-          mv "app-armeabi-v7a-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_armeabi-v7a.apk"
-          mv "app-x86-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86.apk"
-          mv "app-x86_64-release.apk" "${{ env.APPLICATION_ID }}_release_v${{ env.VERSION }}_x86_64.apk"
-          
-          # Generate SHA256 checksums
-          echo '${{ secrets.GNUPG_SIGNING_KEY_BASE64 }}' | base64 -d | gpg --batch --import
-          for apk in *.apk; do
-            if [[ -f "$apk" ]]; then
-              echo "Creating checksum for $apk"
-              sha256sum "$apk" >> sha256sum.txt
-            fi
-          done
-          gpg --batch --yes --clearsign sha256sum.txt > sha256sum.txt.asc
+          #
+          cd "app/build/outputs"
+          mv "bundle/release/app-release.aab" "bundle/release/${{ env.APPLICATION_ID }}_gplay_v${{ env.VERSION }}_${{ env.COMMIT_HASH }}.aab"
+          #
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/apk/release/*.asc"
+          artifacts: "app/build/outputs/apk/release/*.apk,app/build/outputs/bundle/release/*.aab"
           artifactErrorsFailBuild: true
           name: Syncthing-Fork v${{ env.VERSION }}
           bodyFile: "app/src/main/play/release-notes/en-US/default.txt"

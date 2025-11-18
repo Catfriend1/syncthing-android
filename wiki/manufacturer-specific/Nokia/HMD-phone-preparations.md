@@ -3,7 +3,7 @@ HMD Global phones have been reported to kill apps with a manufacturer-specific i
 To work around this, connect your phone to a computer running ADB.
 If you like to allow Syncthing-Fork to attempt to disable DuraSpeed system-wide when your phone boots, issue the following commands:
 
-${applicationId} = com.github.catfriend1.syncthingfork
+${applicationId} = com.github.catfriend1.syncthingandroid
 
 ```
 adb shell pm grant ${applicationId} android.permission.WRITE_SECURE_SETTINGS
